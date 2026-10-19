@@ -65,15 +65,15 @@ export function restoreGame(embeddings,saved) {
   return restored;
 }
 
-async function loadFile(path, binary = false) {
-  const response = await fetch(new URL(path, import.meta.url));
+async function loadFile(path, binary = false, cache = 'default') {
+  const response = await fetch(new URL(path, import.meta.url),{cache});
   if (!response.ok) throw Error(`Unable to load ${path}. Please reload to try again.`);
   return binary ? response.arrayBuffer() : response.json();
 }
 
 export async function createBrowserClient() {
   const [config, words, buffer] = await Promise.all([
-    loadFile('./model/config.json'), loadFile('./model/words.json'), loadFile('./model/vectors.f32', true)
+    loadFile('./model/config.json',false,'no-cache'), loadFile('./model/words.json'), loadFile('./model/vectors.f32', true)
   ]);
   // Data is explicitly little-endian float32. Modern browser platforms use little-endian.
   const littleEndian = new Uint8Array(new Uint32Array([1]).buffer)[0] === 1;

@@ -23,6 +23,7 @@ jobs:
           node tests/test_browser.mjs
           node tests/test_log.mjs
           node tests/test_map.mjs
+          node tests/test_startup.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

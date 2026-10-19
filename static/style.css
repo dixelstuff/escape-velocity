@@ -7,3 +7,5 @@
 #upgrade-rules{font-size:12px;margin-bottom:16px}#upgrade-rules[hidden]{display:none}#lab-form select{display:block;width:100%;margin-top:7px}#lab-form label{min-width:140px}.controls #rules-note{font-size:12px;margin:0 0 13px}@media(max-width:650px){input,select,textarea,.input-row input,#lab-form select,#lab-form input{font-size:16px}header{height:60px}.intro{padding:18px 0 20px}.intro h1{font-size:34px}.intro p{font-size:13px;margin:7px 0}.intro .eyebrow{font-size:9px}.mission{margin-bottom:12px}svg{height:230px}.map-top,.map-bottom{padding:12px}.controls{margin:20px auto}.controls label{font-size:19px}.map-small{font-size:14px}.planet-label{font-size:17px}.controls #rules-note{font-size:11px}.log-actions button{min-height:44px}#lab-form label{min-width:0}}
 
 .arrival-label{font-size:10px}@media(max-width:650px){.arrival-label{font-size:11px}}
+
+#opening-game{font-size:12px;margin:0 0 14px}#opening-game[hidden]{display:none}

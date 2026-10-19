@@ -33,7 +33,7 @@ export class FlightLog {
   }
   begin(state, model) {
     const timestamp = this.now();
-    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, state:structuredClone(state), entries:[]};
+    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:'arrival-zone', state:structuredClone(state), entries:[]};
     this.data.journeys.push(journey);
     this.data.activeId = journey.id;
     this.save();
@@ -43,8 +43,9 @@ export class FlightLog {
     const journey = this.active;
     if (!journey) throw Error('No active flight log');
     const timestamp = this.now();
+    journey.completion ??= 'arrival-zone';
     journey.entries.push({submittedAt:timestamp, word, origin:event?.origin ?? state.current,
-      chargedAttempt:!!event, threshold:event?.required??state.threshold, arrival_threshold:state.threshold, event:structuredClone(event), error});
+      chargedAttempt:!!event, completion:journey.completion, threshold:event?.required??state.threshold, arrival_threshold:state.threshold, event:structuredClone(event), error});
     journey.state = structuredClone(state);
     journey.updatedAt = timestamp;
     this.save();
@@ -53,7 +54,7 @@ export class FlightLog {
 }
 export function outcome(entry) {
   if (!entry.event) return `Rejected: ${entry.error}`;
-  if (entry.event.won) return 'Arrived — free final hop';
+  if (entry.event.won) return entry.completion==='arrival-zone'?'Arrival zone reached — journey complete':'Arrived — free final hop';
   if (entry.event.success) return 'Landed';
   return entry.event.boundary ? 'Failed launch — not enough lift' : 'Failed launch — behind starting boundary';
 }
@@ -68,6 +69,7 @@ export function journeyText(journey) {
       `  ${outcome(entry)} · ${entry.submittedAt}`);
     if (e) lines.push(`  Launch cosine: ${e.launch.toFixed(6)} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; arrival zone: ${e.inside ? 'yes' : 'no'}`);
   }
-  lines.push('', `Successful route: ${s.route.join(' → ')}${s.won && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
+  lines.push('', `Successful route: ${s.route.join(' → ')}${s.won && journey.completion!=='arrival-zone' && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
+  if(s.won&&journey.completion==='arrival-zone')lines.push(`Finished on ${s.current}, inside the ${s.target} arrival zone.`);
   return lines.join('\n');
 }

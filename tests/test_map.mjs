@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mapFraction } from '../static/map.mjs';
+import { mapFraction, mapLayout, projectX } from '../static/map.mjs';
 for(const baseline of [-.1,.05,.2,.4]) {
   assert.equal(mapFraction(baseline,baseline,.45),0);
   assert.equal(mapFraction(.45,baseline,.45),.9);
@@ -11,4 +11,13 @@ for(const baseline of [-.1,.05,.2,.4]) {
   }
 }
 assert.ok(Number.isFinite(mapFraction(.6,.6,.45)));
-console.log('Map scale passed: continuous semantic order, departure boundary and compact arrival zone.');
+for(const narrow of [false,true]) {
+  const d=mapLayout(narrow);
+  assert.equal(d.right-d.zoneLeft,d.zoneRight-d.right);
+  assert.ok(d.zoneRight<d.width);
+  assert.ok(Math.abs(projectX(.45,.1,.45,d)-d.zoneLeft)<1e-8);
+  assert.equal(projectX(1,.1,.45,d),d.right);
+  assert.equal(projectX(.1,.1,.45,d),d.left);
+  for(let i=0;i<=100;i++)assert.ok(projectX(.45+.55*i/100,.1,.45,d)>=d.zoneLeft-1e-8);
+}
+console.log('Map scale passed: semantic order, departure boundary and arrival zone centred on the destination at phone and desktop widths.');
