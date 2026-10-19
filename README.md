@@ -114,3 +114,5 @@ On mobile, focusing the word input switches to a compact map-and-input view size
 On arrival, a prominent “Touchdown! You made it.” banner appears over the map with the attempt count, and the map is brought into view. The detailed result and full flight log remain below.
 
 The current distance rule caps trip measurement at the arrival-zone edge. Words deeper inside the zone need no extra launch strength. With arrival 0.25 and launch 0.08–0.18, a launch from target similarity 0.23 needs about 0.089 for MOON → KITCHEN regardless of overshoot. Older `distance-v1` and `distance-v2` histories retain their exact scoring when replayed.
+
+Use **Make your own journey** below the launch controls to enter a starting word and destination, then press **Play my journey**. Custom levels use the current menu defaults (arrival 0.25, launches 0.08–0.18, distance-v3), appear in the journey selector, can be restarted, and save progress and attempts in the same Flight log. Unsupported words and identical endpoints show an inline error without replacing the active journey.

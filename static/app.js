@@ -1,7 +1,7 @@
-import { createBrowserClient } from './engine.mjs?v=finish-v6';
-import { mapLayout, projectX, visibleAttempts } from './map.mjs?v=finish-v6';
-import { startupAction, isOpening } from './startup.mjs?v=finish-v6';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=finish-v6';
+import { createBrowserClient } from './engine.mjs?v=custom-v7';
+import { mapLayout, projectX, visibleAttempts } from './map.mjs?v=custom-v7';
+import { startupAction, isOpening } from './startup.mjs?v=custom-v7';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=custom-v7';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null;
 let storage;try{storage=window.localStorage;}catch{}
@@ -64,9 +64,9 @@ function update(){
  map();telemetry();renderLog();
 }
 async function newGame(puzzle){
- if(busy)return;lock(true);
- try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Start from ${state.start}. Find a word that connects you to ${state.target}.`;$('last-reading').textContent=state.mode==='distance'?'Launch requirements grow with trip length. Land in the arrival zone to complete the journey.':'Launch and arrival use the fixed threshold.';}
- catch(error){$('status').textContent=error.message;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
+ if(busy)return false;lock(true);
+ try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Start from ${state.start}. Find a word that connects you to ${state.target}.`;$('last-reading').textContent=state.mode==='distance'?'Launch requirements grow with trip length. Land in the arrival zone to complete the journey.':'Launch and arrival use the fixed threshold.';return true;}
+ catch(error){$('status').textContent=error.message;return false;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
 async function animate(event){
@@ -104,6 +104,16 @@ $('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.star
 $('opening-game').onclick=()=>newGame(config.puzzles[0]);
 $('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.25,mode:'distance',launch_min:.08,launch_max:.18});
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
+$('custom-form').onsubmit=async event=>{
+ event.preventDefault();if(busy||!config)return;
+ $('custom-start').blur();$('custom-target').blur();$('custom-feedback').textContent='';
+ const started=await newGame({...config.puzzles[0],start:$('custom-start').value,target:$('custom-target').value});
+ if(!started){$('custom-feedback').textContent=$('status').textContent;return;}
+ $('custom-start').value=state.start;$('custom-target').value=state.target;
+ $('custom-feedback').textContent=`Your ${state.start} → ${state.target} journey is ready.`;
+ document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
+};
+
 $('route-form').onsubmit=async event=>{event.preventDefault();if(busy)return;const words=$('route-input').value.split(',').map(w=>w.trim()).filter(Boolean);for(const word of words){if(state.won||!await submit(word))break;}};
 $('log-journey').onchange=()=>{selectedLogId=$('log-journey').value;$('copy-fallback').hidden=true;renderLog();};
 $('copy-log').onclick=async()=>{
@@ -117,7 +127,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='escape-velocity-flight-logs.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Backup download requested. If it does not appear, use Copy journey.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Loading real word vectors (24 MB on your first visit)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'finish-v6'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.25,mode:'distance',launch_min:.08,launch_max:.18});$('status').textContent='New journey started with a gentler final launch. Your previous attempts are saved in Flight log.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed journey and flight log have been restored.':isOpening(state,config.puzzles[0])?'Journey restored. Pick up where you left off.':`Resuming your saved ${state.start} → ${state.target} journey. The opening journey is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Started a fresh journey. Your earlier logs are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Loading real word vectors (24 MB on your first visit)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'custom-v7'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.25,mode:'distance',launch_min:.08,launch_max:.18});$('status').textContent='New journey started with a gentler final launch. Your previous attempts are saved in Flight log.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed journey and flight log have been restored.':isOpening(state,config.puzzles[0])?'Journey restored. Pick up where you left off.':`Resuming your saved ${state.start} → ${state.target} journey. The opening journey is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Started a fresh journey. Your earlier logs are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Launchpad unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

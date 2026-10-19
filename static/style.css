@@ -14,7 +14,7 @@
 @media(max-width:650px){
  body.typing{overflow:hidden;}
  body.typing main{position:fixed;top:var(--typing-top,0px);left:0;right:0;height:var(--typing-height,100dvh);padding:10px 14px max(10px,env(safe-area-inset-bottom));display:flex;flex-direction:column;background:#f6f7f2;z-index:10;overflow:hidden;}
- body.typing main>header,body.typing .intro,body.typing #results,body.typing #flight-log,body.typing .lower,body.typing #debug,body.typing footer{display:none;}
+ body.typing main>header,body.typing .intro,body.typing #results,body.typing #flight-log,body.typing .lower,body.typing .journey-picker,body.typing #debug,body.typing footer{display:none;}
  body.typing .mission{flex:none;margin-bottom:8px;}
  body.typing .mission .eyebrow{display:none;}
  body.typing .mission h2{font-size:16px;margin:0;}
@@ -35,3 +35,14 @@
 #arrival-banner h2{font-size:26px;margin:5px 0;}
 #arrival-banner p{font-size:13px;margin:6px 0 0;}
 @media(max-width:650px){#arrival-banner{padding:12px;}#arrival-banner h2{font-size:22px;}}
+
+.journey-picker{border-top:1px solid var(--line);padding:28px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;}
+.journey-picker .eyebrow{color:#6d7d70;}
+.journey-picker .next{border:0;padding:0;}
+.custom-words{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.custom-words label{font-size:12px;min-width:0;}
+.custom-words input{display:block;width:100%;margin-top:8px;font-size:16px;}
+#custom-form>button{margin-top:12px;}
+#custom-feedback:empty{display:none;}
+.lower{grid-template-columns:1fr;}
+@media(max-width:650px){.journey-picker{grid-template-columns:1fr;gap:24px;}.journey-picker h2{font-size:23px;}.custom-words{gap:10px;}#custom-form>button{width:100%;}}
