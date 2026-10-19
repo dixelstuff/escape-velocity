@@ -20,3 +20,24 @@ export function visibleAttempts(state) {
   return state.history.filter(event=>event.forward!==false &&
     (reached.has(event.word)||event.destination+1e-7>=state.progress));
 }
+
+/** Pack measured label boxes around fixed word positions, without obscuring balls. */
+export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
+  const placed=[],result=new Map();let height=minimumHeight;
+  const overlaps=(a,b)=>a.x<b.x+b.width+4&&a.x+a.width+4>b.x&&a.y<b.y+b.height+4&&a.y+a.height+4>b.y;
+  for(const label of [...labels].sort((a,b)=>(b.priority||0)-(a.priority||0))) {
+    const w=Math.min(width-16,label.width+12),h=label.height+8;
+    const candidates=[];
+    for(let y=24;y+h<=minimumHeight-10;y+=h+7) {
+      for(const shift of [0,-28,28,-64,64,-112,112,-180,180]) {
+        const x=Math.max(8,Math.min(width-w-8,label.x-w/2+shift));
+        candidates.push({x,y,width:w,height:h,cost:(x+w/2-label.x)**2+(y+h/2-(label.y+33))**2});
+      }
+    }
+    candidates.sort((a,b)=>a.cost-b.cost);
+    let box=candidates.find(box=>![...obstacles,...placed].some(other=>overlaps(box,other)));
+    if(!box){box={x:Math.max(8,Math.min(width-w-8,label.x-w/2)),y:height+8,width:w,height:h};height=box.y+h+12;}
+    placed.push(box);result.set(label.word,{...box,textX:box.x+w/2,textY:box.y+h/2});
+  }
+  return {labels:result,height};
+}

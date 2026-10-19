@@ -87,3 +87,9 @@ for(const g of [gentle,overshoot])g.submit('forward');
 assert.equal(gentle.submit('weak').won,true);
 assert.equal(overshoot.submit('weak').success,false);
 assert.deepEqual(restoreGame(fake,gentle.state()).state(),gentle.state());
+
+// The literal target stays playable: too weak from the tee, reachable when close.
+const targetShot=new Game(embeddings,'moon','kitchen',.25,{mode:'distance'});
+assert.equal(targetShot.submit('kitchen').success,false);
+for(const word of ['surface','bench','counter'])assert.equal(targetShot.submit(word).success,true);
+assert.equal(targetShot.submit('kitchen').won,true);

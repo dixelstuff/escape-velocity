@@ -19,7 +19,7 @@
  body.typing .mission .eyebrow{display:none;}
  body.typing .mission h2{font-size:16px;margin:0;}
  body.typing .attempts strong{font-size:24px;}
- body.typing .map-card{display:flex;flex-direction:column;flex:1;min-height:100px;max-height:280px;}
+ body.typing .map-card{overflow:auto;display:flex;flex-direction:column;flex:1;min-height:100px;max-height:280px;}
  body.typing .map-top,body.typing .map-bottom{padding:6px 10px;flex:none;}
  body.typing #map{height:0;min-height:0;flex:1;}
  body.typing .controls{width:100%;max-width:none;margin:10px 0 0;flex:none;}
@@ -46,3 +46,7 @@
 #custom-feedback:empty{display:none;}
 .lower{grid-template-columns:1fr;}
 @media(max-width:650px){.journey-picker{grid-template-columns:1fr;gap:24px;}.journey-picker h2{font-size:23px;}.custom-words{gap:10px;}#custom-form>button{width:100%;}}
+
+.planet-label{fill:#344e37;}
+.arrival-label{font-weight:700;letter-spacing:1px;fill:#355d32;}
+@media(max-width:650px){.planet-label{font-size:20px;}}

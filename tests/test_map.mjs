@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mapFraction, mapLayout, projectX, visibleAttempts } from '../static/map.mjs';
+import { mapFraction, mapLayout, projectX, visibleAttempts, layoutLabels } from '../static/map.mjs';
 for(const baseline of [-.1,.05,.2,.4]) {
   assert.equal(mapFraction(baseline,baseline,.45),0);
   assert.equal(mapFraction(.45,baseline,.45),.9);
@@ -34,3 +34,19 @@ state.progress=.25;
 assert.equal(projectX(visibleAttempts(state)[0].destination,.1,.3,mapLayout(true)),original);
 state.progress=.29;
 assert.deepEqual(visibleAttempts(state).map(e=>e.word),['stepping']);
+
+// A dense cluster must keep every word readable without covering any balls.
+for(const width of [640,1000]){
+ const balls=Array.from({length:24},(_,i)=>({word:`word-${i}`,x:width/2+(i%3)*4,y:180+(i%4)*3,width:90+(i%5)*12,height:20,priority:i===0?4:0}));
+ const obstacles=balls.map(p=>({x:p.x-18,y:p.y-18,width:36,height:36}));
+ const packed=layoutLabels(balls,obstacles,width);
+ assert.equal(packed.labels.size,balls.length);
+ const boxes=[...packed.labels.values()];
+ const intersects=(a,b)=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;
+ for(let i=0;i<boxes.length;i++){
+  const box=boxes[i];assert.ok(box.x>=0&&box.x+box.width<=width&&box.y+box.height<=packed.height);
+  assert.ok(obstacles.every(other=>!intersects(box,other)));
+  assert.ok(boxes.slice(i+1).every(other=>!intersects(box,other)));
+ }
+}
+console.log('Crowded label placement passed at phone and desktop widths: no missing words, overlapping labels, or covered balls.');
