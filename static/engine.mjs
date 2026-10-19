@@ -18,21 +18,23 @@ export class Embeddings {
   }
 }
 
-export function launchRequirement(current, destination, baseline, arrival, minimum=.25, maximum=.40) {
+export function launchRequirement(current, destination, baseline, arrival, minimum=.12, maximum=.30) {
   const fraction=Math.min(1,Math.abs(destination-current)/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
 export class Game {
-  constructor(embeddings,start,target,threshold=.45,options={}) {
+  constructor(embeddings,start,target,threshold=.30,options={}) {
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
-    const {mode='fixed',launch_min=.25,launch_max=.40,rules}=options;
+    const {mode='fixed',rules}=options;
+    const legacy=rules&& !['distance-v2','fixed-threshold-v3'].includes(rules);
+    const launch_min=options.launch_min??(legacy?.25:.12),launch_max=options.launch_max??(legacy?.40:.30);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Start and target must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Arrival threshold must be between 0.1 and 0.9.');
     if(!['fixed','distance'].includes(mode))throw Error('Unknown launch mode.');
     if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.1||launch_max>.9||launch_min>launch_max)throw Error('Launch requirements must be between 0.1 and 0.9, with short hops no harder than long jumps.');
-    const expected=mode==='distance'?'distance-v1':'fixed-threshold-v2';
-    if(rules&&! [expected,'fixed-threshold-v1'].includes(rules))throw Error('Unknown rule version.');
+    const expected=mode==='distance'?'distance-v2':'fixed-threshold-v3';
+    if(rules&&! [expected,...(mode==='distance'?['distance-v1']:['fixed-threshold-v1','fixed-threshold-v2'])].includes(rules))throw Error('Unknown rule version.');
     if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Legacy journeys use fixed launches.');
     Object.assign(this,{e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected});
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;
@@ -47,8 +49,12 @@ export class Game {
     const launch=this.e.cosine(this.current,word),destination=this.e.cosine(word,this.target);
     let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max);
     if(this.mode==='fixed')required=this.threshold;
-    const boundary=destination+1e-7>=this.baseline,success=boundary&&launch+1e-7>=required,inside=destination+1e-7>=this.threshold;
+    const boundary=destination+1e-7>=this.baseline;
+    const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
+    const forwardOnly=['distance-v2','fixed-threshold-v3'].includes(this.rules);
+    const success=boundary&&(!forwardOnly||forward)&&launch+1e-7>=required,inside=destination+1e-7>=this.threshold;
     const result={word,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&inside,attempt:this.history.length+1};
+    if(forwardOnly)result.forward=forward;
     this.history.push(result);if(success){this.current=word;this.route.push(word);}this.won=result.won;return result;
   }
   state() {

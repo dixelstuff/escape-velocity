@@ -56,6 +56,7 @@ export function outcome(entry) {
   if (!entry.event) return `Rejected: ${entry.error}`;
   if (entry.event.won) return entry.completion==='arrival-zone'?'Arrival zone reached — journey complete':'Arrived — free final hop';
   if (entry.event.success) return 'Landed';
+  if(entry.event.forward===false)return 'Failed launch — backward guess';
   return entry.event.boundary ? 'Failed launch — not enough lift' : 'Failed launch — behind starting boundary';
 }
 export function journeyText(journey) {

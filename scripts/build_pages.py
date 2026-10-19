@@ -13,7 +13,7 @@ def main():
     # Preserve normalized 300d float32 values exactly; no quantization or preset links.
     e.vectors.astype('<f4').tofile(output / 'vectors.f32')
     (output / 'words.json').write_text(json.dumps(e.words, separators=(',', ':')))
-    config = dict(release='arrival-v3',puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
+    config = dict(release='forward-v4',puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     (output / 'config.json').write_text(json.dumps(config, separators=(',', ':')))
     (output / 'ATTRIBUTION.txt').write_text(

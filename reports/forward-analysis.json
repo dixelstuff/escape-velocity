@@ -1,0 +1,113 @@
+{
+  "rules": "distance-v2",
+  "results": [
+    {
+      "start": "coffee",
+      "target": "science",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 2,
+      "route": [
+        "coffee",
+        "just",
+        "also"
+      ]
+    },
+    {
+      "start": "cheese",
+      "target": "language",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 2,
+      "route": [
+        "cheese",
+        "big",
+        "not"
+      ]
+    },
+    {
+      "start": "penalty",
+      "target": "ability",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 1,
+      "route": [
+        "penalty",
+        "but"
+      ]
+    },
+    {
+      "start": "everyday",
+      "target": "affection",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 1,
+      "route": [
+        "everyday",
+        "love"
+      ]
+    },
+    {
+      "start": "moon",
+      "target": "kitchen",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 2,
+      "route": [
+        "moon",
+        "but",
+        "like"
+      ]
+    },
+    {
+      "start": "garden",
+      "target": "computer",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 1,
+      "route": [
+        "garden",
+        "home"
+      ]
+    },
+    {
+      "start": "bread",
+      "target": "democracy",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 2,
+      "route": [
+        "bread",
+        "like",
+        "people"
+      ]
+    },
+    {
+      "start": "forest",
+      "target": "money",
+      "threshold": 0.3,
+      "mode": "distance",
+      "launch_min": 0.12,
+      "launch_max": 0.3,
+      "attempts": 1,
+      "route": [
+        "forest",
+        "along"
+      ]
+    }
+  ]
+}

@@ -35,10 +35,10 @@ assert.throws(() => new Game(embeddings, 'cheese', 'language', .99));
 // Rule boundaries on controlled inputs, independent of any lucky embedding relationships.
 const scores = new Map(Object.entries({'start,target':.1,'start,forward':.6,'forward,target':.4,'forward,backward':.6,'backward,target':.2,'start,behind':.8,'behind,target':.05,'start,arrival':.5,'arrival,target':.5,'start,weak':.2,'weak,target':.8}));
 const fake = {index:new Map(['start','target','forward','backward','behind','arrival','weak'].map(w=>[w,0])), cosine(a,b){return scores.get(`${a},${b}`) ?? scores.get(`${b},${a}`) ?? (a===b ? 1 : 0);}};
-let game = new Game(fake,'start','target',.5);
+let game = new Game(fake,'start','target',.5,{rules:'fixed-threshold-v2'});
 assert.equal(game.submit('forward').success,true);
 assert.equal(game.submit('backward').success,true);
-game = new Game(fake,'start','target',.5);
+game = new Game(fake,'start','target',.5,{rules:'fixed-threshold-v2'});
 assert.equal(game.submit('behind').boundary,false);
 assert.equal(game.current,'start');
 assert.equal(game.submit('weak').success,false);
@@ -47,15 +47,15 @@ assert.throws(()=>game.submit('unknown'));
 assert.equal(game.submit('arrival').won,true);
 assert.equal(game.state().attempts,4);
 assert.deepEqual(game.route,['start','arrival']);
-game = new Game(fake,'start','target',.5);
+game = new Game(fake,'start','target',.5,{rules:'fixed-threshold-v2'});
 assert.equal(game.submit('arrival').won,true);
 assert.equal(game.state().attempts,1);
 
 const oneJump=new Game(fake,'start','target',.5,{mode:'distance'});assert.equal(oneJump.submit('arrival').won,true);assert.equal(oneJump.state().attempts,1);
-assert.equal(launchRequirement(.2,.2,.1,.5).required,.25);
-assert.equal(launchRequirement(.1,.8,.1,.5).required,.4);
+assert.equal(launchRequirement(.2,.2,.1,.5).required,.12);
+assert.equal(launchRequirement(.1,.8,.1,.5).required,.3);
 assert.deepEqual(launchRequirement(.2,.3,.1,.5),launchRequirement(.3,.2,.1,.5));
-game=new Game(fake,'start','target',.5,{mode:'distance'});
+game=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v1'});
 game.submit('forward');game.submit('start');game.submit('forward');
 assert.equal(game.state().attempts,3);
 assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
@@ -66,3 +66,12 @@ assert.throws(()=>restored.submit('weak'));
 assert.throws(()=>new Game(fake,'start','target',.5,{mode:'distance',launch_min:.5,launch_max:.3}));
 
 console.log(`Browser scoring passed: ${fixtures.length} real-vector Python parity journeys, independent rule cases, and cosine checks.`);
+
+game=new Game(fake,'start','target',.5,{mode:'distance'});
+game.submit('forward');
+const backward=game.submit('backward');
+assert.equal(backward.forward,false);assert.equal(backward.success,false);
+assert.equal(game.current,'forward');assert.equal(game.state().attempts,2);
+assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
+assert.equal(new Game(fake,'start','target').threshold,.3);
+assert.equal(game.launch_min,.12);assert.equal(game.launch_max,.3);

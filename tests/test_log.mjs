@@ -10,7 +10,7 @@ const words=JSON.parse(readFileSync(new URL('../static/model/words.json',import.
 const buffer=readFileSync(new URL('../static/model/vectors.f32',import.meta.url));
 const e=new Embeddings(words,new Float32Array(buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength)));
 let log=newLog();
-let game=new Game(e,'forest','money',.4);
+let game=new Game(e,'forest','money',.4,{rules:'fixed-threshold-v2'});
 log.begin(game.state(),'GloVe 6B · 300 dimensions');
 const firstId=log.active.id;
 for(const word of ['milk','unknownwordxyz','forest','area']) {
@@ -55,19 +55,19 @@ assert.equal(log.data.journeys[0].state.history.length,3);
 const dynamic=new Game(e,'coffee','science',.45,{mode:'distance'});
 const logger=newLog();logger.begin(dynamic.state(),'GloVe');
 const hop=dynamic.submit('food');logger.record('food',dynamic.state(),hop);
-assert.equal(logger.active.rules,'distance-v1');
+assert.equal(logger.active.rules,'distance-v2');
 assert.equal(logger.active.entries[0].threshold,hop.required);
 assert.ok(journeyText(logger.active).includes('scaled by trip length'));
 assert.ok(journeyText(logger.active).includes(String(hop.required)));
 // Storage denial is visible but never prevents playing/exporting.
 const denied=new FlightLog({getItem:()=>null,setItem:()=>{throw Error('quota');}},undefined,()=> 'denied');
-denied.begin(new Game(e,'forest','money',.4).state(),'GloVe');
+denied.begin(new Game(e,'forest','money',.4,{rules:'fixed-threshold-v2'}).state(),'GloVe');
 assert.ok(denied.warning.includes('could not save'));
 assert.equal(JSON.parse(denied.exportJSON()).journeys.length,1);
 // Preserve unreadable storage rather than silently replacing it.
 memory.set(LOG_KEY,'not valid json');
 const broken=newLog();
-broken.begin(new Game(e,'forest','money',.4).state(),'GloVe');
+broken.begin(new Game(e,'forest','money',.4,{rules:'fixed-threshold-v2'}).state(),'GloVe');
 assert.equal(memory.get(LOG_KEY),'not valid json');
 assert.equal(JSON.parse(broken.exportJSON()).unreadableOriginal,'not valid json');
 assert.throws(()=>restoreGame(e,{start:'forest',target:'money',threshold:.4,history:[{word:'unknownwordxyz'}]}));

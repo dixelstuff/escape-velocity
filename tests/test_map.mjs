@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mapFraction, mapLayout, projectX } from '../static/map.mjs';
+import { mapFraction, mapLayout, projectX, visibleAttempts } from '../static/map.mjs';
 for(const baseline of [-.1,.05,.2,.4]) {
   assert.equal(mapFraction(baseline,baseline,.45),0);
   assert.equal(mapFraction(.45,baseline,.45),.9);
@@ -21,3 +21,16 @@ for(const narrow of [false,true]) {
   for(let i=0;i<=100;i++)assert.ok(projectX(.45+.55*i/100,.1,.45,d)>=d.zoneLeft-1e-8);
 }
 console.log('Map scale passed: semantic order, departure boundary and arrival zone centred on the destination at phone and desktop widths.');
+
+const attempts=[
+ {word:'back',forward:false,destination:.05},
+ {word:'ahead',forward:true,destination:.28,attempt:2},
+ {word:'stepping',forward:true,destination:.2,success:true,attempt:3}
+];
+const state={history:attempts,route:['start','stepping'],progress:.2};
+assert.deepEqual(visibleAttempts(state).map(e=>e.word),['ahead','stepping']);
+const original=projectX(attempts[1].destination,.1,.3,mapLayout(true));
+state.progress=.25;
+assert.equal(projectX(visibleAttempts(state)[0].destination,.1,.3,mapLayout(true)),original);
+state.progress=.29;
+assert.deepEqual(visibleAttempts(state).map(e=>e.word),['stepping']);

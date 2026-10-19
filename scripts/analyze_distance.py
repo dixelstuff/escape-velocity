@@ -55,7 +55,7 @@ def main():
     for a,b in choices:
         row=next(r for r in results if r['start']==a and r['target']==b)
         if row['attempts'] is not None and row['attempts']>=2:chosen.append({k:row[k] for k in ['start','target','threshold','mode']})
-    (DATA/'puzzles.json').write_text(json.dumps(chosen,indent=2))
+    # Historical calibration only; current menu settings live in data/puzzles.json.
     output=dict(mode='distance',launch_min=.25,launch_max=.40,arrival=.45,pairs=len(pairs),distribution=dict(distribution),results=results)
     (ROOT/'reports/distance-analysis.json').write_text(json.dumps(output,indent=2))
     lines=['# Distance-based launch experiment','','Rules: `distance-v1`. Normalized trip length is `min(1, abs(destination_cosine - current_target_cosine) / max(0.000001, arrival_threshold - starting_target_cosine))`. Required launch similarity is `0.25 + 0.15 * trip_length`. Forward and backward trips use the same formula. The fixed arrival threshold is 0.45. Revisited planets cost an attempt; entering the current word costs nothing.','',f'The same {len(pairs)} endpoint pairs from the original calibration were searched over all {len(e.words):,} words. Candidate edges have launch cosine ≥ 0.25; exact target-dependent requirements and the starting boundary are then applied at each BFS expansion. Revisits do not improve an optimal route because edges depend only on the current word and fixed puzzle settings. The search ends on the first reachable arrival-zone planet. No hop to the target is required.','','| Rules | 1 | 2 | 3 | 4 | 5+ | Unreachable |','|---|---|---|---|---|---|---|']
@@ -66,7 +66,7 @@ def main():
     for p in chosen:
         r=next(r for r in results if all(r[k]==v for k,v in p.items()))
         lines.append(f"- {p['start']} → {p['target']}: minimum {r['attempts']} attempts, {r['shortest_routes']} shortest routes, {r['first_moves']} optimal opening moves. Route: {' → '.join(r['route'])} (arrival zone reached).")
-        game=Game(e,**p)
+        game=Game(e,**p,rules='distance-v1')
         for word in r['route'][1:]:
             event=game.submit(word)
             if not event['success']:raise RuntimeError('Search/engine disagreement')

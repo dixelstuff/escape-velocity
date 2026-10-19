@@ -6,7 +6,7 @@ sys.path.insert(0,str(ROOT))
 from engine import Embeddings,Game,DATA
 
 def main():
-    e=Embeddings();analysis=json.loads((ROOT/'reports/distance-analysis.json').read_text());fixtures=[]
+    e=Embeddings();analysis=json.loads((ROOT/'reports/forward-analysis.json').read_text());fixtures=[]
     def add(settings,words):
         game=Game(e,**settings);fixture=dict(**settings,steps=[])
         for word in words:
@@ -18,8 +18,9 @@ def main():
     for p in json.loads((DATA/'puzzles.json').read_text()):
         row=next(r for r in analysis['results'] if all(r[k]==v for k,v in p.items()))
         add(p,['unknownwordxyz',p['start'],p['target'],*row['route'][1:]])
-    add(dict(start='forest',target='money',threshold=.4,mode='fixed'),['milk','milk','area','forest','area','have'])
+    add(dict(start='forest',target='money',threshold=.4,mode='fixed',rules='fixed-threshold-v2'),['milk','milk','area','forest','area','have'])
     add(dict(start='forest',target='money',threshold=.4,mode='fixed',rules='fixed-threshold-v1'),['milk','milk','area','forest','have'])
-    add(dict(start='penalty',target='ability',threshold=.45,mode='distance'),['goal','skill','skill','goal','aim','achieve'])
+    add(dict(start='penalty',target='ability',threshold=.45,mode='distance',rules='distance-v1'),['goal','skill','skill','goal','aim','achieve'])
+    add(dict(start='coffee',target='science',threshold=.30,mode='distance'),['wire','voltage','food','medical'])
     (ROOT/'tests/browser-fixtures.json').write_text(json.dumps(fixtures,indent=2))
 if __name__=='__main__':main()

@@ -26,7 +26,7 @@ class HTTPTests(unittest.TestCase):
     def new(self):return self.post('new',dict(start='cheese',target='language',threshold=.45))
     def test_config_does_not_leak_solutions(self):
         self.assertGreater(self.config['vocabulary'],10000)
-        for p in self.config['puzzles']:self.assertEqual(set(p),{'start','target','threshold','mode'})
+        for p in self.config['puzzles']:self.assertEqual(set(p),{'start','target','threshold','mode','launch_min','launch_max'})
     def test_validation_and_session_isolation(self):
         a,b=self.new(),self.new();self.assertNotEqual(a['token'],b['token'])
         with self.assertRaises(HTTPError) as caught:self.post('submit',dict(token=a['token'],word='zxqunknown'))
@@ -41,7 +41,7 @@ class HTTPTests(unittest.TestCase):
         for attempt in [1,2]:
             result=self.post('submit',dict(token=game['token'],word='milk'))
             self.assertFalse(result['event']['success']);self.assertEqual(result['state']['attempts'],attempt)
-            self.assertGreaterEqual(result['event']['required'],.25);self.assertLessEqual(result['event']['required'],.4)
+            self.assertGreaterEqual(result['event']['required'],.12);self.assertLessEqual(result['event']['required'],.3)
     def test_no_embedding_files_served(self):
         with self.assertRaises(HTTPError) as caught:urlopen(self.base+'/data/vectors.npy')
         caught.exception.close()
