@@ -27,3 +27,11 @@
  body.typing #rules-note,body.typing #opening-game,body.typing #upgrade-rules,body.typing #status,body.typing #last-reading{display:none;}
  body.typing .input-row input,body.typing .input-row button{padding:12px;}
 }
+
+.map-card{position:relative;}
+.map-card.arrived{border:2px solid #25715a;}
+#arrival-banner{position:absolute;z-index:2;top:12px;left:12px;right:12px;max-width:420px;margin:0 auto;padding:16px 20px;text-align:center;background:#25715a;color:#fff;border-radius:10px;box-shadow:0 5px 20px #183d3226;}
+#arrival-banner[hidden]{display:none;}
+#arrival-banner h2{font-size:26px;margin:5px 0;}
+#arrival-banner p{font-size:13px;margin:6px 0 0;}
+@media(max-width:650px){#arrival-banner{padding:12px;}#arrival-banner h2{font-size:22px;}}

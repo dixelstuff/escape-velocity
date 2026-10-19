@@ -18,21 +18,21 @@ export class Embeddings {
   }
 }
 
-export function launchRequirement(current, destination, baseline, arrival, minimum=.12, maximum=.30) {
+export function launchRequirement(current, destination, baseline, arrival, minimum=.08, maximum=.18) {
   const fraction=Math.min(1,Math.abs(destination-current)/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
 export class Game {
-  constructor(embeddings,start,target,threshold=.30,options={}) {
+  constructor(embeddings,start,target,threshold=.12,options={}) {
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
     const {mode='fixed',rules}=options;
     const legacy=rules&& !['distance-v2','fixed-threshold-v3'].includes(rules);
-    const launch_min=options.launch_min??(legacy?.25:.12),launch_max=options.launch_max??(legacy?.40:.30);
+    const launch_min=options.launch_min??(legacy?.25:.08),launch_max=options.launch_max??(legacy?.40:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Start and target must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Arrival threshold must be between 0.1 and 0.9.');
     if(!['fixed','distance'].includes(mode))throw Error('Unknown launch mode.');
-    if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.1||launch_max>.9||launch_min>launch_max)throw Error('Launch requirements must be between 0.1 and 0.9, with short hops no harder than long jumps.');
+    if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Launch requirements must be between 0.01 and 0.9, with short hops no harder than long jumps.');
     const expected=mode==='distance'?'distance-v2':'fixed-threshold-v3';
     if(rules&&! [expected,...(mode==='distance'?['distance-v1']:['fixed-threshold-v1','fixed-threshold-v2'])].includes(rules))throw Error('Unknown rule version.');
     if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Legacy journeys use fixed launches.');

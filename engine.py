@@ -5,7 +5,7 @@ import numpy as np
 DATA = Path(__file__).parent/'data'
 LEGACY_RULES = 'fixed-threshold-v1'
 
-def launch_requirement(current_progress, destination, baseline, arrival, minimum=.12, maximum=.30):
+def launch_requirement(current_progress, destination, baseline, arrival, minimum=.08, maximum=.18):
     """Trip length as a fraction of the start-to-arrival journey, in either direction."""
     fraction = min(1., abs(destination-current_progress) / max(1e-6, arrival-baseline))
     return minimum + (maximum-minimum)*fraction, fraction
@@ -19,15 +19,15 @@ class Embeddings:
         return float(np.clip(self.vectors[self.index[a]] @ self.vectors[self.index[b]], -1, 1))
 
 class Game:
-    def __init__(self, embeddings, start, target, threshold=.30, mode='fixed', launch_min=None, launch_max=None, rules=None):
+    def __init__(self, embeddings, start, target, threshold=.12, mode='fixed', launch_min=None, launch_max=None, rules=None):
         if start not in embeddings.index or target not in embeddings.index: raise ValueError('Choose words in the supported vocabulary.')
         if start == target: raise ValueError('Start and target must differ.')
         if not 0.1 <= threshold <= 0.9: raise ValueError('Arrival threshold must be between 0.1 and 0.9.')
         if mode not in ['fixed','distance']: raise ValueError('Unknown launch mode.')
         legacy = rules is not None and rules not in ['distance-v2','fixed-threshold-v3']
-        launch_min = (.25 if legacy else .12) if launch_min is None else launch_min
-        launch_max = (.40 if legacy else .30) if launch_max is None else launch_max
-        if not .1 <= launch_min <= launch_max <= .9: raise ValueError('Launch requirements must be between 0.1 and 0.9, with short hops no harder than long jumps.')
+        launch_min = (.25 if legacy else .08) if launch_min is None else launch_min
+        launch_max = (.40 if legacy else .18) if launch_max is None else launch_max
+        if not .01 <= launch_min <= launch_max <= .9: raise ValueError('Launch requirements must be between 0.01 and 0.9, with short hops no harder than long jumps.')
         expected = 'distance-v2' if mode=='distance' else 'fixed-threshold-v3'
         if rules is not None and rules not in [expected, *(['distance-v1'] if mode=='distance' else [LEGACY_RULES,'fixed-threshold-v2'])]: raise ValueError('Unknown rule version.')
         if rules==LEGACY_RULES and mode!='fixed': raise ValueError('Legacy journeys use fixed launches.')

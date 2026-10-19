@@ -32,9 +32,9 @@ class RuleTests(unittest.TestCase):
         game.submit('weak')
         with self.assertRaises(ValueError):game.submit('weak')
     def test_distance_requirements_are_symmetric_and_capped(self):
-        self.assertEqual(launch_requirement(.2,.2,.1,.5)[0],.12)
-        self.assertAlmostEqual(launch_requirement(.1,.5,.1,.5)[0],.3)
-        self.assertAlmostEqual(launch_requirement(.1,1,.1,.5)[0],.3)
+        self.assertEqual(launch_requirement(.2,.2,.1,.5)[0],.08)
+        self.assertAlmostEqual(launch_requirement(.1,.5,.1,.5)[0],.18)
+        self.assertAlmostEqual(launch_requirement(.1,1,.1,.5)[0],.18)
         self.assertEqual(launch_requirement(.2,.3,.1,.5),launch_requirement(.3,.2,.1,.5))
     def test_short_hop_succeeds_at_lower_similarity(self):
         e=FakeEmbeddings();e.values[tuple(sorted(['start','forward']))]=.38
@@ -80,7 +80,7 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(len(game.history),3)
     def test_new_defaults_and_legacy_defaults(self):
         game=Game(FakeEmbeddings(),'start','target',mode='distance')
-        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.3,.12,.3))
+        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.12,.08,.18))
         old=Game(FakeEmbeddings(),'start','target',.45,mode='distance',rules='distance-v1')
         self.assertEqual((old.launch_min,old.launch_max),(.25,.4))
 class RealEmbeddingTests(unittest.TestCase):

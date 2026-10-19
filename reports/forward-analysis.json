@@ -4,109 +4,105 @@
     {
       "start": "coffee",
       "target": "science",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
-      "attempts": 2,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
+      "attempts": 1,
       "route": [
         "coffee",
-        "just",
-        "also"
+        "have"
       ]
     },
     {
       "start": "cheese",
       "target": "language",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
-      "attempts": 2,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
+      "attempts": 1,
       "route": [
         "cheese",
-        "big",
-        "not"
+        "can"
       ]
     },
     {
       "start": "penalty",
       "target": "ability",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
       "attempts": 1,
       "route": [
         "penalty",
-        "but"
+        "have"
       ]
     },
     {
       "start": "everyday",
       "target": "affection",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
       "attempts": 1,
       "route": [
         "everyday",
-        "love"
+        "not"
       ]
     },
     {
       "start": "moon",
       "target": "kitchen",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
-      "attempts": 2,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
+      "attempts": 1,
       "route": [
         "moon",
-        "but",
-        "like"
+        "have"
       ]
     },
     {
       "start": "garden",
       "target": "computer",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
       "attempts": 1,
       "route": [
         "garden",
-        "home"
+        "are"
       ]
     },
     {
       "start": "bread",
       "target": "democracy",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
-      "attempts": 2,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
+      "attempts": 1,
       "route": [
         "bread",
-        "like",
-        "people"
+        "all"
       ]
     },
     {
       "start": "forest",
       "target": "money",
-      "threshold": 0.3,
+      "threshold": 0.12,
       "mode": "distance",
-      "launch_min": 0.12,
-      "launch_max": 0.3,
+      "launch_min": 0.08,
+      "launch_max": 0.18,
       "attempts": 1,
       "route": [
         "forest",
-        "along"
+        "are"
       ]
     }
   ]

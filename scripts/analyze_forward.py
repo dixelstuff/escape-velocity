@@ -37,5 +37,5 @@ def main():
         assert game.won
         results.append(dict(**p,attempts=len(route)-1,route=route))
     (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='distance-v2',results=results),indent=2)+'\n')
-    print(f'Verified {len(results)} menu routes at arrival .30, launch .12–.30, forward only.')
+    print(f'Verified {len(results)} menu routes at arrival .12, launch .08–.18, forward only.')
 if __name__=='__main__':main()

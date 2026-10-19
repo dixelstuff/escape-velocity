@@ -6,5 +6,7 @@ export function startupAction(saved, opening) {
   if(!saved)return 'opening';
   const state=saved.state;
   if(!['distance-v2','fixed-threshold-v3'].includes(state.rules))return 'upgrade';
+  const previousDefaults=state.threshold===.30 && state.launch_min===.12 && state.launch_max===.30;
+  if(previousDefaults)return 'upgrade';
   return 'restore';
 }
