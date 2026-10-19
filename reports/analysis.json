@@ -1,0 +1,7210 @@
+[
+  {
+    "threshold": 0.4,
+    "distribution": {
+      "2": 62,
+      "3": 51,
+      "unreachable": 6,
+      "4": 7,
+      "1": 1,
+      "5+": 1
+    },
+    "pairs": 128,
+    "mean_degree": 28.191405272900095,
+    "isolated": 1371,
+    "results": [
+      {
+        "start": "cheese",
+        "target": "language",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "cheese",
+          "eat",
+          "learn"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "ocean",
+        "target": "music",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "ocean",
+          "along",
+          "well"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "garden",
+        "target": "computer",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "garden",
+          "beautiful",
+          "good",
+          "business"
+        ],
+        "winning_planets": 16,
+        "shortest_routes": 53,
+        "first_moves": 5
+      },
+      {
+        "start": "coffee",
+        "target": "science",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "coffee",
+          "food",
+          "medicine"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "forest",
+        "target": "money",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "forest",
+          "area",
+          "have"
+        ],
+        "winning_planets": 31,
+        "shortest_routes": 32,
+        "first_moves": 5
+      },
+      {
+        "start": "bread",
+        "target": "democracy",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "bread",
+          "fresh",
+          "come",
+          "government"
+        ],
+        "winning_planets": 18,
+        "shortest_routes": 36,
+        "first_moves": 2
+      },
+      {
+        "start": "river",
+        "target": "memory",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "river",
+          "water",
+          "enough",
+          "remember"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 64,
+        "first_moves": 9
+      },
+      {
+        "start": "moon",
+        "target": "kitchen",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "moon",
+          "earth",
+          "beneath",
+          "bed"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 5,
+        "first_moves": 3
+      },
+      {
+        "start": "player",
+        "target": "permanently",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "player",
+          "one",
+          "leave"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 10,
+        "first_moves": 4
+      },
+      {
+        "start": "silent",
+        "target": "compare",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "silent",
+          "movie",
+          "look"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "scholarship",
+        "target": "lead",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "scholarship",
+          "study",
+          "result"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 9,
+        "first_moves": 5
+      },
+      {
+        "start": "guess",
+        "target": "infection",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "guess",
+          "not",
+          "cause"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 72,
+        "first_moves": 47
+      },
+      {
+        "start": "bankruptcy",
+        "target": "recommendation",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "bankruptcy",
+          "court",
+          "decided"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 11,
+        "first_moves": 4
+      },
+      {
+        "start": "reporter",
+        "target": "ninth",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "reporter",
+          "press",
+          "also",
+          "first"
+        ],
+        "winning_planets": 21,
+        "shortest_routes": 147,
+        "first_moves": 8
+      },
+      {
+        "start": "deliberately",
+        "target": "pitch",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "deliberately",
+          "wrong",
+          "right"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "shame",
+        "target": "grand",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "shame",
+          "thing",
+          "best",
+          "title"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 25,
+        "first_moves": 10
+      },
+      {
+        "start": "patch",
+        "target": "continent",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "midnight",
+        "target": "shanghai",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "midnight",
+          "time",
+          "many",
+          "overseas"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 24,
+        "first_moves": 9
+      },
+      {
+        "start": "apparently",
+        "target": "pitch",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "apparently",
+          "have",
+          "right"
+        ],
+        "winning_planets": 14,
+        "shortest_routes": 331,
+        "first_moves": 114
+      },
+      {
+        "start": "hazard",
+        "target": "racial",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "hazard",
+          "risk",
+          "think",
+          "hate"
+        ],
+        "winning_planets": 11,
+        "shortest_routes": 39,
+        "first_moves": 3
+      },
+      {
+        "start": "elevated",
+        "target": "visitor",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "elevated",
+          "level",
+          "here",
+          "visit"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "evaluation",
+        "target": "hotel",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "evaluation",
+          "process",
+          "not",
+          "night"
+        ],
+        "winning_planets": 17,
+        "shortest_routes": 199,
+        "first_moves": 23
+      },
+      {
+        "start": "weekly",
+        "target": "wrapped",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "weekly",
+          "week",
+          "have",
+          "hand"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 149,
+        "first_moves": 10
+      },
+      {
+        "start": "ammunition",
+        "target": "sand",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "ammunition",
+          "storage",
+          "water"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "reflection",
+        "target": "administrator",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "reflection",
+          "true",
+          "not",
+          "administration"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 131,
+        "first_moves": 14
+      },
+      {
+        "start": "catholic",
+        "target": "purpose",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "catholic",
+          "school",
+          "established"
+        ],
+        "winning_planets": 28,
+        "shortest_routes": 40,
+        "first_moves": 6
+      },
+      {
+        "start": "reverse",
+        "target": "health",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "reverse",
+          "change",
+          "well"
+        ],
+        "winning_planets": 25,
+        "shortest_routes": 41,
+        "first_moves": 5
+      },
+      {
+        "start": "tour",
+        "target": "rage",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "tour",
+          "day",
+          "have",
+          "fear"
+        ],
+        "winning_planets": 16,
+        "shortest_routes": 190,
+        "first_moves": 8
+      },
+      {
+        "start": "urge",
+        "target": "chi",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "urge",
+          "join",
+          "party",
+          "legislator",
+          "chou"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "consistent",
+        "target": "runway",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "consistent",
+          "not",
+          "outside",
+          "airport"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 37,
+        "first_moves": 22
+      },
+      {
+        "start": "roof",
+        "target": "therapist",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "roof",
+          "inside",
+          "taken",
+          "patient"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 9,
+        "first_moves": 8
+      },
+      {
+        "start": "fried",
+        "target": "confirm",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "fried",
+          "eat",
+          "why"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "deck",
+        "target": "base",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "deck",
+          "ship",
+          "naval"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "creative",
+        "target": "smooth",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "creative",
+          "design",
+          "shape"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 4,
+        "first_moves": 3
+      },
+      {
+        "start": "recover",
+        "target": "unnecessary",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "recover",
+          "find",
+          "simply"
+        ],
+        "winning_planets": 25,
+        "shortest_routes": 81,
+        "first_moves": 17
+      },
+      {
+        "start": "penalty",
+        "target": "ability",
+        "threshold": 0.4,
+        "attempts": 1,
+        "route": [
+          "penalty",
+          "chance"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "wrapped",
+        "target": "closest",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "wrapped",
+          "hand",
+          "have",
+          "close"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 73,
+        "first_moves": 2
+      },
+      {
+        "start": "troops",
+        "target": "diameter",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "troops",
+          "ground",
+          "surface"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "gray",
+        "target": "detect",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "gray",
+          "white",
+          "look",
+          "able"
+        ],
+        "winning_planets": 15,
+        "shortest_routes": 59,
+        "first_moves": 8
+      },
+      {
+        "start": "explosive",
+        "target": "license",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "explosive",
+          "device",
+          "application"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "birth",
+        "target": "creature",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "birth",
+          "woman",
+          "stranger"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "ranch",
+        "target": "funny",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "ranch",
+          "dude",
+          "yeah"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "optical",
+        "target": "bucket",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "optical",
+          "equipment",
+          "clothing",
+          "bag"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 12,
+        "first_moves": 8
+      },
+      {
+        "start": "inspection",
+        "target": "downtown",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "inspection",
+          "commission",
+          "office"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "slide",
+        "target": "burger",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "slide",
+          "dip",
+          "cheese",
+          "chicken"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 15,
+        "first_moves": 1
+      },
+      {
+        "start": "magic",
+        "target": "funny",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "magic",
+          "evil",
+          "strange"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 4,
+        "first_moves": 3
+      },
+      {
+        "start": "temple",
+        "target": "sadly",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "temple",
+          "holy",
+          "god",
+          "indeed"
+        ],
+        "winning_planets": 13,
+        "shortest_routes": 79,
+        "first_moves": 9
+      },
+      {
+        "start": "delay",
+        "target": "sail",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "delay",
+          "not",
+          "off",
+          "sea"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 93,
+        "first_moves": 23
+      },
+      {
+        "start": "fight",
+        "target": "architect",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "fight",
+          "way",
+          "building"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "nonsense",
+        "target": "sacrifice",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "nonsense",
+          "arrogance",
+          "courage"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "view",
+        "target": "default",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "view",
+          "not",
+          "risk"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 39,
+        "first_moves": 21
+      },
+      {
+        "start": "naval",
+        "target": "equal",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "naval",
+          "war",
+          "both"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 5,
+        "first_moves": 4
+      },
+      {
+        "start": "assume",
+        "target": "mystery",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "assume",
+          "know",
+          "clue"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "border",
+        "target": "fourth",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "border",
+          "between",
+          "one"
+        ],
+        "winning_planets": 31,
+        "shortest_routes": 57,
+        "first_moves": 7
+      },
+      {
+        "start": "musician",
+        "target": "peanut",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "musician",
+          "rock",
+          "roll",
+          "jelly"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 30,
+        "first_moves": 5
+      },
+      {
+        "start": "placement",
+        "target": "negative",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "placement",
+          "exam",
+          "required",
+          "any"
+        ],
+        "winning_planets": 16,
+        "shortest_routes": 16,
+        "first_moves": 1
+      },
+      {
+        "start": "secretly",
+        "target": "ben",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "secretly",
+          "accused",
+          "government",
+          "minister",
+          "benjamin"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 6,
+        "first_moves": 2
+      },
+      {
+        "start": "legs",
+        "target": "flash",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "legs",
+          "eyes",
+          "suddenly",
+          "burst"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 5,
+        "first_moves": 4
+      },
+      {
+        "start": "published",
+        "target": "alien",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "published",
+          "science",
+          "earth"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 5,
+        "first_moves": 4
+      },
+      {
+        "start": "hostile",
+        "target": "stiff",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "hostile",
+          "increasingly",
+          "tough"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "historic",
+        "target": "sought",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "historic",
+          "important",
+          "have"
+        ],
+        "winning_planets": 38,
+        "shortest_routes": 52,
+        "first_moves": 7
+      },
+      {
+        "start": "opposite",
+        "target": "warfare",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "opposite",
+          "same",
+          "but",
+          "war"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 134,
+        "first_moves": 6
+      },
+      {
+        "start": "star",
+        "target": "inevitable",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "star",
+          "best",
+          "might"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 10,
+        "first_moves": 3
+      },
+      {
+        "start": "protocol",
+        "target": "bureau",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "protocol",
+          "application",
+          "information"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "collection",
+        "target": "inclusive",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "collection",
+          "well",
+          "full",
+          "comprehensive"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 36,
+        "first_moves": 6
+      },
+      {
+        "start": "travel",
+        "target": "leap",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "travel",
+          "will",
+          "fall",
+          "jump"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 7,
+        "first_moves": 4
+      },
+      {
+        "start": "legacy",
+        "target": "podcast",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "legacy",
+          "personal",
+          "computer",
+          "download"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "peak",
+        "target": "letter",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "peak",
+          "above",
+          "can",
+          "read"
+        ],
+        "winning_planets": 21,
+        "shortest_routes": 99,
+        "first_moves": 3
+      },
+      {
+        "start": "studio",
+        "target": "hammer",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "studio",
+          "label",
+          "record",
+          "break",
+          "throw"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "definition",
+        "target": "county",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "definition",
+          "rather",
+          "have",
+          "area"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 491,
+        "first_moves": 18
+      },
+      {
+        "start": "fierce",
+        "target": "mile",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "fierce",
+          "despite",
+          "but",
+          "area"
+        ],
+        "winning_planets": 11,
+        "shortest_routes": 142,
+        "first_moves": 3
+      },
+      {
+        "start": "comedian",
+        "target": "hunter",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "comedian",
+          "singer",
+          "drummer",
+          "billy"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 3
+      },
+      {
+        "start": "min",
+        "target": "harry",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "min",
+          "lee",
+          "miller",
+          "smith",
+          "jack"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "underwater",
+        "target": "victory",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "underwater",
+          "wreck",
+          "accident",
+          "after"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 6,
+        "first_moves": 4
+      },
+      {
+        "start": "mountain",
+        "target": "courtesy",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dental",
+        "target": "helpful",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "dental",
+          "care",
+          "good"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 13,
+        "first_moves": 3
+      },
+      {
+        "start": "east",
+        "target": "fine",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "east",
+          "now",
+          "just"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 35,
+        "first_moves": 12
+      },
+      {
+        "start": "earth",
+        "target": "resign",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "earth",
+          "god",
+          "ask"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "grandmother",
+        "target": "library",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "grandmother",
+          "old",
+          "but",
+          "office"
+        ],
+        "winning_planets": 20,
+        "shortest_routes": 176,
+        "first_moves": 11
+      },
+      {
+        "start": "specifically",
+        "target": "mobility",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "specifically",
+          "certain",
+          "flexibility"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "stark",
+        "target": "under",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "stark",
+          "contrast",
+          "but"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 7,
+        "first_moves": 1
+      },
+      {
+        "start": "collect",
+        "target": "infected",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "collect",
+          "can",
+          "people"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 17,
+        "first_moves": 11
+      },
+      {
+        "start": "angel",
+        "target": "distribution",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "equality",
+        "target": "network",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "equality",
+          "achieve",
+          "provide"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 10,
+        "first_moves": 6
+      },
+      {
+        "start": "beaten",
+        "target": "congressional",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "beaten",
+          "win",
+          "vote"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "drill",
+        "target": "trick",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "senior",
+        "target": "together",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "senior",
+          "said",
+          "have"
+        ],
+        "winning_planets": 57,
+        "shortest_routes": 120,
+        "first_moves": 13
+      },
+      {
+        "start": "reflection",
+        "target": "double",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "reflection",
+          "true",
+          "only"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 9,
+        "first_moves": 6
+      },
+      {
+        "start": "trump",
+        "target": "requirement",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "trump",
+          "casino",
+          "gambling",
+          "money",
+          "need"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 12,
+        "first_moves": 1
+      },
+      {
+        "start": "insurance",
+        "target": "pack",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "insurance",
+          "money",
+          "check",
+          "bag"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 8,
+        "first_moves": 6
+      },
+      {
+        "start": "wherever",
+        "target": "historian",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "wherever",
+          "know",
+          "all",
+          "history"
+        ],
+        "winning_planets": 14,
+        "shortest_routes": 765,
+        "first_moves": 26
+      },
+      {
+        "start": "accurate",
+        "target": "laptop",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "accurate",
+          "information",
+          "phone"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 6,
+        "first_moves": 2
+      },
+      {
+        "start": "team",
+        "target": "route",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "team",
+          "but",
+          "way"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 124,
+        "first_moves": 41
+      },
+      {
+        "start": "everyday",
+        "target": "affection",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "everyday",
+          "life",
+          "love"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 33,
+        "first_moves": 10
+      },
+      {
+        "start": "flame",
+        "target": "saint",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "warm",
+        "target": "shot",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "warm",
+          "good",
+          "one"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 27,
+        "first_moves": 6
+      },
+      {
+        "start": "resident",
+        "target": "adapted",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "resident",
+          "teacher",
+          "writing"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "lance",
+        "target": "coach",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "lance",
+          "rider",
+          "champion",
+          "team"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "distributed",
+        "target": "nurse",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "distributed",
+          "available",
+          "not",
+          "care"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 73,
+        "first_moves": 5
+      },
+      {
+        "start": "prone",
+        "target": "mail",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "prone",
+          "dangerous",
+          "but",
+          "call"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 32,
+        "first_moves": 2
+      },
+      {
+        "start": "laboratory",
+        "target": "representation",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "laboratory",
+          "research",
+          "related",
+          "relation"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 96,
+        "first_moves": 13
+      },
+      {
+        "start": "supreme",
+        "target": "spoken",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "supreme",
+          "case",
+          "though"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "chapel",
+        "target": "carbon",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "chapel",
+          "building",
+          "development",
+          "reduction"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 15,
+        "first_moves": 6
+      },
+      {
+        "start": "edited",
+        "target": "capitalism",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "edited",
+          "essay",
+          "critique"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "phrase",
+        "target": "actor",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "phrase",
+          "name",
+          "father"
+        ],
+        "winning_planets": 13,
+        "shortest_routes": 19,
+        "first_moves": 7
+      },
+      {
+        "start": "science",
+        "target": "mixture",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "science",
+          "art",
+          "style",
+          "combination"
+        ],
+        "winning_planets": 22,
+        "shortest_routes": 99,
+        "first_moves": 11
+      },
+      {
+        "start": "ben",
+        "target": "continue",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "ben",
+          "benjamin",
+          "minister",
+          "said"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "animation",
+        "target": "ham",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "animation",
+          "studio",
+          "room",
+          "breakfast",
+          "sandwich"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "enhanced",
+        "target": "masses",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "enhanced",
+          "enable",
+          "mobilize"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "page",
+        "target": "rubber",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "page",
+          "paper",
+          "plastic"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "somebody",
+        "target": "glow",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "somebody",
+          "like",
+          "eyes"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 15,
+        "first_moves": 13
+      },
+      {
+        "start": "ladder",
+        "target": "struck",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "ladder",
+          "climb",
+          "drop",
+          "off"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "mode",
+        "target": "impose",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "mode",
+          "type",
+          "certain"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "phoenix",
+        "target": "overhead",
+        "threshold": 0.4,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mad",
+        "target": "moisture",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "mad",
+          "disease",
+          "blood",
+          "oxygen"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 18,
+        "first_moves": 6
+      },
+      {
+        "start": "referendum",
+        "target": "event",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "referendum",
+          "plan",
+          "only"
+        ],
+        "winning_planets": 19,
+        "shortest_routes": 48,
+        "first_moves": 11
+      },
+      {
+        "start": "pond",
+        "target": "namely",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "pond",
+          "water",
+          "well",
+          "other"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 67,
+        "first_moves": 6
+      },
+      {
+        "start": "spinning",
+        "target": "decided",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "spinning",
+          "wheel",
+          "car",
+          "one"
+        ],
+        "winning_planets": 41,
+        "shortest_routes": 59,
+        "first_moves": 3
+      },
+      {
+        "start": "lodge",
+        "target": "blow",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "lodge",
+          "park",
+          "near",
+          "attack"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 3
+      },
+      {
+        "start": "topic",
+        "target": "dumb",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "topic",
+          "talk",
+          "stuff"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "king",
+        "target": "defender",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "king",
+          "son",
+          "born",
+          "footballer"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 10,
+        "first_moves": 4
+      },
+      {
+        "start": "solid",
+        "target": "hidden",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "solid",
+          "well",
+          "find"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 19,
+        "first_moves": 10
+      },
+      {
+        "start": "chad",
+        "target": "hobby",
+        "threshold": 0.4,
+        "attempts": 5,
+        "route": [
+          "chad",
+          "congo",
+          "troops",
+          "some",
+          "popular",
+          "pastime"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "regulated",
+        "target": "mph",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "regulated",
+          "operate",
+          "required",
+          "maximum"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 18,
+        "first_moves": 6
+      },
+      {
+        "start": "secret",
+        "target": "breakdown",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "secret",
+          "knowledge",
+          "lack"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "dirt",
+        "target": "lesser",
+        "threshold": 0.4,
+        "attempts": 3,
+        "route": [
+          "dirt",
+          "debris",
+          "damage",
+          "minor"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "phase",
+        "target": "vet",
+        "threshold": 0.4,
+        "attempts": 4,
+        "route": [
+          "phase",
+          "next",
+          "well",
+          "health",
+          "veterinary"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 103,
+        "first_moves": 15
+      },
+      {
+        "start": "charitable",
+        "target": "jail",
+        "threshold": 0.4,
+        "attempts": 2,
+        "route": [
+          "charitable",
+          "money",
+          "allegedly"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      }
+    ]
+  },
+  {
+    "threshold": 0.45,
+    "distribution": {
+      "3": 43,
+      "5+": 18,
+      "4": 31,
+      "2": 17,
+      "unreachable": 19
+    },
+    "pairs": 128,
+    "mean_degree": 12.889088998949422,
+    "isolated": 2994,
+    "results": [
+      {
+        "start": "cheese",
+        "target": "language",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "cheese",
+          "taste",
+          "sense",
+          "context"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "ocean",
+        "target": "music",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "ocean",
+          "earth",
+          "space",
+          "satellite",
+          "digital",
+          "video"
+        ],
+        "winning_planets": 22,
+        "shortest_routes": 219,
+        "first_moves": 3
+      },
+      {
+        "start": "garden",
+        "target": "computer",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "garden",
+          "park",
+          "area",
+          "there",
+          "instance"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 17,
+        "first_moves": 2
+      },
+      {
+        "start": "coffee",
+        "target": "science",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "coffee",
+          "food",
+          "medicine"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "forest",
+        "target": "money",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "forest",
+          "park",
+          "area",
+          "well"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 7,
+        "first_moves": 3
+      },
+      {
+        "start": "bread",
+        "target": "democracy",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "river",
+        "target": "memory",
+        "threshold": 0.45,
+        "attempts": 6,
+        "route": [
+          "river",
+          "water",
+          "supply",
+          "production",
+          "manufacturing",
+          "semiconductor",
+          "dram"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 20,
+        "first_moves": 5
+      },
+      {
+        "start": "moon",
+        "target": "kitchen",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "moon",
+          "earth",
+          "surface",
+          "beneath",
+          "floor"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "player",
+        "target": "permanently",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "player",
+          "one",
+          "not",
+          "completely"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 57,
+        "first_moves": 3
+      },
+      {
+        "start": "silent",
+        "target": "compare",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "silent",
+          "silence",
+          "quiet",
+          "always",
+          "look"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 5,
+        "first_moves": 1
+      },
+      {
+        "start": "scholarship",
+        "target": "lead",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "scholarship",
+          "education",
+          "public",
+          "over"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 15,
+        "first_moves": 4
+      },
+      {
+        "start": "guess",
+        "target": "infection",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "guess",
+          "worse",
+          "severe"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "bankruptcy",
+        "target": "recommendation",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "bankruptcy",
+          "reorganization",
+          "acquisition",
+          "deal",
+          "proposal"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 19,
+        "first_moves": 1
+      },
+      {
+        "start": "reporter",
+        "target": "ninth",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "reporter",
+          "interview",
+          "night",
+          "first"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 17,
+        "first_moves": 3
+      },
+      {
+        "start": "deliberately",
+        "target": "pitch",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "deliberately",
+          "apparently",
+          "but",
+          "game"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 12,
+        "first_moves": 1
+      },
+      {
+        "start": "shame",
+        "target": "grand",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "shame",
+          "forget",
+          "just",
+          "straight",
+          "slam"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "patch",
+        "target": "continent",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "midnight",
+        "target": "shanghai",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "midnight",
+          "before",
+          "about",
+          "million",
+          "yuan"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 44,
+        "first_moves": 7
+      },
+      {
+        "start": "apparently",
+        "target": "pitch",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "apparently",
+          "but",
+          "game"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 12,
+        "first_moves": 9
+      },
+      {
+        "start": "hazard",
+        "target": "racial",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "hazard",
+          "risk",
+          "fear",
+          "hate"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "elevated",
+        "target": "visitor",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "evaluation",
+        "target": "hotel",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "evaluation",
+          "psychiatric",
+          "hospital",
+          "nearby"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "weekly",
+        "target": "wrapped",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "weekly",
+          "daily",
+          "paper",
+          "plastic"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 3
+      },
+      {
+        "start": "ammunition",
+        "target": "sand",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "ammunition",
+          "storage",
+          "waste",
+          "sludge",
+          "silt"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 6,
+        "first_moves": 3
+      },
+      {
+        "start": "reflection",
+        "target": "administrator",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "reflection",
+          "view",
+          "say",
+          "administration"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "catholic",
+        "target": "purpose",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "catholic",
+          "religious",
+          "particular"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "reverse",
+        "target": "health",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "reverse",
+          "change",
+          "not",
+          "public"
+        ],
+        "winning_planets": 13,
+        "shortest_routes": 97,
+        "first_moves": 3
+      },
+      {
+        "start": "tour",
+        "target": "rage",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "tour",
+          "concert",
+          "live",
+          "people",
+          "fear",
+          "anger"
+        ],
+        "winning_planets": 11,
+        "shortest_routes": 234,
+        "first_moves": 2
+      },
+      {
+        "start": "urge",
+        "target": "chi",
+        "threshold": 0.45,
+        "attempts": 7,
+        "route": [
+          "urge",
+          "call",
+          "day",
+          "session",
+          "legislative",
+          "legislator",
+          "chou",
+          "mei"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 26,
+        "first_moves": 3
+      },
+      {
+        "start": "consistent",
+        "target": "runway",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "consistent",
+          "very",
+          "look",
+          "fashion",
+          "catwalk"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 14,
+        "first_moves": 7
+      },
+      {
+        "start": "roof",
+        "target": "therapist",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "roof",
+          "floor",
+          "dining",
+          "parlor",
+          "massage"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "fried",
+        "target": "confirm",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "fried",
+          "eat",
+          "get",
+          "not"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 23,
+        "first_moves": 1
+      },
+      {
+        "start": "deck",
+        "target": "base",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "deck",
+          "hangar",
+          "airplane",
+          "flight",
+          "air"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 10,
+        "first_moves": 1
+      },
+      {
+        "start": "creative",
+        "target": "smooth",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "creative",
+          "innovation",
+          "development",
+          "transformation",
+          "transition"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 9,
+        "first_moves": 2
+      },
+      {
+        "start": "recover",
+        "target": "unnecessary",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "recover",
+          "help",
+          "necessary"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 6,
+        "first_moves": 5
+      },
+      {
+        "start": "penalty",
+        "target": "ability",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "penalty",
+          "half",
+          "make"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 7,
+        "first_moves": 2
+      },
+      {
+        "start": "wrapped",
+        "target": "closest",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "wrapped",
+          "tightly",
+          "closely",
+          "well",
+          "close"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "troops",
+        "target": "diameter",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "troops",
+          "support",
+          "have",
+          "much",
+          "size"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 271,
+        "first_moves": 10
+      },
+      {
+        "start": "gray",
+        "target": "detect",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "gray",
+          "blue",
+          "light",
+          "ultraviolet",
+          "infrared"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 107,
+        "first_moves": 4
+      },
+      {
+        "start": "explosive",
+        "target": "license",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "explosive",
+          "device",
+          "use",
+          "permit"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 6,
+        "first_moves": 2
+      },
+      {
+        "start": "birth",
+        "target": "creature",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "birth",
+          "death",
+          "life",
+          "really",
+          "strange"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 124,
+        "first_moves": 7
+      },
+      {
+        "start": "ranch",
+        "target": "funny",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "optical",
+        "target": "bucket",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "optical",
+          "infrared",
+          "microwave",
+          "refrigerator",
+          "tub"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "inspection",
+        "target": "downtown",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "inspection",
+          "safety",
+          "health",
+          "hospital",
+          "nearby"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 27,
+        "first_moves": 3
+      },
+      {
+        "start": "slide",
+        "target": "burger",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "slide",
+          "drop",
+          "even",
+          "get",
+          "eat",
+          "fried"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 51,
+        "first_moves": 1
+      },
+      {
+        "start": "magic",
+        "target": "funny",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "magic",
+          "magical",
+          "strange"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "temple",
+        "target": "sadly",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "temple",
+          "ancient",
+          "history",
+          "ever",
+          "unfortunately"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 43,
+        "first_moves": 7
+      },
+      {
+        "start": "delay",
+        "target": "sail",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "delay",
+          "planned",
+          "trip",
+          "voyage"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "fight",
+        "target": "architect",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "fight",
+          "effort",
+          "project",
+          "design"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "nonsense",
+        "target": "sacrifice",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "nonsense",
+          "arrogance",
+          "honesty",
+          "devotion"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 1
+      },
+      {
+        "start": "view",
+        "target": "default",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "view",
+          "not",
+          "money",
+          "credit"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 54,
+        "first_moves": 11
+      },
+      {
+        "start": "naval",
+        "target": "equal",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "naval",
+          "force",
+          "part",
+          "same"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 9,
+        "first_moves": 4
+      },
+      {
+        "start": "assume",
+        "target": "mystery",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "assume",
+          "will",
+          "tell",
+          "story"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 23,
+        "first_moves": 13
+      },
+      {
+        "start": "border",
+        "target": "fourth",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "border",
+          "along",
+          "one"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "musician",
+        "target": "peanut",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "musician",
+          "reggae",
+          "salsa",
+          "sauce"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "placement",
+        "target": "negative",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "secretly",
+        "target": "ben",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "legs",
+        "target": "flash",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "published",
+        "target": "alien",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "published",
+          "fiction",
+          "supernatural"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "hostile",
+        "target": "stiff",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "hostile",
+          "hostility",
+          "fear",
+          "even",
+          "face"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 14,
+        "first_moves": 1
+      },
+      {
+        "start": "historic",
+        "target": "sought",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "historic",
+          "building",
+          "new",
+          "also"
+        ],
+        "winning_planets": 19,
+        "shortest_routes": 54,
+        "first_moves": 4
+      },
+      {
+        "start": "opposite",
+        "target": "warfare",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "opposite",
+          "side",
+          "end",
+          "war"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "star",
+        "target": "inevitable",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "star",
+          "player",
+          "one",
+          "possible"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 20,
+        "first_moves": 2
+      },
+      {
+        "start": "protocol",
+        "target": "bureau",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "protocol",
+          "agreement",
+          "government",
+          "office"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 16,
+        "first_moves": 2
+      },
+      {
+        "start": "collection",
+        "target": "inclusive",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "collection",
+          "art",
+          "design",
+          "innovation",
+          "sustainable"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 7,
+        "first_moves": 2
+      },
+      {
+        "start": "travel",
+        "target": "leap",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "travel",
+          "visit",
+          "week",
+          "drop",
+          "jump"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 6,
+        "first_moves": 3
+      },
+      {
+        "start": "legacy",
+        "target": "podcast",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "peak",
+        "target": "letter",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "peak",
+          "height",
+          "above",
+          "just",
+          "not",
+          "statement"
+        ],
+        "winning_planets": 11,
+        "shortest_routes": 367,
+        "first_moves": 1
+      },
+      {
+        "start": "studio",
+        "target": "hammer",
+        "threshold": 0.45,
+        "attempts": 6,
+        "route": [
+          "studio",
+          "label",
+          "record",
+          "holder",
+          "medalist",
+          "discus",
+          "thrower"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "definition",
+        "target": "county",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "definition",
+          "standard",
+          "same",
+          "outside",
+          "courthouse"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "fierce",
+        "target": "mile",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "fierce",
+          "battle",
+          "war",
+          "world",
+          "way",
+          "road"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 18,
+        "first_moves": 1
+      },
+      {
+        "start": "comedian",
+        "target": "hunter",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "min",
+        "target": "harry",
+        "threshold": 0.45,
+        "attempts": 11,
+        "route": [
+          "min",
+          "yang",
+          "wen",
+          "premier",
+          "league",
+          "game",
+          "best",
+          "actor",
+          "entertainer",
+          "magician",
+          "sorcerer",
+          "potter"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 29,
+        "first_moves": 1
+      },
+      {
+        "start": "underwater",
+        "target": "victory",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "underwater",
+          "submarine",
+          "sea",
+          "island",
+          "off",
+          "first"
+        ],
+        "winning_planets": 19,
+        "shortest_routes": 60,
+        "first_moves": 2
+      },
+      {
+        "start": "mountain",
+        "target": "courtesy",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dental",
+        "target": "helpful",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "dental",
+          "medical",
+          "provide",
+          "good"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 5,
+        "first_moves": 1
+      },
+      {
+        "start": "east",
+        "target": "fine",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "east",
+          "part",
+          "well"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 3
+      },
+      {
+        "start": "earth",
+        "target": "resign",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "earth",
+          "ocean",
+          "water",
+          "clean",
+          "keep",
+          "decided"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 54,
+        "first_moves": 1
+      },
+      {
+        "start": "grandmother",
+        "target": "library",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "grandmother",
+          "child",
+          "education",
+          "university"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 8,
+        "first_moves": 3
+      },
+      {
+        "start": "specifically",
+        "target": "mobility",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "specifically",
+          "also",
+          "need",
+          "flexibility"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 27,
+        "first_moves": 12
+      },
+      {
+        "start": "stark",
+        "target": "under",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "stark",
+          "contrast",
+          "same"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "collect",
+        "target": "infected",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "collect",
+          "help",
+          "have",
+          "affected"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 27,
+        "first_moves": 5
+      },
+      {
+        "start": "angel",
+        "target": "distribution",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "equality",
+        "target": "network",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "equality",
+          "respect",
+          "relation",
+          "connection"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 12,
+        "first_moves": 4
+      },
+      {
+        "start": "beaten",
+        "target": "congressional",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "beaten",
+          "being",
+          "now",
+          "house"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 10,
+        "first_moves": 4
+      },
+      {
+        "start": "drill",
+        "target": "trick",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "senior",
+        "target": "together",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "senior",
+          "said",
+          "just"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 9,
+        "first_moves": 2
+      },
+      {
+        "start": "reflection",
+        "target": "double",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "reflection",
+          "moment",
+          "but",
+          "two"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 143,
+        "first_moves": 4
+      },
+      {
+        "start": "trump",
+        "target": "requirement",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "trump",
+          "casino",
+          "resort",
+          "vacation",
+          "stay",
+          "must"
+        ],
+        "winning_planets": 9,
+        "shortest_routes": 19,
+        "first_moves": 1
+      },
+      {
+        "start": "insurance",
+        "target": "pack",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "wherever",
+        "target": "historian",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "wherever",
+          "always",
+          "one",
+          "history"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 24,
+        "first_moves": 6
+      },
+      {
+        "start": "accurate",
+        "target": "laptop",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "accurate",
+          "information",
+          "computer"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "team",
+        "target": "route",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "team",
+          "time",
+          "are",
+          "along"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 117,
+        "first_moves": 7
+      },
+      {
+        "start": "everyday",
+        "target": "affection",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "everyday",
+          "life",
+          "love"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "flame",
+        "target": "saint",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "warm",
+        "target": "shot",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "warm",
+          "good",
+          "another"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "resident",
+        "target": "adapted",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "resident",
+          "residence",
+          "house",
+          "now",
+          "change",
+          "adapt"
+        ],
+        "winning_planets": 7,
+        "shortest_routes": 82,
+        "first_moves": 1
+      },
+      {
+        "start": "lance",
+        "target": "coach",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "distributed",
+        "target": "nurse",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "distributed",
+          "available",
+          "well",
+          "care"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "prone",
+        "target": "mail",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "prone",
+          "vulnerable",
+          "especially",
+          "can",
+          "send"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 50,
+        "first_moves": 2
+      },
+      {
+        "start": "laboratory",
+        "target": "representation",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "laboratory",
+          "study",
+          "example",
+          "represent"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "supreme",
+        "target": "spoken",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "supreme",
+          "case",
+          "not",
+          "speak"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 39,
+        "first_moves": 4
+      },
+      {
+        "start": "chapel",
+        "target": "carbon",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "chapel",
+          "built",
+          "existing",
+          "reduce"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "edited",
+        "target": "capitalism",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "edited",
+          "book",
+          "history",
+          "politics",
+          "ideology"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 82,
+        "first_moves": 9
+      },
+      {
+        "start": "phrase",
+        "target": "actor",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "phrase",
+          "name",
+          "same",
+          "best"
+        ],
+        "winning_planets": 19,
+        "shortest_routes": 108,
+        "first_moves": 9
+      },
+      {
+        "start": "science",
+        "target": "mixture",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "science",
+          "knowledge",
+          "sense",
+          "taste"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "ben",
+        "target": "continue",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "animation",
+        "target": "ham",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "animation",
+          "video",
+          "game",
+          "win",
+          "premiership",
+          "hotspur"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "enhanced",
+        "target": "masses",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "enhanced",
+          "improve",
+          "able",
+          "destroy",
+          "destruction",
+          "mass"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 34,
+        "first_moves": 8
+      },
+      {
+        "start": "page",
+        "target": "rubber",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "page",
+          "paper",
+          "plastic"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "somebody",
+        "target": "glow",
+        "threshold": 0.45,
+        "attempts": 2,
+        "route": [
+          "somebody",
+          "look",
+          "bright"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "ladder",
+        "target": "struck",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "ladder",
+          "climb",
+          "drop",
+          "even",
+          "off"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 13,
+        "first_moves": 1
+      },
+      {
+        "start": "mode",
+        "target": "impose",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "phoenix",
+        "target": "overhead",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mad",
+        "target": "moisture",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "mad",
+          "disease",
+          "risk",
+          "reduce",
+          "absorb"
+        ],
+        "winning_planets": 11,
+        "shortest_routes": 25,
+        "first_moves": 3
+      },
+      {
+        "start": "referendum",
+        "target": "event",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "referendum",
+          "vote",
+          "win",
+          "here"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 25,
+        "first_moves": 4
+      },
+      {
+        "start": "pond",
+        "target": "namely",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "pond",
+          "lake",
+          "river",
+          "along",
+          "include"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 3
+      },
+      {
+        "start": "spinning",
+        "target": "decided",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "spinning",
+          "wheel",
+          "car",
+          "drive",
+          "back"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "lodge",
+        "target": "blow",
+        "threshold": 0.45,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "topic",
+        "target": "dumb",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "topic",
+          "talk",
+          "think",
+          "stupid"
+        ],
+        "winning_planets": 8,
+        "shortest_routes": 83,
+        "first_moves": 5
+      },
+      {
+        "start": "king",
+        "target": "defender",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "king",
+          "son",
+          "born",
+          "footballer"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 3
+      },
+      {
+        "start": "solid",
+        "target": "hidden",
+        "threshold": 0.45,
+        "attempts": 3,
+        "route": [
+          "solid",
+          "enough",
+          "just",
+          "inside"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 23,
+        "first_moves": 2
+      },
+      {
+        "start": "chad",
+        "target": "hobby",
+        "threshold": 0.45,
+        "attempts": 7,
+        "route": [
+          "chad",
+          "congo",
+          "republic",
+          "independence",
+          "struggle",
+          "desire",
+          "obsession",
+          "pastime"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 5,
+        "first_moves": 1
+      },
+      {
+        "start": "regulated",
+        "target": "mph",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "regulated",
+          "regulation",
+          "legislation",
+          "allow",
+          "ability",
+          "speed"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "secret",
+        "target": "breakdown",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "secret",
+          "intelligence",
+          "knowledge",
+          "lack",
+          "failure"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 99,
+        "first_moves": 4
+      },
+      {
+        "start": "dirt",
+        "target": "lesser",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "dirt",
+          "road",
+          "way",
+          "much",
+          "greater"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 12,
+        "first_moves": 2
+      },
+      {
+        "start": "phase",
+        "target": "vet",
+        "threshold": 0.45,
+        "attempts": 5,
+        "route": [
+          "phase",
+          "start",
+          "get",
+          "care",
+          "physician",
+          "veterinarian"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 15,
+        "first_moves": 3
+      },
+      {
+        "start": "charitable",
+        "target": "jail",
+        "threshold": 0.45,
+        "attempts": 4,
+        "route": [
+          "charitable",
+          "organization",
+          "council",
+          "decision",
+          "court"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 51,
+        "first_moves": 5
+      }
+    ]
+  },
+  {
+    "threshold": 0.5,
+    "distribution": {
+      "5+": 47,
+      "unreachable": 49,
+      "4": 19,
+      "3": 13
+    },
+    "pairs": 128,
+    "mean_degree": 6.000800440242133,
+    "isolated": 5254,
+    "results": [
+      {
+        "start": "cheese",
+        "target": "language",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "cheese",
+          "meat",
+          "food",
+          "aid",
+          "help",
+          "not",
+          "speak"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 17,
+        "first_moves": 5
+      },
+      {
+        "start": "ocean",
+        "target": "music",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "ocean",
+          "coast",
+          "east",
+          "part",
+          "one",
+          "single",
+          "song"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 15,
+        "first_moves": 1
+      },
+      {
+        "start": "garden",
+        "target": "computer",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "coffee",
+        "target": "science",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "forest",
+        "target": "money",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "forest",
+          "acres",
+          "land",
+          "property",
+          "assets"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "bread",
+        "target": "democracy",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "river",
+        "target": "memory",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "moon",
+        "target": "kitchen",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "moon",
+          "spacecraft",
+          "launch",
+          "planned",
+          "next",
+          "night",
+          "room"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "player",
+        "target": "permanently",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "player",
+          "play",
+          "again",
+          "briefly",
+          "temporarily"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "silent",
+        "target": "compare",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "silent",
+          "silence",
+          "quiet",
+          "relatively",
+          "less",
+          "comparable"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "scholarship",
+        "target": "lead",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "scholarship",
+          "teaching",
+          "learn",
+          "take"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "guess",
+        "target": "infection",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "guess",
+          "know",
+          "person",
+          "patient"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 18,
+        "first_moves": 14
+      },
+      {
+        "start": "bankruptcy",
+        "target": "recommendation",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "reporter",
+        "target": "ninth",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "reporter",
+          "interview",
+          "week",
+          "second"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "deliberately",
+        "target": "pitch",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "shame",
+        "target": "grand",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "shame",
+          "sorry",
+          "really",
+          "back",
+          "straight",
+          "slam"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "patch",
+        "target": "continent",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "midnight",
+        "target": "shanghai",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "apparently",
+        "target": "pitch",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "apparently",
+          "but",
+          "off",
+          "ball"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 5,
+        "first_moves": 4
+      },
+      {
+        "start": "hazard",
+        "target": "racial",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "hazard",
+          "risk",
+          "fear",
+          "hatred"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "elevated",
+        "target": "visitor",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "evaluation",
+        "target": "hotel",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "evaluation",
+          "analysis",
+          "research",
+          "university",
+          "campus",
+          "downtown"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 5,
+        "first_moves": 3
+      },
+      {
+        "start": "weekly",
+        "target": "wrapped",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "weekly",
+          "magazine",
+          "vogue",
+          "fashion",
+          "clothing",
+          "leather",
+          "cloth"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "ammunition",
+        "target": "sand",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "reflection",
+        "target": "administrator",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "catholic",
+        "target": "purpose",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "catholic",
+          "church",
+          "faith",
+          "believe",
+          "reason"
+        ],
+        "winning_planets": 10,
+        "shortest_routes": 26,
+        "first_moves": 2
+      },
+      {
+        "start": "reverse",
+        "target": "health",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "tour",
+        "target": "rage",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "tour",
+          "concert",
+          "celebration",
+          "joyous",
+          "joy",
+          "grief"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "urge",
+        "target": "chi",
+        "threshold": 0.5,
+        "attempts": 9,
+        "route": [
+          "urge",
+          "ask",
+          "not",
+          "government",
+          "minister",
+          "premier",
+          "wen",
+          "yang",
+          "ling",
+          "mei"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 1
+      },
+      {
+        "start": "consistent",
+        "target": "runway",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "consistent",
+          "clear",
+          "immediately",
+          "incident",
+          "collision",
+          "plane",
+          "airport"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "roof",
+        "target": "therapist",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "roof",
+          "building",
+          "house",
+          "home",
+          "family",
+          "mother",
+          "nurse"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 7,
+        "first_moves": 1
+      },
+      {
+        "start": "fried",
+        "target": "confirm",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "fried",
+          "chicken",
+          "meat",
+          "food",
+          "aid",
+          "help",
+          "not"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 2
+      },
+      {
+        "start": "deck",
+        "target": "base",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "creative",
+        "target": "smooth",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "creative",
+          "innovative",
+          "efficient",
+          "efficiently",
+          "smoothly"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "recover",
+        "target": "unnecessary",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "recover",
+          "able",
+          "any",
+          "avoid"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 9,
+        "first_moves": 1
+      },
+      {
+        "start": "penalty",
+        "target": "ability",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "penalty",
+          "goal",
+          "chance",
+          "can"
+        ],
+        "winning_planets": 6,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "wrapped",
+        "target": "closest",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "troops",
+        "target": "diameter",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "troops",
+          "presence",
+          "strong",
+          "but",
+          "long",
+          "length"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "gray",
+        "target": "detect",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "gray",
+          "dark",
+          "eyes",
+          "look",
+          "find",
+          "identify"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 7,
+        "first_moves": 1
+      },
+      {
+        "start": "explosive",
+        "target": "license",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "explosive",
+          "device",
+          "electronic",
+          "online",
+          "software",
+          "application"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 13,
+        "first_moves": 1
+      },
+      {
+        "start": "birth",
+        "target": "creature",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "birth",
+          "mother",
+          "life",
+          "things",
+          "strange",
+          "mysterious"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "ranch",
+        "target": "funny",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "optical",
+        "target": "bucket",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "inspection",
+        "target": "downtown",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "inspection",
+          "quarantine",
+          "poultry",
+          "seafood",
+          "restaurant",
+          "hotel"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "slide",
+        "target": "burger",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "slide",
+          "drop",
+          "sales",
+          "retail",
+          "store",
+          "restaurant",
+          "pizza"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "magic",
+        "target": "funny",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "magic",
+          "magical",
+          "mystical",
+          "poetic",
+          "humorous"
+        ],
+        "winning_planets": 14,
+        "shortest_routes": 29,
+        "first_moves": 1
+      },
+      {
+        "start": "temple",
+        "target": "sadly",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "temple",
+          "ancient",
+          "modern",
+          "example",
+          "not",
+          "unfortunately"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 64,
+        "first_moves": 2
+      },
+      {
+        "start": "delay",
+        "target": "sail",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "delay",
+          "postpone",
+          "planned",
+          "trip",
+          "journey",
+          "voyage"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "fight",
+        "target": "architect",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "fight",
+          "battle",
+          "war",
+          "end",
+          "same",
+          "original",
+          "design"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 607,
+        "first_moves": 4
+      },
+      {
+        "start": "nonsense",
+        "target": "sacrifice",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "view",
+        "target": "default",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "view",
+          "rather",
+          "reason",
+          "interest",
+          "debt"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "naval",
+        "target": "equal",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "naval",
+          "military",
+          "security",
+          "ensure",
+          "respect"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "assume",
+        "target": "mystery",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "assume",
+          "take",
+          "things",
+          "strange",
+          "mysterious"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "border",
+        "target": "fourth",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "border",
+          "along",
+          "also",
+          "one"
+        ],
+        "winning_planets": 15,
+        "shortest_routes": 51,
+        "first_moves": 1
+      },
+      {
+        "start": "musician",
+        "target": "peanut",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "musician",
+          "jazz",
+          "reggae",
+          "salsa",
+          "chili",
+          "sauce"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 10,
+        "first_moves": 2
+      },
+      {
+        "start": "placement",
+        "target": "negative",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "secretly",
+        "target": "ben",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "legs",
+        "target": "flash",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "published",
+        "target": "alien",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "published",
+          "novel",
+          "mystery",
+          "mysterious",
+          "creature"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "hostile",
+        "target": "stiff",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "historic",
+        "target": "sought",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "historic",
+          "historical",
+          "context",
+          "understand",
+          "help"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "opposite",
+        "target": "warfare",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "opposite",
+          "direction",
+          "path",
+          "way",
+          "end",
+          "war"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "star",
+        "target": "inevitable",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "star",
+          "movie",
+          "best",
+          "just",
+          "happen"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 35,
+        "first_moves": 1
+      },
+      {
+        "start": "protocol",
+        "target": "bureau",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "protocol",
+          "treaty",
+          "agreement",
+          "plan",
+          "administration",
+          "department"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "collection",
+        "target": "inclusive",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "travel",
+        "target": "leap",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "travel",
+          "trip",
+          "day",
+          "fall",
+          "drop",
+          "jump"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "legacy",
+        "target": "podcast",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "peak",
+        "target": "letter",
+        "threshold": 0.5,
+        "attempts": 7,
+        "route": [
+          "peak",
+          "mountain",
+          "valley",
+          "river",
+          "along",
+          "also",
+          "then",
+          "sent"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 62,
+        "first_moves": 1
+      },
+      {
+        "start": "studio",
+        "target": "hammer",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "definition",
+        "target": "county",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "definition",
+          "standard",
+          "example",
+          "are",
+          "large",
+          "area",
+          "district"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 150,
+        "first_moves": 2
+      },
+      {
+        "start": "fierce",
+        "target": "mile",
+        "threshold": 0.5,
+        "attempts": 7,
+        "route": [
+          "fierce",
+          "battle",
+          "war",
+          "end",
+          "part",
+          "area",
+          "downtown",
+          "square"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "comedian",
+        "target": "hunter",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "min",
+        "target": "harry",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "underwater",
+        "target": "victory",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "underwater",
+          "divers",
+          "diver",
+          "swimmer",
+          "medalist",
+          "champion",
+          "win"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 15,
+        "first_moves": 1
+      },
+      {
+        "start": "mountain",
+        "target": "courtesy",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dental",
+        "target": "helpful",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "dental",
+          "medical",
+          "care",
+          "provide",
+          "useful"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "east",
+        "target": "fine",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "earth",
+        "target": "resign",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "grandmother",
+        "target": "library",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "grandmother",
+          "family",
+          "life",
+          "work",
+          "study",
+          "university",
+          "campus"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 23,
+        "first_moves": 5
+      },
+      {
+        "start": "specifically",
+        "target": "mobility",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "stark",
+        "target": "under",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "stark",
+          "contrast",
+          "though",
+          "all"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 11,
+        "first_moves": 1
+      },
+      {
+        "start": "collect",
+        "target": "infected",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "collect",
+          "able",
+          "any",
+          "cause",
+          "disease"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 9,
+        "first_moves": 1
+      },
+      {
+        "start": "angel",
+        "target": "distribution",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "equality",
+        "target": "network",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "equality",
+          "respect",
+          "want",
+          "talk",
+          "radio"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "beaten",
+        "target": "congressional",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "beaten",
+          "twice",
+          "time",
+          "home",
+          "house"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 4,
+        "first_moves": 1
+      },
+      {
+        "start": "drill",
+        "target": "trick",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "senior",
+        "target": "together",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "senior",
+          "top",
+          "one",
+          "all"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 5,
+        "first_moves": 1
+      },
+      {
+        "start": "reflection",
+        "target": "double",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "reflection",
+          "reflect",
+          "change",
+          "but",
+          "second"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 7,
+        "first_moves": 1
+      },
+      {
+        "start": "trump",
+        "target": "requirement",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "insurance",
+        "target": "pack",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "wherever",
+        "target": "historian",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "wherever",
+          "whatever",
+          "not",
+          "work",
+          "writing",
+          "author"
+        ],
+        "winning_planets": 5,
+        "shortest_routes": 115,
+        "first_moves": 3
+      },
+      {
+        "start": "accurate",
+        "target": "laptop",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "accurate",
+          "useful",
+          "information",
+          "data",
+          "computer"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 5,
+        "first_moves": 1
+      },
+      {
+        "start": "team",
+        "target": "route",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "team",
+          "season",
+          "year",
+          "well",
+          "along"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 23,
+        "first_moves": 3
+      },
+      {
+        "start": "everyday",
+        "target": "affection",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "flame",
+        "target": "saint",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "warm",
+        "target": "shot",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "warm",
+          "unusually",
+          "very",
+          "but",
+          "off",
+          "hit"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 23,
+        "first_moves": 1
+      },
+      {
+        "start": "resident",
+        "target": "adapted",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "lance",
+        "target": "coach",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "distributed",
+        "target": "nurse",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "prone",
+        "target": "mail",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "prone",
+          "susceptible",
+          "vulnerable",
+          "especially",
+          "are",
+          "available",
+          "online"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 36,
+        "first_moves": 1
+      },
+      {
+        "start": "laboratory",
+        "target": "representation",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "laboratory",
+          "research",
+          "study",
+          "suggest",
+          "necessarily",
+          "represent"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 7,
+        "first_moves": 3
+      },
+      {
+        "start": "supreme",
+        "target": "spoken",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "supreme",
+          "decision",
+          "not",
+          "speak"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "chapel",
+        "target": "carbon",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "chapel",
+          "church",
+          "faith",
+          "believe",
+          "there",
+          "significant",
+          "reduction"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 48,
+        "first_moves": 2
+      },
+      {
+        "start": "edited",
+        "target": "capitalism",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "edited",
+          "book",
+          "literature",
+          "philosophy",
+          "ideology",
+          "socialism"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 6,
+        "first_moves": 3
+      },
+      {
+        "start": "phrase",
+        "target": "actor",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "phrase",
+          "name",
+          "same",
+          "one",
+          "best",
+          "film"
+        ],
+        "winning_planets": 12,
+        "shortest_routes": 376,
+        "first_moves": 5
+      },
+      {
+        "start": "science",
+        "target": "mixture",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "science",
+          "chemistry",
+          "inorganic",
+          "chloride",
+          "hydrogen",
+          "liquid"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "ben",
+        "target": "continue",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "animation",
+        "target": "ham",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "enhanced",
+        "target": "masses",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "enhanced",
+          "improve",
+          "help",
+          "protect",
+          "destroy",
+          "destruction",
+          "mass"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 30,
+        "first_moves": 4
+      },
+      {
+        "start": "page",
+        "target": "rubber",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "page",
+          "web",
+          "video",
+          "music",
+          "band",
+          "metal",
+          "plastic"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "somebody",
+        "target": "glow",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "somebody",
+          "mind",
+          "eyes",
+          "bright"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 2
+      },
+      {
+        "start": "ladder",
+        "target": "struck",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "ladder",
+          "climb",
+          "jump",
+          "drop",
+          "down",
+          "off",
+          "hit"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "mode",
+        "target": "impose",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "phoenix",
+        "target": "overhead",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mad",
+        "target": "moisture",
+        "threshold": 0.5,
+        "attempts": 6,
+        "route": [
+          "mad",
+          "cow",
+          "animal",
+          "wildlife",
+          "habitat",
+          "lowland",
+          "moist"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 14,
+        "first_moves": 1
+      },
+      {
+        "start": "referendum",
+        "target": "event",
+        "threshold": 0.5,
+        "attempts": 4,
+        "route": [
+          "referendum",
+          "vote",
+          "presidential",
+          "inauguration",
+          "inaugural"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 3
+      },
+      {
+        "start": "pond",
+        "target": "namely",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "pond",
+          "lake",
+          "river",
+          "along",
+          "other",
+          "besides"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 2
+      },
+      {
+        "start": "spinning",
+        "target": "decided",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "lodge",
+        "target": "blow",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "topic",
+        "target": "dumb",
+        "threshold": 0.5,
+        "attempts": 3,
+        "route": [
+          "topic",
+          "question",
+          "thing",
+          "stupid"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "king",
+        "target": "defender",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "king",
+          "brother",
+          "boy",
+          "teenager",
+          "youngster",
+          "striker"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "solid",
+        "target": "hidden",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "chad",
+        "target": "hobby",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "regulated",
+        "target": "mph",
+        "threshold": 0.5,
+        "attempts": 7,
+        "route": [
+          "regulated",
+          "regulation",
+          "legislation",
+          "tax",
+          "revenue",
+          "growth",
+          "slow",
+          "speed"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 57,
+        "first_moves": 1
+      },
+      {
+        "start": "secret",
+        "target": "breakdown",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dirt",
+        "target": "lesser",
+        "threshold": 0.5,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "phase",
+        "target": "vet",
+        "threshold": 0.5,
+        "attempts": 7,
+        "route": [
+          "phase",
+          "begin",
+          "will",
+          "not",
+          "person",
+          "patient",
+          "physician",
+          "veterinarian"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 140,
+        "first_moves": 2
+      },
+      {
+        "start": "charitable",
+        "target": "jail",
+        "threshold": 0.5,
+        "attempts": 5,
+        "route": [
+          "charitable",
+          "nonprofit",
+          "governmental",
+          "judicial",
+          "court",
+          "trial"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 1
+      }
+    ]
+  },
+  {
+    "threshold": 0.55,
+    "distribution": {
+      "5+": 32,
+      "unreachable": 94,
+      "4": 2
+    },
+    "pairs": 128,
+    "mean_degree": 2.8377607684226325,
+    "isolated": 8272,
+    "results": [
+      {
+        "start": "cheese",
+        "target": "language",
+        "threshold": 0.55,
+        "attempts": 12,
+        "route": [
+          "cheese",
+          "sausage",
+          "spicy",
+          "flavor",
+          "texture",
+          "richness",
+          "diversity",
+          "diverse",
+          "variety",
+          "such",
+          "known",
+          "name",
+          "word"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 1
+      },
+      {
+        "start": "ocean",
+        "target": "music",
+        "threshold": 0.55,
+        "attempts": 11,
+        "route": [
+          "ocean",
+          "coast",
+          "southern",
+          "region",
+          "area",
+          "nearby",
+          "outside",
+          "around",
+          "just",
+          "one",
+          "single",
+          "album"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "garden",
+        "target": "computer",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "coffee",
+        "target": "science",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "forest",
+        "target": "money",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "bread",
+        "target": "democracy",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "river",
+        "target": "memory",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "moon",
+        "target": "kitchen",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "player",
+        "target": "permanently",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "silent",
+        "target": "compare",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "scholarship",
+        "target": "lead",
+        "threshold": 0.55,
+        "attempts": 6,
+        "route": [
+          "scholarship",
+          "college",
+          "education",
+          "care",
+          "need",
+          "time",
+          "second"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "guess",
+        "target": "infection",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "guess",
+          "just",
+          "yet",
+          "serious",
+          "severe",
+          "illness"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 31,
+        "first_moves": 20
+      },
+      {
+        "start": "bankruptcy",
+        "target": "recommendation",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "reporter",
+        "target": "ninth",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "reporter",
+          "interview",
+          "talk",
+          "know",
+          "one",
+          "second"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 26,
+        "first_moves": 1
+      },
+      {
+        "start": "deliberately",
+        "target": "pitch",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "shame",
+        "target": "grand",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "patch",
+        "target": "continent",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "midnight",
+        "target": "shanghai",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "apparently",
+        "target": "pitch",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "hazard",
+        "target": "racial",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "hazard",
+          "danger",
+          "fear",
+          "anger",
+          "hatred",
+          "racism"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "elevated",
+        "target": "visitor",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "evaluation",
+        "target": "hotel",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "evaluation",
+          "evaluate",
+          "determine",
+          "must",
+          "help",
+          "build",
+          "building",
+          "apartment"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 10,
+        "first_moves": 1
+      },
+      {
+        "start": "weekly",
+        "target": "wrapped",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "ammunition",
+        "target": "sand",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "reflection",
+        "target": "administrator",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "catholic",
+        "target": "purpose",
+        "threshold": 0.55,
+        "attempts": 6,
+        "route": [
+          "catholic",
+          "religious",
+          "faith",
+          "belief",
+          "believe",
+          "not",
+          "intended"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 14,
+        "first_moves": 1
+      },
+      {
+        "start": "reverse",
+        "target": "health",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "tour",
+        "target": "rage",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "urge",
+        "target": "chi",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "consistent",
+        "target": "runway",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "roof",
+        "target": "therapist",
+        "threshold": 0.55,
+        "attempts": 11,
+        "route": [
+          "roof",
+          "porch",
+          "balcony",
+          "upstairs",
+          "room",
+          "sitting",
+          "sit",
+          "let",
+          "need",
+          "care",
+          "treatment",
+          "therapy"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 4,
+        "first_moves": 1
+      },
+      {
+        "start": "fried",
+        "target": "confirm",
+        "threshold": 0.55,
+        "attempts": 10,
+        "route": [
+          "fried",
+          "chicken",
+          "poultry",
+          "avian",
+          "virus",
+          "disease",
+          "illness",
+          "severe",
+          "serious",
+          "yet",
+          "neither"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 34,
+        "first_moves": 1
+      },
+      {
+        "start": "deck",
+        "target": "base",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "creative",
+        "target": "smooth",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "recover",
+        "target": "unnecessary",
+        "threshold": 0.55,
+        "attempts": 6,
+        "route": [
+          "recover",
+          "recovery",
+          "economic",
+          "policy",
+          "change",
+          "any",
+          "avoid"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 3,
+        "first_moves": 1
+      },
+      {
+        "start": "penalty",
+        "target": "ability",
+        "threshold": 0.55,
+        "attempts": 4,
+        "route": [
+          "penalty",
+          "minute",
+          "half",
+          "but",
+          "can"
+        ],
+        "winning_planets": 3,
+        "shortest_routes": 12,
+        "first_moves": 1
+      },
+      {
+        "start": "wrapped",
+        "target": "closest",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "troops",
+        "target": "diameter",
+        "threshold": 0.55,
+        "attempts": 12,
+        "route": [
+          "troops",
+          "army",
+          "infantry",
+          "artillery",
+          "mortar",
+          "rocket",
+          "launch",
+          "planned",
+          "intended",
+          "not",
+          "longer",
+          "short",
+          "length"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "gray",
+        "target": "detect",
+        "threshold": 0.55,
+        "attempts": 15,
+        "route": [
+          "gray",
+          "blue",
+          "yellow",
+          "colour",
+          "reddish",
+          "yellowish",
+          "thorax",
+          "abdomen",
+          "chest",
+          "stomach",
+          "bladder",
+          "liver",
+          "cancer",
+          "disease",
+          "diagnosis",
+          "diagnose"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 42,
+        "first_moves": 1
+      },
+      {
+        "start": "explosive",
+        "target": "license",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "birth",
+        "target": "creature",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "ranch",
+        "target": "funny",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "optical",
+        "target": "bucket",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "inspection",
+        "target": "downtown",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "slide",
+        "target": "burger",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "magic",
+        "target": "funny",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "temple",
+        "target": "sadly",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "delay",
+        "target": "sail",
+        "threshold": 0.55,
+        "attempts": 10,
+        "route": [
+          "delay",
+          "postpone",
+          "cancel",
+          "cancelled",
+          "due",
+          "but",
+          "here",
+          "visit",
+          "trip",
+          "journey",
+          "voyage"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 13,
+        "first_moves": 1
+      },
+      {
+        "start": "fight",
+        "target": "architect",
+        "threshold": 0.55,
+        "attempts": 8,
+        "route": [
+          "fight",
+          "defend",
+          "protect",
+          "help",
+          "way",
+          "idea",
+          "concept",
+          "design",
+          "architectural"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 12,
+        "first_moves": 1
+      },
+      {
+        "start": "nonsense",
+        "target": "sacrifice",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "view",
+        "target": "default",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "naval",
+        "target": "equal",
+        "threshold": 0.55,
+        "attempts": 12,
+        "route": [
+          "naval",
+          "military",
+          "force",
+          "air",
+          "aircraft",
+          "fighter",
+          "combat",
+          "fight",
+          "defend",
+          "protect",
+          "help",
+          "must",
+          "respect"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 27,
+        "first_moves": 1
+      },
+      {
+        "start": "assume",
+        "target": "mystery",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "border",
+        "target": "fourth",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "musician",
+        "target": "peanut",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "musician",
+          "music",
+          "concert",
+          "gala",
+          "dinner",
+          "meal",
+          "bread",
+          "butter"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "placement",
+        "target": "negative",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "secretly",
+        "target": "ben",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "legs",
+        "target": "flash",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "published",
+        "target": "alien",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "hostile",
+        "target": "stiff",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "historic",
+        "target": "sought",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "historic",
+          "historical",
+          "history",
+          "ever",
+          "get",
+          "help"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "opposite",
+        "target": "warfare",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "star",
+        "target": "inevitable",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "protocol",
+        "target": "bureau",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "protocol",
+          "treaty",
+          "agreement",
+          "proposal",
+          "legislation",
+          "congress",
+          "administration",
+          "department"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "collection",
+        "target": "inclusive",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "travel",
+        "target": "leap",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "legacy",
+        "target": "podcast",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "peak",
+        "target": "letter",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "studio",
+        "target": "hammer",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "definition",
+        "target": "county",
+        "threshold": 0.55,
+        "attempts": 9,
+        "route": [
+          "definition",
+          "defined",
+          "function",
+          "therefore",
+          "not",
+          "exactly",
+          "exact",
+          "location",
+          "located",
+          "unincorporated"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 10,
+        "first_moves": 1
+      },
+      {
+        "start": "fierce",
+        "target": "mile",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "comedian",
+        "target": "hunter",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "min",
+        "target": "harry",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "underwater",
+        "target": "victory",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mountain",
+        "target": "courtesy",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dental",
+        "target": "helpful",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "east",
+        "target": "fine",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "earth",
+        "target": "resign",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "grandmother",
+        "target": "library",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "specifically",
+        "target": "mobility",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "stark",
+        "target": "under",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "collect",
+        "target": "infected",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "angel",
+        "target": "distribution",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "equality",
+        "target": "network",
+        "threshold": 0.55,
+        "attempts": 6,
+        "route": [
+          "equality",
+          "equal",
+          "respect",
+          "must",
+          "allow",
+          "access",
+          "internet"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      },
+      {
+        "start": "beaten",
+        "target": "congressional",
+        "threshold": 0.55,
+        "attempts": 8,
+        "route": [
+          "beaten",
+          "beat",
+          "win",
+          "final",
+          "next",
+          "decide",
+          "approve",
+          "vote",
+          "senate"
+        ],
+        "winning_planets": 4,
+        "shortest_routes": 97,
+        "first_moves": 1
+      },
+      {
+        "start": "drill",
+        "target": "trick",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "senior",
+        "target": "together",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "reflection",
+        "target": "double",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "trump",
+        "target": "requirement",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "insurance",
+        "target": "pack",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "wherever",
+        "target": "historian",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "wherever",
+          "whatever",
+          "tell",
+          "read",
+          "book",
+          "author"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "accurate",
+        "target": "laptop",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "accurate",
+          "precise",
+          "exact",
+          "details",
+          "information",
+          "access",
+          "internet",
+          "computer"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 6,
+        "first_moves": 1
+      },
+      {
+        "start": "team",
+        "target": "route",
+        "threshold": 0.55,
+        "attempts": 6,
+        "route": [
+          "team",
+          "season",
+          "year",
+          "but",
+          "well",
+          "along",
+          "road"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 19,
+        "first_moves": 1
+      },
+      {
+        "start": "everyday",
+        "target": "affection",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "flame",
+        "target": "saint",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "warm",
+        "target": "shot",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "resident",
+        "target": "adapted",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "lance",
+        "target": "coach",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "distributed",
+        "target": "nurse",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "prone",
+        "target": "mail",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "laboratory",
+        "target": "representation",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "supreme",
+        "target": "spoken",
+        "threshold": 0.55,
+        "attempts": 5,
+        "route": [
+          "supreme",
+          "decision",
+          "consider",
+          "not",
+          "know",
+          "speak"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 45,
+        "first_moves": 2
+      },
+      {
+        "start": "chapel",
+        "target": "carbon",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "edited",
+        "target": "capitalism",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "edited",
+          "written",
+          "writing",
+          "teaching",
+          "philosophy",
+          "religion",
+          "ideology",
+          "socialism"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 10,
+        "first_moves": 3
+      },
+      {
+        "start": "phrase",
+        "target": "actor",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "phrase",
+          "word",
+          "name",
+          "known",
+          "most",
+          "notable",
+          "feature",
+          "film"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "science",
+        "target": "mixture",
+        "threshold": 0.55,
+        "attempts": 8,
+        "route": [
+          "science",
+          "fiction",
+          "comic",
+          "humor",
+          "amusing",
+          "delightful",
+          "delicious",
+          "dessert",
+          "sauce"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 12,
+        "first_moves": 1
+      },
+      {
+        "start": "ben",
+        "target": "continue",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "animation",
+        "target": "ham",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "enhanced",
+        "target": "masses",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "page",
+        "target": "rubber",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "somebody",
+        "target": "glow",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "ladder",
+        "target": "struck",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mode",
+        "target": "impose",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "phoenix",
+        "target": "overhead",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "mad",
+        "target": "moisture",
+        "threshold": 0.55,
+        "attempts": 7,
+        "route": [
+          "mad",
+          "cow",
+          "sheep",
+          "grazing",
+          "pasture",
+          "grassland",
+          "lowland",
+          "moist"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 2,
+        "first_moves": 1
+      },
+      {
+        "start": "referendum",
+        "target": "event",
+        "threshold": 0.55,
+        "attempts": 8,
+        "route": [
+          "referendum",
+          "election",
+          "campaign",
+          "effort",
+          "help",
+          "will",
+          "next",
+          "final",
+          "tournament"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 60,
+        "first_moves": 1
+      },
+      {
+        "start": "pond",
+        "target": "namely",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "spinning",
+        "target": "decided",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "lodge",
+        "target": "blow",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "topic",
+        "target": "dumb",
+        "threshold": 0.55,
+        "attempts": 4,
+        "route": [
+          "topic",
+          "question",
+          "know",
+          "wrong",
+          "stupid"
+        ],
+        "winning_planets": 2,
+        "shortest_routes": 11,
+        "first_moves": 1
+      },
+      {
+        "start": "king",
+        "target": "defender",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "solid",
+        "target": "hidden",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "chad",
+        "target": "hobby",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "regulated",
+        "target": "mph",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "secret",
+        "target": "breakdown",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "dirt",
+        "target": "lesser",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "phase",
+        "target": "vet",
+        "threshold": 0.55,
+        "attempts": null,
+        "route": [],
+        "winning_planets": 0,
+        "shortest_routes": 0,
+        "first_moves": 0
+      },
+      {
+        "start": "charitable",
+        "target": "jail",
+        "threshold": 0.55,
+        "attempts": 11,
+        "route": [
+          "charitable",
+          "nonprofit",
+          "advocacy",
+          "advocate",
+          "supporter",
+          "ally",
+          "allies",
+          "coalition",
+          "opposition",
+          "government",
+          "authorities",
+          "arrest"
+        ],
+        "winning_planets": 1,
+        "shortest_routes": 1,
+        "first_moves": 1
+      }
+    ]
+  }
+]

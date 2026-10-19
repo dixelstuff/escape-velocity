@@ -1,0 +1,1986 @@
+[
+  {
+    "start": "forest",
+    "target": "money",
+    "threshold": 0.4,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "forest",
+          "current": "forest",
+          "target": "money",
+          "threshold": 0.4,
+          "baseline": 0.07867243885993958,
+          "progress": 0.07867243885993958,
+          "attempts": 0,
+          "route": [
+            "forest"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "forest",
+        "error": true,
+        "state": {
+          "start": "forest",
+          "current": "forest",
+          "target": "money",
+          "threshold": 0.4,
+          "baseline": 0.07867243885993958,
+          "progress": 0.07867243885993958,
+          "attempts": 0,
+          "route": [
+            "forest"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "money",
+        "event": {
+          "word": "money",
+          "origin": "forest",
+          "launch": 0.07867243885993958,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "forest",
+          "current": "forest",
+          "target": "money",
+          "threshold": 0.4,
+          "baseline": 0.07867243885993958,
+          "progress": 0.07867243885993958,
+          "attempts": 1,
+          "route": [
+            "forest"
+          ],
+          "history": [
+            {
+              "word": "money",
+              "origin": "forest",
+              "launch": 0.07867243885993958,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "area",
+        "event": {
+          "word": "area",
+          "origin": "forest",
+          "launch": 0.43405601382255554,
+          "destination": 0.22176438570022583,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "forest",
+          "current": "area",
+          "target": "money",
+          "threshold": 0.4,
+          "baseline": 0.07867243885993958,
+          "progress": 0.22176438570022583,
+          "attempts": 2,
+          "route": [
+            "forest",
+            "area"
+          ],
+          "history": [
+            {
+              "word": "money",
+              "origin": "forest",
+              "launch": 0.07867243885993958,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "area",
+              "origin": "forest",
+              "launch": 0.43405601382255554,
+              "destination": 0.22176438570022583,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "have",
+        "event": {
+          "word": "have",
+          "origin": "area",
+          "launch": 0.4030943512916565,
+          "destination": 0.4207373857498169,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 3
+        },
+        "state": {
+          "start": "forest",
+          "current": "have",
+          "target": "money",
+          "threshold": 0.4,
+          "baseline": 0.07867243885993958,
+          "progress": 0.4207373857498169,
+          "attempts": 3,
+          "route": [
+            "forest",
+            "area",
+            "have"
+          ],
+          "history": [
+            {
+              "word": "money",
+              "origin": "forest",
+              "launch": 0.07867243885993958,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "area",
+              "origin": "forest",
+              "launch": 0.43405601382255554,
+              "destination": 0.22176438570022583,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "have",
+              "origin": "area",
+              "launch": 0.4030943512916565,
+              "destination": 0.4207373857498169,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 3
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "penalty",
+    "target": "ability",
+    "threshold": 0.45,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "penalty",
+          "current": "penalty",
+          "target": "ability",
+          "threshold": 0.45,
+          "baseline": 0.10486125200986862,
+          "progress": 0.10486125200986862,
+          "attempts": 0,
+          "route": [
+            "penalty"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "penalty",
+        "error": true,
+        "state": {
+          "start": "penalty",
+          "current": "penalty",
+          "target": "ability",
+          "threshold": 0.45,
+          "baseline": 0.10486125200986862,
+          "progress": 0.10486125200986862,
+          "attempts": 0,
+          "route": [
+            "penalty"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "ability",
+        "event": {
+          "word": "ability",
+          "origin": "penalty",
+          "launch": 0.10486125200986862,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "penalty",
+          "current": "penalty",
+          "target": "ability",
+          "threshold": 0.45,
+          "baseline": 0.10486125200986862,
+          "progress": 0.10486125200986862,
+          "attempts": 1,
+          "route": [
+            "penalty"
+          ],
+          "history": [
+            {
+              "word": "ability",
+              "origin": "penalty",
+              "launch": 0.10486125200986862,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "half",
+        "event": {
+          "word": "half",
+          "origin": "penalty",
+          "launch": 0.4712158143520355,
+          "destination": 0.20438501238822937,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "penalty",
+          "current": "half",
+          "target": "ability",
+          "threshold": 0.45,
+          "baseline": 0.10486125200986862,
+          "progress": 0.20438501238822937,
+          "attempts": 2,
+          "route": [
+            "penalty",
+            "half"
+          ],
+          "history": [
+            {
+              "word": "ability",
+              "origin": "penalty",
+              "launch": 0.10486125200986862,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "half",
+              "origin": "penalty",
+              "launch": 0.4712158143520355,
+              "destination": 0.20438501238822937,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "make",
+        "event": {
+          "word": "make",
+          "origin": "half",
+          "launch": 0.46896058320999146,
+          "destination": 0.47536972165107727,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 3
+        },
+        "state": {
+          "start": "penalty",
+          "current": "make",
+          "target": "ability",
+          "threshold": 0.45,
+          "baseline": 0.10486125200986862,
+          "progress": 0.47536972165107727,
+          "attempts": 3,
+          "route": [
+            "penalty",
+            "half",
+            "make"
+          ],
+          "history": [
+            {
+              "word": "ability",
+              "origin": "penalty",
+              "launch": 0.10486125200986862,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "half",
+              "origin": "penalty",
+              "launch": 0.4712158143520355,
+              "destination": 0.20438501238822937,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "make",
+              "origin": "half",
+              "launch": 0.46896058320999146,
+              "destination": 0.47536972165107727,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 3
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "senior",
+    "target": "together",
+    "threshold": 0.45,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "senior",
+          "current": "senior",
+          "target": "together",
+          "threshold": 0.45,
+          "baseline": 0.19956281781196594,
+          "progress": 0.19956281781196594,
+          "attempts": 0,
+          "route": [
+            "senior"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "senior",
+        "error": true,
+        "state": {
+          "start": "senior",
+          "current": "senior",
+          "target": "together",
+          "threshold": 0.45,
+          "baseline": 0.19956281781196594,
+          "progress": 0.19956281781196594,
+          "attempts": 0,
+          "route": [
+            "senior"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "together",
+        "event": {
+          "word": "together",
+          "origin": "senior",
+          "launch": 0.19956281781196594,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "senior",
+          "current": "senior",
+          "target": "together",
+          "threshold": 0.45,
+          "baseline": 0.19956281781196594,
+          "progress": 0.19956281781196594,
+          "attempts": 1,
+          "route": [
+            "senior"
+          ],
+          "history": [
+            {
+              "word": "together",
+              "origin": "senior",
+              "launch": 0.19956281781196594,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "said",
+        "event": {
+          "word": "said",
+          "origin": "senior",
+          "launch": 0.48450708389282227,
+          "destination": 0.27861276268959045,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "senior",
+          "current": "said",
+          "target": "together",
+          "threshold": 0.45,
+          "baseline": 0.19956281781196594,
+          "progress": 0.27861276268959045,
+          "attempts": 2,
+          "route": [
+            "senior",
+            "said"
+          ],
+          "history": [
+            {
+              "word": "together",
+              "origin": "senior",
+              "launch": 0.19956281781196594,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "said",
+              "origin": "senior",
+              "launch": 0.48450708389282227,
+              "destination": 0.27861276268959045,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "just",
+        "event": {
+          "word": "just",
+          "origin": "said",
+          "launch": 0.4546169340610504,
+          "destination": 0.46604079008102417,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 3
+        },
+        "state": {
+          "start": "senior",
+          "current": "just",
+          "target": "together",
+          "threshold": 0.45,
+          "baseline": 0.19956281781196594,
+          "progress": 0.46604079008102417,
+          "attempts": 3,
+          "route": [
+            "senior",
+            "said",
+            "just"
+          ],
+          "history": [
+            {
+              "word": "together",
+              "origin": "senior",
+              "launch": 0.19956281781196594,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "said",
+              "origin": "senior",
+              "launch": 0.48450708389282227,
+              "destination": 0.27861276268959045,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "just",
+              "origin": "said",
+              "launch": 0.4546169340610504,
+              "destination": 0.46604079008102417,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 3
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "everyday",
+    "target": "affection",
+    "threshold": 0.45,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "everyday",
+          "current": "everyday",
+          "target": "affection",
+          "threshold": 0.45,
+          "baseline": 0.16572889685630798,
+          "progress": 0.16572889685630798,
+          "attempts": 0,
+          "route": [
+            "everyday"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "everyday",
+        "error": true,
+        "state": {
+          "start": "everyday",
+          "current": "everyday",
+          "target": "affection",
+          "threshold": 0.45,
+          "baseline": 0.16572889685630798,
+          "progress": 0.16572889685630798,
+          "attempts": 0,
+          "route": [
+            "everyday"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "affection",
+        "event": {
+          "word": "affection",
+          "origin": "everyday",
+          "launch": 0.16572889685630798,
+          "destination": 0.9999998211860657,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "everyday",
+          "current": "everyday",
+          "target": "affection",
+          "threshold": 0.45,
+          "baseline": 0.16572889685630798,
+          "progress": 0.16572889685630798,
+          "attempts": 1,
+          "route": [
+            "everyday"
+          ],
+          "history": [
+            {
+              "word": "affection",
+              "origin": "everyday",
+              "launch": 0.16572889685630798,
+              "destination": 0.9999998211860657,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "life",
+        "event": {
+          "word": "life",
+          "origin": "everyday",
+          "launch": 0.45241034030914307,
+          "destination": 0.23097822070121765,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "everyday",
+          "current": "life",
+          "target": "affection",
+          "threshold": 0.45,
+          "baseline": 0.16572889685630798,
+          "progress": 0.23097822070121765,
+          "attempts": 2,
+          "route": [
+            "everyday",
+            "life"
+          ],
+          "history": [
+            {
+              "word": "affection",
+              "origin": "everyday",
+              "launch": 0.16572889685630798,
+              "destination": 0.9999998211860657,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "life",
+              "origin": "everyday",
+              "launch": 0.45241034030914307,
+              "destination": 0.23097822070121765,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "love",
+        "event": {
+          "word": "love",
+          "origin": "life",
+          "launch": 0.5386446118354797,
+          "destination": 0.5818217992782593,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 3
+        },
+        "state": {
+          "start": "everyday",
+          "current": "love",
+          "target": "affection",
+          "threshold": 0.45,
+          "baseline": 0.16572889685630798,
+          "progress": 0.5818217992782593,
+          "attempts": 3,
+          "route": [
+            "everyday",
+            "life",
+            "love"
+          ],
+          "history": [
+            {
+              "word": "affection",
+              "origin": "everyday",
+              "launch": 0.16572889685630798,
+              "destination": 0.9999998211860657,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "life",
+              "origin": "everyday",
+              "launch": 0.45241034030914307,
+              "destination": 0.23097822070121765,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "love",
+              "origin": "life",
+              "launch": 0.5386446118354797,
+              "destination": 0.5818217992782593,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 3
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "bread",
+    "target": "democracy",
+    "threshold": 0.4,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "bread",
+          "current": "bread",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.13406279683113098,
+          "attempts": 0,
+          "route": [
+            "bread"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "bread",
+        "error": true,
+        "state": {
+          "start": "bread",
+          "current": "bread",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.13406279683113098,
+          "attempts": 0,
+          "route": [
+            "bread"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "democracy",
+        "event": {
+          "word": "democracy",
+          "origin": "bread",
+          "launch": 0.13406279683113098,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "bread",
+          "current": "bread",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.13406279683113098,
+          "attempts": 1,
+          "route": [
+            "bread"
+          ],
+          "history": [
+            {
+              "word": "democracy",
+              "origin": "bread",
+              "launch": 0.13406279683113098,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "fresh",
+        "event": {
+          "word": "fresh",
+          "origin": "bread",
+          "launch": 0.4001970887184143,
+          "destination": 0.2004048079252243,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "bread",
+          "current": "fresh",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.2004048079252243,
+          "attempts": 2,
+          "route": [
+            "bread",
+            "fresh"
+          ],
+          "history": [
+            {
+              "word": "democracy",
+              "origin": "bread",
+              "launch": 0.13406279683113098,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "fresh",
+              "origin": "bread",
+              "launch": 0.4001970887184143,
+              "destination": 0.2004048079252243,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "come",
+        "event": {
+          "word": "come",
+          "origin": "fresh",
+          "launch": 0.4038677215576172,
+          "destination": 0.2871338129043579,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 3
+        },
+        "state": {
+          "start": "bread",
+          "current": "come",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.2871338129043579,
+          "attempts": 3,
+          "route": [
+            "bread",
+            "fresh",
+            "come"
+          ],
+          "history": [
+            {
+              "word": "democracy",
+              "origin": "bread",
+              "launch": 0.13406279683113098,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "fresh",
+              "origin": "bread",
+              "launch": 0.4001970887184143,
+              "destination": 0.2004048079252243,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "come",
+              "origin": "fresh",
+              "launch": 0.4038677215576172,
+              "destination": 0.2871338129043579,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "government",
+        "event": {
+          "word": "government",
+          "origin": "come",
+          "launch": 0.43388625979423523,
+          "destination": 0.42605575919151306,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 4
+        },
+        "state": {
+          "start": "bread",
+          "current": "government",
+          "target": "democracy",
+          "threshold": 0.4,
+          "baseline": 0.13406279683113098,
+          "progress": 0.42605575919151306,
+          "attempts": 4,
+          "route": [
+            "bread",
+            "fresh",
+            "come",
+            "government"
+          ],
+          "history": [
+            {
+              "word": "democracy",
+              "origin": "bread",
+              "launch": 0.13406279683113098,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "fresh",
+              "origin": "bread",
+              "launch": 0.4001970887184143,
+              "destination": 0.2004048079252243,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "come",
+              "origin": "fresh",
+              "launch": 0.4038677215576172,
+              "destination": 0.2871338129043579,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            },
+            {
+              "word": "government",
+              "origin": "come",
+              "launch": 0.43388625979423523,
+              "destination": 0.42605575919151306,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 4
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "moon",
+    "target": "kitchen",
+    "threshold": 0.4,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "moon",
+          "current": "moon",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.03660613298416138,
+          "attempts": 0,
+          "route": [
+            "moon"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "moon",
+        "error": true,
+        "state": {
+          "start": "moon",
+          "current": "moon",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.03660613298416138,
+          "attempts": 0,
+          "route": [
+            "moon"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "kitchen",
+        "event": {
+          "word": "kitchen",
+          "origin": "moon",
+          "launch": 0.03660613298416138,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "moon",
+          "current": "moon",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.03660613298416138,
+          "attempts": 1,
+          "route": [
+            "moon"
+          ],
+          "history": [
+            {
+              "word": "kitchen",
+              "origin": "moon",
+              "launch": 0.03660613298416138,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "earth",
+        "event": {
+          "word": "earth",
+          "origin": "moon",
+          "launch": 0.569607138633728,
+          "destination": 0.11828691512346268,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "moon",
+          "current": "earth",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.11828691512346268,
+          "attempts": 2,
+          "route": [
+            "moon",
+            "earth"
+          ],
+          "history": [
+            {
+              "word": "kitchen",
+              "origin": "moon",
+              "launch": 0.03660613298416138,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "earth",
+              "origin": "moon",
+              "launch": 0.569607138633728,
+              "destination": 0.11828691512346268,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "beneath",
+        "event": {
+          "word": "beneath",
+          "origin": "earth",
+          "launch": 0.4000697433948517,
+          "destination": 0.22830742597579956,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 3
+        },
+        "state": {
+          "start": "moon",
+          "current": "beneath",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.22830742597579956,
+          "attempts": 3,
+          "route": [
+            "moon",
+            "earth",
+            "beneath"
+          ],
+          "history": [
+            {
+              "word": "kitchen",
+              "origin": "moon",
+              "launch": 0.03660613298416138,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "earth",
+              "origin": "moon",
+              "launch": 0.569607138633728,
+              "destination": 0.11828691512346268,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "beneath",
+              "origin": "earth",
+              "launch": 0.4000697433948517,
+              "destination": 0.22830742597579956,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "bed",
+        "event": {
+          "word": "bed",
+          "origin": "beneath",
+          "launch": 0.43753790855407715,
+          "destination": 0.43991056084632874,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 4
+        },
+        "state": {
+          "start": "moon",
+          "current": "bed",
+          "target": "kitchen",
+          "threshold": 0.4,
+          "baseline": 0.03660613298416138,
+          "progress": 0.43991056084632874,
+          "attempts": 4,
+          "route": [
+            "moon",
+            "earth",
+            "beneath",
+            "bed"
+          ],
+          "history": [
+            {
+              "word": "kitchen",
+              "origin": "moon",
+              "launch": 0.03660613298416138,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "earth",
+              "origin": "moon",
+              "launch": 0.569607138633728,
+              "destination": 0.11828691512346268,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "beneath",
+              "origin": "earth",
+              "launch": 0.4000697433948517,
+              "destination": 0.22830742597579956,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            },
+            {
+              "word": "bed",
+              "origin": "beneath",
+              "launch": 0.43753790855407715,
+              "destination": 0.43991056084632874,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 4
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "garden",
+    "target": "computer",
+    "threshold": 0.4,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "garden",
+          "current": "garden",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.09460076689720154,
+          "attempts": 0,
+          "route": [
+            "garden"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "garden",
+        "error": true,
+        "state": {
+          "start": "garden",
+          "current": "garden",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.09460076689720154,
+          "attempts": 0,
+          "route": [
+            "garden"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "computer",
+        "event": {
+          "word": "computer",
+          "origin": "garden",
+          "launch": 0.09460076689720154,
+          "destination": 1.0,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "garden",
+          "current": "garden",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.09460076689720154,
+          "attempts": 1,
+          "route": [
+            "garden"
+          ],
+          "history": [
+            {
+              "word": "computer",
+              "origin": "garden",
+              "launch": 0.09460076689720154,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "beautiful",
+        "event": {
+          "word": "beautiful",
+          "origin": "garden",
+          "launch": 0.4116038680076599,
+          "destination": 0.10578109323978424,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "garden",
+          "current": "beautiful",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.10578109323978424,
+          "attempts": 2,
+          "route": [
+            "garden",
+            "beautiful"
+          ],
+          "history": [
+            {
+              "word": "computer",
+              "origin": "garden",
+              "launch": 0.09460076689720154,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "beautiful",
+              "origin": "garden",
+              "launch": 0.4116038680076599,
+              "destination": 0.10578109323978424,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "good",
+        "event": {
+          "word": "good",
+          "origin": "beautiful",
+          "launch": 0.432931125164032,
+          "destination": 0.22640833258628845,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 3
+        },
+        "state": {
+          "start": "garden",
+          "current": "good",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.22640833258628845,
+          "attempts": 3,
+          "route": [
+            "garden",
+            "beautiful",
+            "good"
+          ],
+          "history": [
+            {
+              "word": "computer",
+              "origin": "garden",
+              "launch": 0.09460076689720154,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "beautiful",
+              "origin": "garden",
+              "launch": 0.4116038680076599,
+              "destination": 0.10578109323978424,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "good",
+              "origin": "beautiful",
+              "launch": 0.432931125164032,
+              "destination": 0.22640833258628845,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "business",
+        "event": {
+          "word": "business",
+          "origin": "good",
+          "launch": 0.472991943359375,
+          "destination": 0.4322347342967987,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 4
+        },
+        "state": {
+          "start": "garden",
+          "current": "business",
+          "target": "computer",
+          "threshold": 0.4,
+          "baseline": 0.09460076689720154,
+          "progress": 0.4322347342967987,
+          "attempts": 4,
+          "route": [
+            "garden",
+            "beautiful",
+            "good",
+            "business"
+          ],
+          "history": [
+            {
+              "word": "computer",
+              "origin": "garden",
+              "launch": 0.09460076689720154,
+              "destination": 1.0,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "beautiful",
+              "origin": "garden",
+              "launch": 0.4116038680076599,
+              "destination": 0.10578109323978424,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "good",
+              "origin": "beautiful",
+              "launch": 0.432931125164032,
+              "destination": 0.22640833258628845,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            },
+            {
+              "word": "business",
+              "origin": "good",
+              "launch": 0.472991943359375,
+              "destination": 0.4322347342967987,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 4
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  },
+  {
+    "start": "creative",
+    "target": "smooth",
+    "threshold": 0.45,
+    "steps": [
+      {
+        "word": "unknownwordxyz",
+        "error": true,
+        "state": {
+          "start": "creative",
+          "current": "creative",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.1293688416481018,
+          "attempts": 0,
+          "route": [
+            "creative"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "creative",
+        "error": true,
+        "state": {
+          "start": "creative",
+          "current": "creative",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.1293688416481018,
+          "attempts": 0,
+          "route": [
+            "creative"
+          ],
+          "history": [],
+          "won": false
+        }
+      },
+      {
+        "word": "smooth",
+        "event": {
+          "word": "smooth",
+          "origin": "creative",
+          "launch": 0.1293688416481018,
+          "destination": 0.9999999403953552,
+          "boundary": true,
+          "success": false,
+          "inside": true,
+          "won": false,
+          "attempt": 1
+        },
+        "state": {
+          "start": "creative",
+          "current": "creative",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.1293688416481018,
+          "attempts": 1,
+          "route": [
+            "creative"
+          ],
+          "history": [
+            {
+              "word": "smooth",
+              "origin": "creative",
+              "launch": 0.1293688416481018,
+              "destination": 0.9999999403953552,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "innovation",
+        "event": {
+          "word": "innovation",
+          "origin": "creative",
+          "launch": 0.5440959334373474,
+          "destination": 0.14958445727825165,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 2
+        },
+        "state": {
+          "start": "creative",
+          "current": "innovation",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.14958445727825165,
+          "attempts": 2,
+          "route": [
+            "creative",
+            "innovation"
+          ],
+          "history": [
+            {
+              "word": "smooth",
+              "origin": "creative",
+              "launch": 0.1293688416481018,
+              "destination": 0.9999999403953552,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "innovation",
+              "origin": "creative",
+              "launch": 0.5440959334373474,
+              "destination": 0.14958445727825165,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "development",
+        "event": {
+          "word": "development",
+          "origin": "innovation",
+          "launch": 0.5287356376647949,
+          "destination": 0.23827838897705078,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 3
+        },
+        "state": {
+          "start": "creative",
+          "current": "development",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.23827838897705078,
+          "attempts": 3,
+          "route": [
+            "creative",
+            "innovation",
+            "development"
+          ],
+          "history": [
+            {
+              "word": "smooth",
+              "origin": "creative",
+              "launch": 0.1293688416481018,
+              "destination": 0.9999999403953552,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "innovation",
+              "origin": "creative",
+              "launch": 0.5440959334373474,
+              "destination": 0.14958445727825165,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "development",
+              "origin": "innovation",
+              "launch": 0.5287356376647949,
+              "destination": 0.23827838897705078,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "transformation",
+        "event": {
+          "word": "transformation",
+          "origin": "development",
+          "launch": 0.4723909795284271,
+          "destination": 0.2670557200908661,
+          "boundary": true,
+          "success": true,
+          "inside": false,
+          "won": false,
+          "attempt": 4
+        },
+        "state": {
+          "start": "creative",
+          "current": "transformation",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.2670557200908661,
+          "attempts": 4,
+          "route": [
+            "creative",
+            "innovation",
+            "development",
+            "transformation"
+          ],
+          "history": [
+            {
+              "word": "smooth",
+              "origin": "creative",
+              "launch": 0.1293688416481018,
+              "destination": 0.9999999403953552,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "innovation",
+              "origin": "creative",
+              "launch": 0.5440959334373474,
+              "destination": 0.14958445727825165,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "development",
+              "origin": "innovation",
+              "launch": 0.5287356376647949,
+              "destination": 0.23827838897705078,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            },
+            {
+              "word": "transformation",
+              "origin": "development",
+              "launch": 0.4723909795284271,
+              "destination": 0.2670557200908661,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 4
+            }
+          ],
+          "won": false
+        }
+      },
+      {
+        "word": "transition",
+        "event": {
+          "word": "transition",
+          "origin": "transformation",
+          "launch": 0.5551416277885437,
+          "destination": 0.4886823892593384,
+          "boundary": true,
+          "success": true,
+          "inside": true,
+          "won": true,
+          "attempt": 5
+        },
+        "state": {
+          "start": "creative",
+          "current": "transition",
+          "target": "smooth",
+          "threshold": 0.45,
+          "baseline": 0.1293688416481018,
+          "progress": 0.4886823892593384,
+          "attempts": 5,
+          "route": [
+            "creative",
+            "innovation",
+            "development",
+            "transformation",
+            "transition"
+          ],
+          "history": [
+            {
+              "word": "smooth",
+              "origin": "creative",
+              "launch": 0.1293688416481018,
+              "destination": 0.9999999403953552,
+              "boundary": true,
+              "success": false,
+              "inside": true,
+              "won": false,
+              "attempt": 1
+            },
+            {
+              "word": "innovation",
+              "origin": "creative",
+              "launch": 0.5440959334373474,
+              "destination": 0.14958445727825165,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2
+            },
+            {
+              "word": "development",
+              "origin": "innovation",
+              "launch": 0.5287356376647949,
+              "destination": 0.23827838897705078,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 3
+            },
+            {
+              "word": "transformation",
+              "origin": "development",
+              "launch": 0.4723909795284271,
+              "destination": 0.2670557200908661,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 4
+            },
+            {
+              "word": "transition",
+              "origin": "transformation",
+              "launch": 0.5551416277885437,
+              "destination": 0.4886823892593384,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 5
+            }
+          ],
+          "won": true
+        }
+      }
+    ]
+  }
+]

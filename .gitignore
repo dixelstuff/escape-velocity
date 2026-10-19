@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/*
+!data/.gitkeep
+!data/puzzles.json
+!data/metadata.json
+.DS_Store
