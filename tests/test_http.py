@@ -26,7 +26,7 @@ class HTTPTests(unittest.TestCase):
     def new(self):return self.post('new',dict(start='cheese',target='language',threshold=.45))
     def test_config_does_not_leak_solutions(self):
         self.assertGreater(self.config['vocabulary'],10000)
-        for p in self.config['puzzles']:self.assertEqual(set(p),{'start','target','threshold'})
+        for p in self.config['puzzles']:self.assertEqual(set(p),{'start','target','threshold','mode'})
     def test_validation_and_session_isolation(self):
         a,b=self.new(),self.new();self.assertNotEqual(a['token'],b['token'])
         with self.assertRaises(HTTPError) as caught:self.post('submit',dict(token=a['token'],word='zxqunknown'))
@@ -36,6 +36,12 @@ class HTTPTests(unittest.TestCase):
         caught.exception.close()
         result=self.post('submit',dict(token=a['token'],word='bread'));self.assertEqual(result['state']['attempts'],2)
         result=self.post('submit',dict(token=b['token'],word='milk'));self.assertEqual(result['state']['attempts'],1)
+    def test_distance_launches_and_repeated_failures(self):
+        game=self.post('new',dict(start='forest',target='money',threshold=.45,mode='distance'))
+        for attempt in [1,2]:
+            result=self.post('submit',dict(token=game['token'],word='milk'))
+            self.assertFalse(result['event']['success']);self.assertEqual(result['state']['attempts'],attempt)
+            self.assertGreaterEqual(result['event']['required'],.25);self.assertLessEqual(result['event']['required'],.4)
     def test_no_embedding_files_served(self):
         with self.assertRaises(HTTPError) as caught:urlopen(self.base+'/data/vectors.npy')
         caught.exception.close()

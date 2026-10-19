@@ -1,5 +1,5 @@
 import unittest
-from engine import Game
+from engine import Game, launch_requirement
 class FakeEmbeddings:
     def __init__(self):
         self.index={w:i for i,w in enumerate(['start','target','forward','backward','behind','arrival','weak'])}
@@ -15,12 +15,41 @@ class RuleTests(unittest.TestCase):
     def setUp(self):self.game=Game(FakeEmbeddings(),'start','target',.5)
     def test_failed_launch_counts_without_moving(self):
         result=self.game.submit('weak');self.assertFalse(result['success']);self.assertTrue(result['inside']);self.assertEqual(self.game.current,'start');self.assertEqual(len(self.game.history),1)
-    def test_invalid_and_duplicate_do_not_count(self):
+    def test_invalid_and_current_word_do_not_count(self):
         for word in ['nonsense','start']:
             with self.assertRaises(ValueError):self.game.submit(word)
         self.game.submit('forward')
         with self.assertRaises(ValueError):self.game.submit('FORWARD')
         self.assertEqual(len(self.game.history),1)
+    def test_revisit_start_and_retry_failed_words(self):
+        self.game.submit('weak');self.game.submit('weak')
+        self.game.submit('forward');self.assertTrue(self.game.submit('start')['success'])
+        self.assertTrue(self.game.submit('forward')['success'])
+        self.assertEqual(len(self.game.history),5)
+        self.assertEqual(self.game.route,['start','forward','start','forward'])
+    def test_legacy_repeats_remain_rejected(self):
+        game=Game(FakeEmbeddings(),'start','target',.5,rules='fixed-threshold-v1')
+        game.submit('weak')
+        with self.assertRaises(ValueError):game.submit('weak')
+    def test_distance_requirements_are_symmetric_and_capped(self):
+        self.assertEqual(launch_requirement(.2,.2,.1,.5)[0],.25)
+        self.assertAlmostEqual(launch_requirement(.1,.5,.1,.5)[0],.4)
+        self.assertAlmostEqual(launch_requirement(.1,1,.1,.5)[0],.4)
+        self.assertEqual(launch_requirement(.2,.3,.1,.5),launch_requirement(.3,.2,.1,.5))
+    def test_short_hop_succeeds_at_lower_similarity(self):
+        e=FakeEmbeddings();e.values[tuple(sorted(['start','forward']))]=.38
+        game=Game(e,'start','target',.5,mode='distance')
+        result=game.submit('forward')
+        self.assertTrue(result['success']);self.assertLess(result['required'],.38)
+        self.assertEqual(game.threshold,.5)
+    def test_distance_one_attempt_victory_remains_possible(self):
+        e=FakeEmbeddings();e.values[tuple(sorted(['start','arrival']))]=.4
+        game=Game(e,'start','target',.5,mode='distance')
+        self.assertTrue(game.submit('arrival')['won']);self.assertEqual(len(game.history),1)
+    def test_long_jump_still_requires_connection(self):
+        e=FakeEmbeddings();e.values[tuple(sorted(['start','arrival']))]=.39
+        game=Game(e,'start','target',.5,mode='distance')
+        result=game.submit('arrival');self.assertTrue(result['inside']);self.assertFalse(result['success']);self.assertAlmostEqual(result['required'],.4)
     def test_backwards_allowed(self):
         self.game.submit('forward');self.assertTrue(self.game.submit('backward')['success']);self.assertEqual(self.game.current,'backward')
     def test_start_boundary_counts_failed_attempt(self):
@@ -49,9 +78,9 @@ class RealEmbeddingTests(unittest.TestCase):
     def test_every_selected_puzzle_has_a_verified_route(self):
         import json
         from engine import DATA
-        analysis=json.loads((DATA.parent/'reports/analysis.json').read_text())
+        analysis=json.loads((DATA.parent/'reports/distance-analysis.json').read_text())
         for p in json.loads((DATA/'puzzles.json').read_text()):
-            row=next(r for m in analysis for r in m['results'] if all(r[k]==v for k,v in p.items()))
+            row=next(r for r in analysis['results'] if all(r[k]==v for k,v in p.items()))
             game=Game(self.e,**p)
             for word in row['route'][1:]:self.assertTrue(game.submit(word)['success'])
             self.assertTrue(game.won);self.assertEqual(len(game.history),row['attempts'])

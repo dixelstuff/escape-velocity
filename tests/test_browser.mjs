@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { Embeddings, Game } from '../static/engine.mjs';
+import { Embeddings, Game, launchRequirement, restoreGame } from '../static/engine.mjs';
 const root = new URL('../', import.meta.url);
 const read = path => readFileSync(new URL(path, root));
 const words = JSON.parse(read('static/model/words.json'));
@@ -16,7 +16,7 @@ function compare(actual, expected) {
   }
 }
 for (const fixture of fixtures) {
-  const game = new Game(embeddings, fixture.start, fixture.target, fixture.threshold);
+  const game = new Game(embeddings, fixture.start, fixture.target, fixture.threshold, fixture);
   const initial = game.state();
   for (const step of fixture.steps) {
     if (step.error) assert.throws(() => game.submit(step.word));
@@ -42,12 +42,27 @@ game = new Game(fake,'start','target',.5);
 assert.equal(game.submit('behind').boundary,false);
 assert.equal(game.current,'start');
 assert.equal(game.submit('weak').success,false);
-assert.throws(()=>game.submit('weak'));
+assert.equal(game.submit('weak').success,false);
 assert.throws(()=>game.submit('unknown'));
 assert.equal(game.submit('arrival').won,true);
-assert.equal(game.state().attempts,3);
+assert.equal(game.state().attempts,4);
 assert.deepEqual(game.route,['start','arrival']);
 game = new Game(fake,'start','target',.5);
 assert.equal(game.submit('arrival').won,true);
 assert.equal(game.state().attempts,1);
+
+const oneJump=new Game(fake,'start','target',.5,{mode:'distance'});assert.equal(oneJump.submit('arrival').won,true);assert.equal(oneJump.state().attempts,1);
+assert.equal(launchRequirement(.2,.2,.1,.5).required,.25);
+assert.equal(launchRequirement(.1,.8,.1,.5).required,.4);
+assert.deepEqual(launchRequirement(.2,.3,.1,.5),launchRequirement(.3,.2,.1,.5));
+game=new Game(fake,'start','target',.5,{mode:'distance'});
+game.submit('forward');game.submit('start');game.submit('forward');
+assert.equal(game.state().attempts,3);
+assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
+const oldGame=new Game(fake,'start','target',.5,{rules:'fixed-threshold-v1'});oldGame.submit('weak');
+const oldSaved=oldGame.state();delete oldSaved.rules;delete oldSaved.mode;
+const restored=restoreGame(fake,oldSaved);assert.equal(restored.rules,'fixed-threshold-v1');
+assert.throws(()=>restored.submit('weak'));
+assert.throws(()=>new Game(fake,'start','target',.5,{mode:'distance',launch_min:.5,launch_max:.3}));
+
 console.log(`Browser scoring passed: ${fixtures.length} real-vector Python parity journeys, independent rule cases, and cosine checks.`);

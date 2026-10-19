@@ -1,5 +1,6 @@
-import { createBrowserClient } from './engine.mjs';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs';
+import { createBrowserClient } from './engine.mjs?v=distance-v1';
+import { mapFraction } from './map.mjs?v=distance-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=distance-v1';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null;
 let storage;try{storage=window.localStorage;}catch{}
@@ -12,16 +13,19 @@ async function api(path,body){return client.request(path,body);}
 function lock(value){busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['debug-toggle','copy-log','download-log','log-journey'].includes(e.id))e.disabled=value;}
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const dimensions=()=>narrow()?{width:640,left:55,right:585,edge:610}:{width:1000,left:80,right:900,edge:925};
-const x=similarity=>{const d=dimensions();return Math.max(20,Math.min(d.edge,d.left+(d.right-d.left)*(similarity-state.baseline)/(1-state.baseline)));};
-function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:194};if(word===state.target)return {x:dimensions().right,y:194};const h=event||state.history.find(e=>e.word===word);return {x:x(h.destination),y:194+[-62,54,-104,97,-28,15][(h.attempt-1)%6]};}
+const x=similarity=>{const d=dimensions();return Math.max(20,Math.min(d.edge,d.left+(d.right-d.left)*mapFraction(similarity,state.baseline,state.threshold)));};
+function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:194};if(word===state.target)return {x:dimensions().right,y:194};const h=state.history.find(e=>e.word===word)||event;return {x:x(h.destination),y:194+[-62,54,-104,97,-28,15][(h.attempt-1)%6]};}
 const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.x},${b.y}`;
 function map(preview=null){
  const d=dimensions();$('map').setAttribute('viewBox',`0 0 ${d.width} 360`);
  const zone=x(state.threshold);
- let svg=`<rect x="${zone}" y="57" width="${d.edge-zone}" height="274" rx="12" fill="#d8e7ce" fill-opacity=".45" stroke="#9cba8d" stroke-dasharray="5 6"/><text x="${Math.min(d.right-75,zone+20)}" y="72" class="map-small">ARRIVAL ZONE</text><path d="M${d.left} 194 H${d.right}" stroke="#c3cfbb" stroke-dasharray="3 8"/>`;
+ let svg=`<rect x="${zone}" y="57" width="${d.edge-zone}" height="274" rx="12" fill="#d8e7ce" fill-opacity=".45" stroke="#9cba8d" stroke-dasharray="5 6"/><text x="${(zone+d.edge)/2}" y="72" text-anchor="middle" class="map-small arrival-label">ARRIVAL ZONE</text><path d="M${d.left} 194 H${d.right}" stroke="#c3cfbb" stroke-dasharray="3 8"/>`;
  for(const h of state.history){const a=position(h.origin),b=position(h.word,h);svg+=`<path d="${path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
- const planets=[{word:state.start,pos:position(state.start)},...state.history.filter(h=>h.word!==state.target).map(h=>({word:h.word,pos:position(h.word,h),failed:!h.success})),{word:state.target,pos:position(state.target)}];
- if(preview)planets.splice(planets.length-1,0,{word:preview.word,pos:position(preview.word,preview),preview:true});
+ const nodes=new Map([[state.start,{word:state.start,pos:position(state.start)}]]);
+ for(const h of state.history){if(h.word===state.target)continue;const old=nodes.get(h.word);if(!old)nodes.set(h.word,{word:h.word,pos:position(h.word,h),failed:!h.success});else if(h.success)old.failed=false;}
+ nodes.set(state.target,{word:state.target,pos:position(state.target)});
+ if(preview){const old=nodes.get(preview.word);if(old)old.preview=true;else nodes.set(preview.word,{word:preview.word,pos:position(preview.word,preview),preview:true});}
+ const planets=[...nodes.values()];
  for(const p of planets){const active=p.word===(state.won?state.target:state.current);svg+=`<g opacity="${p.failed?.35:1}"><circle cx="${p.pos.x}" cy="${p.pos.y}" r="14" fill="${p.preview?'#f6f7f2':active?'#397655':'#f7f8f0'}" stroke="${p.preview?'#a89965':'#63845a'}" stroke-width="2"/><text x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label" fill="#41563e">${esc(p.word.toUpperCase())}</text>${active?`<text x="${p.pos.x}" y="${p.pos.y+53}" text-anchor="middle" class="map-small">YOU ARE HERE</text>`:''}</g>`;}
  const r=state.won?position(state.target):position(state.current);
  svg+=`<text id="rocket" x="0" y="0" text-anchor="middle" font-size="30" transform="translate(${r.x},${r.y-28})">🚀</text>`;
@@ -29,33 +33,34 @@ function map(preview=null){
 }
 function telemetry(){
  const last=shownEvent;
- $('telemetry').textContent=JSON.stringify({current:state.current,proposed:last?.word??null,target:state.target,launch_cosine:last?.launch??null,destination_cosine:last?.destination??null,launch_threshold:state.threshold,progress:state.progress,starting_boundary:state.baseline,inside_arrival_zone:last?.inside??null,attempts:state.attempts,successful_route:state.route,failed_attempts:state.history.filter(e=>!e.success).map(e=>({word:e.word,launch:e.launch,destination:e.destination,reason:e.boundary?'insufficient launch similarity':'behind starting boundary'}))},null,2);
+ $('telemetry').textContent=JSON.stringify({current:state.current,proposed:last?.word??null,target:state.target,launch_cosine:last?.launch??null,destination_cosine:last?.destination??null,launch_mode:state.mode,rules:state.rules,required_launch:last?.required??state.threshold,trip_fraction:last?.trip_fraction??null,arrival_threshold:state.threshold,launch_min:state.launch_min,launch_max:state.launch_max,progress:state.progress,starting_boundary:state.baseline,inside_arrival_zone:last?.inside??null,attempts:state.attempts,successful_route:state.route,failed_attempts:state.history.filter(e=>!e.success).map(e=>({word:e.word,launch:e.launch,destination:e.destination,reason:e.boundary?'insufficient launch similarity':'behind starting boundary'}))},null,2);
 }
 function renderLog(){
  const journeys=flightLog.data.journeys;
  if(!journeys.some(j=>j.id===selectedLogId))selectedLogId=flightLog.data.activeId;
  $('log-journey').innerHTML=[...journeys].reverse().map(j=>`<option value="${esc(j.id)}" ${j.id===selectedLogId?'selected':''}>${esc(j.state.start)} → ${esc(j.state.target)} · ${j.state.attempts} attempts · ${j.state.won?'completed':'in progress'} · ${esc(new Date(j.startedAt).toLocaleString())}</option>`).join('');
  const journey=journeys.find(j=>j.id===selectedLogId);
- $('log-summary').textContent=journey?`${journey.state.attempts} scored attempts · ${journey.entries.length} submissions · threshold ${journey.state.threshold}`:'Your submissions will appear here.';
- $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'Unscored'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>Launch ${entry.event.launch.toFixed(3)} / ${entry.threshold.toFixed(2)} needed · Destination ${entry.event.destination.toFixed(3)}${entry.event.inside?' · In arrival zone':''}</p>`:''}</li>`).join('')||'<li class="subtle">No submissions yet.</li>';
+ $('log-summary').textContent=journey?`${journey.state.attempts} scored attempts · ${journey.entries.length} submissions · ${journey.state.mode==='distance'?'distance launches · arrival':'fixed threshold'} ${journey.state.threshold}`:'Your submissions will appear here.';
+ $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'Unscored'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>Launch ${entry.event.launch.toFixed(3)} / ${(entry.event.required??entry.threshold).toFixed(3)} needed · Destination ${entry.event.destination.toFixed(3)}${entry.event.inside?' · In arrival zone':''}</p>`:''}</li>`).join('')||'<li class="subtle">No submissions yet.</li>';
  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download all logs for a backup or to share them.';
 }
 function syncPuzzleSelection(){
- const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&p.threshold===state.threshold);
+ const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&p.threshold===state.threshold&&(p.mode||'fixed')===state.mode);
  $('puzzle').querySelector('option[value="custom"]')?.remove();
  if(index<0){const option=document.createElement('option');option.value='custom';option.textContent=`${state.start} → ${state.target} (custom)`;$('puzzle').append(option);$('puzzle').value='custom';}
  else $('puzzle').value=String(index);
 }
 function update(){
  $('start-label').textContent=state.start;$('target-label').textContent=state.target;$('attempts').textContent=state.attempts;
- $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;
+ $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
+ $('upgrade-rules').hidden=state.rules!=='fixed-threshold-v1';$('rules-note').textContent=state.rules==='fixed-threshold-v1'?'This saved journey uses the original rules. Start a new journey to try the update.':state.mode==='distance'?'Short hops need less lift. Revisiting planets costs one attempt.':'Fixed launch requirement. Revisiting planets costs one attempt.';
  $('results').hidden=!state.won;
  if(state.won){$('results').innerHTML=`<span class="eyebrow">DESTINATION REACHED</span><h2>${state.attempts===1?'Holy Grail. One extraordinary leap.':`Touchdown in ${state.attempts} attempts.`}</h2><p>${[...state.route,...(state.route.at(-1)===state.target?[]:[state.target])].map(esc).join(' → ')} <small>(free final hop)</small></p><p>Failed attempts: ${state.history.filter(h=>!h.success).map(h=>esc(h.word)).join(', ')||'none'}</p><p>Your full journey is shown above.</p>`;}
  map();telemetry();renderLog();
 }
 async function newGame(puzzle){
  if(busy)return;lock(true);
- try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Start from ${state.start}. Find a word that connects you to ${state.target}.`;$('last-reading').textContent='The arrival zone uses the same similarity threshold as each launch.';}
+ try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Start from ${state.start}. Find a word that connects you to ${state.target}.`;$('last-reading').textContent=state.mode==='distance'?'Launch requirements grow with trip length. Reach the arrival zone for a free final hop.':'Launch and arrival use the fixed threshold.';}
  catch(error){$('status').textContent=error.message;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
@@ -74,24 +79,25 @@ async function animate(event){
 }
 async function submit(word){
  if(busy||!state||state.won)return false;
- lock(true);const previousProgress=state.progress;$('attempts').textContent=state.attempts+1;
+ $('word').blur();lock(true);const previousProgress=state.progress;$('attempts').textContent=state.attempts+1;
  try{
  let data;try{data=await api('submit',{word});}catch(error){flightLog.record(word,state,null,error.message);selectedLogId=flightLog.data.activeId;renderLog();throw error;}
- const event=data.event;flightLog.record(word,data.state,event);selectedLogId=flightLog.data.activeId;renderLog();
+ const event=data.event;flightLog.record(word,data.state,event);selectedLogId=flightLog.data.activeId;
  // Keep the old state visible until the proposal and flight have played out.
  map(event);$('status').textContent=`${event.word.toUpperCase()} spotted. Preparing to launch…`;$('last-reading').textContent='';
  await delay(reduced?250:850);await animate(event);
  state=data.state;shownEvent=event;update();$('word').value='';
  $('status').textContent=event.won?'Gravity assist complete. Welcome to your destination.':event.success?`Landed on ${event.word}. ${event.destination<previousProgress?'A step back can open a new route.':'Ready for your next connection.'}`:!event.boundary?'That planet lies behind the starting boundary. Returned to your current planet.':`Not enough lift to reach ${event.word}. Try a closer connection to ${state.current}.`;
- $('last-reading').textContent=`Launch ${event.launch.toFixed(3)} / ${state.threshold.toFixed(2)} needed · Destination ${event.destination.toFixed(3)}${event.inside?' · Inside arrival zone':''}`;
+ $('last-reading').textContent=`Launch ${event.launch.toFixed(3)} / ${(event.required??state.threshold).toFixed(3)} needed · Destination ${event.destination.toFixed(3)}${event.inside?' · Inside arrival zone':''}`;
  return true;
  }catch(error){$('attempts').textContent=state.attempts;$('status').textContent=error.message;return false;}
- finally{lock(false);if(state.won)$('launch').disabled=true;else $('word').focus();}
+ finally{lock(false);if(state.won)$('launch').disabled=true;else if(!narrow())$('word').focus({preventScroll:true});}
 }
 $('launch-form').addEventListener('submit',event=>{event.preventDefault();submit($('word').value);});
 $('debug-toggle').onclick=()=>{const open=$('debug').hidden;$('debug').hidden=!open;$('debug-toggle').setAttribute('aria-expanded',String(open));};
-$('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value)});};
-$('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.threshold}:config.puzzles[Number($('puzzle').value)]);
+$('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
+$('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.rules==='fixed-threshold-v1'?.45:state.threshold,mode:state.rules==='fixed-threshold-v1'?'distance':state.mode,launch_min:state.launch_min,launch_max:state.launch_max}:config.puzzles[Number($('puzzle').value)]);
+$('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.45,mode:'distance',launch_min:.25,launch_max:.40});
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
 $('route-form').onsubmit=async event=>{event.preventDefault();if(busy)return;const words=$('route-input').value.split(',').map(w=>w.trim()).filter(Boolean);for(const word of words){if(state.won||!await submit(word))break;}};
 $('log-journey').onchange=()=>{selectedLogId=$('log-journey').value;$('copy-fallback').hidden=true;renderLog();};

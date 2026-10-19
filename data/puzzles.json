@@ -1,42 +1,50 @@
 [
   {
-    "start": "forest",
-    "target": "money",
-    "threshold": 0.4
+    "start": "coffee",
+    "target": "science",
+    "threshold": 0.45,
+    "mode": "distance"
+  },
+  {
+    "start": "cheese",
+    "target": "language",
+    "threshold": 0.45,
+    "mode": "distance"
   },
   {
     "start": "penalty",
     "target": "ability",
-    "threshold": 0.45
-  },
-  {
-    "start": "senior",
-    "target": "together",
-    "threshold": 0.45
+    "threshold": 0.45,
+    "mode": "distance"
   },
   {
     "start": "everyday",
     "target": "affection",
-    "threshold": 0.45
-  },
-  {
-    "start": "bread",
-    "target": "democracy",
-    "threshold": 0.4
+    "threshold": 0.45,
+    "mode": "distance"
   },
   {
     "start": "moon",
     "target": "kitchen",
-    "threshold": 0.4
+    "threshold": 0.45,
+    "mode": "distance"
   },
   {
     "start": "garden",
     "target": "computer",
-    "threshold": 0.4
+    "threshold": 0.45,
+    "mode": "distance"
   },
   {
-    "start": "creative",
-    "target": "smooth",
-    "threshold": 0.45
+    "start": "bread",
+    "target": "democracy",
+    "threshold": 0.45,
+    "mode": "distance"
+  },
+  {
+    "start": "forest",
+    "target": "money",
+    "threshold": 0.45,
+    "mode": "distance"
   }
 ]

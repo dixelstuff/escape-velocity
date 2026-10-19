@@ -33,7 +33,7 @@ export class FlightLog {
   }
   begin(state, model) {
     const timestamp = this.now();
-    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:RULES_VERSION, model, state:structuredClone(state), entries:[]};
+    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, state:structuredClone(state), entries:[]};
     this.data.journeys.push(journey);
     this.data.activeId = journey.id;
     this.save();
@@ -44,7 +44,7 @@ export class FlightLog {
     if (!journey) throw Error('No active flight log');
     const timestamp = this.now();
     journey.entries.push({submittedAt:timestamp, word, origin:event?.origin ?? state.current,
-      chargedAttempt:!!event, threshold:state.threshold, event:structuredClone(event), error});
+      chargedAttempt:!!event, threshold:event?.required??state.threshold, arrival_threshold:state.threshold, event:structuredClone(event), error});
     journey.state = structuredClone(state);
     journey.updatedAt = timestamp;
     this.save();
@@ -61,12 +61,12 @@ export function journeyText(journey) {
   const s = journey.state;
   const lines = ['ESCAPE VELOCITY — flight log', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
-    `Launch / arrival threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} attempts`, ''];
+    s.mode==='distance'?`Launch requirement: ${s.launch_min}–${s.launch_max}, scaled by trip length; arrival threshold: ${s.threshold}`:`Launch / arrival threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} attempts`, ''];
   for (const entry of journey.entries) {
     const e = entry.event;
     lines.push(`${e ? `Attempt ${e.attempt}` : 'No attempt used'}: ${entry.origin} → ${entry.word}`,
       `  ${outcome(entry)} · ${entry.submittedAt}`);
-    if (e) lines.push(`  Launch cosine: ${e.launch.toFixed(6)} / required ${entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; arrival zone: ${e.inside ? 'yes' : 'no'}`);
+    if (e) lines.push(`  Launch cosine: ${e.launch.toFixed(6)} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; arrival zone: ${e.inside ? 'yes' : 'no'}`);
   }
   lines.push('', `Successful route: ${s.route.join(' → ')}${s.won && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
   return lines.join('\n');

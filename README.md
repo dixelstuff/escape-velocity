@@ -1,6 +1,6 @@
 # ESCAPE VELOCITY 🚀
 
-A local browser word game using actual Stanford GloVe 6B 300-dimensional vectors. Jump between words with related meanings, then reach the target's arrival zone for a free gravity assist. Every supported, nonduplicate submission counts, including failed launches.
+A local browser word game using actual Stanford GloVe 6B 300-dimensional vectors. Jump between words with related meanings, then reach the target's arrival zone for a free gravity assist. Every supported submission counts, including retries and failed launches. Entering your current word costs nothing.
 
 ## Play online
 
@@ -16,6 +16,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/prepare.py
 python scripts/analyze.py
+python scripts/analyze_distance.py
 python scripts/build_pages.py
 python scripts/browser_fixtures.py
 python server.py
@@ -27,11 +28,19 @@ First preparation downloads the official 822 MiB GloVe archive and the roughly 1
 
 ## Play
 
-Choose a journey, enter a word, and press Launch or Enter. The proposed planet appears before the rocket launches. Destination position measures only target similarity; launch success measures only current-word similarity. A successful backward launch is allowed, provided it stays at or beyond the starting boundary. Failed launches and out-of-boundary destinations cost an attempt and leave faint markers. Unknown or repeated words cost nothing. Reach any word inside the arrival zone to win automatically; the last hop is free.
+Choose a journey, enter a word, and press Launch or Enter. The proposed planet appears before the rocket launches. Destination position measures target similarity. In the new distance mode, current-word similarity must meet a requirement that grows with the size of the trip. A successful backward launch is allowed, provided it stays at or beyond the starting boundary. Failed launches and out-of-boundary destinations cost an attempt and leave faint markers. Unknown words and your current word cost nothing. Other planets can be revisited, including the start, and failed words can be retried from a different planet. Each such submission costs an attempt. Reach any word inside the arrival zone to win automatically; the last hop is free.
 
-The map uses a fixed horizontal scale. Height separates attempted words and has no semantic meaning. It shows the complete journey throughout, including at completion. Planets behind the starting boundary are shown at the far-left map edge. Launch and arrival use the same inclusive threshold, with a `1e-7` floating-point tolerance. The literal target is a supported submission too, governed by exactly the same rules. There are no fabricated player statistics.
+The map gives 90% of the start-to-target horizontal span to the journey before the arrival zone, and 10% to the zone itself; the padded zone occupies roughly 13–15% of the visible journey width. Height separates attempted words and has no semantic meaning. It shows the complete journey throughout, including at completion. Planets behind the starting boundary are shown at the far-left map edge. Arrival has a fixed inclusive threshold (0.45 by default). Distance-based launch requirements range from 0.25 to 0.40. Both use a `1e-7` floating-point tolerance. Map compression changes no scores. The literal target is a supported submission too, governed by exactly the same rules. There are no fabricated player statistics.
 
-Open **Flight lab** to inspect exact cosine readings, adjust the threshold, and choose arbitrary supported endpoints. Applying settings restarts the puzzle. The route tester submits comma-separated intermediate words through the same animated and scored game flow. Optimal routes are deliberately excluded from browser configuration.
+Open **Flight lab** to inspect exact cosine readings, choose distance or fixed launch mode, adjust arrival and short/long-hop requirements, and choose arbitrary supported endpoints. Applying settings restarts the puzzle. The route tester submits comma-separated intermediate words through the same animated and scored game flow. Optimal routes are deliberately excluded from browser configuration.
+
+## Launch experiment and saved journeys
+
+In distance mode, trip length is the absolute change in destination cosine divided by the original start-to-arrival cosine gap, capped at 1. The required launch cosine is `0.25 + 0.15 * trip_length`. Backward hops have the same cost as equally long forward hops. This uses semantic progress rather than screen pixels, so resizing the map never changes the rules. The requirement is shown after every attempt and recorded in Flight log. A one-attempt victory still needs at least 0.40 launch similarity, and the arrival threshold stays 0.45.
+
+New menu journeys use `distance-v1`. New fixed-mode journeys use `fixed-threshold-v2` and also allow revisits. Existing saved journeys use their original `fixed-threshold-v1` rules, including duplicate rejection; they are replayed under that version and never silently rescored. **Start with new rules** archives the old journey and starts the same endpoints with the updated rules, preserving all prior logs.
+
+COFFEE → SCIENCE is now the opening journey. FOREST → MONEY remains available for comparison. On mobile, inputs are at least 16px to avoid focus zoom, submitting dismisses the keyboard, and flights do not automatically refocus the input. Intentional pinch zoom and reduced-motion support remain available. Actual iOS focus behaviour still benefits from device playtesting.
 
 ## Data and vocabulary
 
@@ -48,19 +57,22 @@ Every retained 300d vector is normalized to unit length and stored as float32 in
 ```sh
 .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python scripts/analyze.py --samples 120 --thresholds 0.4 0.45 0.5 0.55
+.venv/bin/python scripts/analyze_distance.py
 ```
 
 The analysis tool builds exact all-vocabulary threshold graphs in memory-bounded matrix batches. Breadth-first search permits backward movement but respects each puzzle's start boundary, and stops at an arrival-zone planet. It counts submitted words, excluding the free final hop. Seed 42 makes the random endpoint sample reproducible. The output includes one-, two-, three-, four-, five-plus-attempt and unreachable categories, graph connectivity, and optimal routes for offline inspection.
 
-See [reports/calibration.md](reports/calibration.md) for measured thresholds, real cosine values, and selected routes. **That report contains spoilers.** Full machine-readable experiments are in `reports/analysis.json`. Only endpoints and launch thresholds are written to `data/puzzles.json`, which feeds the playable menu. `winning_planets` measures distinct shortest-depth arrival planets. `shortest_routes` counts minimum-length submitted sequences, and `first_moves` counts distinct opening words among those routes. Puzzle selection requires at least three such routes and two opening words. The selection heuristic includes four puzzles with two-attempt optima, three with three-attempt optima, and one with a four-attempt optimum when available, all with multiple arrival options. The analysis does not predict human success rates or demonstrate that typical human journeys take 2–4 attempts.
+See [reports/distance-calibration.md](reports/distance-calibration.md) for the new experiment, exact requirements, and verified routes; the original fixed-threshold analysis remains in [reports/calibration.md](reports/calibration.md). **Both reports contain spoilers.** Machine-readable outputs are `reports/distance-analysis.json` and `reports/analysis.json`. The new analysis uses a candidate graph at cosine 0.25 and checks each edge against the target-dependent requirement and starting boundary during BFS. The original 128 endpoint pairs are reused for comparison. The new settings yielded 97 two-attempt, 24 three-attempt, six four-attempt, and one unreachable pair, with no single-attempt solutions in this sample. These are mathematical optima, not human playtest statistics.
+
+The current menu retains familiar thematic puzzles while making stepping-stone play easier. Distinct optimal routes and opening moves are reported for review; this does not prove that typical human journeys take 2–4 attempts. Running the original `analyze.py` regenerates its fixed-mode puzzle selection; run `analyze_distance.py` afterwards to restore the current menu before building browser data.
 
 To evaluate a specific route without the UI (last word is the target; intermediate words are submissions):
 
 ```sh
-.venv/bin/python scripts/analyze.py --threshold 0.45 --route cheese milk language
+.venv/bin/python scripts/analyze.py --mode distance --threshold 0.45 --route coffee food medical science
 ```
 
-Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, launch failure, boundary failure, legal backward travel, duplicate/unknown rejection, inclusive thresholds, attempt counting, automatic victory, and every selected puzzle's optimal route.
+Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, launch failure, boundary failure, legal backward travel, revisits, retry scoring, current-word/unknown rejection, legacy rule restoration, variable launch requirements, inclusive thresholds, attempt counting, automatic victory, and every selected puzzle's optimal route.
 
 ## Files and prototype limits
 
@@ -68,7 +80,8 @@ Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, 
 - `server.py`: static files and `/api/config`, `/api/new`, `/api/submit`; independent in-memory browser sessions.
 - `static/`: responsive plain HTML/CSS/JavaScript, browser scoring, curated vectors, SVG planets, rocket animations, reduced-motion support, and debug controls.
 - `scripts/prepare.py`: download and normalize real embeddings.
-- `scripts/analyze.py`: exact graph search, batch evaluation, puzzle selection, and calibration report.
+- `scripts/analyze.py`: original fixed-threshold graph search and calibration.
+- `scripts/analyze_distance.py`: target-dependent graph search and current puzzle selection.
 
 Browser journeys and every submission are saved in local storage; reloads resume the active journey. Switching puzzles or restarting archives earlier journeys in the Flight log. Copy a journey as readable text or download all logs as JSON. Logs include rejected words without charging attempts, failures, successes, timestamps, thresholds, and both cosine readings. Browser storage stays on the same device and can be removed by clearing site data; download logs for a backup. If storage fails, a visible message asks you to download before leaving. Earlier plays from before flight logging was added cannot be recovered. Python API sessions reset when the server restarts. This prototype uses fixed-scale map framing rather than a moving camera. It is a local playtest tool; authentication and player result distributions are outside this version. The interface uses system-font fallbacks if optional Google Fonts cannot load.
 
@@ -83,6 +96,7 @@ After changing embeddings or puzzle selection, rebuild the browser data and pari
 .venv/bin/python scripts/browser_fixtures.py
 node tests/test_browser.mjs
 node tests/test_log.mjs
+node tests/test_map.mjs
 ```
 
 To preview the standalone public version locally without the Python API:

@@ -45,11 +45,11 @@ def search(e, adjacency, start, target, threshold):
     return dict(attempts=depth,route=list(reversed(route)),winning_planets=len(wins), shortest_routes=sum(ways[w] for w in wins), first_moves=len(set().union(*(first_moves[w] for w in wins))))
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--samples',type=int,default=120); p.add_argument('--thresholds',type=float,nargs='+',default=[0.4,0.45,0.5,0.55]); p.add_argument('--route',nargs='+'); p.add_argument('--threshold',type=float,default=0.45); args=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument('--samples',type=int,default=120); p.add_argument('--thresholds',type=float,nargs='+',default=[0.4,0.45,0.5,0.55]); p.add_argument('--route',nargs='+'); p.add_argument('--threshold',type=float,default=0.45); p.add_argument('--mode',choices=['fixed','distance'],default='fixed'); args=p.parse_args()
     e=Embeddings()
     if args.route:
         from engine import Game
-        game=Game(e,args.route[0],args.route[-1],args.threshold)
+        game=Game(e,args.route[0],args.route[-1],args.threshold,mode=args.mode)
         for word in args.route[1:-1]: print(json.dumps(game.submit(word),indent=2))
         print(json.dumps(game.state(),indent=2)); return
     rng=np.random.default_rng(42)

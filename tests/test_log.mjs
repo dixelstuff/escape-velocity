@@ -13,7 +13,7 @@ let log=newLog();
 let game=new Game(e,'forest','money',.4);
 log.begin(game.state(),'GloVe 6B · 300 dimensions');
 const firstId=log.active.id;
-for(const word of ['milk','unknownwordxyz','milk','area']) {
+for(const word of ['milk','unknownwordxyz','forest','area']) {
   try {const event=game.submit(word);log.record(word,game.state(),event);}
   catch(error){log.record(word,game.state(),null,error.message);}
 }
@@ -47,6 +47,14 @@ assert.equal(JSON.parse(log.exportJSON()).journeys[0].entries.length,5);
 // Snapshots are detached from mutable game data.
 game.history.push({word:'changed'});
 assert.equal(log.data.journeys[0].state.history.length,3);
+// New logs record per-hop requirements and the rule version; archived old logs keep theirs.
+const dynamic=new Game(e,'coffee','science',.45,{mode:'distance'});
+const logger=newLog();logger.begin(dynamic.state(),'GloVe');
+const hop=dynamic.submit('food');logger.record('food',dynamic.state(),hop);
+assert.equal(logger.active.rules,'distance-v1');
+assert.equal(logger.active.entries[0].threshold,hop.required);
+assert.ok(journeyText(logger.active).includes('scaled by trip length'));
+assert.ok(journeyText(logger.active).includes(String(hop.required)));
 // Storage denial is visible but never prevents playing/exporting.
 const denied=new FlightLog({getItem:()=>null,setItem:()=>{throw Error('quota');}},undefined,()=> 'denied');
 denied.begin(new Game(e,'forest','money',.4).state(),'GloVe');
