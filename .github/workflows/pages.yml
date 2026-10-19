@@ -19,7 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check browser scoring against Python fixtures
-        run: node tests/test_browser.mjs
+        run: |
+          node tests/test_browser.mjs
+          node tests/test_log.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

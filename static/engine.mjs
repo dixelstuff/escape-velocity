@@ -59,6 +59,13 @@ export class Game {
   }
 }
 
+export function restoreGame(embeddings, saved) {
+  const restored = new Game(embeddings, saved.start, saved.target, saved.threshold);
+  if (!Array.isArray(saved.history)) throw Error('Saved journey is invalid.');
+  for (const event of saved.history) restored.submit(event.word);
+  return restored;
+}
+
 async function loadFile(path, binary = false) {
   const response = await fetch(new URL(path, import.meta.url));
   if (!response.ok) throw Error(`Unable to load ${path}. Please reload to try again.`);
@@ -82,6 +89,10 @@ export async function createBrowserClient() {
   return { config, request(path, body) {
     if (path === 'new') {
       game = new Game(embeddings, body.start, body.target, body.threshold);
+      return {state:game.state()};
+    }
+    if (path === 'restore') {
+      game = restoreGame(embeddings, body.state);
       return {state:game.state()};
     }
     if (path === 'submit') {

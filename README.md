@@ -70,7 +70,7 @@ Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, 
 - `scripts/prepare.py`: download and normalize real embeddings.
 - `scripts/analyze.py`: exact graph search, batch evaluation, puzzle selection, and calibration report.
 
-The public browser session resets when the page reloads. Python API sessions reset when the server restarts. This prototype uses fixed-scale map framing rather than a moving camera. It is a local playtest tool; authentication, saved games, player result distributions, are outside this version. The interface uses system-font fallbacks if optional Google Fonts cannot load.
+Browser journeys and every submission are saved in local storage; reloads resume the active journey. Switching puzzles or restarting archives earlier journeys in the Flight log. Copy a journey as readable text or download all logs as JSON. Logs include rejected words without charging attempts, failures, successes, timestamps, thresholds, and both cosine readings. Browser storage stays on the same device and can be removed by clearing site data; download logs for a backup. If storage fails, a visible message asks you to download before leaving. Earlier plays from before flight logging was added cannot be recovered. Python API sessions reset when the server restarts. This prototype uses fixed-scale map framing rather than a moving camera. It is a local playtest tool; authentication and player result distributions are outside this version. The interface uses system-font fallbacks if optional Google Fonts cannot load.
 
 ## GitHub Pages publishing
 
@@ -82,6 +82,7 @@ After changing embeddings or puzzle selection, rebuild the browser data and pari
 .venv/bin/python scripts/build_pages.py
 .venv/bin/python scripts/browser_fixtures.py
 node tests/test_browser.mjs
+node tests/test_log.mjs
 ```
 
 To preview the standalone public version locally without the Python API:
