@@ -5,7 +5,7 @@ import numpy as np
 DATA = Path(__file__).parent/'data'
 LEGACY_RULES = 'fixed-threshold-v1'
 
-def launch_requirement(current_progress, destination, baseline, arrival, minimum=.09, maximum=.19, cap_arrival=True):
+def launch_requirement(current_progress, destination, baseline, arrival, minimum=.10, maximum=.20, cap_arrival=True):
     """Measure travel to the finish edge; historical rules retain full overshoot distance."""
     trip = abs(min(destination,arrival)-min(current_progress,arrival)) if cap_arrival else abs(destination-current_progress)
     fraction = min(1., trip / max(1e-6, arrival-baseline))
@@ -20,15 +20,15 @@ class Embeddings:
         return float(np.clip(self.vectors[self.index[a]] @ self.vectors[self.index[b]], -1, 1))
 
 class Game:
-    def __init__(self, embeddings, start, target, threshold=.25, mode='fixed', launch_min=None, launch_max=None, rules=None):
+    def __init__(self, embeddings, start, target, threshold=.27, mode='fixed', launch_min=None, launch_max=None, rules=None):
         if start not in embeddings.index or target not in embeddings.index: raise ValueError('Choose words in the supported vocabulary.')
         if start == target: raise ValueError('Tee and hole words must differ.')
         if not 0.1 <= threshold <= 0.9: raise ValueError('Green threshold must be between 0.1 and 0.9.')
         if mode not in ['fixed','distance']: raise ValueError('Unknown shot mode.')
         legacy = rules in ['distance-v1','fixed-threshold-v1','fixed-threshold-v2']
         golf = rules is None or rules.startswith('golf-')
-        launch_min = (.25 if legacy else .09 if golf else .08) if launch_min is None else launch_min
-        launch_max = (.40 if legacy else .19 if golf else .18) if launch_max is None else launch_max
+        launch_min = (.25 if legacy else .10 if golf else .08) if launch_min is None else launch_min
+        launch_max = (.40 if legacy else .20 if golf else .18) if launch_max is None else launch_max
         if not .01 <= launch_min <= launch_max <= .9: raise ValueError('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.')
         expected = 'golf-distance-v1' if mode=='distance' else 'golf-fixed-v1'
         if rules is not None and rules not in [expected, *(['distance-v1','distance-v2','distance-v3'] if mode=='distance' else [LEGACY_RULES,'fixed-threshold-v2','fixed-threshold-v3'])]: raise ValueError('Unknown rule version.')

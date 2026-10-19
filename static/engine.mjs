@@ -18,18 +18,18 @@ export class Embeddings {
   }
 }
 
-export function launchRequirement(current, destination, baseline, arrival, minimum=.09, maximum=.19, capArrival=true) {
+export function launchRequirement(current, destination, baseline, arrival, minimum=.10, maximum=.20, capArrival=true) {
   const trip=capArrival?Math.abs(Math.min(destination,arrival)-Math.min(current,arrival)):Math.abs(destination-current);
   const fraction=Math.min(1,trip/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
 export class Game {
-  constructor(embeddings,start,target,threshold=.25,options={}) {
+  constructor(embeddings,start,target,threshold=.27,options={}) {
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
     const {mode='fixed',rules}=options;
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
     const golf=!rules||rules.startsWith('golf-');
-    const launch_min=options.launch_min??(legacy?.25:golf?.09:.08),launch_max=options.launch_max??(legacy?.40:golf?.19:.18);
+    const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Tee and hole words must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');

@@ -41,7 +41,7 @@ class HTTPTests(unittest.TestCase):
         for attempt in [1,2]:
             result=self.post('submit',dict(token=game['token'],word='milk'))
             self.assertFalse(result['event']['success']);self.assertEqual(result['state']['attempts'],attempt)
-            self.assertGreaterEqual(result['event']['required'],.09);self.assertLessEqual(result['event']['required'],.19)
+            self.assertGreaterEqual(result['event']['required'],.10);self.assertLessEqual(result['event']['required'],.20)
     def test_no_embedding_files_served(self):
         with self.assertRaises(HTTPError) as caught:urlopen(self.base+'/data/vectors.npy')
         caught.exception.close()

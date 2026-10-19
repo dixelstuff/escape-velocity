@@ -53,8 +53,8 @@ assert.equal(game.submit('arrival').won,true);
 assert.equal(game.state().attempts,1);
 
 const oneJump=new Game(fake,'start','target',.5,{mode:'distance'});assert.equal(oneJump.submit('arrival').won,true);assert.equal(oneJump.state().attempts,1);
-assert.equal(launchRequirement(.2,.2,.1,.5).required,.09);
-assert.equal(launchRequirement(.1,.8,.1,.5).required,.19);
+assert.equal(launchRequirement(.2,.2,.1,.5).required,.10);
+assert.equal(launchRequirement(.1,.8,.1,.5).required,.20);
 assert.deepEqual(launchRequirement(.2,.3,.1,.5),launchRequirement(.3,.2,.1,.5));
 game=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v1'});
 game.submit('forward');game.submit('start');game.submit('forward');
@@ -74,13 +74,13 @@ const backward=game.submit('backward');
 assert.equal(backward.forward,false);assert.equal(backward.success,false);
 assert.equal(game.current,'forward');assert.equal(game.state().attempts,2);
 assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
-assert.equal(new Game(fake,'start','target').threshold,.25);
-assert.equal(game.launch_min,.09);assert.equal(game.launch_max,.19);
+assert.equal(new Game(fake,'start','target').threshold,.27);
+assert.equal(game.launch_min,.10);assert.equal(game.launch_max,.20);
 
 assert.deepEqual(launchRequirement(.23,.25,.037,.25),launchRequirement(.23,.8,.037,.25));
-assert.ok(launchRequirement(.23,.8,.037,.25).required<.10);
+assert.ok(launchRequirement(.23,.8,.037,.25).required<.11);
 assert.ok(launchRequirement(.23,.8,.037,.25).required<launchRequirement(.133,.8,.037,.25).required);
-scores.set('forward,weak',.12);
+scores.set('forward,weak',.13);
 const gentle=new Game(fake,'start','target',.5,{mode:'distance'});
 const overshoot=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v2'});
 for(const g of [gentle,overshoot])g.submit('forward');
@@ -109,3 +109,7 @@ assert.equal(teeRecovery.submit('edge').outcome,'recovery');
 const shortHole=new Game(fake,'start','target',.12,{mode:'distance'});
 assert.ok(Math.abs(shortHole.backward_allowance-.001)<1e-7);
 assert.equal(shortHole.submit('edge').outcome,'water');
+
+const previousGolf=new Game(embeddings,'coffee','science',.25,{mode:'distance',launch_min:.09,launch_max:.19});
+for(const word of ['science','bean','food'])previousGolf.submit(word);
+assert.deepEqual(restoreGame(embeddings,previousGolf.state()).state(),previousGolf.state());

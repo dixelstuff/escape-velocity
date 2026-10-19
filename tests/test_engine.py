@@ -32,9 +32,9 @@ class RuleTests(unittest.TestCase):
         game.submit('weak')
         with self.assertRaises(ValueError):game.submit('weak')
     def test_distance_requirements_are_symmetric_and_capped(self):
-        self.assertEqual(launch_requirement(.2,.2,.1,.5)[0],.09)
-        self.assertAlmostEqual(launch_requirement(.1,.5,.1,.5)[0],.19)
-        self.assertAlmostEqual(launch_requirement(.1,1,.1,.5)[0],.19)
+        self.assertEqual(launch_requirement(.2,.2,.1,.5)[0],.10)
+        self.assertAlmostEqual(launch_requirement(.1,.5,.1,.5)[0],.20)
+        self.assertAlmostEqual(launch_requirement(.1,1,.1,.5)[0],.20)
         self.assertEqual(launch_requirement(.2,.3,.1,.5),launch_requirement(.3,.2,.1,.5))
     def test_short_hop_succeeds_at_lower_similarity(self):
         e=FakeEmbeddings();e.values[tuple(sorted(['start','forward']))]=.38
@@ -80,17 +80,17 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(len(game.history),3)
     def test_new_defaults_and_legacy_defaults(self):
         game=Game(FakeEmbeddings(),'start','target',mode='distance')
-        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.25,.09,.19))
+        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.27,.10,.20))
         old=Game(FakeEmbeddings(),'start','target',.45,mode='distance',rules='distance-v1')
         self.assertEqual((old.launch_min,old.launch_max),(.25,.4))
     def test_arrival_overshoot_does_not_increase_launch_requirement(self):
         edge=launch_requirement(.23,.25,.037,.25)
         self.assertEqual(edge,launch_requirement(.23,.8,.037,.25))
-        self.assertLess(edge[0],.10)
+        self.assertLess(edge[0],.11)
         self.assertLess(edge[0],launch_requirement(.133,.8,.037,.25)[0])
-        self.assertAlmostEqual(launch_requirement(.037,.8,.037,.25)[0],.19)
+        self.assertAlmostEqual(launch_requirement(.037,.8,.037,.25)[0],.20)
     def test_new_finish_succeeds_where_old_overshoot_failed(self):
-        e=FakeEmbeddings();e.values[tuple(sorted(['forward','weak']))]=.12
+        e=FakeEmbeddings();e.values[tuple(sorted(['forward','weak']))]=.13
         current=Game(e,'start','target',.5,mode='distance')
         old=Game(e,'start','target',.5,mode='distance',rules='distance-v2')
         for game in [current,old]:game.submit('forward')
@@ -140,7 +140,7 @@ class RealEmbeddingTests(unittest.TestCase):
         self.assertTrue(event['success']);self.assertFalse(event['won'])
         self.assertGreater(event['destination'],game.baseline)
         required,_=launch_requirement(event['destination'],1,game.baseline,game.threshold)
-        self.assertAlmostEqual(required,.144925,places=5)
+        self.assertAlmostEqual(required,.158788,places=5)
     def test_every_selected_puzzle_has_a_verified_route(self):
         import json
         from engine import DATA

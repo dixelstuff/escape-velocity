@@ -47,9 +47,9 @@
 .lower{grid-template-columns:1fr;}
 @media(max-width:650px){.journey-picker{grid-template-columns:1fr;gap:24px;}.journey-picker h2{font-size:23px;}.custom-words{gap:10px;}#custom-form>button{width:100%;}}
 
-.planet-label{fill:#344e37;}
+.planet-label{font-size:12px;fill:#344e37;}
 .arrival-label{font-weight:700;letter-spacing:1px;fill:#355d32;}
-@media(max-width:650px){.planet-label{font-size:20px;}}
+@media(max-width:650px){.planet-label{font-size:18px;}}
 
 :root{background:#f5f3e8;color:#2c4130;--green:#356b43;--line:#d8decb;}
 .map-card{background:#d8e7c4;border-color:#b6c89c;background-image:none;}

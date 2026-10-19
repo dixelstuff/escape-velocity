@@ -24,14 +24,17 @@ export function visibleAttempts(state) {
 /** Pack measured label boxes around fixed word positions, without obscuring balls. */
 export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
   const placed=[],result=new Map();let height=minimumHeight;
-  const overlaps=(a,b)=>a.x<b.x+b.width+4&&a.x+a.width+4>b.x&&a.y<b.y+b.height+4&&a.y+a.height+4>b.y;
+  const overlaps=(a,b)=>a.x<b.x+b.width+3&&a.x+a.width+3>b.x&&a.y<b.y+b.height+3&&a.y+a.height+3>b.y;
   for(const label of [...labels].sort((a,b)=>(b.priority||0)-(a.priority||0))) {
-    const w=Math.min(width-16,label.width+12),h=label.height+8;
+    const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
-    for(let y=24;y+h<=minimumHeight-10;y+=h+7) {
+    const radius=label.radius??16,preferredTop=label.y+radius+5;
+    const rows=[preferredTop,label.y-radius-5-h];
+    for(let y=24;y+h<=minimumHeight-10;y+=h+7)rows.push(y);
+    for(const y of rows.filter(y=>y>=24&&y+h<=minimumHeight-10)) {
       for(const shift of [0,-28,28,-64,64,-112,112,-180,180]) {
         const x=Math.max(8,Math.min(width-w-8,label.x-w/2+shift));
-        candidates.push({x,y,width:w,height:h,cost:(x+w/2-label.x)**2+(y+h/2-(label.y+33))**2});
+        candidates.push({x,y,width:w,height:h,cost:(x+w/2-label.x)**2+(y+h/2-(preferredTop+h/2))**2});
       }
     }
     candidates.sort((a,b)=>a.cost-b.cost);

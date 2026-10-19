@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { startupAction, isOpening } from '../static/startup.mjs';
-const opening={start:'coffee',target:'science',threshold:.25,mode:'distance',rules:'golf-distance-v1',launch_min:.09,launch_max:.19};
+const opening={start:'coffee',target:'science',threshold:.27,mode:'distance',rules:'golf-distance-v1',launch_min:.10,launch_max:.20};
 const old={rules:'fixed-threshold-v1',state:{start:'forest',target:'money',threshold:.4,attempts:0,history:[]},entries:[]};
 assert.equal(startupAction(null,opening),'opening');
 assert.equal(startupAction(old,opening),'upgrade');
@@ -18,3 +18,5 @@ assert.equal(startupAction({state:{...opening,threshold:.4},entries:[]},opening)
 
 assert.equal(startupAction({state:{...opening,rules:'distance-v2'},entries:[]},opening),'upgrade');
 assert.equal(startupAction({state:{...opening,rules:'fixed-threshold-v3',threshold:.12},entries:[]},opening),'upgrade');
+
+assert.equal(startupAction({state:{...opening,threshold:.25,launch_min:.09,launch_max:.19},entries:[]},opening),'upgrade');

@@ -6,5 +6,6 @@ export function startupAction(saved, opening) {
   if(!saved)return 'opening';
   const state=saved.state;
   if(!['golf-distance-v1','golf-fixed-v1'].includes(state.rules))return 'upgrade';
+  if(state.threshold===.25&&state.launch_min===.09&&state.launch_max===.19)return 'upgrade';
   return 'restore';
 }
