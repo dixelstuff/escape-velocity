@@ -36,6 +36,6 @@ def main():
             assert game.submit(word)['success']
         assert game.won
         results.append(dict(**p,attempts=len(route)-1,route=route))
-    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='distance-v3',results=results),indent=2)+'\n')
-    print(f'Verified {len(results)} menu routes at arrival .25, launch .08–.18, forward only.')
+    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='golf-distance-v1',results=results),indent=2)+'\n')
+    print(f'Verified {len(results)} menu routes at arrival .25, shot .09–.19, forward only.')
 if __name__=='__main__':main()

@@ -5,8 +5,6 @@ export function isOpening(state, opening) {
 export function startupAction(saved, opening) {
   if(!saved)return 'opening';
   const state=saved.state;
-  if(!['distance-v3','fixed-threshold-v3'].includes(state.rules))return 'upgrade';
-  const previousDefaults=(state.threshold===.30 && state.launch_min===.12 && state.launch_max===.30) || (state.threshold===.12 && state.launch_min===.08 && state.launch_max===.18);
-  if(previousDefaults)return 'upgrade';
+  if(!['golf-distance-v1','golf-fixed-v1'].includes(state.rules))return 'upgrade';
   return 'restore';
 }

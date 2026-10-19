@@ -24,5 +24,8 @@ def main():
     add(dict(start='coffee',target='science',threshold=.30,mode='distance'),['wire','voltage','food','medical'])
     add(dict(start='moon',target='kitchen',threshold=.25,mode='distance'),['surface','counter','table','kitchen'])
     add(dict(start='moon',target='kitchen',threshold=.12,mode='distance',rules='distance-v2'),['surface'])
+    add(dict(start='coffee',target='science',threshold=.25,mode='distance'),['science','bean','food'])
+    add(dict(start='client',target='chirp',threshold=.25,mode='distance'),['chat','message','talk','chirp'])
+    add(dict(start='moon',target='kitchen',threshold=.25,mode='distance',rules='distance-v3'),['surface','bench','counter','kitchen'])
     (ROOT/'tests/browser-fixtures.json').write_text(json.dumps(fixtures,indent=2))
 if __name__=='__main__':main()

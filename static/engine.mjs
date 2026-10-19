@@ -18,7 +18,7 @@ export class Embeddings {
   }
 }
 
-export function launchRequirement(current, destination, baseline, arrival, minimum=.08, maximum=.18, capArrival=true) {
+export function launchRequirement(current, destination, baseline, arrival, minimum=.09, maximum=.19, capArrival=true) {
   const trip=capArrival?Math.abs(Math.min(destination,arrival)-Math.min(current,arrival)):Math.abs(destination-current);
   const fraction=Math.min(1,trip/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
@@ -28,46 +28,52 @@ export class Game {
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
     const {mode='fixed',rules}=options;
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
-    const launch_min=options.launch_min??(legacy?.25:.08),launch_max=options.launch_max??(legacy?.40:.18);
+    const golf=!rules||rules.startsWith('golf-');
+    const launch_min=options.launch_min??(legacy?.25:golf?.09:.08),launch_max=options.launch_max??(legacy?.40:golf?.19:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
-    if(start===target)throw Error('Start and target must differ.');
-    if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Arrival threshold must be between 0.1 and 0.9.');
-    if(!['fixed','distance'].includes(mode))throw Error('Unknown launch mode.');
-    if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Launch requirements must be between 0.01 and 0.9, with short hops no harder than long jumps.');
-    const expected=mode==='distance'?'distance-v3':'fixed-threshold-v3';
-    if(rules&&! [expected,...(mode==='distance'?['distance-v1','distance-v2']:['fixed-threshold-v1','fixed-threshold-v2'])].includes(rules))throw Error('Unknown rule version.');
-    if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Legacy journeys use fixed launches.');
+    if(start===target)throw Error('Tee and hole words must differ.');
+    if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');
+    if(!['fixed','distance'].includes(mode))throw Error('Unknown shot mode.');
+    if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.');
+    const expected=mode==='distance'?'golf-distance-v1':'golf-fixed-v1';
+    if(rules&&! [expected,...(mode==='distance'?['distance-v1','distance-v2','distance-v3']:['fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
+    if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Historical rounds use fixed shot strength.');
     Object.assign(this,{e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected});
-    this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;
+    this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
+    this.backward_allowance=Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
   }
   submit(word) {
     word=word.trim().toLowerCase();
-    if(this.won)throw Error('Journey complete. Start a new puzzle.');
-    if(!this.e.index.has(word))throw Error('That word is outside the supported vocabulary. No attempt used.');
+    if(this.won)throw Error('Hole complete. Start a new hole.');
+    if(!this.e.index.has(word))throw Error('That word is outside the supported vocabulary. No shot used.');
     if(this.rules==='fixed-threshold-v1') {
-      if(word===this.start||this.history.some(e=>e.word===word))throw Error('That planet has already been tried. No attempt used.');
-    } else if(word===this.current)throw Error('You are already on that planet. No attempt used.');
+      if(word===this.start||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
+    } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
     const launch=this.e.cosine(this.current,word),destination=this.e.cosine(word,this.target);
-    let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max,this.rules==='distance-v3');
+    let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max,['distance-v3','golf-distance-v1'].includes(this.rules));
     if(this.mode==='fixed')required=this.threshold;
     const boundary=destination+1e-7>=this.baseline;
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
-    const success=boundary&&(!forwardOnly||forward)&&launch+1e-7>=required,inside=destination+1e-7>=this.threshold;
+    const isGolf=this.rules.startsWith('golf-'),connected=launch+1e-7>=required;
+    const safe=destination+1e-7>=this.best_progress-this.backward_allowance;
+    const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
     const result={word,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&inside,attempt:this.history.length+1};
-    if(forwardOnly)result.forward=forward;
-    this.history.push(result);if(success){this.current=word;this.route.push(word);}this.won=result.won;return result;
+    if(forwardOnly||isGolf)result.forward=forward;
+    if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':!forward?'recovery':'landed'});
+    this.history.push(result);if(success){this.current=word;this.route.push(word);this.best_progress=Math.max(this.best_progress,destination);}this.won=result.won;return result;
   }
   state() {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
-      attempts:this.history.length,route:this.route,history:this.history,won:this.won});
+      attempts:this.history.length,route:this.route,history:this.history,won:this.won,
+      ...(this.rules.startsWith('golf-')?{best_progress:this.best_progress,backward_allowance:this.backward_allowance}:{})});
   }
 }
 export function restoreGame(embeddings,saved) {
   const options={...saved,rules:saved.rules||'fixed-threshold-v1',mode:saved.mode||'fixed'};
   const restored=new Game(embeddings,saved.start,saved.target,saved.threshold,options);
-  if(!Array.isArray(saved.history))throw Error('Saved journey is invalid.');
+  if(!Array.isArray(saved.history))throw Error('Saved scorecard is invalid.');
   for(const event of saved.history)restored.submit(event.word);
   return restored;
 }
@@ -102,7 +108,7 @@ export async function createBrowserClient() {
       return {state:game.state()};
     }
     if (path === 'submit') {
-      if (!game) throw Error('Start a new journey first.');
+      if (!game) throw Error('Start a new hole first.');
       const event = game.submit(body.word);
       return {event, state:game.state()};
     }

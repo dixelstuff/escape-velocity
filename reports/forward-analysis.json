@@ -1,13 +1,13 @@
 {
-  "rules": "distance-v3",
+  "rules": "golf-distance-v1",
   "results": [
     {
       "start": "coffee",
       "target": "science",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "coffee",
@@ -19,12 +19,12 @@
       "target": "language",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "cheese",
-        "can"
+        "like"
       ]
     },
     {
@@ -32,8 +32,8 @@
       "target": "ability",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "penalty",
@@ -45,8 +45,8 @@
       "target": "affection",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "everyday",
@@ -58,8 +58,8 @@
       "target": "kitchen",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "moon",
@@ -71,12 +71,12 @@
       "target": "computer",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "garden",
-        "are"
+        "but"
       ]
     },
     {
@@ -84,12 +84,12 @@
       "target": "democracy",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "bread",
-        "all"
+        "just"
       ]
     },
     {
@@ -97,8 +97,8 @@
       "target": "money",
       "threshold": 0.25,
       "mode": "distance",
-      "launch_min": 0.08,
-      "launch_max": 0.18,
+      "launch_min": 0.09,
+      "launch_max": 0.19,
       "attempts": 1,
       "route": [
         "forest",

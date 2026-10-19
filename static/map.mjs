@@ -14,10 +14,10 @@ export function projectX(similarity,baseline,arrival,layout) {
   return Math.max(20,Math.min(layout.edge,layout.left+span*mapFraction(similarity,baseline,arrival,fraction)));
 }
 
-/** Failed planets retain their original positions until the rocket passes them. */
+/** Unmade forward shots keep their word markers until the ball passes them. */
 export function visibleAttempts(state) {
   const reached=new Set(state.route);
-  return state.history.filter(event=>event.forward!==false &&
+  return state.history.filter(event=>(event.success||event.forward!==false) && event.outcome!=='water' &&
     (reached.has(event.word)||event.destination+1e-7>=state.progress));
 }
 

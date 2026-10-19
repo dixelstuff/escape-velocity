@@ -23,7 +23,7 @@ def main():
                 body=json.loads(self.rfile.read(size))
                 with lock:
                     if self.path == '/api/new':
-                        game=Game(embeddings,body['start'].strip().lower(),body['target'].strip().lower(),float(body['threshold']),mode=body.get('mode','fixed'),launch_min=float(body.get('launch_min',.08)),launch_max=float(body.get('launch_max',.18)))
+                        game=Game(embeddings,body['start'].strip().lower(),body['target'].strip().lower(),float(body['threshold']),mode=body.get('mode','fixed'),launch_min=float(body.get('launch_min',.09)),launch_max=float(body.get('launch_max',.19)))
                         token=secrets.token_urlsafe(24)
                         if len(sessions)>1000: sessions.pop(next(iter(sessions)))
                         sessions[token]=game
@@ -35,6 +35,6 @@ def main():
                         return self.reply(dict(event=event,state=game.state()))
                 self.reply({'error':'Unknown endpoint'},404)
             except (ValueError,KeyError,TypeError) as e: self.reply({'error':str(e)},400)
-    print(f'ESCAPE VELOCITY → http://localhost:{args.port}',flush=True)
+    print(f'WORD GOLF → http://localhost:{args.port}',flush=True)
     ThreadingHTTPServer(('127.0.0.1',args.port),Handler).serve_forever()
 if __name__=='__main__': main()

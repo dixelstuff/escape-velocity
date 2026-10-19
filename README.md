@@ -1,10 +1,10 @@
-# ESCAPE VELOCITY 🚀
+# WORD GOLF ⛳
 
-A local browser word game using actual Stanford GloVe 6B 300-dimensional vectors. Jump between words with related meanings, then land in the target's arrival zone to finish. Every supported submission counts, including retries and failed launches. Entering your current word costs nothing.
+A browser word-golf game using actual Stanford GloVe 6B 300-dimensional vectors. Connect your next word to the ball word and aim closer to the hole. Reach the putting green to finish. Every supported guess counts as one shot, including misses and water balls; unknown words and your current lie cost nothing. Originally prototyped as Escape Velocity; the existing Pages URL and saved scorecards are preserved.
 
 ## Play online
 
-[Play Escape Velocity on GitHub Pages](https://dixelstuff.github.io/escape-velocity/). The public version calculates cosine similarities entirely in your browser. It downloads the curated 24 MB float32 model once; ordinary browser caching reuses unchanged files on later visits. No account, API key, or running Python server is needed. The original 822 MiB GloVe archive is never sent to players.
+[Play Word Golf on GitHub Pages](https://dixelstuff.github.io/escape-velocity/). The public version calculates cosine similarities entirely in your browser. It downloads the curated 24 MB float32 model once; ordinary browser caching reuses unchanged files on later visits. No account, API key, or running Python server is needed. The original 822 MiB GloVe archive is never sent to players.
 
 ## Run
 
@@ -15,8 +15,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/prepare.py
-python scripts/analyze.py
-python scripts/analyze_distance.py
+python scripts/analyze_forward.py
 python scripts/build_pages.py
 python scripts/browser_fixtures.py
 python server.py
@@ -28,19 +27,25 @@ First preparation downloads the official 822 MiB GloVe archive and the roughly 1
 
 ## Play
 
-Choose a journey, enter a word, and press Launch or Enter. Destination position measures similarity to the target. Launch similarity must meet a requirement that grows with trip length. Backward guesses cost an attempt, leave the rocket in place, and appear only in the flight log. Failed forward launches leave faint markers at stable positions; these disappear when you pass them. Unknown words and your current word cost nothing. An unreached forward word can be retried from a different planet. Reach any word inside the arrival zone to win immediately.
+Choose a hole, enter a word, and press **Hit shot** or Enter. **Make your own hole** accepts any two supported, different words for the tee and flag. The literal hole word is a normal, scored shot: too weak a connection misses; a strong enough connection finishes. No extra putt is required after entering the green.
 
-The arrival zone is centred on the target circle, extending equally far to its left and right, and slightly wider than the previous version. The rocket finishes on the qualifying word. Height separates attempted words and has no semantic meaning. Default arrival is 0.25; distance launch requirements range from 0.08 to 0.18. Boundaries are inclusive with a `1e-7` floating-point tolerance, including equal-progress moves. Map resizing never changes scores. Successful route planets remain visible as a trail; failed backward guesses never get markers or flight animations.
+The current ball is a shaded, dimpled SVG golf ball on a mown fairway. Previous lies are small markers, and measured labels use leader lines and collision avoidance. A pond shows the destination of out-of-bounds backward shots. Misses leave the ball still; water shots animate into the pond, splash, and return to the same lie. A completion banner appears over the map and brings the green into view. Semantic horizontal position stays fixed; height is only for readability. Resizing never changes scoring.
 
-Open **Flight lab** to inspect exact cosine readings, choose distance or fixed launch mode, adjust arrival and short/long-hop requirements, and choose arbitrary supported endpoints. Applying settings restarts the puzzle. The route tester submits comma-separated intermediate words through the same animated and scored game flow. Optimal routes are deliberately excluded from browser configuration.
+Default green similarity is **0.25**. Contact requirements range from **0.09 to 0.19**. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Required contact is `0.09 + 0.10 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
 
-## Launch experiment and saved journeys
+A small retreat is allowed: `max(0, min(0.01, 0.05 * (green_threshold - tee_target_similarity)))`. The lower safe boundary is anchored to the **best target similarity reached**, not the latest lie, so repeated tiny retreats cannot produce unlimited backward drift. Outcomes are:
 
-In distance mode, trip length is the absolute change in target cosine (clipping both positions at the arrival threshold) divided by the original start-to-arrival gap, capped at 1. Required launch cosine is `0.08 + 0.10 * trip_length`. A backward destination cannot succeed even if launch similarity is sufficient. The required value is shown after each attempt and saved in Flight log. A one-attempt victory requires at least 0.18 launch similarity.
+- **Miss:** contact below the required strength; ball stays still.
+- **Water:** enough contact, but destination below the safe boundary; ball splashes into the pond and returns.
+- **Recovery:** enough contact and within the safe boundary, but slightly behind the current lie; ball lands there.
+- **Landed:** enough contact and safe forward or level movement.
+- **Green:** safe successful shot at or beyond the green threshold; hole complete.
 
-New menu journeys use `distance-v3`; new fixed journeys use `fixed-threshold-v3`. Both allow only forward movement. Older rule versions remain supported for accurate historical replay. On first load after this update, an older active journey (including the previous 0.12 arrival and 0.30 / 0.12–0.30 defaults) is archived unchanged and a fresh journey with the same endpoints starts at the new defaults. All previous attempts remain selectable in Flight log.
+Each supported guess counts as exactly one shot. Water adds no extra penalty. Scorecards retain every supported shot and every unscored rejected word. Normal play uses plain golf feedback; exact similarities, including negative target similarities, remain available in **Course settings** and exported scorecards.
 
-COFFEE → SCIENCE is now the opening journey. FOREST → MONEY remains available for comparison. On mobile, inputs are at least 16px to avoid focus zoom, submitting dismisses the keyboard, and flights do not automatically refocus the input. Intentional pinch zoom and reduced-motion support remain available. Actual iOS focus behaviour still benefits from device playtesting.
+New holes use `golf-distance-v1`, or `golf-fixed-v1` in fixed mode. Existing fixed/distance rule versions remain supported for exact historical replay. On first load of this release, older active rounds are archived unchanged and the same endpoints tee off with the golf rules. All earlier scorecards remain selectable. The unchanged `escape-velocity.flight-log.v1` storage key preserves prior playtests; JSON exports retain their original field names for compatibility.
+
+COFFEE → SCIENCE opens the course. On mobile, 16px inputs avoid focus zoom, and a compact map-and-input view follows `visualViewport` above the keyboard. Hitting a shot dismisses the keyboard. Pinch zoom and reduced-motion preferences remain supported. Real iOS/Android keyboards still need device playtesting.
 
 ## Data and vocabulary
 
@@ -64,7 +69,7 @@ The original analysis tool builds exact all-vocabulary threshold graphs in memor
 
 See [reports/distance-calibration.md](reports/distance-calibration.md) for the earlier distance experiment, exact requirements, and verified routes; the original fixed-threshold analysis remains in [reports/calibration.md](reports/calibration.md). **Both reports contain spoilers.** Machine-readable outputs are `reports/distance-analysis.json` and `reports/analysis.json`. That historical analysis uses a candidate graph at cosine 0.25 and checks each edge against the target-dependent requirement and starting boundary during BFS. The original 128 endpoint pairs are reused for comparison. Those earlier settings yielded 97 two-attempt, 24 three-attempt, six four-attempt, and one unreachable pair, with no single-attempt solutions in this sample. These are mathematical optima, not human playtest statistics.
 
-The current menu retains familiar thematic puzzles while making stepping-stone play easier. Distinct optimal routes and opening moves are reported for review; this does not prove that typical human journeys take 2–4 attempts. Running the original `analyze.py` regenerates its fixed-mode puzzle selection; run `analyze_distance.py` afterwards to restore the current menu before building browser data.
+The current menu is stored in `data/puzzles.json`. Historical analysis scripts describe earlier rules; `analyze.py` overwrites the menu if run, so restore the current tracked puzzle file before publishing. `analyze_forward.py` verifies examples of successful forward routes under the golf rules; it does not claim optimality for routes involving recovery shots.
 
 To evaluate a specific route without the UI (last word is the target; intermediate words are submissions):
 
@@ -74,18 +79,18 @@ To evaluate a specific route without the UI (last word is the target; intermedia
 
 Current menu routes are verified with `.venv/bin/python scripts/analyze_forward.py`; results are in `reports/forward-analysis.json` (spoilers). Earlier calibration reports describe historical settings.
 
-Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, launch failure, boundary failure, forward-only movement, historical backward travel, retries, retry scoring, current-word/unknown rejection, legacy rule restoration, variable launch requirements, inclusive thresholds, attempt counting, automatic victory, and every selected puzzle's optimal route.
+Tests cover normalization, cosine symmetry, meaningful real-vector comparisons, misses, water shots, recovery tolerance, cumulative-drift prevention, historical backward travel, retry scoring, current-word/unknown rejection, legacy rule restoration, variable launch requirements, inclusive thresholds, attempt counting, automatic victory, and every selected hole's verified route.
 
 ## Files and prototype limits
 
 - `engine.py`: semantic scoring and game rules.
 - `server.py`: static files and `/api/config`, `/api/new`, `/api/submit`; independent in-memory browser sessions.
-- `static/`: responsive plain HTML/CSS/JavaScript, browser scoring, curated vectors, SVG planets, rocket animations, reduced-motion support, and debug controls.
+- `static/`: responsive plain HTML/CSS/JavaScript, browser scoring, curated vectors, SVG fairway, ball and water animations, reduced-motion support, and debug controls.
 - `scripts/prepare.py`: download and normalize real embeddings.
 - `scripts/analyze.py`: original fixed-threshold graph search and calibration.
-- `scripts/analyze_distance.py`: target-dependent graph search and current puzzle selection.
+- `scripts/analyze_distance.py`: historical target-dependent graph search.
 
-Browser journeys and every submission are saved in local storage; reloads resume the active journey. A resume message identifies it, and **Play opening journey** starts COFFEE → SCIENCE without deleting earlier logs. Only an untouched original FOREST → MONEY default is automatically replaced with the new opening. The config revalidates on load, while the 24 MB vectors retain normal browser caching. The ARRIVAL V3 footer identifies this release. The rocket and filled planet mark your current position without an extra label. Switching puzzles or restarting archives earlier journeys in the Flight log. Copy a journey as readable text or download all logs as JSON. Logs include rejected words without charging attempts, failures, successes, timestamps, thresholds, and both cosine readings. Browser storage stays on the same device and can be removed by clearing site data; download logs for a backup. If storage fails, a visible message asks you to download before leaving. Earlier plays from before flight logging was added cannot be recovered. Python API sessions reset when the server restarts. This prototype uses fixed-scale map framing rather than a moving camera. It is a local playtest tool; authentication and player result distributions are outside this version. The interface uses system-font fallbacks if optional Google Fonts cannot load.
+Rounds and every submission are saved in local storage; reloads resume the active hole. Switching holes or restarting archives previous rounds. Copy a scorecard as readable text or download all as JSON, including raw cosines, requirements, outcomes, timestamps and exact rule versions. If browser storage fails, a visible message asks you to download before leaving. Browser data stays on the same device; clearing site data removes it. Earlier plays before logging was added cannot be recovered. The config revalidates on load while unchanged model data uses browser caching. Python API sessions reset with the server. The interface uses system-font fallbacks if optional Google Fonts cannot load.
 
 ## GitHub Pages publishing
 
@@ -108,13 +113,3 @@ python3 -m http.server 8001 --bind 127.0.0.1 --directory static
 ```
 
 The original Python API remains available for experiments. The UI uses the browser engine on both local and published sites. No word submissions leave the browser.
-
-On mobile, focusing the word input switches to a compact map-and-input view sized to `visualViewport`, so the software keyboard has room below it. Blurring restores the normal page and previous scroll position. Inputs remain 16px and pinch zoom remains available. Desktop browser checks simulate narrow and shortened viewports; real iOS/Android keyboard behavior still needs device playtesting.
-
-On arrival, a prominent “Touchdown! You made it.” banner appears over the map with the attempt count, and the map is brought into view. The detailed result and full flight log remain below.
-
-The current distance rule caps trip measurement at the arrival-zone edge. Words deeper inside the zone need no extra launch strength. With arrival 0.25 and launch 0.08–0.18, a launch from target similarity 0.23 needs about 0.089 for MOON → KITCHEN regardless of overshoot. Older `distance-v1` and `distance-v2` histories retain their exact scoring when replayed.
-
-Use **Make your own journey** below the launch controls to enter a starting word and destination, then press **Play my journey**. Custom levels use the current menu defaults (arrival 0.25, launches 0.08–0.18, distance-v3), appear in the journey selector, can be restarted, and save progress and attempts in the same Flight log. Unsupported words and identical endpoints show an inline error without replacing the active journey.
-
-The arrival zone is drawn as a mown putting green with a fringe, hole, and flag. This changes only the presentation; entering the green still completes the journey and the actual target remains a normal, scored submission. Measured text labels are packed around fixed ball positions with leader lines to prevent overlaps on small screens. Dense maps can grow vertically rather than hiding labels.

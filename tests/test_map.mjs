@@ -50,3 +50,6 @@ for(const width of [640,1000]){
  }
 }
 console.log('Crowded label placement passed at phone and desktop widths: no missing words, overlapping labels, or covered balls.');
+
+const recoveryHistory=[{word:'recovery',forward:false,success:true,destination:.19,outcome:'recovery'},{word:'water',forward:false,success:false,destination:.1,outcome:'water'}];
+assert.deepEqual(visibleAttempts({history:recoveryHistory,route:['start','recovery'],progress:.19}).map(e=>e.word),['recovery']);
