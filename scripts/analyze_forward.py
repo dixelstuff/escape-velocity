@@ -13,7 +13,7 @@ def search_forward(e,p):
     while queue:
         current=queue.popleft()
         launch=e.vectors@e.vectors[current]
-        fraction=np.minimum(1,np.abs(scores-scores[current])/max(1e-6,p['threshold']-baseline))
+        fraction=np.minimum(1,np.abs(np.minimum(scores,p['threshold'])-min(scores[current],p['threshold']))/max(1e-6,p['threshold']-baseline))
         required=p['launch_min']+(p['launch_max']-p['launch_min'])*fraction
         for raw in np.flatnonzero((scores+1e-7>=scores[current])&(launch+1e-7>=required)):
             nxt=int(raw)
@@ -36,6 +36,6 @@ def main():
             assert game.submit(word)['success']
         assert game.won
         results.append(dict(**p,attempts=len(route)-1,route=route))
-    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='distance-v2',results=results),indent=2)+'\n')
-    print(f'Verified {len(results)} menu routes at arrival .12, launch .08–.18, forward only.')
+    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='distance-v3',results=results),indent=2)+'\n')
+    print(f'Verified {len(results)} menu routes at arrival .25, launch .08–.18, forward only.')
 if __name__=='__main__':main()

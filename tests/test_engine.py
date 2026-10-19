@@ -80,9 +80,22 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(len(game.history),3)
     def test_new_defaults_and_legacy_defaults(self):
         game=Game(FakeEmbeddings(),'start','target',mode='distance')
-        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.12,.08,.18))
+        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.25,.08,.18))
         old=Game(FakeEmbeddings(),'start','target',.45,mode='distance',rules='distance-v1')
         self.assertEqual((old.launch_min,old.launch_max),(.25,.4))
+    def test_arrival_overshoot_does_not_increase_launch_requirement(self):
+        edge=launch_requirement(.23,.25,.037,.25)
+        self.assertEqual(edge,launch_requirement(.23,.8,.037,.25))
+        self.assertLess(edge[0],.09)
+        self.assertLess(edge[0],launch_requirement(.133,.8,.037,.25)[0])
+        self.assertAlmostEqual(launch_requirement(.037,.8,.037,.25)[0],.18)
+    def test_new_finish_succeeds_where_old_overshoot_failed(self):
+        e=FakeEmbeddings();e.values[tuple(sorted(['forward','weak']))]=.12
+        current=Game(e,'start','target',.5,mode='distance')
+        old=Game(e,'start','target',.5,mode='distance',rules='distance-v2')
+        for game in [current,old]:game.submit('forward')
+        self.assertTrue(current.submit('weak')['won'])
+        self.assertFalse(old.submit('weak')['success'])
 class RealEmbeddingTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -94,6 +107,13 @@ class RealEmbeddingTests(unittest.TestCase):
         self.assertAlmostEqual(self.e.cosine('cheese','cheese'),1,places=5)
         self.assertAlmostEqual(self.e.cosine('cheese','language'),self.e.cosine('language','cheese'),places=6)
         self.assertGreater(self.e.cosine('cheese','milk'),self.e.cosine('cheese','language'))
+    def test_moon_surface_is_progress_without_victory(self):
+        game=Game(self.e,'moon','kitchen',mode='distance')
+        event=game.submit('surface')
+        self.assertTrue(event['success']);self.assertFalse(event['won'])
+        self.assertGreater(event['destination'],game.baseline)
+        required,_=launch_requirement(event['destination'],1,game.baseline,game.threshold)
+        self.assertAlmostEqual(required,.134925,places=5)
     def test_every_selected_puzzle_has_a_verified_route(self):
         import json
         from engine import DATA

@@ -55,7 +55,7 @@ assert.equal(log.data.journeys[0].state.history.length,3);
 const dynamic=new Game(e,'coffee','science',.45,{mode:'distance'});
 const logger=newLog();logger.begin(dynamic.state(),'GloVe');
 const hop=dynamic.submit('food');logger.record('food',dynamic.state(),hop);
-assert.equal(logger.active.rules,'distance-v2');
+assert.equal(logger.active.rules,'distance-v3');
 assert.equal(logger.active.entries[0].threshold,hop.required);
 assert.ok(journeyText(logger.active).includes('scaled by trip length'));
 assert.ok(journeyText(logger.active).includes(String(hop.required)));

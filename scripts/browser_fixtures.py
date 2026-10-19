@@ -22,5 +22,7 @@ def main():
     add(dict(start='forest',target='money',threshold=.4,mode='fixed',rules='fixed-threshold-v1'),['milk','milk','area','forest','have'])
     add(dict(start='penalty',target='ability',threshold=.45,mode='distance',rules='distance-v1'),['goal','skill','skill','goal','aim','achieve'])
     add(dict(start='coffee',target='science',threshold=.30,mode='distance'),['wire','voltage','food','medical'])
+    add(dict(start='moon',target='kitchen',threshold=.25,mode='distance'),['surface','counter','table','kitchen'])
+    add(dict(start='moon',target='kitchen',threshold=.12,mode='distance',rules='distance-v2'),['surface'])
     (ROOT/'tests/browser-fixtures.json').write_text(json.dumps(fixtures,indent=2))
 if __name__=='__main__':main()

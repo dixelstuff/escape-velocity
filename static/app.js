@@ -1,7 +1,7 @@
-import { createBrowserClient } from './engine.mjs?v=touchdown-v5';
-import { mapLayout, projectX, visibleAttempts } from './map.mjs?v=touchdown-v5';
-import { startupAction, isOpening } from './startup.mjs?v=touchdown-v5';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=touchdown-v5';
+import { createBrowserClient } from './engine.mjs?v=finish-v6';
+import { mapLayout, projectX, visibleAttempts } from './map.mjs?v=finish-v6';
+import { startupAction, isOpening } from './startup.mjs?v=finish-v6';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=finish-v6';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null;
 let storage;try{storage=window.localStorage;}catch{}
@@ -54,7 +54,7 @@ function syncPuzzleSelection(){
 function update(){
  $('start-label').textContent=state.start;$('target-label').textContent=state.target;$('attempts').textContent=state.attempts;
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
- $('upgrade-rules').hidden=['distance-v2','fixed-threshold-v3'].includes(state.rules);$('rules-note').textContent=state.mode==='distance'?'Move forward. Short hops need less lift. Every guess counts.':'Move forward. Every launch uses the fixed requirement.';
+ $('upgrade-rules').hidden=['distance-v3','fixed-threshold-v3'].includes(state.rules);$('rules-note').textContent=state.mode==='distance'?'Move forward. Short hops need less lift. Finishing gets easier as you approach.':'Move forward. Every launch uses the fixed requirement.';
  $('opening-game').hidden=isOpening(state,config.puzzles[0]);$('opening-game').textContent=`Play opening journey: ${config.puzzles[0].start} → ${config.puzzles[0].target}`;
  $('results').hidden=!state.won;
  $('arrival-banner').hidden=!state.won;
@@ -102,7 +102,7 @@ $('debug-toggle').onclick=()=>{const open=$('debug').hidden;$('debug').hidden=!o
 $('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
 $('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max}:config.puzzles[Number($('puzzle').value)]);
 $('opening-game').onclick=()=>newGame(config.puzzles[0]);
-$('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.12,mode:'distance',launch_min:.08,launch_max:.18});
+$('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.25,mode:'distance',launch_min:.08,launch_max:.18});
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
 $('route-form').onsubmit=async event=>{event.preventDefault();if(busy)return;const words=$('route-input').value.split(',').map(w=>w.trim()).filter(Boolean);for(const word of words){if(state.won||!await submit(word))break;}};
 $('log-journey').onchange=()=>{selectedLogId=$('log-journey').value;$('copy-fallback').hidden=true;renderLog();};
@@ -117,7 +117,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='escape-velocity-flight-logs.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Backup download requested. If it does not appear, use Copy journey.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Loading real word vectors (24 MB on your first visit)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'touchdown-v5'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.12,mode:'distance',launch_min:.08,launch_max:.18});$('status').textContent='New easier, forward-only journey started. Your previous attempts are saved in Flight log.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed journey and flight log have been restored.':isOpening(state,config.puzzles[0])?'Journey restored. Pick up where you left off.':`Resuming your saved ${state.start} → ${state.target} journey. The opening journey is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Started a fresh journey. Your earlier logs are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Loading real word vectors (24 MB on your first visit)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'finish-v6'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.25,mode:'distance',launch_min:.08,launch_max:.18});$('status').textContent='New journey started with a gentler final launch. Your previous attempts are saved in Flight log.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed journey and flight log have been restored.':isOpening(state,config.puzzles[0])?'Journey restored. Pick up where you left off.':`Resuming your saved ${state.start} → ${state.target} journey. The opening journey is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Started a fresh journey. Your earlier logs are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Launchpad unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

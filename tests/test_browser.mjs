@@ -23,6 +23,7 @@ for (const fixture of fixtures) {
     else compare(game.submit(step.word), step.event);
     compare(game.state(), step.state);
   }
+  compare(restoreGame(embeddings,game.state()).state(),game.state());
   assert.equal(initial.attempts, 0);
   assert.deepEqual(initial.route, [fixture.start]);
 }
@@ -73,5 +74,16 @@ const backward=game.submit('backward');
 assert.equal(backward.forward,false);assert.equal(backward.success,false);
 assert.equal(game.current,'forward');assert.equal(game.state().attempts,2);
 assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
-assert.equal(new Game(fake,'start','target').threshold,.12);
+assert.equal(new Game(fake,'start','target').threshold,.25);
 assert.equal(game.launch_min,.08);assert.equal(game.launch_max,.18);
+
+assert.deepEqual(launchRequirement(.23,.25,.037,.25),launchRequirement(.23,.8,.037,.25));
+assert.ok(launchRequirement(.23,.8,.037,.25).required<.09);
+assert.ok(launchRequirement(.23,.8,.037,.25).required<launchRequirement(.133,.8,.037,.25).required);
+scores.set('forward,weak',.12);
+const gentle=new Game(fake,'start','target',.5,{mode:'distance'});
+const overshoot=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v2'});
+for(const g of [gentle,overshoot])g.submit('forward');
+assert.equal(gentle.submit('weak').won,true);
+assert.equal(overshoot.submit('weak').success,false);
+assert.deepEqual(restoreGame(fake,gentle.state()).state(),gentle.state());

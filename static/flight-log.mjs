@@ -64,6 +64,7 @@ export function journeyText(journey) {
   const lines = ['ESCAPE VELOCITY — flight log', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
     s.mode==='distance'?`Launch requirement: ${s.launch_min}–${s.launch_max}, scaled by trip length; arrival threshold: ${s.threshold}`:`Launch / arrival threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} attempts`, ''];
+  if(s.rules==='distance-v3')lines.push('Winning trips measure only the distance to the arrival-zone edge.', '');
   for (const entry of journey.entries) {
     const e = entry.event;
     lines.push(`${e ? `Attempt ${e.attempt}` : 'No attempt used'}: ${entry.origin} → ${entry.word}`,

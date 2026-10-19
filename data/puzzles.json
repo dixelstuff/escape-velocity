@@ -2,7 +2,7 @@
   {
     "start": "coffee",
     "target": "science",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -10,7 +10,7 @@
   {
     "start": "cheese",
     "target": "language",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -18,7 +18,7 @@
   {
     "start": "penalty",
     "target": "ability",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -26,7 +26,7 @@
   {
     "start": "everyday",
     "target": "affection",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -34,7 +34,7 @@
   {
     "start": "moon",
     "target": "kitchen",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -42,7 +42,7 @@
   {
     "start": "garden",
     "target": "computer",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -50,7 +50,7 @@
   {
     "start": "bread",
     "target": "democracy",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
@@ -58,7 +58,7 @@
   {
     "start": "forest",
     "target": "money",
-    "threshold": 0.12,
+    "threshold": 0.25,
     "mode": "distance",
     "launch_min": 0.08,
     "launch_max": 0.18
