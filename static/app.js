@@ -27,7 +27,7 @@ function map(preview=null){
  nodes.set(state.target,{word:state.target,pos:position(state.target)});
  if(preview){const old=nodes.get(preview.word);if(old)old.preview=true;else nodes.set(preview.word,{word:preview.word,pos:position(preview.word,preview),preview:true});}
  const planets=[...nodes.values()];
- for(const p of planets){const active=p.word===state.current;svg+=`<g opacity="${p.failed?.35:1}"><circle cx="${p.pos.x}" cy="${p.pos.y}" r="14" fill="${p.preview?'#f6f7f2':active?'#397655':'#f7f8f0'}" stroke="${p.preview?'#a89965':'#63845a'}" stroke-width="2"/><text x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label" fill="#41563e">${esc(p.word.toUpperCase())}</text>${active?`<text x="${p.pos.x}" y="${p.pos.y+53}" text-anchor="middle" class="map-small">YOU ARE HERE</text>`:''}</g>`;}
+ for(const p of planets){const active=p.word===state.current;svg+=`<g opacity="${p.failed?.35:1}"><circle cx="${p.pos.x}" cy="${p.pos.y}" r="14" fill="${p.preview?'#f6f7f2':active?'#397655':'#f7f8f0'}" stroke="${p.preview?'#a89965':'#63845a'}" stroke-width="2"/><text x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label" fill="#41563e">${esc(p.word.toUpperCase())}</text></g>`;}
  const r=position(state.current);
  svg+=`<text id="rocket" x="0" y="0" text-anchor="middle" font-size="30" transform="translate(${r.x},${r.y-28})">🚀</text>`;
  $('map').innerHTML=svg;
