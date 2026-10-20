@@ -83,3 +83,52 @@ assert.ok(journeyText(card.active).includes('Water hazard — ball returned'));
 assert.ok(journeyText(card.active).includes('Miss — ball stayed put'));
 assert.ok(journeyText(card.active).includes('3 shots'));
 assert.deepEqual(restoreGame(e,newLog().active.state).state(),round.state());
+
+// Reset creates a new export batch and a detached, persistent recovery copy.
+memory.clear();
+let batch=newLog();
+let played=new Game(e,'moon','kitchen',.28,{mode:'distance'});
+batch.begin(played.state(),'GloVe');let playedEvent=played.submit('surface');batch.record('surface',played.state(),playedEvent);
+const prior=structuredClone(batch.data);
+const fresh=new Game(e,'moon','kitchen',.28,{mode:'distance'});
+const freshId=batch.reset(fresh.state(),'GloVe').id;
+assert.equal(batch.data.journeys.length,1);assert.equal(batch.active.state.attempts,0);
+assert.deepEqual(batch.active.entries,[]);assert.ok(batch.data.batchStartedAt);
+assert.deepEqual(batch.backup,prior);
+assert.equal(JSON.parse(batch.exportJSON()).journeys.length,1);
+assert.ok(!batch.exportJSON().includes(prior.activeId));
+batch=newLog();assert.deepEqual(batch.backup,prior);assert.equal(batch.active.id,freshId);
+playedEvent=fresh.submit('surface');batch.record('surface',fresh.state(),playedEvent);
+const newRound=structuredClone(batch.active);
+assert.equal(batch.restorePrevious(),true);
+assert.equal(batch.data.journeys.length,2);assert.equal(batch.active.id,freshId);
+assert.deepEqual(batch.active,newRound);assert.deepEqual(batch.data.journeys[0],prior.journeys[0]);
+assert.equal(batch.restorePrevious(),false);assert.ok(!newLog().backup);
+
+// Reset failures must preserve both the current batch and the previous backup.
+const {RESET_BACKUP_KEY}=await import('../static/flight-log.mjs');
+const beforeReset=structuredClone(batch.data),beforeRaw=memory.get(LOG_KEY);
+memory.set(RESET_BACKUP_KEY,JSON.stringify(prior));
+const guarded=new FlightLog({getItem:key=>memory.get(key),setItem:(key,value)=>{if(key===LOG_KEY)throw Error('quota');memory.set(key,value);}},undefined,()=> 'failed-reset');
+assert.throws(()=>guarded.reset(fresh.state(),'GloVe'),/unchanged/);
+assert.equal(memory.get(LOG_KEY),beforeRaw);assert.deepEqual(guarded.data,beforeReset);
+assert.deepEqual(JSON.parse(memory.get(RESET_BACKUP_KEY)),prior);
+const backupDenied=new FlightLog({getItem:key=>memory.get(key),setItem:()=>{throw Error('denied');}},undefined,()=> 'denied-reset');
+assert.throws(()=>backupDenied.reset(fresh.state(),'GloVe'),/unchanged/);
+assert.equal(memory.get(LOG_KEY),beforeRaw);
+
+// Recovery is also transactional, and keeps any new play rather than undoing it.
+batch=newLog();batch.reset(new Game(e,'moon','kitchen',.28,{mode:'distance'}).state(),'GloVe');
+const afterReset=structuredClone(batch.data);
+const restoreDenied=new FlightLog({getItem:key=>memory.get(key),setItem:()=>{throw Error('quota');}},undefined,()=> 'restore-denied');
+assert.throws(()=>restoreDenied.restorePrevious(),/unchanged/);
+assert.deepEqual(restoreDenied.data,afterReset);assert.ok(restoreDenied.backup);
+
+// Corrupt historical storage can still be downloaded after reset and recovery.
+memory.clear();memory.set(LOG_KEY,'corrupt old log');
+const corrupt=newLog();corrupt.begin(fresh.state(),'GloVe');
+corrupt.reset(fresh.state(),'GloVe');assert.equal(corrupt.unreadableRaw,undefined);
+assert.ok(!corrupt.exportJSON().includes('corrupt old log'));
+assert.equal(corrupt.backup.unreadableOriginal,'corrupt old log');
+corrupt.restorePrevious();assert.equal(JSON.parse(corrupt.exportJSON()).unreadableOriginal,'corrupt old log');
+console.log('Reset passed: new-only exports, persistent recovery, preservation of new rounds, failure rollback, and unreadable-original recovery.');

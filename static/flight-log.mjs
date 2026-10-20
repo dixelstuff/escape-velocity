@@ -1,5 +1,6 @@
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
+export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
 export const RULES_VERSION = 'fixed-threshold-v1';
 export class FlightLog {
   constructor(storage, now = () => new Date().toISOString(), makeId = () => crypto.randomUUID()) {
@@ -20,6 +21,10 @@ export class FlightLog {
       this.unreadableRaw = raw;
       this.warning = 'Saved scorecards could not be read. New shots will be kept for this visit; download them before leaving.';
     }
+    try {
+      const backup=JSON.parse(storage?.getItem(RESET_BACKUP_KEY)||'null');
+      if(backup?.version===1&&Array.isArray(backup.journeys)&&backup.journeys.every(j=>typeof j.id==='string'&&j.state&&Array.isArray(j.entries)))this.backup=backup;
+    }catch{}
   }
   get active() { return this.data.journeys.find(j => j.id === this.data.activeId); }
   save() {
@@ -31,13 +36,44 @@ export class FlightLog {
       this.warning = 'This browser could not save your scorecard. Download it before leaving this page.';
     }
   }
-  begin(state, model) {
+  makeJourney(state, model) {
     const timestamp = this.now();
-    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
+    return {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
+  }
+  begin(state, model) {
+    const journey = this.makeJourney(state,model);
     this.data.journeys.push(journey);
     this.data.activeId = journey.id;
     this.save();
     return journey;
+  }
+  reset(state,model) {
+    const journey=this.makeJourney(state,model);
+    const next={version:1,activeId:journey.id,batchStartedAt:journey.startedAt,journeys:[journey]};
+    const backup=JSON.parse(this.exportJSON());
+    let previousBackup,wroteBackup=false;
+    try {
+      if(!this.storage)throw Error('Storage unavailable');
+      previousBackup=this.storage.getItem(RESET_BACKUP_KEY);
+      this.storage.setItem(RESET_BACKUP_KEY,JSON.stringify(backup));wroteBackup=true;
+      this.storage.setItem(LOG_KEY,JSON.stringify(next));
+    }catch{
+      try{if(wroteBackup)this.storage.setItem(RESET_BACKUP_KEY,previousBackup||'null');}catch{}
+      throw Error('Could not safely reset scorecards. Your current scorecards are unchanged. Download them first or check browser storage.');
+    }
+    this.data=next;this.backup=backup;this.unreadableRaw=undefined;this.warning='';
+    return journey;
+  }
+  restorePrevious() {
+    if(!this.backup?.journeys?.length)return false;
+    const currentIds=new Set(this.data.journeys.map(j=>j.id));
+    // Keep rounds played since the reset too; restoring must not discard new play.
+    const next={...this.data,...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
+    try{if(!this.storage)throw Error('Storage unavailable');this.storage.setItem(LOG_KEY,JSON.stringify(next));}
+    catch{throw Error('Could not restore previous scorecards. Your current scorecards are unchanged.');}
+    this.data=next;this.backup=null;this.warning='';
+    try{this.storage.setItem(RESET_BACKUP_KEY,'null');}catch{}
+    return true;
   }
   record(word, state, event = null, error = null) {
     const journey = this.active;

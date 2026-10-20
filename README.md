@@ -125,3 +125,11 @@ python3 -m http.server 8001 --bind 127.0.0.1 --directory static
 ```
 
 The original Python API remains available for experiments. The UI uses the browser engine on both local and published sites. No word submissions leave the browser.
+
+## Compact play and fresh scorecard batches (course v12)
+
+The main play view uses a single input placeholder and HIT SHOT button. Completion appears once over the course; the duplicate result panel, finished input controls, opening-hole shortcut and tee/flag caption are removed. The separate input label remains available to screen readers.
+
+Reset scorecards asks once in the page, then restarts the active hole and begins a new export batch containing only new rounds. The prior batch is saved under a separate local backup key and is excluded from normal downloads. Restore previous scorecards merges it back without discarding play since the reset. Recovery is available until the next reset; download any permanent backup before resetting. Storage failures abort the reset and preserve the current scorecards. The model cache and course settings are retained.
+
+Scoring and the 300-dimensional model are unchanged in this UI release. The new playtest batch's 96 typed shots reproduced exactly with the published half-precision data, and full precision produced the same outcomes; the maximum observed cosine difference was about 0.000141. No difficulty adjustment is made from this small, repeated-hole sample.
