@@ -56,9 +56,11 @@ const scold=()=>new Game(e,'scold','mime',.28,settings);
 function scoldRoute(extraMisses=0){const r=scold();for(let i=0;i<extraMisses;i++)r.submit('emotion');for(const w of ['emotion','communicate','express','expressive'])r.submit(w);return r;}
 const five=scoldRoute(),fiveState=JSON.stringify(five.state()),fiveScore=analyser.analyse(five.state());
 assert.equal(five.state().attempts,5);assert.equal(fiveScore.score,396);assert.equal(JSON.stringify(five.state()),fiveState);
-for(const shot of fiveScore.shots){const contactLoss=Math.max(0,Math.min(1,(shot.required-shot.contact)/shot.required));assert.ok(Math.abs(shot.loss-(Math.max(contactLoss,shot.direction_loss,shot.choice_gap,shot.setup_loss)+shot.loop_loss))<1e-10);}
+for(const shot of fiveScore.shots){const contactLoss=Math.max(0,Math.min(1,(shot.required-shot.contact)/shot.required));assert.ok(Math.abs(shot.loss-(Math.max(contactLoss,shot.direction_loss,shot.choice_gap,shot.setup_loss)+shot.loop_loss+shot.specificity_loss))<1e-10);}
 assert.ok(fiveScore.shots[1].choice_score>70,'a setup opening a legal finish must get meaningful credit');
 const twenty=analyser.analyse(scoldRoute(15).state()),thirty=analyser.analyse(scoldRoute(25).state());assert.ok(fiveScore.score>twenty.score);assert.ok(twenty.score>thirty.score);
 assert.ok(skillScore(100)<50,'there must be no artificial minimum');assert.equal(skillScore(1),500);assert.equal(skillScore(2),333);
 assert.equal(validSkillReport({...fiveScore,version:'vector-skill-v1',model_sha:'test'},five.state(),'test'),false,'v1 caches must be recalculated');
 console.log(`Skill v2 calibration passed: 5-shot SCOLD route ${fiveScore.score}; controlled 20-shot retry ${twenty.score}; 30-shot retry ${thirty.score}; no floor and no gameplay changes.`);
+
+assert.equal(validSkillReport({...fiveScore,version:'vector-skill-v2',model_sha:'test'},five.state(),'test'),false,'v2 caches must be recalculated');

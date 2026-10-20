@@ -1,15 +1,23 @@
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v23';
-export const SKILL_VERSION='vector-skill-v2';
+import { Game } from './engine.mjs?v=golf-v24';
+export const SKILL_VERSION='vector-skill-v3';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
 export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word)]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
-  const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall'];
-  return report.shots.every((shot,i)=>shot&&shot.word===state.history[i].word&&shot.origin===state.history[i].origin&&metrics.every(k=>Number.isFinite(shot[k]))&&Array.isArray(shot.alternatives)&&shot.alternatives.every(a=>a&&typeof a.word==='string'&&['value','contact','required'].every(k=>Number.isFinite(a[k]))));
+  const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub'];
+  return report.shots.every((shot,i)=>shot&&shot.word===state.history[i].word&&shot.origin===state.history[i].origin&&metrics.every(k=>Number.isFinite(shot[k]))&&Array.isArray(shot.alternatives)&&shot.alternatives.every(a=>a&&typeof a.word==='string'&&['value','contact','required','specificity_loss','setup_value'].every(k=>Number.isFinite(a[k]))));
 }
 export function skillScore(loss){return Math.round(1000/(1+Math.max(0,loss)));}
+/** A small setup move is free; only successful long moves into broader words cost skill. */
+export function specificity(e,origin,word,current,destination,baseline,green){
+  const forward_fraction=clamp((Math.min(destination,green)-Math.min(current,green))/Math.max(1e-6,green-baseline));
+  const origin_hub=e.hub?.(origin)??0,destination_hub=e.hub?.(word)??0;
+  const long_fraction=clamp((forward_fraction-.5)/.5);
+  return {forward_fraction,origin_hub,destination_hub,
+    specificity_loss:.1*long_fraction**2*Math.max(0,destination_hub-origin_hub)};
+}
 export class SkillAnalyser {
   constructor(e){this.e=e;this.rows=new Map();}
   row(word){
@@ -23,6 +31,7 @@ export class SkillAnalyser {
     if(!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules))throw Error('Skill is available for rounds played with the current course rules.');
     const e=this.e,g=new Game(e,saved.start,saved.target,saved.threshold,saved),target=this.row(g.target),gap=Math.max(.01,g.threshold-g.baseline);
     const progress=v=>clamp((v-g.baseline)/gap),position=word=>target[e.index.get(word)];
+    const specificityAt=(origin,word)=>word===g.target?{...specificity(e,origin,word,position(origin),position(word),g.baseline,g.threshold),specificity_loss:0}:specificity(e,origin,word,position(origin),position(word),g.baseline,g.threshold);
     const potentialCache=new Map();
     function after(s,word){const destination=position(word),backtrack=destination+1e-7<position(s.current)&&s.route.includes(word);return {current:word,route:s.route.includes(word)?s.route:[...s.route,word],best:backtrack?destination:Math.max(s.best,destination)};}
     const options=s=>{
@@ -61,10 +70,13 @@ export class SkillAnalyser {
       [...moves].sort((a,b)=>(b.p-progress(position(before.current)))*b.strength-(a.p-progress(position(before.current)))*a.strength).slice(0,8).forEach(add);
       for(let band=0;band<8;band++)add(moves.filter(m=>Math.min(7,Math.floor(m.p*8))===band).sort((a,b)=>b.contact-a.contact)[0]);
       moves.filter(m=>before.route.includes(m.word)).forEach(add);
-      let best=intendedValue.value;const alternatives=[];
+      const specific=specificityAt(event.origin,event.word);
+      if(!event.success)specific.specificity_loss=0;
+      let best=intendedValue.value-specific.specificity_loss;const alternatives=[];
       for(const move of shortlist.values()){
-        const next=potential(after(before,move.word));best=Math.max(best,next.value);
-        alternatives.push({word:move.word,value:next.value,contact:move.contact,required:move.required,destination:move.destination,good_moves:next.good_moves});
+        const next=potential(after(before,move.word)),specificity_loss=specificityAt(before.current,move.word).specificity_loss;
+        const value=next.value-specificity_loss;best=Math.max(best,value);
+        alternatives.push({word:move.word,value,setup_value:next.value,specificity_loss,contact:move.contact,required:move.required,destination:move.destination,good_moves:next.good_moves});
       }
       alternatives.sort((a,b)=>b.value-a.value||b.contact-a.contact||a.word.localeCompare(b.word));
       const contactLoss=clamp((event.required-event.launch)/event.required);
@@ -74,7 +86,7 @@ export class SkillAnalyser {
       // Revisiting an unchanged or worse position spends a decision without a setup benefit.
       const loopLoss=event.success&&before.route.includes(event.word)&&intendedValue.value<=beforeValue.value+1e-7 ? .05 : 0;
       const primaryLoss=Math.max(contactLoss,directionLoss,choiceLoss,setupLoss);
-      const loss=primaryLoss+loopLoss;totalLoss+=loss;
+      const loss=primaryLoss+loopLoss+specific.specificity_loss;totalLoss+=loss;
       const actual=event.success?intendedValue:beforeValue;
       shots.push({attempt:event.attempt,origin:event.origin,word:event.word,outcome:event.outcome,
         contact:event.launch,required:event.required,contact_shortfall:Math.max(0,event.required-event.launch),contact_score:Math.round(100*(1-contactLoss)),
@@ -82,10 +94,11 @@ export class SkillAnalyser {
         choice_score:Math.round(100*(1-choiceLoss)),choice_gap:choiceLoss,compared_choices:shortlist.size,
         setup_before:beforeValue.value,setup_after:actual.value,setup_change:actual.value-beforeValue.value,intended_setup:intendedValue.value,
         good_moves_before:beforeValue.good_moves,good_moves_after:actual.good_moves,green_moves_after:actual.green_moves,
-        setup_loss:setupLoss,primary_loss:primaryLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
+        ...specific,setup_loss:setupLoss,primary_loss:primaryLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
     }
     return {version:SKILL_VERSION,history_key:skillHistoryKey(saved),score:shots.length?skillScore(totalLoss):null,total_loss:totalLoss,shots,complete:g.won,
       approximate:true,lookahead:1,opportunity_slots:TOP,lookahead_discount:DISCOUNT,opportunity_best_weight:.8,opportunity_breadth_weight:.2,comparison:'progress, connection and progress-band shortlist; exhaustive onward options',
-      formula:'1000 / (1 + Σ(max(contact deficit, direction deficit, choice gap, setup decline) + loop cost))'};
+      specificity_max_loss:.1,specificity_free_fraction:.5,
+      formula:'1000 / (1 + Σ(max(contact deficit, direction deficit, choice gap, setup decline) + loop cost + specificity cost))'};
   }
 }

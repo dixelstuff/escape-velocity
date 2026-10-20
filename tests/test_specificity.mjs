@@ -1,0 +1,52 @@
+import assert from 'node:assert/strict';
+import {Game} from '../static/engine.mjs';
+import {SkillAnalyser,specificity,skillScore,validSkillReport} from '../static/skill.mjs';
+import {FlightLog} from '../static/flight-log.mjs';
+import {currentSkillFeedback} from '../static/skill-feedback.mjs';
+const breadth={narrow:0,broad:1,mid:.5};
+const hubOnly={hub:w=>breadth[w]??0};
+const fee=(a,b,current,dest)=>specificity(hubOnly,a,b,current,dest,0,.6).specificity_loss;
+assert.equal(fee('narrow','broad',0,.3),0);
+assert.equal(fee('narrow','broad',.2,.2),0);
+assert.equal(fee('narrow','broad',.3,.1),0);
+assert.equal(fee('broad','mid',0,.6),0);
+assert.equal(fee('broad','broad',0,.6),0);
+assert.equal(fee('narrow','broad',0,.6),.1);
+assert.equal(fee('narrow','broad',0,1),.1,'overshooting green cannot add cost');
+assert.ok(Math.abs(fee('narrow','broad',0,.45)-.025)<1e-12);
+assert.equal(fee('mid','broad',0,.6),.05);
+assert.equal(skillScore(.1),909);
+function graph({contact=.6,targetHub=0,baseline=0}={}){
+ const words=['tee','flag','setup','vague','lateral'];
+ const pairs=new Map();const set=(a,b,v)=>pairs.set([a,b].sort().join(','),v);
+ set('tee','flag',baseline);set('setup','flag',.45);set('vague','flag',.7);set('lateral','flag',.05);
+ set('tee','setup',.6);set('tee','vague',contact);set('tee','lateral',.6);
+ const e={words,index:new Map(words.map((w,i)=>[w,i])),hub:w=>w==='vague'?1:w==='flag'?targetHub:0,
+  cosine(a,b){return a===b?1:pairs.get([a,b].sort().join(','))??0;}};
+ const analyser=new SkillAnalyser(e);analyser.row=w=>Float64Array.from(words.map(v=>e.cosine(w,v)));
+ return {e,analyser,newGame:()=>new Game(e,'tee','flag',.6,{mode:'distance',rules:'golf-distance-v2'})};
+}
+let {e,analyser,newGame}=graph();
+let g=newGame();g.submit('vague');const before=JSON.stringify(g.state()),broad=analyser.analyse(g.state());
+assert.equal(JSON.stringify(g.state()),before,'assessment must not alter shots');
+assert.equal(g.state().attempts,2);assert.equal(broad.score,909);assert.equal(broad.shots[0].specificity_loss,.1);
+const precise=newGame();precise.submit('setup');precise.submit('flag');const careful=analyser.analyse(precise.state());
+assert.equal(precise.state().attempts,2);assert.ok(careful.score>broad.score);
+assert.ok(careful.shots.every(s=>s.specificity_loss===0));
+assert.ok(careful.shots[0].alternatives.find(a=>a.word==='vague').specificity_loss===.1,'comparisons must charge vague shortcuts too');
+assert.equal(validSkillReport({...broad,model_sha:'test'},g.state(),'test'),true);
+assert.equal(validSkillReport({...broad,version:'vector-skill-v2',model_sha:'test'},g.state(),'test'),false);
+const broken=structuredClone(broad);delete broken.shots[0].specificity_loss;
+assert.equal(validSkillReport({...broken,model_sha:'test'},g.state(),'test'),false);
+({e,analyser,newGame}=graph({contact:.01}));g=newGame();assert.equal(g.submit('vague').success,false);
+assert.equal(analyser.analyse(g.state()).shots[0].specificity_loss,0,'misses already have contact costs');
+({e,analyser,newGame}=graph({baseline:.22,targetHub:1}));g=newGame();assert.equal(g.submit('flag').won,true);
+assert.equal(analyser.analyse(g.state()).shots[0].specificity_loss,0,'literal hole word is always exempt');
+// A real version upgrade retains the old assessment/feedback snapshot.
+const store=new Map(),log=new FlightLog({getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},()=>new Date(0).toISOString(),()=> 'test');
+log.begin(precise.state(),'test','model');log.recordSkill('test',{...careful,version:'vector-skill-v2',model_sha:'model',score:889});
+log.recordSkillFeedback('test','too_harsh','Original feedback');const snapshot=structuredClone(log.active.skill_feedback[0]);
+log.recordSkill('test',{...careful,model_sha:'model'});
+assert.equal(currentSkillFeedback(log.active),undefined);assert.deepEqual(log.active.skill_feedback[0],snapshot);
+assert.deepEqual(JSON.parse(log.exportJSON()).journeys[0].skill_feedback[0],snapshot);
+console.log(`Specificity passed: same two-shot count, vague green ${broad.score}, precise approach/chip ${careful.score}; free setups, directional breadth, missed/hole-word exemptions, immutable gameplay and retained feedback.`);

@@ -28,7 +28,7 @@ const report=assessHole(e,{start:'loop',target:'independent',threshold:.28,...se
 assert.ok(!report.opening_bridges.some(b=>['essentially','thus','instead','part','addition'].includes(b.word)));
 const won=new Game(e,'morph','lineage',.28,settings);won.submit('evolved');
 const skill=new SkillAnalyser(e).analyse(won.state());
-assert.equal(skill.score,1000);assert.equal(skill.shots[0].required,won.history[0].required);
+assert.ok(skill.score>=980&&skill.score<1000);assert.equal(skill.shots[0].required,won.history[0].required);
 // Hub fees scale with forward progress, apply at either end, and never penalize lateral/backward movement.
 const values={tee:0,flag:1,lie:.153,side:.07};
 let h=1;

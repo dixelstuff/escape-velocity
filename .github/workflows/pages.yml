@@ -28,6 +28,7 @@ jobs:
           node tests/test_hubs.mjs
           node tests/test_hub_warning.mjs
           node tests/test_skill.mjs
+          node tests/test_specificity.mjs
           node tests/test_bridge_feedback.mjs
           node tests/test_skill_feedback.mjs
       - uses: actions/configure-pages@v5
