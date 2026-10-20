@@ -94,3 +94,11 @@ body.typing main{background:#f5f3e8;}
 @media(max-width:650px){body.typing .course-tools,body.typing .course-feedback{display:none;}#arrival-banner h2{font-size:20px;}.bridge-scores{display:grid;gap:4px;}}
 
 #arrival-banner .feedback-close:focus-visible{outline-color:#fff;}
+
+/* Give the course the space previously used by navigation and map captions. */
+.intro{padding:18px 0 12px;}
+.intro h1{margin:0;}
+.mission{margin-bottom:12px;}
+.mission h2{margin:0;}
+#map{height:auto;}
+@media(max-width:650px){.intro{padding:12px 0 8px;}.intro h1{margin:0;}.mission{margin-bottom:10px;}}

@@ -141,3 +141,9 @@ Miss and water messages sit below the SVG drawing and can be dismissed. A comple
 Opening bridges (spoilers), below the play controls, lists every counted one-shot green bridge for the active tee, target and settings. The custom-hole preview has a matching collapsed list. Each row shows the tee → bridge → target route, actual tee contact, required contact, target similarity and green threshold. A literal target finish is labelled as a direct hole in one rather than an automatic finish. Lists are ordered by tee contact strength and include all model results, even surprising generic words; no hand-picked substitutes or artificial similarity bonuses are applied. Custom lists render only after the player opens them. Calculations run in the existing worker and recent assessments are reused in memory.
 
 Bridge list tests exhaustively compare all supported words against real Game submissions for distance mode, fixed mode and a direct-target case. The model, course settings and stored scoring rules are unchanged.
+
+## Wider, quieter course (course v14)
+
+The header and decorative fairway, green, water and direction captions are removed. The course uses the freed space for a taller fairway, a little more separation between shot lanes, and two blue tee markers spaced around the starting ball. Title spacing is tighter and Course settings stays open. Labels avoid the tee markers as well as balls, the flag and water.
+
+The latest fresh scorecard batch contains 25 typed shots across nine played rounds (six completed). All outcomes reproduce with the deployed model; full precision yields the same outcomes, with maximum cosine difference below 0.000057. MORPH → EVOLVE → GENERATION → LINEAGE takes three shots; MORPH → EVOLVED reaches the green and finishes automatically in two. EVOLVE and EVOLVED use their own source vectors, without a tense bonus. Scoring, model assets and stored scorecards are unchanged in this layout release.
