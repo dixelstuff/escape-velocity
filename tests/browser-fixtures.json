@@ -2,10 +2,10 @@
   {
     "start": "coffee",
     "target": "science",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -14,11 +14,11 @@
           "start": "coffee",
           "current": "coffee",
           "target": "science",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07127614319324493,
           "progress": 0.07127614319324493,
           "attempts": 0,
@@ -27,8 +27,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07127614319324493,
-          "backward_allowance": 0.009936192840337754
+          "backward_allowance": 0.01
         }
       },
       {
@@ -38,11 +39,11 @@
           "start": "coffee",
           "current": "coffee",
           "target": "science",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07127614319324493,
           "progress": 0.07127614319324493,
           "attempts": 0,
@@ -51,8 +52,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07127614319324493,
-          "backward_allowance": 0.009936192840337754
+          "backward_allowance": 0.01
         }
       },
       {
@@ -62,7 +64,7 @@
           "origin": "coffee",
           "launch": 0.07127614319324493,
           "destination": 0.9999998807907104,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -72,17 +74,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "coffee",
           "current": "coffee",
           "target": "science",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07127614319324493,
           "progress": 0.07127614319324493,
           "attempts": 1,
@@ -95,7 +98,7 @@
               "origin": "coffee",
               "launch": 0.07127614319324493,
               "destination": 0.9999998807907104,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -105,22 +108,24 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07127614319324493,
-          "backward_allowance": 0.009936192840337754
+          "backward_allowance": 0.01
         }
       },
       {
-        "word": "also",
+        "word": "now",
         "event": {
-          "word": "also",
+          "word": "now",
           "origin": "coffee",
-          "launch": 0.20213539898395538,
-          "destination": 0.3014189898967743,
-          "required": 0.2,
+          "launch": 0.22404354810714722,
+          "destination": 0.28900468349456787,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -130,23 +135,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "science",
+            "origin": "now",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "coffee",
-          "current": "also",
+          "current": "science",
           "target": "science",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07127614319324493,
-          "progress": 0.3014189898967743,
-          "attempts": 2,
+          "progress": 0.9999998807907104,
+          "attempts": 3,
           "route": [
             "coffee",
-            "also"
+            "now",
+            "science"
           ],
           "history": [
             {
@@ -154,7 +171,7 @@
               "origin": "coffee",
               "launch": 0.07127614319324493,
               "destination": 0.9999998807907104,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -164,14 +181,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
-              "word": "also",
+              "word": "now",
               "origin": "coffee",
-              "launch": 0.20213539898395538,
-              "destination": 0.3014189898967743,
-              "required": 0.2,
+              "launch": 0.22404354810714722,
+              "destination": 0.28900468349456787,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -181,12 +199,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "science",
+                "origin": "now",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
-          "best_progress": 0.3014189898967743,
-          "backward_allowance": 0.009936192840337754
+          "automatic_shots": [
+            {
+              "word": "science",
+              "origin": "now",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
+          "best_progress": 0.28900468349456787,
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -194,10 +235,10 @@
   {
     "start": "cheese",
     "target": "language",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -206,11 +247,11 @@
           "start": "cheese",
           "current": "cheese",
           "target": "language",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03245624154806137,
           "progress": 0.03245624154806137,
           "attempts": 0,
@@ -219,6 +260,7 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03245624154806137,
           "backward_allowance": 0.01
         }
@@ -230,11 +272,11 @@
           "start": "cheese",
           "current": "cheese",
           "target": "language",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03245624154806137,
           "progress": 0.03245624154806137,
           "attempts": 0,
@@ -243,6 +285,7 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03245624154806137,
           "backward_allowance": 0.01
         }
@@ -254,7 +297,7 @@
           "origin": "cheese",
           "launch": 0.03245624154806137,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -264,17 +307,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "cheese",
           "current": "cheese",
           "target": "language",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03245624154806137,
           "progress": 0.03245624154806137,
           "attempts": 1,
@@ -287,7 +331,7 @@
               "origin": "cheese",
               "launch": 0.03245624154806137,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -297,10 +341,12 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03245624154806137,
           "backward_allowance": 0.01
         }
@@ -312,7 +358,7 @@
           "origin": "cheese",
           "launch": 0.24460309743881226,
           "destination": 0.3046296536922455,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -322,23 +368,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "language",
+            "origin": "make",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "cheese",
-          "current": "make",
+          "current": "language",
           "target": "language",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03245624154806137,
-          "progress": 0.3046296536922455,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "cheese",
-            "make"
+            "make",
+            "language"
           ],
           "history": [
             {
@@ -346,7 +404,7 @@
               "origin": "cheese",
               "launch": 0.03245624154806137,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -356,14 +414,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
               "word": "make",
               "origin": "cheese",
               "launch": 0.24460309743881226,
               "destination": 0.3046296536922455,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -373,10 +432,33 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "language",
+                "origin": "make",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
+          "automatic_shots": [
+            {
+              "word": "language",
+              "origin": "make",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
           "best_progress": 0.3046296536922455,
           "backward_allowance": 0.01
         }
@@ -386,10 +468,10 @@
   {
     "start": "penalty",
     "target": "ability",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -398,11 +480,11 @@
           "start": "penalty",
           "current": "penalty",
           "target": "ability",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.10486125200986862,
           "progress": 0.10486125200986862,
           "attempts": 0,
@@ -411,8 +493,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.10486125200986862,
-          "backward_allowance": 0.00825693739950657
+          "backward_allowance": 0.01
         }
       },
       {
@@ -422,11 +505,11 @@
           "start": "penalty",
           "current": "penalty",
           "target": "ability",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.10486125200986862,
           "progress": 0.10486125200986862,
           "attempts": 0,
@@ -435,8 +518,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.10486125200986862,
-          "backward_allowance": 0.00825693739950657
+          "backward_allowance": 0.01
         }
       },
       {
@@ -446,7 +530,7 @@
           "origin": "penalty",
           "launch": 0.10486125200986862,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -456,17 +540,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "penalty",
           "current": "penalty",
           "target": "ability",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.10486125200986862,
           "progress": 0.10486125200986862,
           "attempts": 1,
@@ -479,7 +564,7 @@
               "origin": "penalty",
               "launch": 0.10486125200986862,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -489,12 +574,14 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.10486125200986862,
-          "backward_allowance": 0.00825693739950657
+          "backward_allowance": 0.01
         }
       },
       {
@@ -504,7 +591,7 @@
           "origin": "penalty",
           "launch": 0.25506675243377686,
           "destination": 0.40025603771209717,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -514,23 +601,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "ability",
+            "origin": "have",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "penalty",
-          "current": "have",
+          "current": "ability",
           "target": "ability",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.10486125200986862,
-          "progress": 0.40025603771209717,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "penalty",
-            "have"
+            "have",
+            "ability"
           ],
           "history": [
             {
@@ -538,7 +637,7 @@
               "origin": "penalty",
               "launch": 0.10486125200986862,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -548,14 +647,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
               "word": "have",
               "origin": "penalty",
               "launch": 0.25506675243377686,
               "destination": 0.40025603771209717,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -565,12 +665,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "ability",
+                "origin": "have",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
+          "automatic_shots": [
+            {
+              "word": "ability",
+              "origin": "have",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
           "best_progress": 0.40025603771209717,
-          "backward_allowance": 0.00825693739950657
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -578,10 +701,10 @@
   {
     "start": "everyday",
     "target": "affection",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -590,11 +713,11 @@
           "start": "everyday",
           "current": "everyday",
           "target": "affection",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.16572889685630798,
           "progress": 0.16572889685630798,
           "attempts": 0,
@@ -603,8 +726,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.16572889685630798,
-          "backward_allowance": 0.005213555157184602
+          "backward_allowance": 0.01
         }
       },
       {
@@ -614,11 +738,11 @@
           "start": "everyday",
           "current": "everyday",
           "target": "affection",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.16572889685630798,
           "progress": 0.16572889685630798,
           "attempts": 0,
@@ -627,8 +751,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.16572889685630798,
-          "backward_allowance": 0.005213555157184602
+          "backward_allowance": 0.01
         }
       },
       {
@@ -638,7 +763,7 @@
           "origin": "everyday",
           "launch": 0.16572889685630798,
           "destination": 0.9999998211860657,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -648,17 +773,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "everyday",
           "current": "everyday",
           "target": "affection",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.16572889685630798,
           "progress": 0.16572889685630798,
           "attempts": 1,
@@ -671,7 +797,7 @@
               "origin": "everyday",
               "launch": 0.16572889685630798,
               "destination": 0.9999998211860657,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -681,12 +807,14 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.16572889685630798,
-          "backward_allowance": 0.005213555157184602
+          "backward_allowance": 0.01
         }
       },
       {
@@ -696,7 +824,7 @@
           "origin": "everyday",
           "launch": 0.2859684228897095,
           "destination": 0.30930402874946594,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -706,23 +834,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "affection",
+            "origin": "good",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "everyday",
-          "current": "good",
+          "current": "affection",
           "target": "affection",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.16572889685630798,
-          "progress": 0.30930402874946594,
-          "attempts": 2,
+          "progress": 0.9999998211860657,
+          "attempts": 3,
           "route": [
             "everyday",
-            "good"
+            "good",
+            "affection"
           ],
           "history": [
             {
@@ -730,7 +870,7 @@
               "origin": "everyday",
               "launch": 0.16572889685630798,
               "destination": 0.9999998211860657,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -740,14 +880,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
               "word": "good",
               "origin": "everyday",
               "launch": 0.2859684228897095,
               "destination": 0.30930402874946594,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -757,12 +898,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "affection",
+                "origin": "good",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
+          "automatic_shots": [
+            {
+              "word": "affection",
+              "origin": "good",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
           "best_progress": 0.30930402874946594,
-          "backward_allowance": 0.005213555157184602
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -770,10 +934,10 @@
   {
     "start": "moon",
     "target": "kitchen",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -782,11 +946,11 @@
           "start": "moon",
           "current": "moon",
           "target": "kitchen",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03660613298416138,
           "progress": 0.03660613298416138,
           "attempts": 0,
@@ -795,6 +959,7 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03660613298416138,
           "backward_allowance": 0.01
         }
@@ -806,11 +971,11 @@
           "start": "moon",
           "current": "moon",
           "target": "kitchen",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03660613298416138,
           "progress": 0.03660613298416138,
           "attempts": 0,
@@ -819,6 +984,7 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03660613298416138,
           "backward_allowance": 0.01
         }
@@ -830,7 +996,7 @@
           "origin": "moon",
           "launch": 0.03660613298416138,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -840,17 +1006,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "moon",
           "current": "moon",
           "target": "kitchen",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03660613298416138,
           "progress": 0.03660613298416138,
           "attempts": 1,
@@ -863,7 +1030,7 @@
               "origin": "moon",
               "launch": 0.03660613298416138,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -873,10 +1040,12 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.03660613298416138,
           "backward_allowance": 0.01
         }
@@ -888,7 +1057,7 @@
           "origin": "moon",
           "launch": 0.24371984601020813,
           "destination": 0.29846006631851196,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -898,23 +1067,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "kitchen",
+            "origin": "just",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "moon",
-          "current": "just",
+          "current": "kitchen",
           "target": "kitchen",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.03660613298416138,
-          "progress": 0.29846006631851196,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "moon",
-            "just"
+            "just",
+            "kitchen"
           ],
           "history": [
             {
@@ -922,7 +1103,7 @@
               "origin": "moon",
               "launch": 0.03660613298416138,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -932,14 +1113,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
               "word": "just",
               "origin": "moon",
               "launch": 0.24371984601020813,
               "destination": 0.29846006631851196,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -949,10 +1131,33 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "kitchen",
+                "origin": "just",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
+          "automatic_shots": [
+            {
+              "word": "kitchen",
+              "origin": "just",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
           "best_progress": 0.29846006631851196,
           "backward_allowance": 0.01
         }
@@ -962,10 +1167,10 @@
   {
     "start": "garden",
     "target": "computer",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -974,11 +1179,11 @@
           "start": "garden",
           "current": "garden",
           "target": "computer",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.09460076689720154,
           "progress": 0.09460076689720154,
           "attempts": 0,
@@ -987,8 +1192,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.09460076689720154,
-          "backward_allowance": 0.008769961655139925
+          "backward_allowance": 0.01
         }
       },
       {
@@ -998,11 +1204,11 @@
           "start": "garden",
           "current": "garden",
           "target": "computer",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.09460076689720154,
           "progress": 0.09460076689720154,
           "attempts": 0,
@@ -1011,8 +1217,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.09460076689720154,
-          "backward_allowance": 0.008769961655139925
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1022,7 +1229,7 @@
           "origin": "garden",
           "launch": 0.09460076689720154,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -1032,17 +1239,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "garden",
           "current": "garden",
           "target": "computer",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.09460076689720154,
           "progress": 0.09460076689720154,
           "attempts": 1,
@@ -1055,7 +1263,7 @@
               "origin": "garden",
               "launch": 0.09460076689720154,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1065,22 +1273,24 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.09460076689720154,
-          "backward_allowance": 0.008769961655139925
+          "backward_allowance": 0.01
         }
       },
       {
-        "word": "but",
+        "word": "one",
         "event": {
-          "word": "but",
+          "word": "one",
           "origin": "garden",
-          "launch": 0.20088259875774384,
-          "destination": 0.3082566261291504,
-          "required": 0.2,
+          "launch": 0.2251366674900055,
+          "destination": 0.32335129380226135,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -1090,23 +1300,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "computer",
+            "origin": "one",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "garden",
-          "current": "but",
+          "current": "computer",
           "target": "computer",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.09460076689720154,
-          "progress": 0.3082566261291504,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "garden",
-            "but"
+            "one",
+            "computer"
           ],
           "history": [
             {
@@ -1114,7 +1336,7 @@
               "origin": "garden",
               "launch": 0.09460076689720154,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1124,14 +1346,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
-              "word": "but",
+              "word": "one",
               "origin": "garden",
-              "launch": 0.20088259875774384,
-              "destination": 0.3082566261291504,
-              "required": 0.2,
+              "launch": 0.2251366674900055,
+              "destination": 0.32335129380226135,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -1141,12 +1364,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "computer",
+                "origin": "one",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
-          "best_progress": 0.3082566261291504,
-          "backward_allowance": 0.008769961655139925
+          "automatic_shots": [
+            {
+              "word": "computer",
+              "origin": "one",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
+          "best_progress": 0.32335129380226135,
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -1154,10 +1400,10 @@
   {
     "start": "bread",
     "target": "democracy",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -1166,11 +1412,11 @@
           "start": "bread",
           "current": "bread",
           "target": "democracy",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.13406279683113098,
           "progress": 0.13406279683113098,
           "attempts": 0,
@@ -1179,8 +1425,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.13406279683113098,
-          "backward_allowance": 0.006796860158443452
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1190,11 +1437,11 @@
           "start": "bread",
           "current": "bread",
           "target": "democracy",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.13406279683113098,
           "progress": 0.13406279683113098,
           "attempts": 0,
@@ -1203,8 +1450,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.13406279683113098,
-          "backward_allowance": 0.006796860158443452
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1214,7 +1462,7 @@
           "origin": "bread",
           "launch": 0.13406279683113098,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -1224,17 +1472,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "bread",
           "current": "bread",
           "target": "democracy",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.13406279683113098,
           "progress": 0.13406279683113098,
           "attempts": 1,
@@ -1247,7 +1496,7 @@
               "origin": "bread",
               "launch": 0.13406279683113098,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1257,22 +1506,24 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.13406279683113098,
-          "backward_allowance": 0.006796860158443452
+          "backward_allowance": 0.01
         }
       },
       {
-        "word": "good",
+        "word": "make",
         "event": {
-          "word": "good",
+          "word": "make",
           "origin": "bread",
-          "launch": 0.257794588804245,
-          "destination": 0.27475506067276,
-          "required": 0.2,
+          "launch": 0.26350128650665283,
+          "destination": 0.2903294265270233,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -1282,23 +1533,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "democracy",
+            "origin": "make",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "bread",
-          "current": "good",
+          "current": "democracy",
           "target": "democracy",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.13406279683113098,
-          "progress": 0.27475506067276,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "bread",
-            "good"
+            "make",
+            "democracy"
           ],
           "history": [
             {
@@ -1306,7 +1569,7 @@
               "origin": "bread",
               "launch": 0.13406279683113098,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1316,14 +1579,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
-              "word": "good",
+              "word": "make",
               "origin": "bread",
-              "launch": 0.257794588804245,
-              "destination": 0.27475506067276,
-              "required": 0.2,
+              "launch": 0.26350128650665283,
+              "destination": 0.2903294265270233,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -1333,12 +1597,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "democracy",
+                "origin": "make",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
-          "best_progress": 0.27475506067276,
-          "backward_allowance": 0.006796860158443452
+          "automatic_shots": [
+            {
+              "word": "democracy",
+              "origin": "make",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
+          "best_progress": 0.2903294265270233,
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -1346,10 +1633,10 @@
   {
     "start": "forest",
     "target": "money",
-    "threshold": 0.27,
+    "threshold": 0.28,
     "mode": "distance",
     "launch_min": 0.1,
-    "launch_max": 0.2,
+    "launch_max": 0.21,
     "steps": [
       {
         "word": "unknownwordxyz",
@@ -1358,11 +1645,11 @@
           "start": "forest",
           "current": "forest",
           "target": "money",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07867243885993958,
           "progress": 0.07867243885993958,
           "attempts": 0,
@@ -1371,8 +1658,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07867243885993958,
-          "backward_allowance": 0.009566378057003022
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1382,11 +1670,11 @@
           "start": "forest",
           "current": "forest",
           "target": "money",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07867243885993958,
           "progress": 0.07867243885993958,
           "attempts": 0,
@@ -1395,8 +1683,9 @@
           ],
           "history": [],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07867243885993958,
-          "backward_allowance": 0.009566378057003022
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1406,7 +1695,7 @@
           "origin": "forest",
           "launch": 0.07867243885993958,
           "destination": 1.0,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": false,
@@ -1416,17 +1705,18 @@
           "forward": true,
           "connected": false,
           "safe": true,
-          "outcome": "miss"
+          "outcome": "miss",
+          "backtrack": false
         },
         "state": {
           "start": "forest",
           "current": "forest",
           "target": "money",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07867243885993958,
           "progress": 0.07867243885993958,
           "attempts": 1,
@@ -1439,7 +1729,7 @@
               "origin": "forest",
               "launch": 0.07867243885993958,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1449,12 +1739,14 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             }
           ],
           "won": false,
+          "automatic_shots": [],
           "best_progress": 0.07867243885993958,
-          "backward_allowance": 0.009566378057003022
+          "backward_allowance": 0.01
         }
       },
       {
@@ -1464,7 +1756,7 @@
           "origin": "forest",
           "launch": 0.21756602823734283,
           "destination": 0.39352917671203613,
-          "required": 0.2,
+          "required": 0.21,
           "trip_fraction": 1.0,
           "boundary": true,
           "success": true,
@@ -1474,23 +1766,35 @@
           "forward": true,
           "connected": true,
           "safe": true,
-          "outcome": "green"
+          "outcome": "green",
+          "backtrack": false,
+          "automatic_shot": {
+            "word": "money",
+            "origin": "are",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true
+          }
         },
         "state": {
           "start": "forest",
-          "current": "are",
+          "current": "money",
           "target": "money",
-          "threshold": 0.27,
+          "threshold": 0.28,
           "mode": "distance",
-          "rules": "golf-distance-v1",
+          "rules": "golf-distance-v2",
           "launch_min": 0.1,
-          "launch_max": 0.2,
+          "launch_max": 0.21,
           "baseline": 0.07867243885993958,
-          "progress": 0.39352917671203613,
-          "attempts": 2,
+          "progress": 1.0,
+          "attempts": 3,
           "route": [
             "forest",
-            "are"
+            "are",
+            "money"
           ],
           "history": [
             {
@@ -1498,7 +1802,7 @@
               "origin": "forest",
               "launch": 0.07867243885993958,
               "destination": 1.0,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": false,
@@ -1508,14 +1812,15 @@
               "forward": true,
               "connected": false,
               "safe": true,
-              "outcome": "miss"
+              "outcome": "miss",
+              "backtrack": false
             },
             {
               "word": "are",
               "origin": "forest",
               "launch": 0.21756602823734283,
               "destination": 0.39352917671203613,
-              "required": 0.2,
+              "required": 0.21,
               "trip_fraction": 1.0,
               "boundary": true,
               "success": true,
@@ -1525,12 +1830,35 @@
               "forward": true,
               "connected": true,
               "safe": true,
-              "outcome": "green"
+              "outcome": "green",
+              "backtrack": false,
+              "automatic_shot": {
+                "word": "money",
+                "origin": "are",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true
+              }
             }
           ],
           "won": true,
+          "automatic_shots": [
+            {
+              "word": "money",
+              "origin": "are",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true
+            }
+          ],
           "best_progress": 0.39352917671203613,
-          "backward_allowance": 0.009566378057003022
+          "backward_allowance": 0.01
         }
       }
     ]
@@ -2773,6 +3101,7 @@
     "target": "science",
     "threshold": 0.3,
     "mode": "distance",
+    "rules": "golf-distance-v1",
     "steps": [
       {
         "word": "wire",
@@ -3118,6 +3447,7 @@
     "target": "kitchen",
     "threshold": 0.25,
     "mode": "distance",
+    "rules": "golf-distance-v1",
     "steps": [
       {
         "word": "surface",
@@ -3496,6 +3826,7 @@
     "target": "science",
     "threshold": 0.25,
     "mode": "distance",
+    "rules": "golf-distance-v1",
     "steps": [
       {
         "word": "science",
@@ -3730,6 +4061,7 @@
     "target": "chirp",
     "threshold": 0.25,
     "mode": "distance",
+    "rules": "golf-distance-v1",
     "steps": [
       {
         "word": "chat",

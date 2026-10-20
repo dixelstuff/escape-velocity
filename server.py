@@ -23,7 +23,7 @@ def main():
                 body=json.loads(self.rfile.read(size))
                 with lock:
                     if self.path == '/api/new':
-                        game=Game(embeddings,body['start'].strip().lower(),body['target'].strip().lower(),float(body['threshold']),mode=body.get('mode','fixed'),launch_min=float(body.get('launch_min',.10)),launch_max=float(body.get('launch_max',.20)))
+                        game=Game(embeddings,body['start'].strip().lower(),body['target'].strip().lower(),float(body['threshold']),mode=body.get('mode','fixed'),launch_min=float(body.get('launch_min',.10)),launch_max=float(body.get('launch_max',.21)))
                         token=secrets.token_urlsafe(24)
                         if len(sessions)>1000: sessions.pop(next(iter(sessions)))
                         sessions[token]=game

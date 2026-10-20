@@ -6,7 +6,7 @@ const read = path => readFileSync(new URL(path, root));
 const words = JSON.parse(read('static/model/words.json'));
 const bytes = read('static/model/vectors.f32');
 const vectors = new Float32Array(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
-const embeddings = new Embeddings(words, vectors);
+const embeddings = new Embeddings(words.slice(0,vectors.length/300), vectors);
 const fixtures = JSON.parse(read('tests/browser-fixtures.json'));
 function compare(actual, expected) {
   for (const [key, value] of Object.entries(expected)) {
@@ -52,9 +52,9 @@ game = new Game(fake,'start','target',.5,{rules:'fixed-threshold-v2'});
 assert.equal(game.submit('arrival').won,true);
 assert.equal(game.state().attempts,1);
 
-const oneJump=new Game(fake,'start','target',.5,{mode:'distance'});assert.equal(oneJump.submit('arrival').won,true);assert.equal(oneJump.state().attempts,1);
+const oneJump=new Game(fake,'start','target',.5,{mode:'distance',rules:'golf-distance-v1'});assert.equal(oneJump.submit('arrival').won,true);assert.equal(oneJump.state().attempts,1);
 assert.equal(launchRequirement(.2,.2,.1,.5).required,.10);
-assert.equal(launchRequirement(.1,.8,.1,.5).required,.20);
+assert.equal(launchRequirement(.1,.8,.1,.5).required,.21);
 assert.deepEqual(launchRequirement(.2,.3,.1,.5),launchRequirement(.3,.2,.1,.5));
 game=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v1'});
 game.submit('forward');game.submit('start');game.submit('forward');
@@ -68,20 +68,20 @@ assert.throws(()=>new Game(fake,'start','target',.5,{mode:'distance',launch_min:
 
 console.log(`Browser scoring passed: ${fixtures.length} real-vector Python parity journeys, independent rule cases, and cosine checks.`);
 
-game=new Game(fake,'start','target',.5,{mode:'distance'});
+game=new Game(fake,'start','target',.5,{mode:'distance',rules:'golf-distance-v1'});
 game.submit('forward');
 const backward=game.submit('backward');
 assert.equal(backward.forward,false);assert.equal(backward.success,false);
 assert.equal(game.current,'forward');assert.equal(game.state().attempts,2);
 assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
-assert.equal(new Game(fake,'start','target').threshold,.27);
+assert.equal(new Game(fake,'start','target').threshold,.28);
 assert.equal(game.launch_min,.10);assert.equal(game.launch_max,.20);
 
 assert.deepEqual(launchRequirement(.23,.25,.037,.25),launchRequirement(.23,.8,.037,.25));
-assert.ok(launchRequirement(.23,.8,.037,.25).required<.11);
+assert.ok(launchRequirement(.23,.8,.037,.25).required<.111);
 assert.ok(launchRequirement(.23,.8,.037,.25).required<launchRequirement(.133,.8,.037,.25).required);
 scores.set('forward,weak',.13);
-const gentle=new Game(fake,'start','target',.5,{mode:'distance'});
+const gentle=new Game(fake,'start','target',.5,{mode:'distance',rules:'golf-distance-v1'});
 const overshoot=new Game(fake,'start','target',.5,{mode:'distance',rules:'distance-v2'});
 for(const g of [gentle,overshoot])g.submit('forward');
 assert.equal(gentle.submit('weak').won,true);
@@ -89,14 +89,14 @@ assert.equal(overshoot.submit('weak').success,false);
 assert.deepEqual(restoreGame(fake,gentle.state()).state(),gentle.state());
 
 // The literal target stays playable: too weak from the tee, reachable when close.
-const targetShot=new Game(embeddings,'moon','kitchen',.25,{mode:'distance'});
+const targetShot=new Game(embeddings,'moon','kitchen',.25,{mode:'distance',rules:'golf-distance-v1'});
 assert.equal(targetShot.submit('kitchen').success,false);
 for(const word of ['surface','counter'])assert.equal(targetShot.submit(word).success,true);
 assert.equal(targetShot.submit('kitchen').won,true);
 
 for(const [key,value] of Object.entries({'forward,nudge':.4,'nudge,target':.395,'nudge,drift':.4,'drift,target':.386,'forward,weakback':.01,'weakback,target':.1,'start,edge':.3,'edge,target':.09}))scores.set(key,value);
 for(const word of ['nudge','drift','weakback','edge'])fake.index.set(word,0);
-const waterGame=new Game(fake,'start','target',.5,{mode:'distance'});
+const waterGame=new Game(fake,'start','target',.5,{mode:'distance',rules:'golf-distance-v1'});
 waterGame.submit('forward');
 assert.equal(waterGame.submit('weakback').outcome,'miss');
 assert.equal(waterGame.submit('nudge').outcome,'recovery');
@@ -104,12 +104,12 @@ assert.equal(waterGame.current,'nudge');assert.equal(waterGame.best_progress,.4)
 assert.equal(waterGame.submit('drift').outcome,'water');
 assert.equal(waterGame.current,'nudge');assert.equal(waterGame.state().attempts,4);
 assert.deepEqual(restoreGame(fake,waterGame.state()).state(),waterGame.state());
-const teeRecovery=new Game(fake,'start','target',.5,{mode:'distance'});
+const teeRecovery=new Game(fake,'start','target',.5,{mode:'distance',rules:'golf-distance-v1'});
 assert.equal(teeRecovery.submit('edge').outcome,'recovery');
-const shortHole=new Game(fake,'start','target',.12,{mode:'distance'});
+const shortHole=new Game(fake,'start','target',.12,{mode:'distance',rules:'golf-distance-v1'});
 assert.ok(Math.abs(shortHole.backward_allowance-.001)<1e-7);
 assert.equal(shortHole.submit('edge').outcome,'water');
 
-const previousGolf=new Game(embeddings,'coffee','science',.25,{mode:'distance',launch_min:.09,launch_max:.19});
+const previousGolf=new Game(embeddings,'coffee','science',.25,{mode:'distance',rules:'golf-distance-v1',launch_min:.09,launch_max:.19});
 for(const word of ['science','bean','food'])previousGolf.submit(word);
 assert.deepEqual(restoreGame(embeddings,previousGolf.state()).state(),previousGolf.state());

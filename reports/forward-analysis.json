@@ -1,27 +1,29 @@
 {
-  "rules": "golf-distance-v1",
+  "rules": "golf-distance-v2",
   "results": [
     {
       "start": "coffee",
       "target": "science",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "coffee",
-        "also"
+        "now"
       ]
     },
     {
       "start": "cheese",
       "target": "language",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "cheese",
         "make"
@@ -30,11 +32,12 @@
     {
       "start": "penalty",
       "target": "ability",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "penalty",
         "have"
@@ -43,11 +46,12 @@
     {
       "start": "everyday",
       "target": "affection",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "everyday",
         "good"
@@ -56,11 +60,12 @@
     {
       "start": "moon",
       "target": "kitchen",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "moon",
         "just"
@@ -69,37 +74,40 @@
     {
       "start": "garden",
       "target": "computer",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "garden",
-        "but"
+        "one"
       ]
     },
     {
       "start": "bread",
       "target": "democracy",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "bread",
-        "good"
+        "make"
       ]
     },
     {
       "start": "forest",
       "target": "money",
-      "threshold": 0.27,
+      "threshold": 0.28,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.2,
+      "launch_max": 0.21,
       "attempts": 1,
+      "total_shots": 2,
       "route": [
         "forest",
         "are"

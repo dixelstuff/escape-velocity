@@ -1,4 +1,4 @@
-/** Full-precision GloVe cosine scoring, independent of the map and animations. */
+/** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300) {
     if (vectors.length !== words.length * dimensions) throw Error('Incomplete word-vector download. Please reload.');
@@ -18,29 +18,30 @@ export class Embeddings {
   }
 }
 
-export function launchRequirement(current, destination, baseline, arrival, minimum=.10, maximum=.20, capArrival=true) {
+export function launchRequirement(current, destination, baseline, arrival, minimum=.10, maximum=.21, capArrival=true) {
   const trip=capArrival?Math.abs(Math.min(destination,arrival)-Math.min(current,arrival)):Math.abs(destination-current);
   const fraction=Math.min(1,trip/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
 export class Game {
-  constructor(embeddings,start,target,threshold=.27,options={}) {
+  constructor(embeddings,start,target,threshold=.28,options={}) {
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
     const {mode='fixed',rules}=options;
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
     const golf=!rules||rules.startsWith('golf-');
-    const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:golf?.20:.18);
+    const modern=!rules||['golf-distance-v2','golf-fixed-v2'].includes(rules);
+    const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:modern?.21:golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Tee and hole words must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');
     if(!['fixed','distance'].includes(mode))throw Error('Unknown shot mode.');
     if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.');
-    const expected=mode==='distance'?'golf-distance-v1':'golf-fixed-v1';
-    if(rules&&! [expected,...(mode==='distance'?['distance-v1','distance-v2','distance-v3']:['fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
+    const expected=mode==='distance'?'golf-distance-v2':'golf-fixed-v2';
+    if(rules&&! [expected,...(mode==='distance'?['golf-distance-v1','distance-v1','distance-v2','distance-v3']:['golf-fixed-v1','fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
     if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Historical rounds use fixed shot strength.');
-    Object.assign(this,{e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected});
+    Object.assign(this,{e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected,modern,automatic_shots:[]});
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
-    this.backward_allowance=Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
+    this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
   }
   submit(word) {
     word=word.trim().toLowerCase();
@@ -50,23 +51,31 @@ export class Game {
       if(word===this.start||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
     } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
     const launch=this.e.cosine(this.current,word),destination=this.e.cosine(word,this.target);
-    let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max,['distance-v3','golf-distance-v1'].includes(this.rules));
+    let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max,['distance-v3','golf-distance-v1','golf-distance-v2'].includes(this.rules));
     if(this.mode==='fixed')required=this.threshold;
     const boundary=destination+1e-7>=this.baseline;
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
     const isGolf=this.rules.startsWith('golf-'),connected=launch+1e-7>=required;
-    const safe=destination+1e-7>=this.best_progress-this.backward_allowance;
+    const backtrack=this.modern&&!forward&&this.route.includes(word);
+    const safe=backtrack||destination+1e-7>=this.best_progress-this.backward_allowance;
     const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
     const result={word,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&inside,attempt:this.history.length+1};
     if(forwardOnly||isGolf)result.forward=forward;
-    if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':!forward?'recovery':'landed'});
-    this.history.push(result);if(success){this.current=word;this.route.push(word);this.best_progress=Math.max(this.best_progress,destination);}this.won=result.won;return result;
+    if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':backtrack?'backtrack':!forward?'recovery':'landed'});
+    if(this.modern)result.backtrack=backtrack;
+    this.history.push(result);if(success){this.current=word;this.route.push(word);this.best_progress=backtrack?destination:Math.max(this.best_progress,destination);}
+    if(this.modern&&result.won&&word!==this.target){
+      const automatic={word:this.target,origin:word,automatic:true,outcome:'putt',attempt:this.history.length+1,success:true,inside:true,won:true};
+      this.automatic_shots.push(automatic);result.automatic_shot=automatic;this.current=this.target;this.route.push(this.target);
+    }
+    this.won=result.won;return result;
   }
   state() {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
-      attempts:this.history.length,route:this.route,history:this.history,won:this.won,
+      attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
+      ...(this.modern?{automatic_shots:this.automatic_shots}:{}),
       ...(this.rules.startsWith('golf-')?{best_progress:this.best_progress,backward_allowance:this.backward_allowance}:{})});
   }
 }
@@ -84,33 +93,78 @@ async function loadFile(path, binary = false, cache = 'default') {
   return binary ? response.arrayBuffer() : response.json();
 }
 
-export async function createBrowserClient() {
-  const [config, words, buffer] = await Promise.all([
-    loadFile('./model/config.json',false,'no-cache'), loadFile('./model/words.json'), loadFile('./model/vectors.f32', true)
-  ]);
-  // Data is explicitly little-endian float32. Modern browser platforms use little-endian.
-  const littleEndian = new Uint8Array(new Uint32Array([1]).buffer)[0] === 1;
-  let vectors;
-  if (littleEndian) vectors = new Float32Array(buffer);
-  else {
-    const view = new DataView(buffer);
-    vectors = Float32Array.from({length:buffer.byteLength / 4}, (_, i) => view.getFloat32(i * 4, true));
+export function decodeHalf(buffer) {
+  if(buffer.byteLength%2)throw Error('Incomplete word-vector download.');
+  const view=new DataView(buffer), values=new Float32Array(buffer.byteLength/2);
+  for(let i=0;i<values.length;i++){
+    const bits=view.getUint16(i*2,true),sign=bits&0x8000?-1:1,exponent=(bits>>10)&31,fraction=bits&1023;
+    if(exponent===31)throw Error('Invalid word-vector download.');
+    values[i]=sign*(exponent===0?fraction*2**-24:(1+fraction/1024)*2**(exponent-15));
   }
-  const embeddings = new Embeddings(words, vectors, config.dimensions);
-  let game;
-  return { config, request(path, body) {
+  return values;
+}
+async function loadPackedModel(config) {
+  const compressed=typeof DecompressionStream==='function';
+  const url=new URL('./model/'+(compressed?config.vector_file:config.vector_fallback),import.meta.url);
+  let cache,response;
+  try{cache=await caches.open('word-golf-model-v1');response=await cache.match(url);}catch{}
+  const cached=!!response;
+  response??=await fetch(url,{cache:'force-cache'});
+  if(!response.ok)throw Error('The word model could not load. Please reload.');
+  const copy=response.clone();
+  const buffer=compressed?await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():await response.arrayBuffer();
+  if(buffer.byteLength!==config.vector_bytes)throw Error('Incomplete word-vector download. Please reload.');
+  if(globalThis.crypto?.subtle){
+    const digest=[...new Uint8Array(await crypto.subtle.digest('SHA-256',buffer))].map(b=>b.toString(16).padStart(2,'0')).join('');
+    if(digest!==config.vector_sha256){try{await cache?.delete(url);}catch{}throw Error('The downloaded word model is damaged. Please reload.');}
+  }
+  const vectors=decodeHalf(buffer);
+  if(!cached)try{await cache?.put(url,copy);}catch{}
+  return vectors;
+}
+
+export async function createBrowserClient() {
+  const config=await loadFile('./model/config.json',false,'no-cache');
+  const [words,vectors]=await Promise.all([loadFile('./model/'+config.words_file),loadPackedModel(config)]);
+  const embeddings=new Embeddings(words,vectors,config.dimensions);
+  let game,historical,worker,sequence=0;
+  const pending=new Map();
+  async function assess(body){
+    if(typeof Worker==='undefined')return (await import('./assessment.mjs?v=golf-v11')).assessHole(embeddings,body);
+    if(!worker){
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v11',import.meta.url),{type:'module'});
+      worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
+      worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
+      worker.postMessage({init:true,words,vectors,dimensions:config.dimensions});
+    }
+    return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body});});
+  }
+  return { config, async request(path, body) {
+    if(path==='assess')return assess(body);
     if (path === 'new') {
-      game = new Game(embeddings, body.start, body.target, body.threshold, body);
-      return {state:game.state()};
+      const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
+      if(body.validate_direct){
+        const check=new Game(embeddings,body.start,body.target,body.threshold,body);
+        if(check.submit(check.target).won)throw Error('These words allow a direct hole in one. Choose a more distant pair.');
+      }
+      game=candidate;return {state:game.state()};
     }
     if (path === 'restore') {
-      game = restoreGame(embeddings, body.state);
-      return {state:game.state()};
+      let model=embeddings;
+      if(!['golf-distance-v2','golf-fixed-v2'].includes(body.state.rules)){
+        if(!historical){
+          const buffer=await loadFile('./model/vectors.f32',true,'force-cache');
+          const view=new DataView(buffer);
+          const exact=Float32Array.from({length:buffer.byteLength/4},(_,i)=>view.getFloat32(i*4,true));
+          historical=new Embeddings(words.slice(0,config.historical_vocabulary),exact,config.dimensions);
+        }
+        model=historical;
+      }
+      game=restoreGame(model,body.state);return {state:game.state()};
     }
     if (path === 'submit') {
       if (!game) throw Error('Start a new hole first.');
-      const event = game.submit(body.word);
-      return {event, state:game.state()};
+      const event=game.submit(body.word);return {event,state:game.state()};
     }
     throw Error('Unknown game operation.');
   }};

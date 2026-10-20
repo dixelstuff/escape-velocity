@@ -8,7 +8,7 @@ let sequence=0;
 const newLog=()=>new FlightLog(storage,()=>new Date('2026-10-19T09:00:00Z').toISOString(),()=>`journey-${++sequence}`);
 const words=JSON.parse(readFileSync(new URL('../static/model/words.json',import.meta.url)));
 const buffer=readFileSync(new URL('../static/model/vectors.f32',import.meta.url));
-const e=new Embeddings(words,new Float32Array(buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength)));
+const e=new Embeddings(words.slice(0,buffer.byteLength/1200),new Float32Array(buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength)));
 let log=newLog();
 let game=new Game(e,'forest','money',.4,{rules:'fixed-threshold-v2'});
 log.begin(game.state(),'GloVe 6B · 300 dimensions');
@@ -52,7 +52,7 @@ assert.equal(JSON.parse(log.exportJSON()).journeys[0].entries.length,5);
 game.history.push({word:'changed'});
 assert.equal(log.data.journeys[0].state.history.length,3);
 // New logs record per-hop requirements and the rule version; archived old logs keep theirs.
-const dynamic=new Game(e,'coffee','science',.45,{mode:'distance'});
+const dynamic=new Game(e,'coffee','science',.45,{mode:'distance',rules:'golf-distance-v1'});
 const logger=newLog();logger.begin(dynamic.state(),'GloVe');
 const hop=dynamic.submit('food');logger.record('food',dynamic.state(),hop);
 assert.equal(logger.active.rules,'golf-distance-v1');
@@ -74,7 +74,7 @@ assert.throws(()=>restoreGame(e,{start:'forest',target:'money',threshold:.4,hist
 console.log('Flight log passed: all submissions, score parity, reload/resume, archived journeys, sharing, storage failure and corrupt-data recovery.');
 
 memory.clear();
-const round=new Game(e,'coffee','science',.25,{mode:'distance'});
+const round=new Game(e,'coffee','science',.25,{mode:'distance',rules:'golf-distance-v1'});
 const card=newLog();card.begin(round.state(),'GloVe');
 for(const word of ['science','bean','food']){const shot=round.submit(word);card.record(word,round.state(),shot);}
 assert.deepEqual(card.active.entries.map(entry=>entry.event.outcome),['miss','water','green']);

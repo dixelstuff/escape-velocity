@@ -33,7 +33,7 @@ export class FlightLog {
   }
   begin(state, model) {
     const timestamp = this.now();
-    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:'arrival-zone', state:structuredClone(state), entries:[]};
+    const journey = {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
     this.data.journeys.push(journey);
     this.data.activeId = journey.id;
     this.save();
@@ -46,6 +46,9 @@ export class FlightLog {
     journey.completion ??= 'arrival-zone';
     journey.entries.push({submittedAt:timestamp, word, origin:event?.origin ?? state.current,
       chargedAttempt:!!event, completion:journey.completion, threshold:event?.required??state.threshold, arrival_threshold:state.threshold, event:structuredClone(event), error});
+    if(event?.automatic_shot){
+      journey.entries.push({submittedAt:timestamp,word:event.automatic_shot.word,origin:event.automatic_shot.origin,chargedAttempt:true,completion:journey.completion,event:structuredClone(event.automatic_shot),error:null});
+    }
     journey.state = structuredClone(state);
     journey.updatedAt = timestamp;
     this.save();
@@ -55,6 +58,9 @@ export class FlightLog {
 export function outcome(entry) {
   if(!entry.event)return `Unscored: ${entry.error}`;
   const e=entry.event;
+  if(e.automatic)return 'Automatic finish — one shot counted';
+  if(e.outcome==='backtrack')return 'Backtrack — previous lie revisited';
+  if(entry.completion==='holed-with-auto-finish'&&e.won)return e.automatic_shot?'Green reached — automatic finish follows':'Holed directly';
   if(e.outcome==='water')return 'Water hazard — ball returned';
   if(e.outcome==='miss')return 'Miss — ball stayed put';
   if(e.outcome==='recovery')return 'Recovery shot — ball landed';
@@ -69,14 +75,15 @@ export function journeyText(journey) {
   const lines = ['WORD GOLF — scorecard', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
     s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
-  if(['distance-v3','golf-distance-v1'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
+  if(['distance-v3','golf-distance-v1','golf-distance-v2'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
   for (const entry of journey.entries) {
     const e = entry.event;
     lines.push(`${e ? `Shot ${e.attempt}` : 'No shot used'}: ${entry.origin} → ${entry.word}`,
       `  ${outcome(entry)} · ${entry.submittedAt}`);
-    if (e) lines.push(`  Contact cosine: ${e.launch.toFixed(6)} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; green: ${e.inside ? 'yes' : 'no'}`);
+    if (e && !e.automatic) lines.push(`  Contact cosine: ${e.launch.toFixed(6)} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; green: ${e.inside ? 'yes' : 'no'}`);
   }
-  lines.push('', `Played lies: ${s.route.join(' → ')}${s.won && journey.completion!=='arrival-zone' && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
+  lines.push('', `Played lies: ${s.route.join(' → ')}${s.won && !['arrival-zone','holed-with-auto-finish'].includes(journey.completion) && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
+  if(s.won&&journey.completion==='holed-with-auto-finish')lines.push(`Holed in ${s.attempts} shots${s.automatic_shots?.length?' (includes one automatic finishing shot)':''}.`);
   if(s.won&&journey.completion==='arrival-zone')lines.push(`Finished on ${s.current}, on the ${s.target} green.`);
   return lines.join('\n');
 }

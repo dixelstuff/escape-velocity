@@ -1,7 +1,7 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v10';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v10';
-import { startupAction, isOpening } from './startup.mjs?v=golf-v10';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v10';
+import { createBrowserClient } from './engine.mjs?v=golf-v11';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v11';
+import { startupAction, isOpening } from './startup.mjs?v=golf-v11';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v11';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null;
 let storage;try{storage=window.localStorage;}catch{}
@@ -64,8 +64,8 @@ function renderLog(){
  if(!journeys.some(j=>j.id===selectedLogId))selectedLogId=flightLog.data.activeId;
  $('log-journey').innerHTML=[...journeys].reverse().map(j=>`<option value="${esc(j.id)}" ${j.id===selectedLogId?'selected':''}>${esc(j.state.start)} → ${esc(j.state.target)} · ${j.state.attempts} ${j.state.attempts===1?'shot':'shots'} · ${j.state.won?'completed':'in progress'} · ${esc(new Date(j.startedAt).toLocaleString())}</option>`).join('');
  const journey=journeys.find(j=>j.id===selectedLogId);
- $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${journey.entries.length} submissions · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
- $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'No shot'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>${entry.event.connected===false?'Weak contact':entry.event.outcome==='water'?'Good contact, wrong direction':entry.event.outcome==='recovery'?'Small recovery shot':entry.event.success?'Ball landed':'Ball stayed put'}${entry.event.inside?(entry.event.success?' · On the green':' · Aimed at green'):''}</p>`:''}</li>`).join('')||'<li class="subtle">No shots yet.</li>';
+ $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${journey.entries.filter(e=>!e.event?.automatic).length} submissions · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
+ $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'No shot'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>${entry.event.automatic?'Automatic finish · one shot counted':entry.event.outcome==='backtrack'?'Returned to a previously reached word':entry.event.connected===false?'Weak contact':entry.event.outcome==='water'?'Good contact, wrong direction':entry.event.outcome==='recovery'?'Small recovery shot':entry.event.success?'Ball landed':'Ball stayed put'}${entry.event.inside?(entry.event.success?' · On the green':' · Aimed at green'):''}</p>`:''}</li>`).join('')||'<li class="subtle">No shots yet.</li>';
  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';
 }
 function syncPuzzleSelection(){
@@ -77,22 +77,22 @@ function syncPuzzleSelection(){
 function update(){
  $('start-label').textContent=state.start;$('target-label').textContent=state.target;$('attempts').textContent=state.attempts;
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
- $('upgrade-rules').hidden=['golf-distance-v1','golf-fixed-v1'].includes(state.rules);$('rules-note').textContent=state.mode==='distance'?'Connect to the ball word. Aim closer to the hole.':'Every shot needs the fixed connection strength.';
+ $('upgrade-rules').hidden=['golf-distance-v2','golf-fixed-v2'].includes(state.rules);$('rules-note').textContent=state.mode==='distance'?'Connect to the ball word. Reach the green for an automatic finish, or hit the hole word directly.':'Every shot needs the fixed connection strength.';
  $('opening-game').hidden=isOpening(state,config.puzzles[0]);$('opening-game').textContent=`Play opening hole: ${config.puzzles[0].start} → ${config.puzzles[0].target}`;
  $('results').hidden=!state.won;
  $('arrival-banner').hidden=!state.won;
  document.querySelector('.map-card').classList.toggle('arrived',state.won);
- if(state.won){$('arrival-banner').querySelector('h2').textContent=state.current===state.target?'Holed it! Well played.':'On the green! Well played.';}
+ if(state.won){$('arrival-banner').querySelector('h2').textContent=state.attempts===1?'Hole in one!':`Holed in ${state.attempts} shots!`;}
  if(state.won)$('arrival-summary').textContent=`${state.attempts} ${state.attempts===1?'shot':'shots'} · ${state.start} → ${state.target}`;
  $('shot-notice').hidden=!shownEvent||!['water','miss'].includes(shownEvent.outcome)||state.won;
  $('shot-notice').textContent=shownEvent?.outcome==='water'?`Splash! Ball returned to ${state.current}. One shot counted.`:`Miss! Ball stays at ${state.current}. One shot counted.`;
- if(state.won){$('results').innerHTML=`<span class="eyebrow">HOLE COMPLETE</span><h2>${state.attempts===1?(state.current===state.target?'Hole in one!':'Green in one shot!'):`On the green in ${state.attempts} shots.`}</h2><p>${state.route.map(esc).join(' → ')} <small>(${esc(state.target)} green reached)</small></p><p>Misses and water shots: ${state.history.filter(h=>!h.success).map(h=>esc(h.word)).join(', ')||'none'}</p><p>Your full scorecard is below.</p>`;}
+ if(state.won){$('results').innerHTML=`<span class="eyebrow">HOLE COMPLETE</span><h2>${state.attempts===1?'Hole in one!':`Holed in ${state.attempts} shots.`}</h2><p>${state.route.map(esc).join(' → ')}</p>${state.automatic_shots?.length?'<p>Includes one automatic finishing shot from the green.</p>':''}<p>Misses and water shots: ${state.history.filter(h=>!h.success).map(h=>esc(h.word)).join(', ')||'none'}</p><p>Your full scorecard is below.</p>`;}
 
  map();telemetry();renderLog();
 }
 async function newGame(puzzle){
  if(busy)return false;lock(true);
- try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Tee off from ${state.start}. Play a word towards ${state.target}.`;$('last-reading').textContent=state.mode==='distance'?'Long shots need stronger connections. Reach the green to finish the hole.':'Every shot uses the fixed strength setting.';return true;}
+ try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent=`Tee off from ${state.start}. Play a word towards ${state.target}.`;$('last-reading').textContent=state.mode==='distance'?'Long shots need stronger connections. Reach the green for a one-shot automatic finish, or chip in with the hole word.':'Every shot uses the fixed strength setting.';return true;}
  catch(error){$('status').textContent=error.message;return false;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
@@ -121,9 +121,13 @@ async function submit(word){
  // Keep the old state visible until the proposal and flight have played out.
  if(event.outcome||event.forward!==false){map(event);$('status').textContent=`Playing ${event.word.toUpperCase()}…`;$('last-reading').textContent='';
  await delay(reduced?150:350);await animate(event);}
+ if(event.automatic_shot){
+   state={...data.state,current:event.word};map();$('status').textContent='On the green! Finishing in one more shot…';
+   await delay(reduced?0:250);await animate(event.automatic_shot);
+ }
  state=data.state;shownEvent=event;update();$('word').value='';
  if(event.won)document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
- $('status').textContent=event.won?'On the green! Hole complete.':event.outcome==='water'?`Splash! Backward shot into the water. Ball returned to ${state.current}.`:event.outcome==='miss'?`Miss! Not enough connection to ${event.word}. Ball stays at ${state.current}.`:event.outcome==='recovery'?`Recovery shot to ${event.word}. Ready for your next shot.`:event.success?`Ball landed on ${event.word}. Ready for your next shot.`:'Ball stays put. One shot counted.';
+ $('status').textContent=event.won?(event.automatic_shot?`Holed in ${state.attempts} shots, including the automatic finish.`:`Holed directly in ${state.attempts} shots!`):event.outcome==='water'?`Splash! Backward shot into the water. Ball returned to ${state.current}.`:event.outcome==='miss'?`Miss! Not enough connection to ${event.word}. Ball stays at ${state.current}.`:event.outcome==='backtrack'?`Back to ${event.word}. A new line is open.`:event.outcome==='recovery'?`Recovery shot to ${event.word}. Ready for your next shot.`:event.success?`Ball landed on ${event.word}. Ready for your next shot.`:'Ball stays put. One shot counted.';
  $('last-reading').textContent=event.won?`${state.attempts} ${state.attempts===1?'shot':'shots'} · Hole complete`:event.outcome==='water'?'One shot counted. No extra penalty.':event.success?'Good contact. Choose your next word.':'One shot counted. Try a stronger connection.';
 
  return true;
@@ -135,12 +139,26 @@ $('debug-toggle').onclick=()=>{const open=$('debug').hidden;$('debug').hidden=!o
 $('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
 $('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max}:config.puzzles[Number($('puzzle').value)]);
 $('opening-game').onclick=()=>newGame(config.puzzles[0]);
-$('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.27,mode:'distance',launch_min:.10,launch_max:.20});
+$('upgrade-rules').onclick=()=>newGame({start:state.start,target:state.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
+let assessmentTimer,assessmentSequence=0;
+function previewHole(){
+ clearTimeout(assessmentTimer);const sequence=++assessmentSequence;
+ const start=$('custom-start').value.trim().toLowerCase(),target=$('custom-target').value.trim().toLowerCase();
+ if(!start||!target||!client){$('custom-assessment').textContent='';return;}
+ $('custom-assessment').textContent='Assessing these words…';
+ assessmentTimer=setTimeout(async()=>{
+  try{const result=await api('assess',{...config.puzzles[0],start,target});if(sequence!==assessmentSequence)return;
+   $('custom-assessment').textContent=result.direct_hole_in_one?'Direct hole in one available. Choose a more distant pair.':!result.playable?'No playable opening found. Choose another pair.':`${result.difficulty} estimate · ${result.separation_degrees.toFixed(0)}° word separation · ${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} onto the green. Based on available connections; human difficulty may differ.`;
+   $('custom-assessment').dataset.valid=String(result.playable);
+  }catch(error){if(sequence===assessmentSequence){$('custom-assessment').textContent=error.message;$('custom-assessment').dataset.valid='false';}}
+ },200);
+}
+for(const id of ['custom-start','custom-target'])$(id).addEventListener('input',previewHole);
 $('custom-form').onsubmit=async event=>{
  event.preventDefault();if(busy||!config)return;
  $('custom-start').blur();$('custom-target').blur();$('custom-feedback').textContent='';
- const started=await newGame({...config.puzzles[0],start:$('custom-start').value,target:$('custom-target').value});
+ const started=await newGame({...config.puzzles[0],start:$('custom-start').value,target:$('custom-target').value,validate_direct:true});
  if(!started){$('custom-feedback').textContent=$('status').textContent;return;}
  $('custom-start').value=state.start;$('custom-target').value=state.target;
  $('custom-feedback').textContent=`Your ${state.start} → ${state.target} hole is ready.`;
@@ -160,7 +178,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Backup download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (24 MB on your first visit)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v10'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.27,mode:'distance',launch_min:.10,launch_max:.20});$('status').textContent='The slightly firmer course settings are ready. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed hole and scorecard have been restored.':isOpening(state,config.puzzles[0])?'Hole restored. Play your next shot.':`Resuming your ${state.start} → ${state.target} hole. The opening hole is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v11'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent=state.won?'Your completed hole and scorecard have been restored.':isOpening(state,config.puzzles[0])?'Hole restored. Play your next shot.':`Resuming your ${state.start} → ${state.target} hole. The opening hole is ${config.puzzles[0].start} → ${config.puzzles[0].target}.`;if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

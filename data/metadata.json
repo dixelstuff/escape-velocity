@@ -4,7 +4,8 @@
     "wordnet.zip": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip"
   },
   "dimensions": 300,
-  "words": 19989,
+  "words": 24995,
   "frequency_floor": 2.5,
-  "selection": "wordfreq English frequency rank intersected with lowercase single-word WordNet lemmas; regular inflections and common names excluded"
+  "selection": "wordfreq English frequency rank intersected with lowercase single-word WordNet lemmas; regular inflections and common names excluded",
+  "expansion": "Appended dictionary words and common inflections; existing vectors unchanged"
 }

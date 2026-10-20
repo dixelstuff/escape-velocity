@@ -1,10 +1,10 @@
 # WORD GOLF ⛳
 
-A browser word-golf game using actual Stanford GloVe 6B 300-dimensional vectors. Connect your next word to the ball word and aim closer to the hole. Reach the putting green to finish. Every supported guess counts as one shot, including misses and water balls; unknown words and your current lie cost nothing. Originally prototyped as Escape Velocity; the existing Pages URL and saved scorecards are preserved.
+A browser word-golf game using actual Stanford GloVe 6B 300-dimensional vectors. Connect your next word to the ball word and aim closer to the hole. Reach the putting green for an automatic one-shot finish, or play the target word to hole out directly. Every supported guess counts as one shot, including misses and water balls; unknown words and your current lie cost nothing. Originally prototyped as Escape Velocity; the existing Pages URL and saved scorecards are preserved.
 
 ## Play online
 
-[Play Word Golf on GitHub Pages](https://dixelstuff.github.io/escape-velocity/). The public version calculates cosine similarities entirely in your browser. It downloads the curated 24 MB float32 model once; ordinary browser caching reuses unchanged files on later visits. No account, API key, or running Python server is needed. The original 822 MiB GloVe archive is never sent to players.
+[Play Word Golf on GitHub Pages](https://dixelstuff.github.io/escape-velocity/). The public version calculates cosine similarities entirely in your browser. It downloads about 13.8 MB of gzip-compressed half-precision vectors for 24,995 words. Hashed filenames, integrity checking and Cache Storage reuse the model after a successful first load; HTTP caching remains a fallback when persistent storage is unavailable. No account, API key, or running Python server is needed. The original 822 MiB GloVe archive is never sent to players.
 
 ## Run
 
@@ -15,6 +15,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/prepare.py
+python scripts/expand_vocabulary.py
 python scripts/analyze_forward.py
 python scripts/build_pages.py
 python scripts/browser_fixtures.py
@@ -27,23 +28,24 @@ First preparation downloads the official 822 MiB GloVe archive and the roughly 1
 
 ## Play
 
-Choose a hole, enter a word, and press **Hit shot** or Enter. **Make your own hole** accepts any two supported, different words for the tee and flag. The literal hole word is a normal, scored shot: too weak a connection misses; a strong enough connection finishes. No extra putt is required after entering the green.
+Choose a hole, enter a word, and press **Hit shot** or Enter. **Make your own hole** previews angular word separation and a provisional difficulty estimate, using playable openings and a limited two-step search in a background worker. It rejects pairs where directly typing the target can score a hole in one. One-shot bridges through another word remain allowed. Difficulty estimates are structural, not human-calibrated guarantees. The literal hole word is a normal, scored shot: too weak a connection misses; a strong enough connection finishes. Entering the green with another word automatically adds one finishing shot. All strokes count as shots; a direct target hit needs no extra finish.
 
 The current ball is a shaded, dimpled SVG golf ball on a mown fairway. Previous lies are small markers, and compact measured labels sit close to their markers, with leader lines and collision avoidance. A pond shows the destination of out-of-bounds backward shots. Misses leave the ball still; water shots animate into the pond, splash, and return to the same lie. A completion banner appears over the map and brings the green into view. Semantic horizontal position stays fixed; height is only for readability. Resizing never changes scoring.
 
-Default green similarity is **0.27**. Contact requirements range from **0.10 to 0.20**. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Required contact is `0.10 + 0.10 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
+Default green similarity is **0.28**. Contact requirements range from **0.10 to 0.21**. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Required contact is `0.10 + 0.11 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
 
-A small retreat is allowed: `max(0, min(0.01, 0.05 * (green_threshold - tee_target_similarity)))`. The lower safe boundary is anchored to the **best target similarity reached**, not the latest lie, so repeated tiny retreats cannot produce unlimited backward drift. Outcomes are:
+A consistent small retreat of `0.01` is allowed. The lower safe boundary is anchored to the **best target similarity reached**, not the latest lie, so repeated tiny retreats cannot produce unlimited backward drift. A sufficiently connected shot back to any previously reached word bypasses water and resets this boundary to the revisited lie, enabling a new branch. Failed proposals do not qualify as previous lies. Outcomes are:
 
 - **Miss:** contact below the required strength; ball stays still.
 - **Water:** enough contact, but destination below the safe boundary; ball splashes into the pond and returns.
 - **Recovery:** enough contact and within the safe boundary, but slightly behind the current lie; ball lands there.
 - **Landed:** enough contact and safe forward or level movement.
-- **Green:** safe successful shot at or beyond the green threshold; hole complete.
+- **Backtrack:** connected return to a previously reached word, without water.
+- **Green:** safe successful shot at or beyond the green threshold; automatically finishes in one extra shot unless the word is the target itself.
 
-Each supported guess counts as exactly one shot. Water adds no extra penalty. Scorecards retain every supported shot and every unscored rejected word. Normal play uses plain golf feedback; exact similarities, including negative target similarities, remain available in **Course settings** and exported scorecards.
+Each supported guess counts as exactly one shot. Water adds no extra penalty. New states keep user shots in `history`, automatic finishes in `automatic_shots`, and their combined count in `attempts`. Scorecard entries include both user shots and the automatic finish. Scorecards retain every supported shot and every unscored rejected word. Normal play uses plain golf feedback; exact similarities, including negative target similarities, remain available in **Course settings** and exported scorecards.
 
-New holes use `golf-distance-v1`, or `golf-fixed-v1` in fixed mode. Existing fixed/distance rule versions remain supported for exact historical replay. On first load of this release, older active rounds are archived unchanged and the same endpoints tee off with the golf rules. All earlier scorecards remain selectable. The unchanged `escape-velocity.flight-log.v1` storage key preserves prior playtests; JSON exports retain their original field names for compatibility.
+New holes use `golf-distance-v2`, or `golf-fixed-v2` in fixed mode. Existing fixed/distance rule versions remain supported for exact historical replay. On first load of this release, older active rounds are archived unchanged and the same endpoints tee off with the golf rules. All earlier scorecards remain selectable. The unchanged `escape-velocity.flight-log.v1` storage key preserves prior playtests; JSON exports retain their original field names for compatibility.
 
 COFFEE → SCIENCE opens the course. On mobile, 16px inputs avoid focus zoom, and a compact map-and-input view follows `visualViewport` above the keyboard. Hitting a shot dismisses the keyboard. Pinch zoom and reduced-motion preferences remain supported. Real iOS/Android keyboards still need device playtesting.
 
@@ -53,9 +55,17 @@ COFFEE → SCIENCE opens the course. On mobile, 16px inputs avoid focus zoom, an
 - [wordfreq 3.1.1](https://github.com/rspeer/wordfreq): English frequency rank and Zipf scores, combining multiple text sources. Code is Apache 2.0; included frequency data is CC BY-SA 4.0, as described upstream. It ranks candidates rather than contributing similarity scores.
 - [Princeton WordNet](https://wordnet.princeton.edu/), downloaded from the [NLTK data mirror](https://github.com/nltk/nltk_data): lowercase single-word dictionary lemmas help filter punctuation, phrases, names, and inflections. See the `wordnet/LICENSE` member of the retained archive for terms.
 
-`prepare.py` intersects the top 150,000 English frequency tokens with lowercase WordNet lemmas of 3–18 ASCII letters, requires a Zipf score of at least 2.5, removes an explicit common-name/unsuitable-token list, and removes simple regular plurals and participles only if a more frequent base is available. It then keeps up to 20,000 candidates and drops entries absent from GloVe. This is a reproducible heuristic, not a perfect dictionary or content filter; editorial review remains useful before public release. The actual retained count and sources are in `data/metadata.json`.
+`prepare.py` intersects the top 150,000 English frequency tokens with lowercase WordNet lemmas of 3–18 ASCII letters, requires a Zipf score of at least 2.5, removes an explicit common-name/unsuitable-token list, and removes simple regular plurals and participles only if a more frequent base is available. It then keeps up to 20,000 candidates and drops entries absent from GloVe. This is a reproducible heuristic, not a perfect dictionary or content filter; editorial review remains useful before public release. `expand_vocabulary.py` appends common dictionary forms and inflections with their own real GloVe vectors, including ordinary words rejected in playtests. The original 19,989 vector rows stay unchanged and in the same order. The actual retained count and sources are in `data/metadata.json`.
 
-Every retained 300d vector is normalized to unit length and stored as float32 in a NumPy array. The Python tools memory-map it for offline experiments. `scripts/build_pages.py` exports the same normalized values as a little-endian float32 binary for the browser, preserving full precision without quantization. `static/engine.mjs` calculates arbitrary supported word-pair dot products in the browser, and owns the same rules as `engine.py`. Only the curated model is published, never the full archive or graph. JavaScript and NumPy summation can differ at floating-point rounding scale; parity tests compare scores within 1e-6 and assert identical outcomes for all selected puzzles.
+Every retained 300d vector is normalized to unit length and stored as float32 in a NumPy array. Python tools memory-map it for offline experiments. `scripts/build_pages.py` exports little-endian float16 data, with an explicit gzip download and uncompressed fallback for older browsers. No dimensions are removed. The browser decodes to float32 for computation. All 902 shots in the supplied historical scorecards retained the same outcomes in half-precision regression (maximum measured cosine difference 0.000106). Exact original float32 rows remain available on demand for legacy restoration. Current rules and numerical outcomes are checked in both Python and JavaScript, including the compressed model.
+
+The vector-quality experiment is offline, not a player skill rating:
+
+```sh
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/analyze_quality.py /path/to/scorecards.json --output /tmp/vector-analysis.json
+```
+
+It compares each historical choice with playable alternatives on contact/progress trade-offs, respects direct chip-in finishing costs, and counts green connections opened by setup shots. It uses the historical vocabulary and settings. A lack of dominated alternatives does not establish human skill, and one-step opportunities do not provide a universal route rating. No arbitrary /1000 score is displayed.
 
 ## Experiments and verification
 
@@ -104,6 +114,8 @@ After changing embeddings or puzzle selection, rebuild the browser data and pari
 node tests/test_browser.mjs
 node tests/test_log.mjs
 node tests/test_map.mjs
+node tests/test_startup.mjs
+node tests/test_course.mjs
 ```
 
 To preview the standalone public version locally without the Python API:
