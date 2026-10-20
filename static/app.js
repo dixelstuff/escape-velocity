@@ -1,11 +1,12 @@
-import { hubWarningText } from './hub-warning.mjs?v=golf-v24';
-import { createBrowserClient } from './engine.mjs?v=golf-v24';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v24';
-import { startupAction } from './startup.mjs?v=golf-v24';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v24';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v24';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v24';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v24';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v25';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v25';
+import { createBrowserClient } from './engine.mjs?v=golf-v25';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v25';
+import { startupAction } from './startup.mjs?v=golf-v25';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v25';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v25';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v25';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v25';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -77,8 +78,38 @@ function renderLog(){
  const submissions=journey?.entries.filter(e=>!e.event?.automatic).length??0;
  $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${submissions} ${submissions===1?'submission':'submissions'} · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
  $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'No shot'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>${entry.event.automatic?'Automatic finish · one shot counted':entry.event.outcome==='backtrack'?'Returned to a previously reached word':entry.event.connected===false?'Weak contact':entry.event.outcome==='water'?'Good contact, wrong direction':entry.event.outcome==='recovery'?'Small recovery shot':entry.event.success?'Ball landed':'Ball stayed put'}${entry.event.inside?(entry.event.success?' · On the green':' · Aimed at green'):''}</p>`:''}</li>`).join('')||'<li class="subtle">No shots yet.</li>';
- renderSkill(journey);renderBridgeFeedback();
+ renderRouteReview(journey);renderSkill(journey);renderBridgeFeedback();
  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';
+}
+const routeReviews=new Map();
+function reviewFor(journey){
+ if(!client||!journey?.state.won||!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(journey.state.rules))return null;
+ const key=skillHistoryKey(journey.state);
+ if(!routeReviews.has(key)){
+  routeReviews.set(key,{pending:true});
+  api('route-review',{state:journey.state}).then(report=>{
+   routeReviews.set(key,report);
+   if(state?.won&&flightLog.active&&skillHistoryKey(state)===key)renderArrivalRoute();
+   if(selectedLogId===journey.id)renderRouteReview(journey);
+  }).catch(()=>{
+   routeReviews.set(key,{error:true});
+   if(state?.won&&skillHistoryKey(state)===key)renderArrivalRoute();
+   if(selectedLogId===journey.id)renderRouteReview(journey);
+  });
+ }
+ return routeReviews.get(key);
+}
+function renderArrivalRoute(){
+ const report=state?.won?reviewFor(flightLog.active):null;
+ $('arrival-route').textContent=state?.won?markedRoute(state.route,report):'';
+ const note=$('arrival-shortcuts');note.hidden=!report;
+ note.textContent=!report?'':report.pending?'Checking your route for shortcuts…':report.error?'Shortcut review could not finish.':shortcutNote(report);
+}
+function renderRouteReview(journey){
+ const element=$('log-route-review'),report=reviewFor(journey);element.hidden=!report;
+ if(!report){element.textContent='';return;}
+ if(report.pending||report.error){element.textContent=report.pending?'Checking your route for shortcuts…':'Shortcut review could not finish.';return;}
+ element.innerHTML=`<p class="reviewed-route">${esc(markedRoute(journey.state.route,report))}</p><p>${esc(shortcutNote(report))}</p>${report.skips.length?`<details><summary>See shortcuts</summary><ul>${report.skips.map(s=>`<li>Skip ${esc(s.word.toUpperCase())}: ${esc(s.from.toUpperCase())} → ${esc(s.to.toUpperCase())}</li>`).join('')}</ul></details>`:''}`;
 }
 const skillRequests=new Map();
 const skillPercent=score=>`${Math.round(score/10)}%`;
@@ -158,7 +189,7 @@ function update(){
  $('show-result').hidden=!state.won||!resultDismissed;
  document.querySelector('.map-card').classList.toggle('arrived',state.won);
  if(state.won){$('arrival-banner').querySelector('h2').textContent=state.attempts===1?'Hole in one!':`Holed in ${state.attempts} shots!`;}
- $('arrival-route').textContent=state.won?state.route.join(' → '):'';
+ renderArrivalRoute();
  $('arrival-summary').hidden=!state.won||!state.automatic_shots?.length;
  $('arrival-summary').textContent=state.automatic_shots?.length?'Includes one automatic finishing shot.':'';
  $('shot-notice').hidden=noticeDismissed||!shownEvent||!['water','miss'].includes(shownEvent.outcome)||state.won;
@@ -358,7 +389,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v24'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='A modest adjustment now asks broad words for stronger connections on long shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v25'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='A modest adjustment now asks broad words for stronger connections on long shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

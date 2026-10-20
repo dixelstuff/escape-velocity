@@ -64,6 +64,8 @@ try{
  assert.equal(downloaded.filter(p=>p.endsWith(config.vector_file)).length,1,'second load must reuse the persisted model');
  const {SkillAnalyser}=await import('../static/skill.mjs');
  const skillGame=new Game(e,'morph','lineage',.28,{mode:'distance',launch_min:.10,launch_max:.21});skillGame.submit('evolved');
+ const {reviewRoute}=await import('../static/route-review.mjs');
+ assert.deepEqual(await client.request('route-review',{state:skillGame.state()}),reviewRoute(e,skillGame.state()));
  const viaClient=await client.request('skill',{state:skillGame.state()});
  assert.deepEqual(viaClient,new SkillAnalyser(e).analyse(skillGame.state()),'workerless skill API must use the same scoring');
  const old=new Game(new Embeddings(words,e.vectors),'moon','kitchen',.25,{mode:'distance',rules:'golf-distance-v1'});old.submit('surface');
