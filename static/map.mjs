@@ -28,7 +28,7 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
   for(const label of [...labels].sort((a,b)=>(b.priority||0)-(a.priority||0))) {
     const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
-    const radius=label.radius??16,preferredTop=label.y+radius+5;
+    const radius=label.radius??16,preferredTop=label.y+radius+(label.gap??5);
     const rows=[preferredTop,label.y-radius-5-h];
     for(let y=24;y+h<=minimumHeight-10;y+=h+7)rows.push(y);
     for(const y of rows.filter(y=>y>=24&&y+h<=minimumHeight-10)) {
