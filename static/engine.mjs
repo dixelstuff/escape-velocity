@@ -129,18 +129,21 @@ export async function createBrowserClient() {
   const embeddings=new Embeddings(words,vectors,config.dimensions);
   let game,historical,worker,sequence=0;
   const pending=new Map();
-  async function assess(body){
-    if(typeof Worker==='undefined')return (await import('./assessment.mjs?v=golf-v15')).assessHole(embeddings,body);
+  async function assess(body,operation='assess'){
+    if(typeof Worker==='undefined'){
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v16')).SkillAnalyser(embeddings).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v16')).assessHole(embeddings,body);
+    }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v15',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v16',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
       worker.postMessage({init:true,words,vectors,dimensions:config.dimensions});
     }
-    return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body});});
+    return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
   return { config, async request(path, body) {
-    if(path==='assess')return assess(body);
+    if(path==='assess'||path==='skill')return assess(body,path);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
       if(body.validate_direct){

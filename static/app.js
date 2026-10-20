@@ -1,7 +1,8 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v15';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v15';
-import { startupAction } from './startup.mjs?v=golf-v15';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v15';
+import { createBrowserClient } from './engine.mjs?v=golf-v16';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v16';
+import { startupAction } from './startup.mjs?v=golf-v16';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v16';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v16';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -70,7 +71,38 @@ function renderLog(){
  const submissions=journey?.entries.filter(e=>!e.event?.automatic).length??0;
  $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${submissions} ${submissions===1?'submission':'submissions'} · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
  $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'No shot'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>${entry.event.automatic?'Automatic finish · one shot counted':entry.event.outcome==='backtrack'?'Returned to a previously reached word':entry.event.connected===false?'Weak contact':entry.event.outcome==='water'?'Good contact, wrong direction':entry.event.outcome==='recovery'?'Small recovery shot':entry.event.success?'Ball landed':'Ball stayed put'}${entry.event.inside?(entry.event.success?' · On the green':' · Aimed at green'):''}</p>`:''}</li>`).join('')||'<li class="subtle">No shots yet.</li>';
+ renderSkill(journey);
  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';
+}
+const skillRequests=new Map();
+function skillReportValid(journey){return !!config&&!!journey&&validSkillReport(journey.skill,journey.state,config.vector_sha256);}
+function updateArrivalSkill(){
+ const journey=flightLog.active,ready=state?.won&&skillReportValid(journey);
+ $('arrival-skill').hidden=!ready;
+ $('arrival-skill').textContent=ready?`Skill ${journey.skill.score}/1000 · experimental`:'';
+}
+function renderSkill(journey){
+ const panel=$('skill-panel');updateArrivalSkill();
+ panel.hidden=!journey?.state.won||!['golf-distance-v2','golf-fixed-v2'].includes(journey?.state.rules);
+ if(panel.hidden)return;
+ if(!skillReportValid(journey)){
+   panel.innerHTML='<p class="subtle" role="status">Assessing your word choices… You can keep playing.</p>';
+   if(!client)return;
+   const id=journey.id,key=id+skillHistoryKey(journey.state);
+   if(skillRequests.has(key)){
+     if(skillRequests.get(key)==='failed')panel.innerHTML='<p class="subtle">Skill assessment could not finish. Reload to try again; your shots are saved.</p>';
+     return;
+   }
+   skillRequests.set(key,'pending');
+   api('skill',{state:journey.state}).then(report=>{
+     report.model_sha=config.vector_sha256;report.model=config.model;
+     flightLog.recordSkill(id,report);skillRequests.delete(key);
+     if(selectedLogId===id)renderLog();else updateArrivalSkill();
+   }).catch(()=>{skillRequests.set(key,'failed');if(selectedLogId===id)renderSkill(journey);});
+   return;
+ }
+ const r=journey.skill,signed=n=>`${n>=0?'+':''}${n.toFixed(3)}`;
+ panel.innerHTML=`<div class="skill-heading"><strong>Skill <span>${r.score}</span>/1000</strong><small>EXPERIMENTAL</small></div><p class="subtle">Vector-based choice efficiency for this hole. Automatic finishing shots are excluded.</p><details class="skill-breakdown"><summary>Shot breakdown</summary><ol>${r.shots.map(shot=>`<li><div class="skill-shot-title"><strong>#${shot.attempt} · ${esc(shot.origin)} → ${esc(shot.word)}</strong><span>Shot quality ${shot.score}/1000</span></div><div class="skill-metrics"><span>Contact <b>${shot.contact_score}/100</b></span><span>Choice <b>${shot.choice_score}/100</b></span><span>Setup <b>${signed(shot.setup_change)}</b></span></div><p>Contact ${shot.contact.toFixed(3)} · needs ${shot.required.toFixed(3)}${shot.contact_shortfall>0?` · short by ${shot.contact_shortfall.toFixed(3)}`:''}. ${shot.outcome==='green'?'Hole reached — no further choice needed':`${shot.good_moves_before} → ${shot.good_moves_after} forward options · ${shot.green_moves_after} reach the green`}.</p>${shot.outcome==='backtrack'?`<p>${shot.setup_change>0?'This return improved the onward opportunities.':shot.setup_change<0?'This return reduced the onward opportunities.':'This return spent a shot without improving the onward opportunities.'}</p>`:''}${shot.direction_shortfall>0?`<p>Aimed ${shot.direction_shortfall.toFixed(3)} beyond the safe backward boundary.</p>`:''}<details><summary>Compared choices (spoilers)</summary><p>${shot.compared_choices} alternatives assessed one shot ahead. Your choice was ${shot.choice_gap.toFixed(3)} below the best assessed option.</p><ul>${shot.alternatives.map(a=>`<li><b>${esc(a.word)}</b> · opportunity ${a.value.toFixed(3)} · contact ${a.contact.toFixed(3)} / ${a.required.toFixed(3)}</li>`).join('')}</ul></details></li>`).join('')}</ol></details><details class="skill-method"><summary>How the score works</summary><p>Contact measures how close a miss came to its required strength. For misses, Choice grades the intended word and Setup stays unchanged. Choice compares your intended landing with a shortlist spanning distance, connection and different approach lengths. Each landing looks one shot ahead across the full vocabulary. Setup measures the change in onward opportunity, using the eight strongest forward gains, weighted by contact surplus and discounted for the extra shot. Fewer strong options can lower that value; extra weak options do not inflate it.</p><p>Backtracking is assessed by the same opportunity measure. Repeated visits with no improvement add a small cost. Miss and water severity, missed opportunities and setup declines accumulate across the round. Scores cannot be raised by padding a round with extra shots. An automatic finish adds no skill or penalty.</p><p>This is an experimental model assessment, not a player percentile or a proven optimal route. The comparison shortlist and one-shot horizon can miss deeper strategies. Very short rounds provide little evidence. Model alternatives can include unusual or unfamiliar words.</p><p class="subtle">Skill v1 · score = 1000 × exp(−total loss). Loss per shot = relative contact shortfall + relative water shortfall + choice gap + half the setup decline + 0.05 for a repeated lie without improvement.</p></details>`;
 }
 function syncPuzzleSelection(){
  const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&p.threshold===state.threshold&&(p.mode||'fixed')===state.mode);
@@ -94,7 +126,7 @@ function update(){
  $('shot-notice-text').textContent=shownEvent?.outcome==='water'?`Splash! Ball returned to ${state.current}. One shot counted.`:`Miss! Ball stays at ${state.current}. One shot counted.`;
 
 
- map();telemetry();renderLog();
+ map();telemetry();renderLog();updateArrivalSkill();
 }
 async function newGame(puzzle){
  if(busy)return false;lock(true);
@@ -233,7 +265,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v15'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v16'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

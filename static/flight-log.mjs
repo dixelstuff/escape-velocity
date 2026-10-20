@@ -85,9 +85,17 @@ export class FlightLog {
     if(event?.automatic_shot){
       journey.entries.push({submittedAt:timestamp,word:event.automatic_shot.word,origin:event.automatic_shot.origin,chargedAttempt:true,completion:journey.completion,event:structuredClone(event.automatic_shot),error:null});
     }
+    delete journey.skill;
     journey.state = structuredClone(state);
     journey.updatedAt = timestamp;
     this.save();
+  }
+  recordSkill(id, report) {
+    const journey=this.data.journeys.find(j=>j.id===id);
+    if(!journey||!journey.state.won||!report.complete)return false;
+    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word)]);
+    if(report.history_key!==key)return false;
+    journey.skill=structuredClone(report);this.save();return true;
   }
   exportJSON() { return JSON.stringify(this.unreadableRaw ? {...this.data, unreadableOriginal:this.unreadableRaw} : this.data, null, 2); }
 }
@@ -112,6 +120,7 @@ export function journeyText(journey) {
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
     s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
   if(['distance-v3','golf-distance-v1','golf-distance-v2'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
+  if(journey.skill){lines.push(`Experimental skill: ${journey.skill.score}/1000 (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}
   for (const entry of journey.entries) {
     const e = entry.event;
     lines.push(`${e ? `Shot ${e.attempt}` : 'No shot used'}: ${entry.origin} → ${entry.word}`,
