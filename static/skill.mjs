@@ -1,6 +1,6 @@
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game, launchRequirement } from './engine.mjs?v=golf-v19';
-export const SKILL_VERSION='vector-skill-v1';
+import { Game, launchRequirement } from './engine.mjs?v=golf-v20';
+export const SKILL_VERSION='vector-skill-v2';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
 export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word)]);}
@@ -9,7 +9,7 @@ export function validSkillReport(report,state,modelSha){
   const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall'];
   return report.shots.every((shot,i)=>shot&&shot.word===state.history[i].word&&shot.origin===state.history[i].origin&&metrics.every(k=>Number.isFinite(shot[k]))&&Array.isArray(shot.alternatives)&&shot.alternatives.every(a=>a&&typeof a.word==='string'&&['value','contact','required'].every(k=>Number.isFinite(a[k]))));
 }
-export function skillScore(loss){return Math.round(1000*Math.exp(-Math.max(0,loss)));}
+export function skillScore(loss){return Math.round(1000/(1+Math.max(0,loss)));}
 export class SkillAnalyser {
   constructor(e){this.e=e;this.rows=new Map();}
   row(word){
@@ -45,10 +45,10 @@ export class SkillAnalyser {
       for(const move of options(s)){
         if(move.destination<=position(s.current)+1e-7)continue;
         good++;if(move.destination+1e-7>=g.threshold)green++;
-        const gain=(move.p-p)*move.strength;
+        const gain=move.p-p;
         if(gain>top[0]){top[0]=gain;top.sort((a,b)=>a-b);}
       }
-      const result={value:p+DISCOUNT*top.reduce((a,b)=>a+b,0)/TOP,good_moves:good,green_moves:green};potentialCache.set(key,result);return result;
+      const result={value:p+DISCOUNT*(.8*top[TOP-1]+.2*top.reduce((a,b)=>a+b,0)/TOP),good_moves:good,green_moves:green};potentialCache.set(key,result);return result;
     };
     const shots=[];let totalLoss=0;
     for(const recorded of saved.history){
@@ -73,7 +73,8 @@ export class SkillAnalyser {
       const setupLoss=event.success?clamp(beforeValue.value-intendedValue.value):0;
       // Revisiting an unchanged or worse position spends a decision without a setup benefit.
       const loopLoss=event.success&&before.route.includes(event.word)&&intendedValue.value<=beforeValue.value+1e-7 ? .05 : 0;
-      const loss=contactLoss+directionLoss+choiceLoss+.5*setupLoss+loopLoss;totalLoss+=loss;
+      const primaryLoss=Math.max(contactLoss,directionLoss,choiceLoss,setupLoss);
+      const loss=primaryLoss+loopLoss;totalLoss+=loss;
       const actual=event.success?intendedValue:beforeValue;
       shots.push({attempt:event.attempt,origin:event.origin,word:event.word,outcome:event.outcome,
         contact:event.launch,required:event.required,contact_shortfall:Math.max(0,event.required-event.launch),contact_score:Math.round(100*(1-contactLoss)),
@@ -81,10 +82,10 @@ export class SkillAnalyser {
         choice_score:Math.round(100*(1-choiceLoss)),choice_gap:choiceLoss,compared_choices:shortlist.size,
         setup_before:beforeValue.value,setup_after:actual.value,setup_change:actual.value-beforeValue.value,intended_setup:intendedValue.value,
         good_moves_before:beforeValue.good_moves,good_moves_after:actual.good_moves,green_moves_after:actual.green_moves,
-        setup_loss:setupLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
+        setup_loss:setupLoss,primary_loss:primaryLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
     }
     return {version:SKILL_VERSION,history_key:skillHistoryKey(saved),score:shots.length?skillScore(totalLoss):null,total_loss:totalLoss,shots,complete:g.won,
-      approximate:true,lookahead:1,opportunity_slots:TOP,lookahead_discount:DISCOUNT,comparison:'progress, connection and progress-band shortlist; exhaustive onward options',
-      formula:'1000 × exp(−Σ(contact deficit + direction deficit + choice gap + 0.5 × setup decline + loop cost))'};
+      approximate:true,lookahead:1,opportunity_slots:TOP,lookahead_discount:DISCOUNT,opportunity_best_weight:.8,opportunity_breadth_weight:.2,comparison:'progress, connection and progress-band shortlist; exhaustive onward options',
+      formula:'1000 / (1 + Σ(max(contact deficit, direction deficit, choice gap, setup decline) + loop cost))'};
   }
 }

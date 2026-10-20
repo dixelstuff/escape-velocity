@@ -27,6 +27,7 @@ jobs:
           node tests/test_course.mjs
           node tests/test_skill.mjs
           node tests/test_bridge_feedback.mjs
+          node tests/test_skill_feedback.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

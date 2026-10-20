@@ -1,4 +1,5 @@
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v19';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v20';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v20';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -22,6 +23,7 @@ export class FlightLog {
       this.unreadableRaw = raw;
       this.warning = 'Saved scorecards could not be read. New shots will be kept for this visit; download them before leaving.';
     }
+    for(const j of this.data.journeys){if(j.skill_feedback)j.skill_feedback=Array.isArray(j.skill_feedback)?j.skill_feedback.filter(validSkillFeedback):[];}
     delete this.data.bridge_comparison;
     this.data.bridgeFeedback=Array.isArray(this.data.bridgeFeedback)?this.data.bridgeFeedback.filter(validBridgeFeedback):[];
     this.data.bridgeViews=Array.isArray(this.data.bridgeViews)?this.data.bridgeViews.filter(v=>v&&typeof v.puzzle_key==='string'&&typeof v.at==='string'):[];
@@ -124,6 +126,20 @@ export class FlightLog {
     if(report.history_key!==key)return false;
     journey.skill=structuredClone(report);this.save();return true;
   }
+  recordSkillFeedback(id,rating,note) {
+    const journey=this.data.journeys.find(j=>j.id===id);
+    if(!journey?.state.won||!journey.skill)throw Error('Wait for the skill assessment to finish.');
+    const report=journey.skill,key=skillFeedbackKey(report);
+    journey.skill_feedback??=[];
+    if(rating===null){journey.skill_feedback=journey.skill_feedback.filter(f=>f.key!==key);this.save();return;}
+    if(!['too_harsh','too_generous'].includes(rating))throw Error('Unknown skill feedback.');
+    const existing=currentSkillFeedback(journey),at=this.now();
+    const feedback={key,rating,note:String(note??existing?.note??'').trim().slice(0,500),submitted_at:existing?.submitted_at??at,updated_at:at,
+      score:report.score,
+      assessment:existing?.assessment??structuredClone(report)};
+    journey.skill_feedback=journey.skill_feedback.filter(f=>f.key!==key);journey.skill_feedback.push(feedback);this.save();
+  }
+  noteSkillFeedback(id,note){const j=this.data.journeys.find(j=>j.id===id),f=currentSkillFeedback(j);if(f)this.recordSkillFeedback(id,f.rating,note);}
   exportJSON() { return JSON.stringify({...this.data,bridge_comparison:bridgeComparison(this.data),...(this.unreadableRaw?{unreadableOriginal:this.unreadableRaw}:{})},null,2); }
 }
 export function outcome(entry) {
@@ -148,6 +164,7 @@ export function journeyText(journey,feedback=[]) {
     s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
   if(['distance-v3','golf-distance-v1','golf-distance-v2'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
   if(journey.skill){lines.push(`Experimental skill: ${journey.skill.score}/1000 (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}
+  for(const f of journey.skill_feedback??[])lines.push(`Skill feedback: ${f.rating==='too_harsh'?'Too harsh':'Too generous'} · score ${f.score}/1000 · ${f.assessment.version}${f.note?' · '+f.note:''}`);
   for (const entry of journey.entries) {
     const e = entry.event;
     lines.push(`${e ? `Shot ${e.attempt}` : 'No shot used'}: ${entry.origin} → ${entry.word}`,
