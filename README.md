@@ -30,7 +30,7 @@ First preparation downloads the official 822 MiB GloVe archive and the roughly 1
 
 Choose a hole, enter a word, and press **Hit shot** or Enter. **Make your own hole** previews angular word separation and a provisional difficulty estimate, using playable openings and a limited two-step search in a background worker. It rejects pairs where directly typing the target can score a hole in one. One-shot bridges through another word remain allowed. Difficulty estimates are structural, not human-calibrated guarantees. The literal hole word is a normal, scored shot: too weak a connection misses; a strong enough connection finishes. Entering the green with another word automatically adds one finishing shot. All strokes count as shots; a direct target hit needs no extra finish.
 
-The current ball is a shaded, dimpled SVG golf ball on a mown fairway. Previous lies are small markers, and compact measured labels sit close to their markers, with leader lines and collision avoidance. A pond shows the destination of out-of-bounds backward shots. Misses leave the ball still; water shots animate into the pond, splash, and return to the same lie. A completion banner appears over the map and brings the green into view. Semantic horizontal position stays fixed; height is only for readability. Resizing never changes scoring.
+The current ball is a shaded, dimpled SVG golf ball on a mown fairway. Previous lies are small markers, and compact measured labels sit close to their markers, with leader lines and collision avoidance. A pond shows the destination of out-of-bounds backward shots. Misses leave the ball still; water shots animate into the pond, splash, and return to the same lie. A dismissible completion card below the map shows the played route and brings the course into view without covering any word lies. Semantic horizontal position stays fixed; height is only for readability. Resizing never changes scoring.
 
 Default green similarity is **0.28**. Contact requirements range from **0.10 to 0.21**. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Required contact is `0.10 + 0.11 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
 
@@ -128,8 +128,16 @@ The original Python API remains available for experiments. The UI uses the brows
 
 ## Compact play and fresh scorecard batches (course v12)
 
-The main play view uses a single input placeholder and HIT SHOT button. Completion appears once over the course; the duplicate result panel, finished input controls, opening-hole shortcut and tee/flag caption are removed. The separate input label remains available to screen readers.
+The main play view uses a single input placeholder and HIT SHOT button. Completion appears once below the course; the duplicate result panel, finished input controls, opening-hole shortcut and tee/flag caption are removed. The separate input label remains available to screen readers.
 
 Reset scorecards asks once in the page, then restarts the active hole and begins a new export batch containing only new rounds. The prior batch is saved under a separate local backup key and is excluded from normal downloads. Restore previous scorecards merges it back without discarding play since the reset. Recovery is available until the next reset; download any permanent backup before resetting. Storage failures abort the reset and preserve the current scorecards. The model cache and course settings are retained.
 
 Scoring and the 300-dimensional model are unchanged in this UI release. The new playtest batch's 96 typed shots reproduced exactly with the published half-precision data, and full precision produced the same outcomes; the maximum observed cosine difference was about 0.000141. No difficulty adjustment is made from this small, repeated-hole sample.
+
+## Course feedback and bridge inspection (course v13)
+
+Miss and water messages sit below the SVG drawing and can be dismissed. A completed hole shows its word route beneath the map, including the automatic finish when present; the × button hides this card and Show result restores it. The visual route includes the automatic finishing link as well as user shot links. Resizing does not reopen dismissed feedback or change any shot outcome.
+
+Opening bridges (spoilers), below the play controls, lists every counted one-shot green bridge for the active tee, target and settings. The custom-hole preview has a matching collapsed list. Each row shows the tee → bridge → target route, actual tee contact, required contact, target similarity and green threshold. A literal target finish is labelled as a direct hole in one rather than an automatic finish. Lists are ordered by tee contact strength and include all model results, even surprising generic words; no hand-picked substitutes or artificial similarity bonuses are applied. Custom lists render only after the player opens them. Calculations run in the existing worker and recent assessments are reused in memory.
+
+Bridge list tests exhaustively compare all supported words against real Game submissions for distance mode, fixed mode and a direct-target case. The model, course settings and stored scoring rules are unchanged.

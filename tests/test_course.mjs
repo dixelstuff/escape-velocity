@@ -66,3 +66,24 @@ try{
  assert.equal(downloaded.filter(p=>p.endsWith('vectors.f32')).length,1);
  console.log('Loader passed: gzip integrity, persistent model reuse, invalid-hole state preservation, and exact legacy model on demand.');
 }finally{globalThis.fetch=originalFetch;globalThis.caches=originalCaches;}
+
+// Every advertised bridge must succeed in the real engine, with no omissions.
+for(const settings of [{start:'coffee',target:'science',threshold:.28,mode:'distance',launch_min:.10,launch_max:.21},{start:'cat',target:'dog',threshold:.28,mode:'distance',launch_min:.10,launch_max:.21},{start:'moon',target:'kitchen',threshold:.3,mode:'fixed'}]){
+ const assessment=assessHole(e,settings),expected=[];
+ for(const word of e.words){
+  if(word===settings.start)continue;
+  const check=new Game(e,settings.start,settings.target,settings.threshold,settings);
+  const shot=check.submit(word);
+  if(shot.won)expected.push(word);
+ }
+ assert.equal(assessment.green_bridges,assessment.opening_bridges.length);
+ assert.deepEqual(assessment.opening_bridges.map(b=>b.word).sort(),expected.sort());
+ for(const b of assessment.opening_bridges){
+  const shot=new Game(e,settings.start,settings.target,settings.threshold,settings).submit(b.word);
+  assert.equal(shot.won,true);
+  assert.ok(Math.abs(b.contact-shot.launch)<1e-7);
+  assert.ok(Math.abs(b.destination-shot.destination)<1e-7);
+  assert.ok(Math.abs(b.required-shot.required)<1e-7);
+ }
+}
+console.log('Opening bridges passed: exhaustive real-engine comparison, exact listed strengths, custom settings, fixed mode, and direct hole-in-one rows.');

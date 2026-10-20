@@ -1,5 +1,5 @@
-import { Embeddings } from './engine.mjs?v=golf-v12';
-import { assessHole } from './assessment.mjs?v=golf-v12';
+import { Embeddings } from './engine.mjs?v=golf-v13';
+import { assessHole } from './assessment.mjs?v=golf-v13';
 let e;
 self.onmessage=({data})=>{
   if(data.init){e=new Embeddings(data.words,data.vectors,data.dimensions);return;}

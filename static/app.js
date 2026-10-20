@@ -1,9 +1,9 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v12';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v12';
-import { startupAction } from './startup.mjs?v=golf-v12';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v12';
+import { createBrowserClient } from './engine.mjs?v=golf-v13';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v13';
+import { startupAction } from './startup.mjs?v=golf-v13';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v13';
 const $=id=>document.getElementById(id);
-let config,state,client,busy=false,shownEvent=null;
+let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
 const flightLog=new FlightLog(storage);
 let selectedLogId=flightLog.data.activeId;
@@ -25,7 +25,7 @@ function map(preview=null){
  if(preview?.outcome==='water'){const splash=waterPoint(preview);svg+=`<circle id="water-splash" cx="${splash.x}" cy="${splash.y}" r="8" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>`;}
 
 
- for(const h of visibleAttempts(state)){const a=position(h.origin),b=position(h.word,h);svg+=`<path d="${path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
+ for(const h of [...visibleAttempts(state),...(state.automatic_shots??[])]){const a=position(h.origin),b=position(h.word,h);svg+=`<path data-shot-path="${h.attempt}" d="${path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
  const nodes=new Map([[state.start,{word:state.start,pos:position(state.start)}]]);
  for(const h of visibleAttempts(state)){if(h.word===state.target)continue;const old=nodes.get(h.word);if(!old)nodes.set(h.word,{word:h.word,pos:position(h.word,h),failed:!h.success});else if(h.success)old.failed=false;}
  nodes.set(state.target,{word:state.target,pos:position(state.target)});
@@ -81,20 +81,22 @@ function update(){
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
  document.querySelector('.controls').hidden=state.won;
  document.querySelector('.attempts').hidden=state.won;
- $('arrival-banner').hidden=!state.won;
+ $('arrival-banner').hidden=!state.won||resultDismissed;
+ $('show-result').hidden=!state.won||!resultDismissed;
  document.querySelector('.map-card').classList.toggle('arrived',state.won);
  if(state.won){$('arrival-banner').querySelector('h2').textContent=state.attempts===1?'Hole in one!':`Holed in ${state.attempts} shots!`;}
+ $('arrival-route').textContent=state.won?state.route.join(' → '):'';
  $('arrival-summary').hidden=!state.won||!state.automatic_shots?.length;
  $('arrival-summary').textContent=state.automatic_shots?.length?'Includes one automatic finishing shot.':'';
- $('shot-notice').hidden=!shownEvent||!['water','miss'].includes(shownEvent.outcome)||state.won;
- $('shot-notice').textContent=shownEvent?.outcome==='water'?`Splash! Ball returned to ${state.current}. One shot counted.`:`Miss! Ball stays at ${state.current}. One shot counted.`;
+ $('shot-notice').hidden=noticeDismissed||!shownEvent||!['water','miss'].includes(shownEvent.outcome)||state.won;
+ $('shot-notice-text').textContent=shownEvent?.outcome==='water'?`Splash! Ball returned to ${state.current}. One shot counted.`:`Miss! Ball stays at ${state.current}. One shot counted.`;
 
 
  map();telemetry();renderLog();
 }
 async function newGame(puzzle){
  if(busy)return false;lock(true);
- try{const data=await api('new',puzzle);state=data.state;shownEvent=null;selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
+ try{const data=await api('new',puzzle);state=data.state;shownEvent=null;resultDismissed=false;noticeDismissed=false;resetBridgeView();selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
  catch(error){$('status').textContent=error.message;return false;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
@@ -116,7 +118,7 @@ async function animate(event){
 
 async function submit(word){
  if(busy||!state||state.won)return false;
- $('word').blur();$('shot-notice').hidden=true;lock(true);$('attempts').textContent=state.attempts+1;
+ $('word').blur();noticeDismissed=false;resultDismissed=false;$('shot-notice').hidden=true;lock(true);$('attempts').textContent=state.attempts+1;
  try{
  let data;try{data=await api('submit',{word});}catch(error){flightLog.record(word,state,null,error.message);selectedLogId=flightLog.data.activeId;renderLog();throw error;}
  const event=data.event;flightLog.record(word,data.state,event);selectedLogId=flightLog.data.activeId;
@@ -140,16 +142,49 @@ $('debug-toggle').onclick=()=>{const open=$('debug').hidden;$('debug').hidden=!o
 $('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
 $('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max}:config.puzzles[Number($('puzzle').value)]);
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
-let assessmentTimer,assessmentSequence=0;
+const assessments=new Map();
+function assess(settings){
+ const key=JSON.stringify([settings.start,settings.target,settings.threshold,settings.mode,settings.launch_min,settings.launch_max,settings.rules??(settings.mode==='fixed'?'golf-fixed-v2':'golf-distance-v2')]);
+ if(!assessments.has(key)){
+  if(assessments.size>=20)assessments.delete(assessments.keys().next().value);
+  const pending=api('assess',settings).catch(error=>{assessments.delete(key);throw error;});
+  assessments.set(key,pending);
+ }
+ return assessments.get(key);
+}
+function bridgeList(result){
+ const rows=result.opening_bridges.map(b=>`<li><div class="bridge-route">${esc(result.start)} <span>→</span> <strong>${esc(b.word)}</strong>${b.direct?' <small>direct hole in one</small>':` <span>→</span> ${esc(result.target)} <small>automatic finish</small>`}</div><div class="bridge-scores"><span>From tee <b>${b.contact.toFixed(3)}</b> · needs ${b.required.toFixed(3)}</span><span>To hole <b>${b.destination.toFixed(3)}</b> · green ${result.green_threshold.toFixed(3)}</span></div></li>`).join('');
+ return `<p class="bridge-explanation">${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} for <strong>${esc(result.start)} → ${esc(result.target)}</strong>. ${rows?'Each passes the actual shot and green requirements. Strongest tee connections first. The numbers are word similarities; these are model results, not hand-picked answers.':'No word reaches the green directly from this tee. A longer route may still work.'}</p>${rows?`<ol class="bridge-list">${rows}</ol>`:''}`;
+}
+function resetBridgeView(){
+ bridgeViewVersion++;$('current-bridges').open=false;$('current-bridge-list').textContent='';
+}
+$('current-bridges').addEventListener('toggle',async()=>{
+ if(!$('current-bridges').open)return;
+ if(!state||!client){$('current-bridge-list').textContent='The course is still loading.';return;}
+ const version=bridgeViewVersion;
+ const settings={start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules};
+ $('current-bridge-list').textContent='Calculating opening bridges…';
+ try{const result=await assess(settings);if(version===bridgeViewVersion)$('current-bridge-list').innerHTML=bridgeList(result);}
+ catch(error){if(version===bridgeViewVersion)$('current-bridge-list').textContent=error.message;}
+});
+$('close-result').onclick=()=>{resultDismissed=true;$('arrival-banner').hidden=true;$('show-result').hidden=false;$('show-result').focus({preventScroll:true});document.querySelector('.map-card').scrollIntoView({block:'nearest',behavior:reduced?'instant':'smooth'});};
+$('show-result').onclick=()=>{resultDismissed=false;$('arrival-banner').hidden=false;$('show-result').hidden=true;$('close-result').focus({preventScroll:true});};
+$('close-shot-notice').onclick=()=>{noticeDismissed=true;$('shot-notice').hidden=true;};
+let assessmentTimer,assessmentSequence=0,customBridgeResult=null;
+$('custom-bridges').addEventListener('toggle',()=>{if($('custom-bridges').open&&customBridgeResult)$('custom-bridge-list').innerHTML=bridgeList(customBridgeResult);});
 function previewHole(){
  clearTimeout(assessmentTimer);const sequence=++assessmentSequence;
  const start=$('custom-start').value.trim().toLowerCase(),target=$('custom-target').value.trim().toLowerCase();
+ customBridgeResult=null;$('custom-bridges').hidden=true;$('custom-bridges').open=false;$('custom-bridge-list').textContent='';
  if(!start||!target||!client){$('custom-assessment').textContent='';return;}
  $('custom-assessment').textContent='Assessing these words…';
  assessmentTimer=setTimeout(async()=>{
-  try{const result=await api('assess',{...config.puzzles[0],start,target});if(sequence!==assessmentSequence)return;
+  try{const result=await assess({...config.puzzles[0],start,target});if(sequence!==assessmentSequence)return;
    $('custom-assessment').textContent=result.direct_hole_in_one?'Direct hole in one available. Choose a more distant pair.':!result.playable?'No playable opening found. Choose another pair.':`${result.difficulty} estimate · ${result.separation_degrees.toFixed(0)}° word separation · ${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} onto the green. Based on available connections; human difficulty may differ.`;
    $('custom-assessment').dataset.valid=String(result.playable);
+   $('custom-bridges').hidden=false;$('custom-bridges').querySelector('summary').textContent=`View ${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} (spoilers)`;
+   customBridgeResult=result;
   }catch(error){if(sequence===assessmentSequence){$('custom-assessment').textContent=error.message;$('custom-assessment').dataset.valid='false';}}
  },200);
 }
@@ -173,7 +208,7 @@ $('confirm-reset').onclick=async()=>{
  try{
   candidate=(await api('new',{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules})).state;
   const journey=flightLog.reset(candidate,config.model);
-  state=candidate;shownEvent=null;selectedLogId=journey.id;
+  state=candidate;shownEvent=null;resultDismissed=false;noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
   $('reset-confirmation').hidden=true;$('copy-fallback').hidden=true;$('word').value='';
   update();$('status').textContent='';$('log-feedback').textContent='Scorecards reset. Future downloads contain only new rounds.';
  }catch(error){
@@ -197,7 +232,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v12'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v13'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});
