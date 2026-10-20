@@ -1,3 +1,4 @@
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v19';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -21,9 +22,16 @@ export class FlightLog {
       this.unreadableRaw = raw;
       this.warning = 'Saved scorecards could not be read. New shots will be kept for this visit; download them before leaving.';
     }
+    delete this.data.bridge_comparison;
+    this.data.bridgeFeedback=Array.isArray(this.data.bridgeFeedback)?this.data.bridgeFeedback.filter(validBridgeFeedback):[];
+    this.data.bridgeViews=Array.isArray(this.data.bridgeViews)?this.data.bridgeViews.filter(v=>v&&typeof v.puzzle_key==='string'&&typeof v.at==='string'):[];
     try {
       const backup=JSON.parse(storage?.getItem(RESET_BACKUP_KEY)||'null');
-      if(backup?.version===1&&Array.isArray(backup.journeys)&&backup.journeys.every(j=>typeof j.id==='string'&&j.state&&Array.isArray(j.entries)))this.backup=backup;
+      if(backup?.version===1&&Array.isArray(backup.journeys)&&backup.journeys.every(j=>typeof j.id==='string'&&j.state&&Array.isArray(j.entries))){
+        backup.bridgeFeedback=Array.isArray(backup.bridgeFeedback)?backup.bridgeFeedback.filter(validBridgeFeedback):[];
+        backup.bridgeViews=Array.isArray(backup.bridgeViews)?backup.bridgeViews.filter(v=>v&&typeof v.puzzle_key==='string'&&typeof v.at==='string'):[];
+        this.backup=backup;
+      }
     }catch{}
   }
   get active() { return this.data.journeys.find(j => j.id === this.data.activeId); }
@@ -36,21 +44,21 @@ export class FlightLog {
       this.warning = 'This browser could not save your scorecard. Download it before leaving this page.';
     }
   }
-  makeJourney(state, model) {
+  makeJourney(state, model, modelSha=null) {
     const timestamp = this.now();
-    return {id:this.makeId(), startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
+    return {id:this.makeId(), model_sha:modelSha,bridge_tracking_version:1,startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
   }
-  begin(state, model) {
-    const journey = this.makeJourney(state,model);
+  begin(state, model, modelSha=null) {
+    const journey = this.makeJourney(state,model,modelSha);
     this.data.journeys.push(journey);
     this.data.activeId = journey.id;
     this.save();
     return journey;
   }
-  reset(state,model) {
-    const journey=this.makeJourney(state,model);
-    const next={version:1,activeId:journey.id,batchStartedAt:journey.startedAt,journeys:[journey]};
-    const backup=JSON.parse(this.exportJSON());
+  reset(state,model,modelSha=null) {
+    const journey=this.makeJourney(state,model,modelSha);
+    const next={version:1,activeId:journey.id,batchStartedAt:journey.startedAt,journeys:[journey],bridgeFeedback:[],bridgeViews:[]};
+    const backup=JSON.parse(this.exportJSON());delete backup.bridge_comparison;
     let previousBackup,wroteBackup=false;
     try {
       if(!this.storage)throw Error('Storage unavailable');
@@ -65,10 +73,13 @@ export class FlightLog {
     return journey;
   }
   restorePrevious() {
-    if(!this.backup?.journeys?.length)return false;
+    if(!this.backup?.journeys?.length&&!this.backup?.bridgeFeedback?.length)return false;
     const currentIds=new Set(this.data.journeys.map(j=>j.id));
     // Keep rounds played since the reset too; restoring must not discard new play.
-    const next={...this.data,...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
+    const reviews=new Map((this.backup.bridgeFeedback??[]).filter(validBridgeFeedback).map(r=>[r.key,r]));
+    for(const r of this.data.bridgeFeedback)reviews.set(r.key,r);
+    const views=new Map([...(this.backup.bridgeViews??[]),...this.data.bridgeViews].map(v=>[v.id,v]));
+    const next={...this.data,bridgeFeedback:[...reviews.values()],bridgeViews:[...views.values()],...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
     try{if(!this.storage)throw Error('Storage unavailable');this.storage.setItem(LOG_KEY,JSON.stringify(next));}
     catch{throw Error('Could not restore previous scorecards. Your current scorecards are unchanged.');}
     this.data=next;this.backup=null;this.warning='';
@@ -90,6 +101,22 @@ export class FlightLog {
     journey.updatedAt = timestamp;
     this.save();
   }
+  markBridgeView(settings,source,modelSha=null) {
+    const key=puzzleKey(settings),id=JSON.stringify([key,source,this.data.activeId,modelSha]);
+    if(this.data.bridgeViews.some(v=>v.id===id))return;
+    this.data.bridgeViews.push({id,puzzle_key:key,puzzle:puzzleSettings(settings),source,model_sha:modelSha,journey_id:this.data.activeId,at:this.now()});this.save();
+  }
+  flagBridge(result,bridge,{model,model_sha=null,source='active'}={}) {
+    const puzzle=puzzleSettings(result.settings),key=bridgeKey(puzzle,bridge.word,model_sha);
+    const existing=this.data.bridgeFeedback.find(r=>r.key===key);if(existing)return existing;
+    const review={key,puzzle,word:bridge.word,model,model_sha,source,flagged_at:this.now(),note:'',
+      journey_id:source==='active'?this.data.activeId:null,baseline:result.connection,opening_bridges:result.green_bridges,direct:bridge.direct,
+      metrics:bridgeMetrics(bridge.contact,bridge.required,bridge.destination,result.green_threshold)};
+    if(!validBridgeFeedback(review))throw Error('This bridge could not be recorded. Reopen the bridge list and try again.');
+    this.data.bridgeFeedback.push(review);this.save();return review;
+  }
+  unflagBridge(key){this.data.bridgeFeedback=this.data.bridgeFeedback.filter(r=>r.key!==key);this.save();}
+  noteBridge(key,note){const r=this.data.bridgeFeedback.find(r=>r.key===key);if(r){r.note=String(note).trim().slice(0,500);r.updated_at=this.now();this.save();}}
   recordSkill(id, report) {
     const journey=this.data.journeys.find(j=>j.id===id);
     if(!journey||!journey.state.won||!report.complete)return false;
@@ -97,7 +124,7 @@ export class FlightLog {
     if(report.history_key!==key)return false;
     journey.skill=structuredClone(report);this.save();return true;
   }
-  exportJSON() { return JSON.stringify(this.unreadableRaw ? {...this.data, unreadableOriginal:this.unreadableRaw} : this.data, null, 2); }
+  exportJSON() { return JSON.stringify({...this.data,bridge_comparison:bridgeComparison(this.data),...(this.unreadableRaw?{unreadableOriginal:this.unreadableRaw}:{})},null,2); }
 }
 export function outcome(entry) {
   if(!entry.event)return `Unscored: ${entry.error}`;
@@ -114,7 +141,7 @@ export function outcome(entry) {
   return e.boundary?'Miss — not enough connection':'Outside previous course boundary';
 }
 
-export function journeyText(journey) {
+export function journeyText(journey,feedback=[]) {
   const s = journey.state;
   const lines = ['WORD GOLF — scorecard', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
@@ -130,5 +157,6 @@ export function journeyText(journey) {
   lines.push('', `Played lies: ${s.route.join(' → ')}${s.won && !['arrival-zone','holed-with-auto-finish'].includes(journey.completion) && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
   if(s.won&&journey.completion==='holed-with-auto-finish')lines.push(`Holed in ${s.attempts} shots${s.automatic_shots?.length?' (includes one automatic finishing shot)':''}.`);
   if(s.won&&journey.completion==='arrival-zone')lines.push(`Finished on ${s.current}, on the ${s.target} green.`);
+  if(feedback.length)lines.push('',bridgeFeedbackText(feedback));
   return lines.join('\n');
 }

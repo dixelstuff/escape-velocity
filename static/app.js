@@ -1,8 +1,9 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v18';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v18';
-import { startupAction } from './startup.mjs?v=golf-v18';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v18';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v18';
+import { createBrowserClient } from './engine.mjs?v=golf-v19';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v19';
+import { startupAction } from './startup.mjs?v=golf-v19';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v19';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v19';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v19';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -67,14 +68,14 @@ function telemetry(){
 }
 function renderLog(){
  const journeys=flightLog.data.journeys;
- $('restore-log').hidden=!flightLog.backup?.journeys?.length;
+ $('restore-log').hidden=!flightLog.backup?.journeys?.length&&!flightLog.backup?.bridgeFeedback?.length;
  if(!journeys.some(j=>j.id===selectedLogId))selectedLogId=flightLog.data.activeId;
  $('log-journey').innerHTML=[...journeys].reverse().map(j=>`<option value="${esc(j.id)}" ${j.id===selectedLogId?'selected':''}>${esc(j.state.start)} → ${esc(j.state.target)} · ${j.state.attempts} ${j.state.attempts===1?'shot':'shots'} · ${j.state.won?'completed':'in progress'} · ${esc(new Date(j.startedAt).toLocaleString())}</option>`).join('');
  const journey=journeys.find(j=>j.id===selectedLogId);
  const submissions=journey?.entries.filter(e=>!e.event?.automatic).length??0;
  $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${submissions} ${submissions===1?'submission':'submissions'} · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
  $('log-entries').innerHTML=journey?.entries.map(entry=>`<li><div class="log-entry-heading"><strong>${entry.event?'#'+entry.event.attempt:'No shot'} · ${esc(entry.origin)} → ${esc(entry.word)}</strong><span>${esc(outcome(entry))}</span></div>${entry.event?`<p>${entry.event.automatic?'Automatic finish · one shot counted':entry.event.outcome==='backtrack'?'Returned to a previously reached word':entry.event.connected===false?'Weak contact':entry.event.outcome==='water'?'Good contact, wrong direction':entry.event.outcome==='recovery'?'Small recovery shot':entry.event.success?'Ball landed':'Ball stayed put'}${entry.event.inside?(entry.event.success?' · On the green':' · Aimed at green'):''}</p>`:''}</li>`).join('')||'<li class="subtle">No shots yet.</li>';
- renderSkill(journey);
+ renderSkill(journey);renderBridgeFeedback();
  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';
 }
 const skillRequests=new Map();
@@ -133,7 +134,7 @@ function update(){
 }
 async function newGame(puzzle){
  if(busy)return false;lock(true);
- try{const data=await api('new',puzzle);state=data.state;shownEvent=null;resultDismissed=false;noticeDismissed=false;resetBridgeView();selectedLogId=flightLog.begin(state,config.model).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
+ try{const data=await api('new',puzzle);state=data.state;shownEvent=null;resultDismissed=false;noticeDismissed=false;resetBridgeView();selectedLogId=flightLog.begin(state,config.model,config.vector_sha256).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
  catch(error){$('status').textContent=error.message;return false;}finally{lock(false);if(state?.won)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
@@ -188,12 +189,53 @@ function assess(settings){
  }
  return assessments.get(key);
 }
+let currentBridgeResult=null;
 function bridgeList(result){
- const rows=result.opening_bridges.map(b=>`<li><div class="bridge-route">${esc(result.start)} <span>→</span> <strong>${esc(b.word)}</strong>${b.direct?' <small>direct hole in one</small>':` <span>→</span> ${esc(result.target)} <small>automatic finish</small>`}</div><div class="bridge-scores"><span>From tee <b>${b.contact.toFixed(3)}</b> · needs ${b.required.toFixed(3)}</span><span>To hole <b>${b.destination.toFixed(3)}</b> · green ${result.green_threshold.toFixed(3)}</span></div></li>`).join('');
- return `<p class="bridge-explanation">${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} for <strong>${esc(result.start)} → ${esc(result.target)}</strong>. ${rows?'Each passes the actual shot and green requirements. Strongest tee connections first. The numbers are word similarities; these are model results, not hand-picked answers.':'No word reaches the green directly from this tee. A longer route may still work.'}</p>${rows?`<ol class="bridge-list">${rows}</ol>`:''}`;
+ const rows=result.opening_bridges.map(b=>{
+  const key=bridgeKey(result.settings,b.word,config.vector_sha256),review=flightLog.data.bridgeFeedback.find(r=>r.key===key);
+  return `<li data-review-key="${esc(key)}" data-bridge-word="${esc(b.word)}"><div class="bridge-route">${esc(result.start)} <span>→</span> <strong>${esc(b.word)}</strong>${b.direct?' <small>direct hole in one</small>':` <span>→</span> ${esc(result.target)} <small>automatic finish</small>`}</div><div class="bridge-scores"><span>From tee <b>${b.contact.toFixed(3)}</b> · needs ${b.required.toFixed(3)}</span><span>To hole <b>${b.destination.toFixed(3)}</b> · green ${result.green_threshold.toFixed(3)}</span></div><button type="button" class="quiet bridge-flag" data-flag-bridge aria-pressed="${!!review}" aria-label="${review?'Undo flag for':'Flag poor bridge'} ${esc(b.word)}">${review?'Flagged · undo':'Flag poor bridge'}</button>${review?reviewNote(review):''}</li>`;
+ }).join('');
+ return `<p class="bridge-explanation">${result.green_bridges} opening ${result.green_bridges===1?'bridge':'bridges'} for <strong>${esc(result.start)} → ${esc(result.target)}</strong>. ${rows?'All pass the current requirements, strongest tee links first. Flag any that feel wrong. The puzzle and both connection strengths are saved with your scorecards; flagging does not change play.':'No word reaches the green directly from this tee. A longer route may still work.'}</p>${rows?`<ol class="bridge-list">${rows}</ol>`:''}<p class="bridge-feedback-status subtle" role="status"></p>`;
 }
+function reviewNote(review){return `<div class="bridge-note"><label>Why does ${esc(review.word)} feel wrong? <span>(optional)</span><input data-bridge-note aria-label="Note for ${esc(review.word)}" maxlength="500" value="${esc(review.note)}" placeholder="Weak tee link, weak hole link, or something else"></label><button type="button" class="quiet" data-save-bridge-note>Save note</button></div>`;}
+function renderBridgeFeedback(){
+ const reviews=flightLog.data.bridgeFeedback,played=openingGreenShots(flightLog.data);
+ $('bridge-feedback-title').textContent=`Bridge feedback (${reviews.length})`;
+ const panel=$('bridge-feedback-content'),signature=JSON.stringify([reviews,played.length]);
+ if(panel.dataset.rendered===signature)return;panel.dataset.rendered=signature;
+ panel.innerHTML=`<p class="subtle">${reviews.length} flagged poor ${reviews.length===1?'bridge':'bridges'} · ${played.length} recorded first-shot ${played.length===1?'green':'greens'} (including direct finishes). These are played examples, not endorsements. Both groups, their tee/green margins and known spoiler exposure are included in Download all scorecards. Saved on this device; share an export for analysis. No cutoff is changed automatically.</p>${reviews.length?`<ol class="bridge-review-list">${[...reviews].reverse().map(r=>`<li data-review-key="${esc(r.key)}"><div class="bridge-route">${esc(r.puzzle.start)} → <strong>${esc(r.word)}</strong> → ${esc(r.puzzle.target)}</div><p class="subtle">Tee ${r.metrics.contact.toFixed(3)} / needs ${r.metrics.required.toFixed(3)} · hole ${r.metrics.destination.toFixed(3)} / green ${r.metrics.green_threshold.toFixed(3)}</p>${reviewNote(r)}<button type="button" class="quiet" data-remove-bridge-flag aria-label="Undo flag for ${esc(r.word)}">Undo flag</button></li>`).join('')}</ol>`:'<p class="subtle">Open Opening bridges and use Flag poor bridge beside a word.</p>'}<p class="bridge-feedback-status subtle" role="status"></p>`;
+}
+function refreshBridgeFlags(){
+ for(const [id,result,open] of [['current-bridge-list',currentBridgeResult,$('current-bridges').open],['custom-bridge-list',customBridgeResult,$('custom-bridges').open]]){
+  if(!result||!open)continue;const scroll=$(id).querySelector('.bridge-list')?.scrollTop??0;
+  $(id).innerHTML=bridgeList(result);$(id).querySelector('.bridge-list')?.scrollTo({top:scroll});
+ }
+ renderBridgeFeedback();$('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';
+}
+for(const id of ['current-bridge-list','custom-bridge-list','bridge-feedback-content'])$(id).addEventListener('input',event=>{if(event.target.matches('[data-bridge-note]'))event.target.closest('.bridge-note').querySelector('[data-save-bridge-note]').textContent='Save note';});
+for(const id of ['current-bridge-list','custom-bridge-list','bridge-feedback-content'])$(id).addEventListener('keydown',event=>{if(event.key==='Enter'&&event.target.matches('[data-bridge-note]')){event.preventDefault();event.target.closest('.bridge-note').querySelector('[data-save-bridge-note]').click();}});
+for(const id of ['current-bridge-list','custom-bridge-list','bridge-feedback-content'])$(id).addEventListener('click',event=>{
+ const button=event.target.closest('button'),row=button?.closest('[data-review-key]');if(!row)return;
+ const key=row.dataset.reviewKey;
+ if(button.hasAttribute('data-save-bridge-note')){
+  flightLog.noteBridge(key,row.querySelector('[data-bridge-note]').value);
+  const other=document.querySelectorAll('[data-review-key]');for(const r of other)if(r.dataset.reviewKey===key){const input=r.querySelector('[data-bridge-note]');if(input)input.value=row.querySelector('[data-bridge-note]').value;}
+  $('bridge-feedback-content').dataset.rendered='';button.textContent='Saved';
+  $(id).querySelector('.bridge-feedback-status').textContent=flightLog.warning||'Note saved with your scorecards.';
+  $('log-storage').textContent=flightLog.warning||'Saved in this browser. Download your scorecards to keep or share them.';return;
+ }
+ let message='Flag removed.';
+ if(button.hasAttribute('data-remove-bridge-flag')||flightLog.data.bridgeFeedback.some(r=>r.key===key))flightLog.unflagBridge(key);
+ else {
+  const result=id==='current-bridge-list'?currentBridgeResult:customBridgeResult,bridge=result?.opening_bridges.find(b=>b.word===row.dataset.bridgeWord);
+  if(!bridge)return;
+  flightLog.flagBridge(result,bridge,{model:config.model,model_sha:config.vector_sha256,source:id==='current-bridge-list'?'active':'preview'});message='Flag saved with your scorecards.';
+ }
+ refreshBridgeFlags();$(id).querySelector('.bridge-feedback-status').textContent=flightLog.warning||message;
+ const replacement=[...$(id).querySelectorAll('[data-review-key]')].find(r=>r.dataset.reviewKey===key);replacement?.querySelector('[data-flag-bridge]')?.focus({preventScroll:true});
+});
 function resetBridgeView(){
- bridgeViewVersion++;$('current-bridges').open=false;$('current-bridge-list').textContent='';
+ currentBridgeResult=null;bridgeViewVersion++;$('current-bridges').open=false;$('current-bridge-list').textContent='';
 }
 $('current-bridges').addEventListener('toggle',async()=>{
  if(!$('current-bridges').open)return;
@@ -201,14 +243,14 @@ $('current-bridges').addEventListener('toggle',async()=>{
  const version=bridgeViewVersion;
  const settings={start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules};
  $('current-bridge-list').textContent='Calculating opening bridges…';
- try{const result=await assess(settings);if(version===bridgeViewVersion)$('current-bridge-list').innerHTML=bridgeList(result);}
+ try{const result=await assess(settings);if(version===bridgeViewVersion){currentBridgeResult=result;$('current-bridge-list').innerHTML=bridgeList(result);if($('current-bridges').open)flightLog.markBridgeView(result.settings,'active',config.vector_sha256);}}
  catch(error){if(version===bridgeViewVersion)$('current-bridge-list').textContent=error.message;}
 });
 $('close-result').onclick=()=>{resultDismissed=true;$('arrival-banner').hidden=true;$('show-result').hidden=false;$('show-result').focus({preventScroll:true});document.querySelector('.map-card').scrollIntoView({block:'nearest',behavior:reduced?'instant':'smooth'});};
 $('show-result').onclick=()=>{resultDismissed=false;$('arrival-banner').hidden=false;$('show-result').hidden=true;$('close-result').focus({preventScroll:true});};
 $('close-shot-notice').onclick=()=>{noticeDismissed=true;$('shot-notice').hidden=true;};
 let assessmentTimer,assessmentSequence=0,customBridgeResult=null;
-$('custom-bridges').addEventListener('toggle',()=>{if($('custom-bridges').open&&customBridgeResult)$('custom-bridge-list').innerHTML=bridgeList(customBridgeResult);});
+$('custom-bridges').addEventListener('toggle',()=>{if($('custom-bridges').open&&customBridgeResult){$('custom-bridge-list').innerHTML=bridgeList(customBridgeResult);flightLog.markBridgeView(customBridgeResult.settings,'preview',config.vector_sha256);}});
 function previewHole(){
  clearTimeout(assessmentTimer);const sequence=++assessmentSequence;
  const start=$('custom-start').value.trim().toLowerCase(),target=$('custom-target').value.trim().toLowerCase();
@@ -243,23 +285,23 @@ $('confirm-reset').onclick=async()=>{
  lock(true);const previous=state;let candidate;
  try{
   candidate=(await api('new',{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules})).state;
-  const journey=flightLog.reset(candidate,config.model);
+  const journey=flightLog.reset(candidate,config.model,config.vector_sha256);
   state=candidate;shownEvent=null;resultDismissed=false;noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
   $('reset-confirmation').hidden=true;$('copy-fallback').hidden=true;$('word').value='';
-  update();$('status').textContent='';$('log-feedback').textContent='Scorecards reset. Future downloads contain only new rounds.';
+  update();refreshBridgeFlags();$('status').textContent='';$('log-feedback').textContent='Scorecards reset. Future downloads contain only new rounds.';
  }catch(error){
   if(candidate)try{await api('restore',{state:previous});}catch{}
   $('log-feedback').textContent=error.message;
  }finally{lock(false);if(state.won)$('launch').disabled=true;}
 };
 $('restore-log').onclick=()=>{
- try{if(flightLog.restorePrevious()){$('reset-confirmation').hidden=true;renderLog();$('log-feedback').textContent='Previous scorecards restored. New rounds were kept too.';}}
+ try{if(flightLog.restorePrevious()){$('reset-confirmation').hidden=true;renderLog();refreshBridgeFlags();$('log-feedback').textContent='Previous scorecards restored. New rounds were kept too.';}}
  catch(error){$('log-feedback').textContent=error.message;}
 };
 $('log-journey').onchange=()=>{selectedLogId=$('log-journey').value;$('copy-fallback').hidden=true;renderLog();};
 $('copy-log').onclick=async()=>{
  const journey=flightLog.data.journeys.find(j=>j.id===selectedLogId);if(!journey)return;
- const text=journeyText(journey);
+ const text=journeyText(journey,flightLog.data.bridgeFeedback);
  try{await navigator.clipboard.writeText(text);$('log-feedback').textContent='Scorecard copied. Paste it into our chat.';}
  catch{$('copy-fallback').hidden=false;$('log-copy-text').value=text;$('log-copy-text').focus();$('log-copy-text').select();$('log-feedback').textContent='Select and copy the scorecard text below.';}
 };
@@ -268,7 +310,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v18'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v19'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

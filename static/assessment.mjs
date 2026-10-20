@@ -1,5 +1,5 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game, launchRequirement } from './engine.mjs?v=golf-v18';
+import { Game, launchRequirement } from './engine.mjs?v=golf-v19';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.28,{mode:'distance',launch_min:.10,launch_max:.21,...settings});
   const {start,target,baseline,threshold,launch_min,launch_max}=game;
@@ -33,5 +33,5 @@ export function assessHole(e,settings){
   }
   opening_bridges.sort((a,b)=>b.contact-a.contact||b.destination-a.destination||a.word.localeCompare(b.word));
   const bridges=opening_bridges.length;
-  return {start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
+  return {settings:{start,target,threshold,mode:game.mode,launch_min,launch_max,rules:game.rules},start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
 }
