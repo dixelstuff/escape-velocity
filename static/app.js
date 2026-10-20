@@ -1,8 +1,8 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v17';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v17';
-import { startupAction } from './startup.mjs?v=golf-v17';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v17';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v17';
+import { createBrowserClient } from './engine.mjs?v=golf-v18';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v18';
+import { startupAction } from './startup.mjs?v=golf-v18';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v18';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v18';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -50,7 +50,7 @@ function map(preview=null){
  const textNodes=[...$('map').querySelectorAll('[data-word-label]')];
  const obstacles=planets.map(p=>{if(p.word===state.current){const b=ballPosition(p.word);return {x:b.x-17,y:b.y-17,width:34,height:40};}const radius=p.word===state.target?10:8;return {x:p.pos.x-radius,y:p.pos.y-radius,width:2*radius,height:2*radius};});
  obstacles.push({x:20,y:383,width:d.zoneLeft-42,height:43},{x:d.right-3,y:COURSE_CENTRE-51,width:33,height:52},...[-TEE_MARKER_OFFSET,TEE_MARKER_OFFSET].map(offset=>({x:d.left-7,y:COURSE_CENTRE+offset-7,width:14,height:16})));
- const measured=textNodes.map((node,i)=>{const p=planets[i],box=node.getBBox();return {word:p.word,...p.pos,radius:p.word===state.current||p.word===state.start?16:p.word===state.target?10:6,gap:p.word===state.current||p.word===state.start?12:5,width:box.width,height:box.height,priority:p.word===state.start?5:p.word===state.current?4:p.word===state.target?3:p.failed?0:1};});
+ const measured=textNodes.map((node,i)=>{const p=planets[i],box=node.getBBox();return {word:p.word,...p.pos,radius:p.word===state.current?16:p.word===state.target?10:6,gap:p.word===state.current?(p.word===state.start?8:12):5,width:box.width,height:box.height,priority:p.word===state.start?5:p.word===state.current?4:p.word===state.target?3:p.failed?0:1};});
  const layout=layoutLabels(measured,obstacles,d.width,COURSE_HEIGHT);
  for(const node of textNodes)node.remove();
  let labels='';
@@ -268,7 +268,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v17'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v18'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='New course rules are ready: backtracking, a one-shot automatic finish, and slightly firmer shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});
