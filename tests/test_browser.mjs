@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { Embeddings, Game, launchRequirement, restoreGame } from '../static/engine.mjs';
+import { Embeddings, Game, decodeHalf, launchRequirement, restoreGame } from '../static/engine.mjs';
 const root = new URL('../', import.meta.url);
 const read = path => readFileSync(new URL(path, root));
 const words = JSON.parse(read('static/model/words.json'));
@@ -8,6 +8,8 @@ const bytes = read('static/model/vectors.f32');
 const vectors = new Float32Array(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
 const config=JSON.parse(read('static/model/config.json'));
 const embeddings = new Embeddings(words.slice(0,vectors.length/300), vectors,300,new Uint8Array(read('static/model/'+config.hub_file)).slice(0,vectors.length/300));
+const half=read('static/model/'+config.vector_fallback);
+const modernEmbeddings=new Embeddings(words,decodeHalf(half.buffer.slice(half.byteOffset,half.byteOffset+half.byteLength)),config.dimensions,new Uint8Array(read('static/model/'+config.hub_file)));
 const fixtures = JSON.parse(read('tests/browser-fixtures.json'));
 function compare(actual, expected) {
   for (const [key, value] of Object.entries(expected)) {
@@ -17,14 +19,15 @@ function compare(actual, expected) {
   }
 }
 for (const fixture of fixtures) {
-  const game = new Game(embeddings, fixture.start, fixture.target, fixture.threshold, fixture);
+  const model=(!fixture.rules||['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(fixture.rules))?modernEmbeddings:embeddings;
+  const game = new Game(model, fixture.start, fixture.target, fixture.threshold, fixture);
   const initial = game.state();
   for (const step of fixture.steps) {
     if (step.error) assert.throws(() => game.submit(step.word));
     else compare(game.submit(step.word), step.event);
     compare(game.state(), step.state);
   }
-  compare(restoreGame(embeddings,game.state()).state(),game.state());
+  compare(restoreGame(model,game.state()).state(),game.state());
   assert.equal(initial.attempts, 0);
   assert.deepEqual(initial.route, [fixture.start]);
 }

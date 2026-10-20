@@ -112,6 +112,919 @@
         "forest",
         "over"
       ]
+    },
+    {
+      "start": "seal",
+      "target": "knuckle",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "seal",
+        "all",
+        "ride"
+      ]
+    },
+    {
+      "start": "bold",
+      "target": "gravel",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "bold",
+        "are",
+        "along"
+      ]
+    },
+    {
+      "start": "lake",
+      "target": "fragrant",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "lake",
+        "beautiful"
+      ]
+    },
+    {
+      "start": "cake",
+      "target": "monitor",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "cake",
+        "prepare"
+      ]
+    },
+    {
+      "start": "dune",
+      "target": "crystal",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "dune",
+        "emerald"
+      ]
+    },
+    {
+      "start": "gel",
+      "target": "male",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gel",
+        "hair"
+      ]
+    },
+    {
+      "start": "dance",
+      "target": "merger",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "dance",
+        "part"
+      ]
+    },
+    {
+      "start": "dance",
+      "target": "glacier",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "dance",
+        "ice"
+      ]
+    },
+    {
+      "start": "dance",
+      "target": "lane",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "dance",
+        "along"
+      ]
+    },
+    {
+      "start": "owl",
+      "target": "gladly",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "owl",
+        "great",
+        "take"
+      ]
+    },
+    {
+      "start": "clam",
+      "target": "placard",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "clam",
+        "blue",
+        "flag"
+      ]
+    },
+    {
+      "start": "domain",
+      "target": "lazy",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "domain",
+        "have",
+        "too"
+      ]
+    },
+    {
+      "start": "client",
+      "target": "chirp",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "client",
+        "are",
+        "birds"
+      ]
+    },
+    {
+      "start": "gate",
+      "target": "vomit",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "gate",
+        "have",
+        "eat"
+      ]
+    },
+    {
+      "start": "chess",
+      "target": "sink",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "chess",
+        "table"
+      ]
+    },
+    {
+      "start": "chess",
+      "target": "annoy",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "chess",
+        "more",
+        "worry"
+      ]
+    },
+    {
+      "start": "fan",
+      "target": "anchor",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "fan",
+        "host"
+      ]
+    },
+    {
+      "start": "bling",
+      "target": "hatch",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "bling",
+        "fun",
+        "open"
+      ]
+    },
+    {
+      "start": "gold",
+      "target": "hover",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gold",
+        "around"
+      ]
+    },
+    {
+      "start": "leopard",
+      "target": "angle",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "leopard",
+        "tail"
+      ]
+    },
+    {
+      "start": "frame",
+      "target": "goose",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "frame",
+        "neck"
+      ]
+    },
+    {
+      "start": "shine",
+      "target": "leap",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "shine",
+        "take"
+      ]
+    },
+    {
+      "start": "gall",
+      "target": "giant",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gall",
+        "lion"
+      ]
+    },
+    {
+      "start": "classic",
+      "target": "slide",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "classic",
+        "back"
+      ]
+    },
+    {
+      "start": "pot",
+      "target": "lap",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "pot",
+        "place"
+      ]
+    },
+    {
+      "start": "pot",
+      "target": "sting",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "pot",
+        "have",
+        "operation"
+      ]
+    },
+    {
+      "start": "melt",
+      "target": "climb",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "melt",
+        "turn"
+      ]
+    },
+    {
+      "start": "flag",
+      "target": "speck",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "flag",
+        "tiny"
+      ]
+    },
+    {
+      "start": "nice",
+      "target": "feather",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "nice",
+        "hair"
+      ]
+    },
+    {
+      "start": "height",
+      "target": "beer",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "height",
+        "water"
+      ]
+    },
+    {
+      "start": "layer",
+      "target": "muse",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "layer",
+        "control",
+        "warlord"
+      ]
+    },
+    {
+      "start": "quilt",
+      "target": "mantra",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "quilt",
+        "look",
+        "word"
+      ]
+    },
+    {
+      "start": "replace",
+      "target": "hole",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "replace",
+        "one"
+      ]
+    },
+    {
+      "start": "waste",
+      "target": "clap",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "waste",
+        "are",
+        "stick"
+      ]
+    },
+    {
+      "start": "dragon",
+      "target": "cap",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "dragon",
+        "black"
+      ]
+    },
+    {
+      "start": "grin",
+      "target": "plump",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "grin",
+        "eyes"
+      ]
+    },
+    {
+      "start": "seep",
+      "target": "goat",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "seep",
+        "salty"
+      ]
+    },
+    {
+      "start": "signage",
+      "target": "tackle",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "signage",
+        "name",
+        "back"
+      ]
+    },
+    {
+      "start": "clay",
+      "target": "tent",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "clay",
+        "wooden"
+      ]
+    },
+    {
+      "start": "base",
+      "target": "tricycle",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "base",
+        "gear"
+      ]
+    },
+    {
+      "start": "rain",
+      "target": "pleasant",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "rain",
+        "just"
+      ]
+    },
+    {
+      "start": "whale",
+      "target": "nuclear",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "whale",
+        "research"
+      ]
+    },
+    {
+      "start": "lever",
+      "target": "empty",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "lever",
+        "hand"
+      ]
+    },
+    {
+      "start": "crane",
+      "target": "pulse",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "crane",
+        "man",
+        "heart"
+      ]
+    },
+    {
+      "start": "ocean",
+      "target": "iris",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "ocean",
+        "orchid"
+      ]
+    },
+    {
+      "start": "mate",
+      "target": "elephant",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "mate",
+        "male"
+      ]
+    },
+    {
+      "start": "paranoid",
+      "target": "goat",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "paranoid",
+        "mad"
+      ]
+    },
+    {
+      "start": "morph",
+      "target": "lineage",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "morph",
+        "trait"
+      ]
+    },
+    {
+      "start": "polo",
+      "target": "lick",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "polo",
+        "coyote"
+      ]
+    },
+    {
+      "start": "lint",
+      "target": "please",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "lint",
+        "hair",
+        "not"
+      ]
+    },
+    {
+      "start": "carton",
+      "target": "alive",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "carton",
+        "babies"
+      ]
+    },
+    {
+      "start": "phrase",
+      "target": "tangle",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "phrase",
+        "confusing"
+      ]
+    },
+    {
+      "start": "scold",
+      "target": "mime",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "scold",
+        "artiste"
+      ]
+    },
+    {
+      "start": "glue",
+      "target": "lunch",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "glue",
+        "bag"
+      ]
+    },
+    {
+      "start": "fine",
+      "target": "plank",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "fine",
+        "wooden"
+      ]
+    },
+    {
+      "start": "tee",
+      "target": "neat",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "tee",
+        "ball"
+      ]
+    },
+    {
+      "start": "aunt",
+      "target": "novice",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "aunt",
+        "tutor"
+      ]
+    },
+    {
+      "start": "bend",
+      "target": "loan",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "bend",
+        "can",
+        "year"
+      ]
+    },
+    {
+      "start": "hygiene",
+      "target": "lamp",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "hygiene",
+        "kitchen"
+      ]
+    },
+    {
+      "start": "frost",
+      "target": "ancient",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "frost",
+        "tree"
+      ]
+    },
+    {
+      "start": "clove",
+      "target": "linger",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "clove",
+        "drizzle"
+      ]
+    },
+    {
+      "start": "pothole",
+      "target": "tyranny",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "pothole",
+        "crony"
+      ]
+    },
+    {
+      "start": "yard",
+      "target": "maple",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "yard",
+        "tree"
+      ]
+    },
+    {
+      "start": "gang",
+      "target": "flowers",
+      "threshold": 0.28,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.21,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gang",
+        "hanging"
+      ]
     }
   ]
 }

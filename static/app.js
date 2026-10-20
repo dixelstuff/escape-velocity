@@ -1,10 +1,11 @@
-import { createBrowserClient } from './engine.mjs?v=golf-v21';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v21';
-import { startupAction } from './startup.mjs?v=golf-v21';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v21';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v21';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v21';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v21';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v22';
+import { createBrowserClient } from './engine.mjs?v=golf-v22';
+import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v22';
+import { startupAction } from './startup.mjs?v=golf-v22';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v22';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v22';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v22';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v22';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -14,7 +15,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function api(path,body){return client.request(path,body);}
-function lock(value){busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id))e.disabled=value;}
+function lock(value){busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id))e.disabled=value;for(const label of $('map').querySelectorAll('[data-label-word]')){const disabled=value||state?.won;label.setAttribute('aria-disabled',String(!!disabled));label.setAttribute('tabindex',disabled?'-1':'0');}}
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const dimensions=()=>mapLayout(narrow());
 const COURSE_HEIGHT=430,COURSE_CENTRE=215,TEE_MARKER_OFFSET=78;
@@ -57,7 +58,7 @@ function map(preview=null){
  for(const node of textNodes)node.remove();
  let labels='';
  for(const p of planets){const box=layout.labels.get(p.word);const endX=Math.max(box.x,Math.min(box.x+box.width,p.pos.x)),endY=Math.max(box.y,Math.min(box.y+box.height,p.pos.y));const length=Math.hypot(endX-p.pos.x,endY-p.pos.y)||1;const markerRadius=p.word===state.current?16:p.word===state.target?10:6;const startX=p.pos.x+markerRadius*(endX-p.pos.x)/length,startY=p.pos.y+markerRadius*(endY-p.pos.y)/length;
- labels+=`<g class="word-label" data-label-word="${esc(p.word)}" opacity="${p.failed?.72:1}"><path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g>`;
+ labels+=`<g class="word-label" role="button" tabindex="${busy||state.won?-1:0}" aria-disabled="${busy||state.won}" aria-label="Use ${esc(p.word)} for next shot" data-label-word="${esc(p.word)}" opacity="${p.failed?.72:1}"><path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g>`;
  }
  $('map').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);
@@ -208,6 +209,16 @@ async function submit(word){
  }catch(error){$('attempts').textContent=state.attempts;$('status').textContent=error.message;return false;}
  finally{lock(false);if(state.won)$('launch').disabled=true;else if(!narrow())$('word').focus({preventScroll:true});}
 }
+function chooseMapWord(event){
+ if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;
+ const label=event.target.closest('[data-label-word]');
+ if(!label||busy||!state||state.won)return;
+ event.preventDefault();$('word').value=label.dataset.labelWord;
+ // Touch selection should not summon the keyboard or move the map away.
+ if(!narrow())$('word').focus({preventScroll:true});
+}
+$('map').addEventListener('click',chooseMapWord);
+$('map').addEventListener('keydown',chooseMapWord);
 $('launch-form').addEventListener('submit',event=>{event.preventDefault();submit($('word').value);});
 $('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
 $('new-game').onclick=()=>newGame($('puzzle').value==='custom'?{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max}:config.puzzles[Number($('puzzle').value)]);
@@ -287,6 +298,9 @@ $('custom-bridges').addEventListener('toggle',()=>{if($('custom-bridges').open&&
 function previewHole(){
  clearTimeout(assessmentTimer);const sequence=++assessmentSequence;
  const start=$('custom-start').value.trim().toLowerCase(),target=$('custom-target').value.trim().toLowerCase();
+ const warning=$('custom-hub-warning');warning.textContent='';warning.hidden=true;
+ if(client)api('breadth',{start,target}).then(endpoints=>{if(sequence!==assessmentSequence)return;warning.textContent=hubWarningText(endpoints);warning.hidden=!endpoints.length;});
+ $('custom-assessment').dataset.valid='false';
  customBridgeResult=null;$('custom-bridges').hidden=true;$('custom-bridges').open=false;$('custom-bridge-list').textContent='';
  if(!start||!target||!client){$('custom-assessment').textContent='';return;}
  $('custom-assessment').textContent='Assessing these words…';
@@ -343,7 +357,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v21'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='A modest adjustment now asks broad words for stronger connections on long shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v22'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({start:saved.start,target:saved.target,threshold:.28,mode:'distance',launch_min:.10,launch_max:.21});$('status').textContent='A modest adjustment now asks broad words for stronger connections on long shots. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

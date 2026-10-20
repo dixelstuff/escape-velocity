@@ -55,6 +55,8 @@ globalThis.caches={async open(){return {async match(url){return cacheData.get(St
 globalThis.fetch=async url=>{const path=decodeURIComponent(new URL(url).pathname);downloaded.push(path);return new Response(readFileSync(path));};
 try{
  const client=await createBrowserClient();
+ const endpointWarnings=await client.request('breadth',{start:'kind',target:'coffee'});
+ assert.equal(endpointWarnings.length,1);assert.equal(endpointWarnings[0].role,'tee');assert.equal(endpointWarnings[0].very_broad,true);
  await client.request('new',{start:'coffee',target:'science',threshold:.28,mode:'distance'});
  await assert.rejects(()=>client.request('new',{start:'cat',target:'dog',threshold:.28,mode:'distance',validate_direct:true}),/direct hole in one/);
  assert.equal((await client.request('submit',{word:'food'})).event.origin,'coffee');

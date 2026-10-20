@@ -1,14 +1,19 @@
 """Generate Python-authoritative scoring fixtures for every browser rule version."""
 from pathlib import Path
-import json,sys
+import json,sys,copy
+import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from engine import Embeddings,Game,DATA
 
 def main():
     e=Embeddings();analysis=json.loads((ROOT/'reports/forward-analysis.json').read_text());fixtures=[]
+    packed=copy.copy(e)
+    config=json.loads((ROOT/'static/model/config.json').read_text())
+    packed.vectors=np.fromfile(ROOT/'static/model'/config['vector_fallback'],dtype='<f2').astype(np.float32).reshape(len(e.words),-1)
     def add(settings,words):
-        game=Game(e,**settings);fixture=dict(**settings,steps=[])
+        model=e if settings.get('rules') not in [None,'golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'] else packed
+        game=Game(model,**settings);fixture=dict(**settings,steps=[])
         for word in words:
             step=dict(word=word)
             try:step['event']=game.submit(word)

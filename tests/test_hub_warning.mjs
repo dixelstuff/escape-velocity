@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {endpointHubs,hubWarningText} from '../static/hub-warning.mjs';
+const e={index:new Map([['kind',0],['science',1],['language',2]]),hub:w=>({kind:1,language:.22,science:0}[w])};
+assert.equal(hubWarningText(endpointHubs(e,{start:'science'})),'');
+assert.deepEqual(endpointHubs(e,{start:'  KIND  '}),[{role:'tee',word:'kind',score:1,very_broad:true}]);
+assert.match(hubWarningText(endpointHubs(e,{target:'kind'})),/Very broad hole word: KIND/);
+assert.match(hubWarningText(endpointHubs(e,{start:'language'})),/Broad tee word: LANGUAGE/);
+assert.equal(endpointHubs(e,{start:'unknown',target:''}).length,0);
+const both=hubWarningText(endpointHubs(e,{start:'kind',target:'language'}));
+assert.match(both,/broadest 5%/);assert.match(both,/broadest 10%/);assert.match(both,/still play this hole/);
+console.log('Endpoint warnings passed: independent fields, normalization, broad/very broad labels, unknown/blank clearing, and advisory copy.');
