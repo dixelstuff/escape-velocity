@@ -1,5 +1,5 @@
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v20';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v20';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v21';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v21';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -162,7 +162,7 @@ export function journeyText(journey,feedback=[]) {
   const lines = ['WORD GOLF — scorecard', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
     s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
-  if(['distance-v3','golf-distance-v1','golf-distance-v2'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
+  if(['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
   if(journey.skill){lines.push(`Experimental skill: ${journey.skill.score}/1000 (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}
   for(const f of journey.skill_feedback??[])lines.push(`Skill feedback: ${f.rating==='too_harsh'?'Too harsh':'Too generous'} · score ${f.score}/1000 · ${f.assessment.version}${f.note?' · '+f.note:''}`);
   for (const entry of journey.entries) {

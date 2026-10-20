@@ -1,6 +1,6 @@
 """Semantic rules independent of HTTP and presentation."""
 from pathlib import Path
-import json
+import json, hashlib
 import numpy as np
 DATA = Path(__file__).parent/'data'
 LEGACY_RULES = 'fixed-threshold-v1'
@@ -16,6 +16,16 @@ class Embeddings:
         self.words = json.loads((folder/'words.json').read_text())
         self.index = {w:i for i,w in enumerate(self.words)}
         self.vectors = np.load(folder/'vectors.npy', mmap_mode='r')
+        self.hubs=None
+    def hub(self,word):
+        if self.hubs is None:
+            model=Path(__file__).parent/'static/model'
+            metadata=json.loads((model/'hubs.json').read_text())
+            data=(model/metadata['file']).read_bytes()
+            if len(data)!=len(self.words) or hashlib.sha256(data).hexdigest()!=metadata['sha256']:
+                raise ValueError('Invalid word breadth data; rebuild the browser model.')
+            self.hubs=np.frombuffer(data,dtype='u1')
+        return float(self.hubs[self.index[word]])/255
     def cosine(self, a, b):
         return float(np.clip(self.vectors[self.index[a]] @ self.vectors[self.index[b]], -1, 1))
 
@@ -28,11 +38,11 @@ class Game:
         legacy = rules in ['distance-v1','fixed-threshold-v1','fixed-threshold-v2']
         golf = rules is None or rules.startswith('golf-')
         launch_min = (.25 if legacy else .10 if golf else .08) if launch_min is None else launch_min
-        modern = rules is None or rules in ['golf-distance-v2','golf-fixed-v2']
+        modern = rules is None or rules in ['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3']
         launch_max = (.40 if legacy else .21 if modern else .20 if golf else .18) if launch_max is None else launch_max
         if not .01 <= launch_min <= launch_max <= .9: raise ValueError('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.')
-        expected = 'golf-distance-v2' if mode=='distance' else 'golf-fixed-v2'
-        if rules is not None and rules not in [expected, *(['golf-distance-v1','distance-v1','distance-v2','distance-v3'] if mode=='distance' else ['golf-fixed-v1',LEGACY_RULES,'fixed-threshold-v2','fixed-threshold-v3'])]: raise ValueError('Unknown rule version.')
+        expected = 'golf-distance-v3' if mode=='distance' else 'golf-fixed-v3'
+        if rules is not None and rules not in [expected, *(['golf-distance-v2','golf-distance-v1','distance-v1','distance-v2','distance-v3'] if mode=='distance' else ['golf-fixed-v2','golf-fixed-v1',LEGACY_RULES,'fixed-threshold-v2','fixed-threshold-v3'])]: raise ValueError('Unknown rule version.')
         if rules==LEGACY_RULES and mode!='fixed': raise ValueError('Historical rounds use fixed shot strength.')
         self.e, self.start, self.current, self.target = embeddings, start, start, target
         self.threshold, self.mode = float(threshold), mode
@@ -44,6 +54,19 @@ class Game:
         self.route = [start]; self.history = []; self.won = False
         self.best_progress = self.baseline
         self.backward_allowance = .01 if modern else max(0., min(.01, .05*(self.threshold-self.baseline)))
+    def requirement(self, origin, word, current=None, destination=None):
+        current=self.e.cosine(origin,self.target) if current is None else current
+        destination=self.e.cosine(word,self.target) if destination is None else destination
+        required,fraction=launch_requirement(current,destination,self.baseline,self.threshold,self.launch_min,self.launch_max,
+            cap_arrival=self.rules in ['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'])
+        if self.mode=='fixed':required=self.threshold
+        surcharge=0.
+        if self.rules in ['golf-distance-v3','golf-fixed-v3']:
+            forward=min(1.,max(0.,min(destination,self.threshold)-min(current,self.threshold))/max(1e-6,self.threshold-self.baseline))
+            hub=getattr(self.e,'hub',lambda word:0.)
+            surcharge=.035*max(hub(origin),hub(word))*forward**2
+            required+=surcharge
+        return required,fraction,surcharge
     def submit(self, word):
         word = word.strip().lower()
         if self.won: raise ValueError('Hole complete. Start a new hole.')
@@ -53,8 +76,7 @@ class Game:
         elif word==self.current: raise ValueError('The ball is already on that word. No shot used.')
         launch = self.e.cosine(self.current, word)
         destination = self.e.cosine(word, self.target)
-        required, trip_fraction = launch_requirement(self.e.cosine(self.current,self.target), destination, self.baseline, self.threshold, self.launch_min, self.launch_max, cap_arrival=self.rules in ['distance-v3','golf-distance-v1','golf-distance-v2'])
-        if self.mode=='fixed': required = self.threshold
+        required,trip_fraction,hub_surcharge=self.requirement(self.current,word,destination=destination)
         boundary = destination + 1e-7 >= self.baseline
         forward = destination + 1e-7 >= self.e.cosine(self.current,self.target)
         forward_only = self.rules in ['distance-v2','distance-v3','fixed-threshold-v3']
@@ -67,6 +89,7 @@ class Game:
         result = dict(word=word, origin=self.current, launch=launch, destination=destination,
                       required=required, trip_fraction=trip_fraction, boundary=boundary, success=success,
                       inside=inside, won=success and inside, attempt=len(self.history)+1)
+        if self.rules in ['golf-distance-v3','golf-fixed-v3']:result['hub_surcharge']=hub_surcharge
         if forward_only or is_golf: result['forward'] = forward
         if is_golf: result.update(connected=connected, safe=safe, outcome='green' if result['won'] else 'miss' if not connected else 'water' if not safe else 'backtrack' if backtrack else 'recovery' if not forward else 'landed')
         if self.modern: result['backtrack'] = backtrack

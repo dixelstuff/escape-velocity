@@ -1,5 +1,5 @@
 {
-  "rules": "golf-distance-v2",
+  "rules": "golf-distance-v3",
   "results": [
     {
       "start": "coffee",
@@ -12,7 +12,7 @@
       "total_shots": 2,
       "route": [
         "coffee",
-        "now"
+        "well"
       ]
     },
     {
@@ -26,7 +26,7 @@
       "total_shots": 2,
       "route": [
         "cheese",
-        "make"
+        "style"
       ]
     },
     {
@@ -68,7 +68,7 @@
       "total_shots": 2,
       "route": [
         "moon",
-        "just"
+        "hot"
       ]
     },
     {
@@ -82,7 +82,7 @@
       "total_shots": 2,
       "route": [
         "garden",
-        "one"
+        "can"
       ]
     },
     {
@@ -110,7 +110,7 @@
       "total_shots": 2,
       "route": [
         "forest",
-        "are"
+        "over"
       ]
     }
   ]

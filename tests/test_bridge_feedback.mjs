@@ -18,7 +18,7 @@ const meta={model:config.model,model_sha:config.vector_sha256,source:'preview'};
 const before=JSON.stringify(g.state());const flag=log.flagBridge(result,bridge,meta);assert.equal(JSON.stringify(g.state()),before);
 assert.equal(log.flagBridge(result,bridge,meta).key,flag.key);assert.equal(log.data.bridgeFeedback.length,1);
 assert.deepEqual(flag.metrics,bridgeMetrics(bridge.contact,bridge.required,bridge.destination,.28));
-assert.equal(flag.puzzle.start,'morph');assert.equal(flag.puzzle.rules,'golf-distance-v2');assert.equal(flag.journey_id,null);
+assert.equal(flag.puzzle.start,'morph');assert.equal(flag.puzzle.rules,'golf-distance-v3');assert.equal(flag.journey_id,null);
 log.noteBridge(flag.key,'Weak link to the hole <test>');log=reload();assert.equal(log.data.bridgeFeedback[0].note,'Weak link to the hole <test>');
 assert.match(journeyText(log.active,log.data.bridgeFeedback),/OPENING BRIDGE FEEDBACK/);
 // Preview before creating/playing the matching hole is still known spoiler exposure.

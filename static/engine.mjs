@@ -1,12 +1,15 @@
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
-  constructor(words, vectors, dimensions = 300) {
+  constructor(words, vectors, dimensions = 300, hubs = null) {
     if (vectors.length !== words.length * dimensions) throw Error('Incomplete word-vector download. Please reload.');
+    if(hubs && hubs.length!==words.length)throw Error('Incomplete word breadth data. Please reload.');
+    this.hubs=hubs;
     this.words = words;
     this.index = new Map(words.map((word, index) => [word, index]));
     this.vectors = vectors;
     this.dimensions = dimensions;
   }
+  hub(word) { return (this.hubs?.[this.index.get(word)]??0)/255; }
   cosine(a, b) {
     const ai = this.index.get(a), bi = this.index.get(b);
     if (ai === undefined || bi === undefined) throw Error('Choose words in the supported vocabulary.');
@@ -29,19 +32,31 @@ export class Game {
     const {mode='fixed',rules}=options;
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
     const golf=!rules||rules.startsWith('golf-');
-    const modern=!rules||['golf-distance-v2','golf-fixed-v2'].includes(rules);
+    const modern=!rules||['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(rules);
     const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:modern?.21:golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Tee and hole words must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');
     if(!['fixed','distance'].includes(mode))throw Error('Unknown shot mode.');
     if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.');
-    const expected=mode==='distance'?'golf-distance-v2':'golf-fixed-v2';
-    if(rules&&! [expected,...(mode==='distance'?['golf-distance-v1','distance-v1','distance-v2','distance-v3']:['golf-fixed-v1','fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
+    const expected=mode==='distance'?'golf-distance-v3':'golf-fixed-v3';
+    if(rules&&! [expected,...(mode==='distance'?['golf-distance-v2','golf-distance-v1','distance-v1','distance-v2','distance-v3']:['golf-fixed-v2','golf-fixed-v1','fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
     if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Historical rounds use fixed shot strength.');
     Object.assign(this,{e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected,modern,automatic_shots:[]});
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
+  }
+  requirement(origin,word,current=this.e.cosine(origin,this.target),destination=this.e.cosine(word,this.target)) {
+    const launch=launchRequirement(current,destination,this.baseline,this.threshold,this.launch_min,this.launch_max,
+      ['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(this.rules));
+    if(this.mode==='fixed')launch.required=this.threshold;
+    if(['golf-distance-v3','golf-fixed-v3'].includes(this.rules)){
+      const forward=Math.min(1,Math.max(0,Math.min(destination,this.threshold)-Math.min(current,this.threshold))/Math.max(1e-6,this.threshold-this.baseline));
+      const hub=Math.max(this.e.hub?.(origin)??0,this.e.hub?.(word)??0);
+      launch.hub_surcharge=.035*hub*forward**2;
+      launch.required+=launch.hub_surcharge;
+    }
+    return launch;
   }
   submit(word) {
     word=word.trim().toLowerCase();
@@ -51,8 +66,7 @@ export class Game {
       if(word===this.start||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
     } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
     const launch=this.e.cosine(this.current,word),destination=this.e.cosine(word,this.target);
-    let {required,trip_fraction}=launchRequirement(this.e.cosine(this.current,this.target),destination,this.baseline,this.threshold,this.launch_min,this.launch_max,['distance-v3','golf-distance-v1','golf-distance-v2'].includes(this.rules));
-    if(this.mode==='fixed')required=this.threshold;
+    const {required,trip_fraction,hub_surcharge}=this.requirement(this.current,word,undefined,destination);
     const boundary=destination+1e-7>=this.baseline;
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
@@ -61,6 +75,7 @@ export class Game {
     const safe=backtrack||destination+1e-7>=this.best_progress-this.backward_allowance;
     const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
     const result={word,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&inside,attempt:this.history.length+1};
+    if(hub_surcharge!==undefined)result.hub_surcharge=hub_surcharge;
     if(forwardOnly||isGolf)result.forward=forward;
     if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':backtrack?'backtrack':!forward?'recovery':'landed'});
     if(this.modern)result.backtrack=backtrack;
@@ -125,20 +140,24 @@ async function loadPackedModel(config) {
 
 export async function createBrowserClient() {
   const config=await loadFile('./model/config.json',false,'no-cache');
-  const [words,vectors]=await Promise.all([loadFile('./model/'+config.words_file),loadPackedModel(config)]);
-  const embeddings=new Embeddings(words,vectors,config.dimensions);
+  const [words,vectors,hubBuffer]=await Promise.all([loadFile('./model/'+config.words_file),loadPackedModel(config),loadFile('./model/'+config.hub_file,true)]);
+  if(globalThis.crypto?.subtle){
+    const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',hubBuffer))].map(v=>v.toString(16).padStart(2,'0')).join('');
+    if(hash!==config.hub_sha256)throw Error('Word breadth data is damaged. Please reload.');
+  }
+  const hubs=new Uint8Array(hubBuffer),embeddings=new Embeddings(words,vectors,config.dimensions,hubs);
   let game,historical,worker,sequence=0;
   const pending=new Map();
   async function assess(body,operation='assess'){
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v20')).SkillAnalyser(embeddings).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v20')).assessHole(embeddings,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v21')).SkillAnalyser(embeddings).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v21')).assessHole(embeddings,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v20',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v21',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
-      worker.postMessage({init:true,words,vectors,dimensions:config.dimensions});
+      worker.postMessage({init:true,words,vectors,dimensions:config.dimensions,hubs});
     }
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
@@ -154,7 +173,7 @@ export async function createBrowserClient() {
     }
     if (path === 'restore') {
       let model=embeddings;
-      if(!['golf-distance-v2','golf-fixed-v2'].includes(body.state.rules)){
+      if(!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(body.state.rules)){
         if(!historical){
           const buffer=await loadFile('./model/vectors.f32',true,'force-cache');
           const view=new DataView(buffer);

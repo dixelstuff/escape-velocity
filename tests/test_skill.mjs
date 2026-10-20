@@ -35,7 +35,7 @@ const config=JSON.parse(readFileSync(new URL('../static/model/config.json',impor
 const words=JSON.parse(readFileSync(new URL('../static/model/'+config.words_file,import.meta.url)));
 const buf=gunzipSync(readFileSync(new URL('../static/model/'+config.vector_file,import.meta.url)));
 e=new Embeddings(words,decodeHalf(buf.buffer.slice(buf.byteOffset,buf.byteOffset+buf.byteLength)),config.dimensions);analyser=new SkillAnalyser(e);
-const settings={mode:'distance',launch_min:.10,launch_max:.21};
+const settings={mode:'distance',launch_min:.10,launch_max:.21,rules:'golf-distance-v2'};
 g=new Game(e,'morph','lineage',.28,settings);g.submit('evolve');g.submit('generation');g.submit('lineage');const before=JSON.stringify(g.state()),longer=analyser.analyse(g.state());assert.equal(JSON.stringify(g.state()),before);
 g=new Game(e,'morph','lineage',.28,settings);g.submit('evolved');const shortcut=analyser.analyse(g.state());assert.ok(shortcut.score>longer.score);assert.equal(shortcut.shots.length,1);
 console.log(`Real vectors: EVOLVE route ${longer.score}; EVOLVED green ${shortcut.score}.`);

@@ -30,8 +30,14 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v20', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
+    config = dict(release='golf-v21', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
+    hub_meta=json.loads((output/'hubs.json').read_text()) if (output/'hubs.json').exists() else {}
+    if hub_meta.get('vector_sha256')!=config['vector_sha256'] or hub_meta.get('words_file')!=words_file:
+        from build_hubs import main as build_hubs
+        build_hubs(config)
+        hub_meta=json.loads((output/'hubs.json').read_text())
+    config.update(hub_file=hub_meta['file'],hub_sha256=hub_meta['sha256'],hub_version=hub_meta['version'])
     (output / 'config.json').write_text(json.dumps(config, separators=(',', ':')))
     (output / 'ATTRIBUTION.txt').write_text(
         'Word vectors: Stanford GloVe 6B 300d, Wikipedia 2014 + Gigaword 5.\n'

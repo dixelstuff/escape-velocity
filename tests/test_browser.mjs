@@ -6,7 +6,8 @@ const read = path => readFileSync(new URL(path, root));
 const words = JSON.parse(read('static/model/words.json'));
 const bytes = read('static/model/vectors.f32');
 const vectors = new Float32Array(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
-const embeddings = new Embeddings(words.slice(0,vectors.length/300), vectors);
+const config=JSON.parse(read('static/model/config.json'));
+const embeddings = new Embeddings(words.slice(0,vectors.length/300), vectors,300,new Uint8Array(read('static/model/'+config.hub_file)).slice(0,vectors.length/300));
 const fixtures = JSON.parse(read('tests/browser-fixtures.json'));
 function compare(actual, expected) {
   for (const [key, value] of Object.entries(expected)) {

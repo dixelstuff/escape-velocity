@@ -1,5 +1,5 @@
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game, launchRequirement } from './engine.mjs?v=golf-v20';
+import { Game } from './engine.mjs?v=golf-v21';
 export const SKILL_VERSION='vector-skill-v2';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
@@ -20,7 +20,7 @@ export class SkillAnalyser {
     this.rows.set(word,row);return row;
   }
   analyse(saved){
-    if(!['golf-distance-v2','golf-fixed-v2'].includes(saved.rules))throw Error('Skill is available for rounds played with the current course rules.');
+    if(!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules))throw Error('Skill is available for rounds played with the current course rules.');
     const e=this.e,g=new Game(e,saved.start,saved.target,saved.threshold,saved),target=this.row(g.target),gap=Math.max(.01,g.threshold-g.baseline);
     const progress=v=>clamp((v-g.baseline)/gap),position=word=>target[e.index.get(word)];
     const potentialCache=new Map();
@@ -29,7 +29,7 @@ export class SkillAnalyser {
       const contact=this.row(s.current),current=position(s.current),reached=new Set(s.route),list=[];
       for(let i=0;i<e.words.length;i++){
         const word=e.words[i];if(word===s.current)continue;
-        const destination=target[i],required=g.mode==='fixed'?g.threshold:launchRequirement(current,destination,g.baseline,g.threshold,g.launch_min,g.launch_max).required;
+        const destination=target[i],required=g.requirement(s.current,word,current,destination).required;
         const backtrack=destination+1e-7<current&&reached.has(word);
         if(contact[i]+1e-7<required||(!backtrack&&destination+1e-7<s.best-g.backward_allowance))continue;
         // Strength is a bounded measure of contact surplus, not a probability.

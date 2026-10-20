@@ -28,3 +28,13 @@ class CurrentCourseTests(unittest.TestCase):
         g=Game(FakeEmbeddings(),'start','target',.5,mode='distance',rules='golf-distance-v1')
         g.submit('arrival');self.assertEqual(g.state()['attempts'],1)
         self.assertNotIn('automatic_shots',g.state())
+
+    def test_hub_fee_is_modest_forward_only_and_versioned(self):
+        e=FakeEmbeddings();e.hub=lambda w:1. if w=='forward' else 0.
+        modern=Game(e,'start','target',.5,mode='distance')
+        old=Game(e,'start','target',.5,mode='distance',rules='golf-distance-v2')
+        self.assertAlmostEqual(modern.requirement('start','forward')[2],.035*(.3/.4)**2)
+        self.assertEqual(modern.requirement('forward','backward')[2],0)
+        self.assertEqual(old.requirement('start','forward')[2],0)
+        self.assertGreater(modern.submit('forward')['required'],old.submit('forward')['required'])
+        self.assertIn('hub_surcharge',modern.history[0]);self.assertNotIn('hub_surcharge',old.history[0])

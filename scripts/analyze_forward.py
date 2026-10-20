@@ -9,12 +9,15 @@ from engine import Embeddings, Game, DATA
 
 def search_forward(e,p):
     scores=e.vectors@e.vectors[e.index[p['target']]]
+    hubs=np.array([e.hub(w) for w in e.words])
     start=e.index[p['start']];baseline=float(scores[start]);previous={start:None};queue=deque([start])
     while queue:
         current=queue.popleft()
         launch=e.vectors@e.vectors[current]
         fraction=np.minimum(1,np.abs(np.minimum(scores,p['threshold'])-min(scores[current],p['threshold']))/max(1e-6,p['threshold']-baseline))
         required=p['launch_min']+(p['launch_max']-p['launch_min'])*fraction
+        forward=np.minimum(1,np.maximum(0,np.minimum(scores,p['threshold'])-min(scores[current],p['threshold']))/max(1e-6,p['threshold']-baseline))
+        required+=.035*np.maximum(hubs[current],hubs)*forward**2
         for raw in np.flatnonzero((scores+1e-7>=scores[current])&(launch+1e-7>=required)):
             nxt=int(raw)
             if nxt in previous:continue
@@ -36,6 +39,6 @@ def main():
             assert game.submit(word)['success']
         assert game.won
         results.append(dict(**p,attempts=len(route)-1,total_shots=game.state()['attempts'],route=route))
-    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='golf-distance-v2',results=results),indent=2)+'\n')
+    (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='golf-distance-v3',results=results),indent=2)+'\n')
     print(f'Verified {len(results)} menu routes at green .28, shot .10–.21, forward only.')
 if __name__=='__main__':main()

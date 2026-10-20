@@ -18,6 +18,7 @@ def main():
     for p in json.loads((DATA/'puzzles.json').read_text()):
         row=next(r for r in analysis['results'] if all(r[k]==v for k,v in p.items()))
         add(p,['unknownwordxyz',p['start'],p['target'],*row['route'][1:]])
+        add(dict(**p,rules='golf-distance-v2'),['unknownwordxyz',p['start'],p['target'],*row['route'][1:]])
     add(dict(start='forest',target='money',threshold=.4,mode='fixed',rules='fixed-threshold-v2'),['milk','milk','area','forest','area','have'])
     add(dict(start='forest',target='money',threshold=.4,mode='fixed',rules='fixed-threshold-v1'),['milk','milk','area','forest','have'])
     add(dict(start='penalty',target='ability',threshold=.45,mode='distance',rules='distance-v1'),['goal','skill','skill','goal','aim','achieve'])

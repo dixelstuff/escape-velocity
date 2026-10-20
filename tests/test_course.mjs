@@ -33,7 +33,7 @@ const config=JSON.parse(readFileSync(new URL('../static/model/config.json',impor
 const words=JSON.parse(readFileSync(new URL('../static/model/words.json',import.meta.url)));
 const data=gunzipSync(readFileSync(new URL('../static/model/'+config.vector_file,import.meta.url)));
 const packed=data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength);
-const e=new Embeddings(words,decodeHalf(packed));
+const e=new Embeddings(words,decodeHalf(packed),config.dimensions,new Uint8Array(readFileSync(new URL('../static/model/'+config.hub_file,import.meta.url))));
 assert.equal(packed.byteLength,config.vector_bytes);
 assert.deepEqual(decodeHalf(Uint8Array.from([0,60,0,188,0,0]).buffer),Float32Array.from([1,-1,0]));
 assert.throws(()=>decodeHalf(Uint8Array.from([0,124]).buffer));

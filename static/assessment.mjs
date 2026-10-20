@@ -1,9 +1,9 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game, launchRequirement } from './engine.mjs?v=golf-v20';
+import { Game } from './engine.mjs?v=golf-v21';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.28,{mode:'distance',launch_min:.10,launch_max:.21,...settings});
   const {start,target,baseline,threshold,launch_min,launch_max}=game;
-  const direct=new Game(e,start,target,threshold,{mode:game.mode,launch_min,launch_max}).submit(target).won;
+  const direct=new Game(e,start,target,threshold,{mode:game.mode,launch_min,launch_max,rules:game.rules}).submit(target).won;
   const n=e.words.length,d=e.dimensions,si=e.index.get(start)*d,ti=e.index.get(target)*d,progress=new Float32Array(n),contacts=new Float32Array(n);
   let openings=0;
   const opening_bridges=[];
@@ -13,7 +13,7 @@ export function assessHole(e,settings){
     for(let k=0;k<d;k++){const v=e.vectors[i*d+k];contact+=v*e.vectors[si+k];destination+=v*e.vectors[ti+k];}
     contact=Math.max(-1,Math.min(1,contact));destination=Math.max(-1,Math.min(1,destination));
     contacts[i]=contact;progress[i]=destination;
-    const required=game.mode==='fixed'?threshold:launchRequirement(baseline,destination,baseline,threshold,launch_min,launch_max).required;
+    const required=game.requirement(start,e.words[i],baseline,destination).required;
     if(e.words[i]===start||contact+1e-7<required||destination+1e-7<baseline-.01)continue;
     openings++;if(destination+1e-7>=threshold)opening_bridges.push({word:e.words[i],contact,destination,required,direct:e.words[i]===target});
     else if(destination>baseline)candidates.push(i);
@@ -26,7 +26,7 @@ export function assessHole(e,settings){
     for(let j=0;j<n&&!found;j++){
       if(progress[j]+1e-7<threshold)continue;
       let contact=0;for(let k=0;k<d;k++)contact+=e.vectors[i*d+k]*e.vectors[j*d+k];
-      const required=game.mode==='fixed'?threshold:launchRequirement(progress[i],progress[j],baseline,threshold,launch_min,launch_max).required;
+      const required=game.requirement(e.words[i],e.words[j],progress[i],progress[j]).required;
       found=contact+1e-7>=required;
     }
     if(found)twoStepOpenings++;
