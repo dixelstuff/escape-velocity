@@ -1,4 +1,4 @@
-import { endpointHubs } from './hub-warning.mjs?v=golf-v22';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v23';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -151,11 +151,11 @@ export async function createBrowserClient() {
   const pending=new Map();
   async function assess(body,operation='assess'){
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v22')).SkillAnalyser(embeddings).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v22')).assessHole(embeddings,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v23')).SkillAnalyser(embeddings).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v23')).assessHole(embeddings,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v22',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v23',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
       worker.postMessage({init:true,words,vectors,dimensions:config.dimensions,hubs});

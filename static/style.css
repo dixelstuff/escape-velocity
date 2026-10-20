@@ -113,3 +113,5 @@ body.typing main{background:#f5f3e8;}
 .hub-warning{padding:12px 14px;border-left:3px solid #b18945;border-radius:4px;background:#f4eddc;color:#66512a;font-size:13px;line-height:1.5}.hub-warning[hidden]{display:none}
 
 .word-label[aria-disabled="false"]{cursor:pointer}.word-label:focus-visible{outline:none}.word-label:focus-visible rect{stroke:#477f5d;stroke-width:2}
+
+#arrival-banner #arrival-route{font-size:18px;font-weight:600;line-height:1.6;text-transform:uppercase;margin:0 0 8px}#arrival-banner #arrival-title{font-size:16px;font-weight:500;margin:0 0 8px}#arrival-banner #arrival-skill{font-size:16px}@media(max-width:650px){#arrival-banner #arrival-route{font-size:16px}}
