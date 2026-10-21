@@ -386,3 +386,8 @@ The result always reserves the skill row as SKILL --% while the assessment loads
 ## Result footer alignment (course v47)
 
 The completion card no longer has a close icon or a separate Show result action. Equal side padding replaces the old close-button gutter, so NEXT HOLE and REPLAY are centred across the actual card at its bottom. Miss-message dismissal is unchanged. Bridge eligibility, gameplay and thresholds are unchanged.
+
+
+## Explicit backward-shot message (course v48)
+
+Water shots now explain the semantic direction with the attempted word, target and origin: “Splash! Penalty for hitting backwards. SPEAK is less related to CHIRP than TALK.” Only the message changes; the existing counted shot and return to the current lie remain unchanged, with no extra stroke.
