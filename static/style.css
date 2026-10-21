@@ -75,7 +75,6 @@ body.typing main{background:#f5f3e8;}
 #arrival-banner,#shot-notice{position:relative;inset:auto;max-width:none;margin:0;box-shadow:none;text-align:left;padding:14px 48px 14px 16px;}
 #arrival-banner h2{font-size:22px;margin:0;}
 #arrival-route{font-size:14px;line-height:1.65;overflow-wrap:anywhere;}
-#arrival-summary{line-height:1.5;}
 .feedback-close{position:absolute;right:5px;top:5px;min-width:44px;min-height:44px;padding:4px;background:transparent;color:inherit;font-size:25px;line-height:1;}
 #shot-notice{font-size:13px;line-height:1.5;}
 .course-tools{margin:10px 0 18px;}

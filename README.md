@@ -250,3 +250,7 @@ The green is now exactly 10% wider than the original drawing (radii 48.4 on phon
 The completion card keeps the successful route and total counted shots, with failed words listed separately as Miss hits and Penalty hits (water). Repeated attempts remain listed; water still costs its existing one counted shot, with no additional penalty. The same failure breakdown appears in completed Scorecard route reviews and copied scorecards. Copied skill uses the same percentage display as the page.
 
 Clicking or keyboard-activating the hole-word label while away from the tee submits that shot immediately through the normal scoring, logging and animation flow. At the tee it only fills the field, including after returning to the tee. Other labels still fill the field. Busy/completed rounds and held-key repeats cannot launch another shot. Mobile activation does not summon the keyboard. Shot rules, model, thresholds, hub adjustment and chip-in variability are unchanged.
+
+## Leaner result card (course v29)
+
+The completion card no longer repeats that the score includes one automatic finishing shot. Total shots, route, misses, water shots, skill, automatic finishing and detailed scorecard records are unchanged. Four eligible holes from the next shared scorecard batch are retained in the menu: temple → netball, double → mast, window → bunt and genie → cinema, bringing the menu to 89. The existing screening excludes unfinished POPCORN → PETAL attempts. No threshold or chip-in display changes are included in this release.

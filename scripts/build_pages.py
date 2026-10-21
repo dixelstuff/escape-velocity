@@ -30,7 +30,7 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v28', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
+    config = dict(release='golf-v29', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=json.loads((DATA / 'puzzles.json').read_text()), vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     hub_meta=json.loads((output/'hubs.json').read_text()) if (output/'hubs.json').exists() else {}
     if hub_meta.get('vector_sha256')!=config['vector_sha256'] or hub_meta.get('words_file')!=words_file:

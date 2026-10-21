@@ -678,5 +678,37 @@
     "mode": "distance",
     "launch_min": 0.1,
     "launch_max": 0.22
+  },
+  {
+    "start": "temple",
+    "target": "netball",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.1,
+    "launch_max": 0.22
+  },
+  {
+    "start": "double",
+    "target": "mast",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.1,
+    "launch_max": 0.22
+  },
+  {
+    "start": "window",
+    "target": "bunt",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.1,
+    "launch_max": 0.22
+  },
+  {
+    "start": "genie",
+    "target": "cinema",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.1,
+    "launch_max": 0.22
   }
 ]
