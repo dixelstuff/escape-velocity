@@ -1,7 +1,10 @@
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
-  if(similarity<=arrival)return arrivalFraction*(similarity-baseline)/(arrival-baseline);
+  if(similarity<=arrival){
+    const progress=(similarity-baseline)/(arrival-baseline);
+    return arrivalFraction*(progress>0?Math.sqrt(progress):progress);
+  }
   return arrivalFraction+(1-arrivalFraction)*(similarity-arrival)/Math.max(1e-6,1-arrival);
 }
 export function mapLayout(narrow=false) {
@@ -34,15 +37,18 @@ export function projectPoint(similarity,baseline,arrival,layout,offset=0,centreY
  const dy=Math.max(-spread,Math.min(spread,offset));
  return {x:contourX(centreX,dy,layout),y:centreY+dy};
 }
-/** A narrow fade-in ribbon; nothing is filled on the hole side of the arc. */
-export function chipArcBands(centreX,layout,{centreY=215,top=54,bottom=378,width=12,steps=12,samples=40}={}){
- const extent=.9*Math.max(0,layout.right-centreX-width/2);
+/** Paint only the true hub-boundary interval; never add a decorative band width. */
+export function chipArcBands(outerX,innerX,layout,{centreY=215,top=54,bottom=378,steps=16,samples=40}={}){
+ const width=Math.max(0,innerX-outerX);
+ const extent=.9*Math.max(0,layout.right-innerX);
  top=Math.max(top,centreY-extent);bottom=Math.min(bottom,centreY+extent);
  const line=x=>Array.from({length:samples+1},(_,i)=>{const y=top+(bottom-top)*i/samples;return [contourX(x,y-centreY,layout),y];});
+ const path=points=>'M'+points.map(p=>p.map(v=>v.toFixed(3)).join(',')).join(' L');
+ // A coincident pair is a single stroked contour, not an invented uncertainty band.
+ if(width<=1e-7)return [{path:path(line(outerX)),opacity:.78,stroke:true}];
  return Array.from({length:steps},(_,i)=>{
-  const a=line(centreX-width/2+width*i/steps),b=line(centreX-width/2+width*(i+1)/steps).reverse();
-  const points=[...a,...b];
-  return {path:'M'+points.map(p=>p.map(v=>v.toFixed(2)).join(',')).join(' L')+' Z',opacity:.78*((i+1)/steps)**1.7};
+  const a=line(outerX+width*i/steps),b=line(outerX+width*(i+1)/steps).reverse();
+  return {path:path([...a,...b])+' Z',opacity:.06+.72*((i+1)/steps)**1.7};
  });
 }
 

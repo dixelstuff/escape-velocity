@@ -14,6 +14,6 @@ export function chipRange(game) {
   }
   return (lo+hi)/2;
  }
- const first=boundary(0),last=boundary(1),softness=.035*(game.threshold-game.baseline);
- return {first,last,start:Math.max(game.baseline,first-softness),end:Math.min(game.threshold,last+softness)};
+ const first=boundary(0),last=boundary(1);
+ return {first,last,start:first,end:last};
 }

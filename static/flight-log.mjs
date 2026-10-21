@@ -1,6 +1,6 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v31';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v31';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v31';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v32';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v32';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v32';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';

@@ -11,6 +11,9 @@ for(const baseline of [-.1,.05,.2,.4]) {
   }
 }
 assert.ok(Number.isFinite(mapFraction(.6,.6,.45)));
+assert.equal(mapFraction(.1,0,.4),.45,'quarter progress uses half the displayed journey');
+assert.equal(mapFraction(.225,0,.4),.675,'later progress is compressed by the same square-root curve');
+assert.equal(mapFraction(-.04,0,.4),-.09,'backward positions stay finite and linear');
 for(const narrow of [false,true]) {
   const d=mapLayout(narrow);
   assert.equal(d.right-d.zoneLeft,d.zoneRight-d.right);
@@ -65,8 +68,8 @@ for(const narrow of [false,true]){
  }
  assert.deepEqual(projectPoint(baseline,baseline,green,d),{x:d.left,y:215});
  assert.deepEqual(projectPoint(1,baseline,green,d),{x:d.right,y:215});
- const centre=projectX(.17,baseline,green,d),width=12,bands=chipArcBands(centre,d,{width});
- assert.equal(bands.length,12);assert.ok(contourX(centre,150,d)>centre,'range arc wraps toward the flag at its ends');
+ const centre=projectX(.17,baseline,green,d),width=12,bands=chipArcBands(centre-width/2,centre+width/2,d);
+ assert.equal(bands.length,16);assert.ok(contourX(centre,150,d)>centre,'range arc wraps toward the flag at its ends');
  let previous=0;
  for(const b of bands){
   assert.ok(b.opacity>previous&&b.opacity<=.78);previous=b.opacity;
