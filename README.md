@@ -423,3 +423,12 @@ The trial fits the mean and covariance to all 400,000 **unnormalised** original 
 Current defaults remain short .095 / long .215 / green .27. The trial uses calibrated short .09526148742408946 / long .2226404434066529 / green .26797642291676005 to approximately preserve overall contact and finishing opportunity, rather than comparing geometries at arbitrary identical cosine cutoffs. Existing breadth scores and the .035 hub surcharge remain fixed for comparison. FINANCE headwind, if selected, is applied after the selected base profile.
 
 For GOLD → HOVER the packed trial has 53 legal finishing bridges versus 67 in the current model: AROUND, STILL, COME, WILL, CONTINUED, HOLD, KEEP and EXPECTED are excluded, while SHINY remains. This does not guarantee every level or familiar route improves. Tests check artifact integrity, no upfront trial download, lazy switching, profile-separated replay/logs/feedback keys, correct skill/shortcut/chip-range geometry and headwind composition.
+
+
+## Current / ABTT comparison holes (course v53)
+
+Ten fresh holes appear in the first dropdown group, “Model comparison · 10 holes”, numbered 01–10. The original course remains in its own group with its original stored indices; comparison holes from `data/comparison-holes.json` are appended to the browser config so NEXT HOLE advances through them in order. Use the existing Word model selector to restart the same hole under Current or ABTT. Scorecards already record model identity and actual thresholds. No scoring, model defaults or vector files changed for this set.
+
+Selection screened familiar non-hub tee/hole words against previously submitted scorecards and the existing menu. Both models must reject a direct hole-in-one, offer multiple opening finishing bridges, and have several robust model-specific bridges in both directions. On these ten pairs, opening-finishing bridge set Jaccard overlap is .20–.51; disagreement is not solely near-threshold float precision or a slight calibration change. This predicts different available routes, not a guarantee that a player will choose different words or prefer one model. Solutions are intentionally omitted from the UI and documentation.
+
+01 KNUCKLE → SHADOW; 02 JARGON → CLOUD; 03 LACE → HAMMER; 04 MUSEUM → GIRAFFE; 05 HOVER → DREAM; 06 SILVER → ZIPPER; 07 FABLE → THUNDER; 08 SYNTAX → BRIDGE; 09 WEAVE → SPARK; 10 ASH → CURL.
