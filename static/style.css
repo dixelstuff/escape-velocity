@@ -162,3 +162,12 @@ body.typing main{background:#f5f3e8;}
 /* The result has no close control; centre its footer within equal side padding. */
 #arrival-banner{padding:16px;}
 #arrival-banner .result-actions{width:100%;justify-content:center;margin:22px 0 0;padding-top:4px;}
+
+/* Use compact keyboard chrome before taking space away from the course. */
+@media(max-width:650px){
+ body.typing main{padding-top:4px;padding-bottom:4px;}
+ body.typing .mission{margin-bottom:4px;}
+ body.typing .controls{margin-top:6px;}
+ body.typing .input-row input,body.typing .input-row button{padding:10px 12px;min-height:44px;}
+ body.typing #shot-context{font-size:12px;line-height:1.35;margin-top:6px;}
+}

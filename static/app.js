@@ -1,16 +1,16 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v48';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v48';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v48';
-import { shotMotion } from './shot-motion.mjs?v=golf-v48';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v48';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v48';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v48';
-import { createBrowserClient } from './engine.mjs?v=golf-v48';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v48';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v48';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v48';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v48';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v48';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v49';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v49';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v49';
+import { shotMotion } from './shot-motion.mjs?v=golf-v49';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v49';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v49';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v49';
+import { createBrowserClient } from './engine.mjs?v=golf-v49';
+import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v49';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v49';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v49';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v49';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v49';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -196,7 +196,7 @@ function update(){
  $('arrival-failures').hidden=!state.won||!failures;
  $('arrival-failures').textContent=failures;
  $('shot-notice').hidden=noticeDismissed||!shownEvent||!['water','miss'].includes(shownEvent.outcome)||state.won;
- $('shot-notice-text').textContent=shownEvent?.outcome==='water'?`Splash! Penalty for hitting backwards. ${shownEvent.word.toUpperCase()} is less related to ${state.target.toUpperCase()} than ${shownEvent.origin.toUpperCase()}.`:`Miss! Ball stays at ${state.current}. One shot counted.`;
+ $('shot-notice-text').innerHTML=shownEvent?.outcome==='water'?`<strong>Splash!</strong> You hit backwards. ${esc(shownEvent.word.toUpperCase())} is less related to ${esc(state.target.toUpperCase())} than ${esc(shownEvent.origin.toUpperCase())}.`:shownEvent?`<strong>Miss!</strong> ${esc(shownEvent.word.toUpperCase())} doesn't connect enough to ${esc(shownEvent.origin.toUpperCase())} to hit the ball.`:'';
 
 
  map();telemetry();renderLog();updateArrivalSkill();
@@ -397,7 +397,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v48'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v49'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

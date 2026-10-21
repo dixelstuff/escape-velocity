@@ -391,3 +391,10 @@ The completion card no longer has a close icon or a separate Show result action.
 ## Explicit backward-shot message (course v48)
 
 Water shots now explain the semantic direction with the attempted word, target and origin: “Splash! Penalty for hitting backwards. SPEAK is less related to CHIRP than TALK.” Only the message changes; the existing counted shot and return to the current lie remain unchanged, with no extra stroke.
+
+
+## Scenario-specific misses and compact keyboard layout (course v49)
+
+Miss and water messages now lead with bold labels and name the exact words: “Splash! You hit backwards. SPEAK is less related to CHIRP than TALK.” and “Miss! PUKE doesn't connect enough to GATE to hit the ball.” Contact failures name the origin lie, not the tee. Words are HTML-escaped and scoring is unchanged.
+
+Focused mobile play reduces outer spacing, input spacing and helper typography before reducing the map. It avoids reserving the device's bottom safe area again above an already inset software keyboard. Input and submit targets retain a 44px minimum. The pre-focus course width remains the cap; proportional map shrinking is retained for viewports that genuinely cannot fit the course and controls.
