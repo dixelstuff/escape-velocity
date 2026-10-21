@@ -30,7 +30,8 @@ class Embeddings:
         return float(np.clip(self.vectors[self.index[a]] @ self.vectors[self.index[b]], -1, 1))
 
 class Game:
-    def __init__(self, embeddings, start, target, threshold=.28, mode='fixed', launch_min=None, launch_max=None, rules=None):
+    def __init__(self, embeddings, start, target, threshold=None, mode='fixed', launch_min=None, launch_max=None, rules=None):
+        if threshold is None:threshold=.28 if rules else .27
         if start not in embeddings.index or target not in embeddings.index: raise ValueError('Choose words in the supported vocabulary.')
         if start == target: raise ValueError('Tee and hole words must differ.')
         if not 0.1 <= threshold <= 0.9: raise ValueError('Green threshold must be between 0.1 and 0.9.')
@@ -39,7 +40,7 @@ class Game:
         golf = rules is None or rules.startswith('golf-')
         launch_min = (.25 if legacy else .10 if golf else .08) if launch_min is None else launch_min
         modern = rules is None or rules in ['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3']
-        launch_max = (.40 if legacy else .21 if modern else .20 if golf else .18) if launch_max is None else launch_max
+        launch_max = (.40 if legacy else (.21 if rules else .22) if modern else .20 if golf else .18) if launch_max is None else launch_max
         if not .01 <= launch_min <= launch_max <= .9: raise ValueError('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.')
         expected = 'golf-distance-v3' if mode=='distance' else 'golf-fixed-v3'
         if rules is not None and rules not in [expected, *(['golf-distance-v2','golf-distance-v1','distance-v1','distance-v2','distance-v3'] if mode=='distance' else ['golf-fixed-v2','golf-fixed-v1',LEGACY_RULES,'fixed-threshold-v2','fixed-threshold-v3'])]: raise ValueError('Unknown rule version.')

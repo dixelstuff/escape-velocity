@@ -27,7 +27,7 @@ def main():
         for journey in json.loads(file.read_text()).get('journeys',[]):
             s=journey.get('state',{});key=(s.get('start'),s.get('target'))
             if key in seen or not eligible(e,s):continue
-            p=dict(start=key[0],target=key[1],threshold=.28,mode='distance',launch_min=.10,launch_max=.21)
+            p={**menu[0], 'start':key[0], 'target':key[1]}
             if Game(e,**p).submit(p['target'])['won']:continue
             route=search_forward(e,p)
             if not route:continue

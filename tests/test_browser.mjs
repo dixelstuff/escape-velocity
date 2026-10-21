@@ -78,7 +78,7 @@ const backward=game.submit('backward');
 assert.equal(backward.forward,false);assert.equal(backward.success,false);
 assert.equal(game.current,'forward');assert.equal(game.state().attempts,2);
 assert.deepEqual(restoreGame(fake,game.state()).state(),game.state());
-assert.equal(new Game(fake,'start','target').threshold,.28);
+assert.equal(new Game(fake,'start','target').threshold,.27);
 assert.equal(game.launch_min,.10);assert.equal(game.launch_max,.20);
 
 assert.deepEqual(launchRequirement(.23,.25,.037,.25),launchRequirement(.23,.8,.037,.25));

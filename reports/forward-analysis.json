@@ -4,38 +4,38 @@
     {
       "start": "coffee",
       "target": "science",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "coffee",
-        "well"
+        "good"
       ]
     },
     {
       "start": "cheese",
       "target": "language",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "cheese",
-        "style"
+        "paper"
       ]
     },
     {
       "start": "penalty",
       "target": "ability",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -46,10 +46,10 @@
     {
       "start": "everyday",
       "target": "affection",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -60,52 +60,52 @@
     {
       "start": "moon",
       "target": "kitchen",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "moon",
-        "hot"
+        "every"
       ]
     },
     {
       "start": "garden",
       "target": "computer",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "garden",
-        "can"
+        "just"
       ]
     },
     {
       "start": "bread",
       "target": "democracy",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "bread",
-        "make"
+        "good"
       ]
     },
     {
       "start": "forest",
       "target": "money",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -116,10 +116,10 @@
     {
       "start": "seal",
       "target": "knuckle",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -131,10 +131,10 @@
     {
       "start": "bold",
       "target": "gravel",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -146,10 +146,10 @@
     {
       "start": "lake",
       "target": "fragrant",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -160,10 +160,10 @@
     {
       "start": "cake",
       "target": "monitor",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -174,10 +174,10 @@
     {
       "start": "dune",
       "target": "crystal",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -188,10 +188,10 @@
     {
       "start": "gel",
       "target": "male",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -202,24 +202,24 @@
     {
       "start": "dance",
       "target": "merger",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "dance",
-        "part"
+        "both"
       ]
     },
     {
       "start": "dance",
       "target": "glacier",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -230,24 +230,24 @@
     {
       "start": "dance",
       "target": "lane",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "dance",
-        "along"
+        "walk"
       ]
     },
     {
       "start": "owl",
       "target": "gladly",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -259,40 +259,40 @@
     {
       "start": "clam",
       "target": "placard",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "clam",
-        "blue",
-        "flag"
+        "water",
+        "carrying"
       ]
     },
     {
       "start": "domain",
       "target": "lazy",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "domain",
         "have",
-        "too"
+        "get"
       ]
     },
     {
       "start": "client",
       "target": "chirp",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -304,10 +304,10 @@
     {
       "start": "gate",
       "target": "vomit",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -319,10 +319,10 @@
     {
       "start": "chess",
       "target": "sink",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -333,10 +333,10 @@
     {
       "start": "chess",
       "target": "annoy",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -348,10 +348,10 @@
     {
       "start": "fan",
       "target": "anchor",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -362,10 +362,10 @@
     {
       "start": "bling",
       "target": "hatch",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -377,10 +377,10 @@
     {
       "start": "gold",
       "target": "hover",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -391,10 +391,10 @@
     {
       "start": "leopard",
       "target": "angle",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -405,10 +405,10 @@
     {
       "start": "frame",
       "target": "goose",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -419,24 +419,24 @@
     {
       "start": "shine",
       "target": "leap",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "shine",
-        "take"
+        "see"
       ]
     },
     {
       "start": "gall",
       "target": "giant",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -447,10 +447,10 @@
     {
       "start": "classic",
       "target": "slide",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -461,10 +461,10 @@
     {
       "start": "pot",
       "target": "lap",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -475,25 +475,25 @@
     {
       "start": "pot",
       "target": "sting",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "pot",
-        "have",
+        "but",
         "operation"
       ]
     },
     {
       "start": "melt",
       "target": "climb",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -504,10 +504,10 @@
     {
       "start": "flag",
       "target": "speck",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -518,10 +518,10 @@
     {
       "start": "nice",
       "target": "feather",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -532,10 +532,10 @@
     {
       "start": "height",
       "target": "beer",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -546,40 +546,40 @@
     {
       "start": "layer",
       "target": "muse",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "layer",
-        "control",
-        "warlord"
+        "kind",
+        "lover"
       ]
     },
     {
       "start": "quilt",
       "target": "mantra",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "quilt",
-        "look",
-        "word"
+        "show",
+        "god"
       ]
     },
     {
       "start": "replace",
       "target": "hole",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -590,10 +590,10 @@
     {
       "start": "waste",
       "target": "clap",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -605,10 +605,10 @@
     {
       "start": "dragon",
       "target": "cap",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -619,10 +619,10 @@
     {
       "start": "grin",
       "target": "plump",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -633,10 +633,10 @@
     {
       "start": "seep",
       "target": "goat",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -647,25 +647,25 @@
     {
       "start": "signage",
       "target": "tackle",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "signage",
-        "name",
+        "system",
         "back"
       ]
     },
     {
       "start": "clay",
       "target": "tent",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -676,24 +676,24 @@
     {
       "start": "base",
       "target": "tricycle",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "base",
-        "gear"
+        "fixed"
       ]
     },
     {
       "start": "rain",
       "target": "pleasant",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -704,10 +704,10 @@
     {
       "start": "whale",
       "target": "nuclear",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -718,10 +718,10 @@
     {
       "start": "lever",
       "target": "empty",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -732,10 +732,10 @@
     {
       "start": "crane",
       "target": "pulse",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -747,10 +747,10 @@
     {
       "start": "ocean",
       "target": "iris",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -761,24 +761,24 @@
     {
       "start": "mate",
       "target": "elephant",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "mate",
-        "male"
+        "female"
       ]
     },
     {
       "start": "paranoid",
       "target": "goat",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -789,10 +789,10 @@
     {
       "start": "morph",
       "target": "lineage",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -803,24 +803,25 @@
     {
       "start": "polo",
       "target": "lick",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
-      "attempts": 1,
-      "total_shots": 2,
+      "launch_max": 0.22,
+      "attempts": 2,
+      "total_shots": 3,
       "route": [
         "polo",
-        "coyote"
+        "well",
+        "eat"
       ]
     },
     {
       "start": "lint",
       "target": "please",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -832,24 +833,25 @@
     {
       "start": "carton",
       "target": "alive",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
-      "attempts": 1,
-      "total_shots": 2,
+      "launch_max": 0.22,
+      "attempts": 2,
+      "total_shots": 3,
       "route": [
         "carton",
-        "babies"
+        "paper",
+        "are"
       ]
     },
     {
       "start": "phrase",
       "target": "tangle",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -860,24 +862,24 @@
     {
       "start": "scold",
       "target": "mime",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "scold",
-        "artiste"
+        "dubbing"
       ]
     },
     {
       "start": "glue",
       "target": "lunch",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -888,10 +890,10 @@
     {
       "start": "fine",
       "target": "plank",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -902,10 +904,10 @@
     {
       "start": "tee",
       "target": "neat",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -916,39 +918,39 @@
     {
       "start": "aunt",
       "target": "novice",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "aunt",
-        "tutor"
+        "monk"
       ]
     },
     {
       "start": "bend",
       "target": "loan",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "bend",
-        "can",
-        "year"
+        "just",
+        "make"
       ]
     },
     {
       "start": "hygiene",
       "target": "lamp",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -959,10 +961,10 @@
     {
       "start": "frost",
       "target": "ancient",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -973,10 +975,10 @@
     {
       "start": "clove",
       "target": "linger",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -987,43 +989,228 @@
     {
       "start": "pothole",
       "target": "tyranny",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "pothole",
-        "crony"
+        "insufferable"
       ]
     },
     {
       "start": "yard",
       "target": "maple",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "yard",
-        "tree"
+        "green"
       ]
     },
     {
       "start": "gang",
       "target": "flowers",
-      "threshold": 0.28,
+      "threshold": 0.27,
       "mode": "distance",
       "launch_min": 0.1,
-      "launch_max": 0.21,
+      "launch_max": 0.22,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "gang",
-        "hanging"
+        "young"
+      ]
+    },
+    {
+      "start": "turtle",
+      "target": "ball",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "turtle",
+        "green"
+      ]
+    },
+    {
+      "start": "mince",
+      "target": "hall",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "mince",
+        "word",
+        "all"
+      ]
+    },
+    {
+      "start": "singer",
+      "target": "fantastic",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "singer",
+        "best"
+      ]
+    },
+    {
+      "start": "lapse",
+      "target": "star",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "lapse",
+        "break"
+      ]
+    },
+    {
+      "start": "spill",
+      "target": "generous",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "spill",
+        "far"
+      ]
+    },
+    {
+      "start": "tree",
+      "target": "gravity",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "tree",
+        "water"
+      ]
+    },
+    {
+      "start": "crater",
+      "target": "eleven",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "crater",
+        "found",
+        "are"
+      ]
+    },
+    {
+      "start": "mars",
+      "target": "clarity",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "mars",
+        "spirit"
+      ]
+    },
+    {
+      "start": "linger",
+      "target": "clarity",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "linger",
+        "doubt"
+      ]
+    },
+    {
+      "start": "ocean",
+      "target": "nudity",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "ocean",
+        "are",
+        "sex"
+      ]
+    },
+    {
+      "start": "cheese",
+      "target": "nudity",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "cheese",
+        "mild"
+      ]
+    },
+    {
+      "start": "sailor",
+      "target": "savior",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "sailor",
+        "hero"
+      ]
+    },
+    {
+      "start": "digger",
+      "target": "load",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.1,
+      "launch_max": 0.22,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "digger",
+        "mechanical"
       ]
     }
   ]

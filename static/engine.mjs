@@ -1,4 +1,4 @@
-import { endpointHubs } from './hub-warning.mjs?v=golf-v25';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v26';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -28,13 +28,13 @@ export function launchRequirement(current, destination, baseline, arrival, minim
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
 export class Game {
-  constructor(embeddings,start,target,threshold=.28,options={}) {
-    start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold);
+  constructor(embeddings,start,target,threshold=undefined,options={}) {
+    start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold??(options.rules ? .28 : .27));
     const {mode='fixed',rules}=options;
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
     const golf=!rules||rules.startsWith('golf-');
     const modern=!rules||['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(rules);
-    const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:modern?.21:golf?.20:.18);
+    const launch_min=options.launch_min??(legacy?.25:golf?.10:.08),launch_max=options.launch_max??(legacy?.40:modern?(rules ? .21 : .22):golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
     if(start===target)throw Error('Tee and hole words must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');
@@ -151,11 +151,11 @@ export async function createBrowserClient() {
   const pending=new Map();
   async function assess(body,operation='assess'){
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v25')).SkillAnalyser(embeddings).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v25')).assessHole(embeddings,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v26')).SkillAnalyser(embeddings).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v26')).assessHole(embeddings,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v25',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v26',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
       worker.postMessage({init:true,words,vectors,dimensions:config.dimensions,hubs});
@@ -164,7 +164,7 @@ export async function createBrowserClient() {
   }
   return { config, async request(path, body) {
     if(path==='breadth')return endpointHubs(embeddings,body);
-    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v25')).reviewRoute(embeddings,body.state);
+    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v26')).reviewRoute(embeddings,body.state);
     if(path==='assess'||path==='skill')return assess(body,path);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);

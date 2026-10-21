@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { startupAction, isOpening } from '../static/startup.mjs';
+import { startupAction, isOpening, restartSettings } from '../static/startup.mjs';
 const opening={start:'coffee',target:'science',threshold:.28,mode:'distance',rules:'golf-distance-v3',launch_min:.10,launch_max:.21};
 const old={rules:'fixed-threshold-v1',state:{start:'forest',target:'money',threshold:.4,attempts:0,history:[]},entries:[]};
 assert.equal(startupAction(null,opening),'opening');
@@ -24,3 +24,11 @@ assert.equal(startupAction({state:{...opening,threshold:.25,launch_min:.09,launc
 assert.equal(startupAction({state:{...opening,rules:'golf-distance-v1'}},opening),'upgrade');
 
 assert.equal(startupAction({state:{...opening,rules:'golf-distance-v2'}},opening),'upgrade');
+
+const latest={...opening,threshold:.27,launch_max:.22};
+const previous={...opening,threshold:.28,launch_max:.21,start:'ocean',target:'iris'};
+assert.equal(startupAction({state:previous},latest),'restore','do not rewrite an existing round');
+assert.deepEqual(restartSettings(previous,latest),{...latest,start:'ocean',target:'iris'});
+assert.equal(previous.threshold,.28,'the archived state is immutable');
+const custom={...previous,threshold:.35,launch_max:.30};
+assert.equal(restartSettings(custom,latest).threshold,.35,'intentional custom settings survive a restart');

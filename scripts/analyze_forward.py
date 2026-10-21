@@ -40,5 +40,5 @@ def main():
         assert game.won
         results.append(dict(**p,attempts=len(route)-1,total_shots=game.state()['attempts'],route=route))
     (ROOT/'reports/forward-analysis.json').write_text(json.dumps(dict(rules='golf-distance-v3',results=results),indent=2)+'\n')
-    print(f'Verified {len(results)} menu routes at green .28, shot .10–.21, forward only.')
+    print(f'Verified {len(results)} menu routes under their stored green/shot settings, forward only.')
 if __name__=='__main__':main()

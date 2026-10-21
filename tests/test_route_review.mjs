@@ -19,7 +19,7 @@ g=play(e,['a','b','a','c','flag']);const repeated=reviewRoute(e,g.state());
 assert.ok(!repeated.skips.some(x=>x.index===1));assert.ok(repeated.skips.some(x=>x.index===3));
 assert.ok(markedRoute(g.route,repeated).startsWith('tee → a →'));
 // Misses stay in the scorecard; the successful-route review neither changes nor grades them.
-g=new Game(e,'tee','flag',.6,{mode:'distance'});g.submit('flag');for(const w of ['a','b','c','flag'])g.submit(w);
+g=new Game(e,'tee','flag',.6,{mode:'distance',rules:'golf-distance-v3'});g.submit('flag');for(const w of ['a','b','c','flag'])g.submit(w);
 assert.deepEqual(reviewRoute(e,g.state()).skips,r.skips);assert.equal(g.state().attempts,5);
 // The last green bridge can be omitted only if the literal hole word is a legal chip-in.
 e=graph({tee:0,a:.1,b:.5,c:.7,flag:1});g=play(e,['a','b','c']);

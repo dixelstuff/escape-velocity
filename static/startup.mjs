@@ -9,3 +9,9 @@ export function startupAction(saved, opening) {
   if(state.threshold===.25&&state.launch_min===.09&&state.launch_max===.19)return 'upgrade';
   return 'restore';
 }
+
+/** Existing rounds retain settings; restarting the previous standard defaults adopts the new course. */
+export function restartSettings(state,opening){
+ const previous=state.mode==='distance'&&state.threshold===.28&&state.launch_min===.10&&state.launch_max===.21;
+ return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max};
+}
