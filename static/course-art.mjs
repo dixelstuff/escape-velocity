@@ -1,11 +1,9 @@
-import {bunkerPath,shoreY} from './course-appearance.mjs?v=golf-v36';
+import {bunkerPath,shoreY} from './course-appearance.mjs?v=golf-v37';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 export function courseSurrounds(d){
  const w=d.width;
- return `<path d="M-20,-20 H${w+20} V42 C${w*.83},6 ${w*.73},21 ${w*.64},41 C${w*.48},79 ${w*.4},24 ${w*.29},65 C${w*.16},100 ${w*.09},69 -20,108 Z" fill="#aebd88" opacity=".53"/>
- <path d="M-20,-20 H${w+20} V17 C${w*.8},-6 ${w*.75},10 ${w*.65},24 C${w*.48},60 ${w*.4},9 ${w*.29},48 C${w*.15},81 ${w*.08},50 -20,88 Z" fill="#9eaf7d" opacity=".22"/>
- <path d="M${w-6},-20 H${w+20} V450 H${w-23} C${w-38},361 ${w-2},305 ${w-16},237 C${w-31},149 ${w-4},93 ${w-6},-20 Z" fill="#aebd88" opacity=".48"/>`;
+ return `<path id="course-rough" d="M-20,-20 H${w+20} V450 H${w-23} C${w-38},361 ${w-2},305 ${w-16},237 C${w-31},149 ${w-4},93 ${w-24},60 C${w*.83},6 ${w*.73},21 ${w*.64},41 C${w*.48},79 ${w*.4},24 ${w*.29},65 C${w*.16},100 ${w*.09},69 -20,108 Z" fill="#aebd88" opacity=".53"/>`;
 }
 
 function tree(x,y,r,seed){

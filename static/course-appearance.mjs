@@ -1,6 +1,7 @@
 /** Per-round appearance, independent of word vectors, rules and scores. */
 function appearanceUnit(seed,salt){let h=2166136261;for(const c of String(seed)+salt){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}h^=h>>>16;h=Math.imul(h,0x7feb352d);h^=h>>>15;return (h>>>0)/4294967295;
 }
+export const GREEN_HEIGHT=318,GREEN_CENTRE_Y=224.5;
 export function pinPlacement(seed){
  return {depth:.5+.2*appearanceUnit(seed,':depth'),vertical:.3+.4*appearanceUnit(seed,':vertical')};
 }
@@ -35,7 +36,9 @@ export function greenContains(p,d){
 /** Decorative terrain stays stable for a saved round, including across screen sizes. */
 export function courseStyle(seed){
  const u=salt=>appearanceUnit(seed,salt),count=u(':count')>.65?2:1;
- return {teeY:191+48*u(':tee'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
+ const greenCentreY=GREEN_CENTRE_Y+40*(u(':green-y')-.5),holeY=greenCentreY+GREEN_HEIGHT*(pinPlacement(seed).vertical-.5);
+ const teeY=Math.max(191,Math.min(239,215-.25*(holeY-215)+4*(u(':tee')-.5)));
+ return {teeY,greenCentreY,lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
   bunkers:Array.from({length:count},(_,i)=>({
    x:i?.65+.025*u(':bx1'):.38+(count===2?.06:.16)*u(':bx0'),y:46+16*u(':by'+i),
    rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:Math.floor(3*u(':shape'+i))
@@ -54,12 +57,13 @@ export function bunkerPath(b,padding=0){
 }
 export function shoreY(x,d,style){
  const t=x/d.zoneLeft;
- return style.lakeY-style.wave*Math.exp(-(((t-.23)/.24)**2))-13*Math.exp(-(((t-.67)/.12)**2))+3*Math.cos(7*t+style.phase);
+ const turn=Math.max(0,Math.min(1,(t-.62)/.38)),exit=100*turn*turn*(3-2*turn);
+ return exit+style.lakeY-style.wave*Math.exp(-(((t-.23)/.24)**2))-13*Math.exp(-(((t-.67)/.12)**2))+3*Math.cos(7*t+style.phase);
 }
 export function lakeGeometry(d,style){
  const end=d.zoneLeft-24,points=Array.from({length:17},(_,i)=>({x:-12+(end+12)*i/16,y:shoreY(-12+(end+12)*i/16,d,style)}));
- let path=`M-12,450 L${points[0].x},${points[0].y}`;
+ let path=`M-12,500 L${points[0].x},${points[0].y}`;
  for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];const step=(b.x-a.x)/3,slope=x=>(shoreY(x+.1,d,style)-shoreY(x-.1,d,style))/.2;path+=` C${a.x+step},${a.y+step*slope(a.x)} ${b.x-step},${b.y-step*slope(b.x)} ${b.x},${b.y}`;}
- path+=` C${end+24},${points.at(-1).y+3} ${end+25},425 ${end+55},450 Z`;
- return {path,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:450-Math.min(p.y,points[i+1].y)}))};
+ path+=` L${end},500 L-12,500 Z`;
+ return {path,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:500-Math.min(p.y,points[i+1].y)})).filter(o=>o.y<430)};
 }

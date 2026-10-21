@@ -1,16 +1,16 @@
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs} from './course-art.mjs?v=golf-v36';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v36';
-import { shotMotion } from './shot-motion.mjs?v=golf-v36';
-import { failedShotSummary, mapWordAction } from './round-summary.mjs?v=golf-v36';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v36';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v36';
-import { createBrowserClient } from './engine.mjs?v=golf-v36';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v36';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v36';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v36';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v36';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v36';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v36';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs} from './course-art.mjs?v=golf-v37';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v37';
+import { shotMotion } from './shot-motion.mjs?v=golf-v37';
+import { failedShotSummary, mapWordAction } from './round-summary.mjs?v=golf-v37';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v37';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v37';
+import { createBrowserClient } from './engine.mjs?v=golf-v37';
+import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v37';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v37';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v37';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v37';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v37';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v37';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -27,13 +27,13 @@ async function api(path,body){return client.request(path,body);}
 function lock(value){busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id))e.disabled=value;for(const label of $('map').querySelectorAll('[data-label-word]')){const disabled=mapWordAction(state,label.dataset.labelWord,value)==='none';label.setAttribute('aria-disabled',String(!!disabled));label.setAttribute('tabindex',disabled?'-1':'0');}}
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 let appearanceKey,appearanceLayout;
-function dimensions(){const key=`${narrow()}:${flightLog.active?.id}`;if(key!==appearanceKey){appearanceKey=key;const seed=flightLog.active?.id??'opening',style=courseStyle(seed);appearanceLayout={...mapLayout(narrow(),{...pinPlacement(seed),teeY:style.teeY}),style};}return appearanceLayout;}
+function dimensions(){const key=`${narrow()}:${flightLog.active?.id}`;if(key!==appearanceKey){appearanceKey=key;const seed=flightLog.active?.id??'opening',style=courseStyle(seed);appearanceLayout={...mapLayout(narrow(),{...pinPlacement(seed),teeY:style.teeY,greenCentreY:style.greenCentreY}),style};}return appearanceLayout;}
 const COURSE_HEIGHT=430,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
 function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=state.history.find(e=>e.word===word)||event;return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),1.1*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
 // Word positions are ground anchors; lift the teed ball above its shadow.
 function ballPosition(word,event=null){const p=position(word,event);return {...p,y:p.y-(word===state.start?16:0)};}
-function waterPoint(event){const d=dimensions();return {x:Math.max(48,Math.min(d.zoneLeft-48,axisPoint(x(event.destination)-d.left,0,d).x)),y:407};}
+function waterPoint(event){const d=dimensions();return {x:Math.max(48,Math.min(d.zoneLeft*.65,axisPoint(x(event.destination)-d.left,0,d).x)),y:407};}
 const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.x},${b.y}`;
 function chipShading(d,zone){
  if(!showChipRange||!client||!state)return '';
@@ -436,7 +436,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v36'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Updated course defaults are ready. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v37'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Updated course defaults are ready. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

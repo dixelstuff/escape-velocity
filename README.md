@@ -309,3 +309,10 @@ Tests verify stable terrain variation, legal green membership and lake clearance
 Scenery uses a restrained plan-view scorecard style: softly contoured rough surrounds, small overhead tree stands with subtle canopy detail, three hand-shaped kidney/crescent bunker profiles with a sand lip and fine texture, and a muted lake with a broad bay rather than repeating waves. The lake has smooth tangent-matched banks, narrow shoreline contours and extends beyond the bottom edge. Terrain remains lightweight inline SVG, with no image downloads or added libraries. The original straight mowing stripe pattern is unchanged.
 
 Words and their labels render above the artwork. The updated shoreline is shared by rendering, fairway-word clearance and label obstacles; it never changes shot outcomes or skill. Seeded cup/tee placement and scenery remain fixed through a round and refresh. Geometry/label tests and the full existing scoring suite pass. Phone and desktop previews verify the active MARS route stays readable against the scenery.
+
+
+## Balanced course composition (course v37)
+
+The green is about 10% shorter (318 drawing units) and its centre varies vertically by up to 20 units each round. The tee now gently counters the actual cup height: a higher cup tends to put the tee lower, and vice versa, with a small seeded variation and the same safe tee bounds. All anchors, labels, radial contours and the chip indicator follow the shared layout; geometry tests cover the extreme green, pin and tee placements at both viewport widths.
+
+The lake starts its exit farther from the green and smoothly continues below the view; its final path closure is entirely offscreen. Water-ball splash positions remain inside the visible lake. The rough along the top and right edges is one continuous filled outline, removing the overlap seam in the corner. The straight mowing stripe pattern, semantic model, thresholds and skill are unchanged. Phone preview and the full JavaScript suite pass.
