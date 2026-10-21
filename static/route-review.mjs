@@ -1,5 +1,5 @@
 /** Exact one-step omissions from the played route, not a global shortest-path search. */
-import {Game} from './engine.mjs?v=golf-v29';
+import {Game} from './engine.mjs?v=golf-v30';
 export const ROUTE_REVIEW_VERSION='route-review-v1';
 export function reviewRoute(e,saved){
  if(!saved.won||!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules))throw Error('Shortcut review is available for completed current-course rounds.');
@@ -31,6 +31,6 @@ export function markedRoute(route,report){
  return route.map((word,i)=>word+(indices.has(i)?'*':'')).join(' → ');
 }
 export function shortcutNote(report){
- if(!report?.skips.length)return 'No single step could be skipped while keeping the rest of this route.';
+ if(!report?.skips.length)return '';
  return report.skips.length===1?'* Could have been skipped.':'* Could have been skipped. Each mark is checked separately; not necessarily all together.';
 }

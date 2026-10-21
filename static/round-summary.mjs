@@ -7,5 +7,6 @@ export function failedShotSummary(state) {
 }
 export function mapWordAction(state,word,busy=false) {
  if(busy||!state||state.won)return 'none';
- return word===state.target&&state.current!==state.start?'hit':'fill';
+ if(word===state.target)return state.current===state.start?'none':'hit';
+ return 'fill';
 }

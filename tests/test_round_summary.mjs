@@ -8,10 +8,10 @@ const e={index:new Map(words.map(w=>[w,0])),cosine(a,b){return a===b?1:scores.ge
 const game=new Game(e,'double','mast',.27,{mode:'distance'});
 const storage=new Map(),log=new FlightLog({getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)});
 log.begin(game.state(),'test');
-assert.equal(mapWordAction(game.state(),'mast'),'fill');
+assert.equal(mapWordAction(game.state(),'mast'),'none');
 for(const word of ['boats','carrot','kayak','yacht','mast']){
  const event=game.submit(word);log.record(word,game.state(),event);
- if(word==='carrot')assert.equal(mapWordAction(game.state(),'mast'),'fill','misses and water do not leave the tee');
+ if(word==='carrot')assert.equal(mapWordAction(game.state(),'mast'),'none','misses and water do not leave the tee');
  if(word==='kayak')assert.equal(mapWordAction(game.state(),'mast'),'hit');
 }
 const state=game.state(),before=JSON.stringify(state);
@@ -23,7 +23,7 @@ assert.equal(JSON.stringify(state),before,'summary does not alter strokes/histor
 assert.equal(mapWordAction(state,'mast'),'none');
 assert.equal(mapWordAction({...state,won:false},'mast',true),'none');
 assert.equal(mapWordAction({...state,won:false,current:'kayak'},'double'),'fill');
-assert.equal(mapWordAction({...state,won:false,current:'double'},'mast'),'fill','a return to tee restores the fill-only action');
+assert.equal(mapWordAction({...state,won:false,current:'double'},'mast'),'none','a return to tee disables the hole label');
 assert.equal(failedShotSummary({history:[{word:'boats',outcome:'miss'},{word:'boats',outcome:'miss'},{word:'ghost',success:false}]}),'Miss hits: boats, boats');
 assert.equal(failedShotSummary({history:[]}), '');
 console.log('Round summary passed: five counted shots, successful route, miss/water breakdown, copied result, tee/lie/finished/busy label actions.');

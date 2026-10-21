@@ -24,7 +24,7 @@ assert.deepEqual(reviewRoute(e,g.state()).skips,r.skips);assert.equal(g.state().
 // The last green bridge can be omitted only if the literal hole word is a legal chip-in.
 e=graph({tee:0,a:.1,b:.5,c:.7,flag:1});g=play(e,['a','b','c']);
 assert.equal(g.automatic_shots.length,1);assert.ok(reviewRoute(e,g.state()).skips.some(x=>x.word==='c'));
-e=graph({tee:0,c:.7,flag:1},{'c,tee':.6});g=play(e,['c']);assert.equal(reviewRoute(e,g.state()).skips.length,0);
+e=graph({tee:0,c:.7,flag:1},{'c,tee':.6});g=play(e,['c']);assert.equal(reviewRoute(e,g.state()).skips.length,0);assert.equal(shortcutNote(reviewRoute(e,g.state())), '');
 // The same apparent shortcut passes v2 but fails the actual v3 hub requirement.
 e=graph({tee:0,a:.05,b:.7,flag:1,hub:1},{'b,tee':.22});
 assert.ok(reviewRoute(e,play(e,['a','b'],'golf-distance-v2').state()).skips.some(x=>x.word==='a'));

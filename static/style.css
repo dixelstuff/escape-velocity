@@ -113,6 +113,8 @@ body.typing main{background:#f5f3e8;}
 
 .word-label[aria-disabled="false"]{cursor:pointer}.word-label:focus-visible{outline:none}.word-label:focus-visible rect{stroke:#477f5d;stroke-width:2}
 
-#arrival-banner #arrival-route{font-size:18px;font-weight:600;line-height:1.6;text-transform:uppercase;margin:0 0 8px}#arrival-banner #arrival-title{font-size:16px;font-weight:500;margin:0 0 8px}#arrival-banner #arrival-skill{font-size:16px}@media(max-width:650px){#arrival-banner #arrival-route{font-size:16px}}
+#arrival-banner #arrival-route{font-size:18px;font-weight:600;line-height:1.6;text-transform:uppercase;margin:0 0 8px}#arrival-banner #arrival-title{font-size:24px;font-weight:700;line-height:1.25;margin:0 0 10px}#arrival-banner #arrival-skill{font-size:21px;font-weight:700;letter-spacing:.03em;margin:12px 0 8px}@media(max-width:650px){#arrival-banner #arrival-route{font-size:16px}}
 
 #arrival-banner #arrival-shortcuts{font-size:12px;line-height:1.5;margin:0 0 10px}#log-route-review{padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-size:12px;line-height:1.5}#log-route-review[hidden]{display:none}.reviewed-route{font-weight:600;text-transform:uppercase;overflow-wrap:anywhere}#log-route-review p{margin:0 0 8px}
+
+.chip-range-toggle{display:flex;align-items:center;gap:8px;min-height:44px;font-size:12px;color:#526b51;cursor:pointer}.chip-range-toggle input{width:18px;height:18px;min-height:0;padding:0;margin:0;accent-color:#477f5d}#chip-range-note{font-size:11px;line-height:1.5;color:#68785e;margin:0 0 4px}
