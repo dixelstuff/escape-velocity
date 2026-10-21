@@ -302,3 +302,10 @@ Outward label preferences now apply to successful lies as well as misses, so a h
 The saved round ID also seeds a modest ±24-unit vertical tee shift (ball, markers, labels and course axis together), one or two organically shaped bunkers with varied position/size/rotation, and a varied shoreline. Water starts higher and extends past the bottom and left boundaries, reading as an off-map lake. Fairway word lies and labels avoid the shoreline. These visual choices stay stable across refreshes and viewport changes. The original straight grass stripes, vectors, thresholds, shot outcomes and skill are unchanged.
 
 Tests verify stable terrain variation, legal green membership and lake clearance, local labels under extreme pin/tee placements, and the full existing scoring suite. Mobile browser verification replays the exact reported route and completes it in the same four counted shots.
+
+
+## Scorecard-style course illustration (course v36)
+
+Scenery uses a restrained plan-view scorecard style: softly contoured rough surrounds, small overhead tree stands with subtle canopy detail, three hand-shaped kidney/crescent bunker profiles with a sand lip and fine texture, and a muted lake with a broad bay rather than repeating waves. The lake has smooth tangent-matched banks, narrow shoreline contours and extends beyond the bottom edge. Terrain remains lightweight inline SVG, with no image downloads or added libraries. The original straight mowing stripe pattern is unchanged.
+
+Words and their labels render above the artwork. The updated shoreline is shared by rendering, fairway-word clearance and label obstacles; it never changes shot outcomes or skill. Seeded cup/tee placement and scenery remain fixed through a round and refresh. Geometry/label tests and the full existing scoring suite pass. Phone and desktop previews verify the active MARS route stays readable against the scenery.
