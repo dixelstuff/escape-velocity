@@ -106,8 +106,6 @@ body.typing main{background:#f5f3e8;}
 
 .bridge-flag{margin-top:10px;font-size:12px;padding:9px 12px;min-height:40px;}.bridge-flag[aria-pressed=true]{background:#e1e8d5;border-color:#9db48d;color:#385432;}.bridge-note{margin:10px 0;display:flex;gap:8px;align-items:end;flex-wrap:wrap;}.bridge-note label{flex:1;min-width:160px;font-size:12px;}.bridge-note label span{color:#73816a;}.bridge-note input{display:block;width:100%;margin-top:6px;font-size:16px;padding:10px;}.bridge-note button{font-size:12px;min-height:42px;padding:10px;}#bridge-feedback{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:8px;}.bridge-review-list{list-style:none;padding:0;}.bridge-review-list>li{padding:14px 0;border-bottom:1px solid var(--line);}.bridge-feedback-status:empty{display:none;}@media(max-width:650px){.bridge-flag{min-height:44px;}.bridge-note label{flex-basis:100%;}}
 
-.skill-feedback{margin:12px 0 16px;}.skill-feedback-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;}.skill-feedback-buttons button{font-size:12px;min-height:42px;padding:9px 12px;}.skill-feedback-buttons button[aria-pressed=true]{background:#dce7cf;border-color:#8ca57a;color:#304b2b;}.skill-feedback-note{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;text-align:left;}.skill-feedback-note label{flex-basis:100%;font-size:12px;}.skill-feedback-note input{flex:1;min-width:140px;font-size:16px;padding:10px;}.skill-feedback-note button{font-size:12px;padding:10px;min-height:42px;}.skill-feedback-status:empty{display:none;}#arrival-skill-feedback .skill-feedback-buttons{justify-content:center;}#arrival-skill-feedback .skill-feedback-buttons>span{flex-basis:100%;}#arrival-skill-feedback .subtle{color:#edf3e8;}#arrival-skill-feedback .skill-feedback-buttons button{background:#edf3e8;color:#385432;border-color:#d0dfc7;}#arrival-skill-feedback .skill-feedback-buttons button[aria-pressed=true]{background:#c6dab5;border-color:#abc497;}@media(max-width:650px){.skill-feedback-buttons>span{flex-basis:100%;}.skill-feedback-buttons button{min-height:44px;}}
-#arrival-skill-feedback .skill-feedback-note button{background:#edf3e8;color:#385432;border-color:#d0dfc7;}
 
 .hub-warning{padding:12px 14px;border-left:3px solid #b18945;border-radius:4px;background:#f4eddc;color:#66512a;font-size:13px;line-height:1.5}.hub-warning[hidden]{display:none}
 
@@ -134,7 +132,18 @@ body.typing main{background:#f5f3e8;}
 
 .mission>div:first-child{min-width:0;}
 .mission{gap:18px;}
-.mission #shot-context{font:400 19px/1.45 'DM Sans',sans-serif;text-transform:none;margin:0;color:#5a7153;text-wrap:balance;}
-#shot-context strong{color:#34543b;font-weight:700;}
+.shot-context{font:400 15px/1.5 'DM Sans',sans-serif;text-transform:none;color:#5a7153;}
+#shot-context{margin:10px 0 0;text-align:center;}
+.shot-context strong{color:#34543b;font-weight:700;}
+.mission #shot-context-top{display:none;}
 .attempts{flex:none;}
-@media(max-width:650px){.mission{gap:12px;}.mission #shot-context{font-size:15px;}body.typing .mission #shot-context{font-size:14px;}}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+.result-actions button{min-height:44px;}
+#arrival-banner .result-actions button{background:#edf3e8;color:#385432;border:1px solid #d0dfc7;}
+#arrival-banner .result-actions .quiet{background:transparent;color:#edf3e8;}
+@media(max-width:650px){
+ .mission{gap:12px;}
+ #shot-context{text-align:left;font-size:14px;}
+ body.typing #hole-title,body.typing #shot-context{display:none;}
+ body.typing .mission #shot-context-top{display:block;font:400 14px/1.45 'DM Sans',sans-serif;text-transform:none;margin:0;text-wrap:balance;}
+}

@@ -364,3 +364,10 @@ Geometry tests cover narrow phones, short keyboard-space heights and expanded ma
 New holes use short contact .095, long contact .215 and green .27, with the same hub surcharge and automatic finish trial. Existing scorecards retain their recorded settings; restarting a previous standard course adopts these new defaults. Course inputs accept .005 increments. Thirteen eligible endpoint pairs from the latest scorecards join the existing menu (102 holes total), with no personal play records published.
 
 The heading above the course now says “Connect with DIGGER to hit, and LOAD to advance.” It updates to the current lie after a landed shot. It replaces the original tee-to-hole title and remains visible during mobile typing. The info button, expanded explanation and duplicate below-input hint are removed. The focused course retains uniform scaling.
+
+
+## Contextual guidance placement and result actions (course v44)
+
+The tee-to-hole title returns above the course. Guidance spans the input row beneath it on desktop and on mobile while the input is inactive. During mobile typing only, guidance takes the title's place above the map and the lower copy is hidden. Both use the current lie and target; the mobile course continues to scale uniformly to the available keyboard space.
+
+Skill calibration buttons and note inputs are removed from the result and scorecard UI. Historical feedback remains in saved/exported scorecards. The completion card instead offers NEXT HOLE (the following dropdown hole, wrapping at the end; custom holes start at the first menu hole) and REPLAY (same endpoints and restart settings). Actions appear immediately on completion, independently of skill assessment, and archive the completed round normally. Thresholds remain .095 / .215 / .27.
