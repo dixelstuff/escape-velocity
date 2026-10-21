@@ -348,3 +348,12 @@ A dedicated test covers borderline hub-adjusted finishes, automatic shot counts,
 The scorecard landscape is now one full-world SVG background on the map card, extending behind both the drawing and feedback. Feedback is transparent instead of starting a second background at the bottom edge of the playing SVG. This removes the separate surface join that could show as a thin horizontal line. The foreground drawing remains clipped; artwork placement and original mowing stripes are preserved.
 
 Miss/water messages use a text-and-close grid so the 44-pixel dismiss target stays vertically centred beside wrapped text. Close icons use explicit grid centring instead of font baseline positioning. Mobile checks at 390 and 320 pixels verify placement and dismissal with zero leftover feedback height. Appearance, map and automatic-finish regression checks pass. All course settings, thresholds and the automatic-finish trial are unchanged.
+
+
+## Stable focused play and current-lie help (course v42)
+
+Focused mobile play no longer flex-stretches the playing SVG inside a taller card. The entire course keeps the SVG aspect ratio and cannot grow beyond its pre-focus width. A small layout helper fits that width to the actual visual viewport space left by the heading, input and optional help. If the keyboard or help needs more room, the map and its background shrink together rather than letterboxing and revealing duplicate strips of the background.
+
+A concise line below HIT SHOT always names the current lie and target: “Connect to ROVER to hit; move closer to CLARITY.” The adjacent info button expands a current-scenario explanation and reminds players that the ball word changes after each landed shot. It stays available in typing mode, preserves input focus when tapped on mobile, and triggers a fresh fit when opened/closed. Input descriptions also reference the helper text.
+
+Geometry tests cover narrow phones, short keyboard-space heights and expanded map heights, verifying no enlargement and one preserved aspect ratio. Mobile UI checks verify unchanged 354×238.5 course bounds on focus, a uniformly scaled view in a 390×360 viewport with help open, retained input focus, and the MARS → ROVER hint updating to the current lie. Map and automatic-finish regressions pass. Course settings and thresholds are unchanged.

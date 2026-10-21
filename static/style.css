@@ -19,9 +19,9 @@
  body.typing .mission .eyebrow{display:none;}
  body.typing .mission h2{font-size:16px;margin:0;}
  body.typing .attempts strong{font-size:24px;}
- body.typing .map-card{overflow:auto;display:flex;flex-direction:column;flex:1;min-height:100px;max-height:280px;}
+ body.typing .map-card{overflow:hidden;display:block;flex:none;align-self:center;width:var(--typing-course-width,100%);min-height:0;max-height:none;}
  body.typing .map-top,body.typing .map-bottom{padding:6px 10px;flex:none;}
- body.typing #map{height:0;min-height:0;flex:1;}
+ body.typing #map{width:100%;height:auto;min-height:0;flex:none;}
  body.typing .controls{width:100%;max-width:none;margin:10px 0 0;flex:none;}
  body.typing .controls label{font-size:16px;margin-bottom:6px;}
  body.typing #rules-note,body.typing #opening-game,body.typing #upgrade-rules,body.typing #status,body.typing #last-reading{display:none;}
@@ -131,3 +131,11 @@ body.typing main{background:#f5f3e8;}
 #shot-notice{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:8px;padding:10px 8px 10px 16px;}
 #close-shot-notice{position:static;display:grid;place-items:center;padding:0;margin:0;width:44px;height:44px;}
 .feedback-close{display:grid;place-items:center;}
+
+.shot-actions{display:flex;align-items:center;gap:6px;flex:none;}
+#shot-help-toggle{display:grid;place-items:center;min-width:44px;width:44px;height:44px;min-height:44px;padding:0;border:1px solid #becdb2;border-radius:50%;background:transparent;color:#55734d;font:italic 600 20px Georgia,serif;}
+#shot-help-toggle[aria-expanded="true"]{background:#e2eada;}
+#shot-context{font-size:12px;line-height:1.5;text-align:left;color:#5a7153;margin:8px 0 0;}
+#shot-context strong{color:#34543b;font-weight:600;}
+#shot-tip{font-size:12px;line-height:1.5;text-align:left;margin:8px 0 0;padding:10px 12px;border:1px solid #d1ddc6;border-radius:7px;background:#edf2e5;color:#4e6548;}
+#shot-tip[hidden]{display:none;}
