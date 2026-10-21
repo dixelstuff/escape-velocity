@@ -64,3 +64,13 @@ assert.equal(validSkillReport({...fiveScore,version:'vector-skill-v1',model_sha:
 console.log(`Skill v2 calibration passed: 5-shot SCOLD route ${fiveScore.score}; controlled 20-shot retry ${twenty.score}; 30-shot retry ${thirty.score}; no floor and no gameplay changes.`);
 
 assert.equal(validSkillReport({...fiveScore,version:'vector-skill-v2',model_sha:'test'},five.state(),'test'),false,'v2 caches must be recalculated');
+
+// A successful retry receives exactly the same path skill as a clean first attempt.
+const isolated=graph(),challengeOptions={mode:'distance',finish_mode:'range',challenge:{version:'par-challenge-v2',par:3,id:'skill-isolation',attempt:1}};
+const priorCosine=isolated.e.cosine.bind(isolated.e);isolated.e.words.push('backward');isolated.e.index.set('backward',isolated.e.words.length-1);isolated.e.cosine=(a,b)=>a==='backward'||b==='backward'?(a===b?1:(a==='flag'||b==='flag'?-.2:.6)):priorCosine(a,b);
+const cleanPath=new Game(isolated.e,'tee','flag',.6,challengeOptions);cleanPath.submit('green0');
+const failedPath=new Game(isolated.e,'tee','flag',.6,challengeOptions);failedPath.submit('near');assert.equal(failedPath.challenge_failed,true);
+const secondFailure=new Game(isolated.e,'tee','flag',.6,{...challengeOptions,challenge:{...challengeOptions.challenge,attempt:2}});assert.equal(secondFailure.submit('backward').outcome,'water');assert.equal(secondFailure.challenge_failed,true);
+const successfulRetry=new Game(isolated.e,'tee','flag',.6,{...challengeOptions,challenge:{...challengeOptions.challenge,attempt:3}});successfulRetry.submit('green0');
+assert.equal(isolated.analyser.analyse(cleanPath.state()).score,isolated.analyser.analyse(successfulRetry.state()).score);assert.ok(successfulRetry.state().history.every(h=>h.success));
+console.log('Path skill isolation passed: earlier misses/penalties and retry number do not affect the final successful path.');

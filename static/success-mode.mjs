@@ -25,3 +25,5 @@ export function successTitle(state){
  const result=difference===0?'Par':difference===-1?'Birdie':difference===-2?'Eagle':difference<=-3?'Albatross':`${difference} over par`;
  return `Success! ${result} on attempt ${state.challenge.attempt}`;
 }
+
+export function successOutcome(state){return successTitle(state).replace(/^Success! /,'');}

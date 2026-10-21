@@ -179,3 +179,7 @@ body.typing main{background:#f5f3e8;}
 @media(max-width:650px){#challenge-note{font-size:10px;margin-top:4px;}}
 
 #previous-attempts[hidden]{display:none;}#previous-attempt-list{padding-left:18px;line-height:1.7;}#previous-attempt-list li{margin:5px 0;overflow-wrap:anywhere;}
+
+#arrival-banner #arrival-result{font-size:20px;font-weight:500;line-height:1.4;margin:0 0 12px;}
+#arrival-banner #arrival-skill{font-size:20px;letter-spacing:0;margin:0;min-height:1.4em;}
+#shot-notice{display:block;padding:10px 14px;}
