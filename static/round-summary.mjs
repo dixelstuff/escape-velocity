@@ -5,8 +5,5 @@ export function failedShotSummary(state) {
  const penalties=history.filter(e=>e.outcome==='water').map(e=>e.word);
  return [misses.length?`Miss hits: ${misses.join(', ')}`:'',penalties.length?`Penalty hits: ${penalties.join(', ')}`:''].filter(Boolean).join(' · ');
 }
-export function mapWordAction(state,word,busy=false) {
- if(busy||!state||state.won)return 'none';
- if(word===state.target)return state.current===state.start?'none':'hit';
- return 'fill';
-}
+/** Course words are labels only; all shots are entered in the input. */
+export function mapWordAction(){return 'none';}

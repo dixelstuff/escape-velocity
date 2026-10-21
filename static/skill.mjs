@@ -1,9 +1,9 @@
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v39';
+import { Game } from './engine.mjs?v=golf-v40';
 export const SKILL_VERSION='vector-skill-v3';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
-export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word)]);}
+export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
   const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub'];
@@ -42,18 +42,18 @@ export class SkillAnalyser {
         const backtrack=destination+1e-7<current&&reached.has(word);
         if(contact[i]+1e-7<required||(!backtrack&&destination+1e-7<s.best-g.backward_allowance))continue;
         // Strength is a bounded measure of contact surplus, not a probability.
-        list.push({word,destination,contact:contact[i],required,strength:clamp(contact[i]/(2*required)),p:progress(destination)});
+        list.push({word,destination,contact:contact[i],required,strength:clamp(contact[i]/(2*required)),p:g.finish_mode==='range'&&g.finishesFrom(word,destination)?1:progress(destination)});
       }
       return list;
     };
     const potential=s=>{
-      if(position(s.current)+1e-7>=g.threshold)return {value:1,good_moves:0,green_moves:0};
+      if(g.finishesFrom(s.current,position(s.current)))return {value:1,good_moves:0,green_moves:0};
       const key=JSON.stringify([s.current,s.best,[...s.route].sort()]);
       if(potentialCache.has(key))return potentialCache.get(key);
       const p=progress(position(s.current)),top=Array(TOP).fill(0);let good=0,green=0;
       for(const move of options(s)){
         if(move.destination<=position(s.current)+1e-7)continue;
-        good++;if(move.destination+1e-7>=g.threshold)green++;
+        good++;if(g.finishesFrom(move.word,move.destination))green++;
         const gain=move.p-p;
         if(gain>top[0]){top[0]=gain;top.sort((a,b)=>a-b);}
       }

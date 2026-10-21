@@ -1,6 +1,6 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v39';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v39';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v39';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v40';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v40';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v40';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -123,7 +123,7 @@ export class FlightLog {
   recordSkill(id, report) {
     const journey=this.data.journeys.find(j=>j.id===id);
     if(!journey||!journey.state.won||!report.complete)return false;
-    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word)]);
+    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[])]);
     if(report.history_key!==key)return false;
     journey.skill=structuredClone(report);this.save();return true;
   }
@@ -148,6 +148,7 @@ export function outcome(entry) {
   const e=entry.event;
   if(e.automatic)return 'Automatic finish — one shot counted';
   if(e.outcome==='backtrack')return 'Backtrack — previous lie revisited';
+  if(e.finish_reason==='range')return 'Chip-in range reached — automatic finish follows';
   if(entry.completion==='holed-with-auto-finish'&&e.won)return e.automatic_shot?'Green reached — automatic finish follows':'Holed directly';
   if(e.outcome==='water')return 'Water hazard — ball returned';
   if(e.outcome==='miss')return 'Miss — ball stayed put';
@@ -164,6 +165,7 @@ export function journeyText(journey,feedback=[]) {
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
     s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
   if(['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
+  if(s.finish_mode==='range')lines.push('Finish mode: automatic chip-in range (one counted finishing shot).', '');
   if(journey.skill){lines.push(`Skill: ${Math.round(journey.skill.score/10)}% (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}
   for(const f of journey.skill_feedback??[])lines.push(`Skill feedback: ${f.rating==='too_harsh'?'Too harsh':'Too generous'} · score ${f.score}/1000 · ${f.assessment.version}${f.note?' · '+f.note:''}`);
   for (const entry of journey.entries) {

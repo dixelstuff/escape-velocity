@@ -1,14 +1,26 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains} from './course-appearance.mjs?v=golf-v39';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains} from './course-appearance.mjs?v=golf-v40';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
-export function courseSurrounds(d,style,lake=lakeGeometry(d,style)){
- const w=d.width;
- const perimeter=`M-20,-20 H${w+20} V1800 H${w-23} C${w-38},361 ${w-2},305 ${w-16},237 C${w-31},149 ${w-4},93 ${w-24},60 C${w*.83},6 ${w*.73},21 ${w*.64},41 C${w*.48},79 ${w*.4},24 ${w*.29},65 C${w*.16},100 ${w*.09},69 -20,108 Z`;
- const approach=approachGeometry(d,style);
- const approachCut=approach?`<path d="M${approach.x-approach.rx},${approach.y+30} C${approach.x-approach.rx-5},${approach.y-20} ${approach.x-approach.rx*.4},${approach.y-approach.ry} ${approach.x},${approach.y-approach.ry*.7} C${approach.x+approach.rx*.8},${approach.y-approach.ry} ${approach.x+approach.rx},${approach.y} ${approach.x+approach.rx},${approach.y+28} C${approach.x+approach.rx},${approach.y+58} ${approach.x+approach.rx*.65},${approach.y+85} ${approach.x+approach.rx*.65},${approach.y+110} L${approach.x-approach.rx*.7},${approach.y+110} C${approach.x-approach.rx*.7},${approach.y+80} ${approach.x-approach.rx},${approach.y+60} ${approach.x-approach.rx},${approach.y+30} Z" fill="white"/>`:'';
- const lakeCut=lake.shore+` C${w*.87},${shoreY(d.zoneLeft-24,d,style)} ${w*.94},440 ${w+20},440 V1800 H-30 Z`;
- // Union the cuts in a mask, then tint once, so intersecting rough never darkens.
- return `<defs><mask id="rough-union" maskUnits="userSpaceOnUse" x="-30" y="-30" width="${w+60}" height="1830"><path d="${perimeter}" fill="white"/><path d="${lakeCut}" transform="translate(0,-24)" fill="white"/>${approachCut}</mask></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#aebd88" opacity=".53" mask="url(#rough-union)"/>`;
+function smoothContour(points){
+ const xy=p=>p.map(v=>v.toFixed(3)).join(','),n=points.length;let path='M'+xy(points[0]);
+ for(let i=0;i<n;i++){const a=points[(i+n-1)%n],b=points[i],c=points[(i+1)%n],e=points[(i+2)%n];path+=` C${xy([b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6])} ${xy([c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6])} ${xy(c)}`;}
+ return path+' Z';
+}
+export function courseSurrounds(d,style){
+ const w=d.width,end=d.zoneLeft-24,approach=approachGeometry(d,style);
+ const bank=x=>{
+  let y=shoreY(Math.min(x,end),d,style)-24;
+  if(x>end){const t=Math.max(0,Math.min(1,(x-end)/(w-35-end)));y+=(400-y)*t*t*(3-2*t);}
+  if(approach)y-=100*Math.exp(-(((x-approach.x)/approach.rx)**2));
+  return y;
+ };
+ const contour=smoothContour([
+  [-30,108],[w*.12,82],[w*.28,65],[w*.42,45],[w*.55,57],[w*.68,32],[w*.82,23],[w*.92,40],
+  [w-30,85],[w-16,170],[w-15,260],[w-18,340],[w-35,400],
+  ...Array.from({length:49},(_,i)=>{const x=w-50-(w-20)*i/48;return [x,bank(x)];}),[-40,250]
+ ]);
+ // A single smooth fairway boundary leaves one continuous, uniformly shaded rough.
+ return `<defs><mask id="rough-union" maskUnits="userSpaceOnUse" x="-50" y="-30" width="${w+100}" height="1830"><rect x="-50" y="-30" width="${w+100}" height="1830" fill="white"/><path d="${contour}" fill="black"/></mask></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#aebd88" opacity=".53" mask="url(#rough-union)"/>`;
 }
 
 function tree(x,y,r,seed){
@@ -59,14 +71,14 @@ export function courseLake(d,style,lake){
 
 function approachGeometry(d,style){
  if(!(style.approach>=.28))return null;
- return {x:d.zoneLeft*.91,y:399+5*Math.sin(style.phase),rx:d.width<700?49:72,ry:33};
+ return {x:d.zoneLeft*.91,y:399+5*Math.sin(style.phase),rx:d.width<700?65:100,ry:45};
 }
 export function approachLandscape(d,style){
  const p=approachGeometry(d,style);if(!p)return '';
- const sand={rx:p.rx*.58,ry:18,shape:2};
+ const sand={rx:p.rx*.68,ry:25,shape:2};
  // Its turf is part of the shared rough mask; only the sand/trees belong here.
  return `<g id="approach-landscape" aria-hidden="true" pointer-events="none" transform="translate(${p.x},${p.y}) rotate(-12)">
- ${style.approach>.59?`<path d="${bunkerPath(sand,3)}" fill="#9daf7d"/><path d="${bunkerPath(sand)}" fill="url(#scorecard-sand)" stroke="#c5b58a" stroke-width="1"/>`:tree(-p.rx*.25,0,14,2)+tree(p.rx*.26,6,12,1)}
+ ${style.approach>.59?`<path d="${bunkerPath(sand,3)}" fill="#9daf7d"/><path d="${bunkerPath(sand)}" fill="url(#scorecard-sand)" stroke="#c5b58a" stroke-width="1"/>`:tree(-p.rx*.3,-1,18,2)+tree(p.rx*.18,4,16,1)+tree(p.rx*.46,15,12,0)}
  </g>`;
 }
 
