@@ -381,3 +381,8 @@ The shot count now uses a slightly smaller number with SHOTS centred beneath it.
 ## Stable skill placeholder and consistent guidance (course v46)
 
 The result always reserves the skill row as SKILL --% while the assessment loads, replacing its text with the percentage without changing row height. The tee-to-hole title stays above the map on every device, including mobile typing. Current-lie guidance remains below the input in both focused and inactive modes. The stacked shot count increases slightly: 37px desktop, 28px mobile and 24px while typing, with a 10px/9px SHOTS caption. Gameplay is unchanged.
+
+
+## Result footer alignment (course v47)
+
+The completion card no longer has a close icon or a separate Show result action. Equal side padding replaces the old close-button gutter, so NEXT HOLE and REPLAY are centred across the actual card at its bottom. Miss-message dismissal is unchanged. Bridge eligibility, gameplay and thresholds are unchanged.
