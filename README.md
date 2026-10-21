@@ -316,3 +316,10 @@ Words and their labels render above the artwork. The updated shoreline is shared
 The green is about 10% shorter (318 drawing units) and its centre varies vertically by up to 20 units each round. The tee now gently counters the actual cup height: a higher cup tends to put the tee lower, and vice versa, with a small seeded variation and the same safe tee bounds. All anchors, labels, radial contours and the chip indicator follow the shared layout; geometry tests cover the extreme green, pin and tee placements at both viewport widths.
 
 The lake starts its exit farther from the green and smoothly continues below the view; its final path closure is entirely offscreen. Water-ball splash positions remain inside the visible lake. The rough along the top and right edges is one continuous filled outline, removing the overlap seam in the corner. The straight mowing stripe pattern, semantic model, thresholds and skill are unchanged. Phone preview and the full JavaScript suite pass.
+
+
+## A larger course around the result card (course v38)
+
+A seeded approach feature sometimes occupies the space between the receding lake and the green: a small planted patch of rough or a bunker set into its own cut of grass. These remain scenery, without changing shot legality or word positions. The existing rough perimeter continues around the bottom of the playing area as one outline.
+
+Feedback panels now sit over a continuation of the scorecard landscape at the same horizontal scale: the lake bank continues below the hole, with a neighbouring fairway, winding path, trees and glimpses of another green and bunker. The illustration is a self-contained SVG background cached per round/layout. It naturally reveals more of the world when a result card grows, while adding no height when feedback is closed. It stays behind feedback text and outside the played route. Mobile checks verify the fully populated result card, the scenery along its exposed edges, and zero feedback height after closing. The full existing game test suite passes; scoring, word vectors and the original mowing stripe pattern are unchanged.

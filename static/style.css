@@ -118,3 +118,7 @@ body.typing main{background:#f5f3e8;}
 #arrival-banner #arrival-shortcuts{font-size:12px;line-height:1.5;margin:0 0 10px}#log-route-review{padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-size:12px;line-height:1.5}#log-route-review[hidden]{display:none}.reviewed-route{font-weight:600;text-transform:uppercase;overflow-wrap:anywhere}#log-route-review p{margin:0 0 8px}
 
 .chip-range-toggle{display:flex;align-items:center;gap:8px;min-height:44px;font-size:12px;color:#526b51;cursor:pointer}.chip-range-toggle input{width:18px;height:18px;min-height:0;padding:0;margin:0;accent-color:#477f5d}#chip-range-note{font-size:11px;line-height:1.5;color:#68785e;margin:0 0 4px}
+
+/* The world continues behind feedback without covering the played route. */
+.course-feedback{background-color:#becda5;background-position:center top;background-repeat:no-repeat;background-size:100% auto;}
+.course-feedback:has(> :not([hidden])){padding:18px 18px 22px;}
