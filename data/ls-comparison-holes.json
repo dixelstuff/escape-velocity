@@ -1,0 +1,112 @@
+[
+  {
+    "start": "maze",
+    "target": "bone",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 1
+  },
+  {
+    "start": "silence",
+    "target": "snow",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 2
+  },
+  {
+    "start": "shield",
+    "target": "blossom",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 3
+  },
+  {
+    "start": "fabric",
+    "target": "melody",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 4
+  },
+  {
+    "start": "canyon",
+    "target": "lightning",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 5
+  },
+  {
+    "start": "witness",
+    "target": "coffee",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 6
+  },
+  {
+    "start": "breeze",
+    "target": "hare",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 7
+  },
+  {
+    "start": "desert",
+    "target": "shoulder",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 8
+  },
+  {
+    "start": "recipe",
+    "target": "panda",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 9
+  },
+  {
+    "start": "justice",
+    "target": "opera",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "comparison_set": "current-ls15-v1",
+    "comparison_number": 10
+  }
+]

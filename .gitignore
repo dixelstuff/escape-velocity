@@ -4,5 +4,6 @@ data/*
 !data/.gitkeep
 !data/puzzles.json
 !data/comparison-holes.json
+!data/ls-comparison-holes.json
 !data/metadata.json
 .DS_Store

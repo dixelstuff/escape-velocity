@@ -1,10 +1,10 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v52';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v54';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v52';
+import { Game } from './engine.mjs?v=golf-v54';
 export const SKILL_VERSION='vector-skill-v3';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
-import {withWordModel} from './word-model.mjs?v=golf-v52';
+import {withWordModel} from './word-model.mjs?v=golf-v54';
 export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
@@ -25,7 +25,7 @@ export class SkillAnalyser {
   row(word){
     if(this.rows.has(word)){const row=this.rows.get(word);this.rows.delete(word);this.rows.set(word,row);return row;}
     const {words,vectors,dimensions:d,index}=this.e,base=index.get(word)*d,row=new Float64Array(words.length);
-    for(let i=0;i<words.length;i++){let dot=0;for(let k=0;k<d;k++)dot+=vectors[base+k]*vectors[i*d+k];row[i]=clamp(dot,-1,1);}
+    for(let i=0;i<words.length;i++){let dot=0;for(let k=0;k<d;k++)dot+=vectors[base+k]*vectors[i*d+k];dot=clamp(dot,-1,1);row[i]=this.e.scaleSimilarity?this.e.scaleSimilarity(base/d,i,dot):dot;}
     if(this.rows.size>=80)this.rows.delete(this.rows.keys().next().value);
     this.rows.set(word,row);return row;
   }

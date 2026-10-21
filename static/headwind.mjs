@@ -10,6 +10,7 @@ const cache=new WeakMap();
 export function withHeadwind(embeddings,value){
  const wind=headwindSettings(value);
  if(!wind)return embeddings;
+ if(embeddings.localScaling)throw Error('The headwind experiment is available with Current or ABTT, not the LS trial. Choose a regular hole.');
  if(embeddings.headwind&&headwindKey(embeddings.headwind)===headwindKey(wind))return embeddings;
  const base=embeddings.headwindBase??embeddings,key=headwindKey(wind),cached=cache.get(base);
  if(cached?.key===key)return cached.model;
