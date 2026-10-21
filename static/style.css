@@ -135,7 +135,6 @@ body.typing main{background:#f5f3e8;}
 .shot-context{font:400 15px/1.5 'DM Sans',sans-serif;text-transform:none;color:#5a7153;}
 #shot-context{margin:10px 0 0;text-align:center;}
 .shot-context strong{color:#34543b;font-weight:700;}
-.mission #shot-context-top{display:none;}
 .attempts{flex:none;}
 .result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
 .result-actions button{min-height:44px;}
@@ -144,20 +143,19 @@ body.typing main{background:#f5f3e8;}
 @media(max-width:650px){
  .mission{gap:12px;}
  #shot-context{text-align:left;font-size:14px;}
- body.typing #hole-title,body.typing #shot-context{display:none;}
- body.typing .mission #shot-context-top{display:block;font:400 14px/1.45 'DM Sans',sans-serif;text-transform:none;margin:0;text-wrap:balance;}
 }
 
 /* A narrow score column leaves the current-lie guidance more room. */
 .mission>div:first-child{flex:1;}
 .attempts{flex-direction:column;justify-content:center;align-items:center;gap:1px;min-width:34px;text-align:center;}
-.attempts strong{font-size:35px;line-height:1;}
-.attempts span{line-height:1.2;letter-spacing:1px;}
+.attempts strong{font-size:37px;line-height:1;}
+.attempts span{font-size:10px;line-height:1.2;letter-spacing:1px;}
 @media(max-width:650px){
  .attempts{gap:2px;min-width:30px;}
- .attempts strong{font-size:26px;}
- .attempts span{font-size:8px;letter-spacing:.4px;}
+ .attempts strong{font-size:28px;}
+ .attempts span{font-size:9px;letter-spacing:.4px;}
  body.typing .mission{gap:8px;}
- body.typing .attempts strong{font-size:22px;}
- body.typing .mission #shot-context-top{text-wrap:pretty;}
+ body.typing .attempts strong{font-size:24px;}
 }
+
+#arrival-banner #arrival-skill{line-height:1.4;min-height:1.4em;}

@@ -376,3 +376,8 @@ Skill calibration buttons and note inputs are removed from the result and scorec
 ## Compact shot counter (course v45)
 
 The shot count now uses a slightly smaller number with SHOTS centred beneath it. On mobile, focused entry gives the current-lie guidance the remaining header width with an eight-pixel gap and natural line wrapping. Course layout, guidance wording and gameplay settings are unchanged.
+
+
+## Stable skill placeholder and consistent guidance (course v46)
+
+The result always reserves the skill row as SKILL --% while the assessment loads, replacing its text with the percentage without changing row height. The tee-to-hole title stays above the map on every device, including mobile typing. Current-lie guidance remains below the input in both focused and inactive modes. The stacked shot count increases slightly: 37px desktop, 28px mobile and 24px while typing, with a 10px/9px SHOTS caption. Gameplay is unchanged.
