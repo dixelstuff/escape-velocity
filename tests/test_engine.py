@@ -80,7 +80,7 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(len(game.history),3)
     def test_new_defaults_and_legacy_defaults(self):
         game=Game(FakeEmbeddings(),'start','target',mode='distance')
-        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.27,.10,.22))
+        self.assertEqual((game.threshold,game.launch_min,game.launch_max),(.27,.095,.215))
         old=Game(FakeEmbeddings(),'start','target',.45,mode='distance',rules='distance-v1')
         self.assertEqual((old.launch_min,old.launch_max),(.25,.4))
     def test_arrival_overshoot_does_not_increase_launch_requirement(self):

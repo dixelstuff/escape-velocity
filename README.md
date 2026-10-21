@@ -32,7 +32,7 @@ Choose a hole, enter a word, and press **Hit shot** or Enter. **Make your own ho
 
 The current ball is a shaded, dimpled SVG golf ball on a mown fairway. Previous lies are small markers, and compact measured labels sit close to their markers, with leader lines and collision avoidance. A pond shows the destination of out-of-bounds backward shots. Misses leave the ball still; water shots animate into the pond, splash, and return to the same lie. A dismissible completion card below the map shows the played route and brings the course into view without covering any word lies. Semantic horizontal position stays fixed; height is only for readability. Resizing never changes scoring.
 
-Default green similarity is **0.27**. Base contact requirements range from **0.10 to 0.22**, with the existing hub surcharge for broad-word travel. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Base required contact is `0.10 + 0.12 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
+Default green similarity is **0.27**. Base contact requirements range from **0.095 to 0.215**, with the existing hub surcharge for broad-word travel. Trip fraction is the absolute change in target similarity, clipping both positions at the green edge, divided by the original tee-to-green gap and capped at 1. Base required contact is `0.095 + 0.12 * trip_fraction`. Finishing gets easier as you approach, without extra cost for landing deeper inside the green. All comparisons include `1e-7` tolerance.
 
 A consistent small retreat of `0.01` is allowed. The lower safe boundary is anchored to the **best target similarity reached**, not the latest lie, so repeated tiny retreats cannot produce unlimited backward drift. A sufficiently connected shot back to any previously reached word bypasses water and resets this boundary to the revisited lie, enabling a new branch. Failed proposals do not qualify as previous lies. Outcomes are:
 
@@ -357,3 +357,10 @@ Focused mobile play no longer flex-stretches the playing SVG inside a taller car
 A concise line below HIT SHOT always names the current lie and target: “Connect to ROVER to hit; move closer to CLARITY.” The adjacent info button expands a current-scenario explanation and reminds players that the ball word changes after each landed shot. It stays available in typing mode, preserves input focus when tapped on mobile, and triggers a fresh fit when opened/closed. Input descriptions also reference the helper text.
 
 Geometry tests cover narrow phones, short keyboard-space heights and expanded map heights, verifying no enlargement and one preserved aspect ratio. Mobile UI checks verify unchanged 354×238.5 course bounds on focus, a uniformly scaled view in a 390×360 viewport with help open, retained input focus, and the MARS → ROVER hint updating to the current lie. Map and automatic-finish regressions pass. Course settings and thresholds are unchanged.
+
+
+## Gentle threshold adjustment and direct instructions (course v43)
+
+New holes use short contact .095, long contact .215 and green .27, with the same hub surcharge and automatic finish trial. Existing scorecards retain their recorded settings; restarting a previous standard course adopts these new defaults. Course inputs accept .005 increments. Thirteen eligible endpoint pairs from the latest scorecards join the existing menu (102 holes total), with no personal play records published.
+
+The heading above the course now says “Connect with DIGGER to hit, and LOAD to advance.” It updates to the current lie after a landed shot. It replaces the original tee-to-hole title and remains visible during mobile typing. The info button, expanded explanation and duplicate below-input hint are removed. The focused course retains uniform scaling.

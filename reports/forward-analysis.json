@@ -6,8 +6,8 @@
       "target": "science",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -20,13 +20,13 @@
       "target": "language",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "cheese",
-        "paper"
+        "style"
       ]
     },
     {
@@ -34,8 +34,8 @@
       "target": "ability",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -48,8 +48,8 @@
       "target": "affection",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -62,8 +62,8 @@
       "target": "kitchen",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -76,13 +76,13 @@
       "target": "computer",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "garden",
-        "just"
+        "can"
       ]
     },
     {
@@ -90,8 +90,8 @@
       "target": "democracy",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -104,8 +104,8 @@
       "target": "money",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -118,8 +118,8 @@
       "target": "knuckle",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -133,8 +133,8 @@
       "target": "gravel",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -148,8 +148,8 @@
       "target": "fragrant",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -162,8 +162,8 @@
       "target": "monitor",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -176,8 +176,8 @@
       "target": "crystal",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -190,8 +190,8 @@
       "target": "male",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -204,8 +204,8 @@
       "target": "merger",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -218,8 +218,8 @@
       "target": "glacier",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -232,8 +232,8 @@
       "target": "lane",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -246,8 +246,8 @@
       "target": "gladly",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -261,8 +261,8 @@
       "target": "placard",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -276,8 +276,8 @@
       "target": "lazy",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -291,8 +291,8 @@
       "target": "chirp",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -306,8 +306,8 @@
       "target": "vomit",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -321,8 +321,8 @@
       "target": "sink",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -335,8 +335,8 @@
       "target": "annoy",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -350,8 +350,8 @@
       "target": "anchor",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -364,8 +364,8 @@
       "target": "hatch",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -379,8 +379,8 @@
       "target": "hover",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -393,8 +393,8 @@
       "target": "angle",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -407,8 +407,8 @@
       "target": "goose",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -421,8 +421,8 @@
       "target": "leap",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -435,8 +435,8 @@
       "target": "giant",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -449,8 +449,8 @@
       "target": "slide",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -463,8 +463,8 @@
       "target": "lap",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -477,13 +477,13 @@
       "target": "sting",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "pot",
-        "but",
+        "have",
         "operation"
       ]
     },
@@ -492,8 +492,8 @@
       "target": "climb",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -506,8 +506,8 @@
       "target": "speck",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -520,8 +520,8 @@
       "target": "feather",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -534,8 +534,8 @@
       "target": "beer",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -548,13 +548,13 @@
       "target": "muse",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "layer",
-        "kind",
+        "even",
         "lover"
       ]
     },
@@ -563,13 +563,13 @@
       "target": "mantra",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "quilt",
-        "show",
+        "look",
         "god"
       ]
     },
@@ -578,8 +578,8 @@
       "target": "hole",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -592,8 +592,8 @@
       "target": "clap",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -607,8 +607,8 @@
       "target": "cap",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -621,8 +621,8 @@
       "target": "plump",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -635,8 +635,8 @@
       "target": "goat",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -649,13 +649,13 @@
       "target": "tackle",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "signage",
-        "system",
+        "name",
         "back"
       ]
     },
@@ -664,8 +664,8 @@
       "target": "tent",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -678,8 +678,8 @@
       "target": "tricycle",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -692,8 +692,8 @@
       "target": "pleasant",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -706,8 +706,8 @@
       "target": "nuclear",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -720,8 +720,8 @@
       "target": "empty",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -734,8 +734,8 @@
       "target": "pulse",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -749,8 +749,8 @@
       "target": "iris",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -763,8 +763,8 @@
       "target": "elephant",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -777,8 +777,8 @@
       "target": "goat",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -791,8 +791,8 @@
       "target": "lineage",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -805,8 +805,8 @@
       "target": "lick",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -820,8 +820,8 @@
       "target": "please",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -835,8 +835,8 @@
       "target": "alive",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
@@ -850,8 +850,8 @@
       "target": "tangle",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -864,13 +864,13 @@
       "target": "mime",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "scold",
-        "dubbing"
+        "artiste"
       ]
     },
     {
@@ -878,8 +878,8 @@
       "target": "lunch",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -892,8 +892,8 @@
       "target": "plank",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -906,8 +906,8 @@
       "target": "neat",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -920,8 +920,8 @@
       "target": "novice",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -934,13 +934,13 @@
       "target": "loan",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "bend",
-        "just",
+        "can",
         "make"
       ]
     },
@@ -949,8 +949,8 @@
       "target": "lamp",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -963,8 +963,8 @@
       "target": "ancient",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -977,8 +977,8 @@
       "target": "linger",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -991,8 +991,8 @@
       "target": "tyranny",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1005,8 +1005,8 @@
       "target": "maple",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1019,8 +1019,8 @@
       "target": "flowers",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1033,8 +1033,8 @@
       "target": "ball",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1047,14 +1047,14 @@
       "target": "hall",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 2,
       "total_shots": 3,
       "route": [
         "mince",
-        "word",
-        "all"
+        "yeah",
+        "there"
       ]
     },
     {
@@ -1062,8 +1062,8 @@
       "target": "fantastic",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1076,8 +1076,8 @@
       "target": "star",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1090,8 +1090,8 @@
       "target": "generous",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1104,8 +1104,8 @@
       "target": "gravity",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1118,14 +1118,13 @@
       "target": "eleven",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
-      "attempts": 2,
-      "total_shots": 3,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
       "route": [
         "crater",
-        "found",
-        "are"
+        "approximately"
       ]
     },
     {
@@ -1133,8 +1132,8 @@
       "target": "clarity",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1147,8 +1146,8 @@
       "target": "clarity",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1161,14 +1160,13 @@
       "target": "nudity",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
-      "attempts": 2,
-      "total_shots": 3,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
       "route": [
         "ocean",
-        "are",
-        "sex"
+        "contains"
       ]
     },
     {
@@ -1176,8 +1174,8 @@
       "target": "nudity",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1190,8 +1188,8 @@
       "target": "savior",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
@@ -1204,13 +1202,256 @@
       "target": "load",
       "threshold": 0.27,
       "mode": "distance",
-      "launch_min": 0.1,
-      "launch_max": 0.22,
+      "launch_min": 0.095,
+      "launch_max": 0.215,
       "attempts": 1,
       "total_shots": 2,
       "route": [
         "digger",
         "mechanical"
+      ]
+    },
+    {
+      "start": "temple",
+      "target": "netball",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "temple",
+        "are",
+        "football"
+      ]
+    },
+    {
+      "start": "double",
+      "target": "mast",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "double",
+        "roof"
+      ]
+    },
+    {
+      "start": "window",
+      "target": "bunt",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "window",
+        "walk"
+      ]
+    },
+    {
+      "start": "genie",
+      "target": "cinema",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "genie",
+        "award"
+      ]
+    },
+    {
+      "start": "flight",
+      "target": "banter",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "flight",
+        "are",
+        "talk"
+      ]
+    },
+    {
+      "start": "gold",
+      "target": "classical",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gold",
+        "well"
+      ]
+    },
+    {
+      "start": "helmet",
+      "target": "chain",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "helmet",
+        "ring"
+      ]
+    },
+    {
+      "start": "myth",
+      "target": "helpless",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "myth",
+        "somehow"
+      ]
+    },
+    {
+      "start": "defy",
+      "target": "whiz",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "defy",
+        "puzzles"
+      ]
+    },
+    {
+      "start": "depict",
+      "target": "waste",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "depict",
+        "contain"
+      ]
+    },
+    {
+      "start": "bowl",
+      "target": "bowel",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "bowl",
+        "have",
+        "heart"
+      ]
+    },
+    {
+      "start": "sludge",
+      "target": "driveway",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "sludge",
+        "concrete"
+      ]
+    },
+    {
+      "start": "king",
+      "target": "lament",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "king",
+        "love"
+      ]
+    },
+    {
+      "start": "gnome",
+      "target": "flame",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gnome",
+        "combustion"
+      ]
+    },
+    {
+      "start": "borrow",
+      "target": "spade",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "borrow",
+        "can",
+        "bag"
+      ]
+    },
+    {
+      "start": "borrow",
+      "target": "gesture",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "borrow",
+        "make"
+      ]
+    },
+    {
+      "start": "tan",
+      "target": "junk",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "attempts": 2,
+      "total_shots": 3,
+      "route": [
+        "tan",
+        "said",
+        "money"
       ]
     }
   ]

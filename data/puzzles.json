@@ -4,711 +4,815 @@
     "target": "science",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "cheese",
     "target": "language",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "penalty",
     "target": "ability",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "everyday",
     "target": "affection",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "moon",
     "target": "kitchen",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "garden",
     "target": "computer",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "bread",
     "target": "democracy",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "forest",
     "target": "money",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "seal",
     "target": "knuckle",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "bold",
     "target": "gravel",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "lake",
     "target": "fragrant",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "cake",
     "target": "monitor",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "dune",
     "target": "crystal",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "gel",
     "target": "male",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "dance",
     "target": "merger",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "dance",
     "target": "glacier",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "dance",
     "target": "lane",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "owl",
     "target": "gladly",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "clam",
     "target": "placard",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "domain",
     "target": "lazy",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "client",
     "target": "chirp",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "gate",
     "target": "vomit",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "chess",
     "target": "sink",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "chess",
     "target": "annoy",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "fan",
     "target": "anchor",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "bling",
     "target": "hatch",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "gold",
     "target": "hover",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "leopard",
     "target": "angle",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "frame",
     "target": "goose",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "shine",
     "target": "leap",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "gall",
     "target": "giant",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "classic",
     "target": "slide",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "pot",
     "target": "lap",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "pot",
     "target": "sting",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "melt",
     "target": "climb",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "flag",
     "target": "speck",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "nice",
     "target": "feather",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "height",
     "target": "beer",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "layer",
     "target": "muse",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "quilt",
     "target": "mantra",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "replace",
     "target": "hole",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "waste",
     "target": "clap",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "dragon",
     "target": "cap",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "grin",
     "target": "plump",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "seep",
     "target": "goat",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "signage",
     "target": "tackle",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "clay",
     "target": "tent",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "base",
     "target": "tricycle",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "rain",
     "target": "pleasant",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "whale",
     "target": "nuclear",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "lever",
     "target": "empty",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "crane",
     "target": "pulse",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "ocean",
     "target": "iris",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "mate",
     "target": "elephant",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "paranoid",
     "target": "goat",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "morph",
     "target": "lineage",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "polo",
     "target": "lick",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "lint",
     "target": "please",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "carton",
     "target": "alive",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "phrase",
     "target": "tangle",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "scold",
     "target": "mime",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "glue",
     "target": "lunch",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "fine",
     "target": "plank",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "tee",
     "target": "neat",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "aunt",
     "target": "novice",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "bend",
     "target": "loan",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "hygiene",
     "target": "lamp",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "frost",
     "target": "ancient",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "clove",
     "target": "linger",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "pothole",
     "target": "tyranny",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "yard",
     "target": "maple",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "gang",
     "target": "flowers",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "turtle",
     "target": "ball",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "mince",
     "target": "hall",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "singer",
     "target": "fantastic",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "lapse",
     "target": "star",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "spill",
     "target": "generous",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "tree",
     "target": "gravity",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "crater",
     "target": "eleven",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "mars",
     "target": "clarity",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "linger",
     "target": "clarity",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "ocean",
     "target": "nudity",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "cheese",
     "target": "nudity",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "sailor",
     "target": "savior",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "digger",
     "target": "load",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "temple",
     "target": "netball",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "double",
     "target": "mast",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "window",
     "target": "bunt",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
   },
   {
     "start": "genie",
     "target": "cinema",
     "threshold": 0.27,
     "mode": "distance",
-    "launch_min": 0.1,
-    "launch_max": 0.22
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "flight",
+    "target": "banter",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "gold",
+    "target": "classical",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "helmet",
+    "target": "chain",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "myth",
+    "target": "helpless",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "defy",
+    "target": "whiz",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "depict",
+    "target": "waste",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "bowl",
+    "target": "bowel",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "sludge",
+    "target": "driveway",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "king",
+    "target": "lament",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "gnome",
+    "target": "flame",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "borrow",
+    "target": "spade",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "borrow",
+    "target": "gesture",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
+  },
+  {
+    "start": "tan",
+    "target": "junk",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215
   }
 ]

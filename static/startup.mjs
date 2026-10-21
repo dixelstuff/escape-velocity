@@ -13,6 +13,6 @@ export function startupAction(saved, opening) {
 
 /** Existing rounds retain settings; restarting the previous standard defaults adopts the new course. */
 export function restartSettings(state,opening){
- const previous=state.mode==='distance'&&state.threshold===.28&&state.launch_min===.10&&state.launch_max===.21;
+ const previous=state.mode==='distance'&&state.launch_min===.10&&((state.threshold===.28&&state.launch_max===.21)||(state.threshold===.27&&state.launch_max===.22));
  return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max};
 }

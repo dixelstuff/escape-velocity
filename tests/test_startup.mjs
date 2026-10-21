@@ -32,3 +32,8 @@ assert.deepEqual(restartSettings(previous,latest),{...latest,start:'ocean',targe
 assert.equal(previous.threshold,.28,'the archived state is immutable');
 const custom={...previous,threshold:.35,launch_max:.30};
 assert.equal(restartSettings(custom,latest).threshold,.35,'intentional custom settings survive a restart');
+
+const v43={...latest,launch_min:.095,launch_max:.215,finish_mode:'range'};
+assert.deepEqual(restartSettings({...latest,start:'mars',target:'clarity'},v43),{...v43,start:'mars',target:'clarity'});
+assert.equal(startupAction({state:{...latest,finish_mode:'range'}},v43),'restore','keep in-progress rounds on their recorded settings');
+assert.equal(restartSettings({...latest,launch_min:.12},v43).launch_min,.12,'preserve custom strengths');

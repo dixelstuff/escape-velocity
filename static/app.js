@@ -1,17 +1,17 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v42';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v42';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v42';
-import { shotMotion } from './shot-motion.mjs?v=golf-v42';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v42';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v42';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v42';
-import { createBrowserClient } from './engine.mjs?v=golf-v42';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v42';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v42';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v42';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v42';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v42';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v42';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v43';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v43';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v43';
+import { shotMotion } from './shot-motion.mjs?v=golf-v43';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v43';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v43';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v43';
+import { createBrowserClient } from './engine.mjs?v=golf-v43';
+import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v43';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v43';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v43';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v43';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v43';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v43';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -215,9 +215,7 @@ function syncPuzzleSelection(){
  else $('puzzle').value=String(index);
 }
 function update(){
- $('shot-context').innerHTML=`Connect to <strong>${esc(state.current.toUpperCase())}</strong> to hit; move closer to <strong>${esc(state.target.toUpperCase())}</strong>.`;
- $('shot-tip').innerHTML=`Your ball is at <strong>${esc(state.current.toUpperCase())}</strong>. Choose a word strongly related to <strong>${esc(state.current.toUpperCase())}</strong> to make contact, and closer to <strong>${esc(state.target.toUpperCase())}</strong> to move forward. The ball word changes after each landed shot.`;
- $('start-label').textContent=state.start;$('target-label').textContent=state.target;$('attempts').textContent=state.attempts;
+ $('current-label').textContent=state.current.toUpperCase();$('target-label').textContent=state.target.toUpperCase();$('attempts').textContent=state.attempts;
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
  document.querySelector('.controls').hidden=state.won;
  document.querySelector('.attempts').hidden=state.won;
@@ -425,7 +423,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v42'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v43'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});
@@ -457,8 +455,3 @@ $('word').addEventListener('blur',()=>{
 window.visualViewport?.addEventListener('resize',fitTypingView);
 window.visualViewport?.addEventListener('scroll',fitTypingView);
 window.addEventListener('resize',fitTypingView);
-
-$('shot-help-toggle').addEventListener('pointerdown',event=>{if(narrow()&&document.activeElement===$('word'))event.preventDefault();});
-$('shot-help-toggle').onclick=()=>{
- const open=$('shot-tip').hidden;$('shot-tip').hidden=!open;$('shot-help-toggle').setAttribute('aria-expanded',String(open));fitTypingView();
-};
