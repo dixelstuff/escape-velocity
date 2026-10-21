@@ -21,6 +21,7 @@ jobs:
       - name: Check browser scoring against Python fixtures
         run: |
           node tests/test_browser.mjs
+          node tests/test_round_summary.mjs
           node tests/test_log.mjs
           node tests/test_map.mjs
           node tests/test_startup.mjs
