@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import {pinPlacement,greenContains,greenPath,courseStyle,bunkerPath,lakeGeometry,shoreY,GREEN_HEIGHT} from '../static/course-appearance.mjs';
+import {continuationTrees} from '../static/course-art.mjs';
+import {lakeContains} from '../static/course-appearance.mjs';
 import {mapLayout,projectPoint,projectX,axisPoint} from '../static/map.mjs';
 const locations=new Set();
 for(let i=0;i<300;i++){
@@ -33,7 +35,9 @@ for(let i=0;i<100;i++){
  assert.ok(s.teeY>=191&&s.teeY<=239);tees.add(s.teeY);counts.add(s.bunkers.length);
  for(const narrow of [true,false]){
   const d={...mapLayout(narrow,{...pinPlacement(seed),teeY:s.teeY,greenCentreY:s.greenCentreY}),style:s},lake=lakeGeometry(d,s);
-  shores.add(lake.path);assert.ok(lake.path.includes('500 Z'),'lake extends beyond course bottom');
+  for(const t of continuationTrees(d,s,lake))assert.equal(lakeContains(t,lake,t.r+7),false,'entire tree canopy/shadow stays off the lake');
+  assert.equal(lakeContains({x:d.width*.025,y:484},lake),true,'reported submerged tree location is water');
+  shores.add(lake.path);assert.ok(lake.outline.some(p=>p.y>650),'one shared lake continues well below the playing viewport');
   assert.equal(d.greenBottom-d.greenTop,GREEN_HEIGHT);
   if(Math.abs(d.holeY-215)>10)assert.ok((d.teeY-215)*(d.holeY-215)<0,'tee sits opposite a higher/lower cup');
   assert.ok(d.greenTop>=45&&d.greenBottom<=404);

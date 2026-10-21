@@ -61,9 +61,21 @@ export function shoreY(x,d,style){
  return exit+style.lakeY-style.wave*Math.exp(-(((t-.23)/.24)**2))-13*Math.exp(-(((t-.67)/.12)**2))+3*Math.cos(7*t+style.phase);
 }
 export function lakeGeometry(d,style){
- const end=d.zoneLeft-24,points=Array.from({length:17},(_,i)=>({x:-12+(end+12)*i/16,y:shoreY(-12+(end+12)*i/16,d,style)}));
- let path=`M-12,500 L${points[0].x},${points[0].y}`;
- for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];const step=(b.x-a.x)/3,slope=x=>(shoreY(x+.1,d,style)-shoreY(x-.1,d,style))/.2;path+=` C${a.x+step},${a.y+step*slope(a.x)} ${b.x-step},${b.y-step*slope(b.x)} ${b.x},${b.y}`;}
- path+=` L${end},500 L-12,500 Z`;
- return {path,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:500-Math.min(p.y,points[i+1].y)})).filter(o=>o.y<430)};
+ const end=d.zoneLeft-24,points=Array.from({length:33},(_,i)=>({x:-30+(end+30)*i/32,y:shoreY(-30+(end+30)*i/32,d,style)}));
+ let shore=`M${points[0].x},${points[0].y}`;
+ for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3,slope=x=>(shoreY(x+.1,d,style)-shoreY(x-.1,d,style))/.2;shore+=` C${a.x+step},${a.y+step*slope(a.x)} ${b.x-step},${b.y-step*slope(b.x)} ${b.x},${b.y}`;}
+ const a=points.at(-1),b={x:end+18,y:534},c={x:d.width*.37,y:629},e={x:-30,y:686};
+ const path=shore+` C${b.x},${b.y} ${c.x},${c.y} ${e.x},${e.y} Z`;
+ const outline=[...points,...Array.from({length:48},(_,i)=>{const t=(i+1)/48,u=1-t;return {x:u*u*u*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t*t*t*e.x,y:u*u*u*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t*t*t*e.y};})];
+ return {path,shore,outline,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:700-Math.min(p.y,points[i+1].y)})).filter(o=>o.y<430)};
+}
+/** Include a safety margin for the entire tree canopy and shadow, not just its centre. */
+export function lakeContains(p,lake,margin=0){
+ let inside=false;const points=lake.outline;
+ for(let i=0,j=points.length-1;i<points.length;j=i++){
+  const a=points[i],b=points[j],dx=b.x-a.x,dy=b.y-a.y,t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy)));
+  if(Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy)<=margin)return true;
+  if((a.y>p.y)!==(b.y>p.y)&&p.x<(b.x-a.x)*(p.y-a.y)/(b.y-a.y)+a.x)inside=!inside;
+ }
+ return inside;
 }

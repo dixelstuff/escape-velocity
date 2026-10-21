@@ -122,3 +122,6 @@ body.typing main{background:#f5f3e8;}
 /* The world continues behind feedback without covering the played route. */
 .course-feedback{background-color:#becda5;background-position:center top;background-repeat:no-repeat;background-size:100% auto;}
 .course-feedback:has(> :not([hidden])){padding:18px 18px 22px;}
+
+/* The continuation uses the same world; never paint the main SVG beyond its viewport. */
+#map{overflow:hidden;}
