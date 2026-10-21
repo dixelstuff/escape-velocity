@@ -1,4 +1,4 @@
-import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v54';
+import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v55';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -74,7 +74,7 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
     const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
     const radius=label.radius??16,below=label.y+radius+(label.gap??5),above=label.y-radius-5-h;
-    const peers=(label.priority??0)<5?labels.filter(other=>other!==label&&(other.priority??0)<5&&Math.abs(other.x-label.x)<(other.width+label.width)/2+12&&Math.abs(other.y-label.y)<Math.max(60,(other.height+label.height)/2+radius+(other.radius??16)+16)):[];
+    const peers=(label.priority??0)<5?labels.filter(other=>other!==label&&(!other.optional||label.optional)&&(other.priority??0)<5&&Math.abs(other.x-label.x)<(other.width+label.width)/2+12&&Math.abs(other.y-label.y)<Math.max(60,(other.height+label.height)/2+radius+(other.radius??16)+16)):[];
     const cluster=[label,...peers].sort((a,b)=>a.y-b.y||a.x-b.x||String(a.word).localeCompare(String(b.word)));
     const preferAbove=peers.length&&cluster.indexOf(label)<cluster.length/2;
     const preferredTop=preferAbove?above:below;
@@ -94,6 +94,7 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
     }
     candidates.sort((a,b)=>a.cost-b.cost);
     let box=candidates.find(box=>![...obstacles,...placed].some(other=>overlaps(box,other)));
+    if(!box&&label.optional)continue;
     if(!box){box={x:Math.max(8,Math.min(width-w-8,label.x-w/2)),y:height+8,width:w,height:h};height=box.y+h+12;}
     placed.push(box);result.set(label.word,{...box,textX:box.x+w/2,textY:box.y+h/2});
   }

@@ -2,17 +2,22 @@
 export function successSettings(value){
  if(!value)return null;
  const {par=3,attempt=1,id}=value;
- if(value.version!=='par-challenge-v1'||!Number.isInteger(par)||par<2||par>9||!Number.isInteger(attempt)||attempt<1||typeof id!=='string'||!id||id.length>100)throw Error('Invalid Success mode settings.');
- return {version:'par-challenge-v1',par,attempt,id};
+ if(!['par-challenge-v1','par-challenge-v2'].includes(value.version)||!Number.isInteger(par)||par<2||par>9||!Number.isInteger(attempt)||attempt<1||typeof id!=='string'||!id||id.length>100)throw Error('Invalid Success mode settings.');
+ return {version:value.version,par,attempt,id};
 }
 export function parUnreachable(game){
  const c=game.challenge;if(!c||game.won)return false;
+ if(c.version==='par-challenge-v2'&&['miss','water'].includes(game.history.at(-1)?.outcome))return true;
  const remaining=c.par-game.history.length;
  if(remaining<=0)return true;
  if(remaining>1)return false;
  // With one shot left, only the literal hole word can finish without another stroke.
  const destination=game.e.cosine(game.target,game.target),progress=game.e.cosine(game.current,game.target);
  return game.e.cosine(game.current,game.target)+1e-7<game.requirement(game.current,game.target,progress,destination).required||destination+1e-7<game.best_progress-game.backward_allowance;
+}
+export function challengeFailure(state){
+ if(!state.challenge_failed)return '';
+ return state.challenge?.version==='par-challenge-v2'&&['miss','water'].includes(state.history.at(-1)?.outcome)?'Attempt over.':'Par is out of reach.';
 }
 export function successTitle(state){
  if(!state.challenge)return state.attempts===1?'Hole in one!':`Holed in ${state.attempts} shots!`;

@@ -20,3 +20,11 @@ assert.throws(()=>fresh({challenge:{...settings.challenge,attempt:0}}),/Invalid 
 // If a direct final stroke is possible, choosing an indirect finish cannot exceed par.
 values.set('tee,hole',.3);g=fresh({challenge:{...settings.challenge,par:2}});g.submit('miss');assert.equal(g.challenge_failed,false);g.submit('bridge');assert.equal(g.won,false);assert.equal(g.challenge_failed,true);assert.equal(g.state().attempts,2);assert.equal(g.automatic_shots.length,0);
 console.log('Success mode: par/birdie, automatic stroke budget, early failure, replay, attempts, complete scorecard history and legacy rounds passed.');
+// Version 2 ends on the first miss/penalty, without changing historical v1 replays.
+values.set('tee,hole',0);
+const v2={...settings.challenge,version:'par-challenge-v2',par:5};
+g=fresh({challenge:v2});const miss=g.submit('miss');assert.equal(miss.outcome,'miss');assert.equal(g.challenge_failed,true);assert.equal(g.state().attempts,1);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());assert.throws(()=>g.submit('bridge'),/Attempt over/);
+values.set('step,miss',.4);values.set('miss,hole',-.1);
+g=fresh({challenge:v2});g.submit('step');assert.equal(g.challenge_failed,false);assert.equal(g.submit('miss').outcome,'water');assert.equal(g.challenge_failed,true);assert.equal(g.current,'step');assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+g=fresh({challenge:v2});assert.throws(()=>g.submit('unknown'),/No shot used/);assert.throws(()=>g.submit('tee'),/No shot used/);assert.equal(g.challenge_failed,false);assert.equal(g.state().attempts,0);g.submit('bridge');assert.ok(g.won);assert.equal(g.challenge_failed,false);
+console.log('Immediate-retry rules: first miss, water penalty, unknown/current-word exceptions and deterministic versioned replay passed.');

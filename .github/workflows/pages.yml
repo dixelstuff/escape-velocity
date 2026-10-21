@@ -35,6 +35,7 @@ jobs:
           node tests/test_word_model.mjs
           node tests/test_local_scaling.mjs
           node tests/test_success_mode.mjs
+          node tests/test_attempt_ghosts.mjs
           node tests/test_hubs.mjs
           node tests/test_hub_warning.mjs
           node tests/test_skill.mjs

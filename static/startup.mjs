@@ -6,6 +6,7 @@ export function startupAction(saved, opening) {
   if(!saved)return 'opening';
   const state=saved.state;
   if(opening.success_mode&&!state.challenge)return 'upgrade';
+  if(opening.success_version&&state.challenge?.version!==opening.success_version)return 'upgrade';
   if(opening.finish_mode==='range'&&state.finish_mode!=='range')return 'upgrade';
   if(!['golf-distance-v3','golf-fixed-v3'].includes(state.rules))return 'upgrade';
   if(state.threshold===.25&&state.launch_min===.09&&state.launch_max===.19)return 'upgrade';

@@ -1,7 +1,7 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v54';
-import {successTitle} from './success-mode.mjs?v=golf-v54';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v54';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v54';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v55';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v55';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v55';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v55';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -165,10 +165,10 @@ export function journeyText(journey,feedback=[]) {
   const s = journey.state;
   const lines = ['WORD GOLF — scorecard', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
-    s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, ...(s.headwind?[`Headwind: ${s.headwind.word} · strength ${s.headwind.strength} · ${s.headwind.version}`]:[]), ...(s.word_model?[`Word model: ${s.word_model}`]:[]), `Result: ${s.won ? 'Completed' : s.challenge_failed?'Par missed':'In progress'} · ${s.attempts} shots`, ''];
+    s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, ...(s.headwind?[`Headwind: ${s.headwind.word} · strength ${s.headwind.strength} · ${s.headwind.version}`]:[]), ...(s.word_model?[`Word model: ${s.word_model}`]:[]), `Result: ${s.won ? 'Completed' : s.challenge_failed?'Attempt ended':'In progress'} · ${s.attempts} shots`, ''];
   if(['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
   if(s.finish_mode==='range')lines.push('Finish mode: automatic chip-in range (one counted finishing shot).', '');
-  if(s.challenge)lines.push(`Success mode: par ${s.challenge.par} · attempt ${s.challenge.attempt} · challenge ${s.challenge.id}`,s.won?successTitle(s):s.challenge_failed?'Par is out of reach.':'Attempt in progress.','');
+  if(s.challenge)lines.push(`Success mode: par ${s.challenge.par} · attempt ${s.challenge.attempt} · challenge ${s.challenge.id}`,s.won?successTitle(s):s.challenge_failed?challengeFailure(s):'Attempt in progress.','');
   if(journey.skill){lines.push(`Skill: ${Math.round(journey.skill.score/10)}% (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}
   for(const f of journey.skill_feedback??[])lines.push(`Skill feedback: ${f.rating==='too_harsh'?'Too harsh':'Too generous'} · score ${f.score}/1000 · ${f.assessment.version}${f.note?' · '+f.note:''}`);
   for (const entry of journey.entries) {
