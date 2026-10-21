@@ -25,7 +25,7 @@ assert.equal(validSkillReport({...green,model_sha:'test'},g.state(),'test'),true
 assert.equal(validSkillReport({...green,model_sha:'test',shots:[{}]},g.state(),'test'),false);
 assert.equal(validSkillReport({...green,model_sha:'other'},g.state(),'test'),false);
 const storageData=new Map(),storage={getItem:k=>storageData.get(k),setItem:(k,v)=>storageData.set(k,v)};
-const log=new FlightLog(storage,()=>new Date(0).toISOString(),()=> 'round');log.begin(g.state(),'test');assert.equal(log.recordSkill('round',green),true);assert.equal(log.recordSkill('round',{...green,history_key:'wrong'}),false);assert.equal(new FlightLog(storage).active.skill.score,1000);assert.equal(JSON.parse(log.exportJSON()).journeys[0].skill.shots.length,1);assert.match(journeyText(log.active),/Experimental skill: 1000\/1000/);
+const log=new FlightLog(storage,()=>new Date(0).toISOString(),()=> 'round');log.begin(g.state(),'test');assert.equal(log.recordSkill('round',green),true);assert.equal(log.recordSkill('round',{...green,history_key:'wrong'}),false);assert.equal(new FlightLog(storage).active.skill.score,1000);assert.equal(JSON.parse(log.exportJSON()).journeys[0].skill.shots.length,1);assert.match(journeyText(log.active),/Skill: 100%/);
 // Fresh batches exclude old assessments; stale worker results cannot attach to a new round.
 log.makeId=()=> 'new-round';const fresh=game().state();log.reset(fresh,'test');
 assert.equal(log.recordSkill('round',green),false);assert.equal(JSON.parse(log.exportJSON()).journeys.some(j=>j.skill),false);
