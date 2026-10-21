@@ -5,7 +5,7 @@ export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   return arrivalFraction+(1-arrivalFraction)*(similarity-arrival)/Math.max(1e-6,1-arrival);
 }
 export function mapLayout(narrow=false) {
-  const layout=narrow?{width:640,left:55,right:550,radius:54,edge:620}:{width:1000,left:80,right:860,radius:86,edge:960};
+  const layout=narrow?{width:640,left:55,right:550,radius:48.4,edge:620}:{width:1000,left:80,right:860,radius:79.2,edge:960};
   return {...layout,zoneLeft:layout.right-layout.radius,zoneRight:layout.right+layout.radius};
 }
 export function projectX(similarity,baseline,arrival,layout) {

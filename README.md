@@ -240,3 +240,7 @@ New holes use short 0.10 / long 0.22 / green 0.27. The higher long-shot requirem
 Existing v3 rounds resume with their original settings. Restarting a round that used the previous standard distance settings (0.10 / 0.21 / 0.28) adopts the new defaults at the same endpoints; intentionally different custom settings are preserved. New dropdown/custom holes use the new settings immediately. Historical rules and explicit saved parameters retain their old values. The utility launch-function defaults remain historical; the current Game passes its saved/new settings explicitly.
 
 The latest shared batch contributes 13 more completed, eligible holes under the existing endpoint/play screening, bringing the retained menu to 85. Every menu route is verified under the new settings, and browser fixtures use the matching published model. No vector assets change. Historical scorecards, feedback, skill-version definitions and the new shortcut review remain intact.
+
+## Green proportions refined (course v27)
+
+The green is now exactly 10% wider than the original drawing (radii 48.4 on phones and 79.2 on desktop). Its top sits halfway between the original and v26 positions: outer y=41 and inner y=48, with both lower edges preserved. The flag remains horizontally centred. Gameplay thresholds, launch normalization and saved rounds are unchanged.
