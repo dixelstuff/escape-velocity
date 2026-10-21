@@ -284,3 +284,12 @@ The tee-label background/text slides from its current visible position to the ne
 Automatic green finishes roll along a straight ground segment with deceleration and rotating dimples. Their saved trail is straight too. Direct successful hole-word shots have a low initial flight, two diminishing bounces and a final roll. A separate ground shadow becomes smaller/fainter under airborne balls; regular shots retain their previous flight curve. Putts and chip-ins shrink into the cup at the end, and the completed map leaves the flag/cup visible without a ball popping back out. Misses, water, scoring, timing-independent engine state and skill remain intact. Reduced-motion preferences continue to skip shot animation.
 
 Motion tests check ground-only putting, chip ground contacts and decreasing hop heights, exact endpoints, no ground overshoot, final sinking and immutable inputs. Mobile browser checks cover the tee label mid-transition, a real MORPH → EVOLVED automatic putt with zero lift, and a GENIE → MAGIC → CINEMA chip-in with the same two counted shots and a settled cup.
+
+
+## Varied cups, softer green and clearer misses (course v34)
+
+The green is 5% wider with a smooth, subtly organic outline and rounded ends. Each new round seeds its cup position from its saved round ID: 50–70% across the green from the tee-facing edge and 30–70% down its height. It stays fixed during play and after refreshing. The tee-to-cup axis, word distance contours and exact hub-envelope arc rotate together around the actual cup. The display scale meets the actual green boundary along that axis. These are appearance changes; word vectors, shot legality, thresholds, skill and original grass stripes are unchanged.
+
+Long tee shots receive extra airborne height proportional to their displayed travel, while short shots, rolling putts and chip bounces retain their motion. Nearby failed-shot labels prefer outward placement: above the upper marker and below the lower marker, with the existing collision and boundary checks still applied.
+
+Geometry tests cover both screen widths, extreme cup placements, stable seeded positions, green membership, radial distance preservation and immutable layouts. Label tests check outward placement in both attempt orders. Motion tests check the taller long tee flight without lifting putts or short tee shots. The full JavaScript suite passes; desktop/mobile browser checks verify the new green, stable cup after reload, real automatic completion and nearby missed-word labels.

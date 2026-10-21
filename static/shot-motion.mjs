@@ -1,10 +1,13 @@
 /** Presentation-only motion. Scoring and shot counts never depend on animation. */
 const ease=t=>t*t*(3-2*t);
-export function shotMotion(kind,a,b,time){
+export function shotMotion(kind,a,b,time,{tee=false}={}){
  const t=Math.max(0,Math.min(1,time)),distance=Math.hypot(b.x-a.x,b.y-a.y);
  const u=kind==='putt'?1-(1-t)**2:kind==='chip'?1-(1-t)**1.6:ease(t);
  let lift=0;
- if(kind==='flight')lift=2*u*(1-u)*(65+Math.abs(b.y-a.y)/2);
+ if(kind==='flight'){
+  const height=65+Math.abs(b.y-a.y)/2+(tee?Math.min(95,Math.max(0,(distance-100)*.16)):0);
+  lift=2*u*(1-u)*height;
+ }
  if(kind==='chip'){
   const height=Math.min(48,18+.08*distance);
   if(t<.55)lift=height*Math.sin(Math.PI*t/.55);

@@ -27,3 +27,10 @@ assert.equal(shotMotion('putt',a,b,.9).scale,1);
 assert.ok(shotMotion('putt',a,b,.97).scale<1,'ball sinks only at the cup');
 assert.ok(shotMotion('flight',a,b,.5).shadowScale<1,'shadow stays smaller while the ball is airborne');
 console.log('Shot motion passed: ground-only putting, diminishing chip bounces, straight ground travel, exact endpoints, cup sink, attached shadow and immutable inputs.');
+
+const longTee=shotMotion('flight',{x:55,y:199},{x:550,y:215},.5,{tee:true});
+const flat=shotMotion('flight',{x:55,y:199},{x:550,y:215},.5);
+const shortTee=shotMotion('flight',{x:55,y:199},{x:120,y:215},.5,{tee:true});
+assert.ok(longTee.lift>flat.lift*1.7,'long tee shots have noticeably more height');
+assert.ok(shortTee.lift<40,'small tee shots keep a gentle arc');
+assert.equal(shotMotion('putt',a,b,.5,{tee:true}).lift,0);

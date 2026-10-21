@@ -14,14 +14,14 @@ for(const baseline of [-.1,.08,.2])for(const targetHub of [0,.4,1]){
  assert.ok(r.start<=r.first&&r.first<=r.last&&r.last<=r.end);
  assert.equal(r.start,r.first);assert.equal(r.end,r.last,'there is no cosmetic padding');
  assert.ok(r.start>=baseline&&r.end<=g.threshold);
- for(const narrow of [false,true]){
-  const layout=mapLayout(narrow),outer=projectX(r.first,baseline,g.threshold,layout),inner=projectX(r.last,baseline,g.threshold,layout);
+ for(const narrow of [false,true])for(const placement of [{depth:.5,vertical:.3},{depth:.6,vertical:.5},{depth:.7,vertical:.7}]){
+  const layout=mapLayout(narrow,placement),outer=projectX(r.first,baseline,g.threshold,layout),inner=projectX(r.last,baseline,g.threshold,layout);
   const bands=chipArcBands(outer,inner,layout);
   for(const band of bands){
    const values=band.path.match(/-?\d+\.\d+/g).map(Number);
    for(let i=0;i<values.length;i+=2){
-    const radius=Math.hypot(layout.right-values[i],values[i+1]-215);
-    assert.ok(radius>=layout.right-inner-.002&&radius<=layout.right-outer+.002,'paint stays within the actual hub envelope');
+    const radius=Math.hypot(layout.right-values[i],values[i+1]-layout.holeY);
+    assert.ok(radius>=layout.axisRight-inner-.002&&radius<=layout.axisRight-outer+.002,'paint stays within the actual hub envelope');
    }
   }
   if(targetHub===1)assert.equal(bands[0].stroke,true,'maximum-hub target leaves no remaining hub variability');

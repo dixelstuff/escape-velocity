@@ -1,3 +1,4 @@
+import {greenPoints,greenContains} from './course-appearance.mjs?v=golf-v34';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -7,44 +8,49 @@ export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   }
   return arrivalFraction+(1-arrivalFraction)*(similarity-arrival)/Math.max(1e-6,1-arrival);
 }
-export function mapLayout(narrow=false) {
-  const layout=narrow?{width:640,left:55,right:550,radius:48.4,edge:620}:{width:1000,left:80,right:860,radius:79.2,edge:960};
-  return {...layout,zoneLeft:layout.right-layout.radius,zoneRight:layout.right+layout.radius};
+export function mapLayout(narrow=false,placement={depth:.6,vertical:(215-48)/353}) {
+ const base=narrow?{width:640,left:55,greenCentre:550,radius:50.82,edge:620}:{width:1000,left:80,greenCentre:860,radius:83.16,edge:960};
+ const d={...base,teeY:215,greenTop:48,greenBottom:401,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
+ const depth=Math.max(.5,Math.min(.7,placement.depth)),vertical=Math.max(.3,Math.min(.7,placement.vertical));
+ d.right=d.zoneLeft+depth*(d.zoneRight-d.zoneLeft);d.holeY=d.greenTop+vertical*(d.greenBottom-d.greenTop);
+ d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
+ d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
+ d.greenOutline=greenPoints(d);
+ let lo=0,hi=d.axisLength;
+ for(let i=0;i<40;i++){const mid=(lo+hi)/2;if(greenContains(axisPoint(mid,0,d),d))hi=mid;else lo=mid;}
+ d.arrivalDistance=hi;
+ return d;
 }
+/** Local tee-to-cup coordinates, rotated into the course's screen coordinates. */
+export function axisPoint(along,offset,d){return {x:d.left+d.axisX*along-d.axisY*offset,y:d.teeY+d.axisY*along+d.axisX*offset};}
 export function projectX(similarity,baseline,arrival,layout) {
-  const span=layout.right-layout.left;
-  const fraction=(layout.zoneLeft-layout.left)/span;
-  return Math.max(20,Math.min(layout.edge,layout.left+span*mapFraction(similarity,baseline,arrival,fraction)));
+ const fraction=layout.arrivalDistance/layout.axisLength;
+ return Math.max(20,Math.min(layout.edge,layout.left+layout.axisLength*mapFraction(similarity,baseline,arrival,fraction)));
 }
-
-/** Hole-centred distance contours; lateral positions follow the same radius.
- * The centre-line scale is unchanged. Offset is decorative, never a scoring input.
- */
+/** Display circles and their word lies share the actual cup as their centre. */
 export function contourX(centreX,offset,layout){
- const radius=layout.right-centreX;
+ const radius=layout.axisRight-centreX;
  if(radius<=1e-6)return centreX;
- return layout.right-Math.sqrt(Math.max(0,radius*radius-offset*offset));
+ return layout.axisRight-Math.sqrt(Math.max(0,radius*radius-offset*offset));
 }
-export function projectPoint(similarity,baseline,arrival,layout,offset=0,centreY=215){
- const centreX=projectX(similarity,baseline,arrival,layout),radius=Math.max(0,layout.right-centreX);
- let spread=.88*radius;
- // Keep a lie short of the green visibly outside the putting surface.
- if(similarity<arrival){
-  const edgeRadius=layout.right-layout.zoneLeft;
-  const safeRadius=Math.min(radius,edgeRadius+6);
-  spread=Math.min(spread,Math.sqrt(Math.max(0,radius*radius-safeRadius*safeRadius)));
+export function projectPoint(similarity,baseline,arrival,layout,offset=0){
+ const centreX=projectX(similarity,baseline,arrival,layout),radius=Math.max(0,layout.axisRight-centreX);
+ const point=dy=>axisPoint(contourX(centreX,dy,layout)-layout.left,dy,layout);
+ let dy=Math.max(-.88*radius,Math.min(.88*radius,offset));
+ const allowed=value=>{const p=point(value);return p.x>=20&&p.x<=layout.edge&&p.y>=62&&p.y<=370&&(similarity>=arrival?greenContains(p,layout):!greenContains(p,layout));};
+ if(!allowed(dy)){
+  let lo=0,hi=1;
+  for(let i=0;i<24;i++){const mid=(lo+hi)/2;if(allowed(dy*mid))lo=mid;else hi=mid;}
+  dy*=lo;
  }
- const dy=Math.max(-spread,Math.min(spread,offset));
- return {x:contourX(centreX,dy,layout),y:centreY+dy};
+ return point(dy);
 }
 /** Paint only the true hub-boundary interval; never add a decorative band width. */
 export function chipArcBands(outerX,innerX,layout,{centreY=215,top=54,bottom=378,steps=16,samples=40}={}){
- const width=Math.max(0,innerX-outerX);
- const extent=.9*Math.max(0,layout.right-innerX);
+ const width=Math.max(0,innerX-outerX),extent=.9*Math.max(0,layout.axisRight-innerX);
  top=Math.max(top,centreY-extent);bottom=Math.min(bottom,centreY+extent);
- const line=x=>Array.from({length:samples+1},(_,i)=>{const y=top+(bottom-top)*i/samples;return [contourX(x,y-centreY,layout),y];});
+ const line=x=>Array.from({length:samples+1},(_,i)=>{const offset=top+(bottom-top)*i/samples-centreY,p=axisPoint(contourX(x,offset,layout)-layout.left,offset,layout);return [p.x,p.y];});
  const path=points=>'M'+points.map(p=>p.map(v=>v.toFixed(3)).join(',')).join(' L');
- // A coincident pair is a single stroked contour, not an invented uncertainty band.
  if(width<=1e-7)return [{path:path(line(outerX)),opacity:.78,stroke:true}];
  return Array.from({length:steps},(_,i)=>{
   const a=line(outerX+width*i/steps),b=line(outerX+width*(i+1)/steps).reverse();
@@ -66,8 +72,12 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
   for(const label of [...labels].sort((a,b)=>(b.priority||0)-(a.priority||0))) {
     const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
-    const radius=label.radius??16,preferredTop=label.y+radius+(label.gap??5);
-    const rows=[preferredTop,label.y-radius-5-h];
+    const radius=label.radius??16,below=label.y+radius+(label.gap??5),above=label.y-radius-5-h;
+    const peers=label.failed?labels.filter(other=>other!==label&&Math.abs(other.x-label.x)<(other.width+label.width)/2+12&&Math.abs(other.y-label.y)<Math.max(60,(other.height+label.height)/2+radius+(other.radius??16)+16)):[];
+    const cluster=[label,...peers].sort((a,b)=>a.y-b.y||a.x-b.x||String(a.word).localeCompare(String(b.word)));
+    const preferAbove=peers.length&&cluster.indexOf(label)<cluster.length/2;
+    const preferredTop=preferAbove?above:below;
+    const rows=[preferredTop,preferAbove?below:above];
     for(let y=24;y+h<=minimumHeight-10;y+=h+7)rows.push(y);
     for(const y of rows.filter(y=>y>=24&&y+h<=minimumHeight-10)) {
       for(const shift of [0,-28,28,-64,64,-112,112,-180,180]) {

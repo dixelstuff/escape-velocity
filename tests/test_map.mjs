@@ -1,3 +1,4 @@
+import {greenContains} from '../static/course-appearance.mjs';
 import assert from 'node:assert/strict';
 import { mapFraction, mapLayout, projectX, projectPoint, contourX, chipArcBands, visibleAttempts, layoutLabels } from '../static/map.mjs';
 for(const baseline of [-.1,.05,.2,.4]) {
@@ -16,14 +17,14 @@ assert.ok(mapFraction(.225,0,.4)>.6&&mapFraction(.225,0,.4)<.675,'later progress
 assert.equal(mapFraction(-.04,0,.4),-.09,'backward positions stay finite and linear');
 for(const narrow of [false,true]) {
   const d=mapLayout(narrow);
-  assert.equal(d.right-d.zoneLeft,d.zoneRight-d.right);
+  assert.ok((d.right-d.zoneLeft)/(d.zoneRight-d.zoneLeft)>=.5);
   assert.ok(d.zoneRight<d.width);
-  assert.ok(Math.abs(projectX(.45,.1,.45,d)-d.zoneLeft)<1e-8);
-  assert.equal(projectX(1,.1,.45,d),d.right);
+  assert.ok(Math.abs(projectX(.45,.1,.45,d)-(d.left+d.arrivalDistance))<1e-8);
+  assert.equal(projectX(1,.1,.45,d),d.axisRight);
   assert.equal(projectX(.1,.1,.45,d),d.left);
-  for(let i=0;i<=100;i++)assert.ok(projectX(.45+.55*i/100,.1,.45,d)>=d.zoneLeft-1e-8);
+  for(let i=0;i<=100;i++)assert.ok(projectX(.45+.55*i/100,.1,.45,d)>=d.left+d.arrivalDistance-1e-8);
 }
-console.log('Map scale passed: semantic order, departure boundary and arrival zone centred on the destination at phone and desktop widths.');
+console.log('Map scale passed: semantic order, departure boundary and arrival zone centred on the cup and actual green boundary at phone and desktop widths.');
 
 const attempts=[
  {word:'back',forward:false,destination:.05},
@@ -64,7 +65,7 @@ for(const narrow of [false,true]){
   const centre=projectX(similarity,baseline,green,d),p=projectPoint(similarity,baseline,green,d,offset);
   assert.ok(Math.abs(Math.hypot(d.right-p.x,p.y-215)-(d.right-centre))<1e-7);
   assert.ok(p.x>=20&&p.x<=d.edge&&Number.isFinite(p.y));
-  if(similarity>=green)assert.ok(p.x>=d.zoneLeft&&p.x<=d.zoneRight);else assert.ok(p.x<=d.zoneLeft+1e-7);
+  assert.equal(greenContains(p,d),similarity>=green,'word position agrees with the green outline');
  }
  assert.deepEqual(projectPoint(baseline,baseline,green,d),{x:d.left,y:215});
  assert.deepEqual(projectPoint(1,baseline,green,d),{x:d.right,y:215});
@@ -81,3 +82,12 @@ for(const narrow of [false,true]){
  }
 }
 console.log('Curved map passed: radial distance invariance, fixed anchors, bounded close lies, concentric indicator geometry and short fade with no interior fill.');
+
+for(const order of [[0,1],[1,0]]){
+ const pair=[{word:'upper-miss',x:400,y:180,width:100,height:20,radius:6,gap:5,failed:true},{word:'lower-miss',x:405,y:215,width:100,height:20,radius:6,gap:5,failed:true}];
+ const obstacles=pair.map(p=>({x:p.x-8,y:p.y-8,width:16,height:16}));
+ const result=layoutLabels(order.map(i=>pair[i]),obstacles,1000,430).labels;
+ assert.ok(result.get('upper-miss').y+result.get('upper-miss').height<180);
+ assert.ok(result.get('lower-miss').y>215);
+}
+console.log('Miss labels passed: upper/lower clustered misses spread outwards regardless of attempt order.');

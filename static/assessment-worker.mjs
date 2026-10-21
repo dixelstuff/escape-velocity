@@ -1,6 +1,6 @@
-import { Embeddings } from './engine.mjs?v=golf-v33';
-import { assessHole } from './assessment.mjs?v=golf-v33';
-import { SkillAnalyser } from './skill.mjs?v=golf-v33';
+import { Embeddings } from './engine.mjs?v=golf-v34';
+import { assessHole } from './assessment.mjs?v=golf-v34';
+import { SkillAnalyser } from './skill.mjs?v=golf-v34';
 let e,skill;
 self.onmessage=({data})=>{
   if(data.init){e=new Embeddings(data.words,data.vectors,data.dimensions,data.hubs);skill=new SkillAnalyser(e);return;}

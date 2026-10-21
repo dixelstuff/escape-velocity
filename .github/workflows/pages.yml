@@ -24,6 +24,7 @@ jobs:
           node tests/test_round_summary.mjs
           node tests/test_log.mjs
           node tests/test_map.mjs
+          node tests/test_course_appearance.mjs
           node tests/test_shot_motion.mjs
           node tests/test_chip_range.mjs
           node tests/test_startup.mjs
