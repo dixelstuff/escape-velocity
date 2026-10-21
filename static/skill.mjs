@@ -1,5 +1,5 @@
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v34';
+import { Game } from './engine.mjs?v=golf-v35';
 export const SKILL_VERSION='vector-skill-v3';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;

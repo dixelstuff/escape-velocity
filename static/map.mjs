@@ -1,4 +1,4 @@
-import {greenPoints,greenContains} from './course-appearance.mjs?v=golf-v34';
+import {greenPoints,greenContains,shoreY} from './course-appearance.mjs?v=golf-v35';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -10,7 +10,7 @@ export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
 }
 export function mapLayout(narrow=false,placement={depth:.6,vertical:(215-48)/353}) {
  const base=narrow?{width:640,left:55,greenCentre:550,radius:50.82,edge:620}:{width:1000,left:80,greenCentre:860,radius:83.16,edge:960};
- const d={...base,teeY:215,greenTop:48,greenBottom:401,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
+ const d={...base,teeY:Math.max(191,Math.min(239,placement.teeY??215)),greenTop:48,greenBottom:401,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
  const depth=Math.max(.5,Math.min(.7,placement.depth)),vertical=Math.max(.3,Math.min(.7,placement.vertical));
  d.right=d.zoneLeft+depth*(d.zoneRight-d.zoneLeft);d.holeY=d.greenTop+vertical*(d.greenBottom-d.greenTop);
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
@@ -37,7 +37,7 @@ export function projectPoint(similarity,baseline,arrival,layout,offset=0){
  const centreX=projectX(similarity,baseline,arrival,layout),radius=Math.max(0,layout.axisRight-centreX);
  const point=dy=>axisPoint(contourX(centreX,dy,layout)-layout.left,dy,layout);
  let dy=Math.max(-.88*radius,Math.min(.88*radius,offset));
- const allowed=value=>{const p=point(value);return p.x>=20&&p.x<=layout.edge&&p.y>=62&&p.y<=370&&(similarity>=arrival?greenContains(p,layout):!greenContains(p,layout));};
+ const allowed=value=>{const p=point(value);return p.x>=20&&p.x<=layout.edge&&p.y>=62&&p.y<=370&&(!layout.style||p.x>layout.zoneLeft-24||p.y<=shoreY(p.x,layout,layout.style)-14)&&(similarity>=arrival?greenContains(p,layout):!greenContains(p,layout));};
  if(!allowed(dy)){
   let lo=0,hi=1;
   for(let i=0;i<24;i++){const mid=(lo+hi)/2;if(allowed(dy*mid))lo=mid;else hi=mid;}
@@ -73,16 +73,22 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
     const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
     const radius=label.radius??16,below=label.y+radius+(label.gap??5),above=label.y-radius-5-h;
-    const peers=label.failed?labels.filter(other=>other!==label&&Math.abs(other.x-label.x)<(other.width+label.width)/2+12&&Math.abs(other.y-label.y)<Math.max(60,(other.height+label.height)/2+radius+(other.radius??16)+16)):[];
+    const peers=(label.priority??0)<5?labels.filter(other=>other!==label&&(other.priority??0)<5&&Math.abs(other.x-label.x)<(other.width+label.width)/2+12&&Math.abs(other.y-label.y)<Math.max(60,(other.height+label.height)/2+radius+(other.radius??16)+16)):[];
     const cluster=[label,...peers].sort((a,b)=>a.y-b.y||a.x-b.x||String(a.word).localeCompare(String(b.word)));
     const preferAbove=peers.length&&cluster.indexOf(label)<cluster.length/2;
     const preferredTop=preferAbove?above:below;
-    const rows=[preferredTop,preferAbove?below:above];
+    const blocked=[...obstacles,...placed];
+    const rows=[preferredTop,preferAbove?below:above,label.y-h/2,
+      ...blocked.flatMap(o=>[o.y-h-4,o.y+o.height+4])];
     for(let y=24;y+h<=minimumHeight-10;y+=h+7)rows.push(y);
     for(const y of rows.filter(y=>y>=24&&y+h<=minimumHeight-10)) {
-      for(const shift of [0,-28,28,-64,64,-112,112,-180,180]) {
-        const x=Math.max(8,Math.min(width-w-8,label.x-w/2+shift));
-        candidates.push({x,y,width:w,height:h,cost:(x+w/2-label.x)**2+(y+h/2-(preferredTop+h/2))**2});
+      for(const desiredX of [label.x-w/2,label.x-radius-5-w,label.x+radius+5,
+        ...[...obstacles,...placed].flatMap(o=>[o.x-w-4,o.x+o.width+4]),
+        ...[-28,28,-64,64,-112,112,-180,180].map(shift=>label.x-w/2+shift)]) {
+        const x=Math.max(8,Math.min(width-w-8,desiredX));
+        const dx=Math.max(x-label.x,0,label.x-x-w),dy=Math.max(y-label.y,0,label.y-y-h);
+        const sidePenalty=(preferAbove?y+h>label.y:y<label.y)?220:0;
+        candidates.push({x,y,width:w,height:h,cost:dx*dx+dy*dy+.12*(x+w/2-label.x)**2+sidePenalty});
       }
     }
     candidates.sort((a,b)=>a.cost-b.cost);

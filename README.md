@@ -293,3 +293,12 @@ The green is 5% wider with a smooth, subtly organic outline and rounded ends. Ea
 Long tee shots receive extra airborne height proportional to their displayed travel, while short shots, rolling putts and chip bounces retain their motion. Nearby failed-shot labels prefer outward placement: above the upper marker and below the lower marker, with the existing collision and boundary checks still applied.
 
 Geometry tests cover both screen widths, extreme cup placements, stable seeded positions, green membership, radial distance preservation and immutable layouts. Label tests check outward placement in both attempt orders. Motion tests check the taller long tee flight without lifting putts or short tee shots. The full JavaScript suite passes; desktop/mobile browser checks verify the new green, stable cup after reload, real automatic completion and nearby missed-word labels.
+
+
+## Mobile label clusters and course variety (course v35)
+
+Outward label preferences now apply to successful lies as well as misses, so a higher CAMERA marker does not take the lower label space needed by nearby INSPIRE. Packing considers obstacle edges and side positions rather than coarse rows alone, and scores the actual connector distance so a blocked preferred spot does not force an unnecessarily long descent. Word coordinates and semantic radii remain fixed. Regression tests cover the reported MARS → INSPIRE (miss) → ROVER → CAMERA route at phone/desktop widths, high/low pins and tees, both before and after holing.
+
+The saved round ID also seeds a modest ±24-unit vertical tee shift (ball, markers, labels and course axis together), one or two organically shaped bunkers with varied position/size/rotation, and a varied shoreline. Water starts higher and extends past the bottom and left boundaries, reading as an off-map lake. Fairway word lies and labels avoid the shoreline. These visual choices stay stable across refreshes and viewport changes. The original straight grass stripes, vectors, thresholds, shot outcomes and skill are unchanged.
+
+Tests verify stable terrain variation, legal green membership and lake clearance, local labels under extreme pin/tee placements, and the full existing scoring suite. Mobile browser verification replays the exact reported route and completes it in the same four counted shots.

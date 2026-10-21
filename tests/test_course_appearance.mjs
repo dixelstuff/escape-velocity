@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {pinPlacement,greenContains,greenPath} from '../static/course-appearance.mjs';
+import {pinPlacement,greenContains,greenPath,courseStyle,bunkerPath,lakeGeometry,shoreY} from '../static/course-appearance.mjs';
 import {mapLayout,projectPoint,projectX,axisPoint} from '../static/map.mjs';
 const locations=new Set();
 for(let i=0;i<300;i++){
@@ -26,3 +26,22 @@ for(const narrow of [false,true])for(const depth of [.5,.6,.7])for(const vertica
  assert.equal(JSON.stringify(d),snapshot,'projection never mutates appearance');
 }
 console.log('Appearance passed: stable varied pins within requested ranges, organic green membership, rotated distance geometry, bounded words and immutable layouts.');
+
+const tees=new Set(),shores=new Set(),counts=new Set();
+for(let i=0;i<100;i++){
+ const seed=`terrain-${i}`,s=courseStyle(seed);assert.deepEqual(s,courseStyle(seed));
+ assert.ok(s.teeY>=191&&s.teeY<=239);tees.add(s.teeY);counts.add(s.bunkers.length);
+ for(const narrow of [true,false]){
+  const d={...mapLayout(narrow,{...pinPlacement(seed),teeY:s.teeY}),style:s},lake=lakeGeometry(d,s);
+  shores.add(lake.path);assert.ok(lake.path.includes('450 Z'),'lake extends beyond course bottom');
+  assert.ok(lake.obstacles.every(o=>o.height>0&&o.width>0));
+  for(const b of s.bunkers)assert.ok(bunkerPath(b).endsWith(' Z'));
+  for(const sim of [.02,.1,.2,.26,.27,.8,1])for(const offset of [-160,160]){
+   const p=projectPoint(sim,.015,.27,d,offset);
+   assert.equal(greenContains(p,d),sim>=.27);
+   if(p.x<d.zoneLeft-24)assert.ok(p.y<=shoreY(p.x,d,s)-13.999,'fairway markers stay clear of the lake');
+  }
+ }
+}
+assert.equal(tees.size,100);assert.ok(shores.size>100);assert.equal(counts.size,2);
+console.log('Terrain passed: stable tee/bunker/shore variation, one or two bunkers, lake beyond bottom edge and safe word lies.');

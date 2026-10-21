@@ -91,3 +91,20 @@ for(const order of [[0,1],[1,0]]){
  assert.ok(result.get('lower-miss').y>215);
 }
 console.log('Miss labels passed: upper/lower clustered misses spread outwards regardless of attempt order.');
+
+// Reported mobile route, including high pins where CAMERA / INSPIRE crowd together.
+for(const narrow of [true,false])for(const vertical of [.3,.5,.7])for(const teeY of [191,239])for(const completed of [false,true]){
+ const d=mapLayout(narrow,{depth:.7,vertical,teeY}),baseline=.015662837286072318;
+ const specs=[['mars',baseline,0],['inspire',.21982825649865845,-68.2],['rover',.07455649580970203,59.4],['camera',.19118485630315263,-114.4],['clarity',1,0]];
+ const labels=specs.map(([word,sim,offset])=>({word,...(word==='mars'?{x:d.left,y:d.teeY}:projectPoint(sim,baseline,.27,d,offset)),width:(narrow?{mars:52.53,inspire:69.75,rover:61.85,camera:78.90,clarity:77.36}:{mars:35.82,inspire:47.89,rover:42.23,camera:53.79,clarity:52.97})[word],height:narrow?23.64:15.77,radius:word==='camera'&&!completed?16:word==='clarity'?10:6,gap:word==='camera'&&!completed?12:5,priority:word==='mars'?5:word==='camera'&&!completed?4:word==='clarity'?3:word==='inspire'?0:1,failed:word==='inspire'}));
+ const obstacles=labels.map(p=>({x:p.x-p.radius-1,y:p.y-p.radius-1,width:2*p.radius+2,height:2*p.radius+8}));
+ obstacles.push({x:d.right-3,y:d.holeY-51,width:33,height:52});
+ const packed=layoutLabels(labels,obstacles,d.width,430);
+ for(const word of ['camera','inspire']){
+  const p=labels.find(p=>p.word===word),b=packed.labels.get(word);
+  const gap=Math.hypot(Math.max(b.x-p.x,0,p.x-b.x-b.width),Math.max(b.y-p.y,0,p.y-b.y-b.height));
+  assert.ok(gap<38,`${word} must remain close to its marker (${narrow}/${vertical}/${teeY}/${completed}): ${gap}`);
+ }
+ assert.equal(packed.height,430,'a small route must never expand the map for labels');
+}
+console.log('MARS regression passed: nearby CAMERA / INSPIRE labels stay local at high and low pin/tee positions, during play and after completion.');
