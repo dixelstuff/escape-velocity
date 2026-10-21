@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains} from './course-appearance.mjs?v=golf-v40';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v41';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -87,15 +87,15 @@ export function continuationTrees(d,style,lake=lakeGeometry(d,style)){
  return trees.map(([x,y,r],i)=>({x:x*d.width,y:y+8*Math.sin(style.phase+i),r,seed:i})).filter(p=>!lakeContains(p,lake,p.r+7));
 }
 
-/** The next part of the course continues beneath the feedback card at the same scale. */
+/** One world behind the playable viewport and feedback, with no image edge at their join. */
 export function courseContinuation(d,style){
  const w=d.width;
  const lake=lakeGeometry(d,style);
  const fairway=`M${w*.95},458 C${w*.76},468 ${w*.91},603 ${w*.65},649 C${w*.32},710 ${w*.11},768 ${w*.04},925 C${w*.01},1000 ${w*.2},1019 ${w*.26},930 C${w*.36},787 ${w*.52},781 ${w*.79},714 C${w*1.05},652 ${w*1.05},536 ${w*.95},458 Z`;
  const path=`M${w+20},428 C${w*.88},452 ${w*.99},574 ${w*.81},622 C${w*.54},695 ${w*.2},686 -20,870`;
- return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1300" viewBox="0 430 ${w} 1300">
- <defs><pattern id="course-ground" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
- <rect y="430" width="${w}" height="1300" fill="url(#course-ground)"/>${courseSurrounds(d,style,lake)}${courseLake(d,style,lake)}
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
+ <defs><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="course-ground" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
+ <rect y="-20" width="${w}" height="1780" fill="url(#course-ground)"/>${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${courseTrees(d,style,lake)}
  <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>
  <ellipse cx="${w*.16}" cy="942" rx="${w*.065}" ry="35" fill="#a2c487" stroke="#91b579" stroke-width="3" transform="rotate(-30 ${w*.16} 942)"/>

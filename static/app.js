@@ -1,16 +1,16 @@
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v40';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v40';
-import { shotMotion } from './shot-motion.mjs?v=golf-v40';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v40';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v40';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v40';
-import { createBrowserClient } from './engine.mjs?v=golf-v40';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v40';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v40';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v40';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v40';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v40';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v40';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v41';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v41';
+import { shotMotion } from './shot-motion.mjs?v=golf-v41';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v41';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v41';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v41';
+import { createBrowserClient } from './engine.mjs?v=golf-v41';
+import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v41';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v41';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v41';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v41';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v41';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v41';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -84,7 +84,7 @@ function map(preview=null){
  const r=ballPosition(state.current);
  svg+=`<g id="golf-ball" transform="translate(${r.x},${r.y})" aria-label="Your golf ball" opacity="${state.won&&state.current===state.target?0:1}" aria-hidden="${state.won&&state.current===state.target}"><ellipse id="ball-shadow" cy="18" rx="17" ry="4" fill="#45663e" opacity=".2"/><g id="ball-body"><circle r="16" fill="url(#ball-shade)" stroke="#728363" stroke-width="1"/><g id="ball-dimples">${[[-4,-5],[3,-6],[-7,1],[0,0],[6,1],[-3,6],[4,6]].map(([cx,cy])=>`<circle cx="${cx}" cy="${cy}" r="1.2" fill="#d4ddc8"/>`).join('')}</g></g></g>`;
  $('map').innerHTML=svg;
- if(backdropLayout!==d){document.querySelector('.course-feedback').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style))}")`;backdropLayout=d;}
+ if(backdropLayout!==d){document.querySelector('.map-card').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style))}")`;backdropLayout=d;}
  const textNodes=[...$('map').querySelectorAll('[data-word-label]')];
  const obstacles=planets.map(p=>{if(p.word===state.current){const b=ballPosition(p.word);return {x:b.x-17,y:b.y-17,width:34,height:40};}const radius=p.word===state.target?10:8;return {x:p.pos.x-radius,y:p.pos.y-radius,width:2*radius,height:2*radius};});
  obstacles.push(...lake.obstacles,{x:d.right-3,y:d.holeY-51,width:33,height:52},...[-TEE_MARKER_OFFSET,TEE_MARKER_OFFSET].map(offset=>({x:d.left-7,y:d.teeY+offset-7,width:14,height:16})));
@@ -422,7 +422,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v40'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v41'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

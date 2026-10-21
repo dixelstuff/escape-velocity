@@ -120,8 +120,14 @@ body.typing main{background:#f5f3e8;}
 .chip-range-toggle{display:flex;align-items:center;gap:8px;min-height:44px;font-size:12px;color:#526b51;cursor:pointer}.chip-range-toggle input{width:18px;height:18px;min-height:0;padding:0;margin:0;accent-color:#477f5d}#chip-range-note{font-size:11px;line-height:1.5;color:#68785e;margin:0 0 4px}
 
 /* The world continues behind feedback without covering the played route. */
-.course-feedback{background-color:#becda5;background-position:center top;background-repeat:no-repeat;background-size:100% auto;}
+.map-card{background-position:center top;background-repeat:no-repeat;background-size:100% auto;}
+.course-feedback{background:transparent;}
 .course-feedback:has(> :not([hidden])){padding:18px 18px 22px;}
 
 /* The continuation uses the same world; never paint the main SVG beyond its viewport. */
 #map{overflow:hidden;}
+
+/* Keep the miss-message close control centred beside wrapped text. */
+#shot-notice{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:8px;padding:10px 8px 10px 16px;}
+#close-shot-notice{position:static;display:grid;place-items:center;padding:0;margin:0;width:44px;height:44px;}
+.feedback-close{display:grid;place-items:center;}

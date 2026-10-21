@@ -1,5 +1,5 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game } from './engine.mjs?v=golf-v40';
+import { Game } from './engine.mjs?v=golf-v41';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.27,{mode:'distance',launch_min:.10,launch_max:.22,...settings});
   const {start,target,baseline,threshold,launch_min,launch_max}=game;

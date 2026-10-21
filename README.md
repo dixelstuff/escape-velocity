@@ -341,3 +341,10 @@ New rounds save `finish_mode: range`. After a successful landed shot, the engine
 Older rounds keep their original green/manual-chip behavior on replay. Loading the release starts a fresh trial round while archiving the earlier scorecard. Finish mode is included in saved states, skill/history keys, bridge feedback keys and assessment settings. Skill and opening-bridge evaluation recognize finishing range as terminal, and exclude the automatic shot from player-choice grading. The green threshold and all contact/hub formulas remain unchanged.
 
 A dedicated test covers borderline hub-adjusted finishes, automatic shot counts, misses/water/tee exceptions, deterministic restore, scorecard entries, skill/shortcut replay and actual MARS → INSPIRE (miss) → ROVER → CAMERA → automatic CLARITY. Mobile checks verify the GENIE → MAGIC settling pause at one shot with no result/second trail, automatic completion in two shots, noninteractive labels and the retained toggle. Historical scoring fixtures and the full suite pass.
+
+
+## Miss-message alignment and continuous background (course v41)
+
+The scorecard landscape is now one full-world SVG background on the map card, extending behind both the drawing and feedback. Feedback is transparent instead of starting a second background at the bottom edge of the playing SVG. This removes the separate surface join that could show as a thin horizontal line. The foreground drawing remains clipped; artwork placement and original mowing stripes are preserved.
+
+Miss/water messages use a text-and-close grid so the 44-pixel dismiss target stays vertically centred beside wrapped text. Close icons use explicit grid centring instead of font baseline positioning. Mobile checks at 390 and 320 pixels verify placement and dismissal with zero leftover feedback height. Appearance, map and automatic-finish regression checks pass. All course settings, thresholds and the automatic-finish trial are unchanged.
