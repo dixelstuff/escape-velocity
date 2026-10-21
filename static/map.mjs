@@ -14,6 +14,38 @@ export function projectX(similarity,baseline,arrival,layout) {
   return Math.max(20,Math.min(layout.edge,layout.left+span*mapFraction(similarity,baseline,arrival,fraction)));
 }
 
+/** Hole-centred distance contours; lateral positions follow the same radius.
+ * The centre-line scale is unchanged. Offset is decorative, never a scoring input.
+ */
+export function contourX(centreX,offset,layout){
+ const radius=layout.right-centreX;
+ if(radius<=1e-6)return centreX;
+ return layout.right-Math.sqrt(Math.max(0,radius*radius-offset*offset));
+}
+export function projectPoint(similarity,baseline,arrival,layout,offset=0,centreY=215){
+ const centreX=projectX(similarity,baseline,arrival,layout),radius=Math.max(0,layout.right-centreX);
+ let spread=.88*radius;
+ // Keep a lie short of the green visibly outside the putting surface.
+ if(similarity<arrival){
+  const edgeRadius=layout.right-layout.zoneLeft;
+  const safeRadius=Math.min(radius,edgeRadius+6);
+  spread=Math.min(spread,Math.sqrt(Math.max(0,radius*radius-safeRadius*safeRadius)));
+ }
+ const dy=Math.max(-spread,Math.min(spread,offset));
+ return {x:contourX(centreX,dy,layout),y:centreY+dy};
+}
+/** A narrow fade-in ribbon; nothing is filled on the hole side of the arc. */
+export function chipArcBands(centreX,layout,{centreY=215,top=54,bottom=378,width=12,steps=12,samples=40}={}){
+ const extent=.9*Math.max(0,layout.right-centreX-width/2);
+ top=Math.max(top,centreY-extent);bottom=Math.min(bottom,centreY+extent);
+ const line=x=>Array.from({length:samples+1},(_,i)=>{const y=top+(bottom-top)*i/samples;return [contourX(x,y-centreY,layout),y];});
+ return Array.from({length:steps},(_,i)=>{
+  const a=line(centreX-width/2+width*i/steps),b=line(centreX-width/2+width*(i+1)/steps).reverse();
+  const points=[...a,...b];
+  return {path:'M'+points.map(p=>p.map(v=>v.toFixed(2)).join(',')).join(' L')+' Z',opacity:.78*((i+1)/steps)**1.7};
+ });
+}
+
 /** Unmade forward shots keep their word markers until the ball passes them. */
 export function visibleAttempts(state) {
   const reached=new Set(state.route);

@@ -1,13 +1,13 @@
-import { failedShotSummary, mapWordAction } from './round-summary.mjs?v=golf-v30';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v30';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v30';
-import { createBrowserClient } from './engine.mjs?v=golf-v30';
-import { mapLayout, projectX, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v30';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v30';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v30';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v30';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v30';
-import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v30';
+import { failedShotSummary, mapWordAction } from './round-summary.mjs?v=golf-v31';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v31';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v31';
+import { createBrowserClient } from './engine.mjs?v=golf-v31';
+import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v31';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v31';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v31';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v31';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v31';
+import { currentSkillFeedback } from './skill-feedback.mjs?v=golf-v31';
 const $=id=>document.getElementById(id);
 let config,state,client,busy=false,shownEvent=null,resultDismissed=false,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
@@ -26,7 +26,7 @@ const narrow=()=>matchMedia('(max-width:650px)').matches;
 const dimensions=()=>mapLayout(narrow());
 const COURSE_HEIGHT=430,COURSE_CENTRE=215,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
-function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:COURSE_CENTRE};if(word===state.target)return {x:dimensions().right,y:COURSE_CENTRE};const h=state.history.find(e=>e.word===word)||event;return {x:x(h.destination),y:COURSE_CENTRE+1.1*[-62,54,-104,97,-28,15][(h.attempt-1)%6]};}
+function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:COURSE_CENTRE};if(word===state.target)return {x:dimensions().right,y:COURSE_CENTRE};const h=state.history.find(e=>e.word===word)||event;return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),1.1*[-62,54,-104,97,-28,15][(h.attempt-1)%6],COURSE_CENTRE);}
 // Word positions are ground anchors; lift the teed ball above its shadow.
 function ballPosition(word,event=null){const p=position(word,event);return {...p,y:p.y-(word===state.start?16:0)};}
 function waterPoint(event){const d=dimensions();return {x:Math.max(48,Math.min(d.zoneLeft-48,x(event.destination))),y:407};}
@@ -34,10 +34,11 @@ const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.
 function chipShading(d,zone){
  if(!showChipRange||!client||!state)return '';
  const range=client.chipRange(state);if(!range)return '';
- const start=x(range.start),end=Math.min(zone,x(range.end));
- if(end<=start||zone<=start)return '';
- return `<defs><linearGradient id="chip-range-fade" gradientUnits="userSpaceOnUse" x1="${start}" y1="0" x2="${end}" y2="0"><stop offset="0" stop-color="#528350" stop-opacity="0"/><stop offset=".45" stop-color="#528350" stop-opacity=".1"/><stop offset="1" stop-color="#528350" stop-opacity=".25"/></linearGradient></defs><rect id="chip-range-shading" x="${start}" y="41" width="${zone-start}" height="367" rx="24" fill="url(#chip-range-fade)" pointer-events="none" aria-hidden="true"/>`;
+ const centre=x((range.first+range.last)/2);
+ const bands=chipArcBands(centre,d,{width:narrow()?10:12});
+ return `<defs><clipPath id="chip-range-clip"><rect x="20" y="54" width="${d.edge-20}" height="324"/></clipPath></defs><g id="chip-range-shading" clip-path="url(#chip-range-clip)" pointer-events="none" aria-hidden="true">${bands.map(b=>`<path d="${b.path}" fill="#b94b46" opacity="${b.opacity}"/>`).join('')}</g>`;
 }
+
 function map(preview=null){
  const d=dimensions();$('map').setAttribute('viewBox',`0 0 ${d.width} ${COURSE_HEIGHT}`);
  const zone=d.zoneLeft;
@@ -407,7 +408,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v30'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Updated course defaults are ready. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v31'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Updated course defaults are ready. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

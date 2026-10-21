@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mapFraction, mapLayout, projectX, visibleAttempts, layoutLabels } from '../static/map.mjs';
+import { mapFraction, mapLayout, projectX, projectPoint, contourX, chipArcBands, visibleAttempts, layoutLabels } from '../static/map.mjs';
 for(const baseline of [-.1,.05,.2,.4]) {
   assert.equal(mapFraction(baseline,baseline,.45),0);
   assert.equal(mapFraction(.45,baseline,.45),.9);
@@ -53,3 +53,28 @@ console.log('Crowded label placement passed at phone and desktop widths: no miss
 
 const recoveryHistory=[{word:'recovery',forward:false,success:true,destination:.19,outcome:'recovery'},{word:'water',forward:false,success:false,destination:.1,outcome:'water'}];
 assert.deepEqual(visibleAttempts({history:recoveryHistory,route:['start','recovery'],progress:.19}).map(e=>e.word),['recovery']);
+
+// Lateral spread must not change the visual distance that encodes semantic progress.
+for(const narrow of [false,true]){
+ const d=mapLayout(narrow),baseline=.07,green=.27;
+ for(const similarity of [.06,.07,.09,.16,.2,.26,.269999,.27,.4,.9,1])for(const offset of [-160,-68,0,68,160]){
+  const centre=projectX(similarity,baseline,green,d),p=projectPoint(similarity,baseline,green,d,offset);
+  assert.ok(Math.abs(Math.hypot(d.right-p.x,p.y-215)-(d.right-centre))<1e-7);
+  assert.ok(p.x>=20&&p.x<=d.edge&&Number.isFinite(p.y));
+  if(similarity>=green)assert.ok(p.x>=d.zoneLeft&&p.x<=d.zoneRight);else assert.ok(p.x<=d.zoneLeft+1e-7);
+ }
+ assert.deepEqual(projectPoint(baseline,baseline,green,d),{x:d.left,y:215});
+ assert.deepEqual(projectPoint(1,baseline,green,d),{x:d.right,y:215});
+ const centre=projectX(.17,baseline,green,d),width=12,bands=chipArcBands(centre,d,{width});
+ assert.equal(bands.length,12);assert.ok(contourX(centre,150,d)>centre,'range arc wraps toward the flag at its ends');
+ let previous=0;
+ for(const b of bands){
+  assert.ok(b.opacity>previous&&b.opacity<=.78);previous=b.opacity;
+  const values=b.path.match(/-?\d+\.\d+/g).map(Number);
+  for(let i=0;i<values.length;i+=2){
+   const radius=Math.hypot(d.right-values[i],values[i+1]-215);
+   assert.ok(radius>=d.right-centre-width/2-.02&&radius<=d.right-centre+width/2+.02,'red paint stays in the narrow ribbon; no fill towards the hole');
+  }
+ }
+}
+console.log('Curved map passed: radial distance invariance, fixed anchors, bounded close lies, concentric indicator geometry and short fade with no interior fill.');
