@@ -371,3 +371,8 @@ The heading above the course now says “Connect with DIGGER to hit, and LOAD to
 The tee-to-hole title returns above the course. Guidance spans the input row beneath it on desktop and on mobile while the input is inactive. During mobile typing only, guidance takes the title's place above the map and the lower copy is hidden. Both use the current lie and target; the mobile course continues to scale uniformly to the available keyboard space.
 
 Skill calibration buttons and note inputs are removed from the result and scorecard UI. Historical feedback remains in saved/exported scorecards. The completion card instead offers NEXT HOLE (the following dropdown hole, wrapping at the end; custom holes start at the first menu hole) and REPLAY (same endpoints and restart settings). Actions appear immediately on completion, independently of skill assessment, and archive the completed round normally. Thresholds remain .095 / .215 / .27.
+
+
+## Compact shot counter (course v45)
+
+The shot count now uses a slightly smaller number with SHOTS centred beneath it. On mobile, focused entry gives the current-lie guidance the remaining header width with an eight-pixel gap and natural line wrapping. Course layout, guidance wording and gameplay settings are unchanged.
