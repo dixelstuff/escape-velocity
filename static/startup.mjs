@@ -1,6 +1,6 @@
 /** Resume current rules; archive older rules before starting with the current finish rule. */
 export function isOpening(state, opening) {
-  return state.start===opening.start && state.target===opening.target && state.threshold===opening.threshold && (state.mode||'fixed')===(opening.mode||'fixed')&&JSON.stringify(state.headwind??null)===JSON.stringify(opening.headwind??null);
+  return state.start===opening.start && state.target===opening.target && state.threshold===opening.threshold && state.word_model===opening.word_model && (state.mode||'fixed')===(opening.mode||'fixed')&&JSON.stringify(state.headwind??null)===JSON.stringify(opening.headwind??null);
 }
 export function startupAction(saved, opening) {
   if(!saved)return 'opening';
@@ -14,5 +14,5 @@ export function startupAction(saved, opening) {
 /** Existing rounds retain settings; restarting the previous standard defaults adopts the new course. */
 export function restartSettings(state,opening){
  const previous=!state.headwind&&state.mode==='distance'&&state.launch_min===.10&&((state.threshold===.28&&state.launch_max===.21)||(state.threshold===.27&&state.launch_max===.22));
- return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,...(state.headwind?{headwind:state.headwind}:{})};
+ return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,...(state.word_model?{word_model:state.word_model}:{}),...(state.headwind?{headwind:state.headwind}:{})};
 }

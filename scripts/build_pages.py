@@ -30,13 +30,25 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v51', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range') for p in json.loads((DATA / 'puzzles.json').read_text())], vocabulary=len(e.words),
+    config = dict(release='golf-v52', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range') for p in json.loads((DATA / 'puzzles.json').read_text())], vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     hub_meta=json.loads((output/'hubs.json').read_text()) if (output/'hubs.json').exists() else {}
     if hub_meta.get('vector_sha256')!=config['vector_sha256'] or hub_meta.get('words_file')!=words_file:
         from build_hubs import main as build_hubs
         build_hubs(config)
         hub_meta=json.loads((output/'hubs.json').read_text())
+    from build_abtt import build_abtt
+    trial=build_abtt(e.words,DATA).astype('<f2').tobytes()
+    trial_sha=hashlib.sha256(trial).hexdigest()
+    trial_name=f'abtt1-{trial_sha[:16]}.f16'
+    for stale in output.glob('abtt1-*.f16*'):
+        if stale.name not in [trial_name,trial_name+'.gz']:stale.unlink()
+    (output/trial_name).write_bytes(trial)
+    (output/(trial_name+'.gz')).write_bytes(gzip.compress(trial,compresslevel=9,mtime=0))
+    config['word_models']={'abtt-1-v1':dict(model='GloVe 6B · ABTT · 1 component (trial)',
+        vector_file=trial_name+'.gz',vector_fallback=trial_name,vector_bytes=len(trial),vector_sha256=trial_sha,
+        algorithm='Subtract full 400,000-row raw-vector mean; remove top centred PCA component; normalise; pack float16.',
+        defaults=dict(launch_min=0.09526148742408946,launch_max=0.2226404434066529,threshold=0.26797642291676005))}
     config.update(hub_file=hub_meta['file'],hub_sha256=hub_meta['sha256'],hub_version=hub_meta['version'])
     (output / 'config.json').write_text(json.dumps(config, separators=(',', ':')))
     (output / 'ATTRIBUTION.txt').write_text(

@@ -1,10 +1,11 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v51';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v52';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v51';
+import { Game } from './engine.mjs?v=golf-v52';
 export const SKILL_VERSION='vector-skill-v3';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
-export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[])]);}
+import {withWordModel} from './word-model.mjs?v=golf-v52';
+export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
   const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub'];
@@ -29,6 +30,8 @@ export class SkillAnalyser {
     this.rows.set(word,row);return row;
   }
   analyse(saved){
+    const selected=withWordModel(this.e,saved.word_model);
+    if(selected!==this.e)return new SkillAnalyser(selected).analyse(saved);
     if(saved.headwind&&headwindKey(this.e.headwind)!==headwindKey(saved.headwind))return new SkillAnalyser(withHeadwind(this.e,saved.headwind)).analyse(saved);
     if(!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules))throw Error('Skill is available for rounds played with the current course rules.');
     const e=this.e,g=new Game(e,saved.start,saved.target,saved.threshold,saved),target=this.row(g.target),gap=Math.max(.01,g.threshold-g.baseline);

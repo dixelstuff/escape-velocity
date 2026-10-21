@@ -1,6 +1,7 @@
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v51';
-import { chipRange } from './chip-range.mjs?v=golf-v51';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v51';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v52';
+import { chipRange } from './chip-range.mjs?v=golf-v52';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v52';
+import {withWordModel} from './word-model.mjs?v=golf-v52';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -31,7 +32,7 @@ export function launchRequirement(current, destination, baseline, arrival, minim
 }
 export class Game {
   constructor(embeddings,start,target,threshold=undefined,options={}) {
-    const headwind=headwindSettings(options.headwind);embeddings=withHeadwind(embeddings,headwind);
+    const headwind=headwindSettings(options.headwind);embeddings=withHeadwind(withWordModel(embeddings,options.word_model),headwind);
     start=start.trim().toLowerCase();target=target.trim().toLowerCase();threshold=Number(threshold??(options.rules ? .28 : .27));
     const {mode='fixed',rules,finish_mode='green'}=options;
     if(!['green','range'].includes(finish_mode))throw Error('Unknown finish mode.');
@@ -47,7 +48,7 @@ export class Game {
     const expected=mode==='distance'?'golf-distance-v3':'golf-fixed-v3';
     if(rules&&! [expected,...(mode==='distance'?['golf-distance-v2','golf-distance-v1','distance-v1','distance-v2','distance-v3']:['golf-fixed-v2','golf-fixed-v1','fixed-threshold-v1','fixed-threshold-v2','fixed-threshold-v3'])].includes(rules))throw Error('Unknown rule version.');
     if(rules==='fixed-threshold-v1'&&mode!=='fixed')throw Error('Historical rounds use fixed shot strength.');
-    Object.assign(this,{headwind,e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected,modern,finish_mode,automatic_shots:[]});
+    Object.assign(this,{word_model:embeddings.word_model,headwind,e:embeddings,start,current:start,target,threshold,mode,launch_min,launch_max,rules:rules||expected,modern,finish_mode,automatic_shots:[]});
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
   }
@@ -101,7 +102,7 @@ export class Game {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
       attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
-      ...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
+      ...(this.word_model?{word_model:this.word_model}:{}),...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
       ...(this.modern?{automatic_shots:this.automatic_shots}:{}),
       ...(this.rules.startsWith('golf-')?{best_progress:this.best_progress,backward_allowance:this.backward_allowance}:{})});
   }
@@ -158,24 +159,39 @@ export async function createBrowserClient() {
     if(hash!==config.hub_sha256)throw Error('Word breadth data is damaged. Please reload.');
   }
   const hubs=new Uint8Array(hubBuffer),embeddings=new Embeddings(words,vectors,config.dimensions,hubs);
-  let game,historical,worker,sequence=0;
+  const models=new Map([['',embeddings]]),loading=new Map();embeddings.wordModels=models;
+  async function ensureModel(id=''){
+    if(!id)return embeddings;
+    if(models.has(id))return models.get(id);
+    if(!config.word_models?.[id])throw Error('Unknown word model.');
+    if(!loading.has(id))loading.set(id,(async()=>{
+      const model=new Embeddings(words,await loadPackedModel(config.word_models[id]),config.dimensions,hubs);
+      model.word_model=id;model.wordModels=models;models.set(id,model);return model;
+    })().catch(error=>{loading.delete(id);throw error;}));
+    return loading.get(id);
+  }
+  let game,historical,worker,sequence=0;const workerModels=new Set();
   const pending=new Map();
   async function assess(body,operation='assess'){
+    const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v51')).SkillAnalyser(embeddings).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v51')).assessHole(embeddings,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v52')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v52')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v51',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v52',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
-      worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;};
-      worker.postMessage({init:true,words,vectors,dimensions:config.dimensions,hubs});
+      worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
+
     }
+    const profile=model.word_model??'';
+    if(!workerModels.has(profile)){worker.postMessage({init:true,profile,words,vectors:model.vectors,dimensions:config.dimensions,hubs});workerModels.add(profile);}
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
   return { config, chipRange(state){return chipRange(new Game(embeddings,state.start,state.target,state.threshold,state));}, async request(path, body) {
     if(path==='breadth')return endpointHubs(embeddings,body);
-    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v51')).reviewRoute(embeddings,body.state);
+    await ensureModel((body.state??body).word_model);
+    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v52')).reviewRoute(embeddings,body.state);
     if(path==='assess'||path==='skill')return assess(body,path);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);

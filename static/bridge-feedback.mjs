@@ -1,6 +1,6 @@
 /** Device-local evidence for a future opening-shot cutoff experiment. */
-export function puzzleSettings(s){return {start:s.start,target:s.target,threshold:s.threshold,mode:s.mode,launch_min:s.launch_min,launch_max:s.launch_max,rules:s.rules,...(s.finish_mode==='range'?{finish_mode:'range'}:{}),...(s.headwind?{headwind:s.headwind}:{})};}
-export function puzzleKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.launch_min,s.launch_max,s.rules,...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[])]);}
+export function puzzleSettings(s){return {start:s.start,target:s.target,threshold:s.threshold,mode:s.mode,launch_min:s.launch_min,launch_max:s.launch_max,rules:s.rules,...(s.finish_mode==='range'?{finish_mode:'range'}:{}),...(s.word_model?{word_model:s.word_model}:{}),...(s.headwind?{headwind:s.headwind}:{})};}
+export function puzzleKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.launch_min,s.launch_max,s.rules,...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[])]);}
 export function bridgeKey(settings,word,sha){return JSON.stringify([puzzleKey(settings),word,sha??null]);}
 export function bridgeMetrics(contact,required,destination,threshold){return {contact,required,destination,green_threshold:threshold,tee_margin:contact-required,green_margin:destination-threshold,bottleneck_margin:Math.min(contact-required,destination-threshold)};}
 export function validBridgeFeedback(r){return !!r&&typeof r.key==='string'&&typeof r.word==='string'&&r.puzzle&&typeof r.puzzle.start==='string'&&typeof r.puzzle.target==='string'&&typeof r.note==='string'&&r.metrics&&['contact','required','destination','green_threshold','tee_margin','green_margin','bottleneck_margin'].every(k=>Number.isFinite(r.metrics[k]));}
@@ -10,7 +10,7 @@ export function openingGreenShots(data){
   const event=j.state.history?.[0];
   if(!event?.success||(!event.inside&&!(j.state.finish_mode==='range'&&event.automatic_shot))||typeof j.state.rules!=='string'||!j.state.rules.startsWith('golf-')||!['launch','required','destination'].every(k=>Number.isFinite(event[k]))||!Number.isFinite(j.state.threshold))continue;
   const entry=j.entries.find(e=>e.event?.attempt===1&&!e.event.automatic),at=entry?.submittedAt;
-  const views=(data.bridgeViews??[]).filter(v=>(v.puzzle?.start===j.state.start&&v.puzzle?.target===j.state.target&&JSON.stringify(v.puzzle?.headwind??null)===JSON.stringify(j.state.headwind??null)||v.puzzle_key===puzzleKey(j.state))&&at&&v.at<=at);
+  const views=(data.bridgeViews??[]).filter(v=>(v.puzzle?.start===j.state.start&&v.puzzle?.target===j.state.target&&v.puzzle?.word_model===j.state.word_model&&JSON.stringify(v.puzzle?.headwind??null)===JSON.stringify(j.state.headwind??null)||v.puzzle_key===puzzleKey(j.state))&&at&&v.at<=at);
   shots.push({journey_id:j.id,puzzle:puzzleSettings(j.state),word:event.word,direct:event.word===j.state.target,submitted_at:at??null,
     model:j.model,model_sha:j.model_sha??null,metrics:bridgeMetrics(event.launch,event.required,event.destination,j.state.threshold),
     baseline:j.state.baseline,spoiler_status:views.length?'seen':j.bridge_tracking_version===1&&at?'not_recorded_in_batch':'unknown',
