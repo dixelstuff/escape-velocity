@@ -1,17 +1,17 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v56';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v56';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v56';
-import { shotMotion } from './shot-motion.mjs?v=golf-v56';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v56';
-import { createBrowserClient } from './engine.mjs?v=golf-v56';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v56';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v56';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v56';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v56';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v56';
-import {previousAttempts,attemptPathText,ghostGeometry,showAttemptGhost} from './attempt-ghosts.mjs?v=golf-v56';
-import {successOutcome} from './success-mode.mjs?v=golf-v56';
-import {attemptNotice} from './play-feedback.mjs?v=golf-v56';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v57';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v57';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v57';
+import { shotMotion } from './shot-motion.mjs?v=golf-v57';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v57';
+import { createBrowserClient } from './engine.mjs?v=golf-v57';
+import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v57';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v57';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v57';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v57';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v57';
+import {previousAttempts,attemptPathText,ghostGeometry,showAttemptGhost,isGhostAttempt} from './attempt-ghosts.mjs?v=golf-v57';
+import {successOutcome} from './success-mode.mjs?v=golf-v57';
+import {attemptNotice,usefulForwardMiss,entryNotice} from './play-feedback.mjs?v=golf-v57';
 const $=id=>document.getElementById(id);
 const windKey=p=>JSON.stringify(p.headwind??null);
 const holeLabel=p=>`${p.start} → ${p.target}${p.word_model==='ls15-v1'?' · LS 15%':p.word_model?' · ABTT 1':''}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
@@ -43,7 +43,7 @@ const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimension
 function position(word,event=null){if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=state.history.find(e=>e.word===word)||event;return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),1.1*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
 // Word positions are ground anchors; lift the teed ball above its shadow.
 function ballPosition(word,event=null){const p=position(word,event);return {...p,y:p.y-(word===state.start?16:0)};}
-function waterPoint(event){const d=dimensions();return {x:Math.max(48,Math.min(d.zoneLeft*.65,axisPoint(x(event.destination)-d.left,0,d).x)),y:407};}
+
 const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.x},${b.y}`;
 function chipShading(d,zone){
  if(!showChipRange||!client||!state)return '';
@@ -74,20 +74,20 @@ function map(preview=null){
  const zone=d.zoneLeft,lake=lakeGeometry(d,d.style);
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="100" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="100" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="50" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><rect width="${d.width}" height="${COURSE_HEIGHT}" fill="url(#fairway-mown)"/>${courseSurrounds(d,d.style,lake)}${chipShading(d,zone)}${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/><path d="M${d.left} ${d.teeY} L${d.right-12*d.axisX} ${d.holeY-12*d.axisY}" stroke="#a7bb9b" stroke-dasharray="3 8"/>${courseLake(d,d.style,lake)}${approachLandscape(d,d.style)}${courseTrees(d,d.style,lake)}`;
  for(const offset of [-TEE_MARKER_OFFSET,TEE_MARKER_OFFSET])svg+=`<g class="tee-marker" aria-label="Tee marker"><ellipse cx="${d.left}" cy="${d.teeY+offset+5}" rx="6" ry="2" fill="#a9bf8d" opacity=".18"/><circle cx="${d.left}" cy="${d.teeY+offset}" r="4.5" fill="#b8cf94" stroke="#aec58f" stroke-width="1.2"/></g>`;
- if(preview?.outcome==='water'){const splash=waterPoint(preview);svg+=`<circle id="water-splash" cx="${splash.x}" cy="${splash.y}" r="8" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>`;}
 
 
- const ghosts=showAttemptGhost(state,preview)?previousAttempts(flightLog.data.journeys,state,flightLog.active?.id):[],ghostNodes=new Map();
+
+ const ghosts=showAttemptGhost(state,preview)?previousAttempts(flightLog.data.journeys,state,flightLog.active?.id).filter(g=>isGhostAttempt(g.state)):[],ghostNodes=new Map();
  for(const ghost of ghosts){svg+=`<g class="attempt-ghost" data-ghost-attempt="${ghost.state.challenge.attempt}" opacity="${ghost.opacity}" pointer-events="none" aria-hidden="true">`;
   for(const shot of ghostGeometry(ghost.state,d)){svg+=`<path d="${path(shot.a,shot.b)}" fill="none" stroke="#587b8a" stroke-width="1.5" ${shot.success?'':'stroke-dasharray="3 5"'}/>`;
    if(![state.start,state.target].includes(shot.word)){svg+=`<circle cx="${shot.b.x}" cy="${shot.b.y}" r="5" fill="none" stroke="#587b8a" stroke-width="1.5"/>`;if(!ghostNodes.has(shot.word))ghostNodes.set(shot.word,{word:shot.word,pos:shot.b,ghostOpacity:ghost.opacity});}
   }svg+='</g>';
  }
- for(const h of [...visibleAttempts(state),...(state.automatic_shots??[])]){const a=position(h.origin),b=position(h.word,h);svg+=`<path data-shot-path="${h.attempt}" d="${h.automatic&&h.outcome!=='chip'?`M ${a.x},${a.y} L ${b.x},${b.y}`:path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
+ for(const h of [...visibleAttempts(state).filter(h=>h.success||usefulForwardMiss(h,state)),...(state.automatic_shots??[])]){const a=position(h.origin),b=position(h.word,h);svg+=`<path data-shot-path="${h.attempt}" d="${h.automatic&&h.outcome!=='chip'?`M ${a.x},${a.y} L ${b.x},${b.y}`:path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
  const nodes=new Map([[state.start,{word:state.start,pos:position(state.start)}]]);
- for(const h of visibleAttempts(state)){if(h.word===state.target)continue;const old=nodes.get(h.word);if(!old)nodes.set(h.word,{word:h.word,pos:position(h.word,h),failed:!h.success});else if(h.success)old.failed=false;}
+ for(const h of visibleAttempts(state).filter(h=>h.success||usefulForwardMiss(h,state))){if(h.word===state.target)continue;const old=nodes.get(h.word);if(!old)nodes.set(h.word,{word:h.word,pos:position(h.word,h),failed:!h.success});else if(h.success)old.failed=false;}
  nodes.set(state.target,{word:state.target,pos:position(state.target)});
- if(preview&&preview.outcome!=='water'&&(preview.forward!==false||preview.success)){const old=nodes.get(preview.word);if(old)old.preview=true;else nodes.set(preview.word,{word:preview.word,pos:position(preview.word,preview),preview:true});}
+ if(preview&&(preview.success||usefulForwardMiss(preview,state))){const old=nodes.get(preview.word);if(old)old.preview=true;else nodes.set(preview.word,{word:preview.word,pos:position(preview.word,preview),preview:true});}
  for(const [word,node] of ghostNodes)if(!nodes.has(word))nodes.set(word,node);
  const planets=[...nodes.values()];
  for(const p of planets){const active=p.word===state.current;
@@ -214,17 +214,13 @@ async function newGame(puzzle,{notice=''}={}){
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
 async function animate(event){
- const a=ballPosition(state.current),b=event.outcome==='water'?waterPoint(event):ballPosition(event.word,event),ball=$('golf-ball');
+ const a=ballPosition(state.current),b=ballPosition(event.word,event),ball=$('golf-ball');
  if(reduced)return;
  const kind=event.automatic?(event.outcome==='chip'?'chip':'putt'):event.success&&event.word===state.target?'chip':'flight';
  ball.setAttribute('data-motion',kind);
- const duration=event.outcome==='water'?1250:event.outcome==='miss'?450:kind==='putt'?850:kind==='chip'?1350:1000;
+ const duration=event.outcome==='miss'?450:kind==='putt'?850:kind==='chip'?1350:1000;
  await new Promise(resolve=>{const start=performance.now();function frame(now){const t=Math.min(1,(now-start)/duration);let point=a;
- if(event.outcome==='water'){
-  if(t<.72)point=bezier(a,b,t/.72);
-  ball.setAttribute('opacity',t>=.72&&t<.94?'0':'1');
-  const splash=$('water-splash');if(splash&&t>=.72){splash.setAttribute('opacity',String(1-(t-.72)/.28));splash.setAttribute('r',String(8+35*(t-.72)/.28));}
- }else if(event.success){
+ if(event.success){
   const pose=shotMotion(kind,a,b,t,{tee:event.origin===state.start});point=pose;
   $('ball-body').setAttribute('transform',`translate(0,${-pose.lift}) scale(${pose.scale})`);
   $('ball-dimples').setAttribute('transform',`rotate(${pose.rotation})`);
@@ -249,18 +245,18 @@ async function submit(word){
  const event=data.event;flightLog.record(word,data.state,event);if(data.state.challenge_failed){delete flightLog.active.notice_dismissed;flightLog.save();}selectedLogId=flightLog.data.activeId;await fadeAttemptGhost();
  // Keep the old state visible until the proposal and flight have played out.
  if(event.outcome||event.forward!==false){map(event);$('status').textContent=`Playing ${event.word.toUpperCase()}…`;
- await delay(reduced?150:350);await animate(event);}
+ await delay(reduced?150:350);await animate(event.outcome==='water'?{...event,outcome:'miss'}:event);}
  if(event.automatic_shot){
    state={...data.state,current:event.word,won:false,attempts:event.attempt,route:data.state.route.slice(0,-1),automatic_shots:[]};map();renderAttemptCounter();$('status').textContent='Ball settling…';
    await delay(reduced?250:1100);$('status').textContent='Lining up the finish…';renderAttemptCounter();await animate(event.automatic_shot);
  }
- state=data.state;shownEvent=event;activeNotice=state.challenge_failed?attemptNotice(event,state.target):'';update();$('word').value='';
+ state=data.state;shownEvent=event;activeNotice=state.challenge_failed?attemptNotice(event,state.target,data.state):'';update();$('word').value='';
  if(event.won)document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
  $('status').textContent=event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Back to ${event.word}.`:event.outcome==='recovery'?`Recovery to ${event.word}.`:event.success?`On ${event.word}.`:'Ball stays put. One shot counted.';
 
  if(state.challenge_failed)scheduleRetry();
  return true;
- }catch(error){renderAttemptCounter();$('status').textContent=error.message;return false;}
+ }catch(error){renderAttemptCounter();$('status').textContent=entryNotice(error,state.current);return false;}
  finally{lock(false);$('word').disabled=!!state.challenge_failed;if(state.won||state.challenge_failed)$('launch').disabled=true;else if(!narrow())$('word').focus({preventScroll:true});}
 }
 function scheduleRetry(){
@@ -419,7 +415,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v56'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses and penalties now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?attemptNotice(shownEvent,state.target):!state.history.length&&previous?attemptNotice(previous.history.at(-1),state.target):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v57'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?attemptNotice(shownEvent,state.target,state):!state.history.length&&previous?attemptNotice(previous.history.at(-1),state.target,previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

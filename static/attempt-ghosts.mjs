@@ -1,4 +1,5 @@
-import {projectPoint,projectX,axisPoint} from './map.mjs?v=golf-v56';
+import {projectPoint} from './map.mjs?v=golf-v57';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v57';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -7,17 +8,19 @@ export function previousAttempts(journeys,state,activeId){
  return journeys.filter(j=>j.id!==activeId&&same(j.state)).sort((a,b)=>b.state.challenge.attempt-a.state.challenge.attempt||String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(j=>{const n=j.state.challenge.attempt;if(seen.has(n))return false;seen.add(n);return true;}).slice(0,1).map(j=>({state:j.state,opacity:.72}));
 }
 export function attemptPathText(state){
- return [state.start,...state.history.map(e=>e.word+(e.outcome==='miss'?' (miss)':e.outcome==='water'?' (penalty)':''))].join(' → ');
+ return [state.start,...state.history.map(e=>e.word+(e.outcome==='miss'?' (miss)':e.outcome==='water'?' (miss)':''))].join(' → ');
 }
 /** Project old shots into the same course frame used by the current attempt. */
+export function isGhostAttempt(state){return usefulForwardMiss(state?.history?.at(-1),state);}
 export function ghostGeometry(state,d){
+ if(!isGhostAttempt(state))return [];
  const position=(word,event)=>{
   if(word===state.start)return {x:d.left,y:d.teeY};
   if(word===state.target)return {x:d.right,y:d.holeY};
   const h=state.history.find(e=>e.word===word)||event;
   return projectPoint(h.destination,state.baseline,state.threshold,d,1.1*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);
  };
- return state.history.map(h=>({word:h.word,origin:h.origin,success:h.success,water:h.outcome==='water',a:position(h.origin,h),b:h.outcome==='water'?{x:Math.max(48,Math.min(d.zoneLeft*.65,axisPoint(projectX(h.destination,state.baseline,state.threshold,d)-d.left,0,d).x)),y:407}:position(h.word,h)}));
+ return state.history.filter(h=>h.success||usefulForwardMiss(h,state)).map(h=>({word:h.word,origin:h.origin,success:h.success,a:position(h.origin,h),b:position(h.word,h)}));
 }
 
 export function showAttemptGhost(state,preview=null){return !preview&&!state?.history?.length&&!state?.won;}
