@@ -398,3 +398,8 @@ Water shots now explain the semantic direction with the attempted word, target a
 Miss and water messages now lead with bold labels and name the exact words: “Splash! You hit backwards. SPEAK is less related to CHIRP than TALK.” and “Miss! PUKE doesn't connect enough to GATE to hit the ball.” Contact failures name the origin lie, not the tee. Words are HTML-escaped and scoring is unchanged.
 
 Focused mobile play reduces outer spacing, input spacing and helper typography before reducing the map. It avoids reserving the device's bottom safe area again above an already inset software keyboard. Input and submit targets retain a 44px minimum. The pre-focus course width remains the cap; proportional map shrinking is retained for viewports that genuinely cannot fit the course and controls.
+
+
+## Restore space between course and keyboard controls (course v50)
+
+Mobile typing retains the normal 20px gap between the course and the input/button row, replacing the cramped 6px gap. The input, HIT SHOT and guidance move down together. The fit calculation reserves this margin before scaling the course, keeping the full pre-focus size whenever the viewport has sufficient room. Gameplay and messages are unchanged.
