@@ -1,6 +1,6 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v50';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v50';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v50';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v51';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v51';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v51';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -123,7 +123,7 @@ export class FlightLog {
   recordSkill(id, report) {
     const journey=this.data.journeys.find(j=>j.id===id);
     if(!journey||!journey.state.won||!report.complete)return false;
-    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[])]);
+    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[])]);
     if(report.history_key!==key)return false;
     journey.skill=structuredClone(report);this.save();return true;
   }
@@ -163,7 +163,7 @@ export function journeyText(journey,feedback=[]) {
   const s = journey.state;
   const lines = ['WORD GOLF — scorecard', `${s.start.toUpperCase()} → ${s.target.toUpperCase()}`,
     `Started: ${journey.startedAt}`, `Model: ${journey.model}`, `Rules: ${journey.rules}`,
-    s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
+    s.mode==='distance'?`Shot strength: ${s.launch_min}–${s.launch_max}, scaled by trip length; green threshold: ${s.threshold}`:`Shot / green threshold: ${s.threshold}`, ...(s.headwind?[`Headwind: ${s.headwind.word} · strength ${s.headwind.strength} · ${s.headwind.version}`]:[]), `Result: ${s.won ? 'Completed' : 'In progress'} · ${s.attempts} shots`, ''];
   if(['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(s.rules))lines.push('Finishing shots measure only to the green edge.', '');
   if(s.finish_mode==='range')lines.push('Finish mode: automatic chip-in range (one counted finishing shot).', '');
   if(journey.skill){lines.push(`Skill: ${Math.round(journey.skill.score/10)}% (${journey.skill.version})`, 'Automatic finishes are excluded from skill.');for(const shot of journey.skill.shots)lines.push(`  #${shot.attempt} ${shot.origin} → ${shot.word}: contact ${shot.contact_score}/100; choice ${shot.choice_score}/100; setup ${shot.setup_change>=0?'+':''}${shot.setup_change.toFixed(3)}; onward moves ${shot.good_moves_before} → ${shot.good_moves_after}`);lines.push('');}

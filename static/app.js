@@ -1,17 +1,19 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v50';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v50';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v50';
-import { shotMotion } from './shot-motion.mjs?v=golf-v50';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v50';
-import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v50';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v50';
-import { createBrowserClient } from './engine.mjs?v=golf-v50';
-import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v50';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v50';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v50';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v50';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v50';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v51';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v51';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v51';
+import { shotMotion } from './shot-motion.mjs?v=golf-v51';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v51';
+import { markedRoute, shortcutNote } from './route-review.mjs?v=golf-v51';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v51';
+import { createBrowserClient } from './engine.mjs?v=golf-v51';
+import { mapLayout, axisPoint, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v51';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v51';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v51';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v51';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v51';
 const $=id=>document.getElementById(id);
+const windKey=p=>JSON.stringify(p.headwind??null);
+const holeLabel=p=>`${p.start} → ${p.target}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
 let config,state,client,busy=false,shownEvent=null,noticeDismissed=false,bridgeViewVersion=0;
 let storage;try{storage=window.localStorage;}catch{}
 let showChipRange=true;try{showChipRange=storage?.getItem('word-golf-chip-range')!=='off';}catch{}
@@ -101,13 +103,13 @@ function map(preview=null){
 }
 function telemetry(){
  const last=shownEvent;
- $('telemetry').textContent=JSON.stringify({current:state.current,proposed:last?.word??null,target:state.target,shot_outcome:last?.outcome??null,contact_made:last?.connected??null,safe_landing:last?.safe??null,contact_cosine:last?.launch??null,destination_cosine:last?.destination??null,shot_mode:state.mode,rules:state.rules,finish_mode:state.finish_mode??'green',finish_reason:last?.finish_reason??null,automatic_finish:last?.automatic_shot?.outcome??null,required_contact:last?.required??state.threshold,trip_fraction:last?.trip_fraction??null,hub_surcharge:last?.hub_surcharge??null,green_threshold:state.threshold,short_shot:state.launch_min,long_shot:state.launch_max,water_boundary:state.best_progress-state.backward_allowance,progress:state.progress,starting_boundary:state.baseline,inside_arrival_zone:last?.inside??null,attempts:state.attempts,successful_route:state.route,failed_attempts:state.history.filter(e=>!e.success).map(e=>({word:e.word,launch:e.launch,destination:e.destination,reason:e.outcome==='water'?'water hazard':e.outcome==='miss'?'weak contact':e.forward===false?'backward shot':'previous course boundary'}))},null,2);
+ $('telemetry').textContent=JSON.stringify({current:state.current,proposed:last?.word??null,target:state.target,headwind:state.headwind??null,shot_outcome:last?.outcome??null,contact_made:last?.connected??null,safe_landing:last?.safe??null,contact_cosine:last?.launch??null,destination_cosine:last?.destination??null,shot_mode:state.mode,rules:state.rules,finish_mode:state.finish_mode??'green',finish_reason:last?.finish_reason??null,automatic_finish:last?.automatic_shot?.outcome??null,required_contact:last?.required??state.threshold,trip_fraction:last?.trip_fraction??null,hub_surcharge:last?.hub_surcharge??null,green_threshold:state.threshold,short_shot:state.launch_min,long_shot:state.launch_max,water_boundary:state.best_progress-state.backward_allowance,progress:state.progress,starting_boundary:state.baseline,inside_arrival_zone:last?.inside??null,attempts:state.attempts,successful_route:state.route,failed_attempts:state.history.filter(e=>!e.success).map(e=>({word:e.word,launch:e.launch,destination:e.destination,reason:e.outcome==='water'?'water hazard':e.outcome==='miss'?'weak contact':e.forward===false?'backward shot':'previous course boundary'}))},null,2);
 }
 function renderLog(){
  const journeys=flightLog.data.journeys;
  $('restore-log').hidden=!flightLog.backup?.journeys?.length&&!flightLog.backup?.bridgeFeedback?.length;
  if(!journeys.some(j=>j.id===selectedLogId))selectedLogId=flightLog.data.activeId;
- $('log-journey').innerHTML=[...journeys].reverse().map(j=>`<option value="${esc(j.id)}" ${j.id===selectedLogId?'selected':''}>${esc(j.state.start)} → ${esc(j.state.target)} · ${j.state.attempts} ${j.state.attempts===1?'shot':'shots'} · ${j.state.won?'completed':'in progress'} · ${esc(new Date(j.startedAt).toLocaleString())}</option>`).join('');
+ $('log-journey').innerHTML=[...journeys].reverse().map(j=>`<option value="${esc(j.id)}" ${j.id===selectedLogId?'selected':''}>${esc(holeLabel(j.state))} · ${j.state.attempts} ${j.state.attempts===1?'shot':'shots'} · ${j.state.won?'completed':'in progress'} · ${esc(new Date(j.startedAt).toLocaleString())}</option>`).join('');
  const journey=journeys.find(j=>j.id===selectedLogId);
  const submissions=journey?.entries.filter(e=>!e.event?.automatic).length??0;
  $('log-summary').textContent=journey?`${journey.state.attempts} ${journey.state.attempts===1?'shot':'shots'} · ${submissions} ${submissions===1?'submission':'submissions'} · ${journey.state.mode==='distance'?'distance shots · green':'fixed strength'} ${journey.state.threshold}`:'Your shots will appear here.';
@@ -176,15 +178,17 @@ function renderSkill(journey){
  panel.innerHTML=`<div class="skill-heading"><strong>Skill <span>${skillPercent(r.score)}</span></strong></div><p class="subtle">Vector-based choice efficiency for this hole. Automatic finishing shots are excluded.</p><details class="skill-breakdown"><summary>Shot breakdown</summary><ol>${r.shots.map(shot=>`<li><div class="skill-shot-title"><strong>#${shot.attempt} · ${esc(shot.origin)} → ${esc(shot.word)}</strong><span>Shot quality ${skillPercent(shot.score)}</span></div><div class="skill-metrics"><span>Contact <b>${shot.contact_score}%</b></span><span>Choice <b>${shot.choice_score}%</b></span><span>Setup <b>${signed(shot.setup_change)}</b></span></div><p>Contact ${shot.contact.toFixed(3)} · needs ${shot.required.toFixed(3)}${shot.contact_shortfall>0?` · short by ${shot.contact_shortfall.toFixed(3)}`:''}. ${shot.outcome==='green'?'Hole reached — no further choice needed':`${shot.good_moves_before} → ${shot.good_moves_after} forward options · ${shot.green_moves_after} reach the green`}.</p>${shot.specificity_loss>0?`<p>Specificity deduction: long shot into a broader word.</p>`:''}${shot.outcome==='backtrack'?`<p>${shot.setup_change>0?'This return improved the onward opportunities.':shot.setup_change<0?'This return reduced the onward opportunities.':'This return spent a shot without improving the onward opportunities.'}</p>`:''}${shot.direction_shortfall>0?`<p>Aimed ${shot.direction_shortfall.toFixed(3)} beyond the safe backward boundary.</p>`:''}<details><summary>Compared choices (spoilers)</summary><p>${shot.compared_choices} alternatives assessed one shot ahead. Your choice was ${shot.choice_gap.toFixed(3)} below the best assessed option.</p><ul>${shot.alternatives.map(a=>`<li><b>${esc(a.word)}</b> · opportunity ${a.value.toFixed(3)} · contact ${a.contact.toFixed(3)} / ${a.required.toFixed(3)}</li>`).join('')}</ul></details></li>`).join('')}</ol></details><details class="skill-method"><summary>How the score works</summary><p>Contact measures how close a miss came to its required strength. For misses, Choice grades the intended word and Setup stays unchanged. Choice compares your intended landing with a shortlist spanning distance, connection and different approach lengths. Each landing looks one shot ahead across the full vocabulary. Setup measures the change in onward opportunity, using the strongest legal forward gain (80%) and the average of the eight strongest gains (20%), discounted for the extra shot. Fewer strong options can lower that value; extra weak options do not inflate it.</p><p>A successful forward move longer than half the original tee-to-green gap receives a small specificity cost when its destination word is broader than its origin. The cost grows smoothly with distance and increased breadth, up to 0.10 regret per shot. Small setup moves, lateral/backward travel, misses, water and the literal hole word receive no specificity cost. Alternative choices include the same deduction.</p><p>Backtracking is assessed by the same opportunity measure. Repeated visits with no improvement add a small cost. Each shot receives one main regret charge, so overlapping contact, direction and opportunity problems are not added together. Regret accumulates across the round. Scores cannot be raised by padding a round with extra shots. An automatic finish adds no skill or penalty.</p><p>This is an experimental model assessment, not a player percentile or a proven optimal route. The comparison shortlist and one-shot horizon can miss deeper strategies. Very short rounds provide little evidence. Model alternatives can include unusual or unfamiliar words.</p><p class="subtle">Skill v3 · percentage = 100 / (1 + accumulated regret), with no fixed minimum. Each shot uses the largest of its contact deficit, direction deficit, choice gap and setup decline, plus 0.05 for an unhelpful repeated lie and any specificity cost.</p></details>`;
 }
 function syncPuzzleSelection(){
- const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&p.threshold===state.threshold&&(p.mode||'fixed')===state.mode);
+ const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&windKey(p)===windKey(state)&&p.threshold===state.threshold&&(p.mode||'fixed')===state.mode);
  $('puzzle').querySelector('option[value="custom"]')?.remove();
- if(index<0){const option=document.createElement('option');option.value='custom';option.textContent=`${state.start} → ${state.target} (custom)`;$('puzzle').append(option);$('puzzle').value='custom';}
+ if(index<0){const option=document.createElement('option');option.value='custom';option.textContent=`${holeLabel(state)} (custom)`;$('puzzle').append(option);$('puzzle').value='custom';}
  else $('puzzle').value=String(index);
 }
 function update(){
  $('start-label').textContent=state.start;$('target-label').textContent=state.target;$('attempts').textContent=state.attempts;
  for(const label of document.querySelectorAll('[data-current-word]'))label.textContent=state.current.toUpperCase();
  for(const label of document.querySelectorAll('[data-target-word]'))label.textContent=state.target.toUpperCase();
+ $('headwind-note').hidden=!state.headwind;
+ $('headwind-note').textContent=state.headwind?`Headwind: ${state.headwind.word.toUpperCase()} · ${Math.round(state.headwind.strength*100)}% topic reduction`:'';
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
  document.querySelector('.controls').hidden=state.won;
  document.querySelector('.attempts').hidden=state.won;
@@ -253,21 +257,21 @@ async function submit(word){
  finally{lock(false);if(state.won)$('launch').disabled=true;else if(!narrow())$('word').focus({preventScroll:true});}
 }
 $('launch-form').addEventListener('submit',event=>{event.preventDefault();submit($('word').value);});
-$('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value)});};
+$('lab-form').onsubmit=event=>{event.preventDefault();newGame({start:$('lab-start').value,target:$('lab-target').value,threshold:Number($('threshold').value),mode:$('launch-mode').value,launch_min:Number($('launch-min').value),launch_max:Number($('launch-max').value),...(state.headwind?{headwind:state.headwind}:{})});};
 $('new-game').onclick=()=>newGame(restartSettings(state,config.puzzles[0]));
 async function playFromResult(puzzle){
  if(await newGame(puzzle))document.querySelector('.mission').scrollIntoView({block:'start',behavior:reduced?'instant':'smooth'});
 }
 $('replay-hole').onclick=()=>playFromResult(restartSettings(state,config.puzzles[0]));
 $('next-hole').onclick=()=>{
- const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target);
+ const index=config.puzzles.findIndex(p=>p.start===state.start&&p.target===state.target&&windKey(p)===windKey(state));
  return playFromResult(config.puzzles[(index+1)%config.puzzles.length]);
 };
 $('puzzle').onchange=()=>newGame(config.puzzles[Number($('puzzle').value)]);
 const assessments=new Map();
 function assess(settings){
  settings={finish_mode:'range',...settings};
- const key=JSON.stringify([settings.start,settings.target,settings.threshold,settings.mode,settings.launch_min,settings.launch_max,settings.finish_mode,settings.rules??(settings.mode==='fixed'?'golf-fixed-v3':'golf-distance-v3')]);
+ const key=JSON.stringify([settings.start,settings.target,settings.threshold,settings.mode,settings.launch_min,settings.launch_max,settings.finish_mode,settings.rules??(settings.mode==='fixed'?'golf-fixed-v3':'golf-distance-v3'),windKey(settings)]);
  if(!assessments.has(key)){
   if(assessments.size>=20)assessments.delete(assessments.keys().next().value);
   const pending=api('assess',settings).catch(error=>{assessments.delete(key);throw error;});
@@ -327,7 +331,7 @@ $('current-bridges').addEventListener('toggle',async()=>{
  if(!$('current-bridges').open)return;
  if(!state||!client){$('current-bridge-list').textContent='The course is still loading.';return;}
  const version=bridgeViewVersion;
- const settings={start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules,finish_mode:state.finish_mode??'green'};
+ const settings={start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules,finish_mode:state.finish_mode??'green',...(state.headwind?{headwind:state.headwind}:{})};
  $('current-bridge-list').textContent='Calculating opening bridges…';
  try{const result=await assess(settings);if(version===bridgeViewVersion){currentBridgeResult=result;$('current-bridge-list').innerHTML=bridgeList(result);if($('current-bridges').open)flightLog.markBridgeView(result.settings,'active',config.vector_sha256);}}
  catch(error){if(version===bridgeViewVersion)$('current-bridge-list').textContent=error.message;}
@@ -371,7 +375,7 @@ $('confirm-reset').onclick=async()=>{
  if(busy||!state)return;
  lock(true);const previous=state;let candidate;
  try{
-  candidate=(await api('new',{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules,finish_mode:'range'})).state;
+  candidate=(await api('new',{start:state.start,target:state.target,threshold:state.threshold,mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,rules:state.rules,finish_mode:'range',...(state.headwind?{headwind:state.headwind}:{})})).state;
   const journey=flightLog.reset(candidate,config.model,config.vector_sha256);
   state=candidate;shownEvent=null;noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
   $('reset-confirmation').hidden=true;$('copy-fallback').hidden=true;$('word').value='';
@@ -397,7 +401,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(p.start)} → ${esc(p.target)}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v50'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);$('puzzle').innerHTML=config.puzzles.map((p,i)=>`<option value="${i}">${esc(holeLabel(p))}</option>`).join('');$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v51'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame({...config.puzzles[0],start:saved.start,target:saved.target});$('status').textContent='Automatic finishing is ready to try. Your earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;syncPuzzleSelection();update();$('status').textContent='';if(state.won)$('launch').disabled=true;}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});

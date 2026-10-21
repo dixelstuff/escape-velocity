@@ -389,6 +389,25 @@
       ]
     },
     {
+      "start": "gold",
+      "target": "hover",
+      "threshold": 0.27,
+      "mode": "distance",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "headwind": {
+        "word": "finance",
+        "strength": 0.5,
+        "version": "topic-projection-v1"
+      },
+      "attempts": 1,
+      "total_shots": 2,
+      "route": [
+        "gold",
+        "around"
+      ]
+    },
+    {
       "start": "leopard",
       "target": "angle",
       "threshold": 0.27,

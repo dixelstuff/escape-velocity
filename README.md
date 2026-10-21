@@ -403,3 +403,12 @@ Focused mobile play reduces outer spacing, input spacing and helper typography b
 ## Restore space between course and keyboard controls (course v50)
 
 Mobile typing retains the normal 20px gap between the course and the input/button row, replacing the cramped 6px gap. The input, HIT SHOT and guidance move down together. The fit calculation reserves this margin before scaling the course, keeping the full pre-focus size whenever the viewport has sufficient room. Gameplay and messages are unchanged.
+
+
+## FINANCE projection experiment (course v51)
+
+The dropdown retains GOLD → HOVER and adds GOLD → HOVER · FINANCE headwind immediately afterwards. A visible note identifies its 50% topic reduction. For each word vector v, the experiment uses normalize(v − .5(v·h)h), where h is the unit FINANCE vector. This transformation is constant for the whole round and includes the tee and target. It changes geometry rather than imposing a guaranteed penalty: some similarities can increase. Existing contact/green defaults and hub scores are unchanged.
+
+The projected Float32 model is computed on demand and one variant is cached per base model; downloads and source vectors are unchanged. Play, automatic finishing, chip-range display, bridge assessment, skill comparisons and shortcut replay use the same projected model. The wind word, strength and version are saved/exported, included in assessment/feedback keys and retained by replay, restart and reset. The original and wind variants remain distinct in the course selector and scorecards. Custom holes start without a headwind.
+
+At the chosen strength the legal opening-finishing bridges change from 67 to 65; finance vocabulary is not universally removed. GOLD–MONEY contact falls from .265 to .247, while GOLD–SILVER stays nearly unchanged (.848 to .847). This is a controlled playtest of topic removal, not a claim that all vague routes have been eliminated. Tests verify the projection independently, source immutability, replay/persistence, exact full-vocabulary bridge legality, adjusted skill/shortcut calculations, and ordinary-course regressions.

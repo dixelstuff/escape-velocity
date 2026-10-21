@@ -5,9 +5,10 @@ from collections import deque
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from engine import Embeddings, Game, DATA
+from engine import Embeddings, Game, DATA, with_headwind
 
 def search_forward(e,p):
+    e=with_headwind(e,p.get('headwind'))
     scores=e.vectors@e.vectors[e.index[p['target']]]
     hubs=np.array([e.hub(w) for w in e.words])
     start=e.index[p['start']];baseline=float(scores[start]);previous={start:None};queue=deque([start])

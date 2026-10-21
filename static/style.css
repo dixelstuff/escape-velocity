@@ -171,3 +171,6 @@ body.typing main{background:#f5f3e8;}
  body.typing .input-row input,body.typing .input-row button{padding:10px 12px;min-height:44px;}
  body.typing #shot-context{font-size:12px;line-height:1.35;margin-top:6px;}
 }
+
+#headwind-note{margin:4px 0 0;font-size:12px;line-height:1.3;color:#80663b;}
+#headwind-note[hidden]{display:none;}

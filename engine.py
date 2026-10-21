@@ -29,8 +29,25 @@ class Embeddings:
     def cosine(self, a, b):
         return float(np.clip(self.vectors[self.index[a]] @ self.vectors[self.index[b]], -1, 1))
 
+def with_headwind(e,value):
+    if not value:return e
+    import copy
+    wind=dict(word=str(value.get('word','')).strip().lower(),strength=float(value.get('strength',.5)),version=value.get('version','topic-projection-v1'))
+    if wind['word'] not in e.index or not 0<wind['strength']<1 or wind['version']!='topic-projection-v1':raise ValueError('Invalid headwind settings.')
+    if getattr(e,'headwind',None)==wind:return e
+    base=getattr(e,'headwind_base',e)
+    if getattr(base,'_headwind_cache',(None,None))[0]==wind:return base._headwind_cache[1]
+    axis=np.asarray(base.vectors[base.index[wind['word']]],dtype='float64');axis=axis/np.linalg.norm(axis)
+    vectors=np.asarray(base.vectors,dtype='float64');adjusted=vectors-wind['strength']*(vectors@axis)[:,None]*axis
+    adjusted/=np.linalg.norm(adjusted,axis=1)[:,None]
+    model=copy.copy(base);model.vectors=adjusted.astype('float32');model.headwind=wind;model.headwind_base=base
+    base._headwind_cache=(wind,model)
+    return model
+
 class Game:
-    def __init__(self, embeddings, start, target, threshold=None, mode='fixed', launch_min=None, launch_max=None, rules=None):
+    def __init__(self, embeddings, start, target, threshold=None, mode='fixed', launch_min=None, launch_max=None, rules=None, headwind=None):
+        embeddings=with_headwind(embeddings,headwind)
+        self.headwind=getattr(embeddings,'headwind',None) if headwind else None
         if threshold is None:threshold=.28 if rules else .27
         if start not in embeddings.index or target not in embeddings.index: raise ValueError('Choose words in the supported vocabulary.')
         if start == target: raise ValueError('Tee and hole words must differ.')
@@ -110,5 +127,6 @@ class Game:
                     mode=self.mode, rules=self.rules, launch_min=self.launch_min, launch_max=self.launch_max,
                     baseline=self.baseline, progress=self.e.cosine(self.current,self.target),
                     attempts=len(self.history)+len(self.automatic_shots), route=self.route, history=self.history, won=self.won,
+                    **(dict(headwind=self.headwind) if self.headwind else {}),
                     **(dict(automatic_shots=self.automatic_shots) if self.modern else {}),
                     **(dict(best_progress=self.best_progress,backward_allowance=self.backward_allowance) if self.rules.startswith('golf-') else {}))

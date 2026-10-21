@@ -141,12 +141,24 @@ class RealEmbeddingTests(unittest.TestCase):
         self.assertGreater(event['destination'],game.baseline)
         required,_=launch_requirement(event['destination'],1,game.baseline,game.threshold,maximum=.20)
         self.assertAlmostEqual(required,.158788,places=5)
+    def test_headwind_is_a_fixed_normalised_transform(self):
+        from engine import with_headwind
+        wind=dict(word='finance',strength=.5,version='topic-projection-v1')
+        model=with_headwind(self.e,wind)
+        self.assertAlmostEqual(model.cosine('gold','gold'),1,places=6)
+        self.assertAlmostEqual(model.cosine('gold','hover'),model.cosine('hover','gold'),places=7)
+        self.assertLess(model.cosine('gold','money'),self.e.cosine('gold','money'))
+        self.assertIs(with_headwind(model,wind),model)
+        game=Game(self.e,'gold','hover',.27,mode='distance',headwind=wind)
+        self.assertEqual(game.state()['headwind'],wind)
+        self.assertAlmostEqual(game.baseline,model.cosine('gold','hover'),places=7)
+
     def test_every_selected_puzzle_has_a_verified_route(self):
         import json
         from engine import DATA
         analysis=json.loads((DATA.parent/'reports/forward-analysis.json').read_text())
         for p in json.loads((DATA/'puzzles.json').read_text()):
-            row=next(r for r in analysis['results'] if all(r[k]==v for k,v in p.items()))
+            row=next(r for r in analysis['results'] if all(r.get(k)==v for k,v in p.items()))
             game=Game(self.e,**p)
             for word in row['route'][1:]:self.assertTrue(game.submit(word)['success'])
             self.assertTrue(game.won);self.assertEqual(len(game.history),row['attempts'])
