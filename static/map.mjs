@@ -3,7 +3,7 @@ export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
   if(similarity<=arrival){
     const progress=(similarity-baseline)/(arrival-baseline);
-    return arrivalFraction*(progress>0?Math.sqrt(progress):progress);
+    return arrivalFraction*(progress>0?progress**.55:progress);
   }
   return arrivalFraction+(1-arrivalFraction)*(similarity-arrival)/Math.max(1e-6,1-arrival);
 }

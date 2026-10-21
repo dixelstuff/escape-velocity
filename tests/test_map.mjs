@@ -11,8 +11,8 @@ for(const baseline of [-.1,.05,.2,.4]) {
   }
 }
 assert.ok(Number.isFinite(mapFraction(.6,.6,.45)));
-assert.equal(mapFraction(.1,0,.4),.45,'quarter progress uses half the displayed journey');
-assert.equal(mapFraction(.225,0,.4),.675,'later progress is compressed by the same square-root curve');
+assert.ok(mapFraction(.1,0,.4)>.4&&mapFraction(.1,0,.4)<.45,'quarter progress remains expanded but less than the square-root version');
+assert.ok(mapFraction(.225,0,.4)>.6&&mapFraction(.225,0,.4)<.675,'later progress uses the same slightly softened curve');
 assert.equal(mapFraction(-.04,0,.4),-.09,'backward positions stay finite and linear');
 for(const narrow of [false,true]) {
   const d=mapLayout(narrow);
