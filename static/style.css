@@ -186,7 +186,7 @@ body.typing main{background:#f5f3e8;}
 #shot-notice{display:block;width:fit-content;max-width:min(560px,100%);margin:0 auto;padding:8px 14px;text-align:center;font-weight:400;line-height:1.45;overflow-wrap:anywhere;}
 
 /* A quiet inline miss and a printed golf scorecard over the continuing course. */
-#shot-notice .notice-lead{font-weight:700;}
+#shot-notice .notice-lead{font-weight:700;margin-right:.3em;}
 .result-actions[hidden]{display:none;}
 .course-feedback:has(>#arrival-banner:not([hidden])){position:relative;z-index:2;margin-top:-36px;padding:0 16px 20px;}
 #arrival-banner{position:relative;inset:auto;width:100%;max-width:420px;margin:0 auto;padding:18px 22px 16px;background:#fffdf4;color:#294b35;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:5px;box-shadow:0 5px 16px #233b3026;text-align:left;}

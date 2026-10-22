@@ -535,3 +535,5 @@ Success uses a paper-style golf scorecard with a framed border, par badge, resul
 ## Compact feedback and contained scorecard actions (course v67)
 
 Shot notices shrink to their text width while remaining centred and capped for long messages. The scorecard moves another 18px higher, uses ATTEMPTS and SKILL labels, and contains centred NEXT HOLE and REPLAY actions beneath a divider. Mobile browser QA verifies the full route stays visible, both actions are inside the card and there is no horizontal overflow; desktop QA verifies a short miss message occupies only its required width. Summary and feedback tests pass. No gameplay changes.
+
+Course v68 adds a little extra spacing after the inline bold MISS! lead-in.
