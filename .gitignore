@@ -5,6 +5,7 @@ data/*
 !data/puzzles.json
 !data/comparison-holes.json
 !data/ls-comparison-holes.json
+!data/fresh-course.json
 !data/metadata.json
 .DS_Store
 reports/llm-route-review/

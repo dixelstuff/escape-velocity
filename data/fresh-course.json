@@ -1,0 +1,112 @@
+[
+  {
+    "start": "copper",
+    "target": "orchestra",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 1
+  },
+  {
+    "start": "honey",
+    "target": "cathedral",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 2
+  },
+  {
+    "start": "ballet",
+    "target": "bird",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 3
+  },
+  {
+    "start": "castle",
+    "target": "dentist",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 4
+  },
+  {
+    "start": "magnet",
+    "target": "romance",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 5
+  },
+  {
+    "start": "glacier",
+    "target": "sculpture",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 6
+  },
+  {
+    "start": "oyster",
+    "target": "necklace",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 7
+  },
+  {
+    "start": "harbour",
+    "target": "bank",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 8
+  },
+  {
+    "start": "spider",
+    "target": "fabric",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 9
+  },
+  {
+    "start": "circus",
+    "target": "geometry",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "fresh-course-v1",
+    "course_number": 10
+  }
+]
