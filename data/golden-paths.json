@@ -1,0 +1,287 @@
+{
+  "version": "curated-eagles-v1",
+  "description": "Editorial LLM-selected routes. Every route must also pass ordinary contact, safety and finishing-range checks. No words are blocked.",
+  "holes": [
+    {
+      "start": "penguin",
+      "target": "library",
+      "paths": [
+        [
+          "book"
+        ],
+        [
+          "books"
+        ]
+      ]
+    },
+    {
+      "start": "drum",
+      "target": "anatomy",
+      "paths": [
+        [
+          "ear"
+        ]
+      ]
+    },
+    {
+      "start": "turtle",
+      "target": "shield",
+      "paths": [
+        [
+          "shell"
+        ]
+      ]
+    },
+    {
+      "start": "coal",
+      "target": "wedding",
+      "paths": [
+        [
+          "diamond"
+        ]
+      ]
+    },
+    {
+      "start": "volcano",
+      "target": "lamp",
+      "paths": [
+        [
+          "lava"
+        ]
+      ]
+    },
+    {
+      "start": "forest",
+      "target": "violin",
+      "paths": [
+        [
+          "wood"
+        ]
+      ]
+    },
+    {
+      "start": "ocean",
+      "target": "jewellery",
+      "paths": [
+        [
+          "turquoise"
+        ]
+      ]
+    },
+    {
+      "start": "clock",
+      "target": "sprinter",
+      "paths": [
+        [
+          "seconds"
+        ]
+      ]
+    },
+    {
+      "start": "bread",
+      "target": "astronomy",
+      "paths": [
+        [
+          "microwave"
+        ]
+      ]
+    },
+    {
+      "start": "bamboo",
+      "target": "melody",
+      "paths": [
+        [
+          "flute"
+        ]
+      ]
+    },
+    {
+      "start": "penguin",
+      "target": "galaxy",
+      "waypoint": "library",
+      "paths": [
+        [
+          "books",
+          "astronomy"
+        ],
+        [
+          "book",
+          "astronomy"
+        ]
+      ]
+    },
+    {
+      "start": "coal",
+      "target": "telescope",
+      "waypoint": "wedding",
+      "paths": [
+        [
+          "diamond",
+          "stars"
+        ]
+      ]
+    },
+    {
+      "start": "piano",
+      "target": "river",
+      "waypoint": "lock",
+      "paths": [
+        [
+          "keys",
+          "locks"
+        ]
+      ]
+    },
+    {
+      "start": "butterfly",
+      "target": "medicine",
+      "waypoint": "swimming",
+      "paths": [
+        [
+          "freestyle",
+          "stroke"
+        ]
+      ]
+    },
+    {
+      "start": "glove",
+      "target": "bakery",
+      "waypoint": "baseball",
+      "paths": [
+        [
+          "batting",
+          "batter"
+        ]
+      ]
+    },
+    {
+      "start": "lighthouse",
+      "target": "classroom",
+      "waypoint": "astronomy",
+      "paths": [
+        [
+          "observatory",
+          "laboratory"
+        ],
+        [
+          "telescope",
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "start": "stool",
+      "target": "arithmetic",
+      "waypoint": "furniture",
+      "paths": [
+        [
+          "chair",
+          "tables"
+        ]
+      ]
+    },
+    {
+      "start": "chocolate",
+      "target": "glass",
+      "waypoint": "volcano",
+      "paths": [
+        [
+          "molten",
+          "crystals"
+        ]
+      ]
+    },
+    {
+      "start": "sponge",
+      "target": "detective",
+      "waypoint": "chemistry",
+      "paths": [
+        [
+          "microscopic",
+          "forensic"
+        ]
+      ]
+    },
+    {
+      "start": "moon",
+      "target": "kitchen",
+      "paths": [
+        [
+          "pie"
+        ]
+      ]
+    },
+    {
+      "start": "seal",
+      "target": "knuckle",
+      "paths": [
+        [
+          "ring"
+        ]
+      ]
+    },
+    {
+      "start": "lake",
+      "target": "fragrant",
+      "paths": [
+        [
+          "pine"
+        ]
+      ]
+    },
+    {
+      "start": "cake",
+      "target": "monitor",
+      "paths": [
+        [
+          "thermometer"
+        ]
+      ]
+    },
+    {
+      "start": "oyster",
+      "target": "necklace",
+      "paths": [
+        [
+          "pearl"
+        ]
+      ]
+    },
+    {
+      "start": "magnet",
+      "target": "romance",
+      "paths": [
+        [
+          "attraction"
+        ]
+      ]
+    },
+    {
+      "start": "ballet",
+      "target": "bird",
+      "paths": [
+        [
+          "swan"
+        ]
+      ]
+    },
+    {
+      "start": "copper",
+      "target": "orchestra",
+      "paths": [
+        [
+          "brass"
+        ]
+      ]
+    },
+    {
+      "start": "coffee",
+      "target": "science",
+      "paths": [
+        [
+          "organic"
+        ]
+      ]
+    }
+  ]
+}

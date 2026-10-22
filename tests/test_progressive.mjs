@@ -54,6 +54,8 @@ try{
  await assert.rejects(()=>client.request('submit',{word:words[manifest.background.at(-1).rows.at(-1)]}),/Network interrupted/);
  failRange=false;
  const restored=await client.request('restore',{state:actual.state});assert.deepEqual(restored.state,actual.state,'network failure never consumes a shot');
+ const displayRequests=requests.length;assert.deepEqual((await client.request('display',{state:actual.state})).state,actual.state);assert.equal(requests.length,displayRequests,'saved-hole display never fetches scoring rows');
+ await client.request('restore',{state:actual.state});
  await client.startBackground();
  stores.clear();
  const old=await caches.open('word-golf-model-v1');await old.put(new URL(config.vector_file,base),new Response(read(config.vector_file)));requests=[];

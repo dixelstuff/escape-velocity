@@ -1,4 +1,4 @@
-import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v87';
+import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v88';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -11,11 +11,13 @@ export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
 export function mapLayout(narrow=false,placement={depth:.6,vertical:(215-(GREEN_CENTRE_Y-GREEN_HEIGHT/2))/GREEN_HEIGHT}) {
  const base=narrow?{width:640,left:55,greenCentre:550,radius:50.82,edge:620}:{width:1000,left:80,greenCentre:860,radius:83.16,edge:960};
  const greenY=Math.max(GREEN_CENTRE_Y-20,Math.min(GREEN_CENTRE_Y+20,placement.greenCentreY??GREEN_CENTRE_Y));
- const d={...base,teeY:Math.max(191,Math.min(239,placement.teeY??215)),greenTop:greenY-GREEN_HEIGHT/2,greenBottom:greenY+GREEN_HEIGHT/2,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
+ const height=placement.greenHeight??GREEN_HEIGHT;
+ const d={...base,...(placement.par3?{par3:true}:{}),teeY:Math.max(191,Math.min(239,placement.teeY??215)),greenTop:greenY-height/2,greenBottom:greenY+height/2,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
  const depth=Math.max(.5,Math.min(.7,placement.depth)),vertical=Math.max(.3,Math.min(.7,placement.vertical));
  d.right=d.zoneLeft+depth*(d.zoneRight-d.zoneLeft);d.holeY=d.greenTop+vertical*(d.greenBottom-d.greenTop);
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
  d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
+ if(d.par3){const cx=(d.zoneLeft+d.zoneRight)/2,cy=(d.greenTop+d.greenBottom)/2;d.greenNotches=[{edge:'top',at:cx-.6*d.radius,width:d.radius*.9,depth:18},{edge:'left',at:cy+height*.32,width:45,depth:d.radius*.30},{edge:'right',at:cy+height*.22,width:48,depth:d.radius*.30}];}
  d.greenOutline=greenPoints(d);
  let lo=0,hi=d.axisLength;
  for(let i=0;i<40;i++){const mid=(lo+hi)/2;if(greenContains(axisPoint(mid,0,d),d))hi=mid;else lo=mid;}
@@ -114,4 +116,10 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360, previo
     remember(label,box);
   }
   return {labels:result,height};
+}
+
+/** A quiet guide follows the fairway centre, easing towards the variable pin. */
+export function par3CentreTrace(d){
+ const end={x:d.right-12*d.axisX,y:d.holeY-12*d.axisY},span=end.x-d.left,cy=(d.greenTop+d.greenBottom)/2;
+ return `M${d.left},${d.teeY} C${d.left+span*.32},${d.teeY-5} ${d.left+span*.72},${cy} ${end.x},${end.y}`;
 }

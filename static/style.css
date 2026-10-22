@@ -229,3 +229,6 @@ body.typing main{background:#f5f3e8;}
 body.word-entry-active .previous-attempt-element,body.word-entry-active [data-previous-range]{visibility:hidden;pointer-events:none}body.word-entry-active #retry-guidance{display:none}
 
 [data-focus-entry]{pointer-events:all;cursor:pointer}
+/* Attempt limits stay readable without crowding the mobile hole title. */
+.attempts strong{font-size:clamp(1.35rem,3.5vw,2rem);white-space:nowrap}
+.scorecard-grid:has(#arrival-skill:not([hidden])){grid-template-columns:1fr 1fr}

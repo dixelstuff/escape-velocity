@@ -1,7 +1,8 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v87';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v87';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v87';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v87';
+import {STROKE_PLAY,maximumStrokes,attemptLimit} from './stroke-play.mjs?v=golf-v88';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v88';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v88';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v88';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v88';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -50,7 +51,7 @@ export class FlightLog {
   }
   makeJourney(state, model, modelSha=null) {
     const timestamp = this.now();
-    return {id:this.makeId(), model_sha:modelSha,bridge_tracking_version:1,startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
+    return {id:this.makeId(), model_sha:modelSha,bridge_tracking_version:1,startedAt:timestamp, updatedAt:timestamp, rules:state.rules??RULES_VERSION, model, completion:state.challenge?.version===STROKE_PLAY?'stroke-play-with-curated-eagles':state.automatic_shots?'holed-with-auto-finish':'arrival-zone', state:structuredClone(state), entries:[]};
   }
   begin(state, model, modelSha=null) {
     const journey = this.makeJourney(state,model,modelSha);
@@ -112,6 +113,7 @@ export class FlightLog {
     }
     delete journey.skill;
     journey.state = structuredClone(state);
+    if(state.challenge?.version===STROKE_PLAY){journey.attempt_limit=attemptLimit(state.challenge.par);journey.maximum_strokes=maximumStrokes(state.challenge.par);journey.scored_strokes=state.won?state.attempts:state.challenge_failed?journey.maximum_strokes:null;journey.score_to_par=journey.scored_strokes===null?null:journey.scored_strokes-state.challenge.par;}
     if(state.challenge)journey.challenge_result=state.won?'success':state.challenge_failed?'failed':'in-progress';
     journey.updatedAt = timestamp;
     this.save();

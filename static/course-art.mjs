@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v87';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v88';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -6,6 +6,30 @@ function smoothContour(points){
  for(let i=0;i<n;i++){const a=points[(i+n-1)%n],b=points[i],c=points[(i+1)%n],e=points[(i+2)%n];path+=` C${xy([b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6])} ${xy([c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6])} ${xy(c)}`;}
  return path+' Z';
 }
+const fairwayShapes=new WeakMap();
+function cubicPoint(segment,t){const u=1-t,[a,b,c,e]=segment;return {x:u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y:u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y};}
+export function par3Fairway(d){
+ if(fairwayShapes.has(d))return fairwayShapes.get(d);
+ const w=d.width,cy=d.teeY,cx=(d.zoneLeft+d.zoneRight)/2,rx=(d.zoneRight-d.zoneLeft)/2,gy=(d.greenTop+d.greenBottom)/2,p=(x,y)=>({x,y});
+ const top=[
+ [p(-30,cy-82),p(w*.14,cy-85),p(w*.25,cy-52),p(w*.42,cy-46)],
+ [p(w*.42,cy-46),p(w*.60,cy-44),p(cx-rx*.85,d.greenTop-32),p(cx,d.greenTop-25)]
+ ];
+ const shoulder=[
+ [top.at(-1)[3],p(cx+rx*.62,d.greenTop-23),p(cx+rx*.76,d.greenTop+7),p(cx+rx*.57,d.greenTop+34)],
+ [p(cx+rx*.57,d.greenTop+34),p(cx+rx*.32,gy-38),p(cx+rx*.35,gy+39),p(cx+rx*.61,d.greenBottom-24)],
+ [p(cx+rx*.61,d.greenBottom-24),p(cx+rx*.83,d.greenBottom+9),p(cx+rx*.35,d.greenBottom+30),p(cx-rx*.45,d.greenBottom+23)]
+ ];
+ const bottom=[
+ [shoulder.at(-1)[3],p(w*.64,cy+76),p(w*.55,cy+46),p(w*.42,cy+48)],
+ [p(w*.42,cy+48),p(w*.25,cy+52),p(w*.14,cy+82),p(-30,cy+82)]
+ ];
+ const xy=p=>`${p.x},${p.y}`,path='M'+xy(top[0][0])+[...top,...shoulder,...bottom].map(c=>' C'+c.slice(1).map(xy).join(' ')).join('')+' Z';
+ function edgeY(segments,x){const segment=segments.find(c=>x>=Math.min(c[0].x,c[3].x)&&x<=Math.max(c[0].x,c[3].x));if(!segment)return x<0?segments.find(c=>c.some(p=>p.x<0)).find(p=>p.x<0).y:d.greenBottom+23;let lo=0,hi=1;const forward=segment[3].x>segment[0].x;for(let i=0;i<32;i++){const t=(lo+hi)/2;if((cubicPoint(segment,t).x<x)===forward)lo=t;else hi=t;}return cubicPoint(segment,(lo+hi)/2).y;}
+ const outline=[...top,...shoulder,...bottom].flatMap(segment=>Array.from({length:25},(_,i)=>cubicPoint(segment,i/25)));
+ const result={path,outline,topY:x=>edgeY(top,x),bottomY:x=>edgeY(bottom,x)};fairwayShapes.set(d,result);return result;
+}
+export function par3MidBunkers(d,style){const source=style.bunkers[0],x=Math.max(.39,Math.min(.52,source.x)),geometry=par3Fairway(d),px=x*d.width;return [{...source,x,y:geometry.topY(px)-3,angle:Math.atan((geometry.topY(px+1)-geometry.topY(px-1))/2)*180/Math.PI}];}
 export function courseSurrounds(d,style){
  const w=d.width,end=d.zoneLeft-24,approach=approachGeometry(d,style);
  const bank=x=>{
@@ -14,6 +38,10 @@ export function courseSurrounds(d,style){
   if(approach)y-=100*Math.exp(-(((x-approach.x)/approach.rx)**2));
   return y;
  };
+ if(d.par3){
+  const contour=par3Fairway(d).path;
+  return `<defs><clipPath id="fairway-clip"><path d="${contour}"/></clipPath></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#c4d3a7"/><rect id="course-fairway" x="-30" y="-30" width="${w+60}" height="1830" fill="url(#fairway-mown)" clip-path="url(#fairway-clip)"/>`;
+ }
  const contour=smoothContour([
   [-30,108],[w*.12,82],[w*.28,65],[w*.42,45],[w*.55,57],[w*.68,32],[w*.82,23],[w*.92,40],
   [w-30,85],[w-16,170],[w-15,260],[w-18,340],[w-35,400],
@@ -36,8 +64,26 @@ function tree(x,y,r,seed){
  <path d="M-2 7 L1 -3 M1 -3 L-6 -7 M1 -3 L7 -6" fill="none" stroke="#516e4b" stroke-width=".8" opacity=".35"/></g>`;
 }
 
+const par3Paths=new WeakMap();
+export function par3CartPath(d,style=d.style??{lakeY:395,wave:40,phase:0}){
+ if(par3Paths.has(d))return par3Paths.get(d);
+ const w=d.width,end=d.zoneLeft-24,geometry=par3Fairway(d);
+ const knots=[-.04,.12,.29,.46,.64,.81,1.05].map(f=>{
+  const x=w*f,edge=geometry.bottomY(x),desired=25+8*Math.sin(f*6.28+style.phase);
+  const shore=shoreY(x,d,style),y=x<end?edge+Math.max(9,Math.min(desired,(shore-edge)/2)):d.greenBottom+51+8*Math.sin(f*4+style.phase);
+  return {x,y};
+ });
+ const xy=p=>`${p.x.toFixed(3)},${p.y.toFixed(3)}`,points=[];let path='M'+xy(knots[0]);
+ for(let i=0;i<knots.length-1;i++){
+  const a=knots[Math.max(0,i-1)],b=knots[i],c=knots[i+1],e=knots[Math.min(knots.length-1,i+2)],p={x:b.x+(c.x-a.x)/6,y:b.y+(c.y-a.y)/6},q={x:c.x-(e.x-b.x)/6,y:c.y-(e.y-b.y)/6};
+  path+=` C${xy(p)} ${xy(q)} ${xy(c)}`;
+  for(let j=0;j<20;j++){const t=j/20,u=1-t;points.push({x:u**3*b.x+3*u*u*t*p.x+3*u*t*t*q.x+t**3*c.x,y:u**3*b.y+3*u*u*t*p.y+3*u*t*t*q.y+t**3*c.y});}
+ }
+ points.push(knots.at(-1));const result={path,points};par3Paths.set(d,result);return result;
+}
+export function par3PathArt(d,style){const p=par3CartPath(d,style);return `<g id="par3-cart-path" fill="none" aria-hidden="true" pointer-events="none"><path d="${p.path}" stroke="#a7b68d" stroke-width="8"/><path d="${p.path}" stroke="#e0dec4" stroke-width="5"/></g>`;}
 export function clearOfCartPath(p,d){
- const points=d.cartPath?.points;if(!points)return true;
+ const points=(d.cartPath??(d.par3?par3CartPath(d):null))?.points;if(!points)return true;
  return points.every((b,i)=>{if(!i)return true;const a=points[i-1],dx=b.x-a.x,dy=b.y-a.y,t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy||1)));return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy)>=p.r+4;});
 }
 export function courseTrees(d,style,lake=lakeGeometry(d,style)){
@@ -61,16 +107,39 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   [.035,28,14],[.068,42,18],[.105,25,17],[.14,43,13],
   [.24,19,15],[.273,28,12],[.69,15,14],[.729,27,18],[.765,12,14],...edgeTrees
  ];
- const pathTrees=d.cartPath?[8,12,29,33,56,59,78,82].map((index,i)=>{
+ const cart=d.cartPath??(d.par3?par3CartPath(d,style):null);
+ const noise=i=>{const n=Math.sin((i+1)*12.9898+style.phase*78.233)*43758.5453;return n-Math.floor(n);};
+ const pathTrees=d.par3?[.12,.37,.67,.90].flatMap((f,i)=>{
+  const fraction=f+.035*(noise(i)-.5),a=cart.points[Math.round(fraction*(cart.points.length-1))],side=i%2?1:-1,count=3+Math.floor(4*noise(i+10)),spread=15+17*noise(i+30);
+  return Array.from({length:count},(_,j)=>{const t=noise(i*10+j+60)*6.28,rr=spread*Math.sqrt(noise(i*10+j+90));return {x:a.x+Math.cos(t)*rr,y:a.y+side*(25+8*noise(i+50))+Math.sin(t)*rr*.7,r:7+10*noise(i*10+j+120),seed:60+i*7+j};});
+ }).filter(p=>p.y>par3Fairway(d).bottomY(p.x)+3):d.cartPath?[8,12,29,33,56,59,78,82].map((index,i)=>{
   const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
   return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
  }):[];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees).filter(p=>clearOfCartPath(p,d)&&!lakeContains(p,lake,p.r+7)&&(!d.waypointTurn||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
+const par3Sand=new WeakMap();
+export function par3Bunkers(d){
+ if(par3Sand.has(d))return par3Sand.get(d);
+ const cx=(d.zoneLeft+d.zoneRight)/2,cy=(d.greenTop+d.greenBottom)/2,rx=(d.zoneRight-d.zoneLeft)/2,ry=(d.greenBottom-d.greenTop)/2;
+ const bunkers=[{x:(cx-.6*rx)/d.width,y:d.greenTop-12,rx:rx*.70,ry:23,shape:10,angle:-23},{x:(d.zoneRight+12)/d.width,y:cy+.44*ry,rx:rx*.32,ry:43,shape:9,angle:18},{x:(d.zoneLeft-8)/d.width,y:cy+.64*ry,rx:rx*.53,ry:28,shape:8,angle:30}];
+ const edge=greenPoints(d);
+ for(const b of bunkers){
+  const angle=b.angle*Math.PI/180,dx=b.x*d.width-cx,dy=b.y-cy,length=Math.hypot(dx,dy);
+  for(let step=0;step<60;step++){
+   const points=bunkerPoints(b,2).map(p=>({x:b.x*d.width+p.x*Math.cos(angle)-p.y*Math.sin(angle),y:b.y+p.x*Math.sin(angle)+p.y*Math.cos(angle)}));
+   if(points.every(p=>!greenContains(p,d)&&edge.every(q=>Math.hypot(p.x-q.x,p.y-q.y)>=5)))break;
+   b.x+=dx/length/d.width;b.y+=dy/length;
+  }
+ }
+ par3Sand.set(d,bunkers);return bunkers;
+}
+function clearOfPar3Sand(p,d){return !d.par3||[...par3Bunkers(d),...(d.style?par3MidBunkers(d,d.style):[])].every(b=>{const a=b.angle*Math.PI/180,outline=bunkerPoints(b,2).map(q=>({x:b.x*d.width+q.x*Math.cos(a)-q.y*Math.sin(a),y:b.y+q.x*Math.sin(a)+q.y*Math.cos(a)}));return !lakeContains(p,{outline},p.r+3);});}
 export function courseBunkers(d,style,{fringe=true}={}){
- return `<g aria-hidden="true" pointer-events="none">${style.bunkers.map(b=>`<g class="bunker" transform="translate(${b.x*d.width},${b.y}) rotate(${b.angle})">
- ${fringe?`<path d="${bunkerPath(b,5)}" fill="#9daf7d" opacity=".7"/>`:''}
+ const greenside=d.par3?par3Bunkers(d):[];
+ return `<g aria-hidden="true" pointer-events="none">${[...(d.par3?par3MidBunkers(d,style):style.bunkers),...greenside].map(b=>`<g class="bunker" transform="translate(${b.x*d.width},${b.y}) rotate(${b.angle})">
+ ${fringe?`<path d="${bunkerPath(b,5)}" fill="${greenside.includes(b)?'#b8cf94':'#9daf7d'}" opacity="${greenside.includes(b)?1:.7}"/>`:''}
  <path d="${bunkerPath(b,2)}" fill="#c5b384"/>
  <path d="${bunkerPath(b)}" fill="url(#scorecard-sand)" stroke="#c8b88e" stroke-width=".8"/>
  <path d="${bunkerPath(b,-4)}" fill="none" stroke="#eee5c8" stroke-width="1.2" opacity=".7"/>
@@ -96,6 +165,7 @@ function approachGeometry(d,style){
  return {x:d.zoneLeft*.91,y:399+5*Math.sin(style.phase),rx:d.width<700?65:100,ry:45};
 }
 export function approachLandscape(d,style){
+ if(d.par3)return '';
  const p=approachGeometry(d,style);if(!p)return '';
  const sand={rx:p.rx*.68,ry:25,shape:8};
  // Its turf is part of the shared rough mask; only the sand/trees belong here.
@@ -109,15 +179,29 @@ export function continuationTrees(d,style,lake=lakeGeometry(d,style)){
  return trees.map(([x,y,r],i)=>({x:x*d.width,y:y+8*Math.sin(style.phase+i),r,seed:i})).filter(p=>!lakeContains(p,lake,p.r+7));
 }
 
+/** The neighbouring hole and its road share the same boundary geometry. */
+export function neighbouringCourse(d){
+ const w=d.width,p=(x,y)=>({x:x*w,y}),segments=[
+ [p(.95,458),p(.76,468),p(.91,603),p(.65,649)],
+ [p(.65,649),p(.32,710),p(.11,768),p(.04,925)],
+ [p(.04,925),p(.01,1000),p(.20,1019),p(.26,930)],
+ [p(.26,930),p(.36,787),p(.52,781),p(.79,714)],
+ [p(.79,714),p(1.05,652),p(1.05,536),p(.95,458)]
+ ];
+ const xy=p=>`${p.x},${p.y}`,render=curves=>'M'+xy(curves[0][0])+curves.map(c=>' C'+c.slice(1).map(xy).join(' ')).join('');
+ const route=segments.slice(3).reverse().map(c=>[...c].reverse().map(p=>({x:p.x+w*.065,y:p.y})));
+ const connector=[{x:w+30,y:410},{x:w+38,y:428},{x:w*1.01,y:443},route[0][0]];
+ const pathCurves=[connector,...route],sample=curves=>curves.flatMap(c=>Array.from({length:50},(_,i)=>cubicPoint(c,i/50)));
+ return {fairway:render(segments)+' Z',path:render(pathCurves),outline:sample(segments),pathPoints:sample(pathCurves)};
+}
 /** One world behind the playable viewport and feedback, with no image edge at their join. */
 export function courseContinuation(d,style){
  const w=d.width;
  const lake=lakeGeometry(d,style);
- const fairway=`M${w*.95},458 C${w*.76},468 ${w*.91},603 ${w*.65},649 C${w*.32},710 ${w*.11},768 ${w*.04},925 C${w*.01},1000 ${w*.2},1019 ${w*.26},930 C${w*.36},787 ${w*.52},781 ${w*.79},714 C${w*1.05},652 ${w*1.05},536 ${w*.95},458 Z`;
- const path=`M${w+20},428 C${w*.88},452 ${w*.99},574 ${w*.81},622 C${w*.54},695 ${w*.2},686 -20,870`;
+ const {fairway,path}=neighbouringCourse(d);
  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
  <defs><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
- ${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${courseTrees(d,style,lake)}
+ ${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${d.par3?par3PathArt(d,style):''}${courseTrees(d,style,lake)}
  <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>
  <ellipse cx="${w*.16}" cy="942" rx="${w*.065}" ry="35" fill="#a2c487" stroke="#91b579" stroke-width="3" transform="rotate(-30 ${w*.16} 942)"/>

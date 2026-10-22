@@ -30,9 +30,13 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v87', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='waypoint-trial-v1' if p.get('waypoint') else 'par-challenge-v2',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())], vocabulary=len(e.words),
+    config = dict(release='golf-v88', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='stroke-play-v1',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())], vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
+    config['golden_holes']=json.loads((DATA/'golden-paths.json').read_text())['holes']
+    for hole in [*config['puzzles'],*[h for course in config['courses'] for h in course['holes']]]:
+        chosen=next((g for g in config['golden_holes'] if g['start']==hole['start'] and g['target']==hole['target'] and g.get('waypoint')==hole.get('waypoint',{}).get('word')),None)
+        if chosen and hole.get('par',3)<=4:hole['golden_paths']=chosen['paths']
     from wordfreq import zipf_frequency
     endpoints=set()
     def collect(value):

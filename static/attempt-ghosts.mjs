@@ -1,6 +1,6 @@
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v87';
-import {projectPoint} from './map.mjs?v=golf-v87';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v87';
+import {waypointPosition} from './waypoint-map.mjs?v=golf-v88';
+import {projectPoint} from './map.mjs?v=golf-v88';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v88';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -14,7 +14,7 @@ export function previousWordLabels(state,d){
  return state.history.filter(h=>h.success||usefulForwardMiss(h,state)).flatMap(h=>{
   if(seen.has(h.word))return [];seen.add(h.word);
   const first=state.history.find(e=>e.word===h.word);
-  return [{word:h.word,...(state.waypoint&&h.success?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,first):projectPoint(first.destination,state.baseline,state.threshold,d,1.1*[-62,54,-104,97,-28,15][(first.attempt-1)%6])}];
+  return [{word:h.word,...(h.success&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,first):projectPoint(first.destination,state.baseline,state.threshold,d,1.1*[-62,54,-104,97,-28,15][(first.attempt-1)%6])}];
  });
 }
 export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.length&&!state?.won;}

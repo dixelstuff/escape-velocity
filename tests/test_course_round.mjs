@@ -1,35 +1,20 @@
 import assert from 'node:assert/strict';
-import {CourseRounds,landedProgress,bestAttempt,attemptResult,roundTotal,overallSkill,scoreText} from '../static/course-round.mjs';
+import {CourseRounds,bestAttempt,attemptResult,roundTotal,scoreText,resultText} from '../static/course-round.mjs';
+import {STROKE_PLAY,attemptLimit} from '../static/stroke-play.mjs';
 const memory=new Map(),storage={getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)};let id=0;
 const store=new CourseRounds(storage,()=>`id-${++id}`,()=>new Date(0).toISOString());
-const course={id:'test',name:'Test course',holes:Array.from({length:5},(_,i)=>({start:'tee'+i,target:'flag'+i,par:3,threshold:.27,mode:'distance',launch_min:.095,launch_max:.215}))};
-store.begin(course);assert.equal(store.active.holes.length,5);assert.equal(overallSkill(store.active),null);
-const snapshot=(number,{won=false,progress=0,miss=false,strokes=3}={})=>({start:store.hole.settings.start,target:store.hole.settings.target,baseline:0,threshold:.27,challenge:{id:store.hole.challengeId,attempt:number,par:3},won,challenge_failed:!won,attempts:strokes,history:[{word:'setup',success:true,destination:.27*(progress/.9)**(1/.55)},...(miss?[{word:'failed',success:false,destination:.99}]:[])]});
-function save(number,options,score){const s=snapshot(number,options);store.record(s,`journey-${number}`,.9);const a=store.hole.attempts.find(a=>a.number===number);if(score!==undefined)assert.equal(store.setSkill(store.active.id,store.active.index,number,a.key,{score}),true);return a;}
-let a=save(1,{won:true,strokes:3},800);assert.equal(attemptResult(a),0);assert.equal(roundTotal(store.active),0);
-assert.equal(store.settings().challenge.attempt,2);assert.equal(store.settings().challenge.id,store.hole.challengeId);
-a=save(2,{won:true,strokes:2},750);assert.equal(attemptResult(a),-1);
-save(3,{progress:.8,miss:true},900);assert.equal(attemptResult(bestAttempt(store.hole)),-1,'a miss cannot erase the saved birdie');
-const tied=save(4,{won:true,strokes:2},950);assert.equal(bestAttempt(store.hole).number,4,'skill breaks ties between equally scoring successful paths');
-save(5,{progress:.1},700);assert.throws(()=>store.settings(),/five attempts/);assert.equal(store.hole.attempts.length,5);
-const roundId=store.active.id,oldHole=store.hole.challengeId;assert.equal(store.advance(),true);assert.equal(store.active.index,1);assert.equal(store.active.holes[0].locked,true);
-assert.equal(store.belongs({challenge:{id:oldHole}}),false);
-// Missing words never enter this API; water/miss destinations are excluded from progress.
-for(let n=1;n<=5;n++)save(n,{progress:n===3?.7:.2,miss:true},800);
-assert.ok(Math.abs(bestAttempt(store.hole).progress-.7)<1e-7);assert.equal(attemptResult(bestAttempt(store.hole)),1);assert.equal(roundTotal(store.active),0);store.advance();
-for(let n=1;n<=5;n++)save(n,{progress:.49,miss:true},1000);
-assert.equal(attemptResult(bestAttempt(store.hole)),2);store.advance();
-save(1,{won:true,strokes:3},600);assert.equal(store.advance(),true,'may move on after par before using all attempts');
-save(1,{won:true,strokes:2});store.advance();assert.equal(store.active.finished,true);assert.equal(store.active.index,4);assert.equal(roundTotal(store.active),1);assert.equal(overallSkill(store.active),null,'final skill waits for all assessments');
-const last=store.hole.attempts[0];store.setSkill(roundId,4,1,last.key,{score:1000});
-assert.equal(overallSkill(store.active),Math.round((950+800*.7+1000*.49+600+1000)/5));
-assert.equal(store.advance(),false);assert.throws(()=>store.settings(),/closed/);
-assert.equal(new CourseRounds(storage).active.id,roundId);assert.equal(overallSkill(new CourseRounds(storage).active),720);
-assert.equal(store.setSkill('wrong',0,1,'wrong',{score:1000}),false,'stale background response is ignored');
-const exported=store.exportData();assert.equal(exported[0].total_score,1);assert.equal(exported[0].overall_skill,720);assert.equal(exported[0].results.length,5);exported[0].name='changed';assert.equal(store.active.name,'Test course');
-assert.equal(scoreText(0),'Even');assert.equal(scoreText(2),'+2');assert.equal(scoreText(-1),'−1');
-assert.equal(landedProgress({baseline:0,threshold:.27,won:false,history:[{success:false,destination:1}]}),0);
-assert.equal(landedProgress({baseline:0,threshold:.27,won:false,history:[{success:true,destination:.15},{success:true,destination:.04}]}),landedProgress({baseline:0,threshold:.27,won:false,history:[{success:true,destination:.15}]}),'backtracking does not erase best landed progress');
+const course={id:'test',name:'Test course',holes:[3,4,5,3,4].map((par,i)=>({start:'tee'+i,target:'flag'+i,par,threshold:.27,waypoint:par>3?{word:'middle'+i}:undefined,golden_paths:par===3?[['clever']]:undefined}))};
+store.begin(course);assert.deepEqual(store.active.holes.map(h=>h.settings.par),[3,4,5,3,4]);
+function save(number,{won=false,strokes=3,abandoned=false}={}){const h=store.hole,s={start:h.settings.start,target:h.settings.target,baseline:0,threshold:.27,challenge:{id:h.challengeId,version:STROKE_PLAY,attempt:number,par:h.settings.par},won,challenge_failed:!won,abandoned,attempts:strokes,history:strokes?[{word:'setup',success:true,destination:.1}]:[]};store.record(s,`journey-${number}`,.9);return h.attempts.find(a=>a.number===number);}
+let a=save(1,{won:true,strokes:2});assert.equal(attemptResult(a,3),-1);save(2,{won:true,strokes:2});assert.equal(bestAttempt(store.hole).number,1,'earlier attempt breaks score ties');save(3,{won:true,strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),3),-2,'eagles remain -2');
+for(let n=4;n<=6;n++)save(n);assert.equal(attemptResult(bestAttempt(store.hole),3),-2,'later failed attempts cannot erase an eagle');assert.throws(()=>store.settings(),/limit/);store.advance();
+assert.equal(store.settings().challenge.version,STROKE_PLAY);assert.equal(store.settings().challenge.par,4);assert.equal(attemptLimit(4),12);
+for(let n=1;n<=12;n++)save(n,{strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),4),3);assert.throws(()=>store.settings(),/limit/);store.advance();
+assert.equal(store.hole.settings.par,5);for(let n=1;n<=18;n++)save(n);assert.throws(()=>store.settings(),/limit/);store.advance();
+save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),8);
+const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,8);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-attempts');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
+assert.equal(resultText(-2),'Eagle');assert.equal(resultText(3),'Triple bogey');assert.equal(scoreText(0),'Even');assert.equal(scoreText(-2),'−2');
+// Original scorecards retain their historical progress-based scores.
+assert.equal(attemptResult({state:{won:false},progress:.8},3),1);assert.equal(attemptResult({state:{won:false},progress:.2},3),2);
 store.reset();assert.equal(store.exportData().length,0);store.restore();assert.equal(store.exportData().length,1);
-const offline=new CourseRounds({getItem:()=>null,setItem:()=>{throw Error('quota');}},()=>`offline-${++id}`);offline.begin(course);assert.ok(offline.warning);assert.equal(offline.active.holes.length,5);
-console.log('Five-hole rounds passed: five-attempt cap, saved best, birdie/par/bogey/double bogey, valid landed progress, progressive locking, tie handling, equal-hole final skill, reload, stale responses, exports/reset/recovery and storage failures.');
+console.log('Course scoring passed: mixed pars, 6/12/18 limits, eagles, capped failed attempts, saved best, earlier-attempt tie break, early next hole, reload, ranking metadata and preserved historical scores.');

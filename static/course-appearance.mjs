@@ -16,6 +16,11 @@ export function greenPoints(d,padding=0){
     const edge=Math.max(0,-sign*s)**4;
     y+=sign*n.depth*Math.exp(-(((x-n.x)/n.width)**2))*edge;
   }
+  for(const n of d.greenNotches??[]){
+   if(n.edge==='top')y+=n.depth*Math.exp(-(((x-n.at)/n.width)**2))*Math.max(0,-s)**4;
+   if(n.edge==='left')x+=n.depth*Math.exp(-(((y-n.at)/n.width)**2))*Math.max(0,-c)**4;
+   if(n.edge==='right')x-=n.depth*Math.exp(-(((y-n.at)/n.width)**2))*Math.max(0,c)**4;
+  }
   if(d.greenSideNotch){const n=d.greenSideNotch;x+=n.depth*Math.exp(-(((y-n.y)/n.height)**2))*Math.max(0,-c)**4;}
   return {x,y};
  });
@@ -89,7 +94,7 @@ export function lakeGeometry(d,style){
  const end=d.zoneLeft-24,points=Array.from({length:33},(_,i)=>({x:-30+(end+30)*i/32,y:shoreY(-30+(end+30)*i/32,d,style)}));
  let shore=`M${points[0].x},${points[0].y}`;
  for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3,slope=x=>(shoreY(x+.1,d,style)-shoreY(x-.1,d,style))/.2;shore+=` C${a.x+step},${a.y+step*slope(a.x)} ${b.x-step},${b.y-step*slope(b.x)} ${b.x},${b.y}`;}
- const a=points.at(-1),b={x:end+18,y:534},c={x:d.width*.37,y:629},e={x:-30,y:686};
+ const a=points.at(-1),tangent=(shoreY(end+.1,d,style)-shoreY(end-.1,d,style))/.2,b={x:end+80,y:a.y+80*tangent},c={x:d.width*.62,y:640},e={x:-30,y:686};
  const path=shore+` C${b.x},${b.y} ${c.x},${c.y} ${e.x},${e.y} Z`;
  const outline=[...points,...Array.from({length:48},(_,i)=>{const t=(i+1)/48,u=1-t;return {x:u*u*u*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t*t*t*e.x,y:u*u*u*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t*t*t*e.y};})];
  return {path,shore,outline,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:700-Math.min(p.y,points[i+1].y)})).filter(o=>o.y<430)};

@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Game,restoreGame,Embeddings,decodeHalf,createBrowserClient} from '../static/engine.mjs';
+import {STROKE_PLAY,attemptLimit,maximumStrokes,retryPrefix} from '../static/stroke-play.mjs';
+import {challengeFailure} from '../static/success-mode.mjs';
+import {shotMotion} from '../static/shot-motion.mjs';
+import {greenContains,bunkerPoints,greenPoints,courseStyle,lakeGeometry,lakeContains} from '../static/course-appearance.mjs';
+import {par3Bunkers,par3Fairway,par3MidBunkers,neighbouringCourse,par3CartPath,clearOfCartPath} from '../static/course-art.mjs';
+import {mapLayout} from '../static/map.mjs';
+const words=['tee','hole','a','b','c','d','e','f','g','h','miss','bridge'];
+const e={index:new Map(words.map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){if(a===b)return 1;if(a==='miss'||b==='miss')return 0;if(a==='hole'||b==='hole')return (a==='bridge'||b==='bridge')?.3:.04;return .5;}};
+const options=par=>({mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:STROKE_PLAY,par,attempt:1,id:'caps-'+par}});
+for(const [par,tries,cap] of [[3,6,5],[4,12,7],[5,18,8]]){
+ assert.equal(attemptLimit(par),tries);assert.equal(maximumStrokes(par),cap);
+ let g=new Game(e,'tee','hole',.27,options(par));
+ for(const word of ['a','b','c','d','e','f','g','h'].slice(0,cap-1)){g.submit(word);assert.equal(g.challenge_failed,false,'no early cutoff just because par is impossible');}
+ g.submit('miss');assert.equal(g.history.length,cap);assert.equal(g.challenge_failed,true);assert.equal(challengeFailure(g.state()),`Maximum score: ${cap} strokes — ${par===3?'double':'triple'} bogey.`);assert.equal(g.current,['a','b','c','d','e','f','g','h'][cap-2]);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+ g=new Game(e,'tee','hole',.27,options(par));g.submit('miss');assert.equal(g.challenge_failed,true,'early misses still end the attempt');
+}
+let g=new Game(e,'tee','hole',.27,{...options(3),golden_paths:[['bridge']]});assert.equal(g.submit('bridge').golden_holed,true);assert.equal(g.state().attempts,1);assert.equal(g.automatic_shots.length,0);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+g=new Game(e,'tee','hole',.27,options(3));g.submit('bridge');assert.equal(g.state().attempts,2,'ordinary connected finish still counts its finishing shot');
+g=new Game(e,'tee','hole',.27,options(3));g.submit('a');g.submit('b');const original=g.state(),prefix=retryPrefix(original,1,2);const replay=new Game(e,'tee','hole',.27,prefix);replay.submit('a');assert.equal(replay.state().attempts,1);assert.equal(replay.state().challenge.attempt,2);assert.deepEqual(g.state(),original,'preview never mutates the source');assert.throws(()=>retryPrefix(original,1,7),/limit/);assert.throws(()=>retryPrefix({...original,history:[{success:false}]},1,2),/landed/);
+// Smooth landing and roll share one ground trajectory, with no direction change.
+const a={x:60,y:220},b={x:550,y:185},fraction=.92,landing=1-(1-fraction)**(1/1.6);
+const poses=Array.from({length:1001},(_,i)=>shotMotion('golden',a,b,i/1000,{tee:true,landingFraction:fraction}));
+assert.ok(Math.max(...poses.map(p=>p.lift))>90);assert.equal(shotMotion('golden',a,b,landing+.001,{landingFraction:fraction}).lift,0);assert.equal(poses.at(-1).scale,0);
+for(let i=1;i<poses.length;i++){assert.ok(poses[i].x>=poses[i-1].x);const p=poses[i];assert.ok(Math.abs((p.x-a.x)*(b.y-a.y)-(p.y-a.y)*(b.x-a.x))<1e-6,'flight and roll remain tangent on the same line');}
+const near=[-.0001,0,.0001].map(t=>shotMotion('golden',a,b,landing+t,{landingFraction:fraction}));assert.ok(Math.abs(near[0].lift-near[2].lift)<.001,'touchdown smoothly settles into rolling');
+for(const narrow of [false,true]){const old=mapLayout(narrow),compact=mapLayout(narrow,{depth:.6,vertical:.5,greenHeight:222,par3:true});assert.equal(compact.zoneRight-compact.zoneLeft,old.zoneRight-old.zoneLeft);assert.ok(compact.greenBottom-compact.greenTop<old.greenBottom-old.greenTop);assert.ok(greenContains({x:compact.right,y:compact.holeY},compact));assert.equal(compact.greenNotches.length,3);for(const b of par3Bunkers(compact)){const a=b.angle*Math.PI/180;for(const p of bunkerPoints(b,2)){const point={x:b.x*compact.width+p.x*Math.cos(a)-p.y*Math.sin(a),y:b.y+p.x*Math.sin(a)+p.y*Math.cos(a)};assert.equal(greenContains(point,compact),false,'sand never overlaps indented green');assert.ok(greenPoints(compact).every(q=>Math.hypot(point.x-q.x,point.y-q.y)>=4.99),'a tiny turf gap separates the edge lines');}}}
+for(const narrow of [false,true])for(let i=0;i<20;i++){const style=courseStyle('path-'+i),d={...mapLayout(narrow,{depth:.6,vertical:.5,greenHeight:222,par3:true,teeY:style.teeY,greenCentreY:style.greenCentreY}),style},lake=lakeGeometry(d,style),p=par3CartPath(d,style);assert.ok(p.points.every(point=>!lakeContains(point,lake,5)),'south path remains out of the lake');assert.ok(p.points.every(point=>!lakeContains(point,{outline:par3Fairway(d).outline},5)),'path stays outside the fairway');const mid=par3MidBunkers(d,style)[0];assert.ok(Math.abs(mid.y-par3Fairway(d).topY(mid.x*d.width))<5,'mid-hole sand straddles fairway edge');const neighbour=neighbouringCourse(d);assert.ok(neighbour.pathPoints.every(point=>!lakeContains(point,{outline:neighbour.outline},10)),'results scene road never crosses neighbouring fairway');assert.ok(p.points.every((point,j)=>!j||point.x>p.points[j-1].x),'cart path flows onward without hairpins');assert.equal(clearOfCartPath({...p.points[50],r:12},d),false,'tree trunks cannot sit on cart path');}
+const root=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,root)),c=JSON.parse(read('config.json')),raw=read(c.vector_fallback),exact=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),300,new Uint8Array(read(c.hub_file)));
+let verified=0;
+for(const h of [...c.puzzles,...c.courses.flatMap(c=>c.holes)].filter(h=>h.golden_paths))for(const path of h.golden_paths){const g=new Game(exact,h.start,h.target,h.threshold,{...h,finish_mode:'range',challenge:{version:STROKE_PLAY,par:h.par??3,attempt:1,id:'curated'}});for(const word of path)g.submit(word);assert.equal(g.won,true,JSON.stringify([h.start,path,h.target]));assert.equal(g.history.at(-1).golden_holed,true);assert.equal(g.state().attempts,path.length);assert.deepEqual(restoreGame(exact,g.state()).state(),g.state());verified++;}
+assert.ok(verified>=25,'the real course has curated examples, not just synthetic support');
+const oldFetch=globalThis.fetch;globalThis.fetch=async url=>new Response(readFileSync(new URL(url)));
+try{const client=await createBrowserClient();const h=c.puzzles.find(h=>h.waypoint&&h.par===4),s=(await client.request('new',{...h,challenge:{version:STROKE_PLAY,par:4,attempt:1,id:'api-prefix'}})).state;const first=h.golden_paths?.[0]?.[0]??'books';let before=await client.request('submit',{word:first});if(before.event.success){const preview=await client.request('retry-prefix',{state:before.state,through:1,attempt:2});assert.equal(preview.state.history.length,1);assert.equal(preview.state.challenge.attempt,2);assert.deepEqual((await client.request('restore',{state:before.state})).state,before.state);}}
+finally{globalThis.fetch=oldFetch;}
+console.log(`Stroke play passed: per-par limits, final-shot feedback, immediate misses, curated eagles (${verified} route fixtures), exact replay, reversible prefix retries, unchanged green width and smooth flight-to-roll motion.`);
