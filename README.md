@@ -517,3 +517,11 @@ The approved future blocklist wording is `WORD is too vague for this hole. Try a
 A missed or backward failed hit briefly shows “MISS!” over the centre of the course, then fades. The overlay is pointer-transparent, adds no retry delay and is dismissed immediately by new input. Reduced-motion preferences use a brief static display. The persistent notice displays only the explanation visually, with the original “Miss!” retained for screen readers. Short-of-range notices continue without the MISS animation.
 
 Persistent notices are centred and capped at 560px, with wrapping on phones. Feedback padding is reduced from 18px top / 22px bottom to 6px / 8px, placing the notice closer to the drawing and avoiding unnecessary downward displacement. Completion-card spacing is unchanged. Browser QA covers 1440px desktop and 390px mobile widths, overlay dismissal, enabled retry input, compact notice geometry and no horizontal overflow. No scoring changes.
+
+## Layered in-course miss feedback (course v65)
+
+The persistent explanation now overlays the bottom of the course, including over the green, without increasing map-card height or moving controls down. It remains centred and capped at 560px, with phone wrapping. Completion feedback retains its existing flow layout.
+
+“MISS!” uses a brighter red (#de3b30), holds longer and finishes its animation after 1.5 seconds. The explanation waits 300ms, then fades in over 220ms. Input remains ready immediately and clears both elements. Reduced-motion users receive a static MISS display and a delayed instant explanation. All finished-shot feedback uses past tense: “needed a stronger link,” “took you away,” “The connection was too weak,” and “The shot landed short of chip-in range.” Current-state validation and instructions retain their appropriate tense.
+
+Mobile QA verifies explanation opacity starts at zero while MISS is visible, becomes one and remains after MISS disappears, and map-card height stays exactly equal to the SVG height plus its border. Desktop QA verifies the 560px cap and no horizontal overflow. Scoring, retry timing and blocklist activation are unchanged.
