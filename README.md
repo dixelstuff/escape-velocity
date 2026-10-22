@@ -613,3 +613,7 @@ The hole creator accepts an optional middle waypoint. Three-word custom holes us
 ### V80: fifteen fresh waypoint tests
 
 Added a separate “New waypoint tests · 15 holes” dropdown group. All 45 tee/waypoint/hole words are new to the retained level catalogue, with alternating dogleg directions, advisory par four/five and unlimited attempts. Each has a verified route through the mandatory waypoint to the final flag; routes are kept in test fixtures rather than revealed in the interface. The shot entry now says “Play your first word” at the tee and “Play your next word” elsewhere, including retries and reloads.
+
+### V81: reversible focus after a miss
+
+Focusing the shot field temporarily hides previous-attempt labels, dots, range and retry guidance without deleting them or saving dismissal. Blurring an untouched empty field restores the same elements and retry targets in their original positions. Typing a word or choosing a retry point still commits to the new attempt and dismisses the old hints.
