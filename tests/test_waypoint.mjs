@@ -121,8 +121,18 @@ for(const narrow of [false,true]){
  assert.notEqual(up.bendX,down.bendX);assert.notEqual(up.bendY,430-down.bendY);assert.notEqual(up.teeY,430-down.teeY);
  for(const d of [up,down]){
   const landscape=waypointLandscape(saved,d,{phase:2});
-  const guide=landscape.match(/id="dogleg-centreline" d="([^"]+)"/)[1];assert.equal((guide.match(/ C/g)??[]).length,3,'centre trace has an extra approach anchor');
+  const guide=landscape.match(/id="dogleg-centreline" d="([^"]+)"/)[1];assert.equal((guide.match(/ C/g)??[]).length,2,'centre trace uses two smooth curves through the waypoint');
   assert.ok(landscape.includes('waypoint-dry-rough'),'cart paths stay off fairway and lake');
  }
 }
-console.log('Distinct dogleg geometry, three-segment centre trace, and masked rough paths passed.');
+console.log('Distinct dogleg geometry, two-segment centre trace, and masked rough paths passed.');
+
+const butterfly=holes.find(h=>h.start==='butterfly');
+const freestyle=new Game(e,butterfly.start,butterfly.target,butterfly.threshold,options(butterfly));
+const freestyleHit=freestyle.submit('freestyle');assert.ok(freestyleHit.waypoint_reached);assert.ok(freestyleHit.leg_baseline>freestyleHit.leg_threshold);
+for(const narrow of [false,true]){
+ const d=waypointLayout(mapLayout(narrow),freestyle.state()),bend=waypointAnchors(d).bend;
+ assert.deepEqual(waypointPosition(freestyle.state(),'freestyle',d),bend,'a reached waypoint is always drawn in its zone, including a baseline already above threshold');
+ const before={...freestyle.state(),history:[],stage:0};assert.deepEqual(waypointPosition(before,'freestyle',d,freestyleHit),bend,'flight preview reaches the same zone');
+}
+console.log('FREESTYLE regression passed: high opening cosine reaches and displays inside the waypoint.');

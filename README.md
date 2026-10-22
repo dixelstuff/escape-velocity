@@ -621,3 +621,7 @@ Focusing the shot field temporarily hides previous-attempt labels, dots, range a
 ### V82: more varied course scenery
 
 Waypoint bunkers use distinct kidney and scalloped profiles rather than a shared rotated outline. Two additional bunker profiles are also available to ordinary holes. Downward doglegs have their own tee/bend/green positions, fairway proportions and shoreline; they are no longer exact reflections. A third centreline anchor follows the landing area after the bend. The longer shoreline, masked cart paths and larger tree clusters fill outer rough while preserving mowing patterns and shot rules.
+
+### V83: waypoint placement and course drawing corrections
+
+Shots that reach the mandatory waypoint land at its map anchor, including FREESTYLE when the BUTTERFLY → SWIMMING starting cosine already exceeds the waypoint threshold. Retry guidance appears only with successful earlier shots; a previous waypoint entry replaces the static waypoint label during retry selection. The centre trace uses two smooth curves through the waypoint centre. Through paths follow the outer cut without hairpins, lake coves fill more of the inner rough, and simpler bunkers align beside the green with irregular tree clusters.

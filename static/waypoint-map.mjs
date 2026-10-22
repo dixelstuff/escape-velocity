@@ -1,12 +1,12 @@
-import {mapFraction} from './map.mjs?v=golf-v82';
-import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v82';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v82';
+import {mapFraction} from './map.mjs?v=golf-v83';
+import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v83';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v83';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
  const d={...base,artScale:.8,reflectY:mirror,waypointTurn:turn};
  const centre=mirror?138:284,height=184;
- d.teeY=mirror?168:272;d.bendY=mirror?318:128;d.bendX=d.width*(mirror?.52:.48);
+ d.teeY=mirror?168:272;d.bendY=mirror?298:128;d.bendX=d.width*(mirror?.52:.48);
  d.zoneLeft=d.greenCentre-base.radius*.88;d.zoneRight=d.greenCentre+base.radius*.88;
  d.zoneLeft+=(d.zoneRight-d.zoneLeft)*.12;d.greenCentre=(d.zoneLeft+d.zoneRight)/2;
  d.greenTop=centre-height/2;d.greenBottom=centre+height/2;
@@ -26,13 +26,14 @@ export function waypointPosition(state,word,d,event=null){
  if(word===state.final_target)return a.flag;
  const h=state.history.find(h=>h.word===word&&h.success)??event??state.history.find(h=>h.word===word);
  if(!h)return a.bend;
+ if(h.stage===0&&h.waypoint_reached)return a.bend;
  const entry=state.history.find(h=>h.waypoint_reached);
  const start=h.stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
  const goal=h.stage===1?a.flag:a.bend;
  const fraction=mapFraction(h.destination,h.leg_baseline??state.baseline,h.leg_threshold??state.threshold,.88);
  return along(start,goal,fraction,[-24,26,-36,34,-12,14][(h.attempt-1)%6]);
 }
-function lakeSettings(d,style){return {layout:{...d,zoneLeft:d.width*(d.reflectY?.64:.59)},style:{...style,lakeY:d.reflectY?384:390,wave:d.reflectY?39:35}};}
+function lakeSettings(d,style){return {layout:{...d,zoneLeft:d.width*(d.reflectY?.64:.59)},style:{...style,lakeY:d.reflectY?384:390,wave:d.reflectY?39:35,cove:d.reflectY?38:26,coveAt:.55,coveWidth:.19}};}
 function reflection(d){return d.reflectY?'translate(0 430) scale(1 -1)':'';}
 export function waypointLake(d,style){
  const settings=lakeSettings(d,style),canonical=lakeGeometry(settings.layout,settings.style);
@@ -55,15 +56,18 @@ export function waypointLandscape(state,d,style={phase:0}){
  const points=Array.from({length:33},(_,i)=>({x:bx-(bx+30)*i/32,y:bank(bx-(bx+30)*i/32)}));
  let lower='';for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3;lower+=` C${a.x+step} ${a.y+step*slope(a.x)} ${b.x-step} ${b.y-step*slope(b.x)} ${b.x} ${b.y}`;}
  const outline=`M-30 222 C${w*.15} 218 ${w*.26} 113 ${bx-62} ${entryTop} C${bx-20} ${entryTop-21} ${bx+25} ${entryTop-17} ${bx+66} ${entryTop+18} C${w*.65} ${approachTop-13} ${w*.69} ${approachTop} ${w*.79} ${approachTop} C${w*.89} 166 ${back-12} 190 ${back} 224 C${back+7} 266 ${back+7} 336 ${back-6} ${greenBack} C${w*.89} ${greenBack+31} ${w*.80} ${greenBack+23} ${w*.74} ${down?361:348} C${w*.65} 272 ${bx+46} ${bank(bx)+46*slope(bx)} ${bx} ${bank(bx)}${lower} Z`;
+ const canonicalGreenTop=d.reflectY?430-d.greenBottom:d.greenTop,canonicalGreenBottom=canonicalGreenTop+184;
  const sandStyle={...style,bunkers:[
-  {x:down?.45:.425,y:down?220:211,rx:w<700?32:44,ry:down?23:20,angle:down?12:-19,shape:Math.floor(style.phase)%2},
-  {x:d.greenCentre/w,y:down?192:184,rx:w<700?27:38,ry:18,angle:down?8:-9,shape:3+Math.floor(style.phase)%2}
+  {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:5},
+  {x:d.greenCentre/w,y:canonicalGreenTop-7,rx:w<700?25:35,ry:15,angle:0,shape:0},
+  {x:(d.zoneLeft-13)/w,y:canonicalGreenBottom-24,rx:w<700?25:34,ry:13,angle:67,shape:1}
  ]};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
- const bend=a.bend,approach={x:w*(down?.73:.70),y:down?176:245};
- // A third anchor follows the broad landing area after the turn before approaching the flag.
- const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.28} ${bend.y} ${bend.x} ${bend.y} C${w*.61} ${bend.y} ${approach.x-w*.06} ${approach.y} ${approach.x} ${approach.y} C${approach.x+w*.055} ${approach.y} ${a.flag.x-w*.06} ${a.flag.y} ${a.flag.x} ${a.flag.y}`;
- const outerPath=down?`M${w*.56} 470 C${w*.62} 415 ${w*.60} 337 ${w*.65} 306 C${w*.70} 289 ${w*.72} 360 ${w*.79} 452`:`M${w*.54} 470 C${w*.61} 400 ${w*.57} 330 ${w*.64} 304 C${w*.70} 290 ${w*.69} 384 ${w*.76} 452`;
+ const bend=a.bend;
+ // Two broad cubic curves meet at the centre of the waypoint with a shared tangent.
+ const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.29} ${bend.y} ${bend.x} ${bend.y} C${w*.60} ${bend.y} ${w*.70} ${a.flag.y} ${a.flag.x} ${a.flag.y}`;
+ // A through path follows the outside cut, rather than returning in a hairpin.
+ const outerPath=`M-30 184 C${w*.18} 188 ${w*.31} 43 ${bx} 28 C${w*.65} 19 ${w*.79} 137 ${w+30} 145`;
 
  return `<rect width="${w}" height="430" fill="#c4d3a7"/><defs><mask id="waypoint-dry-rough"><rect width="${w}" height="430" fill="white"/><path d="${outline}" transform="${transform}" fill="black"/><path d="${lake.path}" transform="${transform}" fill="black" stroke="black" stroke-width="22"/></mask><clipPath id="waypoint-fairway"><path d="${outline}" transform="${transform}"/></clipPath></defs><rect width="${w}" height="430" fill="url(#fairway-mown)" clip-path="url(#waypoint-fairway)"/><g mask="url(#waypoint-dry-rough)" aria-hidden="true"><path d="${outerPath}" transform="${transform}" fill="none" stroke="#b3bd96" stroke-width="13"/><path d="${outerPath}" transform="${transform}" fill="none" stroke="#ddd8bb" stroke-width="8"/></g><g transform="${transform}"><path d="${lake.path}" fill="#c4d3a7" stroke="#c4d3a7" stroke-width="30"/>${courseLake(lakeD,lakeStyle,lake)}${courseBunkers(d,sandStyle)}</g><path id="dogleg-centreline" d="${guide}" fill="none" stroke="#a1b78e" stroke-width="1.2" stroke-dasharray="3 8"/>`;
 }
