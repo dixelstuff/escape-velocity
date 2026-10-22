@@ -103,3 +103,15 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
  assert.ok(sign*(shaped[index].y-raw[index].y)>20);
 }
 console.log('Greenside bunker recess passed in both orientations and viewports.');
+
+const discovery=holes.filter(h=>h.course_set==='waypoint-discovery-v1');
+const routes=JSON.parse(readFileSync(new URL('./waypoint-discovery-routes.json',import.meta.url)));
+assert.equal(discovery.length,15);assert.equal(new Set(discovery.map(h=>[h.start,h.waypoint.word,h.target].join(':'))).size,15);
+for(const h of discovery){
+ const sample=routes.find(r=>r.start===h.start&&r.waypoint===h.waypoint.word&&r.target===h.target);assert.ok(sample);
+ const trial=new Game(e,h.start,h.target,h.threshold,options(h));
+ for(const word of sample.route){if(trial.won)break;const r=trial.submit(word);assert.ok(r.success,`${h.start}: ${word} was ${r.outcome}`);}
+ assert.ok(trial.won,`${h.start} has a verified finishing route`);assert.equal(trial.stage,1);assert.ok(trial.history.some(r=>r.waypoint_reached));
+ assert.deepEqual(restoreGame(e,trial.state()).state(),trial.state());
+}
+console.log('All fifteen new waypoint tests have a successful route through the mandatory zone and reproducible saves.');

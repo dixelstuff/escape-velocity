@@ -46,5 +46,245 @@
     "par": 4,
     "course_set": "waypoint-trial-v1",
     "course_number": 3
+  },
+  {
+    "start": "piano",
+    "waypoint": {
+      "word": "lock",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "river",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 1
+  },
+  {
+    "start": "cactus",
+    "waypoint": {
+      "word": "sewing",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "violence",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 2
+  },
+  {
+    "start": "squid",
+    "waypoint": {
+      "word": "painting",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "courtroom",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 3
+  },
+  {
+    "start": "comet",
+    "waypoint": {
+      "word": "jewellery",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "football",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 4
+  },
+  {
+    "start": "butterfly",
+    "waypoint": {
+      "word": "swimming",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "medicine",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 5
+  },
+  {
+    "start": "glove",
+    "waypoint": {
+      "word": "baseball",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "bakery",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 6
+  },
+  {
+    "start": "lighthouse",
+    "waypoint": {
+      "word": "astronomy",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "classroom",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 7
+  },
+  {
+    "start": "dolphin",
+    "waypoint": {
+      "word": "radio",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "submarine",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 8
+  },
+  {
+    "start": "candy",
+    "waypoint": {
+      "word": "dentistry",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "mining",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 9
+  },
+  {
+    "start": "stool",
+    "waypoint": {
+      "word": "furniture",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "arithmetic",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 10
+  },
+  {
+    "start": "chocolate",
+    "waypoint": {
+      "word": "volcano",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "glass",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 11
+  },
+  {
+    "start": "fossil",
+    "waypoint": {
+      "word": "calendar",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "bicycle",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 12
+  },
+  {
+    "start": "sponge",
+    "waypoint": {
+      "word": "chemistry",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "detective",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 13
+  },
+  {
+    "start": "squirrel",
+    "waypoint": {
+      "word": "carpentry",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "target": "electricity",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 14
+  },
+  {
+    "start": "accordion",
+    "waypoint": {
+      "word": "bakery",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "target": "geology",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v1",
+    "course_number": 15
   }
 ]

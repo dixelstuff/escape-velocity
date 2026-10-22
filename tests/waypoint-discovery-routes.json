@@ -1,0 +1,151 @@
+[
+  {
+    "start": "piano",
+    "waypoint": "lock",
+    "target": "river",
+    "route": [
+      "keys",
+      "lock",
+      "canal"
+    ]
+  },
+  {
+    "start": "cactus",
+    "waypoint": "sewing",
+    "target": "violence",
+    "route": [
+      "needles",
+      "blood"
+    ]
+  },
+  {
+    "start": "squid",
+    "waypoint": "painting",
+    "target": "courtroom",
+    "route": [
+      "ink",
+      "forgery",
+      "fraud",
+      "judge"
+    ]
+  },
+  {
+    "start": "comet",
+    "waypoint": "jewellery",
+    "target": "football",
+    "route": [
+      "meteor",
+      "silver",
+      "medal"
+    ]
+  },
+  {
+    "start": "butterfly",
+    "waypoint": "swimming",
+    "target": "medicine",
+    "route": [
+      "swimming",
+      "stroke"
+    ]
+  },
+  {
+    "start": "glove",
+    "waypoint": "baseball",
+    "target": "bakery",
+    "route": [
+      "baseball",
+      "batter",
+      "dough"
+    ]
+  },
+  {
+    "start": "lighthouse",
+    "waypoint": "astronomy",
+    "target": "classroom",
+    "route": [
+      "telescope",
+      "astronomy"
+    ]
+  },
+  {
+    "start": "dolphin",
+    "waypoint": "radio",
+    "target": "submarine",
+    "route": [
+      "sonar",
+      "sound",
+      "sonar"
+    ]
+  },
+  {
+    "start": "candy",
+    "waypoint": "dentistry",
+    "target": "mining",
+    "route": [
+      "teeth",
+      "dentist",
+      "drill"
+    ]
+  },
+  {
+    "start": "stool",
+    "waypoint": "furniture",
+    "target": "arithmetic",
+    "route": [
+      "table",
+      "sum"
+    ]
+  },
+  {
+    "start": "chocolate",
+    "waypoint": "volcano",
+    "target": "glass",
+    "route": [
+      "molten",
+      "glass"
+    ]
+  },
+  {
+    "start": "fossil",
+    "waypoint": "calendar",
+    "target": "bicycle",
+    "route": [
+      "cycle",
+      "bicycle"
+    ]
+  },
+  {
+    "start": "sponge",
+    "waypoint": "chemistry",
+    "target": "detective",
+    "route": [
+      "liquid",
+      "laboratory",
+      "lab"
+    ]
+  },
+  {
+    "start": "squirrel",
+    "waypoint": "carpentry",
+    "target": "electricity",
+    "route": [
+      "wires",
+      "wiring",
+      "electrical"
+    ]
+  },
+  {
+    "start": "accordion",
+    "waypoint": "bakery",
+    "target": "geology",
+    "route": [
+      "music",
+      "roll",
+      "dough",
+      "flour",
+      "powder",
+      "dust",
+      "sediment"
+    ]
+  }
+]

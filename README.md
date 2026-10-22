@@ -609,3 +609,7 @@ New games rescue close S/ES singular/plural contact or finishing shortfalls up t
 ### V79: create your own waypoint trials
 
 The hole creator accepts an optional middle waypoint. Three-word custom holes use the dogleg map, mandatory waypoint zone, advisory par five, unlimited attempts, and counted-prefix retries. Leaving the waypoint blank creates a regular two-word hole. Preview shows both legs’ word separation; custom waypoint holes are retained in scorecards and restored after refresh.
+
+### V80: fifteen fresh waypoint tests
+
+Added a separate “New waypoint tests · 15 holes” dropdown group. All 45 tee/waypoint/hole words are new to the retained level catalogue, with alternating dogleg directions, advisory par four/five and unlimited attempts. Each has a verified route through the mandatory waypoint to the final flag; routes are kept in test fixtures rather than revealed in the interface. The shot entry now says “Play your first word” at the tee and “Play your next word” elsewhere, including retries and reloads.
