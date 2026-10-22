@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {attemptNotice,usefulForwardMiss,intendedGain,entryNotice} from '../static/play-feedback.mjs';
+import {attemptNotice,usefulForwardMiss,intendedGain,entryNotice,shortSecondShot,vagueWordNotice} from '../static/play-feedback.mjs';
 import {successOutcome} from '../static/success-mode.mjs';
 const state={start:'coffee',current:'heat',target:'science',baseline:0,threshold:.3,progress:.1,history:[{word:'heat',origin:'coffee',attempt:1,success:true,destination:.1}]};
 const event={outcome:'miss',word:'science',origin:'heat',attempt:2,destination:.2};
@@ -21,3 +21,13 @@ assert.equal(entryNotice(Error('Connection failed'),'heat'),'Connection failed')
 assert.equal(successOutcome({attempts:3,challenge:{par:3,attempt:4}}),'Par on attempt 4');
 assert.equal(successOutcome({attempts:2,challenge:{par:3,attempt:2}}),'Birdie on attempt 2');
 console.log('Feedback passed: forward/near/backward classification, raw relative threshold, exact copy and uncharged input errors.');
+
+const shortState={finish_mode:'range',history:[{attempt:1,success:true},{attempt:2,success:true}],won:false};
+assert.equal(shortSecondShot(shortState,false),true);
+assert.equal(shortSecondShot(shortState,true),false,'a legal finish is not short');
+assert.equal(shortSecondShot({...shortState,history:[shortState.history[0]]},false),false);
+assert.equal(shortSecondShot({...shortState,history:[shortState.history[0],{attempt:2,success:false}]},false),false,'misses do not reveal a short landing');
+assert.equal(shortSecondShot({...shortState,won:true},false),false);
+assert.equal(shortSecondShot({...shortState,finish_mode:'green'},false),false);
+assert.equal(vagueWordNotice(' soon '),'SOON is too vague for this hole. Try again.');
+console.log('Short-shot reveal criteria and approved per-hole blocklist copy passed.');

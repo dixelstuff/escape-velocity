@@ -22,3 +22,11 @@ export function entryNotice(error,current){
  if(message.startsWith('The ball is already on that word.'))return `You’re already on ${current.toUpperCase()}. Try another word.`;
  return message;
 }
+
+/** A landed second shot outside finishing range explains an unreachable par. */
+export function shortSecondShot(state,inRange){
+ const history=state?.history??[],last=history.at(-1);
+ return state?.finish_mode==='range'&&history.length===2&&last?.attempt===2&&!!last.success&&!state.won&&!inRange;
+}
+/** Approved copy for the later per-hole vocabulary filter. */
+export function vagueWordNotice(word){return `${String(word).trim().toUpperCase()} is too vague for this hole. Try again.`;}

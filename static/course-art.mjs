@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v62';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v63';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){

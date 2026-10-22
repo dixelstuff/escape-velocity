@@ -1,5 +1,5 @@
-import {projectPoint} from './map.mjs?v=golf-v62';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v62';
+import {projectPoint} from './map.mjs?v=golf-v63';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v63';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -7,7 +7,7 @@ export function previousAttempts(journeys,state,activeId){
  const seen=new Set();
  return journeys.filter(j=>j.id!==activeId&&same(j.state)).sort((a,b)=>b.state.challenge.attempt-a.state.challenge.attempt||String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(j=>{const n=j.state.challenge.attempt;if(seen.has(n))return false;seen.add(n);return true;}).slice(0,1).map(j=>({state:j.state}));
 }
-/** Labels only: retain the words that were visible in the previous attempt. */
+/** Retain the visible word anchors for faded labels and dots, without old travel lines. */
 export function previousWordLabels(state,d){
  const seen=new Set([state.start,state.target]);
  return state.history.filter(h=>h.success||usefulForwardMiss(h,state)).flatMap(h=>{

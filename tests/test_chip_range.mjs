@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game,Embeddings,decodeHalf} from '../static/engine.mjs';
 import {chipRange} from '../static/chip-range.mjs';
+import {shortSecondShot} from '../static/play-feedback.mjs';
 import {mapLayout,projectX,chipArcBands} from '../static/map.mjs';
 function fixture(baseline=.08,hub=0,targetHub=0,rules='golf-distance-v3',mode='distance'){
  const positions={tee:baseline,lie:.2,flag:1};
@@ -50,3 +51,11 @@ const e=new Embeddings(words,decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byte
 const g=new Game(e,'popcorn','petal',.27,{mode:'distance',launch_min:.1,launch_max:.22});
 const r=chipRange(g);g.submit('husk');assert.ok(g.state().progress>r.first);assert.equal(g.submit('petal').won,true);
 console.log('Chip range passed: actual shot boundaries across levels/breadths, stable guide, fixed/historical rules, immutable scoring and real POPCORN chip-in.');
+
+for(const [word,reveal] of [['warm',true],['energy',false],['drink',false]]){
+ const game=new Game(e,'coffee','science',.27,{mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:'par-challenge-v2',par:3,attempt:1,id:'short-test'}});
+ game.submit('heat');game.submit(word);const s=game.state();
+ assert.equal(shortSecondShot(s,game.finishesFrom(s.current,s.progress)),reveal,word);
+ if(reveal){assert.equal(s.challenge_failed,true);assert.equal(s.history[1].success,true);assert.ok(chipRange(game));}
+}
+console.log('Real second-shot feedback passed: short landing revealed, automatic finish and backward miss excluded.');

@@ -1,17 +1,17 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v62';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v62';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v62';
-import { shotMotion } from './shot-motion.mjs?v=golf-v62';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v62';
-import { createBrowserClient } from './engine.mjs?v=golf-v62';
-import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v62';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v62';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v62';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v62';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v62';
-import {previousAttempts,previousWordLabels,showPreviousLabels} from './attempt-ghosts.mjs?v=golf-v62';
-import {successOutcome} from './success-mode.mjs?v=golf-v62';
-import {attemptNotice,usefulForwardMiss,entryNotice} from './play-feedback.mjs?v=golf-v62';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v63';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v63';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v63';
+import { shotMotion } from './shot-motion.mjs?v=golf-v63';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v63';
+import { createBrowserClient } from './engine.mjs?v=golf-v63';
+import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v63';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v63';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v63';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v63';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v63';
+import {previousAttempts,previousWordLabels,showPreviousLabels} from './attempt-ghosts.mjs?v=golf-v63';
+import {successOutcome} from './success-mode.mjs?v=golf-v63';
+import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v63';
 const $=id=>document.getElementById(id);
 const windKey=p=>JSON.stringify(p.headwind??null);
 const holeLabel=p=>`${p.start} → ${p.target}${p.word_model==='ls15-v1'?' · LS 15%':p.word_model?' · ABTT 1':''}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
@@ -45,11 +45,24 @@ function position(word,event=null){if(word===state.start)return {x:dimensions().
 function ballPosition(word,event=null){const p=position(word,event);return {...p,y:p.y-(word===state.start?16:0)};}
 
 const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.x},${b.y}`;
+function rangeRevealState(){
+ if(!client||!state)return null;
+ if(shortSecondShot(state,client.canFinish(state)))return state;
+ if(!flightLog.active?.previous_labels_dismissed&&showPreviousLabels(state)){
+  const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;
+  if(previous&&shortSecondShot(previous,client.canFinish(previous)))return previous;
+ }
+ return null;
+}
+function noticeForAttempt(event,saved){
+ return shortSecondShot(saved,client.canFinish(saved))?'Short of chip-in range. Try again.':attemptNotice(event,saved.target,saved);
+}
 function chipShading(d,zone){
- if(!showChipRange||!client||!state)return '';
- const range=client.chipRange(state);if(!range)return '';
+ if(!client||!state)return '';
+ const reveal=rangeRevealState();if(!showChipRange&&!reveal)return '';
+ const range=client.chipRange(reveal??state);if(!range)return '';
  const bands=chipArcBands(x(range.first),x(range.last),d);
- return `<defs><clipPath id="chip-range-clip"><rect x="20" y="54" width="${d.edge-20}" height="324"/></clipPath></defs><g id="chip-range-shading" clip-path="url(#chip-range-clip)" pointer-events="none" aria-hidden="true">${bands.map(b=>`<path d="${b.path}" fill="${b.stroke?'none':'#b94b46'}" stroke="${b.stroke?'#b94b46':'none'}" stroke-width="${b.stroke?1:0}" opacity="${b.opacity}"/>`).join('')}</g>`;
+ return `<defs><clipPath id="chip-range-clip"><rect x="20" y="54" width="${d.edge-20}" height="324"/></clipPath></defs><g id="chip-range-shading" ${!showChipRange&&reveal?`data-auto-revealed="true" ${!state.history.length?'data-previous-range="true"':''}`:''} clip-path="url(#chip-range-clip)" pointer-events="none" aria-hidden="true">${bands.map(b=>`<path d="${b.path}" fill="${b.stroke?'none':'#b94b46'}" stroke="${b.stroke?'#b94b46':'none'}" stroke-width="${b.stroke?1:0}" opacity="${b.opacity}"/>`).join('')}</g>`;
 }
 
 let labelLayoutKey,labelLayout=new Map();
@@ -96,9 +109,9 @@ function map(preview=null){
  for(const [word,node] of previousNodes)if(!nodes.has(word))nodes.set(word,node);
  const planets=[...nodes.values()];
  for(const p of planets){const active=p.word===state.current;
- if(p.previous||active&&p.word===state.start)continue;
+ if(active&&p.word===state.start)continue;
  const ball=p.word===state.target?`<ellipse cx="${p.pos.x}" cy="${p.pos.y}" rx="10" ry="5" fill="#294d35"/><path d="M${p.pos.x} ${p.pos.y} v-48" stroke="#f9fff2" stroke-width="3"/><path d="M${p.pos.x+2} ${p.pos.y-48} l25 9 -25 9Z" fill="#d66a4c"/>`:`<circle cx="${p.pos.x}" cy="${p.pos.y}" r="${p.preview?9:6}" fill="${p.preview?'#fff7df':'#d5e3c5'}" stroke="${p.preview?'#a89965':active?'#25715a':'#63845a'}" stroke-width="2"/>`;
- svg+=`<g opacity="${p.failed?.4:1}">${ball}</g>`;
+ svg+=`<g ${p.previous?`class="previous-word-dot previous-attempt-element" data-previous-word="${esc(p.word)}"`:''} opacity="${p.failed?.4:1}">${ball}</g>`;
  }
  // Measure the actual font before packing labels; semantic ball positions never move.
  for(const p of planets)svg+=`<text data-word-label="${esc(p.word)}" x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text>`;
@@ -118,7 +131,7 @@ function map(preview=null){
  for(const node of textNodes)node.remove();
  let labels='';
  for(const p of planets){const box=layout.labels.get(p.word);if(!box)continue;const endX=Math.max(box.x,Math.min(box.x+box.width,p.pos.x)),endY=Math.max(box.y,Math.min(box.y+box.height,p.pos.y));const length=Math.hypot(endX-p.pos.x,endY-p.pos.y)||1;const markerRadius=p.word===state.current?16:p.word===state.target?10:6;const startX=p.pos.x+markerRadius*(endX-p.pos.x)/length,startY=p.pos.y+markerRadius*(endY-p.pos.y)/length;
- labels+=`<g class="word-label${p.previous?' previous-word-label':''}" data-label-word="${esc(p.word)}" opacity="${p.failed?.72:1}">${p.previous?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g>`;
+ labels+=`<g class="word-label${p.previous?' previous-word-label previous-attempt-element':''}" data-label-word="${esc(p.word)}" opacity="${p.failed?.72:1}">${p.previous?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g>`;
  }
  $('map').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);
@@ -236,7 +249,7 @@ async function animate(event){
 }
 
 async function fadePreviousLabels(){
- const labels=[...document.querySelectorAll('.previous-word-label')];
+ const labels=[...document.querySelectorAll('.previous-attempt-element,[data-previous-range]')];
  if(!reduced)await Promise.all(labels.map(node=>node.animate([{opacity:Number(node.getAttribute('opacity')??1)},{opacity:0}],{duration:220,fill:'forwards'}).finished.catch(()=>{})));
  for(const node of labels)node.remove();
 }
@@ -253,7 +266,7 @@ async function submit(word){
    state={...data.state,current:event.word,won:false,attempts:event.attempt,route:data.state.route.slice(0,-1),automatic_shots:[]};map();renderAttemptCounter();$('status').textContent='Ball settling…';
    await delay(reduced?250:1100);$('status').textContent='Lining up the finish…';renderAttemptCounter();await animate(event.automatic_shot);
  }
- state=data.state;shownEvent=event;activeNotice=state.challenge_failed?attemptNotice(event,state.target,data.state):'';update();$('word').value='';
+ state=data.state;shownEvent=event;activeNotice=state.challenge_failed?noticeForAttempt(event,data.state):'';update();$('word').value='';
  if(event.won)document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
  $('status').textContent=event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Back to ${event.word}.`:event.outcome==='recovery'?`Recovery to ${event.word}.`:event.success?`On ${event.word}.`:'Ball stays put. One shot counted.';
 
@@ -418,7 +431,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v62'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?attemptNotice(shownEvent,state.target,state):!state.history.length&&previous?attemptNotice(previous.history.at(-1),state.target,previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v63'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):!state.history.length&&previous?noticeForAttempt(previous.history.at(-1),previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});
@@ -440,7 +453,7 @@ $('launch').addEventListener('pointerdown',event=>{
  if(document.body.classList.contains('typing'))event.preventDefault();
 });
 $('word').addEventListener('focus',()=>{
- if(document.querySelector('.previous-word-label')){
+ if(document.querySelector('.previous-attempt-element,[data-previous-range]')){
   if(flightLog.active){flightLog.active.previous_labels_dismissed=true;flightLog.save();}
   void fadePreviousLabels();
  }

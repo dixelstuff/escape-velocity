@@ -1,9 +1,9 @@
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v62';
-import { chipRange } from './chip-range.mjs?v=golf-v62';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v62';
-import {withWordModel} from './word-model.mjs?v=golf-v62';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v62';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v62';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v63';
+import { chipRange } from './chip-range.mjs?v=golf-v63';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v63';
+import {withWordModel} from './word-model.mjs?v=golf-v63';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v63';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v63';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -191,11 +191,11 @@ export async function createBrowserClient() {
   async function assess(body,operation='assess'){
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v62')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v62')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v63')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v63')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v62',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v63',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -204,10 +204,10 @@ export async function createBrowserClient() {
     if(!workerModels.has(profile)){worker.postMessage({init:true,profile,words,vectors:model.vectors,dimensions:config.dimensions,hubs,localScaling:model.localScaling});workerModels.add(profile);}
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
-  return { config, chipRange(state){return chipRange(new Game(embeddings,state.start,state.target,state.threshold,state));}, async request(path, body) {
+  return { config, canFinish(state){const probe=new Game(embeddings,state.start,state.target,state.threshold,state);return probe.finishesFrom(state.current,state.progress);}, chipRange(state){return chipRange(new Game(embeddings,state.start,state.target,state.threshold,state));}, async request(path, body) {
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v62')).reviewRoute(embeddings,body.state);
+    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v63')).reviewRoute(embeddings,body.state);
     if(path==='assess'||path==='skill')return assess(body,path);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
