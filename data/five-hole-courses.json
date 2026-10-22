@@ -1,0 +1,124 @@
+[
+  {
+    "id": "five-hole-test-1",
+    "name": "Course A",
+    "holes": [
+      {
+        "start": "penguin",
+        "target": "library",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-1",
+        "course_number": 1
+      },
+      {
+        "start": "drum",
+        "target": "anatomy",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-1",
+        "course_number": 2
+      },
+      {
+        "start": "turtle",
+        "target": "shield",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-1",
+        "course_number": 3
+      },
+      {
+        "start": "coal",
+        "target": "wedding",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-1",
+        "course_number": 4
+      },
+      {
+        "start": "volcano",
+        "target": "lamp",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-1",
+        "course_number": 5
+      }
+    ]
+  },
+  {
+    "id": "five-hole-test-2",
+    "name": "Course B",
+    "holes": [
+      {
+        "start": "forest",
+        "target": "violin",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-2",
+        "course_number": 1
+      },
+      {
+        "start": "ocean",
+        "target": "jewellery",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-2",
+        "course_number": 2
+      },
+      {
+        "start": "clock",
+        "target": "sprinter",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-2",
+        "course_number": 3
+      },
+      {
+        "start": "bread",
+        "target": "astronomy",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-2",
+        "course_number": 4
+      },
+      {
+        "start": "bamboo",
+        "target": "melody",
+        "threshold": 0.27,
+        "mode": "distance",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "par": 3,
+        "course_set": "five-hole-test-2",
+        "course_number": 5
+      }
+    ]
+  }
+]
