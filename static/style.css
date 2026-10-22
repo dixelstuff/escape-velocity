@@ -222,3 +222,5 @@ body.typing main{background:#f5f3e8;}
 #round-next{display:block;margin:14px 0 0 auto;font-size:11px;}#round-next[hidden]{display:none;}@media(max-width:650px){body.typing #round-scorecard{display:none;}}
 
 .waypoint-zone-caption{font:600 10px monospace;letter-spacing:1.1px;fill:#587847}
+
+.retry-guidance{font-size:13px;line-height:1.4;color:#526b49;margin:7px 0 0}.retry-guidance[hidden]{display:none}[data-resume-through]{cursor:pointer;pointer-events:all}[data-resume-through]:focus-visible .label-body rect{stroke:#447c51;stroke-width:2}[data-resume-through] .label-body rect{stroke:#9caf8a;stroke-width:1;stroke-dasharray:3 2}body.typing #retry-guidance{display:none}

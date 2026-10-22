@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v75';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v76';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -41,9 +41,15 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
  const trees=[
   [.035,28,14],[.068,42,18],[.105,25,17],[.14,43,13],
   [.24,19,15],[.273,28,12], [.69,15,14],[.729,27,18],[.765,12,14],
-  [.981,89,12],[.985,122,13],[.978,332,14],[.975,366,12]
+  [.981,89,12],[.985,122,13],[.978,332,14],[.975,366,12],
+  ...(d.waypointTurn?[
+   [.185,44,13],[.208,29,15],[.34,36,13],
+   [.41,53,13],[.443,42,14],[.478,38,16],[.511,49,13],[.54,32,15],
+   [.49,332,18],[.52,352,16],[.55,327,14],[.57,355,13],
+   [.978,202,11],[.984,242,13],[.974,282,12],[.984,401,13]
+  ]:[])
  ];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0),y:y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1),seed:i})).filter(p=>!lakeContains(p,lake,p.r+7)).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).filter(p=>!lakeContains(p,lake,p.r+7)).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
 export function courseBunkers(d,style){

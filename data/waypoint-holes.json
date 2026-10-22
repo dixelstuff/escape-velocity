@@ -3,7 +3,8 @@
     "start": "penguin",
     "waypoint": {
       "word": "library",
-      "threshold": 0.27
+      "threshold": 0.27,
+      "turn": "up"
     },
     "target": "galaxy",
     "threshold": 0.27,
@@ -18,7 +19,8 @@
     "start": "pencil",
     "waypoint": {
       "word": "forest",
-      "threshold": 0.27
+      "threshold": 0.27,
+      "turn": "down"
     },
     "target": "orchestra",
     "threshold": 0.27,
@@ -33,7 +35,8 @@
     "start": "coal",
     "waypoint": {
       "word": "wedding",
-      "threshold": 0.27
+      "threshold": 0.27,
+      "turn": "up"
     },
     "target": "telescope",
     "threshold": 0.27,
