@@ -511,3 +511,9 @@ A successful second shot that remains outside real finishing range temporarily r
 Previous visible words now retain their normal faded dots (opacity .4) as well as labels (.72), with no old shot paths or leader lines. Both fade on input activation, together with any temporary previous-attempt range arc. The same display eligibility rules remain: successful setup words and useful forward misses are retained; hidden nearby/backward misses stay hidden. Stable label placement is unchanged.
 
 The approved future blocklist wording is `WORD is too vague for this hole. Try again.`, available through `vagueWordNotice`. No per-hole blocklists have been activated in this release; model/threshold choices and the pending curation trial are unchanged. Tests cover actual short/finishing/backward second-shot cases and the wording; mobile browser QA covers range-off automatic reveal, fast retry, dots/labels, focus dismissal and reload persistence.
+
+## Compact notices and transient MISS feedback (course v64)
+
+A missed or backward failed hit briefly shows “MISS!” over the centre of the course, then fades. The overlay is pointer-transparent, adds no retry delay and is dismissed immediately by new input. Reduced-motion preferences use a brief static display. The persistent notice displays only the explanation visually, with the original “Miss!” retained for screen readers. Short-of-range notices continue without the MISS animation.
+
+Persistent notices are centred and capped at 560px, with wrapping on phones. Feedback padding is reduced from 18px top / 22px bottom to 6px / 8px, placing the notice closer to the drawing and avoiding unnecessary downward displacement. Completion-card spacing is unchanged. Browser QA covers 1440px desktop and 390px mobile widths, overlay dismissal, enabled retry input, compact notice geometry and no horizontal overflow. No scoring changes.
