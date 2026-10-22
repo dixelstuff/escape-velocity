@@ -4,8 +4,8 @@ import {Game,Embeddings,decodeHalf,restoreGame,createBrowserClient,resumeWaypoin
 import {restartSettings,startupAction} from '../static/startup.mjs';
 import {chipRange} from '../static/chip-range.mjs';
 import {mapLayout} from '../static/map.mjs';
-import {greenContains,greenPoints,shoreY} from '../static/course-appearance.mjs';
-import {waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
+import {greenContains,greenPoints,bunkerPoints,shoreY} from '../static/course-appearance.mjs';
+import {waypointBunkers,waypointGreen,waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
 import {courseTrees,clearOfCartPath} from '../static/course-art.mjs';
 import {previousAttempts,previousWordLabels} from '../static/attempt-ghosts.mjs';
 const dir=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,dir)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),e=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),300,new Uint8Array(read(c.hub_file)));
@@ -101,7 +101,7 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
  assert.equal(greenContains({x:d.greenCentre,y:edge+sign*40},d),true,'recess does not remove the usable green');
  assert.equal(greenContains({x:d.right,y:d.holeY},d),true,'flag remains on the green');
  const raw=greenPoints({...d,greenNotch:undefined}),shaped=greenPoints(d),index=turn==='up'?48:16;
- assert.ok(sign*(shaped[index].y-raw[index].y)>20);
+ assert.ok(sign*(shaped[index].y-raw[index].y)>12);
 }
 console.log('Greenside bunker recess passed in both orientations and viewports.');
 
@@ -146,3 +146,18 @@ for(const narrow of [false,true])for(const turn of ['up','down'])for(const phase
  assert.equal(clearOfCartPath({...d.cartPath.points[24],r:10},d),false);
 }
 console.log('Cart path clearance passed for both doglegs, viewport widths and terrain phases.');
+
+for(const narrow of [false,true])for(const turn of ['up','down'])for(const vertical of [.3,.5,.7]){
+ const d=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn}},{depth:.6,vertical});
+ for(const b of waypointBunkers(d).slice(1)){
+  const angle=b.angle*Math.PI/180;
+  for(const p of bunkerPoints(b,2)){
+   const x=b.x*d.width+p.x*Math.cos(angle)-p.y*Math.sin(angle),cy=b.y+p.x*Math.sin(angle)+p.y*Math.cos(angle),point={x,y:d.reflectY?430-cy:cy};
+   assert.equal(greenContains(point,d),false,'sand bank stays outside the green');
+   const distance=Math.min(...d.greenOutline.map((a,i)=>{const c=d.greenOutline[(i+1)%d.greenOutline.length],dx=c.x-a.x,dy=c.y-a.y,t=Math.max(0,Math.min(1,((point.x-a.x)*dx+(point.y-a.y)*dy)/(dx*dx+dy*dy)));return Math.hypot(point.x-a.x-t*dx,point.y-a.y-t*dy);}));
+   assert.ok(distance>=1.79,'a tiny fringe strip separates bank and putting edge');
+  }
+ }
+ const complex=waypointGreen(d,{phase:0});assert.ok(complex.includes('shared-collar-join'));assert.ok(!complex.includes('#9daf7d'),'greenside sand has no separate dark grass surround');
+}
+console.log('Unified green/sand collar and non-touching surfaces passed at both widths and directions.');

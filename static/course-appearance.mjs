@@ -52,9 +52,8 @@ export function courseStyle(seed){
    rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:8+Math.floor(2*u(':shape'+i))
   }))};
 }
-export function bunkerPath(b,padding=0){
- // Hand-drawn kidney/crescent profiles, rather than a radial blob.
- const profiles=[
+// Hand-drawn outlines shared by rendering and terrain clearance.
+const BUNKER_PROFILES=[
   [[-1,-.1],[-1.08,-.65,-.55,-1.08,-.12,-.82],[.12,-.67,.05,-.3,.4,-.45],[.86,-.75,1.1,-.18,.88,.31],[.67,.87,.05,1.05,-.25,.64],[-.52,.3,-.99,.54,-1,-.1]],
   [[-.95,.35],[-1.2,-.1,-.73,-.84,-.18,-.92],[.43,-1.02,1.07,-.5,.97,.03],[.91,.43,.48,.8,.31,.51],[.16,.19,.38,-.11,.03,-.16],[-.35,-.2,-.37,.94,-.95,.35]],
   [[-.98,-.23],[-1.06,-.72,-.65,-1.04,-.3,-.74],[-.04,-.49,.19,-.8,.53,-.69],[1.03,-.52,1.14,.1,.78,.35],[.49,.52,.49,1.03,.05,.9],[-.34,.8,-.16,.28,-.55,.3],[-.88,.3,-.93,.11,-.98,-.23]],
@@ -67,9 +66,19 @@ export function bunkerPath(b,padding=0){
   [[-.96,-.36],[-.84,-.84,-.23,-.86,.12,-.61],[.44,-.39,.84,-.68,1,-.23],[1.2,.19,.63,.72,.23,.81],[-.02,.85,-.13,.38,-.43,.39],[-.82,.41,-1.08,.04,-.96,-.36]],
   [[-1,.05],[-.9,-.38,-.72,-.91,-.28,-.82],[.08,-.78,.34,-.4,.67,-.44],[1.15,-.48,1.1,.18,.75,.46],[.4,.82,.03,.9,-.28,.67],[-.55,.49,-1.04,.48,-1,.05]]
  ];
- const points=profiles[b.shape??0],rx=b.rx+padding,ry=b.ry+padding;
+export function bunkerPath(b,padding=0){
+ const points=BUNKER_PROFILES[b.shape??0],rx=b.rx+padding,ry=b.ry+padding;
  const scaled=a=>a.map((v,i)=>(v*(i%2?ry:rx)).toFixed(3)).join(',');
  return 'M'+scaled(points[0])+points.slice(1).map(a=>' C'+scaled(a)).join('')+' Z';
+}
+export function bunkerPoints(b,padding=0){
+ const profile=BUNKER_PROFILES[b.shape??0],rx=b.rx+padding,ry=b.ry+padding,points=[];
+ let a=profile[0];
+ for(const curve of profile.slice(1)){
+  for(let i=0;i<=16;i++){const t=i/16,u=1-t;points.push({x:(u**3*a[0]+3*u*u*t*curve[0]+3*u*t*t*curve[2]+t**3*curve[4])*rx,y:(u**3*a[1]+3*u*u*t*curve[1]+3*u*t*t*curve[3]+t**3*curve[5])*ry});}
+  a=curve.slice(4);
+ }
+ return points;
 }
 export function shoreY(x,d,style){
  const t=x/d.zoneLeft;

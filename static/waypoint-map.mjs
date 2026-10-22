@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v85';
-import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v85';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v85';
+import {mapFraction} from './map.mjs?v=golf-v86';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v86';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v86';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -14,7 +14,7 @@ export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  d.holeY=centre+(placement.vertical-.5)*height*.65;
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
  d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
- d.greenNotch={x:d.greenCentre,width:d.width<700?27:38,depth:24,edge:mirror?'bottom':'top'};
+ d.greenNotch={x:d.greenCentre,width:d.width<700?32:46,depth:14,edge:mirror?'bottom':'top'};
  d.greenSideNotch={y:mirror?d.greenTop+24:d.greenBottom-24,height:31,depth:12};
  d.greenOutline=greenPoints(d);d.cartPath=waypointCartPath(d);return d;
 }
@@ -61,27 +61,47 @@ export function waypointBankY(d,style,x){
  const settings=lakeSettings(d,style),bank=shoreY(x,settings.layout,settings.style)-18;
  return (original+bank-Math.hypot(original-bank,24))/2;
 }
-function smoothCourseBoundary(points){
- const xy=p=>`${p.x.toFixed(3)},${p.y.toFixed(3)}`,n=points.length;
- return 'M'+xy(points[0])+points.map((b,i)=>{const a=points[(i+n-1)%n],c=points[(i+1)%n],e=points[(i+2)%n];return ` C${xy({x:b.x+(c.x-a.x)/6,y:b.y+(c.y-a.y)/6})} ${xy({x:c.x-(e.x-b.x)/6,y:c.y-(e.y-b.y)/6})} ${xy(c)}`;}).join('')+' Z';
+const bunkerLayouts=new WeakMap();
+/** Green and adjacent sand share one surrounding collar; their playing surfaces sit above it. */
+export function waypointBunkers(d,style={phase:0}){
+ if(bunkerLayouts.has(d))return bunkerLayouts.get(d);
+ const down=d.reflectY,w=d.width,top=down?430-d.greenBottom:d.greenTop,bottom=top+184;
+ const bunkers=[
+  {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:10},
+  {x:(d.greenCentre-4)/w,y:top+5,rx:w<700?30:42,ry:19,angle:down?4:-5,shape:8},
+  {x:(d.zoneLeft-8)/w,y:bottom-12,rx:w<700?29:39,ry:17,angle:59,shape:9}
+ ];
+ for(let index=1;index<bunkers.length;index++){
+  const b=bunkers[index],angle=b.angle*Math.PI/180,cos=Math.cos(angle),sin=Math.sin(angle);
+  // Keep banks clear of the putting surface, including their outline and a small turf gap.
+  for(let pass=0;pass<48;pass++){
+   const overlaps=bunkerPoints(b,2).some(p=>{
+    const x=b.x*w+p.x*cos-p.y*sin,canonicalY=b.y+p.x*sin+p.y*cos,point={x,y:down?430-canonicalY:canonicalY};
+    if(greenContains(point,d))return true;
+    const outline=d.greenOutline??greenPoints(d);
+    return outline.some((a,i)=>{const c=outline[(i+1)%outline.length],dx=c.x-a.x,dy=c.y-a.y,t=Math.max(0,Math.min(1,((point.x-a.x)*dx+(point.y-a.y)*dy)/(dx*dx+dy*dy)));return Math.hypot(point.x-a.x-t*dx,point.y-a.y-t*dy)<1.8;});
+   });
+   if(!overlaps)break;
+   if(index===1)b.y-=.75;else b.x-=.75/w;
+  }
+ }
+ bunkerLayouts.set(d,bunkers);return bunkers;
+}
+export function waypointGreen(d,style){
+ const bunkers=waypointBunkers(d,style).slice(1),transform=reflection(d);
+ const outer=bunkers.map(b=>`<path d="${bunkerPath(b,10)}" transform="translate(${b.x*d.width} ${b.y}) rotate(${b.angle})"/>`).join('');
+ return `<defs><filter id="shared-collar-join" x="-10%" y="-10%" width="120%" height="120%"><feMorphology operator="dilate" radius="2"/><feMorphology operator="erode" radius="2"/></filter></defs><g id="green-fringe" fill="#b8cf94" filter="url(#shared-collar-join)"><path d="${greenPath(d,8)}"/><g transform="${transform}">${outer}</g></g><g class="greenside-sand" transform="${transform}">${courseBunkers(d,{...style,bunkers},{fringe:false})}</g><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="1.6"/>`;
 }
 export function waypointLandscape(state,d,style={phase:0}){
  const w=d.width,a=waypointAnchors(d),bx=a.bend.x,transform=reflection(d);
- const back=d.zoneRight+8,down=d.reflectY,entryTop=down?92:82,approachTop=down?191:181,greenBack=down?386:378;
+ const down=d.reflectY,top=down?80:70,greenTop=down?430-d.greenBottom:d.greenTop,greenBottom=greenTop+184,front=d.zoneLeft+24;
  const bank=x=>waypointBankY(d,style,x),slope=x=>(bank(x+.15)-bank(x-.15))/.3;
  const points=Array.from({length:33},(_,i)=>({x:bx-(bx+30)*i/32,y:bank(bx-(bx+30)*i/32)}));
- const canonicalGreenTop=d.reflectY?430-d.greenBottom:d.greenTop,canonicalGreenBottom=canonicalGreenTop+184;
- // One closed spline shares its tangent at every join, including the back of the green.
- const outline=smoothCourseBoundary([
-  {x:-30,y:222},{x:w*.15,y:210},{x:w*.26,y:125},{x:bx-62,y:entryTop},{x:bx+10,y:entryTop-12},{x:bx+66,y:entryTop+18},
-  {x:w*.66,y:approachTop-5},{x:w*.79,y:approachTop},{x:back-14,y:canonicalGreenTop-5},{x:back+3,y:224},{x:back+5,y:288},{x:back-5,y:greenBack},
-  {x:w*.86,y:greenBack+17},{x:w*.79,y:greenBack-5},{x:w*.74,y:down?361:348},{x:w*.65,y:272},{x:bx+46,y:bank(bx)+46*slope(bx)},{x:bx,y:bank(bx)},...points.slice(1)
- ]);
- const sandStyle={...style,bunkers:[
-  {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:10},
-  {x:(d.greenCentre-4)/w,y:canonicalGreenTop+1,rx:w<700?30:42,ry:19,angle:down?4:-5,shape:8},
-  {x:(d.zoneLeft-8)/w,y:canonicalGreenBottom-12,rx:w<700?29:39,ry:17,angle:59,shape:9}
- ]};
+ let lower='';for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3;lower+=` C${a.x+step} ${a.y+step*slope(a.x)} ${b.x-step} ${b.y-step*slope(b.x)} ${b.x} ${b.y}`;}
+ // Broad, authored curves with matching tangent handles; no interpolated anchor bumps.
+ const frontStart=d.zoneLeft-20,frontNear=greenTop+38,frontFar=greenBottom-38,frontMiddle=(greenTop+greenBottom)/2;
+ const outline=`M-30 222 C${w*.18} 222 ${w*.29} ${top} ${bx} ${top} C${bx+w*.10} ${top} ${w*.68} ${frontNear} ${frontStart} ${frontNear} C${d.zoneLeft+10} ${frontNear} ${front} ${frontNear} ${front} ${frontMiddle} C${front} ${frontFar} ${d.zoneLeft+10} ${frontFar} ${frontStart} ${frontFar} C${w*.68} ${frontFar} ${bx+70} ${bank(bx)+70*slope(bx)} ${bx} ${bank(bx)}${lower} Z`;
+ const sandStyle={...style,bunkers:waypointBunkers(d,style).slice(0,1)};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;
  // Two broad cubic curves meet at the centre of the waypoint with a shared tangent.

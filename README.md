@@ -633,3 +633,7 @@ Waypoint cutoff remains 0.27. Reached shots vary within the ellipse according to
 ### V85: contour-aware bunkers and closer path planting
 
 Asymmetric sand profiles hug two recesses in the green. The surrounding fairway is a single smooth closed spline, including behind the green. Paired trees sit just beside the cart path while its clearance check keeps their trunks off it. Tapping any retry point restores its counted prefix and opens the shot field; the tee/current lie also opens entry directly.
+
+### V86: coherent green and sand layers
+
+A shared outer collar joins the green and its two greenside bunkers. Sand banks and putting edges retain a measured small turf gap, so their outlines do not touch or paint over one another. Fairway connects only at the front; rough surrounds the sides and back. Broad authored curves replace the interpolated fairway boundary, avoiding the previous ripples and pointed joins.
