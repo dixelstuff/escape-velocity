@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v88';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v89';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -10,15 +10,14 @@ const fairwayShapes=new WeakMap();
 function cubicPoint(segment,t){const u=1-t,[a,b,c,e]=segment;return {x:u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y:u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y};}
 export function par3Fairway(d){
  if(fairwayShapes.has(d))return fairwayShapes.get(d);
- const w=d.width,cy=d.teeY,cx=(d.zoneLeft+d.zoneRight)/2,rx=(d.zoneRight-d.zoneLeft)/2,gy=(d.greenTop+d.greenBottom)/2,p=(x,y)=>({x,y});
+ const w=d.width,cy=d.teeY,gy=(d.greenTop+d.greenBottom)/2,endX=Math.min(d.zoneLeft-18,par3Bunkers(d)[2].x*d.width),p=(x,y)=>({x,y});
  const top=[
  [p(-30,cy-82),p(w*.14,cy-85),p(w*.25,cy-52),p(w*.42,cy-46)],
- [p(w*.42,cy-46),p(w*.60,cy-44),p(cx-rx*.85,d.greenTop-32),p(cx,d.greenTop-25)]
+ [p(w*.42,cy-46),p(w*.60,cy-44),p(endX-85,gy-70),p(endX-26,gy-68)]
  ];
  const shoulder=[
- [top.at(-1)[3],p(cx+rx*.62,d.greenTop-23),p(cx+rx*.76,d.greenTop+7),p(cx+rx*.57,d.greenTop+34)],
- [p(cx+rx*.57,d.greenTop+34),p(cx+rx*.32,gy-38),p(cx+rx*.35,gy+39),p(cx+rx*.61,d.greenBottom-24)],
- [p(cx+rx*.61,d.greenBottom-24),p(cx+rx*.83,d.greenBottom+9),p(cx+rx*.35,d.greenBottom+30),p(cx-rx*.45,d.greenBottom+23)]
+ [top.at(-1)[3],p(endX-6,gy-66),p(endX,gy-34),p(endX,gy)],
+ [p(endX,gy),p(endX,gy+34),p(endX-6,gy+66),p(endX-26,gy+68)]
  ];
  const bottom=[
  [shoulder.at(-1)[3],p(w*.64,cy+76),p(w*.55,cy+46),p(w*.42,cy+48)],
@@ -27,7 +26,7 @@ export function par3Fairway(d){
  const xy=p=>`${p.x},${p.y}`,path='M'+xy(top[0][0])+[...top,...shoulder,...bottom].map(c=>' C'+c.slice(1).map(xy).join(' ')).join('')+' Z';
  function edgeY(segments,x){const segment=segments.find(c=>x>=Math.min(c[0].x,c[3].x)&&x<=Math.max(c[0].x,c[3].x));if(!segment)return x<0?segments.find(c=>c.some(p=>p.x<0)).find(p=>p.x<0).y:d.greenBottom+23;let lo=0,hi=1;const forward=segment[3].x>segment[0].x;for(let i=0;i<32;i++){const t=(lo+hi)/2;if((cubicPoint(segment,t).x<x)===forward)lo=t;else hi=t;}return cubicPoint(segment,(lo+hi)/2).y;}
  const outline=[...top,...shoulder,...bottom].flatMap(segment=>Array.from({length:25},(_,i)=>cubicPoint(segment,i/25)));
- const result={path,outline,topY:x=>edgeY(top,x),bottomY:x=>edgeY(bottom,x)};fairwayShapes.set(d,result);return result;
+ const result={path,outline,endX,topY:x=>edgeY(top,x),bottomY:x=>edgeY(bottom,x)};fairwayShapes.set(d,result);return result;
 }
 export function par3MidBunkers(d,style){const source=style.bunkers[0],x=Math.max(.39,Math.min(.52,source.x)),geometry=par3Fairway(d),px=x*d.width;return [{...source,x,y:geometry.topY(px)-3,angle:Math.atan((geometry.topY(px+1)-geometry.topY(px-1))/2)*180/Math.PI}];}
 export function courseSurrounds(d,style){

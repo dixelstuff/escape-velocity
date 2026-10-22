@@ -665,3 +665,8 @@ Tapping a tee or previously reached word previews a retry, retaining the prefix 
 Saved current-rule holes now draw from recorded map data before fetching scoring rows; input stays disabled until exact replay is ready. Chip-in range starts off on every page load, regardless of old browser preferences. The toggle only applies during the current visit; the existing short-shot feedback can still reveal range during play.
 
 Validation includes the progressive-loader display-without-fetch check, all curated real-vector routes and their exact replays, per-par final-shot caps, prefix retry/cancellation, mixed-par five-hole rounds, retained best scores, tie handling and smooth golden-shot motion. Mobile UI checks cover an ace, an eagle, reversible retry, refresh defaults and exhausting six attempts without losing another hole's best score.
+
+
+### V89: rough around the par 3 green
+
+The par 3 fairway ends in a rounded front approach at the foremost greenside bunker line. Its complete outline is bounded by that line: no mowing extends alongside, above, below or behind the green. The green and all three greenside bunkers sit in continuous rough. The narrowed middle, wider tee, edge bunker, curved trace, path, varied tree clusters and scoring changes from V88 remain. Geometry tests check the complete fairway outline against the bunker cutoff.
