@@ -1,4 +1,4 @@
-import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v60';
+import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v61';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -67,10 +67,25 @@ export function visibleAttempts(state) {
 }
 
 /** Pack measured label boxes around fixed word positions, without obscuring balls. */
-export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
+export function layoutLabels(labels, obstacles, width, minimumHeight=360, previous=new Map()) {
   const placed=[],result=new Map();let height=minimumHeight;
   const overlaps=(a,b)=>a.x<b.x+b.width+3&&a.x+a.width+3>b.x&&a.y<b.y+b.height+3&&a.y+a.height+3>b.y;
-  for(const label of [...labels].sort((a,b)=>(b.priority||0)-(a.priority||0))) {
+  const ordered=[...labels].sort((a,b)=>Number(!!a.optional)-Number(!!b.optional)||(b.priority||0)-(a.priority||0));
+  const remember=(label,box)=>{
+    placed.push(box);const {cost,...geometry}=box;result.set(label.word,{...geometry,textX:box.x+box.width/2,textY:box.y+box.height/2,anchorX:label.x,anchorY:label.y});
+  };
+  const retain=label=>{
+    const old=previous.get(label.word),w=Math.min(width-16,label.width+10),h=label.height+6;
+    if(!old||Math.abs(old.anchorX-label.x)>.25||Math.abs(old.anchorY-label.y)>.25||Math.abs(old.width-w)>.25||Math.abs(old.height-h)>.25)return false;
+    const box={x:old.x,y:old.y,width:w,height:h};
+    if(box.x<8||box.x+w>width-8||box.y<24||box.y+h>minimumHeight-10||[...obstacles,...placed].some(other=>overlaps(box,other)))return false;
+    remember(label,box);return true;
+  };
+  // Reserve existing readable labels before fitting new ones. Changing a label's
+  // role, ball size or connector is not itself a reason to move its text.
+  for(const label of ordered.filter(l=>!l.optional))retain(label);
+  for(const label of ordered) {
+    if(result.has(label.word)||label.optional&&retain(label))continue;
     const w=Math.min(width-16,label.width+10),h=label.height+6;
     const candidates=[];
     const radius=label.radius??16,below=label.y+radius+(label.gap??5),above=label.y-radius-5-h;
@@ -96,7 +111,7 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360) {
     let box=candidates.find(box=>![...obstacles,...placed].some(other=>overlaps(box,other)));
     if(!box&&label.optional)continue;
     if(!box){box={x:Math.max(8,Math.min(width-w-8,label.x-w/2)),y:height+8,width:w,height:h};height=box.y+h+12;}
-    placed.push(box);result.set(label.word,{...box,textX:box.x+w/2,textY:box.y+h/2});
+    remember(label,box);
   }
   return {labels:result,height};
 }

@@ -489,3 +489,9 @@ Retries retain only the normal faded labels for visible words from the latest un
 Previous-attempt labels fade over 220 ms when the shot input gains focus on desktop or mobile. Dismissal is saved on the active attempt so resize, chip-range toggling and reload cannot bring them back. Reduced-motion users see immediate dismissal.
 
 Scorecard reset writes the small new batch before replacing the recovery copy, avoiding the temporary double-sized history that could exceed localStorage quota. A failed recovery write restores the original stored batch. Tests cover quota pressure and rollback; the submitted 321-round scorecard also resets under a quota where the previous write order fails. Restore uses the same space-saving order with rollback on failure. New downloads exclude the recovery archive, and Restore previous scorecards remains available. Gameplay, models and thresholds are unchanged.
+
+## Stable word labels (course v61)
+
+Map redraws reuse each readable label box while its word anchor, text size and course layout stay the same. Changes to active-ball status, label priority, connector lines and previous-attempt fading no longer trigger fresh placement. New labels fit around the retained ones; actual marker collisions and changed word locations still allow repositioning. Optional previous-attempt labels cannot displace current words. A new hole or mobile/desktop layout starts fresh placement.
+
+Successful-shot previews reserve space for the arriving full-size ball, avoiding a second label move at landing. Any necessary label relocation is animated, including non-tee words; reduced-motion preferences are respected. Mobile browser checks cover preview/landing, chip-range toggle and failed-attempt return. Regression tests cover role changes, ghost labels, collisions and changed word anchors at both course widths. No scoring or grass changes.

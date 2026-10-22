@@ -108,3 +108,32 @@ for(const narrow of [true,false])for(const vertical of [.3,.5,.7])for(const teeY
  assert.equal(packed.height,430,'a small route must never expand the map for labels');
 }
 console.log('MARS regression passed: nearby CAMERA / INSPIRE labels stay local at high and low pin/tee positions, during play and after completion.');
+
+// Keep already-readable positions through role changes, ball return and ghosting.
+for(const width of [640,1000]){
+ const tee={word:'tee',x:70,y:220,width:58,height:22,radius:16,gap:8,priority:5};
+ const step={word:'step',x:width*.45,y:180,width:75,height:22,radius:6,gap:5,priority:1};
+ const flag={word:'flag',x:width-70,y:210,width:65,height:22,radius:10,priority:3};
+ const labels=[tee,step,flag];
+ const obstacle=p=>({x:p.x-p.radius-1,y:p.y-p.radius-1,width:2*p.radius+2,height:2*p.radius+8});
+ const initial=layoutLabels(labels,labels.map(obstacle),width,430);
+ const moved=labels.map(p=>({...p,radius:p===tee?6:p===step?16:p.radius,gap:p===step?12:5,priority:p===step?4:p.priority}));
+ const after=layoutLabels(moved,moved.map(obstacle),width,430,initial.labels);
+ assert.deepEqual(after.labels.get('tee'),initial.labels.get('tee'),'moving the ball away does not pull the tee label closer');
+ assert.deepEqual(after.labels.get('flag'),initial.labels.get('flag'));
+ const ghosts=labels.map(p=>({...p,optional:p===step,failed:p===step,priority:p===step?-1:p.priority}));
+ const returned=layoutLabels(ghosts,ghosts.filter(p=>!p.optional).map(obstacle),width,430,after.labels);
+ assert.deepEqual(returned.labels.get('step'),after.labels.get('step'),'fading a word and returning the ball do not change label position');
+ const redraw=layoutLabels(ghosts,ghosts.filter(p=>!p.optional).map(obstacle),width,430,returned.labels);
+ assert.deepEqual(redraw,returned,'unchanged redraws are stable');
+ // Real collisions still move the affected label, while unrelated words stay put.
+ const blocked=returned.labels.get('step');
+ const collision=layoutLabels(labels,[...labels.map(obstacle),{x:blocked.x,y:blocked.y,width:blocked.width,height:blocked.height}],width,430,returned.labels);
+ assert.notDeepEqual(collision.labels.get('step'),blocked);
+ assert.deepEqual(collision.labels.get('tee'),returned.labels.get('tee'));
+ assert.deepEqual(collision.labels.get('flag'),returned.labels.get('flag'));
+ const shifted=labels.map(p=>p===step?{...p,x:p.x+110}:p);
+ const relocated=layoutLabels(shifted,shifted.map(obstacle),width,430,returned.labels);
+ assert.notDeepEqual(relocated.labels.get('step'),returned.labels.get('step'),'a genuinely relocated word gets a new label position');
+}
+console.log('Stable labels passed: mobile/desktop redraws, active-ball changes, retries/ghosts, isolated collision avoidance and changed word anchors.');
