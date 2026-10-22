@@ -5,7 +5,8 @@ import {restartSettings,startupAction} from '../static/startup.mjs';
 import {chipRange} from '../static/chip-range.mjs';
 import {mapLayout} from '../static/map.mjs';
 import {greenContains,greenPoints,shoreY} from '../static/course-appearance.mjs';
-import {waypointBankY,waypointLayout,waypointPosition,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
+import {waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
+import {courseTrees,clearOfCartPath} from '../static/course-art.mjs';
 import {previousAttempts,previousWordLabels} from '../static/attempt-ghosts.mjs';
 const dir=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,dir)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),e=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),300,new Uint8Array(read(c.hub_file)));
 const holes=JSON.parse(readFileSync(new URL('../data/waypoint-holes.json',import.meta.url)));
@@ -132,7 +133,16 @@ const freestyle=new Game(e,butterfly.start,butterfly.target,butterfly.threshold,
 const freestyleHit=freestyle.submit('freestyle');assert.ok(freestyleHit.waypoint_reached);assert.ok(freestyleHit.leg_baseline>freestyleHit.leg_threshold);
 for(const narrow of [false,true]){
  const d=waypointLayout(mapLayout(narrow),freestyle.state()),bend=waypointAnchors(d).bend;
- assert.deepEqual(waypointPosition(freestyle.state(),'freestyle',d),bend,'a reached waypoint is always drawn in its zone, including a baseline already above threshold');
- const before={...freestyle.state(),history:[],stage:0};assert.deepEqual(waypointPosition(before,'freestyle',d,freestyleHit),bend,'flight preview reaches the same zone');
+ const landing=waypointPosition(freestyle.state(),'freestyle',d);assert.ok(((landing.x-bend.x)/(d.width*.065))**2+((landing.y-bend.y)/40)**2<1,'reached waypoint lies inside its ellipse');assert.notDeepEqual(landing,bend,'landings vary within the zone');
+ const before={...freestyle.state(),history:[],stage:0};assert.deepEqual(waypointPosition(before,'freestyle',d,freestyleHit),landing,'flight preview reaches the same zone');
 }
 console.log('FREESTYLE regression passed: high opening cosine reaches and displays inside the waypoint.');
+
+assert.equal(waypointZone({...freestyle.state(),stage:0},waypointLayout(mapLayout(true),freestyle.state()),true),'','occupied retry waypoint has no shading');
+
+for(const narrow of [false,true])for(const turn of ['up','down'])for(const phase of [0,1,2,3,4,5,6]){
+ const d=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn}}),trees=courseTrees(d,{phase},waypointLake(d,{phase}));
+ for(const match of trees.matchAll(/<g transform="translate\(([-\d.]+),([-\d.]+)\)"/g))assert.ok(clearOfCartPath({x:Number(match[1]),y:Number(match[2]),r:0},d),'tree centres stay off the actual drawn cart path');
+ assert.equal(clearOfCartPath({...d.cartPath.points[24],r:10},d),false);
+}
+console.log('Cart path clearance passed for both doglegs, viewport widths and terrain phases.');

@@ -625,3 +625,7 @@ Waypoint bunkers use distinct kidney and scalloped profiles rather than a shared
 ### V83: waypoint placement and course drawing corrections
 
 Shots that reach the mandatory waypoint land at its map anchor, including FREESTYLE when the BUTTERFLY → SWIMMING starting cosine already exceeds the waypoint threshold. Retry guidance appears only with successful earlier shots; a previous waypoint entry replaces the static waypoint label during retry selection. The centre trace uses two smooth curves through the waypoint centre. Through paths follow the outer cut without hairpins, lake coves fill more of the inner rough, and simpler bunkers align beside the green with irregular tree clusters.
+
+### V84: natural waypoint landings and terrain clearance
+
+Waypoint cutoff remains 0.27. Reached shots vary within the ellipse according to their recorded target connection instead of snapping to its centre. An occupied retry waypoint has no shading. The tee label focuses the shot field even after a first-shot miss, without showing irrelevant retry guidance. Simple sand profiles replace lobed bunkers; edge bunkers straddle cuts, and tree placement checks the actual cart-path geometry to keep canopies clear of its centre.

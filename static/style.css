@@ -227,3 +227,5 @@ body.typing main{background:#f5f3e8;}
 
 /* Focusing without typing only hides the last attempt; keep its anchors and retry actions intact. */
 body.word-entry-active .previous-attempt-element,body.word-entry-active [data-previous-range]{visibility:hidden;pointer-events:none}body.word-entry-active #retry-guidance{display:none}
+
+[data-focus-entry]{pointer-events:all;cursor:pointer}

@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v83';
-import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v83';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v83';
+import {mapFraction} from './map.mjs?v=golf-v84';
+import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v84';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v84';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -15,7 +15,7 @@ export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
  d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
  d.greenNotch={x:d.greenCentre,width:d.width<700?27:38,depth:24,edge:mirror?'bottom':'top'};
- d.greenOutline=greenPoints(d);return d;
+ d.greenOutline=greenPoints(d);d.cartPath=waypointCartPath(d);return d;
 }
 export function waypointAnchors(d){return {tee:{x:d.left,y:d.waypointTurn?d.teeY:280},bend:{x:d.bendX??d.width*.48,y:d.bendY??130},flag:{x:d.right,y:d.holeY}};}
 function along(a,b,f,offset=0){const dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),t=Math.max(-.08,Math.min(1,f));return {x:a.x+dx*t-dy/len*offset*Math.sin(Math.PI*t),y:a.y+dy*t+dx/len*offset*Math.sin(Math.PI*t)};}
@@ -26,12 +26,23 @@ export function waypointPosition(state,word,d,event=null){
  if(word===state.final_target)return a.flag;
  const h=state.history.find(h=>h.word===word&&h.success)??event??state.history.find(h=>h.word===word);
  if(!h)return a.bend;
- if(h.stage===0&&h.waypoint_reached)return a.bend;
+ if(h.stage===0&&h.waypoint_reached){
+  const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
+  const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-(h.leg_threshold??.27))/(1-(h.leg_threshold??.27))))),forward=.62*(2*depth-1),side=.18*Math.sin(h.attempt*2.4+h.destination*5);
+  return {x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)};
+ }
  const entry=state.history.find(h=>h.waypoint_reached);
  const start=h.stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
  const goal=h.stage===1?a.flag:a.bend;
  const fraction=mapFraction(h.destination,h.leg_baseline??state.baseline,h.leg_threshold??state.threshold,.88);
  return along(start,goal,fraction,[-24,26,-36,34,-12,14][(h.attempt-1)%6]);
+}
+/** The exact same path geometry drives drawing and tree clearance. */
+export function waypointCartPath(d){
+ const w=d.width,bx=d.bendX??w*.48,start={x:-30,y:184},mid={x:bx,y:28},end={x:w+30,y:145};
+ const segments=[[start,{x:w*.18,y:188},{x:w*.31,y:43},mid],[mid,{x:w*.65,y:19},{x:w*.79,y:137},end]];
+ const points=segments.flatMap(([a,b,c,e],segment)=>Array.from({length:49},(_,i)=>{const t=i/48,u=1-t,x=u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y=u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y;return {x,y:d.reflectY?430-y:y};}));
+ return {path:`M-30 184 C${w*.18} 188 ${w*.31} 43 ${bx} 28 C${w*.65} 19 ${w*.79} 137 ${w+30} 145`,points};
 }
 function lakeSettings(d,style){return {layout:{...d,zoneLeft:d.width*(d.reflectY?.64:.59)},style:{...style,lakeY:d.reflectY?384:390,wave:d.reflectY?39:35,cove:d.reflectY?38:26,coveAt:.55,coveWidth:.19}};}
 function reflection(d){return d.reflectY?'translate(0 430) scale(1 -1)':'';}
@@ -59,20 +70,20 @@ export function waypointLandscape(state,d,style={phase:0}){
  const canonicalGreenTop=d.reflectY?430-d.greenBottom:d.greenTop,canonicalGreenBottom=canonicalGreenTop+184;
  const sandStyle={...style,bunkers:[
   {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:5},
-  {x:d.greenCentre/w,y:canonicalGreenTop-7,rx:w<700?25:35,ry:15,angle:0,shape:0},
-  {x:(d.zoneLeft-13)/w,y:canonicalGreenBottom-24,rx:w<700?25:34,ry:13,angle:67,shape:1}
+  {x:d.greenCentre/w,y:canonicalGreenTop-14,rx:w<700?25:35,ry:15,angle:0,shape:6},
+  {x:(d.zoneLeft-13)/w,y:canonicalGreenBottom-3,rx:w<700?25:34,ry:13,angle:67,shape:7}
  ]};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;
  // Two broad cubic curves meet at the centre of the waypoint with a shared tangent.
  const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.29} ${bend.y} ${bend.x} ${bend.y} C${w*.60} ${bend.y} ${w*.70} ${a.flag.y} ${a.flag.x} ${a.flag.y}`;
  // A through path follows the outside cut, rather than returning in a hairpin.
- const outerPath=`M-30 184 C${w*.18} 188 ${w*.31} 43 ${bx} 28 C${w*.65} 19 ${w*.79} 137 ${w+30} 145`;
+ const outerPath=(d.cartPath??waypointCartPath(d)).path;
 
  return `<rect width="${w}" height="430" fill="#c4d3a7"/><defs><mask id="waypoint-dry-rough"><rect width="${w}" height="430" fill="white"/><path d="${outline}" transform="${transform}" fill="black"/><path d="${lake.path}" transform="${transform}" fill="black" stroke="black" stroke-width="22"/></mask><clipPath id="waypoint-fairway"><path d="${outline}" transform="${transform}"/></clipPath></defs><rect width="${w}" height="430" fill="url(#fairway-mown)" clip-path="url(#waypoint-fairway)"/><g mask="url(#waypoint-dry-rough)" aria-hidden="true"><path d="${outerPath}" transform="${transform}" fill="none" stroke="#b3bd96" stroke-width="13"/><path d="${outerPath}" transform="${transform}" fill="none" stroke="#ddd8bb" stroke-width="8"/></g><g transform="${transform}"><path d="${lake.path}" fill="#c4d3a7" stroke="#c4d3a7" stroke-width="30"/>${courseLake(lakeD,lakeStyle,lake)}${courseBunkers(d,sandStyle)}</g><path id="dogleg-centreline" d="${guide}" fill="none" stroke="#a1b78e" stroke-width="1.2" stroke-dasharray="3 8"/>`;
 }
-export function waypointZone(state,d){
- if(state.stage!==0)return '';
+export function waypointZone(state,d,occupied=false){
+ if(state.stage!==0||occupied)return '';
  const {bend}=waypointAnchors(d);
  return `<g id="waypoint-zone"><ellipse cx="${bend.x}" cy="${bend.y}" rx="${d.width*.065}" ry="40" fill="#a9c981" fill-opacity=".5" stroke="#77985c" stroke-width="1.5" stroke-dasharray="5 5"/></g>`;
 }
