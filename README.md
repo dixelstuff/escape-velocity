@@ -473,3 +473,8 @@ A missed word gets a marker, trail and next-attempt ghost only when its raw targ
 Backward failed hits use the ordinary miss animation, with no splash or backward word marker. Their original `water` outcome remains in diagnostic scorecards for reproducible analysis; the main play UI calls them misses. The course lake remains scenery. Useful forward feedback reads “Miss! SCIENCE needs a stronger link to HEAT.” Nearby misses read “Miss! Not enough connection.” Backward misses read “Miss! SPEAK takes you away from CHIRP.” Unsupported words read “Word not allowed. Try another.” and the current lie reads “You’re already on HEAT. Try another word.” Both input errors remain uncharged and preserve the ghost. Par failure and success messages retain the approved copy. Feedback remains through retries until typing, and a qualifying ghost still fades on the next valid shot.
 
 Tests exercise the inclusive semantic boundary, current-lie versus tee calculations, nearby/backward suppression, no fallback to older ghosts, exact message copy and input-error handling. Browser checks verify forward ghosts, absence of nearby/backward labels and splash, and persistent feedback after retry.
+
+
+## Softer ghost (course v58)
+
+The previous attempt ghost uses .60 opacity instead of .72, making its trail, marker and label a little fainter. Ghost eligibility, fading on the next shot and all game rules are unchanged.

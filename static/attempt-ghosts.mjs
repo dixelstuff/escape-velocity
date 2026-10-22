@@ -1,11 +1,11 @@
-import {projectPoint} from './map.mjs?v=golf-v57';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v57';
+import {projectPoint} from './map.mjs?v=golf-v58';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v58';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
  const same=s=>s.challenge?.id===state.challenge.id&&s.challenge.version===state.challenge.version&&s.challenge.par===state.challenge.par&&s.challenge.attempt<state.challenge.attempt&&s.challenge_failed&&s.history.length&&['start','target','word_model','threshold','mode','rules','finish_mode','launch_min','launch_max'].every(k=>s[k]===state[k])&&JSON.stringify(s.headwind??null)===JSON.stringify(state.headwind??null);
  const seen=new Set();
- return journeys.filter(j=>j.id!==activeId&&same(j.state)).sort((a,b)=>b.state.challenge.attempt-a.state.challenge.attempt||String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(j=>{const n=j.state.challenge.attempt;if(seen.has(n))return false;seen.add(n);return true;}).slice(0,1).map(j=>({state:j.state,opacity:.72}));
+ return journeys.filter(j=>j.id!==activeId&&same(j.state)).sort((a,b)=>b.state.challenge.attempt-a.state.challenge.attempt||String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(j=>{const n=j.state.challenge.attempt;if(seen.has(n))return false;seen.add(n);return true;}).slice(0,1).map(j=>({state:j.state,opacity:.60}));
 }
 export function attemptPathText(state){
  return [state.start,...state.history.map(e=>e.word+(e.outcome==='miss'?' (miss)':e.outcome==='water'?' (miss)':''))].join(' → ');
