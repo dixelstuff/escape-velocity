@@ -202,7 +202,13 @@ body.typing main{background:#f5f3e8;}
 #arrival-banner #arrival-skill{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 0;min-height:31px;}
 #arrival-banner #arrival-skill[hidden]{display:none;}
 #arrival-skill-value{font:600 24px/1.2 'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums;min-width:4.4ch;text-align:right;}
-#arrival-banner #arrival-actions{width:100%;max-width:420px;justify-content:center;margin:16px auto 0;padding-top:14px;border-top:1px solid #d7decf;gap:10px;}
+#arrival-banner #arrival-actions{width:100%;max-width:420px;justify-content:center;margin:18px auto 0;padding-top:0;border-top:0;gap:10px;}
 #arrival-banner #arrival-actions button{font-size:12px;min-height:44px;background:#356b43;color:#fff;border-color:#356b43;box-shadow:0 2px 7px #294b351a;}
 #arrival-banner #arrival-actions .quiet{background:#fffdf4;color:#34543b;border-color:#c8d3bb;}
 @media(max-width:650px){#arrival-banner{padding:14px 18px 13px;}#arrival-banner #arrival-title{font-size:27px;margin:10px 0 12px;}.scorecard-grid>div{padding:10px 0;}.scorecard-grid>div+div{padding-left:18px;}#arrival-banner #arrival-result,#arrival-banner #arrival-attempt{font-size:27px;}}
+
+/* Paired score cells keep each heading next to its value. */
+.scorecard-grid{grid-template-columns:1fr 1fr;}
+#arrival-banner #arrival-skill{display:block;margin:0;min-height:0;}
+#arrival-banner #arrival-skill-value{display:block;font:500 29px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:5px 0 0;text-align:left;min-width:4.4ch;}
+@media(max-width:650px){#arrival-banner #arrival-skill-value{font-size:27px;}}

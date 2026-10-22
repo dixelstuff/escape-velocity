@@ -1,5 +1,5 @@
-import {projectPoint} from './map.mjs?v=golf-v68';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v68';
+import {projectPoint} from './map.mjs?v=golf-v69';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v69';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];

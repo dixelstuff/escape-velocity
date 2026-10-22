@@ -1,14 +1,23 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v68';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v69';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v68';
-export const SKILL_VERSION='vector-skill-v3';
+import { Game } from './engine.mjs?v=golf-v69';
+export const SKILL_VERSION='vector-skill-v4';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
-import {withWordModel} from './word-model.mjs?v=golf-v68';
-export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[])]);}
+/** Balanced bridge strength: a very weak side cannot hide behind one strong side. */
+export function linkStrength(contact,destination,finishingBridge=false){
+  return finishingBridge?Math.sqrt(Math.max(0,contact)*Math.max(0,destination)):Math.max(0,contact);
+}
+/** Compare link strength only with legal moves preserving the chosen setup value. */
+export function connectionRegret(actual,candidates){
+  const benchmark=Math.max(actual,...candidates);
+  return {link_strength:actual,link_benchmark:benchmark,connection_loss:benchmark>0?clamp(1-actual/benchmark):0};
+}
+import {withWordModel} from './word-model.mjs?v=golf-v69';
+export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
-  const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub'];
+  const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub','link_strength','link_benchmark','connection_loss'];
   return report.shots.every((shot,i)=>shot&&shot.word===state.history[i].word&&shot.origin===state.history[i].origin&&metrics.every(k=>Number.isFinite(shot[k]))&&Array.isArray(shot.alternatives)&&shot.alternatives.every(a=>a&&typeof a.word==='string'&&['value','contact','required','specificity_loss','setup_value'].every(k=>Number.isFinite(a[k]))));
 }
 export function skillScore(loss){return Math.round(1000/(1+Math.max(0,loss)));}
@@ -75,7 +84,16 @@ export class SkillAnalyser {
       [...moves].sort((a,b)=>(b.p-progress(position(before.current)))*b.strength-(a.p-progress(position(before.current)))*a.strength).slice(0,8).forEach(add);
       for(let band=0;band<8;band++)add(moves.filter(m=>Math.min(7,Math.floor(m.p*8))===band).sort((a,b)=>b.contact-a.contact)[0]);
       moves.filter(m=>before.route.includes(m.word)).forEach(add);
+      // Success mode now rewards connection quality as well as passing the cutoff.
+      // Compare a finish against other finishes; setup shots against equally useful setups.
+      // A direct hole shot is compared only with one-shot finishes (the hole word).
+      // Two-link bridges are compared with other bridges, not cheaper direct finishes.
+      const strength=move=>linkStrength(move.contact,move.destination,move.word!==g.target&&g.finishesFrom(move.word,move.destination));
+      const linkCandidates=saved.challenge&&event.success?moves.filter(move=>event.word===g.target?move.word===g.target:event.won?move.word!==g.target&&g.finishesFrom(move.word,move.destination):shortlist.has(move.word)).filter(move=>potential(after(before,move.word)).value+1e-7>=intendedValue.value).map(strength):[];
+      const links=connectionRegret(strength({word:event.word,contact:event.launch,destination:event.destination}),linkCandidates);
       const specific=specificityAt(event.origin,event.word);
+      // Small non-finishing setups retain their opportunity-only assessment.
+      if(!saved.challenge||!event.success||(!event.won&&specific.forward_fraction<=.5))links.connection_loss=0;
       if(!event.success)specific.specificity_loss=0;
       let best=intendedValue.value-specific.specificity_loss;const alternatives=[];
       for(const move of shortlist.values()){
@@ -91,7 +109,7 @@ export class SkillAnalyser {
       // Revisiting an unchanged or worse position spends a decision without a setup benefit.
       const loopLoss=event.success&&before.route.includes(event.word)&&intendedValue.value<=beforeValue.value+1e-7 ? .05 : 0;
       const primaryLoss=Math.max(contactLoss,directionLoss,choiceLoss,setupLoss);
-      const loss=primaryLoss+loopLoss+specific.specificity_loss;totalLoss+=loss;
+      const loss=primaryLoss+loopLoss+specific.specificity_loss+links.connection_loss;totalLoss+=loss;
       const actual=event.success?intendedValue:beforeValue;
       shots.push({attempt:event.attempt,origin:event.origin,word:event.word,outcome:event.outcome,
         contact:event.launch,required:event.required,contact_shortfall:Math.max(0,event.required-event.launch),contact_score:Math.round(100*(1-contactLoss)),
@@ -99,11 +117,12 @@ export class SkillAnalyser {
         choice_score:Math.round(100*(1-choiceLoss)),choice_gap:choiceLoss,compared_choices:shortlist.size,
         setup_before:beforeValue.value,setup_after:actual.value,setup_change:actual.value-beforeValue.value,intended_setup:intendedValue.value,
         good_moves_before:beforeValue.good_moves,good_moves_after:actual.good_moves,green_moves_after:actual.green_moves,
-        ...specific,setup_loss:setupLoss,primary_loss:primaryLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
+        ...specific,...links,setup_loss:setupLoss,primary_loss:primaryLoss,loop_loss:loopLoss,loss,score:skillScore(loss),cumulative_score:skillScore(totalLoss),alternatives:alternatives.filter(a=>a.word!==event.word).slice(0,3)});
     }
     return {version:SKILL_VERSION,history_key:skillHistoryKey(saved),score:shots.length?skillScore(totalLoss):null,total_loss:totalLoss,shots,complete:g.won,
       approximate:true,lookahead:1,opportunity_slots:TOP,lookahead_discount:DISCOUNT,opportunity_best_weight:.8,opportunity_breadth_weight:.2,comparison:'progress, connection and progress-band shortlist; exhaustive onward options',
       specificity_max_loss:.1,specificity_free_fraction:.5,
-      formula:'1000 / (1 + Σ(max(contact deficit, direction deficit, choice gap, setup decline) + loop cost + specificity cost))'};
+      connection_comparison:saved.challenge?'long advances and finishing bridges only; strongest legal link preserving onward opportunity; geometric mean of both sides for a finishing bridge':'legacy round, no connection-surplus cost',
+      formula:'1000 / (1 + Σ(max(contact deficit, direction deficit, choice gap, setup decline) + loop cost + specificity cost + connection regret))'};
   }
 }
