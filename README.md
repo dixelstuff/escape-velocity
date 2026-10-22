@@ -525,3 +525,9 @@ The persistent explanation now overlays the bottom of the course, including over
 “MISS!” uses a brighter red (#de3b30), holds longer and finishes its animation after 1.5 seconds. The explanation waits 300ms, then fades in over 220ms. Input remains ready immediately and clears both elements. Reduced-motion users receive a static MISS display and a delayed instant explanation. All finished-shot feedback uses past tense: “needed a stronger link,” “took you away,” “The connection was too weak,” and “The shot landed short of chip-in range.” Current-state validation and instructions retain their appropriate tense.
 
 Mobile QA verifies explanation opacity starts at zero while MISS is visible, becomes one and remains after MISS disappears, and map-card height stays exactly equal to the SVG height plus its border. Desktop QA verifies the 560px cap and no horizontal overflow. Scoring, retry timing and blocklist activation are unchanged.
+
+## Golf scorecard results and inline misses (course v66)
+
+Miss explanations now include a bold inline “MISS!” instead of the large red course overlay. The message appears immediately in its existing compact course position, with no animation or retry delay.
+
+Success uses a paper-style golf scorecard with a framed border, par badge, result and attempt cells, and a separate Path skill row. The card starts 36px higher than before; NEXT HOLE and REPLAY sit centred below the paper over the continuation scenery. Skill retains its reserved placeholder space. Mobile (390px) and desktop (1440px) browser checks cover the completed route, card placement, separate buttons, replay and no browser errors. Summary, success-mode and feedback tests pass. Models, thresholds and course artwork are unchanged.

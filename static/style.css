@@ -184,5 +184,25 @@ body.typing main{background:#f5f3e8;}
 /* Miss feedback stays close to the course and reads as one centred sentence. */
 .course-feedback:has(>#shot-notice:not([hidden])){position:absolute;left:12px;right:12px;bottom:12px;z-index:2;padding:0;pointer-events:none;}
 #shot-notice{display:block;width:100%;max-width:560px;margin:0 auto;padding:8px 14px;text-align:center;font-weight:400;line-height:1.45;overflow-wrap:anywhere;}
-#miss-flash{position:absolute;z-index:3;left:50%;transform:translate(-50%,-50%);pointer-events:none;user-select:none;font:700 clamp(34px,5vw,58px)/1 'Space Grotesk',sans-serif;letter-spacing:.04em;color:#de3b30;text-shadow:0 2px 0 #fff8ed,0 0 18px #fff8ed;white-space:nowrap;}
-#miss-flash[hidden]{display:none;}
+
+/* A quiet inline miss and a printed golf scorecard over the continuing course. */
+#shot-notice .notice-lead{font-weight:700;}
+.result-actions[hidden]{display:none;}
+.course-feedback:has(>#arrival-banner:not([hidden])){position:relative;z-index:2;margin-top:-18px;padding:0 16px 20px;}
+#arrival-banner{position:relative;inset:auto;width:100%;max-width:420px;margin:0 auto;padding:18px 22px 16px;background:#fffdf4;color:#294b35;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:5px;box-shadow:0 5px 16px #233b3026;text-align:left;}
+#arrival-banner::before{content:'';position:absolute;inset:5px;border:1px solid #e6e4d1;pointer-events:none;}
+.scorecard-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:9px;letter-spacing:.16em;font-weight:700;color:#63765c;}
+#arrival-par{letter-spacing:.08em;border:1px solid #d4ddc8;padding:4px 7px;border-radius:3px;}
+#arrival-banner #arrival-title{font:600 29px/1.15 'Space Grotesk',sans-serif;letter-spacing:-.04em;margin:13px 0 15px;}
+.scorecard-grid{display:grid;grid-template-columns:1.4fr 1fr;border-top:1px solid #cbd4be;border-bottom:1px solid #cbd4be;}
+.scorecard-grid>div{padding:12px 0;}
+.scorecard-grid>div+div{border-left:1px solid #d7decf;padding-left:22px;}
+.scorecard-label{display:block;font-size:9px;line-height:1.4;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:#71816b;}
+#arrival-banner #arrival-result,#arrival-banner #arrival-attempt{font:500 29px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:5px 0 0;font-variant-numeric:tabular-nums;}
+#arrival-banner #arrival-skill{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 0;min-height:31px;}
+#arrival-banner #arrival-skill[hidden]{display:none;}
+#arrival-skill-value{font:600 24px/1.2 'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums;min-width:4.4ch;text-align:right;}
+#arrival-actions{max-width:420px;margin:14px auto 0;gap:10px;}
+#arrival-actions button{font-size:12px;min-height:44px;box-shadow:0 2px 7px #294b351a;}
+#arrival-actions .quiet{background:#fffdf4;color:#34543b;border-color:#c8d3bb;}
+@media(max-width:650px){#arrival-banner{padding:14px 18px 13px;}#arrival-banner #arrival-title{font-size:27px;margin:10px 0 12px;}.scorecard-grid>div{padding:10px 0;}.scorecard-grid>div+div{padding-left:18px;}#arrival-banner #arrival-result,#arrival-banner #arrival-attempt{font-size:27px;}}

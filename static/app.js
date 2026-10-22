@@ -1,17 +1,17 @@
-import {typingCourseWidth} from './typing-layout.mjs?v=golf-v65';
-import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v65';
-import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v65';
-import { shotMotion } from './shot-motion.mjs?v=golf-v65';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v65';
-import { createBrowserClient } from './engine.mjs?v=golf-v65';
-import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v65';
-import { startupAction, restartSettings } from './startup.mjs?v=golf-v65';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v65';
-import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v65';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v65';
-import {previousAttempts,previousWordLabels,showPreviousLabels} from './attempt-ghosts.mjs?v=golf-v65';
-import {successOutcome} from './success-mode.mjs?v=golf-v65';
-import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v65';
+import {typingCourseWidth} from './typing-layout.mjs?v=golf-v66';
+import {courseSurrounds,courseTrees,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v66';
+import { pinPlacement, greenPath, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v66';
+import { shotMotion } from './shot-motion.mjs?v=golf-v66';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v66';
+import { createBrowserClient } from './engine.mjs?v=golf-v66';
+import { mapLayout, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v66';
+import { startupAction, restartSettings } from './startup.mjs?v=golf-v66';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v66';
+import { validSkillReport, skillHistoryKey } from './skill.mjs?v=golf-v66';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v66';
+import {previousAttempts,previousWordLabels,showPreviousLabels} from './attempt-ghosts.mjs?v=golf-v66';
+import {successOutcome} from './success-mode.mjs?v=golf-v66';
+import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v66';
 const $=id=>document.getElementById(id);
 const windKey=p=>JSON.stringify(p.headwind??null);
 const holeLabel=p=>`${p.start} → ${p.target}${p.word_model==='ls15-v1'?' · LS 15%':p.word_model?' · ABTT 1':''}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
@@ -159,7 +159,7 @@ function skillReportValid(journey){return !!config&&!!journey&&validSkillReport(
 function updateArrivalSkill(){
  const journey=flightLog.active,ready=state?.won&&skillReportValid(journey);
  $('arrival-skill').hidden=!state?.won;
- $('arrival-skill').textContent=ready?`Path skill ${skillPercent(journey.skill.score)}`:'Path skill --%';
+ $('arrival-skill-value').textContent=ready?skillPercent(journey.skill.score):'--%';
 }
 function renderSkill(journey){
  const panel=$('skill-panel');updateArrivalSkill();
@@ -207,40 +207,26 @@ function update(){
  $('lab-start').value=state.start;$('lab-target').value=state.target;$('threshold').value=state.threshold;$('launch-mode').value=state.mode;$('launch-min').value=state.launch_min;$('launch-max').value=state.launch_max;
  document.querySelector('.controls').hidden=state.won;
  document.querySelector('.attempts').hidden=state.won;
- $('arrival-banner').hidden=!state.won;
+ $('arrival-banner').hidden=!state.won;$('arrival-actions').hidden=!state.won;
  document.querySelector('.map-card').classList.toggle('arrived',state.won);
- if(state.won){$('arrival-title').textContent='Success!';$('arrival-result').textContent=successOutcome(state);}
+ if(state.won){
+  $('arrival-title').textContent='Success!';$('arrival-result').textContent=successOutcome(state).replace(/ on attempt \d+$/,'');
+  $('arrival-attempt').textContent=state.challenge?.attempt??1;$('arrival-par').textContent=`PAR ${state.challenge?.par??3}`;
+ }
  renderNotice();
  map();telemetry();renderLog();updateArrivalSkill();
-}
-let missAnimation=null,noticeAnimation=null;
-function hideMissFlash(){
- missAnimation?.cancel();missAnimation=null;noticeAnimation?.cancel();noticeAnimation=null;$('miss-flash').hidden=true;
-}
-function flashMiss(){
- hideMissFlash();const flash=$('miss-flash');flash.style.top=`${$('map').getBoundingClientRect().height/2}px`;flash.hidden=false;
- const frames=reduced?[{opacity:1},{opacity:1}]:[
-  {opacity:0,transform:'translate(-50%,-50%) scale(.8)',offset:0},
-  {opacity:1,transform:'translate(-50%,-50%) scale(1.05)',offset:.1},
-  {opacity:1,transform:'translate(-50%,-50%) scale(1)',offset:.72},
-  {opacity:0,transform:'translate(-50%,-50%) scale(1.02)',offset:1}
- ];
- noticeAnimation=$('shot-notice').animate([{opacity:0},{opacity:1}],{delay:300,duration:reduced?1:220,fill:'both',easing:'ease-out'});
- noticeAnimation.finished.catch(()=>{});
- const animation=flash.animate(frames,{duration:1500,easing:'ease-out',fill:'forwards'});missAnimation=animation;
- animation.finished.then(()=>{if(missAnimation===animation){flash.hidden=true;missAnimation=null;}}).catch(()=>{});
 }
 function renderNotice(){
  $('shot-notice').hidden=noticeDismissed||!activeNotice||!!state?.won;
  const text=$('shot-notice-text');
  if(activeNotice.startsWith('Miss!')){
-  const lead=document.createElement('strong');lead.className='sr-only';lead.textContent='Miss!';
+  const lead=document.createElement('strong');lead.className='notice-lead';lead.textContent='MISS!';
   text.replaceChildren(lead,document.createTextNode(activeNotice.slice(5)));
  }else text.textContent=activeNotice;
 }
 async function newGame(puzzle,{notice=''}={}){
  if(busy)return false;
- clearTimeout(retryTimer);if(!notice)hideMissFlash();
+ clearTimeout(retryTimer);
  if(config.puzzles.includes(puzzle))puzzle=courseSettings(puzzle);
  puzzle={word_model:state?.word_model??'',...puzzle};
  puzzle.challenge??={version:'par-challenge-v2',par:puzzle.par??state?.challenge?.par??3,attempt:1,id:crypto.randomUUID()};
@@ -287,7 +273,7 @@ async function submit(word){
    state={...data.state,current:event.word,won:false,attempts:event.attempt,route:data.state.route.slice(0,-1),automatic_shots:[]};map();renderAttemptCounter();$('status').textContent='Ball settling…';
    await delay(reduced?250:1100);$('status').textContent='Lining up the finish…';renderAttemptCounter();await animate(event.automatic_shot);
  }
- state=data.state;shownEvent=event;activeNotice=state.challenge_failed?noticeForAttempt(event,data.state):'';update();$('word').value='';if(['miss','water'].includes(event.outcome))flashMiss();
+ state=data.state;shownEvent=event;activeNotice=state.challenge_failed?noticeForAttempt(event,data.state):'';update();$('word').value='';
  if(event.won)document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
  $('status').textContent=event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Returned to ${event.word}.`:event.outcome==='recovery'?`Recovered to ${event.word}.`:event.success?`Landed on ${event.word}.`:'Ball stayed put. One shot counted.';
 
@@ -385,7 +371,6 @@ $('current-bridges').addEventListener('toggle',async()=>{
  catch(error){if(version===bridgeViewVersion)$('current-bridge-list').textContent=error.message;}
 });
 $('word').addEventListener('input',()=>{
- hideMissFlash();
  if(activeNotice&&flightLog.active){flightLog.active.notice_dismissed=true;flightLog.save();}
  activeNotice='';noticeDismissed=true;renderNotice();fitTypingView();
 });
@@ -453,7 +438,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v65'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):!state.history.length&&previous?noticeForAttempt(previous.history.at(-1),previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
+try{lock(true);$('status').textContent='Preparing the course (about 14 MB on your first visit; cached afterwards)…';client=await createBrowserClient();config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${p.comparison_number?String(p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="LS trial · 10 new holes">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Current / ABTT · 10 holes">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set)}</optgroup>`;$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v66'}`;if(startupAction(flightLog.active,config.puzzles[0])==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],start:saved.start,target:saved.target,...(saved.headwind?{headwind:saved.headwind}:{})},saved.word_model??''));$('status').textContent='Misses now restart the attempt. Earlier rounds are saved in Scorecards.';}else if(startupAction(flightLog.active,config.puzzles[0])==='restore'){try{state=(await api('restore',{state:flightLog.active.state})).state;shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):!state.history.length&&previous?noticeForAttempt(previous.history.at(-1),previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy)map();});
