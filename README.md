@@ -478,3 +478,8 @@ Tests exercise the inclusive semantic boundary, current-lie versus tee calculati
 ## Softer ghost (course v58)
 
 The previous attempt ghost uses .60 opacity instead of .72, making its trail, marker and label a little fainter. Ghost eligibility, fading on the next shot and all game rules are unchanged.
+
+
+## Previous-attempt labels only (course v59)
+
+Retries retain only the normal faded labels for visible words from the latest unsuccessful attempt: successful steps and meaningful forward misses, excluding tee/flag duplicates. There are no past-shot arcs, circles, ball markers or label leader lines. The label font, background and normal missed-label opacity (.72) are shared with the ordinary map labels, with no separate ghost styling. If a nearby/backward miss was hidden, its label stays hidden, while any successful setup word from that attempt is still recalled. The separate Previous attempt panel is removed; full history remains in Scorecards. Labels use spare space and cannot push live labels or expand the map. They fade on the next charged shot; invalid words preserve them. Attempt selection, messages, scoring and full exported history are unchanged.
