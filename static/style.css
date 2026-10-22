@@ -220,3 +220,5 @@ body.typing main{background:#f5f3e8;}
 @media(max-width:650px){.round-scorecard{padding:13px 10px;margin:22px auto;}.round-scorecard th,.round-scorecard td{padding:10px 4px;}.round-scorecard tbody th{font-size:11px;}.round-card-heading h2{font-size:18px;}.course-mode #arrival-banner #arrival-skill-value{font-size:23px;}#arrival-banner .scorecard-grid>div+div{padding-left:12px;}.round-scorecard td:nth-child(3){max-width:75px;}}
 
 #round-next{display:block;margin:14px 0 0 auto;font-size:11px;}#round-next[hidden]{display:none;}@media(max-width:650px){body.typing #round-scorecard{display:none;}}
+
+.waypoint-zone-caption{font:600 10px monospace;letter-spacing:1.1px;fill:#587847}

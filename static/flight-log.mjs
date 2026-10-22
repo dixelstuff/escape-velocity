@@ -1,7 +1,7 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v74';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v74';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v74';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v74';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v75';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v75';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v75';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v75';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -156,6 +156,7 @@ export class FlightLog {
   exportJSON() { return JSON.stringify({...this.data,bridge_comparison:bridgeComparison(this.data),...(this.unreadableRaw?{unreadableOriginal:this.unreadableRaw}:{})},null,2); }
 }
 export function outcome(entry) {
+  if(entry.event?.waypoint_reached)return 'Waypoint reached';
   if(!entry.event)return `Unscored: ${entry.error}`;
   const e=entry.event;
   if(e.automatic)return 'Automatic finish — one shot counted';

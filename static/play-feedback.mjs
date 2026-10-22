@@ -1,8 +1,8 @@
 /** Raw semantic gain, independent of the distorted map distance. */
 export function intendedGain(event,state){
  if(!Number.isFinite(event?.destination))return 0;
- const previous=state?.history?.filter(h=>h.attempt<event.attempt&&h.success&&h.word===event.origin).at(-1);
- const origin=event.origin===state?.start?state.baseline:previous?.destination??(event.origin===state?.current?state.progress:undefined);
+ const previous=state?.history?.filter(h=>h.attempt<event.attempt&&h.success&&h.word===event.origin&&(!state?.waypoint||h.stage===event.stage)).at(-1);
+ const origin=event.origin===state?.start?(event.leg_baseline??state.baseline):previous?.destination??(state?.waypoint?event.leg_baseline:event.origin===state?.current?state.progress:undefined);
  return Number.isFinite(origin)?event.destination-origin:0;
 }
 export function usefulForwardMiss(event,state){
@@ -26,7 +26,7 @@ export function entryNotice(error,current){
 /** A landed second shot outside finishing range explains an unreachable par. */
 export function shortSecondShot(state,inRange){
  const history=state?.history??[],last=history.at(-1);
- return state?.finish_mode==='range'&&history.length===2&&last?.attempt===2&&!!last.success&&!state.won&&!inRange;
+ return !state?.waypoint&&state?.finish_mode==='range'&&history.length===2&&last?.attempt===2&&!!last.success&&!state.won&&!inRange;
 }
 /** Approved copy for the later per-hole vocabulary filter. */
 export function vagueWordNotice(word){return `${String(word).trim().toUpperCase()} is too vague for this hole. Try again.`;}

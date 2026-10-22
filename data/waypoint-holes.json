@@ -1,0 +1,47 @@
+[
+  {
+    "start": "penguin",
+    "waypoint": {
+      "word": "library",
+      "threshold": 0.27
+    },
+    "target": "galaxy",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-trial-v1",
+    "course_number": 1
+  },
+  {
+    "start": "pencil",
+    "waypoint": {
+      "word": "forest",
+      "threshold": 0.27
+    },
+    "target": "orchestra",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-trial-v1",
+    "course_number": 2
+  },
+  {
+    "start": "coal",
+    "waypoint": {
+      "word": "wedding",
+      "threshold": 0.27
+    },
+    "target": "telescope",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-trial-v1",
+    "course_number": 3
+  }
+]

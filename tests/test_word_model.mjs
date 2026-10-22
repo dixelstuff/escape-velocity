@@ -15,7 +15,7 @@ function load(p){const raw=readFileSync(new URL(p.vector_fallback,dir));assert.e
 const e=load(config),trial=load(profile),models=new Map([['',e],[id,trial]]);e.wordModels=models;trial.wordModels=models;trial.word_model=id;
 // Preserve the pre-rescue model comparison baseline.
 const normal={...config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),plural_rescue:false},settings={...normal,...profile.defaults,word_model:id};
-for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
+for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};if(q.waypoint)assert.throws(()=>new Game(e,q.start,q.target,q.threshold,q).submit(q.target),/Reach/);else assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
 const preview=assessHole(e,settings),plain=assessHole(e,normal);
 assert.equal(preview.settings.word_model,id);assert.equal(plain.green_bridges,67);
 assert.ok(preview.green_bridges>=50&&preview.green_bridges<=55,`ABTT bridge count: ${preview.green_bridges}`);

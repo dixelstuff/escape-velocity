@@ -579,3 +579,13 @@ Regression tests cover best-score retention, five-attempt limits, all four resul
 New games check supported words formed by adding/removing S or ES only when contact or automatic finish falls short by at most 0.02. Pair similarity must exceed 0.65 in the selected model. A qualifying alternative must pass the complete shot calculation; water hits are not rescued. The entered word stays visible, with `scoring_word` recorded for analysis. No notice or extra shot is added. Existing successes and historical saved games retain their outcomes; new saves record `plural_rescue` for deterministic replay and skill caching. Opening bridge previews include rescued shots.
 
 Regression coverage includes both suffix directions, strict similarity and shortfall limits, chip finishes, water, real BAMBOO → DRUM → MELODY, and saved-game replay. Global thresholds and course selection are unchanged.
+
+### V75: individual waypoint-hole trial
+
+Three individual holes are listed under “Waypoint trials”: PENGUIN → LIBRARY → GALAXY (par 4), PENCIL → FOREST → ORCHESTRA (par 5), and COAL → WEDDING → TELESCOPE (par 4). These are not part of the five-hole courses. Attempts are unlimited and par is advisory during the trial: connected safe shots may continue beyond par, while any miss or water hit restarts the entire hole.
+
+The first target is a mandatory fairway zone with its own 0.27 threshold. Entering it changes the target to the final flag, resets the second-leg baseline to the entry word, and keeps the actual entry word as the lie. It adds no shot and no automatic move to the waypoint word. The final word is unavailable until the waypoint has been reached. The ordinary chip/putt finish applies on the second leg.
+
+A narrowed dogleg, shaded first landing zone, persistent final flag, fading transition, and changing guidance communicate the two legs. Each recorded shot stores its leg, target, baseline and threshold, preserving map anchors across the target change. Saved games replay both legs; failed second-leg ghosts use the original leg geometry. Trial result cards show shots and attempts; the single-target skill metric is deliberately not shown.
+
+Verified routes and browser testing cover both legs, mobile input width, midway refresh, first/second-leg failure, unrestricted retries, and successful par-4/par-5 play. Existing courses and thresholds are unchanged.

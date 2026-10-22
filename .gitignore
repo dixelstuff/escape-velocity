@@ -11,3 +11,5 @@ data/*
 !data/metadata.json
 .DS_Store
 reports/llm-route-review/
+
+!data/waypoint-holes.json
