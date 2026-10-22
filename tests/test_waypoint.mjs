@@ -4,7 +4,7 @@ import {Game,Embeddings,decodeHalf,restoreGame,createBrowserClient,resumeWaypoin
 import {restartSettings,startupAction} from '../static/startup.mjs';
 import {chipRange} from '../static/chip-range.mjs';
 import {mapLayout} from '../static/map.mjs';
-import {shoreY} from '../static/course-appearance.mjs';
+import {greenContains,greenPoints,shoreY} from '../static/course-appearance.mjs';
 import {waypointBankY,waypointLayout,waypointPosition,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
 import {previousAttempts,previousWordLabels} from '../static/attempt-ghosts.mjs';
 const dir=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,dir)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),e=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),300,new Uint8Array(read(c.hub_file)));
@@ -92,3 +92,14 @@ for(const narrow of [false,true])for(const phase of [0,1,2,3,4,5,6]){
  assert.ok(bank-(d.teeY+44+4.5*d.artScale)>10,'tee marker has at least ten course units of fairway before the bank');
  assert.ok(waypointBankY(d,{phase},d.left)-(d.teeY+44+4.5*d.artScale)>10,'smoothed fairway cut leaves the full marker inside the fairway');
 }
+
+for(const narrow of [false,true])for(const turn of ['up','down']){
+ const d=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn}});
+ const edge=turn==='up'?d.greenTop:d.greenBottom,sign=turn==='up'?1:-1;
+ assert.equal(greenContains({x:d.greenCentre,y:edge+sign*5},d),false,'greenside bunker has a real recess');
+ assert.equal(greenContains({x:d.greenCentre,y:edge+sign*40},d),true,'recess does not remove the usable green');
+ assert.equal(greenContains({x:d.right,y:d.holeY},d),true,'flag remains on the green');
+ const raw=greenPoints({...d,greenNotch:undefined}),shaped=greenPoints(d),index=turn==='up'?48:16;
+ assert.ok(sign*(shaped[index].y-raw[index].y)>20);
+}
+console.log('Greenside bunker recess passed in both orientations and viewports.');

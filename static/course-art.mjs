@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v76';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v77';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -38,15 +38,21 @@ function tree(x,y,r,seed){
 
 export function courseTrees(d,style,lake=lakeGeometry(d,style)){
  const shift=8*Math.sin(style.phase);
+ const edgeTrees=d.waypointTurn?[
+  [.936,186,13],[.964,192,16],[.950,212,12],
+  [.965,263,14],[.988,278,16],[.973,302,12],
+  [.947,394,14],[.982,410,16],[.960,420,12]
+ ]:[[.981,89,12],[.985,122,13],[.978,332,14],[.975,366,12]];
  const trees=[
   [.035,28,14],[.068,42,18],[.105,25,17],[.14,43,13],
   [.24,19,15],[.273,28,12], [.69,15,14],[.729,27,18],[.765,12,14],
-  [.981,89,12],[.985,122,13],[.978,332,14],[.975,366,12],
+  ...edgeTrees,
   ...(d.waypointTurn?[
    [.185,44,13],[.208,29,15],[.34,36,13],
-   [.41,53,13],[.443,42,14],[.478,38,16],[.511,49,13],[.54,32,15],
-   [.49,332,18],[.52,352,16],[.55,327,14],[.57,355,13],
-   [.978,202,11],[.984,242,13],[.974,282,12],[.984,401,13]
+   [.115,166,13],[.145,151,14],[.17,140,12],
+   [.41,65,13],[.443,54,14],[.478,50,16],[.511,61,13],[.54,74,15],
+   [.64,123,14],[.665,142,14],[.69,149,12],
+   [.58,259,15],[.61,279,13],[.635,285,17],[.66,310,13]
   ]:[])
  ];
  return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).filter(p=>!lakeContains(p,lake,p.r+7)).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;

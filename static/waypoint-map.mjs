@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v76';
-import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v76';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v76';
+import {mapFraction} from './map.mjs?v=golf-v77';
+import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v77';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v77';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -8,11 +8,13 @@ export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const centre=mirror?146:284,height=184;
  d.teeY=mirror?158:272;d.bendY=mirror?302:128;
  d.zoneLeft=d.greenCentre-base.radius*.88;d.zoneRight=d.greenCentre+base.radius*.88;
+ d.zoneLeft+=(d.zoneRight-d.zoneLeft)*.12;d.greenCentre=(d.zoneLeft+d.zoneRight)/2;
  d.greenTop=centre-height/2;d.greenBottom=centre+height/2;
  d.right=d.zoneLeft+placement.depth*(d.zoneRight-d.zoneLeft);
  d.holeY=centre+(placement.vertical-.5)*height*.65;
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
  d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
+ d.greenNotch={x:d.greenCentre,width:d.width<700?27:38,depth:24,edge:mirror?'bottom':'top'};
  d.greenOutline=greenPoints(d);return d;
 }
 export function waypointAnchors(d){return {tee:{x:d.left,y:d.waypointTurn?d.teeY:280},bend:{x:d.width*.48,y:d.bendY??130},flag:{x:d.right,y:d.holeY}};}
@@ -54,7 +56,7 @@ export function waypointLandscape(state,d,style={phase:0}){
  const outline=`M-30 222 C${w*.15} 218 ${w*.26} 113 ${bx-62} 82 C${bx-20} 61 ${bx+25} 65 ${bx+66} 100 C${w*.65} 168 ${w*.69} 181 ${w*.79} 181 C${w*.89} 166 ${back-12} 190 ${back} 224 C${back+7} 266 ${back+7} 336 ${back-6} 378 C${w*.89} 409 ${w*.80} 401 ${w*.74} 348 C${w*.65} 272 ${bx+46} ${bank(bx)+46*slope(bx)} ${bx} ${bank(bx)}${lower} Z`;
  const sandStyle={...style,bunkers:[
   {x:.425,y:211,rx:w<700?32:44,ry:20,angle:-19,shape:2},
-  {x:.86,y:150,rx:w<700?27:38,ry:18,angle:-9,shape:2}
+  {x:d.greenCentre/w,y:184,rx:w<700?27:38,ry:18,angle:-9,shape:2}
  ]};
  const lakeD={...d,zoneLeft:w*.51},lakeStyle={...style,lakeY:390,wave:35},lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;

@@ -9,7 +9,14 @@ export function greenPoints(d,padding=0){
  const cx=(d.zoneLeft+d.zoneRight)/2,cy=(d.greenTop+d.greenBottom)/2,rx=(d.zoneRight-d.zoneLeft)/2+padding,ry=(d.greenBottom-d.greenTop)/2+padding;
  return Array.from({length:64},(_,i)=>{
   const t=2*Math.PI*i/64,c=Math.cos(t),s=Math.sin(t);
-  return {x:cx+rx*Math.sign(c)*Math.abs(c)**.68*(1+.035*Math.sin(3*t+.5)+.015*Math.cos(5*t)),y:cy+ry*Math.sign(s)*Math.abs(s)**.68*(.99+.01*Math.cos(3*t))};
+  const x=cx+rx*Math.sign(c)*Math.abs(c)**.68*(1+.035*Math.sin(3*t+.5)+.015*Math.cos(5*t));
+  let y=cy+ry*Math.sign(s)*Math.abs(s)**.68*(.99+.01*Math.cos(3*t));
+  if(d.greenNotch){
+    const n=d.greenNotch,sign=n.edge==='bottom'?-1:1;
+    const edge=Math.max(0,-sign*s)**4;
+    y+=sign*n.depth*Math.exp(-(((x-n.x)/n.width)**2))*edge;
+  }
+  return {x,y};
  });
 }
 export function greenPath(d,padding=0){
