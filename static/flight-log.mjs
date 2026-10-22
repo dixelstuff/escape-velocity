@@ -1,7 +1,7 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v81';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v81';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v81';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v81';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v82';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v82';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v82';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v82';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';

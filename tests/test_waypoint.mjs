@@ -115,3 +115,14 @@ for(const h of discovery){
  assert.deepEqual(restoreGame(e,trial.state()).state(),trial.state());
 }
 console.log('All fifteen new waypoint tests have a successful route through the mandatory zone and reproducible saves.');
+
+for(const narrow of [false,true]){
+ const up=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn:'up'}}),down=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn:'down'}});
+ assert.notEqual(up.bendX,down.bendX);assert.notEqual(up.bendY,430-down.bendY);assert.notEqual(up.teeY,430-down.teeY);
+ for(const d of [up,down]){
+  const landscape=waypointLandscape(saved,d,{phase:2});
+  const guide=landscape.match(/id="dogleg-centreline" d="([^"]+)"/)[1];assert.equal((guide.match(/ C/g)??[]).length,3,'centre trace has an extra approach anchor');
+  assert.ok(landscape.includes('waypoint-dry-rough'),'cart paths stay off fairway and lake');
+ }
+}
+console.log('Distinct dogleg geometry, three-segment centre trace, and masked rough paths passed.');
