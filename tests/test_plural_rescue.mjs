@@ -18,7 +18,7 @@ const fresh=e=>new Game(e,'tee','flag',.27,settings);
 let e=model(),g=fresh(e),r=g.submit('drum');
 assert.equal(r.won,true);assert.equal(r.scoring_word,'drums');assert.equal(r.word,'drum');assert.equal(g.route[1],'drum');
 assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
-assert.equal(fresh(model({contact:.179})).submit('drum').success,false,'no rescue beyond .02');
+assert.equal(fresh(model({contact:.174})).submit('drum').success,false,'no rescue beyond .025');
 assert.equal(fresh(model({similarity:.65})).submit('drum').success,false,'similarity must exceed .65');
 assert.equal(fresh(model({contact:.3})).submit('drum').scoring_word,undefined,'leave existing successes alone');
 assert.equal(fresh(model({variant:'drumes'})).submit('drum').success,true,'ES suffix');
@@ -40,3 +40,14 @@ const old={...g.state()};delete old.plural_rescue;
 assert.equal(restoreGame(e,old).history[0].success,false,'historical unversioned games preserve old scoring');
 assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
 console.log('Plural rescue passed: S/ES, reverse suffix, hit/finish boundaries, unchanged successes, water, real DRUM, and saved replay.');
+
+// PHOTO/PHOTOS is the real near-boundary example from the waypoint trial.
+const hole=JSON.parse(readFileSync(new URL('../data/waypoint-holes.json',import.meta.url)))[2];
+const trial=()=>new Game(e,hole.start,hole.target,hole.threshold,{...hole,finish_mode:'range'});
+g=trial();g.submit('train');g.submit('wedding');r=g.submit('photos');
+assert.equal(r.won,true);assert.equal(r.scoring_word,'photo');assert.equal(r.word,'photos');
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+const legacyTrial=trial();legacyTrial.plural_tolerance=.02;legacyTrial.submit('train');legacyTrial.submit('wedding');legacyTrial.submit('photos');
+const legacyState=legacyTrial.state();delete legacyState.plural_tolerance;
+assert.equal(restoreGame(e,legacyState).won,false,'saved .02 games keep the original outcome');
+assert.equal(fresh(model({contact:.179})).submit('drum').success,true,'new allowance rescues a .021 contact gap');

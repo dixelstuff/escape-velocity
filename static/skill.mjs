@@ -1,6 +1,6 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v77';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v78';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v77';
+import { Game } from './engine.mjs?v=golf-v78';
 export const SKILL_VERSION='vector-skill-v4';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
@@ -13,8 +13,8 @@ export function connectionRegret(actual,candidates){
   const benchmark=Math.max(actual,...candidates);
   return {link_strength:actual,link_benchmark:benchmark,connection_loss:benchmark>0?clamp(1-actual/benchmark):0};
 }
-import {withWordModel} from './word-model.mjs?v=golf-v77';
-export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1']:[])]);}
+import {withWordModel} from './word-model.mjs?v=golf-v78';
+export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1',...(s.plural_tolerance>.02?[s.plural_tolerance]:[])]:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
   const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub','link_strength','link_benchmark','connection_loss'];
@@ -54,7 +54,7 @@ export class SkillAnalyser {
       for(let i=0;i<e.words.length;i++){
         const word=e.words[i];if(word===s.current)continue;
         let destination=target[i],required=g.requirement(s.current,word,current,destination).required,connection=contact[i],finished=g.finishesFrom(word,destination);
-        if(g.plural_rescue&&((connection<required&&required-connection<=.0200001)||(!finished&&g.finishShortfall(word,destination)<=.0200001))){
+        if(g.plural_rescue&&((connection<required&&required-connection<=g.plural_tolerance+1e-7)||(!finished&&g.finishShortfall(word,destination)<=g.plural_tolerance+1e-7))){
           const shot=probe.pluralShot(word);
           if(shot.scoring_word){destination=shot.destination;required=shot.required;connection=shot.launch;finished=shot.won;}
         }

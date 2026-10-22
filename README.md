@@ -601,3 +601,7 @@ Validated on mobile and desktop, including a retry from the third successful sho
 ### V77: bunker nestled into the green
 
 The waypoint greenside bunker now sits against a shallow recess in the green’s contour and matching fringe. The green is 12% narrower, trimmed from its front edge while retaining the back edge. The recess mirrors with the dogleg and leaves the flag on the usable green. Trees behind the green form staggered clusters with gaps, rather than an evenly spaced row. Groves sit closer to the fairway edge, with additional small clusters along the approach. Ordinary two-word greens are unchanged. Checked at desktop and mobile widths in both orientations.
+
+### V78: slightly wider plural allowance
+
+New games rescue close S/ES singular/plural contact or finishing shortfalls up to 0.025 (previously 0.02), still requiring pair similarity above 0.65 and a fully successful alternative shot. This covers WEDDING → PHOTOS on the COAL → WEDDING → TELESCOPE trial. Saved games retain their original allowance for consistent replay; skill and bridge calculations use the same recorded allowance.

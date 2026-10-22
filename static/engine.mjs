@@ -1,9 +1,9 @@
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v77';
-import { chipRange } from './chip-range.mjs?v=golf-v77';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v77';
-import {withWordModel} from './word-model.mjs?v=golf-v77';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v77';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v77';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v78';
+import { chipRange } from './chip-range.mjs?v=golf-v78';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v78';
+import {withWordModel} from './word-model.mjs?v=golf-v78';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v78';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v78';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -70,6 +70,7 @@ export class Game {
     this.challenge=successSettings(options.challenge);this.challenge_failed=false;
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
     this.plural_rescue=['golf-distance-v3','golf-fixed-v3'].includes(this.rules)&&(options.plural_rescue??!Array.isArray(options.history));
+    this.plural_tolerance=options.plural_tolerance??(Array.isArray(options.history)?.02:.025);
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
   }
   requirement(origin,word,current=this.e.cosine(origin,this.target),destination=this.e.cosine(word,this.target)) {
@@ -118,8 +119,8 @@ export class Game {
   pluralShot(word) {
     const original=this.shotResult(word);
     if(!this.plural_rescue||word===this.target||original.won)return original;
-    const hitNear=!original.connected&&original.required-original.launch<=.0200001;
-    const finishNear=original.success&&this.finishShortfall(word,original.destination)<=.0200001;
+    const hitNear=!original.connected&&original.required-original.launch<=this.plural_tolerance+1e-7;
+    const finishNear=original.success&&this.finishShortfall(word,original.destination)<=this.plural_tolerance+1e-7;
     if(!hitNear&&!finishNear)return original;
     const variants=new Set([word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])]);
     const choices=[];
@@ -168,7 +169,7 @@ export class Game {
       attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
       ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start}:{}),
-      ...(this.modern?{plural_rescue:this.plural_rescue}:{}),
+      ...(this.modern?{plural_rescue:this.plural_rescue,plural_tolerance:this.plural_tolerance}:{}),
       ...(this.word_model?{word_model:this.word_model}:{}),...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
       ...(this.challenge?{challenge:this.challenge,challenge_failed:this.challenge_failed}:{}),
       ...(this.modern?{automatic_shots:this.automatic_shots}:{}),
@@ -263,11 +264,11 @@ export async function createBrowserClient() {
   async function assess(body,operation='assess'){
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v77')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v77')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v78')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v78')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v77',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v78',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -279,7 +280,7 @@ export async function createBrowserClient() {
   return { config, canFinish(state){const probe=state.waypoint?restoreGame(embeddings,state):new Game(embeddings,state.start,state.target,state.threshold,state);return probe.finishesFrom(state.current,state.progress);}, chipRange(state){return chipRange(state.waypoint?restoreGame(embeddings,state):new Game(embeddings,state.start,state.target,state.threshold,state));}, async request(path, body) {
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v77')).reviewRoute(embeddings,body.state);
+    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v78')).reviewRoute(embeddings,body.state);
     if(path==='assess'||path==='skill')return assess(body,path);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
