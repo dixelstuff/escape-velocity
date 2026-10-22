@@ -39,13 +39,13 @@
 .journey-picker{border-top:1px solid var(--line);padding:28px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;}
 .journey-picker .eyebrow{color:#6d7d70;}
 .journey-picker .next{border:0;padding:0;}
-.custom-words{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.custom-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
 .custom-words label{font-size:12px;min-width:0;}
 .custom-words input{display:block;width:100%;margin-top:8px;font-size:16px;}
 #custom-form>button{margin-top:12px;}
 #custom-feedback:empty{display:none;}
 .lower{grid-template-columns:1fr;}
-@media(max-width:650px){.journey-picker{grid-template-columns:1fr;gap:24px;}.journey-picker h2{font-size:23px;}.custom-words{gap:10px;}#custom-form>button{width:100%;}}
+@media(max-width:650px){.journey-picker{grid-template-columns:1fr;gap:24px;}.journey-picker h2{font-size:23px;}.custom-words{grid-template-columns:1fr;gap:10px;}#custom-form>button{width:100%;}}
 
 .planet-label{font-size:12px;fill:#344e37;}
 .arrival-label{font-weight:700;letter-spacing:1px;fill:#355d32;}

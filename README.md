@@ -605,3 +605,7 @@ The waypoint greenside bunker now sits against a shallow recess in the green’s
 ### V78: slightly wider plural allowance
 
 New games rescue close S/ES singular/plural contact or finishing shortfalls up to 0.025 (previously 0.02), still requiring pair similarity above 0.65 and a fully successful alternative shot. This covers WEDDING → PHOTOS on the COAL → WEDDING → TELESCOPE trial. Saved games retain their original allowance for consistent replay; skill and bridge calculations use the same recorded allowance.
+
+### V79: create your own waypoint trials
+
+The hole creator accepts an optional middle waypoint. Three-word custom holes use the dogleg map, mandatory waypoint zone, advisory par five, unlimited attempts, and counted-prefix retries. Leaving the waypoint blank creates a regular two-word hole. Preview shows both legs’ word separation; custom waypoint holes are retained in scorecards and restored after refresh.
