@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v84';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v85';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -61,7 +61,11 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   [.035,28,14],[.068,42,18],[.105,25,17],[.14,43,13],
   [.24,19,15],[.273,28,12],[.69,15,14],[.729,27,18],[.765,12,14],...edgeTrees
  ];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).filter(p=>clearOfCartPath(p,d)&&!lakeContains(p,lake,p.r+7)&&(!d.waypointTurn||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ const pathTrees=d.cartPath?[8,12,29,33,56,59,78,82].map((index,i)=>{
+  const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
+  return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
+ }):[];
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees).filter(p=>clearOfCartPath(p,d)&&!lakeContains(p,lake,p.r+7)&&(!d.waypointTurn||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
 export function courseBunkers(d,style){
@@ -93,7 +97,7 @@ function approachGeometry(d,style){
 }
 export function approachLandscape(d,style){
  const p=approachGeometry(d,style);if(!p)return '';
- const sand={rx:p.rx*.68,ry:25,shape:7};
+ const sand={rx:p.rx*.68,ry:25,shape:8};
  // Its turf is part of the shared rough mask; only the sand/trees belong here.
  return `<g id="approach-landscape" aria-hidden="true" pointer-events="none" transform="translate(${p.x},${p.y}) rotate(-12)">
  ${style.approach>.59?`<path d="${bunkerPath(sand,3)}" fill="#9daf7d"/><path d="${bunkerPath(sand)}" fill="url(#scorecard-sand)" stroke="#c5b58a" stroke-width="1"/>`:tree(-p.rx*.3,-1,18,2)+tree(p.rx*.18,4,16,1)+tree(p.rx*.46,15,12,0)}

@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v84';
-import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v84';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v84';
+import {mapFraction} from './map.mjs?v=golf-v85';
+import {greenPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v85';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v85';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -15,6 +15,7 @@ export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;
  d.axisX=(d.right-d.left)/d.axisLength;d.axisY=(d.holeY-d.teeY)/d.axisLength;
  d.greenNotch={x:d.greenCentre,width:d.width<700?27:38,depth:24,edge:mirror?'bottom':'top'};
+ d.greenSideNotch={y:mirror?d.greenTop+24:d.greenBottom-24,height:31,depth:12};
  d.greenOutline=greenPoints(d);d.cartPath=waypointCartPath(d);return d;
 }
 export function waypointAnchors(d){return {tee:{x:d.left,y:d.waypointTurn?d.teeY:280},bend:{x:d.bendX??d.width*.48,y:d.bendY??130},flag:{x:d.right,y:d.holeY}};}
@@ -60,18 +61,26 @@ export function waypointBankY(d,style,x){
  const settings=lakeSettings(d,style),bank=shoreY(x,settings.layout,settings.style)-18;
  return (original+bank-Math.hypot(original-bank,24))/2;
 }
+function smoothCourseBoundary(points){
+ const xy=p=>`${p.x.toFixed(3)},${p.y.toFixed(3)}`,n=points.length;
+ return 'M'+xy(points[0])+points.map((b,i)=>{const a=points[(i+n-1)%n],c=points[(i+1)%n],e=points[(i+2)%n];return ` C${xy({x:b.x+(c.x-a.x)/6,y:b.y+(c.y-a.y)/6})} ${xy({x:c.x-(e.x-b.x)/6,y:c.y-(e.y-b.y)/6})} ${xy(c)}`;}).join('')+' Z';
+}
 export function waypointLandscape(state,d,style={phase:0}){
  const w=d.width,a=waypointAnchors(d),bx=a.bend.x,transform=reflection(d);
  const back=d.zoneRight+8,down=d.reflectY,entryTop=down?92:82,approachTop=down?191:181,greenBack=down?386:378;
  const bank=x=>waypointBankY(d,style,x),slope=x=>(bank(x+.15)-bank(x-.15))/.3;
  const points=Array.from({length:33},(_,i)=>({x:bx-(bx+30)*i/32,y:bank(bx-(bx+30)*i/32)}));
- let lower='';for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3;lower+=` C${a.x+step} ${a.y+step*slope(a.x)} ${b.x-step} ${b.y-step*slope(b.x)} ${b.x} ${b.y}`;}
- const outline=`M-30 222 C${w*.15} 218 ${w*.26} 113 ${bx-62} ${entryTop} C${bx-20} ${entryTop-21} ${bx+25} ${entryTop-17} ${bx+66} ${entryTop+18} C${w*.65} ${approachTop-13} ${w*.69} ${approachTop} ${w*.79} ${approachTop} C${w*.89} 166 ${back-12} 190 ${back} 224 C${back+7} 266 ${back+7} 336 ${back-6} ${greenBack} C${w*.89} ${greenBack+31} ${w*.80} ${greenBack+23} ${w*.74} ${down?361:348} C${w*.65} 272 ${bx+46} ${bank(bx)+46*slope(bx)} ${bx} ${bank(bx)}${lower} Z`;
  const canonicalGreenTop=d.reflectY?430-d.greenBottom:d.greenTop,canonicalGreenBottom=canonicalGreenTop+184;
+ // One closed spline shares its tangent at every join, including the back of the green.
+ const outline=smoothCourseBoundary([
+  {x:-30,y:222},{x:w*.15,y:210},{x:w*.26,y:125},{x:bx-62,y:entryTop},{x:bx+10,y:entryTop-12},{x:bx+66,y:entryTop+18},
+  {x:w*.66,y:approachTop-5},{x:w*.79,y:approachTop},{x:back-14,y:canonicalGreenTop-5},{x:back+3,y:224},{x:back+5,y:288},{x:back-5,y:greenBack},
+  {x:w*.86,y:greenBack+17},{x:w*.79,y:greenBack-5},{x:w*.74,y:down?361:348},{x:w*.65,y:272},{x:bx+46,y:bank(bx)+46*slope(bx)},{x:bx,y:bank(bx)},...points.slice(1)
+ ]);
  const sandStyle={...style,bunkers:[
-  {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:5},
-  {x:d.greenCentre/w,y:canonicalGreenTop-14,rx:w<700?25:35,ry:15,angle:0,shape:6},
-  {x:(d.zoneLeft-13)/w,y:canonicalGreenBottom-3,rx:w<700?25:34,ry:13,angle:67,shape:7}
+  {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:10},
+  {x:(d.greenCentre-4)/w,y:canonicalGreenTop+1,rx:w<700?30:42,ry:19,angle:down?4:-5,shape:8},
+  {x:(d.zoneLeft-8)/w,y:canonicalGreenBottom-12,rx:w<700?29:39,ry:17,angle:59,shape:9}
  ]};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;

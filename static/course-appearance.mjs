@@ -9,13 +9,14 @@ export function greenPoints(d,padding=0){
  const cx=(d.zoneLeft+d.zoneRight)/2,cy=(d.greenTop+d.greenBottom)/2,rx=(d.zoneRight-d.zoneLeft)/2+padding,ry=(d.greenBottom-d.greenTop)/2+padding;
  return Array.from({length:64},(_,i)=>{
   const t=2*Math.PI*i/64,c=Math.cos(t),s=Math.sin(t);
-  const x=cx+rx*Math.sign(c)*Math.abs(c)**.68*(1+.035*Math.sin(3*t+.5)+.015*Math.cos(5*t));
+  let x=cx+rx*Math.sign(c)*Math.abs(c)**.68*(1+.035*Math.sin(3*t+.5)+.015*Math.cos(5*t));
   let y=cy+ry*Math.sign(s)*Math.abs(s)**.68*(.99+.01*Math.cos(3*t));
   if(d.greenNotch){
     const n=d.greenNotch,sign=n.edge==='bottom'?-1:1;
     const edge=Math.max(0,-sign*s)**4;
     y+=sign*n.depth*Math.exp(-(((x-n.x)/n.width)**2))*edge;
   }
+  if(d.greenSideNotch){const n=d.greenSideNotch;x+=n.depth*Math.exp(-(((y-n.y)/n.height)**2))*Math.max(0,-c)**4;}
   return {x,y};
  });
 }
@@ -48,7 +49,7 @@ export function courseStyle(seed){
  return {teeY,greenCentreY,approach:u(':approach'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
   bunkers:Array.from({length:count},(_,i)=>({
    x:i?.65+.025*u(':bx1'):.38+(count===2?.06:.16)*u(':bx0'),y:46+16*u(':by'+i),
-   rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:5+Math.floor(3*u(':shape'+i))
+   rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:8+Math.floor(2*u(':shape'+i))
   }))};
 }
 export function bunkerPath(b,padding=0){
@@ -61,7 +62,10 @@ export function bunkerPath(b,padding=0){
   [[-.88,-.4],[-.75,-.94,-.12,-1.02,.29,-.75],[.82,-.72,1.12,-.22,.85,.17],[.64,.48,.29,.16,.05,.31],[-.12,.45,.01,.95,-.42,.87],[-.94,.82,-1.16,.08,-.88,-.4]],
   [[-.9,-.4],[-.55,-.92,.5,-.87,.92,-.43],[1.18,-.06,.35,.98,-.08,.94],[-.49,.87,-.68,.14,-.9,-.4]],
   [[-1,-.1],[-.9,-.8,-.3,-.8,.4,-.55],[1,-.35,1.1,.25,.6,.5],[.05,.9,-.85,.65,-1,-.1]],
-  [[-.9,-.5],[-.4,-.85,.9,-.65,1,-.1],[1,.55,.25,.8,-.4,.55],[-1,.3,-1,-.2,-.9,-.5]]
+  [[-.9,-.5],[-.4,-.85,.9,-.65,1,-.1],[1,.55,.25,.8,-.4,.55],[-1,.3,-1,-.2,-.9,-.5]],
+  [[-1,-.12],[-1.06,-.58,-.73,-.86,-.37,-.71],[-.12,-.61,.08,-.92,.46,-.69],[.74,-.54,.82,-.13,1,.04],[1.14,.34,.71,.73,.35,.58],[.06,.42,-.1,.67,-.43,.56],[-.77,.53,-.94,.22,-1,-.12]],
+  [[-.96,-.36],[-.84,-.84,-.23,-.86,.12,-.61],[.44,-.39,.84,-.68,1,-.23],[1.2,.19,.63,.72,.23,.81],[-.02,.85,-.13,.38,-.43,.39],[-.82,.41,-1.08,.04,-.96,-.36]],
+  [[-1,.05],[-.9,-.38,-.72,-.91,-.28,-.82],[.08,-.78,.34,-.4,.67,-.44],[1.15,-.48,1.1,.18,.75,.46],[.4,.82,.03,.9,-.28,.67],[-.55,.49,-1.04,.48,-1,.05]]
  ];
  const points=profiles[b.shape??0],rx=b.rx+padding,ry=b.ry+padding;
  const scaled=a=>a.map((v,i)=>(v*(i%2?ry:rx)).toFixed(3)).join(',');

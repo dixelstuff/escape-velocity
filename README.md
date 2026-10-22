@@ -629,3 +629,7 @@ Shots that reach the mandatory waypoint land at its map anchor, including FREEST
 ### V84: natural waypoint landings and terrain clearance
 
 Waypoint cutoff remains 0.27. Reached shots vary within the ellipse according to their recorded target connection instead of snapping to its centre. An occupied retry waypoint has no shading. The tee label focuses the shot field even after a first-shot miss, without showing irrelevant retry guidance. Simple sand profiles replace lobed bunkers; edge bunkers straddle cuts, and tree placement checks the actual cart-path geometry to keep canopies clear of its centre.
+
+### V85: contour-aware bunkers and closer path planting
+
+Asymmetric sand profiles hug two recesses in the green. The surrounding fairway is a single smooth closed spline, including behind the green. Paired trees sit just beside the cart path while its clearance check keeps their trunks off it. Tapping any retry point restores its counted prefix and opens the shot field; the tee/current lie also opens entry directly.
