@@ -23,7 +23,7 @@ const expected=[[52,83],[348,273],[36,67],[189,148],[56,75],[275,210],[27,61],[2
 const holes=config.puzzles.filter(p=>p.comparison_set==='current-ls15-v1');assert.equal(holes.length,10);
 let wonState;
 for(let i=0;i<holes.length;i++){
- const hole=holes[i],settings={...hole,...profile.defaults,word_model:'ls15-v1'},preview=assessHole(base,settings),plain=assessHole(base,hole);
+ const hole={...holes[i],plural_rescue:false},settings={...hole,...profile.defaults,word_model:'ls15-v1'},preview=assessHole(base,settings),plain=assessHole(base,hole);
  assert.equal(plain.green_bridges,expected[i][0]);assert.equal(preview.green_bridges,expected[i][1]);assert.equal(preview.direct_hole_in_one,false);
  // Check all candidates against the actual engine, not just displayed rows.
  const actual=[];
@@ -40,7 +40,7 @@ const originalFetch=globalThis.fetch,requests=[];
 globalThis.fetch=async url=>{requests.push(new URL(url).pathname);try{return new Response(readFileSync(new URL(url)));}catch{return new Response('',{status:404});}};
 try{
  const client=await createBrowserClient();assert.ok(!requests.some(p=>p.includes('ls-k10')));
- const settings={...holes[0],...profile.defaults,word_model:'ls15-v1'};await client.request('new',settings);assert.equal(requests.filter(p=>p.includes('ls-k10')).length,1);assert.ok(!requests.some(p=>p.includes('abtt1')));
+ const settings={...holes[0],...profile.defaults,word_model:'ls15-v1',plural_rescue:false};await client.request('new',settings);assert.equal(requests.filter(p=>p.includes('ls-k10')).length,1);assert.ok(!requests.some(p=>p.includes('abtt1')));
  const preview=await client.request('assess',settings);assert.equal(preview.green_bridges,83);const shot=await client.request('submit',{word:preview.opening_bridges[0].word});assert.ok(shot.state.won);assert.deepEqual((await client.request('restore',{state:shot.state})).state,shot.state);assert.ok(client.chipRange(shot.state));assert.ok((await client.request('skill',{state:shot.state})).complete);await client.request('new',settings);assert.equal(requests.filter(p=>p.includes('ls-k10')).length,1);
 }finally{globalThis.fetch=originalFetch;}
 console.log('LS15: frozen formula/counts on ten holes, exhaustive engine parity, shared vectors, lazy data, replay, skill, shortcuts and logs passed.');

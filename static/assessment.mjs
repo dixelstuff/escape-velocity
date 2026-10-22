@@ -1,5 +1,5 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game } from './engine.mjs?v=golf-v73';
+import { Game } from './engine.mjs?v=golf-v74';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.27,{mode:'distance',launch_min:.095,launch_max:.215,...settings});
   e=game.e;
@@ -16,8 +16,10 @@ export function assessHole(e,settings){
     if(e.scaleSimilarity){contact=e.scaleSimilarity(i,si/d,contact);destination=e.scaleSimilarity(i,ti/d,destination);}
     contacts[i]=contact;progress[i]=destination;
     const required=game.requirement(start,e.words[i],baseline,destination).required;
-    if(e.words[i]===start||contact+1e-7<required||destination+1e-7<baseline-.01)continue;
-    openings++;if(game.finishesFrom(e.words[i],destination))opening_bridges.push({word:e.words[i],contact,destination,required,direct:e.words[i]===target});
+    if(e.words[i]===start)continue;
+    const shot=game.pluralShot(e.words[i]);
+    if(!shot.success)continue;
+    openings++;if(shot.won)opening_bridges.push({word:e.words[i],contact:shot.launch,destination:shot.destination,required:shot.required,direct:e.words[i]===target,...(shot.scoring_word?{scoring_word:shot.scoring_word}:{})});
     else if(destination>baseline)candidates.push(i);
   }
   // Look ahead from a small set of promising openings. Absence is not proof of impossibility.
@@ -36,5 +38,5 @@ export function assessHole(e,settings){
   }
   opening_bridges.sort((a,b)=>b.contact-a.contact||b.destination-a.destination||a.word.localeCompare(b.word));
   const bridges=opening_bridges.length;
-  return {settings:{start,target,threshold,mode:game.mode,launch_min,launch_max,rules:game.rules,...(game.finish_mode==='range'?{finish_mode:'range'}:{}),...(game.word_model?{word_model:game.word_model}:{}),...(game.headwind?{headwind:game.headwind}:{})},start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
+  return {settings:{start,target,threshold,mode:game.mode,launch_min,launch_max,rules:game.rules,plural_rescue:game.plural_rescue,...(game.finish_mode==='range'?{finish_mode:'range'}:{}),...(game.word_model?{word_model:game.word_model}:{}),...(game.headwind?{headwind:game.headwind}:{})},start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
 }

@@ -13,7 +13,8 @@ assert.equal(config.vector_sha256,'a70969cfc311e8a2839c68f5cd24427855955243170fb
 const words=JSON.parse(readFileSync(new URL(config.words_file,dir))),hubs=new Uint8Array(readFileSync(new URL(config.hub_file,dir)));
 function load(p){const raw=readFileSync(new URL(p.vector_fallback,dir));assert.equal(createHash('sha256').update(raw).digest('hex'),p.vector_sha256);return new Embeddings(words,decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),config.dimensions,hubs);}
 const e=load(config),trial=load(profile),models=new Map([['',e],[id,trial]]);e.wordModels=models;trial.wordModels=models;trial.word_model=id;
-const normal=config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),settings={...normal,...profile.defaults,word_model:id};
+// Preserve the pre-rescue model comparison baseline.
+const normal={...config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),plural_rescue:false},settings={...normal,...profile.defaults,word_model:id};
 for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
 const preview=assessHole(e,settings),plain=assessHole(e,normal);
 assert.equal(preview.settings.word_model,id);assert.equal(plain.green_bridges,67);

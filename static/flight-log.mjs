@@ -1,7 +1,7 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v73';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v73';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v73';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v73';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v74';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v74';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v74';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v74';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -135,7 +135,7 @@ export class FlightLog {
   recordSkill(id, report) {
     const journey=this.data.journeys.find(j=>j.id===id);
     if(!journey||!journey.state.won||!report.complete)return false;
-    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(report.version==='vector-skill-v4'&&s.challenge?['successful-path-connections']:[])]);
+    const s=journey.state,key=JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(report.version==='vector-skill-v4'&&s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1']:[])]);
     if(report.history_key!==key)return false;
     journey.skill=structuredClone(report);this.save();return true;
   }

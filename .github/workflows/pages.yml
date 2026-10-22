@@ -31,6 +31,7 @@ jobs:
           node tests/test_startup.mjs
           node tests/test_course.mjs
           node tests/test_auto_finish.mjs
+          node tests/test_plural_rescue.mjs
           node tests/test_headwind.mjs
           node tests/test_word_model.mjs
           node tests/test_local_scaling.mjs

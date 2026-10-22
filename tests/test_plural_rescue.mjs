@@ -1,0 +1,42 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Game,Embeddings,decodeHalf,restoreGame} from '../static/engine.mjs';
+import {SkillAnalyser} from '../static/skill.mjs';
+import {assessHole} from '../static/assessment.mjs';
+const settings={mode:'distance',launch_min:.1,launch_max:.2,finish_mode:'range'};
+function model({contact=.19,alternative=.3,destination=.4,otherDestination=.4,similarity=.8,variant='drums'}={}){
+ const words=['tee','flag','drum',variant];
+ return {index:new Map(words.map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){
+  if(a===b)return 1;
+  const pair=[a,b];
+  if(pair.includes('flag'))return pair.includes('tee')?0:pair.includes('drum')?destination:otherDestination;
+  if(pair.includes('tee'))return pair.includes('drum')?contact:alternative;
+  return similarity;
+ }};
+}
+const fresh=e=>new Game(e,'tee','flag',.27,settings);
+let e=model(),g=fresh(e),r=g.submit('drum');
+assert.equal(r.won,true);assert.equal(r.scoring_word,'drums');assert.equal(r.word,'drum');assert.equal(g.route[1],'drum');
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+assert.equal(fresh(model({contact:.179})).submit('drum').success,false,'no rescue beyond .02');
+assert.equal(fresh(model({similarity:.65})).submit('drum').success,false,'similarity must exceed .65');
+assert.equal(fresh(model({contact:.3})).submit('drum').scoring_word,undefined,'leave existing successes alone');
+assert.equal(fresh(model({variant:'drumes'})).submit('drum').success,true,'ES suffix');
+assert.equal(fresh(model({variant:'drumes',contact:.3,alternative:.19})).submit('drumes').scoring_word,'drum','reverse ES');
+g=fresh(model({contact:.3,alternative:.19}));r=g.submit('drums');assert.equal(r.scoring_word,'drum','reverse S');
+e=model({contact:.5,destination:.139,otherDestination:.16});g=fresh(e);r=g.submit('drum');
+assert.equal(r.won,true,'rescue just short of chip range');assert.equal(r.scoring_word,'drums');
+assert.equal(r.destination,.16);assert.equal(r.automatic_shot.launch,.16);assert.ok(r.automatic_shot.launch>=r.automatic_shot.required);
+assert.equal(fresh(model({contact:.5,destination:.10,otherDestination:.16})).submit('drum').won,false,'not a distant chip rescue');
+assert.equal(fresh(model({contact:.5,destination:-.02,otherDestination:.4})).submit('drum').outcome,'water','never rescue water');
+const p=new URL('../static/model/',import.meta.url),config=JSON.parse(readFileSync(new URL('config.json',p)));
+const bytes=readFileSync(new URL(config.vector_fallback,p));
+e=new Embeddings(JSON.parse(readFileSync(new URL(config.words_file,p))),decodeHalf(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)),300);
+g=new Game(e,'bamboo','melody',.27,{mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range'});
+r=g.submit('drum');assert.equal(r.won,true);assert.equal(r.scoring_word,'drums');
+assert.equal(new SkillAnalyser(e).analyse(g.state()).complete,true,'rescued shot remains reproducible for skill');
+assert.ok(assessHole(e,{start:'bamboo',target:'melody',mode:'distance',launch_min:.095,launch_max:.215,threshold:.27,finish_mode:'range'}).opening_bridges.some(b=>b.word==='drum'&&b.scoring_word==='drums'),'bridge previews include rescued words');
+const old={...g.state()};delete old.plural_rescue;
+assert.equal(restoreGame(e,old).history[0].success,false,'historical unversioned games preserve old scoring');
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+console.log('Plural rescue passed: S/ES, reverse suffix, hit/finish boundaries, unchanged successes, water, real DRUM, and saved replay.');
