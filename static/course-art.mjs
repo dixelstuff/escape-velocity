@@ -1,4 +1,4 @@
-import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v70';
+import {bunkerPath,shoreY,lakeGeometry,lakeContains,greenPath} from './course-appearance.mjs?v=golf-v71';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -19,8 +19,8 @@ export function courseSurrounds(d,style){
   [w-30,85],[w-16,170],[w-15,260],[w-18,340],[w-35,400],
   ...Array.from({length:49},(_,i)=>{const x=w-50-(w-20)*i/48;return [x,bank(x)];}),[-40,250]
  ]);
- // A single smooth fairway boundary leaves one continuous, uniformly shaded rough.
- return `<defs><mask id="rough-union" maskUnits="userSpaceOnUse" x="-50" y="-30" width="${w+100}" height="1830"><rect x="-50" y="-30" width="${w+100}" height="1830" fill="white"/><path d="${contour}" fill="black"/></mask></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#aebd88" opacity=".53" mask="url(#rough-union)"/>`;
+ // Opaque rough forms the ground; only the smooth fairway gets mowing stripes.
+ return `<defs><clipPath id="fairway-clip" clipPathUnits="userSpaceOnUse"><path d="${contour}"/></clipPath></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#c4d3a7"/><rect id="course-fairway" x="-30" y="-30" width="${w+60}" height="1830" fill="url(#fairway-mown)" clip-path="url(#fairway-clip)"/>`;
 }
 
 function tree(x,y,r,seed){
@@ -94,8 +94,8 @@ export function courseContinuation(d,style){
  const fairway=`M${w*.95},458 C${w*.76},468 ${w*.91},603 ${w*.65},649 C${w*.32},710 ${w*.11},768 ${w*.04},925 C${w*.01},1000 ${w*.2},1019 ${w*.26},930 C${w*.36},787 ${w*.52},781 ${w*.79},714 C${w*1.05},652 ${w*1.05},536 ${w*.95},458 Z`;
  const path=`M${w+20},428 C${w*.88},452 ${w*.99},574 ${w*.81},622 C${w*.54},695 ${w*.2},686 -20,870`;
  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
- <defs><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="course-ground" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
- <rect y="-20" width="${w}" height="1780" fill="url(#course-ground)"/>${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${courseTrees(d,style,lake)}
+ <defs><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
+ ${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${courseTrees(d,style,lake)}
  <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>
  <ellipse cx="${w*.16}" cy="942" rx="${w*.065}" ry="35" fill="#a2c487" stroke="#91b579" stroke-width="3" transform="rotate(-30 ${w*.16} 942)"/>
