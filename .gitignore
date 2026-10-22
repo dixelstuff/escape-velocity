@@ -6,6 +6,7 @@ data/*
 !data/comparison-holes.json
 !data/ls-comparison-holes.json
 !data/fresh-course.json
+!data/player-discoveries.json
 !data/metadata.json
 .DS_Store
 reports/llm-route-review/

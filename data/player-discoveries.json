@@ -1,0 +1,46 @@
+[
+  {
+    "start": "saving",
+    "target": "parrot",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "player-discoveries-v1",
+    "course_number": 1
+  },
+  {
+    "start": "sunset",
+    "target": "pony",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "player-discoveries-v1",
+    "course_number": 2
+  },
+  {
+    "start": "streamline",
+    "target": "rank",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "player-discoveries-v1",
+    "course_number": 3
+  },
+  {
+    "start": "temperature",
+    "target": "sew",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 3,
+    "course_set": "player-discoveries-v1",
+    "course_number": 4
+  }
+]
