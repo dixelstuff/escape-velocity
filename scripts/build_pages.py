@@ -30,9 +30,37 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v86', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='waypoint-trial-v1' if p.get('waypoint') else 'par-challenge-v2',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())], vocabulary=len(e.words),
+    config = dict(release='golf-v87', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='waypoint-trial-v1' if p.get('waypoint') else 'par-challenge-v2',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())], vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
+    from wordfreq import zipf_frequency
+    endpoints=set()
+    def collect(value):
+        if isinstance(value,dict):
+            for key,item in value.items():
+                if key in ('start','target','word') and isinstance(item,str): endpoints.add(item)
+                else: collect(item)
+        elif isinstance(value,list):
+            for item in value: collect(item)
+    collect(config['puzzles']); collect(config['courses'])
+    seed=[i for i,w in enumerate(e.words) if w in endpoints]
+    common=set(sorted(range(len(e.words)),key=lambda i:zipf_frequency(e.words[i],'en'),reverse=True)[:5000])
+    starter=sorted(common-set(seed))
+    remaining=sorted(set(range(len(e.words)))-set(seed)-common)
+    def pack(rows):
+        content=e.vectors[rows].astype('<f2').tobytes()
+        sha=hashlib.sha256(content).hexdigest(); name=f'pack-{sha[:16]}.f16'
+        (output/name).write_bytes(content)
+        (output/(name+'.gz')).write_bytes(gzip.compress(content,compresslevel=9,mtime=0))
+        return dict(file=name+'.gz',raw_file=name,rows=rows,bytes=len(content),sha256=sha)
+    manifest=dict(model_sha256=config['vector_sha256'],dimensions=config['dimensions'],seed=pack(seed),starter=pack(starter),background=[pack(remaining[i:i+2000]) for i in range(0,len(remaining),2000)])
+    content=json.dumps(manifest,separators=(',',':')).encode()
+    name='packs-'+hashlib.sha256(content).hexdigest()[:16]+'.json'
+    (output/name).write_bytes(content)
+    config['progressive']=dict(manifest_file=name,starter_words=5000)
+    retained={name}|{part[key] for part in [manifest['seed'],manifest['starter'],*manifest['background']] for key in ('file','raw_file')}
+    for stale in [*output.glob('pack-*.f16*'),*output.glob('packs-*.json')]:
+        if stale.name not in retained:stale.unlink()
     hub_meta=json.loads((output/'hubs.json').read_text()) if (output/'hubs.json').exists() else {}
     if hub_meta.get('vector_sha256')!=config['vector_sha256'] or hub_meta.get('words_file')!=words_file:
         from build_hubs import main as build_hubs

@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {progressiveModel} from '../static/progressive-model.mjs';
+import {decodeHalf,Embeddings,Game,createBrowserClient} from '../static/engine.mjs';
+const base=new URL('../static/model/',import.meta.url),read=name=>readFileSync(new URL(name,base));
+const config=JSON.parse(read('config.json')),words=JSON.parse(read(config.words_file)),manifest=JSON.parse(read(config.progressive.manifest_file));
+const raw=read(config.vector_fallback),exact=decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength));
+const originalFetch=globalThis.fetch,originalCaches=globalThis.caches;
+let requests=[],unsupported=false,corrupt=false,failRange=false,hold=false,release;
+const stores=new Map();
+globalThis.caches={async open(name){if(!stores.has(name))stores.set(name,new Map());const store=stores.get(name);return {async match(url){return store.get(String(url))?.clone();},async put(url,r){store.set(String(url),r.clone());},async delete(url){store.delete(String(url));}};}};
+globalThis.fetch=async(url,options={})=>{
+ const file=new URL(url).pathname.split('/').at(-1);requests.push({file,range:options.headers?.Range});
+ if(hold&&file===manifest.starter.file)await new Promise(r=>release=r);
+ if(options.headers?.Range){
+  if(failRange)throw Error('Network interrupted');
+  if(unsupported)return new Response(null,{status:200});
+  const [,a,b]=options.headers.Range.match(/bytes=(\d+)-(\d+)/);return new Response(raw.subarray(+a,+b+1),{status:206,headers:{'Content-Range':`bytes ${a}-${b}/${raw.length}`}});
+ }
+ return new Response(corrupt&&file===manifest.seed.file?new Uint8Array([1,2]):read(file));
+};
+try{
+ const loader=await progressiveModel(config,words,decodeHalf);
+ assert.equal(loader.ready.reduce((a,b)=>a+b,0),manifest.seed.rows.length);
+ assert.equal(requests.length,2,'initial load is only manifest and seed');
+ const rare=manifest.background.at(-1).rows[0],rareWord=words[rare];
+ await Promise.all([loader.ensureWords([rareWord]),loader.ensureWords([rareWord])]);
+ assert.equal(requests.filter(r=>r.range).length,1,'concurrent foreground rows deduplicate');
+ assert.deepEqual(loader.vectors.subarray(rare*300,(rare+1)*300),exact.subarray(rare*300,(rare+1)*300));
+ hold=true;const background=loader.startBackground();
+ while(!release)await new Promise(r=>setTimeout(r,1));
+ const another=manifest.background.at(-1).rows[1];await loader.ensureWords([words[another]]);
+ assert.equal(loader.ready[another],1,'foreground word bypasses paused bulk download');
+ release();hold=false;await background;
+ assert.deepEqual(loader.vectors,exact,'every pack reconstructs the unchanged model');
+ const count=requests.length;await progressiveModel(config,words,decodeHalf);assert.equal(requests.length,count+1,'seed reused from persistent cache');
+ stores.clear();unsupported=true;
+ const fallback=await progressiveModel(config,words,decodeHalf);await fallback.ensureWords([rareWord]);
+ assert.equal(fallback.ready[rare],1,'server without range support falls back to containing pack');
+ assert.deepEqual(fallback.vectors.subarray(rare*300,(rare+1)*300),exact.subarray(rare*300,(rare+1)*300));
+ stores.clear();unsupported=false;corrupt=true;
+ await assert.rejects(()=>progressiveModel(config,words,decodeHalf),/damaged|Incomplete|incorrect|unexpected|header/i);corrupt=false;
+ stores.clear();requests=[];
+ const client=await createBrowserClient();
+ assert.ok(!requests.some(r=>r.file===config.vector_file||r.file===manifest.starter.file),'client starts without whole or starter download');
+ const settings={start:'penguin',target:'galaxy',waypoint:{word:'library',threshold:.27},finish_mode:'range',mode:'distance'};
+ await client.request('new',settings);
+ const actual=await client.request('submit',{word:'books'});
+ const reference=new Game(new Embeddings(words,exact,300,new Uint8Array(read(config.hub_file))),settings.start,settings.target,undefined,settings);reference.submit('books');
+ assert.deepEqual(actual.state,reference.state(),'on-demand waypoint shot has identical scoring');
+ assert.deepEqual(client.chipRange(actual.state), (await import('../static/chip-range.mjs')).chipRange(reference));
+ assert.equal(client.canFinish(actual.state),reference.finishesFrom(reference.current,reference.progress));
+ failRange=true;
+ await assert.rejects(()=>client.request('submit',{word:words[manifest.background.at(-1).rows.at(-1)]}),/Network interrupted/);
+ failRange=false;
+ const restored=await client.request('restore',{state:actual.state});assert.deepEqual(restored.state,actual.state,'network failure never consumes a shot');
+ await client.startBackground();
+ stores.clear();
+ const old=await caches.open('word-golf-model-v1');await old.put(new URL(config.vector_file,base),new Response(read(config.vector_file)));requests=[];
+ const cached=await progressiveModel(config,words,decodeHalf);await cached.startBackground();
+ assert.deepEqual(cached.vectors,exact);assert.ok(!requests.some(r=>r.file===manifest.starter.file),'old full-model cache avoids downloading packs');
+ console.log('Progressive loading passed: small startup, exact reconstruction, concurrent foreground rows, slow-background independence, range fallback, corruption rejection, persistent cache, and waypoint scoring parity.');
+}finally{globalThis.fetch=originalFetch;globalThis.caches=originalCaches;}

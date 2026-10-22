@@ -1,4 +1,4 @@
-import {mapFraction} from './map.mjs?v=golf-v86';
+import {mapFraction} from './map.mjs?v=golf-v87';
 export const ROUND_VERSION='five-hole-v1',ATTEMPT_LIMIT=5;
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;

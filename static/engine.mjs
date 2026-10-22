@@ -1,9 +1,10 @@
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v86';
-import { chipRange } from './chip-range.mjs?v=golf-v86';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v86';
-import {withWordModel} from './word-model.mjs?v=golf-v86';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v86';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v86';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v87';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v87';
+import { chipRange } from './chip-range.mjs?v=golf-v87';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v87';
+import {withWordModel} from './word-model.mjs?v=golf-v87';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v87';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v87';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -19,6 +20,7 @@ export class Embeddings {
   cosine(a, b) {
     const ai = this.index.get(a), bi = this.index.get(b);
     if (ai === undefined || bi === undefined) throw Error('Choose words in the supported vocabulary.');
+    if(this.rowReady&&(!this.rowReady(ai)||!this.rowReady(bi)))throw Error('This word is still loading. Try again.');
     let dot = 0;
     for (let d = 0; d < this.dimensions; d++) {
       dot += this.vectors[ai * this.dimensions + d] * this.vectors[bi * this.dimensions + d];
@@ -232,14 +234,26 @@ async function loadPackedModel(config) {
   return vectors;
 }
 
-export async function createBrowserClient() {
+export async function createBrowserClient({progressive=true,onProgress}={}) {
   const config=await loadFile('./model/config.json',false,'no-cache');
-  const [words,vectors,hubBuffer]=await Promise.all([loadFile('./model/'+config.words_file),loadPackedModel(config),loadFile('./model/'+config.hub_file,true)]);
+  const [words,hubBuffer]=await Promise.all([loadFile('./model/'+config.words_file),loadFile('./model/'+config.hub_file,true)]);
+  const loader=progressive&&config.progressive?await progressiveModel(config,words,decodeHalf,onProgress):null;
+  const vectors=loader?.vectors??await loadPackedModel(config);
   if(globalThis.crypto?.subtle){
     const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',hubBuffer))].map(v=>v.toString(16).padStart(2,'0')).join('');
     if(hash!==config.hub_sha256)throw Error('Word breadth data is damaged. Please reload.');
   }
   const hubs=new Uint8Array(hubBuffer),embeddings=new Embeddings(words,vectors,config.dimensions,hubs);
+  if(loader)embeddings.rowReady=i=>!!loader.ready[i];
+  function variants(word){if(typeof word!=='string')return [];word=word.trim().toLowerCase();return [word,word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])];}
+  async function prepare(value){
+    if(!loader)return;
+    if((value?.state??value)?.headwind){await loader.whenComplete();return;}
+    const needed=[];
+    function visit(v,key='word'){if(typeof v==='string'){if(['word','start','current','target','final_target','origin','scoring_word','route'].includes(key))needed.push(...variants(v));}else if(Array.isArray(v))v.forEach(item=>visit(item,key));else if(v&&typeof v==='object')for(const [k,item] of Object.entries(v))visit(item,k);}
+    visit(value);await loader.ensureWords(needed);
+  }
+  function probe(saved){return Object.assign(Object.create(Game.prototype),saved,{e:withHeadwind(withWordModel(embeddings,saved.word_model),saved.headwind),modern:['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules)});}
   const models=new Map([['',embeddings]]),loading=new Map();embeddings.wordModels=models;
   async function ensureModel(id=''){
     if(!id)return embeddings;
@@ -248,6 +262,7 @@ export async function createBrowserClient() {
     if(!loading.has(id))loading.set(id,(async()=>{
       const profile=config.word_models[id];let model;
       if(profile.algorithm==='ls15-v1'){
+        await loader?.whenComplete();
         if(profile.base_vector_sha256!==config.vector_sha256)throw Error('Local-scaling data does not match this word model.');
         const buffer=await loadFile('./model/'+profile.radius_file,true,'force-cache');
         if(buffer.byteLength!==profile.radius_bytes)throw Error('Incomplete local-scaling data. Please reload.');
@@ -262,13 +277,14 @@ export async function createBrowserClient() {
   let game,historical,worker,sequence=0;const workerModels=new Set();
   const pending=new Map();
   async function assess(body,operation='assess'){
+    await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v86')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v86')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v87')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v87')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v86',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v87',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -277,11 +293,12 @@ export async function createBrowserClient() {
     if(!workerModels.has(profile)){worker.postMessage({init:true,profile,words,vectors:model.vectors,dimensions:config.dimensions,hubs,localScaling:model.localScaling});workerModels.add(profile);}
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
-  return { config, canFinish(state){const probe=state.waypoint?restoreGame(embeddings,state):new Game(embeddings,state.start,state.target,state.threshold,state);return probe.finishesFrom(state.current,state.progress);}, chipRange(state){return chipRange(state.waypoint?restoreGame(embeddings,state):new Game(embeddings,state.start,state.target,state.threshold,state));}, async request(path, body) {
+  return { config, prefetch(word){return prepare(word);},startBackground(){return loader?.startBackground()??Promise.resolve();},canFinish(state){return probe(state).finishesFrom(state.current,state.progress);},chipRange(state){return chipRange(probe(state));}, async request(path, body) {
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review')return (await import('./route-review.mjs?v=golf-v86')).reviewRoute(embeddings,body.state);
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v87')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='skill')return assess(body,path);
+    if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if (path === 'new') {
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
       if(body.validate_direct){

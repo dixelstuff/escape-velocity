@@ -637,3 +637,14 @@ Asymmetric sand profiles hug two recesses in the green. The surrounding fairway 
 ### V86: coherent green and sand layers
 
 A shared outer collar joins the green and its two greenside bunkers. Sand banks and putting edges retain a measured small turf gap, so their outlines do not touch or paint over one another. Fairway connects only at the front; rough surrounds the sides and back. Broad authored curves replace the interpolated fairway boundary, avoiding the previous ripples and pointed joins.
+
+
+### V87: progressive exact-vector loading
+
+New play uses only the Current model. Archived model metadata and exact historical replay remain available internally; saved alternate-model rounds are retained while a fresh Current round starts.
+
+The map starts with a 312-word level-endpoint seed (173 KB compressed), the vocabulary index and hub data. It does not wait for the common-word starter. A background queue then loads the most frequent 5,000 words (excluding already seeded rows), followed by disjoint packs of 2,000 remaining words. These are the same float16 rows as before, with the same indices and scores. The complete cold transfer remains about 13.9 MB of compressed vectors; this change reduces the download required before play, rather than reducing model precision.
+
+An uncached shot fetches missing exact rows via HTTP Range (600 bytes per word), including supported singular/plural variants. A server without Range support falls back to the containing verified pack. Foreground row requests run independently of background packs. Network failures do not consume a shot. Bridge enumeration, route review and skill analysis wait for the complete vocabulary. Pack byte lengths and SHA-256 hashes are checked, and unready rows cannot silently score as zero.
+
+Content-hashed packs and individual rows persist in CacheStorage. A complete Current model cached by earlier releases is reused in the background without downloading the packs again. No ABTT or LS files are requested during normal play. Generate packs with `.venv/bin/python scripts/build_pages.py`; the frequency order uses the existing wordfreq dependency. `tests/test_progressive.mjs` checks exact reconstruction, startup size, concurrency, slow downloads, range fallback, corrupted data, cache reuse, unchanged waypoint scoring and failure without a consumed shot.

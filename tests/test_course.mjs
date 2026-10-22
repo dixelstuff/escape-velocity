@@ -54,13 +54,13 @@ const downloaded=[],cacheData=new Map();
 globalThis.caches={async open(){return {async match(url){return cacheData.get(String(url))?.clone();},async put(url,response){cacheData.set(String(url),response.clone());},async delete(url){cacheData.delete(String(url));}};}};
 globalThis.fetch=async url=>{const path=decodeURIComponent(new URL(url).pathname);downloaded.push(path);return new Response(readFileSync(path));};
 try{
- const client=await createBrowserClient();
+ const client=await createBrowserClient({progressive:false});
  const endpointWarnings=await client.request('breadth',{start:'kind',target:'coffee'});
  assert.equal(endpointWarnings.length,1);assert.equal(endpointWarnings[0].role,'tee');assert.equal(endpointWarnings[0].very_broad,true);
  await client.request('new',{start:'coffee',target:'science',threshold:.28,mode:'distance'});
  await assert.rejects(()=>client.request('new',{start:'cat',target:'dog',threshold:.28,mode:'distance',validate_direct:true}),/direct hole in one/);
  assert.equal((await client.request('submit',{word:'food'})).event.origin,'coffee');
- await createBrowserClient();
+ await createBrowserClient({progressive:false});
  assert.equal(downloaded.filter(p=>p.endsWith(config.vector_file)).length,1,'second load must reuse the persisted model');
  const {SkillAnalyser}=await import('../static/skill.mjs');
  const skillGame=new Game(e,'morph','lineage',.28,{mode:'distance',launch_min:.10,launch_max:.21});skillGame.submit('evolved');
