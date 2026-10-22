@@ -117,12 +117,53 @@ const backupDenied=new FlightLog({getItem:key=>memory.get(key),setItem:()=>{thro
 assert.throws(()=>backupDenied.reset(fresh.state(),'GloVe'),/unchanged/);
 assert.equal(memory.get(LOG_KEY),beforeRaw);
 
+// Reset a large batch when there is room for one full archive, but not two.
+const quotaMemory=new Map();
+const quotaStorage={getItem:key=>quotaMemory.get(key)??null,setItem:(key,value)=>{
+ const trial=new Map(quotaMemory);trial.set(key,value);
+ if([...trial.values()].reduce((n,v)=>n+v.length,0)>30000)throw Error('quota');
+ quotaMemory.set(key,value);
+}};
+let quotaSequence=0;
+let large=new FlightLog(quotaStorage,undefined,()=> 'large-batch-'+(++quotaSequence));
+large.begin(fresh.state(),'GloVe');large.active.testPayload='x'.repeat(18000);large.save();
+const largeRaw=quotaMemory.get(LOG_KEY);
+large.reset(fresh.state(),'GloVe');
+assert.equal(large.data.journeys.length,1);assert.equal(large.backup.journeys[0].testPayload.length,18000);
+assert.equal(JSON.parse(quotaMemory.get(RESET_BACKUP_KEY)).journeys[0].testPayload.length,18000);
+assert.equal(new FlightLog(quotaStorage).data.journeys.length,1);
+assert.ok(!large.exportJSON().includes('testPayload'));
+assert.equal(large.restorePrevious(),true);assert.equal(large.data.journeys.length,2);
+assert.equal(large.data.journeys[0].testPayload.length,18000);
+assert.equal(large.backup,null);
+// Recreate the quota-limited archive for the rollback checks below.
+quotaMemory.set(RESET_BACKUP_KEY,largeRaw);
+// A failed backup write rolls back the smaller replacement without touching the old backup.
+quotaMemory.set(LOG_KEY,largeRaw);
+const rollbackLog=new FlightLog({getItem:quotaStorage.getItem,setItem:(key,value)=>{
+ if(key===RESET_BACKUP_KEY)throw Error('backup denied');quotaMemory.set(key,value);
+}},undefined,()=> 'rollback');
+const backupBefore=quotaMemory.get(RESET_BACKUP_KEY);
+assert.throws(()=>rollbackLog.reset(fresh.state(),'GloVe'),/unchanged/);
+assert.equal(quotaMemory.get(LOG_KEY),largeRaw);
+assert.equal(quotaMemory.get(RESET_BACKUP_KEY),backupBefore);
+assert.equal(rollbackLog.data.journeys[0].testPayload.length,18000);
+
 // Recovery is also transactional, and keeps any new play rather than undoing it.
 batch=newLog();batch.reset(new Game(e,'moon','kitchen',.28,{mode:'distance'}).state(),'GloVe');
 const afterReset=structuredClone(batch.data);
 const restoreDenied=new FlightLog({getItem:key=>memory.get(key),setItem:()=>{throw Error('quota');}},undefined,()=> 'restore-denied');
 assert.throws(()=>restoreDenied.restorePrevious(),/unchanged/);
 assert.deepEqual(restoreDenied.data,afterReset);assert.ok(restoreDenied.backup);
+const restoreBackupRaw=memory.get(RESET_BACKUP_KEY),restoreLogRaw=memory.get(LOG_KEY);
+const restoreWriteDenied=new FlightLog({getItem:key=>memory.get(key),setItem:(key,value)=>{
+ if(key===LOG_KEY)throw Error('quota');memory.set(key,value);
+}});
+assert.throws(()=>restoreWriteDenied.restorePrevious(),/unchanged/);
+assert.equal(memory.get(RESET_BACKUP_KEY),restoreBackupRaw);
+assert.equal(memory.get(LOG_KEY),restoreLogRaw);
+assert.deepEqual(restoreWriteDenied.data,afterReset);
+
 
 // Corrupt historical storage can still be downloaded after reset and recovery.
 memory.clear();memory.set(LOG_KEY,'corrupt old log');

@@ -1,7 +1,7 @@
-import { failedShotSummary } from './round-summary.mjs?v=golf-v59';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v59';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v59';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v59';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v60';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v60';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v60';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v60';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -63,14 +63,17 @@ export class FlightLog {
     const journey=this.makeJourney(state,model,modelSha);
     const next={version:1,activeId:journey.id,batchStartedAt:journey.startedAt,journeys:[journey],bridgeFeedback:[],bridgeViews:[]};
     const backup=JSON.parse(this.exportJSON());delete backup.bridge_comparison;
-    let previousBackup,wroteBackup=false;
+    let previousRaw,wroteNext=false;
     try {
       if(!this.storage)throw Error('Storage unavailable');
-      previousBackup=this.storage.getItem(RESET_BACKUP_KEY);
-      this.storage.setItem(RESET_BACKUP_KEY,JSON.stringify(backup));wroteBackup=true;
-      this.storage.setItem(LOG_KEY,JSON.stringify(next));
+      previousRaw=this.storage.getItem(LOG_KEY);
+      // Free the old batch's space first: duplicating it can exceed localStorage's
+      // quota. These synchronous writes either finish with a recovery copy or
+      // restore the original log; setItem itself is atomic on quota failure.
+      this.storage.setItem(LOG_KEY,JSON.stringify(next));wroteNext=true;
+      this.storage.setItem(RESET_BACKUP_KEY,JSON.stringify(backup));
     }catch{
-      try{if(wroteBackup)this.storage.setItem(RESET_BACKUP_KEY,previousBackup||'null');}catch{}
+      try{if(wroteNext)this.storage.setItem(LOG_KEY,previousRaw??'null');}catch{}
       throw Error('Could not safely reset scorecards. Your current scorecards are unchanged. Download them first or check browser storage.');
     }
     this.data=next;this.backup=backup;this.unreadableRaw=undefined;this.warning='';
@@ -84,10 +87,17 @@ export class FlightLog {
     for(const r of this.data.bridgeFeedback)reviews.set(r.key,r);
     const views=new Map([...(this.backup.bridgeViews??[]),...this.data.bridgeViews].map(v=>[v.id,v]));
     const next={...this.data,bridgeFeedback:[...reviews.values()],bridgeViews:[...views.values()],...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
-    try{if(!this.storage)throw Error('Storage unavailable');this.storage.setItem(LOG_KEY,JSON.stringify(next));}
-    catch{throw Error('Could not restore previous scorecards. Your current scorecards are unchanged.');}
+    let previousBackup,clearedBackup=false;
+    try{
+      if(!this.storage)throw Error('Storage unavailable');
+      previousBackup=this.storage.getItem(RESET_BACKUP_KEY);
+      this.storage.setItem(RESET_BACKUP_KEY,'null');clearedBackup=true;
+      this.storage.setItem(LOG_KEY,JSON.stringify(next));
+    }catch{
+      try{if(clearedBackup)this.storage.setItem(RESET_BACKUP_KEY,previousBackup??'null');}catch{}
+      throw Error('Could not restore previous scorecards. Your current scorecards are unchanged.');
+    }
     this.data=next;this.backup=null;this.warning='';
-    try{this.storage.setItem(RESET_BACKUP_KEY,'null');}catch{}
     return true;
   }
   record(word, state, event = null, error = null) {

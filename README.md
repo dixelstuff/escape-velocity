@@ -483,3 +483,9 @@ The previous attempt ghost uses .60 opacity instead of .72, making its trail, ma
 ## Previous-attempt labels only (course v59)
 
 Retries retain only the normal faded labels for visible words from the latest unsuccessful attempt: successful steps and meaningful forward misses, excluding tee/flag duplicates. There are no past-shot arcs, circles, ball markers or label leader lines. The label font, background and normal missed-label opacity (.72) are shared with the ordinary map labels, with no separate ghost styling. If a nearby/backward miss was hidden, its label stays hidden, while any successful setup word from that attempt is still recalled. The separate Previous attempt panel is removed; full history remains in Scorecards. Labels use spare space and cannot push live labels or expand the map. They fade on the next charged shot; invalid words preserve them. Attempt selection, messages, scoring and full exported history are unchanged.
+
+## Focus dismissal and large-history reset (course v60)
+
+Previous-attempt labels fade over 220 ms when the shot input gains focus on desktop or mobile. Dismissal is saved on the active attempt so resize, chip-range toggling and reload cannot bring them back. Reduced-motion users see immediate dismissal.
+
+Scorecard reset writes the small new batch before replacing the recovery copy, avoiding the temporary double-sized history that could exceed localStorage quota. A failed recovery write restores the original stored batch. Tests cover quota pressure and rollback; the submitted 321-round scorecard also resets under a quota where the previous write order fails. Restore uses the same space-saving order with rollback on failure. New downloads exclude the recovery archive, and Restore previous scorecards remains available. Gameplay, models and thresholds are unchanged.
