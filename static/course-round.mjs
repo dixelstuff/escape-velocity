@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v107';
-import {mapFraction} from './map.mjs?v=golf-v107';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v108';
+import {mapFraction} from './map.mjs?v=golf-v108';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;
@@ -56,6 +56,13 @@ export class CourseRounds{
   const r=this.data.rounds.find(r=>r.id===roundId),a=r?.holes[holeIndex]?.attempts.find(a=>a.number===number);
   if(!a||a.key!==key||!Number.isFinite(report.score)||report.score<0||report.score>1000)return false;
   a.skill=structuredClone(report);this.save();return true;
+ }
+ /** Close the current hole early, preserving any better completed attempt. */
+ skip(state,journeyId,arrivalFraction){
+  if(!this.belongs(state)||this.active.finished)return false;
+  if(!state.won&&!state.challenge_failed)this.record({...state,challenge_failed:true,abandoned:true,skipped:true},journeyId,arrivalFraction);
+  else this.record(state,journeyId,arrivalFraction);
+  return this.advance();
  }
  advance(){
   if(!this.active||this.active.finished||!bestAttempt(this.hole))return false;

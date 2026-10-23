@@ -1,0 +1,482 @@
+[
+  {
+    "start": "pigeon",
+    "target": "castle",
+    "waypoint": {
+      "word": "postage",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 1,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 54,
+      "best_sampled_strokes": 4,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "candle",
+    "target": "rainbow",
+    "waypoint": {
+      "word": "optics",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 2,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 59,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "bee",
+    "target": "radio",
+    "waypoint": {
+      "word": "politics",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 3,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 69,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "flower",
+    "target": "harbour",
+    "waypoint": {
+      "word": "computing",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 4,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 47,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "crocodile",
+    "target": "space",
+    "waypoint": {
+      "word": "fashion",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 5,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 71,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "sandwich",
+    "target": "mountain",
+    "waypoint": {
+      "word": "construction",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 6,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 79,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "bell",
+    "target": "dentist",
+    "waypoint": {
+      "word": "shipyard",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 7,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 41,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "snowman",
+    "target": "electricity",
+    "waypoint": {
+      "word": "bakery",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 8,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 46,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "mushroom",
+    "target": "trumpet",
+    "waypoint": {
+      "word": "architecture",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 9,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 83,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "lemon",
+    "target": "castle",
+    "waypoint": {
+      "word": "photography",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 10,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 53,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "lobster",
+    "target": "chapel",
+    "waypoint": {
+      "word": "armour",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 11,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 56,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "spider",
+    "target": "fishing",
+    "waypoint": {
+      "word": "textiles",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 12,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 105,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "anchor",
+    "target": "music",
+    "waypoint": {
+      "word": "construction",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 13,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 100,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "jellyfish",
+    "target": "classroom",
+    "waypoint": {
+      "word": "lighting",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 14,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 61,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "scissors",
+    "target": "waterfall",
+    "waypoint": {
+      "word": "surgery",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 15,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 51,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "kangaroo",
+    "target": "painting",
+    "waypoint": {
+      "word": "athletics",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 16,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 52,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "teapot",
+    "target": "waterfall",
+    "waypoint": {
+      "word": "politics",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 17,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 34,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "zebra",
+    "target": "archaeology",
+    "waypoint": {
+      "word": "transport",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 18,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 47,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "cannon",
+    "target": "cathedral",
+    "waypoint": {
+      "word": "photography",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 19,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 63,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "bottle",
+    "target": "harbour",
+    "waypoint": {
+      "word": "music",
+      "threshold": 0.27,
+      "turn": "down"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 4,
+    "course_set": "waypoint-discovery-v3",
+    "course_number": 20,
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 65,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 2
+    }
+  }
+]

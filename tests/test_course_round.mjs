@@ -18,3 +18,12 @@ assert.equal(resultText(-2),'Eagle');assert.equal(resultText(3),'Triple bogey');
 assert.equal(attemptResult({state:{won:false},progress:.8},3),1);assert.equal(attemptResult({state:{won:false},progress:.2},3),2);
 store.reset();assert.equal(store.exportData().length,0);store.restore();assert.equal(store.exportData().length,1);
 console.log('Course scoring passed: mixed pars, 6/12/18 limits, eagles, capped failed attempts, saved best, earlier-attempt tie break, early next hole, reload, ranking metadata and preserved historical scores.');
+
+store.begin(course);
+const empty={...store.settings(),baseline:0,history:[],attempts:0,won:false,challenge_failed:false};
+assert.equal(store.skip(empty,'skipped-empty',.9),true,'skip works before the first shot');
+assert.equal(store.active.index,1);assert.equal(store.active.holes[0].locked,true);assert.equal(attemptResult(bestAttempt(store.active.holes[0]),3),2,'unplayed skipped hole receives the normal maximum score');
+save(1,{won:true,strokes:3});
+const exploring={...store.settings(),baseline:0,attempts:1,history:[{word:'setup',success:true,destination:.1}],won:false,challenge_failed:false};
+assert.equal(store.skip(exploring,'skipped-live',.9),true);assert.equal(attemptResult(bestAttempt(store.active.holes[1]),4),-1,'skip after an unsuccessful exploration preserves the earlier birdie');
+assert.equal(store.skip(exploring,'stale',.9),false,'stale hole controls cannot advance another hole');

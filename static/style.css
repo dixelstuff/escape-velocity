@@ -289,3 +289,10 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 #custom-par-control label{font-size:12px;margin-right:12px;}
 #custom-par{font-size:16px;padding:9px 12px;}
 #custom-assessment[data-valid="false"]:not(:empty){color:#8c5146;}
+
+.hole-tools{position:absolute;top:8px;right:8px;display:flex;gap:5px;z-index:4;}
+.hole-tools button{display:grid;place-items:center;width:36px;height:36px;padding:7px;border-radius:50%;background:#f8faefe8;color:#355e42;border:1px solid #8ca57a66;box-shadow:0 1px 3px #294b3514;}
+.hole-tools svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hole-tools button:disabled{opacity:.35;}
+@media(max-width:650px){.hole-tools{top:6px;right:6px;gap:4px;}.hole-tools button{width:34px;height:34px;}}
+.retry-guidance{right:92px;max-width:calc(100% - 108px);}

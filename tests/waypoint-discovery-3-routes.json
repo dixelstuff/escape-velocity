@@ -1,0 +1,197 @@
+[
+  {
+    "start": "pigeon",
+    "waypoint": "postage",
+    "target": "castle",
+    "route": [
+      "wax",
+      "stamp",
+      "seal",
+      "royal"
+    ]
+  },
+  {
+    "start": "candle",
+    "waypoint": "optics",
+    "target": "rainbow",
+    "route": [
+      "light",
+      "lens",
+      "prism"
+    ]
+  },
+  {
+    "start": "bee",
+    "waypoint": "politics",
+    "target": "radio",
+    "route": [
+      "queen",
+      "speech"
+    ]
+  },
+  {
+    "start": "flower",
+    "waypoint": "computing",
+    "target": "harbour",
+    "route": [
+      "tree",
+      "network",
+      "branch"
+    ]
+  },
+  {
+    "start": "crocodile",
+    "waypoint": "fashion",
+    "target": "space",
+    "route": [
+      "leather",
+      "belt",
+      "asteroid"
+    ]
+  },
+  {
+    "start": "sandwich",
+    "waypoint": "construction",
+    "target": "mountain",
+    "route": [
+      "layers",
+      "stone"
+    ]
+  },
+  {
+    "start": "bell",
+    "waypoint": "shipyard",
+    "target": "dentist",
+    "route": [
+      "metal",
+      "ship",
+      "drill"
+    ]
+  },
+  {
+    "start": "snowman",
+    "waypoint": "bakery",
+    "target": "electricity",
+    "route": [
+      "cookie",
+      "appliance"
+    ]
+  },
+  {
+    "start": "mushroom",
+    "waypoint": "architecture",
+    "target": "trumpet",
+    "route": [
+      "ornamental",
+      "baroque"
+    ]
+  },
+  {
+    "start": "lemon",
+    "waypoint": "photography",
+    "target": "castle",
+    "route": [
+      "color",
+      "light",
+      "tower"
+    ]
+  },
+  {
+    "start": "lobster",
+    "waypoint": "armour",
+    "target": "chapel",
+    "route": [
+      "plate",
+      "stone"
+    ]
+  },
+  {
+    "start": "spider",
+    "waypoint": "textiles",
+    "target": "fishing",
+    "route": [
+      "silk",
+      "line",
+      "net"
+    ]
+  },
+  {
+    "start": "anchor",
+    "waypoint": "construction",
+    "target": "music",
+    "route": [
+      "chain",
+      "metal"
+    ]
+  },
+  {
+    "start": "jellyfish",
+    "waypoint": "lighting",
+    "target": "classroom",
+    "route": [
+      "glow",
+      "lamp"
+    ]
+  },
+  {
+    "start": "scissors",
+    "waypoint": "surgery",
+    "target": "waterfall",
+    "route": [
+      "cut",
+      "operation",
+      "flow"
+    ]
+  },
+  {
+    "start": "kangaroo",
+    "waypoint": "athletics",
+    "target": "painting",
+    "route": [
+      "leap",
+      "jump",
+      "field"
+    ]
+  },
+  {
+    "start": "teapot",
+    "waypoint": "politics",
+    "target": "waterfall",
+    "route": [
+      "scandal",
+      "leak",
+      "water"
+    ]
+  },
+  {
+    "start": "zebra",
+    "waypoint": "transport",
+    "target": "archaeology",
+    "route": [
+      "crossing",
+      "road",
+      "ancient"
+    ]
+  },
+  {
+    "start": "cannon",
+    "waypoint": "photography",
+    "target": "cathedral",
+    "route": [
+      "shoot",
+      "shot",
+      "glass"
+    ]
+  },
+  {
+    "start": "bottle",
+    "waypoint": "music",
+    "target": "harbour",
+    "route": [
+      "pipe",
+      "flute",
+      "glass",
+      "ship"
+    ]
+  }
+]
