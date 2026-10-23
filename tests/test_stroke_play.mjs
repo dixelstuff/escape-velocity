@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game,restoreGame,Embeddings,decodeHalf,createBrowserClient} from '../static/engine.mjs';
-import {STROKE_PLAY,attemptLimit,maximumStrokes,retryPrefix} from '../static/stroke-play.mjs';
+import {STROKE_PLAY,attemptLimit,maximumStrokes,retryPrefix,returnsToOriginalLie} from '../static/stroke-play.mjs';
 import {challengeFailure} from '../static/success-mode.mjs';
 import {shotMotion} from '../static/shot-motion.mjs';
 import {greenContains,bunkerPoints,greenPoints,courseStyle,lakeGeometry,lakeContains} from '../static/course-appearance.mjs';
@@ -41,3 +41,17 @@ const {retryLieThrough}=await import('../static/stroke-play.mjs');
 assert.equal(retryLieThrough({challenge:{par:3},history:[{success:true},{success:true},{success:false}]}),2);
 assert.equal(retryLieThrough({challenge:{par:3},history:[{success:false}]}),0);
 assert.equal(retryLieThrough({challenge:{par:3},history:Array.from({length:5},()=>({success:true}))}),4);
+
+// Returning to the live lie restores the original attempt rather than committing a retry.
+const live={start:'tee',current:'b',history:[{word:'a',success:true},{word:'b',success:true}],challenge:{attempt:3}};
+const retry={source:{state:structuredClone(live)},original:{state:structuredClone(live)},attempt:4};
+assert.equal(returnsToOriginalLie(retry,2),true);
+assert.equal(retry.original.state.challenge.attempt,3,'original count remains available for restore');
+assert.equal(returnsToOriginalLie(retry,1),false,'an earlier lie still previews a retry');
+assert.equal(returnsToOriginalLie(null,2),false);
+assert.equal(returnsToOriginalLie({...retry,original:{state:{...live,won:true}}},2),false);
+assert.equal(returnsToOriginalLie({...retry,original:{state:{...live,challenge_failed:true}}},2),false);
+assert.equal(returnsToOriginalLie({...retry,source:{state:{...live,history:[{word:'b',success:true},{word:'b',success:true}]}}},2),false,'same word on a different route is not the original lie');
+const resumed={...live,history:live.history.map(h=>({...h,assumed:true})),challenge:{attempt:4}};
+assert.equal(returnsToOriginalLie({...retry,original:{state:resumed}},2),true,'after an automatic miss retry, restore the resumed attempt');
+assert.equal(returnsToOriginalLie({source:{state:live},original:{state:{...live,current:'tee',history:[]}}},0),true,'a tee preview can also be cancelled');

@@ -17,3 +17,11 @@ export function retryLieThrough(saved){
  const miss=saved.history.findIndex(h=>!h.success);
  return Math.min(miss<0?saved.history.length:miss,maximumStrokes(saved.challenge.par)-1);
 }
+
+/** Selecting the original live lie cancels an uncommitted retry preview. */
+export function returnsToOriginalLie(preview,through){
+ const original=preview?.original?.state,source=preview?.source?.state;
+ return !!original&&!original.won&&!original.challenge_failed&&
+  through===original.history.length&&source?.start===original.start&&
+  original.history.every((shot,i)=>shot.success&&source.history[i]?.success&&source.history[i].word===shot.word);
+}
