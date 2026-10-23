@@ -233,14 +233,13 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 .attempts strong{font-size:clamp(1.35rem,3.5vw,2rem);white-space:nowrap}
 .scorecard-grid:has(#arrival-skill:not([hidden])){grid-template-columns:1fr 1fr}
 
-/* Hole identity above one aligned row of golf information. */
-.mission{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin-bottom:10px;}
-.mission #hole-title{margin:0;line-height:1.15;font-weight:600;}
-.hole-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;min-width:0;}
-.mission .hole-meta:first-of-type{flex:none;}
+/* Keep the title and compact, right-aligned golf information in one header. */
+.mission{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px;margin-bottom:10px;}
+.mission #hole-title{margin:0;line-height:1.15;font-weight:600;min-width:0;}
+.hole-meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:0;text-align:right;}
 .mission #challenge-note{margin:0;font-size:11px;line-height:1.25;letter-spacing:.045em;}
-.mission .attempts{display:flex;flex-direction:row;align-items:baseline;justify-content:flex-end;gap:6px;min-width:0;white-space:nowrap;}
-.mission .attempts span{font-size:10px;line-height:1.25;letter-spacing:.06em;color:#61765d;}
-.mission .attempts strong{font:600 12px/1.25 'DM Sans',sans-serif;letter-spacing:0;font-variant-numeric:tabular-nums;}
-.mission #headwind-note{margin:0;}
-@media(max-width:650px){.mission{gap:3px;}.mission #challenge-note{font-size:10px;}.mission .attempts span{font-size:9px;}.mission .attempts strong{font-size:11px;}body.typing .mission{gap:3px;}body.typing .mission .attempts strong{font:600 11px/1.25 'DM Sans',sans-serif;}}
+.mission .attempts{display:flex;flex-direction:row;align-items:baseline;justify-content:flex-end;gap:5px;min-width:0;white-space:nowrap;}
+.mission .attempts span{font-size:11px;line-height:1.25;letter-spacing:0;color:#61765d;}
+.mission .attempts #attempts{font:400 11px/1.25 'DM Sans',sans-serif;letter-spacing:0;font-variant-numeric:tabular-nums;}
+.mission #headwind-note{margin:0;grid-column:1/-1;}
+@media(max-width:650px){.mission{gap:3px 10px;}.mission #challenge-note,.mission .attempts span{font-size:10px;}.mission .attempts #attempts,body.typing .mission .attempts #attempts{font:400 10px/1.25 'DM Sans',sans-serif;}}
