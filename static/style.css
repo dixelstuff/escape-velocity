@@ -254,3 +254,11 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 .mission .attempts span{font-size:9px;line-height:1.1;letter-spacing:.025em;}
 .mission .attempts #attempts{font-size:13px;line-height:1.15;}
 @media(max-width:650px){.mission .attempts span{font-size:8px;}.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-size:12px;line-height:1.15;}}
+
+/* Align the single attempt line with the hole title's text baseline. */
+.mission{align-items:baseline;}
+.mission .hole-meta{align-self:baseline;}
+.mission .attempts{flex-direction:row;align-items:baseline;gap:.55em;}
+.mission .attempts span{font:400 13px/1.15 'DM Sans',sans-serif;letter-spacing:0;}
+#arrival-banner{padding-bottom:23px;}
+@media(max-width:650px){.mission .attempts span{font-size:12px;}#arrival-banner{padding-bottom:20px;}}
