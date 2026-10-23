@@ -238,8 +238,19 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 .mission #hole-title{margin:0;line-height:1.15;font-weight:600;min-width:0;}
 .hole-meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:0;text-align:right;}
 .mission #challenge-note{margin:0;font-size:11px;line-height:1.25;letter-spacing:.045em;}
-.mission .attempts{display:flex;flex-direction:row;align-items:baseline;justify-content:flex-end;gap:5px;min-width:0;white-space:nowrap;}
+.mission .attempts{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:2px;min-width:0;white-space:nowrap;}
 .mission .attempts span{font-size:11px;line-height:1.25;letter-spacing:0;color:#61765d;}
 .mission .attempts #attempts{font:400 11px/1.25 'DM Sans',sans-serif;letter-spacing:0;font-variant-numeric:tabular-nums;}
 .mission #headwind-note{margin:0;grid-column:1/-1;}
 @media(max-width:650px){.mission{gap:3px 10px;}.mission #challenge-note,.mission .attempts span{font-size:10px;}.mission .attempts #attempts,body.typing .mission .attempts #attempts{font:400 10px/1.25 'DM Sans',sans-serif;}}
+
+/* The current lie and current target share a clear, restrained emphasis. */
+.active-word-label .label-body rect{fill:#356b47;fill-opacity:1;stroke:#d4e7be;stroke-width:2;filter:drop-shadow(0 0 4px #a8ca8270);}
+.active-word-label .planet-label{fill:#fffdf2;}
+
+.mission #hole-number{font-weight:600;color:#304b36;}
+.mission #hole-par{font-weight:400;color:#6b7d64;margin-left:3px;}
+.mission .attempts{gap:0;}
+.mission .attempts span{font-size:9px;line-height:1.1;letter-spacing:.025em;}
+.mission .attempts #attempts{font-size:13px;line-height:1.15;}
+@media(max-width:650px){.mission .attempts span{font-size:8px;}.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-size:12px;line-height:1.15;}}

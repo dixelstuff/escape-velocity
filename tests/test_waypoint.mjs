@@ -165,7 +165,7 @@ console.log('Unified green/sand collar and non-touching surfaces passed at both 
 // A waypoint entry may already be inside final-target chip range. The display
 // still has to give the next finishing shot forward space, in both orientations.
 for(const narrow of [false,true])for(const turn of ['up','down']){
- const game=new Game(e,'laps','spin',.27,{mode:'distance',waypoint:{word:'health',threshold:.27,turn},finish_mode:'range'});
+ const game=new Game(e,'laps','spin',.27,{mode:'distance',waypoint:{word:'health',threshold:.27,turn},finish_mode:'range',waypoint_auto_finish:false});
  game.submit('swimming');game.submit('fitness');const before=game.state();
  const d=waypointLayout(mapLayout(narrow),before),entry=waypointPosition(before,'fitness',d),flag=waypointAnchors(d).flag;
  const shot=game.submit('marketing');assert.ok(shot.automatic_shot);assert.ok(shot.destination<shot.leg_baseline);
@@ -179,7 +179,35 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
 }
 console.log('LAPS / HEALTH / SPIN: forward chip landing, matching flight preview, reused words and unused waypoint word passed.');
 
-const actualWaypoint=new Game(e,'penguin','galaxy',.27,{mode:'distance',launch_min:.01,launch_max:.01,waypoint:{word:'library',threshold:.27},finish_mode:'range'});
+const actualWaypoint=new Game(e,'penguin','galaxy',.27,{mode:'distance',launch_min:.01,launch_max:.01,waypoint:{word:'library',threshold:.27},finish_mode:'range',waypoint_auto_finish:false});
 assert.ok(actualWaypoint.submit('library').waypoint_reached);
 assert.throws(()=>actualWaypoint.submit('library'),/waypoint word has already been played/);
 assert.equal(actualWaypoint.history.length,1,'repeating the actual waypoint word uses no shot');
+
+// Reaching the waypoint also checks the new target, with a counted finishing stroke.
+const auto=new Game(e,'laps','spin',.27,{mode:'distance',waypoint:{word:'health',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'waypoint-auto'}});
+auto.submit('swimming');const finish=auto.submit('fitness');
+assert.equal(finish.waypoint_reached,true);assert.equal(finish.waypoint_finish,true);assert.equal(finish.won,true);
+assert.equal(finish.automatic_shot.word,'spin');assert.equal(finish.automatic_shot.origin,'fitness');
+assert.equal(finish.automatic_shot.outcome,'chip','waypoint membership does not imply membership of the final green');
+assert.equal(finish.automatic_shot.launch,e.cosine('fitness','spin'),'finish scoring uses the final target similarity');
+assert.equal(auto.state().attempts,3);assert.deepEqual(auto.route,['laps','swimming','fitness','spin']);
+assert.deepEqual(restoreGame(e,auto.state()).state(),auto.state());
+assert.throws(()=>auto.submit('marketing'),/Hole complete/);
+// Historical saves retain the original transition rule and can still be replayed exactly.
+const old=new Game(e,'laps','spin',.27,{mode:'distance',waypoint:{word:'health',threshold:.27},finish_mode:'range',waypoint_auto_finish:false});
+old.submit('swimming');old.submit('fitness');const oldState=old.state();assert.equal(oldState.waypoint_auto_finish,undefined);
+assert.equal(restoreGame(e,oldState).won,false);old.submit('marketing');assert.deepEqual(restoreGame(e,old.state()).state(),old.state());
+// A single clever waypoint entry can earn a genuine two-stroke albatross.
+const toy={index:new Map(['tee','waypoint','hole','bridge','a','b','c','d','e','f','g'].map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){if(a===b)return 1;if(a==='bridge'||b==='bridge')return .4;if(['waypoint','hole'].includes(a)||['waypoint','hole'].includes(b))return .02;return .5;}};
+const albatross=new Game(toy,'tee','hole',.27,{mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'albatross'}});
+const ace=albatross.submit('bridge');assert.ok(ace.waypoint_reached&&ace.automatic_shot);assert.equal(albatross.state().attempts,2);assert.equal(ace.golden_holed,undefined);assert.equal(ace.automatic_shot.outcome,'chip','the ball finishes across the final leg from its waypoint lie');
+console.log('Waypoint auto-finish: correct final similarity, chip/putt choice, counted stroke, two-stroke albatross and historical replay passed.');
+
+for(const setup of [6,7]){
+ const capped=new Game(toy,'tee','hole',.27,{mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'waypoint-cap'}});
+ for(const w of ['a','b','c','d','e','f','g'].slice(0,setup))capped.submit(w);
+ const shot=capped.submit('bridge');assert.equal(capped.state().attempts,8,'automatic finish never exceeds the stroke cap');
+ assert.equal(capped.won,setup===6);assert.equal(!!shot.automatic_shot,setup===6);
+ assert.equal(shot.waypoint_finish,setup===6?true:undefined);assert.deepEqual(restoreGame(toy,capped.state()).state(),capped.state());
+}

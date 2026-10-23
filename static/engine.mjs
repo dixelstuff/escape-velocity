@@ -1,11 +1,11 @@
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v91';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v91';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v91';
-import { chipRange } from './chip-range.mjs?v=golf-v91';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v91';
-import {withWordModel} from './word-model.mjs?v=golf-v91';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v91';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v91';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v92';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v92';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v92';
+import { chipRange } from './chip-range.mjs?v=golf-v92';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v92';
+import {withWordModel} from './word-model.mjs?v=golf-v92';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v92';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v92';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -68,6 +68,7 @@ export class Game {
       this.waypoint={word:target,threshold:waypoint.threshold??.27,...(waypoint.turn?{turn:waypoint.turn}:{})};
       this.final_target=finalTarget;this.final_threshold=threshold;this.threshold=this.waypoint.threshold;
       this.stage=0;this.leg_start=start;
+      this.waypoint_auto_finish=options.waypoint_auto_finish??!Array.isArray(options.history);
     }
     this.golden_paths=Array.isArray(options.golden_paths)?options.golden_paths.map(path=>path.map(w=>String(w).trim().toLowerCase())):[];
     this.resumed_from=options.resumed_from;
@@ -120,7 +121,7 @@ export class Game {
     if(word!==displayWord)result.scoring_word=word;
     return result;
   }
-  isGolden(word){return this.challenge?.version===STROKE_PLAY&&this.challenge.par<=4&&this.golden_paths.some(path=>path.length===this.challenge.par-2&&path.length===this.history.length&&path.every((w,i)=>w===this.history[i].word)&&path.at(-1)===word)&&(!this.waypoint||this.stage===1);}
+  isGolden(word){return this.challenge?.version===STROKE_PLAY&&this.challenge.par<=4&&this.golden_paths.some(path=>path.length===this.challenge.par-2&&path.length===this.history.length&&path.every((w,i)=>w===this.history[i].word)&&path.at(-1)===word)&&(!this.waypoint||this.history.at(-1)?.stage===1);}
   pluralShot(word) {
     const original=this.shotResult(word);
     if(!this.plural_rescue||word===this.target||original.won)return original;
@@ -151,6 +152,7 @@ export class Game {
     } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
     const result=this.pluralShot(word),{success,destination,inside,backtrack}=result;
     const scoringWord=result.scoring_word??word;
+    let finishDestination=destination,finishInside=inside;
     if(this.resumed_from&&result.attempt<=this.resumed_from.through)result.assumed=true;
     if(this.waypoint)Object.assign(result,{stage:this.stage,leg_target:this.target,leg_baseline:this.baseline,leg_threshold:this.threshold});
     this.history.push(result);if(success){this.current=word;this.route.push(word);this.best_progress=backtrack?destination:Math.max(this.best_progress,destination);}
@@ -158,12 +160,17 @@ export class Game {
       result.won=false;result.outcome='waypoint';result.waypoint_reached=true;
       this.stage=1;this.target=this.final_target;this.threshold=this.final_threshold;this.leg_start=word;
       this.baseline=this.e.cosine(word,this.target);this.best_progress=this.baseline;
+      if(this.waypoint_auto_finish){
+        finishDestination=this.e.cosine(scoringWord,this.target);finishInside=finishDestination+1e-7>=this.threshold;
+        result.won=this.finishesFrom(scoringWord,finishDestination);
+        if(result.won)result.waypoint_finish=true;
+      }
     }
-    if(this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&word!==this.target&&this.history.length+1>(this.challenge.version===STROKE_PLAY?maximumStrokes(this.challenge.par):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';}
+    if(this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&word!==this.target&&this.history.length+1>(this.challenge.version===STROKE_PLAY?maximumStrokes(this.challenge.par):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';delete result.waypoint_finish;}
     if(result.won&&this.isGolden(word)){result.golden_holed=true;result.finish_reason='golden';this.current=this.target;this.route.push(this.target);}
     if(this.modern&&result.won&&word!==this.target&&!result.golden_holed){
-      const automatic={word:this.target,origin:word,automatic:true,outcome:inside?'putt':'chip',attempt:this.history.length+1,success:true,inside:true,won:true};
-      if(this.finish_mode==='range'){result.finish_reason=inside?'green':'range';automatic.finish_reason=result.finish_reason;Object.assign(automatic,this.requirement(scoringWord,this.target,destination,this.e.cosine(this.target,this.target)),{launch:destination,destination:this.e.cosine(this.target,this.target)});}
+      const automatic={word:this.target,origin:word,automatic:true,outcome:result.waypoint_reached?'chip':finishInside?'putt':'chip',attempt:this.history.length+1,success:true,inside:true,won:true};
+      if(this.finish_mode==='range'){result.finish_reason=finishInside?'green':'range';automatic.finish_reason=result.finish_reason;Object.assign(automatic,this.requirement(scoringWord,this.target,finishDestination,this.e.cosine(this.target,this.target)),{launch:finishDestination,destination:this.e.cosine(this.target,this.target)});}
       this.automatic_shots.push(automatic);result.automatic_shot=automatic;this.current=this.target;this.route.push(this.target);
     }
     this.won=result.won;
@@ -177,7 +184,7 @@ export class Game {
       ...(this.abandoned?{abandoned:true}:{}),
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
-      ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start}:{}),
+      ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start,...(this.waypoint_auto_finish?{waypoint_auto_finish:true}:{})}:{}),
       ...(this.modern?{plural_rescue:this.plural_rescue,plural_tolerance:this.plural_tolerance}:{}),
       ...(this.word_model?{word_model:this.word_model}:{}),...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
       ...(this.challenge?{challenge:this.challenge,challenge_failed:this.challenge_failed}:{}),
@@ -288,11 +295,11 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v91')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v91')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v92')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v92')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v91',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v92',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -305,7 +312,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v91')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v92')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='skill')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if (path === 'new') {
