@@ -6,7 +6,7 @@ import {chipRange} from '../static/chip-range.mjs';
 import {mapLayout} from '../static/map.mjs';
 import {greenContains,greenPoints,bunkerPoints,shoreY} from '../static/course-appearance.mjs';
 import {waypointBunkers,waypointGreen,waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
-import {courseTrees,clearOfCartPath} from '../static/course-art.mjs';
+import {courseTrees,clearOfCartPath,courseContinuation} from '../static/course-art.mjs';
 import {previousAttempts,previousWordLabels} from '../static/attempt-ghosts.mjs';
 const dir=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,dir)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),e=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),300,new Uint8Array(read(c.hub_file)));
 const holes=JSON.parse(readFileSync(new URL('../data/waypoint-holes.json',import.meta.url)));
@@ -210,4 +210,12 @@ for(const setup of [6,7]){
  const shot=capped.submit('bridge');assert.equal(capped.state().attempts,8,'automatic finish never exceeds the stroke cap');
  assert.equal(capped.won,setup===6);assert.equal(!!shot.automatic_shot,setup===6);
  assert.equal(shot.waypoint_finish,setup===6?true:undefined);assert.deepEqual(restoreGame(toy,capped.state()).state(),capped.state());
+}
+
+for(const narrow of [false,true])for(const turn of ['up','down']){
+ const d=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn}}),style={phase:1.2,lakeY:390,wave:35,bunkers:[]};
+ const foreground=waypointLandscape(saved,d,style),lake=waypointLake(d,style),world=courseContinuation(d,style,{foreground,lake});
+ assert.ok(world.includes(foreground),'result world reuses this exact dogleg landscape instead of a different hole');
+ assert.ok(world.includes(lake.outline.map(p=>`${p.x},${p.y}`).join(' ')),'water detail clip follows the reflected lake');
+ assert.ok(world.includes('continuation-water-details'));assert.ok(!world.includes('NaN'));
 }

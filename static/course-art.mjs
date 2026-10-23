@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v95';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v96';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -195,23 +195,25 @@ export function neighbouringCourse(d){
  [p(.65,649),p(.32,710),p(.11,768),p(.04,925)],
  [p(.04,925),p(.01,1000),p(.20,1019),p(.26,930)],
  [p(.26,930),p(.36,787),p(.52,781),p(.79,714)],
- [p(.79,714),p(1.05,652),p(1.05,536),p(.95,458)]
+ [p(.79,714),p(1.05,652),p(1.07,451.684),p(.95,458)]
  ];
  const xy=p=>`${p.x},${p.y}`,render=curves=>'M'+xy(curves[0][0])+curves.map(c=>' C'+c.slice(1).map(xy).join(' ')).join('');
  const route=segments.slice(3).reverse().map(c=>[...c].reverse().map(p=>({x:p.x+w*.065,y:p.y})));
- const connector=[{x:w+30,y:410},{x:w+38,y:428},{x:w*1.01,y:443},route[0][0]];
- const pathCurves=[connector,...route],sample=curves=>curves.flatMap(c=>Array.from({length:50},(_,i)=>cubicPoint(c,i/50)));
+ const pathCurves=route,sample=curves=>curves.flatMap(c=>Array.from({length:50},(_,i)=>cubicPoint(c,i/50)));
  return {fairway:render(segments)+' Z',path:render(pathCurves),outline:sample(segments),pathPoints:sample(pathCurves)};
 }
 /** One world behind the playable viewport and feedback, with no image edge at their join. */
-export function courseContinuation(d,style){
- const w=d.width;
- const lake=lakeGeometry(d,style);
- const {fairway,path}=neighbouringCourse(d);
+export function courseContinuation(d,style,{foreground=null,lake=lakeGeometry(d,style)}={}){
+ const w=d.width,{fairway,path}=neighbouringCourse(d);
+ const defs=`<pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern>${courseArtDefs}`;
+ const world=foreground??`${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${d.par3?par3PathArt(d,style):''}${courseTrees(d,style,lake)}`;
+ const waterOutline=lake.outline.map(p=>`${p.x},${p.y}`).join(' '),transform=d.reflectY?'translate(0 430) scale(1 -1)':'';
+ const ripples=Array.from({length:6},(_,row)=>Array.from({length:4},(_,col)=>{const x=w*(.06+col*.18)+16*Math.sin(row*2+col),y=455+row*43+7*Math.sin(col+row);return `<path d="M${x} ${y} q12 -3 27 0 t23 0 m10 0 h8"/>`;})).flat().join('');
  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
- <defs><pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern><pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern>${courseArtDefs}</defs>
- ${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${d.par3?par3PathArt(d,style):''}${courseTrees(d,style,lake)}
- <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7"/>
+ <defs>${foreground?'':defs}<pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern><clipPath id="world-water"><polygon points="${waterOutline}"/></clipPath></defs>
+ <rect width="${w}" height="1730" fill="#c4d3a7"/>${world}
+ <g id="continuation-water-details" clip-path="url(#world-water)" fill="none"><path d="${lake.path}" transform="${transform}" stroke="#b8d1cb" stroke-width="3" opacity=".65"/><g stroke="#cfdfd8" stroke-width="1.1" opacity=".55">${ripples}</g></g>
+ <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7" stroke-linejoin="round"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>
  <ellipse cx="${w*.16}" cy="942" rx="${w*.065}" ry="35" fill="#a2c487" stroke="#91b579" stroke-width="3" transform="rotate(-30 ${w*.16} 942)"/>
  <g transform="translate(${w*.36},798) rotate(-30)"><path d="${bunkerPath({rx:36,ry:19,shape:1})}" fill="url(#scorecard-sand)" stroke="#c5b58a" stroke-width="2"/></g>

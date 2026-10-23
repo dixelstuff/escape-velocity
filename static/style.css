@@ -270,3 +270,19 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 @media(max-width:650px){.mission .attempts span,.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-size:13px;}}
 
 .mission .attempts #attempts,body.typing .mission .attempts #attempts{font-weight:500;}
+
+/* On wide screens the current hole dominates a smaller round companion. */
+@media(min-width:960px){
+ .course-feedback.wide-scorecards:has(>#arrival-banner:not([hidden])){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);align-items:start;gap:20px;width:100%;max-width:780px;margin:-94px auto 0;padding:0 24px 28px;}
+ .wide-scorecards #arrival-banner{max-width:none;margin:0;}
+ .wide-scorecards #round-scorecard{position:relative;width:100%;max-width:none;margin:0;padding:17px 12px 20px;border-top:5px solid #356b43;}
+ .wide-scorecards #round-scorecard::before{content:'';position:absolute;inset:5px;border:1px solid #e6e4d1;pointer-events:none;}
+ .wide-scorecards .round-card-heading{align-items:flex-start;gap:8px;}
+ .wide-scorecards .round-card-heading h2{font-size:16px;line-height:1.25;}
+ .wide-scorecards .round-card-heading>strong{font-size:17px;white-space:nowrap;}
+ .wide-scorecards #round-scorecard th,.wide-scorecards #round-scorecard td{padding:8px 3px;font-size:10px;}
+ .wide-scorecards #round-scorecard tbody th{overflow-wrap:anywhere;line-height:1.35;}
+ .wide-scorecards #round-scorecard thead th{font-size:8px;letter-spacing:.025em;}
+ .wide-scorecards #round-scorecard td strong{font-size:13px;}
+ .wide-scorecards #round-scorecard p{font-size:10px;margin-top:12px;}
+}
