@@ -54,3 +54,15 @@ for(let i=0;i<100;i++){
 }
 assert.equal(tees.size,100);assert.ok(shores.size>100);assert.equal(counts.size,2);
 console.log('Terrain passed: stable tee/bunker/shore variation, one or two bunkers, lake beyond bottom edge and safe word lies.');
+
+// Course backgrounds are standalone XML images, not HTML: validate their markup.
+{
+ const {spawnSync}=await import('node:child_process');
+ const {courseContinuation}=await import('../static/course-art.mjs');
+ for(const narrow of [false,true]){
+  const d=mapLayout(narrow),style=courseStyle('background-xml');
+  const svg=courseContinuation(d,style);
+  const parsed=spawnSync('python3',['-c','import sys,xml.etree.ElementTree as ET; ET.fromstring(sys.stdin.read())'],{input:svg,encoding:'utf8'});
+  assert.equal(parsed.status,0,parsed.stderr);
+ }
+}

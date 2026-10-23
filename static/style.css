@@ -365,23 +365,25 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 [data-course-tree][data-hidden-for-control]{visibility:hidden;}
 
-/* Attempts stays clear of messages; replay belongs to the original tee lie. */
+/* Navigation in the header, history at the foot of the course. */
 .hole-play-area{position:relative;}
-.hole-tools{top:8px;left:8px;bottom:auto;right:auto;align-items:center;}
+.hole-tools{top:auto;left:8px;bottom:8px;right:auto;align-items:center;}
 .hole-tools .attempt-log-toggle{position:static;display:flex;width:auto;min-height:32px;height:32px;padding:5px 9px;gap:4px;border-radius:7px;color:#60795f;font-size:11px;font-weight:600;background:#f8faefd9;border-color:#8ca57a44;box-shadow:none;}
 .hole-tools .attempt-log-toggle svg{width:14px;height:14px;}
-.hole-tools .attempt-log-toggle[aria-expanded=true]{background:#f3f7e9;color:#294e36;}
 #attempts{font-variant-numeric:tabular-nums;font-weight:500;margin-left:2px;}
-#header-next-hole{background:transparent;color:#6b8068;font-size:13px;font-weight:500;padding:4px 0 4px 10px;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
-#header-next-hole span{margin-left:4px;}
-#header-next-hole:focus:not(:focus-visible){outline:none;}
+.mission .hole-navigation{display:flex;flex-direction:row;align-items:center;gap:5px;align-self:center;}
+.hole-navigation button{display:grid;place-items:center;width:29px;height:29px;padding:5px;background:transparent;color:#72836c;border:0;border-radius:5px;-webkit-tap-highlight-color:transparent;}
+.hole-navigation svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.hole-navigation button:hover{background:#dbe4d14d;filter:none;}
+.hole-navigation button:focus:not(:focus-visible){outline:none;}
+.attempt-log-open .hole-tools{visibility:hidden;}
+.map-card>#hole-attempt-log{margin-top:10px;padding:0 16px 14px;background:transparent;}
+.course-feedback:has(>#shot-notice:not([hidden])){top:10px;bottom:auto;}
 @media(max-width:650px){
- .hole-tools{top:6px;left:6px;bottom:auto;right:auto;}
+ .hole-tools{top:auto;left:6px;bottom:6px;right:auto;}
  .hole-tools .attempt-log-toggle{height:29px;min-height:29px;font-size:10px;padding:4px 7px;}
- #header-next-hole{font-size:12px;}
+ .mission .hole-navigation{gap:3px;}
+ .hole-navigation button{width:27px;height:27px;}
+ .map-card>#hole-attempt-log{margin-top:8px;padding:0 10px 10px;}
+ .course-feedback:has(>#shot-notice:not([hidden])){top:8px;}
 }
-
-.tee-replay{position:absolute;z-index:4;transform:translate(-50%,-50%);display:grid;place-items:center;width:28px;height:28px;padding:8px;background:transparent;border:0;border-radius:50%;color:#718c69;box-shadow:none;-webkit-tap-highlight-color:transparent;}
-.tee-replay svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.tee-replay:hover{background:#f8faefc9;filter:none;}
-.tee-replay:focus:not(:focus-visible){outline:none;}
