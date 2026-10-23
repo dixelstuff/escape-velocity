@@ -24,3 +24,9 @@ try{
  const report=await client.request('assess-waypoint',settings('shuttle','butler','rut'));assert.equal(report.suggested_par,5);
 }finally{globalThis.fetch=originalFetch;}
 console.log(`Waypoint assessment passed: direct-leg rejection, atomic creation, bounded exact routes, par 4/5, and worker fallback (${Math.round(performance.now()-started)} ms).`);
+
+const legacyDirect=assessWaypointHole(e,settings('cat','dog','submarine'),{allowDirectLegs:true});assert.equal(legacyDirect.allowed,false);assert.ok([4,5].includes(legacyDirect.suggested_par),'existing direct-leg layouts may be classified without weakening creation validation');
+for(const hole of config.puzzles.filter(h=>h.waypoint)){assert.equal(hole.par,hole.par_estimate.suggested_par);assert.equal(hole.par_estimate.version,'waypoint-par-v1');}
+for(const name of ['waypoint-holes.json','player-waypoint-holes.json'])for(const hole of JSON.parse(readFileSync(new URL('../data/'+name,import.meta.url)))){
+ const live=config.puzzles.find(h=>h.start===hole.start&&h.target===hole.target&&h.waypoint?.word===hole.waypoint.word);assert.equal(live.par,hole.par,'source and published bank stay aligned');assert.deepEqual(live.par_estimate,hole.par_estimate);
+}

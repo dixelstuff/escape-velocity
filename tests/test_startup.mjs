@@ -50,3 +50,9 @@ const recovered=collectSavedHoles([], [{state:recoveredFinished},{state:recovere
 assert.equal(recovered.length,1);assert.equal(recovered[0].waypoint.word,'radio');assert.equal(recovered[0].target,'submarine');
 assert.deepEqual(collectSavedHoles(recovered,[],[standard]),recovered,'custom holes survive clearing scorecards');
 assert.equal(collectSavedHoles([{start:'<bad>',target:'word'}],[],[standard]).length,0);
+
+const {bankRestartSettings}=await import('../static/startup.mjs');
+const oldWaypoint={start:'tee',target:'flag',final_target:'flag',threshold:.27,final_threshold:.27,mode:'distance',launch_min:.095,launch_max:.215,waypoint:{word:'middle',threshold:.27},challenge:{par:5,attempt:8}};
+const estimatedBank={start:'tee',target:'flag',threshold:.27,mode:'distance',launch_min:.095,launch_max:.215,waypoint:{word:'middle',threshold:.27},par:4,par_estimate:{version:'waypoint-par-v1'}};
+assert.equal(bankRestartSettings(oldWaypoint,standard,[estimatedBank]).par,4);assert.equal(oldWaypoint.challenge.par,5,'fresh restart never rewrites a saved attempt');
+assert.equal(bankRestartSettings({...oldWaypoint,launch_max:.3},standard,[estimatedBank]).par,5,'custom thresholds retain their own par');

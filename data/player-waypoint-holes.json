@@ -11,8 +11,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 75,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 1
+    }
   },
   {
     "start": "ignite",
@@ -27,7 +35,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 87,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
   },
   {
     "start": "lake",
@@ -41,8 +57,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 79,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 3
+    }
   },
   {
     "start": "calm",
@@ -57,7 +81,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 64,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
   },
   {
     "start": "laps",
@@ -72,7 +104,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 121,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
   },
   {
     "start": "roses",
@@ -87,7 +127,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 100,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
   },
   {
     "start": "roses",
@@ -101,8 +149,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 54,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
   },
   {
     "start": "rain",
@@ -116,8 +172,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 93,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 2
+    }
   },
   {
     "start": "lungs",
@@ -131,8 +195,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 68,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 4,
+      "strong_four_opening_families": 4
+    }
   },
   {
     "start": "nacho",
@@ -147,7 +219,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 73,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
   },
   {
     "start": "ran",
@@ -161,8 +241,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 79,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 3
+    }
   },
   {
     "start": "makeup",
@@ -176,8 +264,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 125,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
   },
   {
     "start": "lace",
@@ -191,8 +287,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 91,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 4,
+      "strong_four_opening_families": 4
+    }
   },
   {
     "start": "pimple",
@@ -207,7 +311,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 112,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 2
+    }
   },
   {
     "start": "pastel",
@@ -221,8 +333,22 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 147,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 6,
+      "strong_four_opening_families": 6,
+      "direct_legs": [
+        {
+          "start": "pastel",
+          "target": "leafy"
+        }
+      ]
+    }
   },
   {
     "start": "nest",
@@ -237,7 +363,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 82,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
   },
   {
     "start": "map",
@@ -252,7 +386,15 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 70,
+      "best_sampled_strokes": 4,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 1
+    }
   },
   {
     "start": "salt",
@@ -266,8 +408,16 @@
     "mode": "distance",
     "launch_min": 0.095,
     "launch_max": 0.215,
-    "par": 5,
-    "course_set": "player-waypoints-v1"
+    "par": 4,
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 141,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 7,
+      "strong_four_opening_families": 6
+    }
   },
   {
     "start": "shuttle",
@@ -282,6 +432,14 @@
     "launch_min": 0.095,
     "launch_max": 0.215,
     "par": 5,
-    "course_set": "player-waypoints-v1"
+    "course_set": "player-waypoints-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 60,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
   }
 ]

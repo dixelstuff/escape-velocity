@@ -21,3 +21,10 @@ export function restartSettings(state,opening){
  const previous=!state.headwind&&state.mode==='distance'&&state.launch_min===.10&&((state.threshold===.28&&state.launch_max===.21)||(state.threshold===.27&&state.launch_max===.22));
  return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,...(state.challenge?{par:state.challenge.par}:{}),...(state.golden_paths?{golden_paths:state.golden_paths}:{}),mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,...(state.word_model?{word_model:state.word_model}:{}),...(state.headwind?{headwind:state.headwind}:{})};
 }
+
+/** An explicit fresh restart adopts the bank's re-estimated par; saved attempts do not. */
+export function bankRestartSettings(state,opening,puzzles){
+ const settings=restartSettings(state,opening);
+ const bank=puzzles.find(h=>h.par_estimate&&h.start===state.start&&h.target===(state.final_target??state.target)&&h.waypoint?.word===state.waypoint?.word&&h.threshold===(state.final_threshold??state.threshold)&&h.mode===state.mode&&h.launch_min===state.launch_min&&h.launch_max===state.launch_max&&JSON.stringify(h.headwind??null)===JSON.stringify(state.headwind??null)&&!state.word_model);
+ return bank?{...settings,par:bank.par}:settings;
+}

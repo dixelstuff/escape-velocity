@@ -1,4 +1,5 @@
-import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=golf-v104';
+import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=golf-v105';
+export const WAYPOINT_PAR_VERSION='waypoint-par-v1';
 const caches=new WeakMap();
 function similarityRow(e,word){
  let cache=caches.get(e);if(!cache)caches.set(e,cache=new Map());
@@ -15,9 +16,9 @@ function family(e,word){
  return stems.filter(w=>e.index.has(w)&&e.cosine(w,word)>.65).sort((a,b)=>a.length-b.length||a.localeCompare(b))[0]??word;
 }
 /** Bounded legal-route search. Counts describe the sample, never all possible routes. */
-export function assessWaypointHole(embeddings,settings){
+export function assessWaypointHole(embeddings,settings,{allowDirectLegs=false}={}){
  const validation=waypointLegAccess(embeddings,settings);
- if(!validation.allowed)return {...validation,estimate:true,suggested_par:null};
+ if(!validation.allowed&&!allowDirectLegs)return {...validation,version:WAYPOINT_PAR_VERSION,estimate:true,suggested_par:null};
  const root=new Game(embeddings,settings.start,settings.target,settings.threshold??.27,{mode:'distance',launch_min:.095,launch_max:.215,...settings,challenge:undefined,golden_paths:[]});
  const e=root.e,routes=[],expanded=new Set();let beam=[{game:root,words:[],margin:1,quality:0}],evaluated=0;
  function choices(g){
@@ -59,5 +60,5 @@ export function assessWaypointHole(embeddings,settings){
  const quickOpenings=openingCount(quick),strongFourOpenings=openingCount(sampled.filter(r=>r.strokes<=4&&r.margin>=.08));
  const suggested_par=quickOpenings>=2||strongFourOpenings>=3?4:5;
  const reason=suggested_par===4?'Several strong short-route openings were found.':sampled.length?'Fewer strong short-route openings were found.':'No short route found in this limited search.';
- return {...validation,estimate:true,suggested_par,reason,sampled_routes:sampled.length,robust_short_routes:short.length,quick_opening_families:quickOpenings,strong_four_opening_families:strongFourOpenings,best_sampled_strokes:sampled.length?Math.min(...sampled.map(r=>r.strokes)):null,evaluated,routes:sampled};
+ return {...validation,version:WAYPOINT_PAR_VERSION,estimate:true,suggested_par,reason,sampled_routes:sampled.length,robust_short_routes:short.length,quick_opening_families:quickOpenings,strong_four_opening_families:strongFourOpenings,best_sampled_strokes:sampled.length?Math.min(...sampled.map(r=>r.strokes)):null,evaluated,routes:sampled};
 }
