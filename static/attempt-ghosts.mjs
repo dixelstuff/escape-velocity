@@ -1,6 +1,6 @@
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v106';
-import {projectPoint} from './map.mjs?v=golf-v106';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v106';
+import {waypointPosition} from './waypoint-map.mjs?v=golf-v107';
+import {projectPoint} from './map.mjs?v=golf-v107';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v107';
 /** Compare only retries in this challenge, including a completed attempt replayed within the same challenge. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -15,3 +15,9 @@ export function previousWordLabels(state,d){
  return [...latest.values()].map(h=>({word:h.word,...(h.success&&!h.won&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
 }
 export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.some(h=>!h.assumed)&&!state?.won;}
+
+/** Old routes may suppress the zone, but must never suppress the next target label. */
+export function waypointRetryDisplay(state,previousEntry,editing=false){
+ const firstLeg=!!state.waypoint&&state.stage===0;
+ return {showTarget:firstLeg,reference:firstLeg&&!!previousEntry&&!editing,occupied:!!previousEntry};
+}
