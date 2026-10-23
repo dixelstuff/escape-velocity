@@ -1,10 +1,10 @@
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v100';
-import {projectPoint} from './map.mjs?v=golf-v100';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v100';
-/** Compare only retries in this challenge, never another model or a replay. */
+import {waypointPosition} from './waypoint-map.mjs?v=golf-v101';
+import {projectPoint} from './map.mjs?v=golf-v101';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v101';
+/** Compare only retries in this challenge, including a completed attempt replayed within the same challenge. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
- const same=s=>s.challenge?.id===state.challenge.id&&s.challenge.version===state.challenge.version&&s.challenge.par===state.challenge.par&&s.challenge.attempt<state.challenge.attempt&&s.challenge_failed&&s.history.length&&(state.waypoint?s.waypoint?.word===state.waypoint.word&&s.final_target===state.final_target:['target','threshold'].every(k=>s[k]===state[k]))&&['start','word_model','mode','rules','finish_mode','launch_min','launch_max'].every(k=>s[k]===state[k])&&JSON.stringify(s.headwind??null)===JSON.stringify(state.headwind??null);
+ const same=s=>s.challenge?.id===state.challenge.id&&s.challenge.version===state.challenge.version&&s.challenge.par===state.challenge.par&&s.challenge.attempt<state.challenge.attempt&&(s.challenge_failed||s.won)&&s.history.length&&(state.waypoint?s.waypoint?.word===state.waypoint.word&&s.final_target===state.final_target:['target','threshold'].every(k=>s[k]===state[k]))&&['start','word_model','mode','rules','finish_mode','launch_min','launch_max'].every(k=>s[k]===state[k])&&JSON.stringify(s.headwind??null)===JSON.stringify(state.headwind??null);
  const seen=new Set();
  return journeys.filter(j=>j.id!==activeId&&same(j.state)).sort((a,b)=>b.state.challenge.attempt-a.state.challenge.attempt||String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(j=>{const n=j.state.challenge.attempt;if(seen.has(n))return false;seen.add(n);return true;}).slice(0,1).map(j=>({state:j.state}));
 }
@@ -12,6 +12,6 @@ export function previousAttempts(journeys,state,activeId){
 export function previousWordLabels(state,d){
  const latest=new Map();
  for(const h of state.history.filter(h=>h.success||usefulForwardMiss(h,state)))if(![state.start,state.target].includes(h.word))latest.set(h.word,h);
- return [...latest.values()].map(h=>({word:h.word,...(h.success&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
+ return [...latest.values()].map(h=>({word:h.word,...(h.success&&!h.won&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
 }
 export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.some(h=>!h.assumed)&&!state?.won;}

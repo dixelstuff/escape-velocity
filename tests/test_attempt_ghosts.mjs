@@ -20,3 +20,7 @@ const simple=layoutLabels([live],[],300,200),mixed=layoutLabels([live,{word:'old
 const crowded=layoutLabels([{word:'old',x:100,y:100,width:70,height:18,optional:true}],[{x:0,y:0,width:300,height:200}],300,200);assert.equal(crowded.height,200);assert.equal(crowded.labels.size,0);
 assert.equal(showPreviousLabels(state),true);assert.equal(showPreviousLabels({...state,history:[{}]}),false);assert.equal(showPreviousLabels(state,{outcome:'landed'}),false);assert.equal(showPreviousLabels({...state,won:true}),false);
 console.log('Previous labels passed: latest attempt only, visible words retained, hidden misses excluded, no path/marker data, shared projection and optional packing.');
+
+const won=prior(5,{won:true,challenge_failed:false,history:[{word:'first',origin:'tee',success:true,destination:.1,attempt:1},{word:'second',origin:'first',success:true,destination:.15,attempt:2},{word:'finish',origin:'second',success:true,won:true,destination:.3,attempt:3}]});
+assert.equal(previousAttempts([won],state,'active').length,1,'Replay keeps the latest successful route available');
+assert.deepEqual(previousWordLabels(won.state,mapLayout()).map(l=>l.word),['first','second','finish']);

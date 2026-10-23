@@ -277,3 +277,9 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .waypoint-reference-label{opacity:.5;}
 .waypoint-reference-label .label-body rect{fill:#356b47;fill-opacity:1;stroke:#d4e7be;stroke-width:1;}
 .waypoint-reference-label .planet-label{fill:#fffdf2;}
+
+@media(max-width:650px){
+ body.typing main{padding-top:10px;}
+ body.typing .mission{margin-bottom:10px;gap:3px 10px;}
+ body.typing .mission h2{font-size:18px;line-height:1.15;}
+}

@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v100';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v100';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v100';
+import {mapFraction} from './map.mjs?v=golf-v101';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v101';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v101';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -20,6 +20,29 @@ export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
 }
 export function waypointAnchors(d){return {tee:{x:d.left,y:d.waypointTurn?d.teeY:280},bend:{x:d.bendX??d.width*.48,y:d.bendY??130},flag:{x:d.right,y:d.holeY}};}
 function along(a,b,f,offset=0){const dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),t=Math.max(-.08,Math.min(1,f));return {x:a.x+dx*t-dy/len*offset*Math.sin(Math.PI*t),y:a.y+dy*t+dx/len*offset*Math.sin(Math.PI*t)};}
+/** Follow the midpoint of the two fairway banks into the front of the green. */
+export function waypointFinalCentre(d){
+ const a=waypointAnchors(d),w=d.width,style=d.style??{phase:0},bx=a.bend.x;
+ const bank=waypointBankY(d,style,bx),slope=(waypointBankY(d,style,bx+.15)-waypointBankY(d,style,bx-.15))/.3;
+ const canonicalMid=(d.reflectY?430-d.greenBottom:d.greenTop)+92;
+ const y=value=>d.reflectY?430-value:value,front={x:d.zoneLeft-20,y:y(canonicalMid)};
+ return [[a.bend,{x:bx+(w*.10+70)/2,y:y(((d.reflectY?80:70)+bank+70*slope)/2)},{x:w*.68,y:front.y},front],
+ [front,{x:front.x+(a.flag.x-front.x)*.4,y:front.y},{x:a.flag.x-(a.flag.x-front.x)*.25,y:a.flag.y},a.flag]];
+}
+function centrePoint(d,t){
+ const curves=waypointFinalCentre(d),split=(curves[0][3].x-curves[0][0].x)/(d.right-curves[0][0].x),index=t<split?0:1;
+ const u=index?(t-split)/(1-split):t/split,v=1-u,[a,b,c,e]=curves[index];
+ return {x:v**3*a.x+3*v*v*u*b.x+3*v*u*u*c.x+u**3*e.x,y:v**3*a.y+3*v*v*u*b.y+3*v*u*u*c.y+u**3*e.y};
+}
+function finalLie(d,start,f,offset){
+ const bend=waypointAnchors(d).bend,flag=waypointAnchors(d).flag,progress=Math.max(0,Math.min(1,f));
+ // Preserve distance-to-flag mapping while steering lies along the drawn fairway.
+ const candidate=t=>{const p=centrePoint(d,t),fade=(1-t)**2;return {x:p.x+(start.x-bend.x)*fade,y:p.y+(start.y-bend.y)*fade};};
+ const distance=Math.hypot(flag.x-start.x,flag.y-start.y)*(1-progress);let lo=0,hi=1;
+ for(let i=0;i<30;i++){const mid=(lo+hi)/2,p=candidate(mid);if(Math.hypot(flag.x-p.x,flag.y-p.y)>distance)lo=mid;else hi=mid;}
+ const t=(lo+hi)/2,p=candidate(t),near=candidate(Math.min(1,t+.001)),dx=near.x-p.x,dy=near.y-p.y,len=Math.hypot(dx,dy)||1,side=offset*.55*Math.sin(Math.PI*progress);
+ return {x:p.x-dy/len*side,y:p.y+dx/len*side};
+}
 /** A close waypoint entry still needs visual room for the final approach. Scoring keeps its exact baseline. */
 export const finalLegMapBaseline=(baseline,threshold)=>Math.min(baseline,threshold*.35);
 /** Store each shot in its own leg, so switching target does not move earlier labels. */
@@ -39,7 +62,8 @@ export function waypointPosition(state,word,d,event=null){
  const goal=h.stage===1?a.flag:a.bend;
  const threshold=h.leg_threshold??state.threshold,baseline=h.leg_baseline??state.baseline;
  const fraction=mapFraction(h.destination,h.stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
- return along(start,goal,fraction,[-24,26,-36,34,-12,14][(h.attempt-1)%6]);
+ const offset=[-24,26,-36,34,-12,14][(h.attempt-1)%6];
+ return h.stage===1?finalLie(d,start,fraction,offset):along(start,goal,fraction,offset);
 }
 /** The exact same path geometry drives drawing and tree clearance. */
 export function waypointCartPath(d){
@@ -107,8 +131,8 @@ export function waypointLandscape(state,d,style={phase:0}){
  const sandStyle={...style,bunkers:waypointBunkers(d,style).slice(0,1)};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;
- // Two broad cubic curves meet at the centre of the waypoint with a shared tangent.
- const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.29} ${bend.y} ${bend.x} ${bend.y} C${w*.60} ${bend.y} ${w*.70} ${a.flag.y} ${a.flag.x} ${a.flag.y}`;
+ // The final approach follows the fairway midpoint, then blends into the cup.
+ const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.29} ${bend.y} ${bend.x} ${bend.y}`+waypointFinalCentre(d).map(c=>' C'+c.slice(1).map(p=>`${p.x} ${p.y}`).join(' ')).join('');
  // A through path follows the outside cut, rather than returning in a hairpin.
  const outerPath=(d.cartPath??waypointCartPath(d)).path;
 

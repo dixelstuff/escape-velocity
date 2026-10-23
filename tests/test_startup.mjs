@@ -41,3 +41,12 @@ const v55={...opening,success_mode:true,success_version:'par-challenge-v2'};
 const oldChallenge={state:{...v55,challenge:{version:'par-challenge-v1',id:'old',attempt:3,par:3}}};
 assert.equal(startupAction(oldChallenge,v55),'upgrade','archive budget-only challenges before immediate retries');
 assert.equal(startupAction({state:{...oldChallenge.state,challenge:{...oldChallenge.state.challenge,version:'par-challenge-v2'}}},v55),'restore','resume current attempt and its ghost history');
+
+const {collectSavedHoles}=await import('../static/saved-holes.mjs');
+const standard={start:'coffee',target:'science',threshold:.27};
+const recoveredCustom={start:'dolphin',target:'submarine',threshold:.27,waypoint:{word:'radio',threshold:.27},par:5};
+const recoveredFinished={...recoveredCustom,target:'submarine',final_target:'submarine',final_threshold:.27,challenge:{par:5}};
+const recovered=collectSavedHoles([], [{state:recoveredFinished},{state:recoveredFinished},{state:standard}], [standard]);
+assert.equal(recovered.length,1);assert.equal(recovered[0].waypoint.word,'radio');assert.equal(recovered[0].target,'submarine');
+assert.deepEqual(collectSavedHoles(recovered,[],[standard]),recovered,'custom holes survive clearing scorecards');
+assert.equal(collectSavedHoles([{start:'<bad>',target:'word'}],[],[standard]).length,0);

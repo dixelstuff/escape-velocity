@@ -122,7 +122,7 @@ for(const narrow of [false,true]){
  assert.notEqual(up.bendX,down.bendX);assert.notEqual(up.bendY,430-down.bendY);assert.notEqual(up.teeY,430-down.teeY);
  for(const d of [up,down]){
   const landscape=waypointLandscape(saved,d,{phase:2});
-  const guide=landscape.match(/id="dogleg-centreline" d="([^"]+)"/)[1];assert.equal((guide.match(/ C/g)??[]).length,2,'centre trace uses two smooth curves through the waypoint');
+  const guide=landscape.match(/id="dogleg-centreline" d="([^"]+)"/)[1];assert.equal((guide.match(/ C/g)??[]).length,3,'centre trace follows the waypoint, fairway midpoint and green approach');
   assert.ok(landscape.includes('waypoint-dry-rough'),'cart paths stay off fairway and lake');
  }
 }
@@ -235,4 +235,24 @@ for(const narrow of [false,true]){
  assert.equal(automaticFinishMotion(origin,d),'putt');
  for(const t of [.1,.3,.5,.7,.9])assert.equal(shotMotion(automaticFinishMotion(origin,d),origin,{x:d.right,y:d.holeY},t).lift,0,'on-green auto finish never lifts into the air');
  assert.equal(automaticFinishMotion(waypointAnchors(d).bend,d),'chip','fairway finishes keep their bounce');
+}
+
+const sonarGame=new Game(e,'dolphin','submarine',.27,{mode:'distance',launch_min:.095,launch_max:.215,waypoint:{word:'radio',threshold:.27},finish_mode:'range'});
+sonarGame.submit('sonar');const radioHit=sonarGame.submit('radio'),beforeSonar=sonarGame.state(),sonarHit=sonarGame.submit('sonar');
+assert.equal(sonarHit.stage,1);assert.equal(sonarHit.outcome,'miss');assert.ok(sonarHit.launch>=radioHit.required);assert.ok(sonarHit.launch<sonarHit.required);
+const noPreviousSonar=restoreGame(e,beforeSonar);noPreviousSonar.history[0].word='unrelated';noPreviousSonar.route=noPreviousSonar.route.filter(w=>w!=='sonar');
+assert.deepEqual(noPreviousSonar.shotResult('sonar'),restoreGame(e,beforeSonar).shotResult('sonar'),'prior first-leg use does not weaken SONAR on leg two');
+
+// Final-leg lies follow the drawn fairway rather than a straight diagonal.
+const {lakeContains}=await import('../static/course-appearance.mjs');
+for(const narrow of [false,true])for(const turn of ['up','down']){
+ const scene={...cactusState,waypoint:{...cactusState.waypoint,turn}},d=waypointLayout(mapLayout(narrow),scene);
+ const art=waypointLandscape(scene,d),outlinePath=art.match(/id="waypoint-fairway"><path d="([^"]+)"/)[1];
+ const values=outlinePath.match(/-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/gi).map(Number),outline=[];let p={x:values.shift(),y:values.shift()};
+ while(values.length){const [bx,by,cx,cy,ex,ey]=values.splice(0,6),a=p;for(let i=0;i<30;i++){const t=i/30,u=1-t;outline.push({x:u**3*a.x+3*u*u*t*bx+3*u*t*t*cx+t**3*ex,y:u**3*a.y+3*u*u*t*by+3*u*t*t*cy+t**3*ey});}p={x:ex,y:ey};}
+ if(d.reflectY)for(const p of outline)p.y=430-p.y;
+ for(let destination=.10;destination<=.27;destination+=.01){
+  const h={...blood,destination,leg_baseline:.03,stage:1,attempt:4},p=waypointPosition(scene,'test-lie',d,h);
+  assert.ok(lakeContains(p,{outline})||greenContains(p,d),'second-leg ball stays on the fairway or green in either dogleg');
+ }
 }

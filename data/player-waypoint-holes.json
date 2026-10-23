@@ -1,0 +1,122 @@
+[
+  {
+    "start": "alert",
+    "target": "spooky",
+    "waypoint": {
+      "word": "crane",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "ignite",
+    "target": "sailor",
+    "waypoint": {
+      "word": "range",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "lake",
+    "target": "ladle",
+    "waypoint": {
+      "word": "pole",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "calm",
+    "target": "haircut",
+    "waypoint": {
+      "word": "glove",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "laps",
+    "target": "spin",
+    "waypoint": {
+      "word": "health",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "roses",
+    "target": "noses",
+    "waypoint": {
+      "word": "notes",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "roses",
+    "target": "notes",
+    "waypoint": {
+      "word": "noses",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "rain",
+    "target": "playwright",
+    "waypoint": {
+      "word": "carry",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  }
+]
