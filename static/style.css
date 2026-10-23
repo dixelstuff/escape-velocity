@@ -364,3 +364,19 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .mission{scroll-margin-top:8px;}
 
 [data-course-tree][data-hidden-for-control]{visibility:hidden;}
+
+/* Keep course navigation in the header and lie controls together on the map. */
+.hole-play-area{position:relative;}
+.hole-tools{top:auto;bottom:8px;right:8px;align-items:center;gap:7px;}
+.hole-tools .attempt-log-toggle{position:static;display:flex;width:auto;min-height:32px;height:32px;padding:5px 9px;gap:4px;border-radius:7px;color:#60795f;font-size:11px;font-weight:600;background:#f8faefd9;border-color:#8ca57a44;box-shadow:none;}
+.hole-tools .attempt-log-toggle svg{width:14px;height:14px;}
+.hole-tools .attempt-log-toggle[aria-expanded=true]{background:#f3f7e9;color:#294e36;}
+#attempts{font-variant-numeric:tabular-nums;font-weight:500;margin-left:2px;}
+#header-next-hole{background:transparent;color:#6b8068;font-size:13px;font-weight:500;padding:4px 0 4px 10px;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+#header-next-hole span{margin-left:4px;}
+#header-next-hole:focus:not(:focus-visible){outline:none;}
+@media(max-width:650px){
+ .hole-tools{top:auto;bottom:6px;right:6px;gap:6px;}
+ .hole-tools .attempt-log-toggle{height:29px;min-height:29px;font-size:10px;padding:4px 7px;}
+ #header-next-hole{font-size:12px;}
+}

@@ -10,5 +10,5 @@ export function holeAttemptLog(journeys,state,activeId){
 
 export function holeControlAvailability(journeys,state){
  const same=journeys.filter(j=>j.state.challenge?.id===state?.challenge?.id&&j.state.start===state?.start);
- return {replay:!!state?.history?.length||same.some(j=>j.state.history.length>0),log:same.some(j=>j.state.won||j.state.challenge_failed||j.state.abandoned||j.state.skipped)};
+ return {replay:!!state?.history?.length||same.some(j=>j.state.history.length>0),log:!!state};
 }
