@@ -705,3 +705,5 @@ V101 follows the final-leg fairway midpoint with the centre trace and lie projec
 Eight additional player-created waypoint layouts from scorecard exports 12 and 13 are retained in the public dropdown, including both ROSES/NOTES/NOSES orders. They are saved test layouts rather than new curated eagle routes.
 
 V102 keeps 11 additional waypoint layouts from scorecards 14 (19 player-created layouts total). New games replace same-leg repeat shots with a no-cost prompt to tap the earlier lie, and no longer exempt earlier words from the backward boundary. Cross-leg word reuse remains valid. Historical saves retain their original rule. No numerical thresholds or par defaults change. See reports/scorecards-14-review.md for attempt statistics and route-refinement observations.
+
+V103 corrects the V102 interpretation: earlier words can be typed and are scored as ordinary shots, including normal contact and backward/recovery rules. Only the special backward exemption is removed; there is no same-leg word block or no-cost retry prompt. Cross-leg reuse and tap-to-retry remain unchanged.

@@ -98,5 +98,9 @@ console.log('Opening bridges passed: exhaustive real-engine comparison, exact li
 
 const currentCourse=new Game(fake,'start','target',.5,{mode:'distance'});currentCourse.submit('forward');
 assert.equal(currentCourse.shotResult('start').backtrack,false,'played words no longer bypass the backward boundary');
-assert.throws(()=>currentCourse.submit('start'),/Tap that earlier word/);assert.equal(currentCourse.history.length,1,'same-leg reuse costs no shot');
+const repeatShot=currentCourse.submit('start');assert.equal(repeatShot.outcome,'water','earlier words are scored normally without backward protection');assert.equal(currentCourse.history.length,2,'typing an earlier word is a real shot, not a no-cost rejection');
 assert.equal(currentCourse.state().allow_backtracking,false);assert.deepEqual(restoreGame(fake,currentCourse.state()).state(),currentCourse.state());
+
+const tiny=new Game(fake,'start','target',.5,{mode:'distance'});tiny.submit('forward');tiny.backward_allowance=.31;
+assert.equal(tiny.submit('start').success,true,'an earlier word may land if it passes the ordinary recovery boundary');
+assert.equal(tiny.history.at(-1).outcome,'recovery','repeated words have no special backtrack outcome');

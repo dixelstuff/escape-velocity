@@ -1,11 +1,11 @@
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v102';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v102';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v102';
-import { chipRange } from './chip-range.mjs?v=golf-v102';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v102';
-import {withWordModel} from './word-model.mjs?v=golf-v102';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v102';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v102';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v103';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v103';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v103';
+import { chipRange } from './chip-range.mjs?v=golf-v103';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v103';
+import {withWordModel} from './word-model.mjs?v=golf-v103';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v103';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v103';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -151,7 +151,6 @@ export class Game {
     if(this.rules==='fixed-threshold-v1') {
       if(word===this.start||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
     } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
-    if(this.modern&&!this.allow_backtracking&&(word===(this.stage===1?this.leg_start:this.start)||this.history.some(h=>h.success&&h.word===word&&(!this.waypoint||h.stage===this.stage))))throw Error('Tap that earlier word to retry from there. No shot used.');
     const result=this.pluralShot(word),{success,destination,inside,backtrack}=result;
     const scoringWord=result.scoring_word??word;
     let finishDestination=destination,finishInside=inside;
@@ -306,11 +305,11 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v102')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v102')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v103')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v103')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v102',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v103',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -323,7 +322,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v102')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v103')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='skill')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if (path === 'new') {

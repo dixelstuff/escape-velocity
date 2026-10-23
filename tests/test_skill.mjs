@@ -41,7 +41,7 @@ g=new Game(e,'morph','lineage',.28,settings);g.submit('evolved');const shortcut=
 console.log(`Real vectors: EVOLVE route ${longer.score}; EVOLVED green ${shortcut.score}.`);
 // Independently check reported onward-option counts with real Game submissions.
 g=new Game(e,'morph','lineage',.28,settings);g.submit('evolve');const saved=g.state();let count=0;
-for(const word of words){if(saved.route.includes(word))continue;const trial=restoreGame(e,saved),event=trial.submit(word);if(event.success&&event.destination>saved.progress+1e-7)count++;}
+for(const word of words){if(word===saved.current)continue;const trial=restoreGame(e,saved),event=trial.submit(word);if(event.success&&event.destination>saved.progress+1e-7)count++;}
 assert.equal(longer.shots[0].good_moves_after,count);
 for(let i=0;i<longer.shots.length;i++){
  const prefix=new Game(e,'morph','lineage',.28,settings);for(const word of ['evolve','generation','lineage'].slice(0,i))prefix.submit(word);
