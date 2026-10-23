@@ -223,7 +223,7 @@ body.typing main{background:#f5f3e8;}
 
 .waypoint-zone-caption{font:600 10px monospace;letter-spacing:1.1px;fill:#587847}
 
-.retry-guidance{position:absolute;z-index:3;top:10px;left:12px;right:12px;width:fit-content;max-width:calc(100% - 24px);margin:0 auto;padding:7px 12px;border-radius:7px;background:#f6f7f2ed;color:#36533e;box-shadow:0 2px 8px #365c431a;font-size:13px;font-weight:500;line-height:1.4;text-align:center;pointer-events:none}.retry-guidance[hidden]{display:none}[data-resume-through]{cursor:pointer;pointer-events:all}[data-resume-through]:focus-visible .label-body rect{stroke:#447c51;stroke-width:2}[data-resume-through] .label-body rect{stroke:#9caf8a;stroke-width:1;stroke-dasharray:3 2}body.typing #retry-guidance{display:none}
+.retry-guidance{position:absolute;z-index:3;top:10px;left:12px;right:12px;width:fit-content;max-width:calc(100% - 24px);margin:0 auto;padding:7px 12px;border-radius:7px;background:#f6f7f2ed;color:#36533e;box-shadow:0 2px 8px #365c431a;font-size:13px;font-weight:500;line-height:1.4;text-align:center;pointer-events:none}.retry-guidance[hidden]{display:none}[data-resume-through]{cursor:pointer;pointer-events:all}[data-resume-through]:focus-visible .label-body rect{stroke:#447c51;stroke-width:2}[data-resume-through] .label-body rect{stroke:#9caf8a;stroke-width:1;stroke-dasharray:none}body.typing #retry-guidance{display:none}
 
 /* Focusing without typing only hides the last attempt; keep its anchors and retry actions intact. */
 body.word-entry-active .previous-attempt-element,body.word-entry-active [data-previous-range]{visibility:hidden;pointer-events:none}body.word-entry-active #retry-guidance{display:none}
@@ -262,3 +262,9 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 .mission .attempts span{font:400 13px/1.15 'DM Sans',sans-serif;letter-spacing:0;}
 #arrival-banner{padding-bottom:23px;}
 @media(max-width:650px){.mission .attempts span{font-size:12px;}#arrival-banner{padding-bottom:20px;}}
+
+.mission{padding-inline:6px;}
+.mission .attempts{gap:.35em;}
+.mission .attempts span,.mission .attempts #attempts{font-size:14px;}
+body.typing .map-card{touch-action:pan-x pan-y;}
+@media(max-width:650px){.mission .attempts span,.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-size:13px;}}
