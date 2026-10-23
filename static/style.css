@@ -343,7 +343,7 @@ body.typing .map-card{touch-action:pan-x pan-y;}
  #hole-attempt-log{margin-top:-18px;padding:0 10px 10px;}
  .hole-log-card{padding:10px 13px 12px;}
  .hole-log-heading button{font-size:19px;padding:2px 5px;}
- #hole-log-rows{margin-top:8px;max-height:min(130px,var(--hole-log-height,18svh));}
+ #hole-log-rows{margin-top:8px;max-height:min(180px,var(--hole-log-height,24svh));}
  .hole-log-attempt{padding:9px 0;}
  #arrival-banner #hole-log-rows{max-height:min(180px,25svh);}
 }
@@ -368,22 +368,25 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 /* Navigation in the header, history at the foot of the course. */
 .hole-play-area{position:relative;}
 .hole-tools{top:auto;left:8px;bottom:8px;right:auto;align-items:center;}
-.hole-tools .attempt-log-toggle{position:static;display:flex;width:auto;min-height:32px;height:32px;padding:5px 9px;gap:4px;border-radius:7px;color:#60795f;font-size:11px;font-weight:600;background:#f8faefd9;border-color:#8ca57a44;box-shadow:none;}
-.hole-tools .attempt-log-toggle svg{width:14px;height:14px;}
+.hole-tools .attempt-log-toggle{position:static;display:flex;width:auto;min-height:32px;height:32px;padding:5px 9px;gap:4px;border-radius:7px;color:#60795f;font-size:11px;font-weight:600;background:#f8faefd9;opacity:.92;border-color:#8ca57a44;box-shadow:none;}
+.hole-tools .attempt-log-toggle svg{width:14px;height:14px;transform:translateY(-1px);}
 #attempts{font-variant-numeric:tabular-nums;font-weight:500;margin-left:2px;}
-.mission .hole-navigation{display:flex;flex-direction:row;align-items:center;gap:5px;align-self:center;}
+.mission .hole-navigation{display:flex;flex-direction:row;align-items:center;gap:5px;align-self:center;height:1.15em;}
 .hole-navigation button{display:grid;place-items:center;width:29px;height:29px;padding:5px;background:transparent;color:#72836c;border:0;border-radius:5px;-webkit-tap-highlight-color:transparent;}
 .hole-navigation svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 .hole-navigation button:hover{background:#dbe4d14d;filter:none;}
 .hole-navigation button:focus:not(:focus-visible){outline:none;}
 .attempt-log-open .hole-tools{visibility:hidden;}
-.map-card>#hole-attempt-log{margin-top:10px;padding:0 16px 14px;background:transparent;}
+.map-card>#hole-attempt-log{margin-top:-14px;padding:0 16px 14px;background:transparent;}
 .course-feedback:has(>#shot-notice:not([hidden])){top:10px;bottom:auto;}
 @media(max-width:650px){
  .hole-tools{top:auto;left:6px;bottom:6px;right:auto;}
  .hole-tools .attempt-log-toggle{height:29px;min-height:29px;font-size:10px;padding:4px 7px;}
  .mission .hole-navigation{gap:3px;}
  .hole-navigation button{width:27px;height:27px;}
- .map-card>#hole-attempt-log{margin-top:8px;padding:0 10px 10px;}
+ .map-card>#hole-attempt-log{margin-top:-14px;padding:0 10px 10px;}
  .course-feedback:has(>#shot-notice:not([hidden])){top:8px;}
 }
+
+/* One continuous scenery layer avoids a join where the map meets an open card. */
+.map-card.attempt-log-open #map .course-scenery,.map-card.arrived #map .course-scenery{visibility:hidden;}
