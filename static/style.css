@@ -355,3 +355,10 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .attempt-log-toggle:not([hidden]),#quick-replay:not([hidden]){animation:course-control-appear .25s ease-out;}
 
 .attempt-log-toggle svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
+
+.attempt-log-toggle{gap:4px;-webkit-tap-highlight-color:transparent;}
+.attempt-log-toggle:hover,.hole-tools button:hover{filter:none;}
+.attempt-log-toggle:focus:not(:focus-visible),.hole-tools button:focus:not(:focus-visible){outline:none;}
+.hole-tools button{color:#6b846e;-webkit-tap-highlight-color:transparent;}
+.hole-tools svg{stroke-width:1.55;}
+.mission{scroll-margin-top:8px;}

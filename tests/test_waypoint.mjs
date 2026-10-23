@@ -299,3 +299,12 @@ console.log('Repeated cross-leg words keep distinct anchors, label identities an
   assert.ok(Math.hypot((outside.x-bend.x)/(d.width*.065+pad),(outside.y-bend.y)/(40+pad))>=1-1e-7);
  }
 }
+
+{
+ const h=c.puzzles.find(h=>h.start==='bee'&&h.waypoint?.word==='politics'&&h.target==='radio');
+ const g=new Game(e,h.start,h.target,h.threshold,{...h,finish_mode:'range'});
+ assert.equal(g.submit('worker').success,true);
+ const leader=g.submit('leader');assert.equal(leader.waypoint_reached,true);assert.equal(leader.waypoint_finish,true);
+ assert.ok(leader.automatic_shot.launch>=leader.automatic_shot.required);
+ assert.equal(g.state().attempts,3);assert.equal(g.won,true);
+}

@@ -9,3 +9,6 @@ export function stableTypingViewport(viewport,fallbackHeight){
  if(viewport&&Math.abs((viewport.scale??1)-1)>.01)return null;
  return {height:viewport?.height??fallbackHeight,top:viewport?.offsetTop??0};
 }
+
+/** Re-anchor only when the hole header has actually left the usable viewport. */
+export function shouldReturnHoleHeader({top,bottom},height){return top<0||bottom>height;}
