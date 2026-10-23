@@ -30,8 +30,9 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v105', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='stroke-play-v1',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())+json.loads((DATA / 'player-waypoint-holes.json').read_text())], vocabulary=len(e.words),
+    config = dict(release='golf-v106', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='stroke-play-v1',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())+json.loads((DATA / 'player-waypoint-holes.json').read_text())+json.loads((DATA / 'new-waypoint-holes.json').read_text())], vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
+    config['retired_waypoint_holes']=json.loads((DATA / 'retired-waypoint-holes.json').read_text())
     config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
     config['golden_holes']=json.loads((DATA/'golden-paths.json').read_text())['holes']
     for hole in [*config['puzzles'],*[h for course in config['courses'] for h in course['holes']]]:
@@ -69,7 +70,8 @@ def main():
     if hub_meta.get('vector_sha256')!=config['vector_sha256'] or hub_meta.get('words_file')!=words_file:
         from build_hubs import main as build_hubs
         build_hubs(config)
-        config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
+        config['retired_waypoint_holes']=json.loads((DATA / 'retired-waypoint-holes.json').read_text())
+    config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
     hub_meta=json.loads((output/'hubs.json').read_text())
     from build_abtt import build_abtt
     trial=build_abtt(e.words,DATA).astype('<f2').tobytes()

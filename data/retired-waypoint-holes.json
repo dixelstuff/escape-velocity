@@ -1,0 +1,34 @@
+[
+  {
+    "start": "butterfly",
+    "waypoint": {
+      "word": "swimming"
+    },
+    "target": "medicine",
+    "reason": "direct-leg"
+  },
+  {
+    "start": "glove",
+    "waypoint": {
+      "word": "baseball"
+    },
+    "target": "bakery",
+    "reason": "direct-leg"
+  },
+  {
+    "start": "lighthouse",
+    "waypoint": {
+      "word": "astronomy"
+    },
+    "target": "classroom",
+    "reason": "direct-leg"
+  },
+  {
+    "start": "pastel",
+    "waypoint": {
+      "word": "leafy"
+    },
+    "target": "coven",
+    "reason": "direct-leg"
+  }
+]

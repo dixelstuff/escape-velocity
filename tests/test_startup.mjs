@@ -56,3 +56,7 @@ const oldWaypoint={start:'tee',target:'flag',final_target:'flag',threshold:.27,f
 const estimatedBank={start:'tee',target:'flag',threshold:.27,mode:'distance',launch_min:.095,launch_max:.215,waypoint:{word:'middle',threshold:.27},par:4,par_estimate:{version:'waypoint-par-v1'}};
 assert.equal(bankRestartSettings(oldWaypoint,standard,[estimatedBank]).par,4);assert.equal(oldWaypoint.challenge.par,5,'fresh restart never rewrites a saved attempt');
 assert.equal(bankRestartSettings({...oldWaypoint,launch_max:.3},standard,[estimatedBank]).par,5,'custom thresholds retain their own par');
+
+const retiredLayout={start:'dolphin',waypoint:{word:'radio'},target:'submarine'};
+assert.equal(collectSavedHoles(recovered,[{state:recoveredFinished}],[standard],[retiredLayout]).length,0,'removed holes never return through local storage or historical scorecards');
+assert.equal(startupAction({state:recoveredFinished},standard,[retiredLayout]),'removed','an active removed layout starts a fresh hole without editing its saved state');

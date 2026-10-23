@@ -2,8 +2,9 @@
 export function isOpening(state, opening) {
   return state.start===opening.start && state.target===opening.target && state.threshold===opening.threshold && state.word_model===opening.word_model && (state.mode||'fixed')===(opening.mode||'fixed')&&JSON.stringify(state.headwind??null)===JSON.stringify(opening.headwind??null);
 }
-export function startupAction(saved, opening) {
+export function startupAction(saved, opening, retired=[]) {
   if(!saved)return 'opening';
+  if(retired.some(h=>h.start===saved.state.start&&h.waypoint?.word===saved.state.waypoint?.word&&h.target===(saved.state.final_target??saved.state.target)))return 'removed';
   if(opening.success_version==='stroke-play-v1'&&saved.state.challenge?.version!=='stroke-play-v1')return 'upgrade';
   if(saved.state.waypoint)return 'restore';
   const state=saved.state;

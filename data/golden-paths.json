@@ -133,43 +133,6 @@
       ]
     },
     {
-      "start": "butterfly",
-      "target": "medicine",
-      "waypoint": "swimming",
-      "paths": [
-        [
-          "freestyle",
-          "stroke"
-        ]
-      ]
-    },
-    {
-      "start": "glove",
-      "target": "bakery",
-      "waypoint": "baseball",
-      "paths": [
-        [
-          "batting",
-          "batter"
-        ]
-      ]
-    },
-    {
-      "start": "lighthouse",
-      "target": "classroom",
-      "waypoint": "astronomy",
-      "paths": [
-        [
-          "observatory",
-          "laboratory"
-        ],
-        [
-          "telescope",
-          "experiments"
-        ]
-      ]
-    },
-    {
       "start": "stool",
       "target": "arithmetic",
       "waypoint": "furniture",

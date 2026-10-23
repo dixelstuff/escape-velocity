@@ -322,35 +322,6 @@
     }
   },
   {
-    "start": "pastel",
-    "target": "coven",
-    "waypoint": {
-      "word": "leafy",
-      "threshold": 0.27,
-      "turn": "up"
-    },
-    "threshold": 0.27,
-    "mode": "distance",
-    "launch_min": 0.095,
-    "launch_max": 0.215,
-    "par": 4,
-    "course_set": "player-waypoints-v1",
-    "par_estimate": {
-      "version": "waypoint-par-v1",
-      "suggested_par": 4,
-      "sampled_routes": 147,
-      "best_sampled_strokes": 3,
-      "quick_opening_families": 6,
-      "strong_four_opening_families": 6,
-      "direct_legs": [
-        {
-          "start": "pastel",
-          "target": "leafy"
-        }
-      ]
-    }
-  },
-  {
     "start": "nest",
     "target": "crest",
     "waypoint": {

@@ -107,7 +107,7 @@ console.log('Greenside bunker recess passed in both orientations and viewports.'
 
 const discovery=holes.filter(h=>h.course_set==='waypoint-discovery-v1');
 const routes=JSON.parse(readFileSync(new URL('./waypoint-discovery-routes.json',import.meta.url)));
-assert.equal(discovery.length,15);assert.equal(new Set(discovery.map(h=>[h.start,h.waypoint.word,h.target].join(':'))).size,15);
+assert.equal(discovery.length,12);assert.equal(new Set(discovery.map(h=>[h.start,h.waypoint.word,h.target].join(':'))).size,12);
 for(const h of discovery){
  const sample=routes.find(r=>r.start===h.start&&r.waypoint===h.waypoint.word&&r.target===h.target);assert.ok(sample);
  const trial=new Game(e,h.start,h.target,h.threshold,options(h));
@@ -115,7 +115,7 @@ for(const h of discovery){
  assert.ok(trial.won,`${h.start} has a verified finishing route`);assert.equal(trial.stage,1);assert.ok(trial.history.some(r=>r.waypoint_reached));
  assert.deepEqual(restoreGame(e,trial.state()).state(),trial.state());
 }
-console.log('All fifteen new waypoint tests have a successful route through the mandatory zone and reproducible saves.');
+console.log('All twelve remaining waypoint tests have a successful route through the mandatory zone and reproducible saves.');
 
 for(const narrow of [false,true]){
  const up=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn:'up'}}),down=waypointLayout(mapLayout(narrow),{...saved,waypoint:{...saved.waypoint,turn:'down'}});
@@ -128,7 +128,8 @@ for(const narrow of [false,true]){
 }
 console.log('Distinct dogleg geometry, two-segment centre trace, and masked rough paths passed.');
 
-const butterfly=holes.find(h=>h.start==='butterfly');
+// Historical regression fixture; this layout is no longer in the selectable bank.
+const butterfly={"start":"butterfly","waypoint":{"word":"swimming","threshold":0.27,"turn":"up"},"target":"medicine","threshold":0.27,"mode":"distance","launch_min":0.095,"launch_max":0.215,"par":4,"course_set":"waypoint-discovery-v1","course_number":5,"finish_mode":"range","success_mode":true,"success_version":"stroke-play-v1","par_estimate":{"version":"waypoint-par-v1","suggested_par":4,"sampled_routes":156,"best_sampled_strokes":3,"quick_opening_families":4,"strong_four_opening_families":5,"direct_legs":[{"start":"butterfly","target":"swimming"}]},"golden_paths":[["freestyle","stroke"]]};
 const freestyle=new Game(e,butterfly.start,butterfly.target,butterfly.threshold,options(butterfly));
 const freestyleHit=freestyle.submit('freestyle');assert.ok(freestyleHit.waypoint_reached);assert.ok(freestyleHit.leg_baseline>freestyleHit.leg_threshold);
 for(const narrow of [false,true]){

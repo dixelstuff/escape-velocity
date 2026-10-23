@@ -1,0 +1,187 @@
+[
+  {
+    "start": "anchor",
+    "waypoint": "dentist",
+    "target": "orchard",
+    "route": [
+      "store",
+      "clerk",
+      "warehouse"
+    ]
+  },
+  {
+    "start": "compass",
+    "waypoint": "hospital",
+    "target": "diamond",
+    "route": [
+      "vision",
+      "eye"
+    ]
+  },
+  {
+    "start": "hammock",
+    "waypoint": "parliament",
+    "target": "trumpet",
+    "route": [
+      "porch",
+      "sitting",
+      "playing"
+    ]
+  },
+  {
+    "start": "giraffe",
+    "waypoint": "kitchen",
+    "target": "satellite",
+    "route": [
+      "downstairs",
+      "rooftop"
+    ]
+  },
+  {
+    "start": "daisy",
+    "waypoint": "shipyard",
+    "target": "violin",
+    "route": [
+      "plants",
+      "factories",
+      "electric"
+    ]
+  },
+  {
+    "start": "coral",
+    "waypoint": "stadium",
+    "target": "engine",
+    "route": [
+      "dolphins",
+      "jets"
+    ]
+  },
+  {
+    "start": "tulip",
+    "waypoint": "concert",
+    "target": "mountain",
+    "route": [
+      "velvet",
+      "rock"
+    ]
+  },
+  {
+    "start": "teaspoon",
+    "waypoint": "laboratory",
+    "target": "forest",
+    "route": [
+      "eggs",
+      "animal"
+    ]
+  },
+  {
+    "start": "oyster",
+    "waypoint": "wardrobe",
+    "target": "astronomy",
+    "route": [
+      "lobster",
+      "cashmere",
+      "wearable"
+    ]
+  },
+  {
+    "start": "pumpkin",
+    "waypoint": "railway",
+    "target": "festival",
+    "route": [
+      "miniature",
+      "museum"
+    ]
+  },
+  {
+    "start": "acorn",
+    "waypoint": "nursery",
+    "target": "galaxy",
+    "route": [
+      "orchard",
+      "emerald"
+    ]
+  },
+  {
+    "start": "cigar",
+    "waypoint": "harbour",
+    "target": "necklace",
+    "route": [
+      "mouth",
+      "neck"
+    ]
+  },
+  {
+    "start": "octopus",
+    "waypoint": "office",
+    "target": "riverbank",
+    "route": [
+      "doctor",
+      "medical",
+      "nearby"
+    ]
+  },
+  {
+    "start": "broom",
+    "waypoint": "airport",
+    "target": "microscope",
+    "route": [
+      "trunk",
+      "connecting",
+      "wires"
+    ]
+  },
+  {
+    "start": "fountain",
+    "waypoint": "newsroom",
+    "target": "camera",
+    "route": [
+      "hallway",
+      "reporter"
+    ]
+  },
+  {
+    "start": "beetle",
+    "waypoint": "armour",
+    "target": "castle",
+    "route": [
+      "metallic",
+      "iron"
+    ]
+  },
+  {
+    "start": "snail",
+    "waypoint": "jewellery",
+    "target": "clock",
+    "route": [
+      "reptile",
+      "antique"
+    ]
+  },
+  {
+    "start": "magnet",
+    "waypoint": "hospital",
+    "target": "orchestra",
+    "route": [
+      "schools"
+    ]
+  },
+  {
+    "start": "peacock",
+    "waypoint": "stationery",
+    "target": "theatre",
+    "route": [
+      "adorned",
+      "courtyard"
+    ]
+  },
+  {
+    "start": "ferry",
+    "waypoint": "classroom",
+    "target": "beehive",
+    "route": [
+      "boarding",
+      "hostel"
+    ]
+  }
+]

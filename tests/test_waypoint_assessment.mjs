@@ -27,6 +27,22 @@ console.log(`Waypoint assessment passed: direct-leg rejection, atomic creation, 
 
 const legacyDirect=assessWaypointHole(e,settings('cat','dog','submarine'),{allowDirectLegs:true});assert.equal(legacyDirect.allowed,false);assert.ok([4,5].includes(legacyDirect.suggested_par),'existing direct-leg layouts may be classified without weakening creation validation');
 for(const hole of config.puzzles.filter(h=>h.waypoint)){assert.equal(hole.par,hole.par_estimate.suggested_par);assert.equal(hole.par_estimate.version,'waypoint-par-v1');}
-for(const name of ['waypoint-holes.json','player-waypoint-holes.json'])for(const hole of JSON.parse(readFileSync(new URL('../data/'+name,import.meta.url)))){
+for(const name of ['waypoint-holes.json','player-waypoint-holes.json','new-waypoint-holes.json'])for(const hole of JSON.parse(readFileSync(new URL('../data/'+name,import.meta.url)))){
  const live=config.puzzles.find(h=>h.start===hole.start&&h.target===hole.target&&h.waypoint?.word===hole.waypoint.word);assert.equal(live.par,hole.par,'source and published bank stay aligned');assert.deepEqual(live.par_estimate,hole.par_estimate);
+}
+
+assert.equal(config.retired_waypoint_holes.length,4);
+for(const retired of config.retired_waypoint_holes){
+ assert.equal(config.puzzles.some(h=>h.start===retired.start&&h.waypoint?.word===retired.waypoint.word&&h.target===retired.target),false);
+ assert.equal(config.golden_holes.some(h=>h.start===retired.start&&h.waypoint===retired.waypoint.word&&h.target===retired.target),false);
+}
+for(const hole of config.puzzles.filter(h=>h.waypoint))assert.equal(waypointLegAccess(e,hole).allowed,true,'every remaining banked waypoint layout passes direct-leg validation');
+
+const newHoles=config.puzzles.filter(h=>h.course_set==='waypoint-discovery-v2'),sampleRoutes=JSON.parse(readFileSync(new URL('./waypoint-discovery-2-routes.json',import.meta.url)));
+assert.equal(newHoles.length,20);assert.equal(new Set(newHoles.map(h=>[h.start,h.waypoint.word,h.target].join('|'))).size,20);
+for(const h of newHoles){
+ const sample=sampleRoutes.find(r=>r.start===h.start&&r.waypoint===h.waypoint.word&&r.target===h.target);assert.ok(sample);
+ const game=new Game(e,h.start,h.target,h.threshold,{...h,challenge:{version:'stroke-play-v1',par:h.par,attempt:1,id:'new-hole-test'}});
+ for(const word of sample.route){if(game.won)break;assert.equal(game.submit(word).success,true);}
+ assert.equal(game.won,true,'each new hole has a verified route within the stroke limit');assert.ok(game.history.some(h=>h.waypoint_reached));
 }
