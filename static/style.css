@@ -296,3 +296,10 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .hole-tools button:disabled{opacity:.35;}
 @media(max-width:650px){.hole-tools{top:6px;right:6px;gap:4px;}.hole-tools button{width:34px;height:34px;}}
 .retry-guidance{right:92px;max-width:calc(100% - 108px);}
+
+/* A quiet, one-session hint anchored to an actual earlier lie. */
+.retry-guidance{right:auto;max-width:158px;width:max-content;margin:0;padding:7px 9px;border-radius:8px;background:#f9fbf0ed;color:#36533e;font-size:11px;font-weight:500;line-height:1.35;transform:translate(-50%,-100%);box-shadow:0 2px 7px #365c4324;}
+.retry-guidance::after{content:"";position:absolute;left:50%;top:100%;margin-left:-5px;border:5px solid transparent;border-top-color:#f9fbf0ed;}
+.retry-guidance.below-label{transform:translate(-50%,0);}
+.retry-guidance.below-label::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#f9fbf0ed;}
+@media(max-width:650px){.hole-tools button{width:29px;height:29px;padding:6px;background:#f8faefb8;border-color:#8ca57a44;box-shadow:none;}.hole-tools svg{width:17px;height:17px;}}

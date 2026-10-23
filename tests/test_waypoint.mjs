@@ -1,3 +1,4 @@
+import {wordLieKey,currentLieKey} from '../static/word-lies.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game,Embeddings,decodeHalf,restoreGame,createBrowserClient,resumeWaypoint} from '../static/engine.mjs';
@@ -263,3 +264,22 @@ const lace=new Game(e,'lace','plaid',.27,{mode:'distance',launch_min:.095,launch
 const firstCloak=lace.submit('cloak');lace.submit('witch');const secondCloak=lace.submit('cloak');
 assert.equal(firstCloak.stage,0);assert.equal(secondCloak.stage,1);assert.equal(secondCloak.success,true);assert.equal(lace.won,true);
 assert.deepEqual(restoreGame(e,lace.state()).state(),lace.state());
+
+// The player's two KNIGHT lies remain separate, including in a replay's old route.
+{
+ const h=c.puzzles.find(h=>h.start==='beetle'&&h.waypoint?.word==='armour'&&h.target==='castle');
+ const game=new Game(e,h.start,h.target,h.threshold,{...h,finish_mode:'range'});
+ for(const w of ['horse','knight','armour','knight'])assert.equal(game.submit(w).success,true);
+ const s=game.state(),knights=s.history.filter(h=>h.word==='knight');assert.equal(knights.length,2);
+ assert.deepEqual(knights.map(h=>wordLieKey(h.word,h)),['knight@0','knight@1']);
+ for(const narrow of [false,true]){
+  const d=waypointLayout(mapLayout(narrow),s),old=previousWordLabels(s,d).filter(l=>l.word==='knight');
+  assert.equal(old.length,2,'both leg occurrences survive retry/replay collection');
+  assert.notDeepEqual(old[0].pos,old[1].pos,'each occurrence keeps its own ground anchor');
+  assert.equal(old[0].resumeThrough,2,'the first occurrence still resumes the first leg');
+ }
+ const first={...s,current:'knight',history:s.history.slice(0,2)};
+ assert.equal(currentLieKey(first),'knight@0');
+ assert.equal(currentLieKey({...s,current:'knight'}),'knight@1');
+}
+console.log('Repeated cross-leg words keep distinct anchors, label identities and retry prefixes on both viewports.');

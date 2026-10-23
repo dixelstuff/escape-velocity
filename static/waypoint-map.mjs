@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v108';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v108';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v108';
+import {mapFraction} from './map.mjs?v=golf-v109';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v109';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v109';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -48,9 +48,9 @@ export const finalLegMapBaseline=(baseline,threshold)=>Math.min(baseline,thresho
 /** Store each shot in its own leg, so switching target does not move earlier labels. */
 export function waypointPosition(state,word,d,event=null){
  const a=waypointAnchors(d);
- if(word===state.start)return a.tee;
- if(word===state.final_target)return a.flag;
  const h=event??state.history.findLast(h=>h.word===word&&h.success)??state.history.findLast(h=>h.word===word);
+ if(word===state.start&&h?.stage!==1)return a.tee;
+ if(word===state.final_target)return a.flag;
  if(!h)return a.bend;
  if(h.stage===0&&h.waypoint_reached){
   const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
