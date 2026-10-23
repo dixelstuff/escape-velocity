@@ -1,3 +1,4 @@
+import {greenContains} from './course-appearance.mjs?v=golf-v100';
 /** Presentation-only motion. Scoring and shot counts never depend on animation. */
 const ease=t=>t*t*(3-2*t);
 export function shotMotion(kind,a,b,time,{tee=false,landingFraction=.9}={}){
@@ -25,3 +26,6 @@ export function shotMotion(kind,a,b,time,{tee=false,landingFraction=.9}={}){
   rotation:(kind==='putt'?distance/16*180/Math.PI:distance*1.1)*u,
   shadowScale:(1-.4*Math.min(1,lift/65))*scale,shadowOpacity:.2-.1*Math.min(1,lift/65)};
 }
+
+/** Match the finish to the surface the player actually sees under the landed ball. */
+export const automaticFinishMotion=(origin,layout)=>greenContains(origin,layout)?'putt':'chip';

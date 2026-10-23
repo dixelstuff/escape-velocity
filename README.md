@@ -698,3 +698,5 @@ V98 returns desktop results to the same centred card arrangement as mobile, with
 Result action labels are slightly larger with a four-pixel wider gap, while retaining their existing button dimensions.
 
 V99 places par-3 tees at either 40% or 60% of the map height, stable for each hole. The fairway, path, lie projection and centre trace follow the shifted tee; green and cup placement remain unchanged.
+
+V100 selects automatic putt/chip animation and its map trace from the ball’s actual position on the drawn green, fixing CACTUS → PRICK → NEEDLE → BLOOD without altering scores. Completed waypoint holes retain an unplayed waypoint as a faded green reference label, with no lie dot or shot connector.

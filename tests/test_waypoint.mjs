@@ -219,3 +219,20 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
  assert.ok(world.includes(lake.outline.map(p=>`${p.x},${p.y}`).join(' ')),'water detail clip follows the reflected lake');
  assert.ok(world.includes('continuation-water-details'));assert.ok(!world.includes('NaN'));
 }
+
+// The animation follows the visible putting surface, even when a range finish
+// was recorded as a chip by semantic scoring.
+const {automaticFinishMotion,shotMotion}=await import('../static/shot-motion.mjs');
+const cactus=c.puzzles.find(h=>h.start==='cactus'&&h.waypoint?.word==='sewing');
+const cactusGame=new Game(e,cactus.start,cactus.target,cactus.threshold,{...cactus,finish_mode:'range',challenge:{version:'stroke-play-v1',par:4,attempt:1,id:'cactus-putt'}});
+for(const word of ['prick','needle','blood'])cactusGame.submit(word);
+assert.equal(cactusGame.won,true);
+const cactusState=cactusGame.state(),blood=cactusState.history.find(h=>h.word==='blood');
+assert.equal(blood.automatic_shot.outcome,'chip','reproduces the scoring/presentation mismatch');
+for(const narrow of [false,true]){
+ const d=waypointLayout(mapLayout(narrow),cactusState),origin=waypointPosition(cactusState,'blood',d,blood);
+ assert.equal(greenContains(origin,d),true,'BLOOD visibly lands on the putting surface');
+ assert.equal(automaticFinishMotion(origin,d),'putt');
+ for(const t of [.1,.3,.5,.7,.9])assert.equal(shotMotion(automaticFinishMotion(origin,d),origin,{x:d.right,y:d.holeY},t).lift,0,'on-green auto finish never lifts into the air');
+ assert.equal(automaticFinishMotion(waypointAnchors(d).bend,d),'chip','fairway finishes keep their bounce');
+}
