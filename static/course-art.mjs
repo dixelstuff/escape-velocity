@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v89';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v90';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -10,23 +10,23 @@ const fairwayShapes=new WeakMap();
 function cubicPoint(segment,t){const u=1-t,[a,b,c,e]=segment;return {x:u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y:u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y};}
 export function par3Fairway(d){
  if(fairwayShapes.has(d))return fairwayShapes.get(d);
- const w=d.width,cy=d.teeY,gy=(d.greenTop+d.greenBottom)/2,endX=Math.min(d.zoneLeft-18,par3Bunkers(d)[2].x*d.width),p=(x,y)=>({x,y});
+ const w=d.width,cy=d.teeY,gy=(d.greenTop+d.greenBottom)/2,front=d.zoneLeft,rx=(d.zoneRight-d.zoneLeft)/2,span=d.right-d.left,neckX=d.left+.32*span,neckY=cy+.22*(gy-cy),endX=front+.78*rx,p=(x,y)=>({x,y});
  const top=[
- [p(-30,cy-82),p(w*.14,cy-85),p(w*.25,cy-52),p(w*.42,cy-46)],
- [p(w*.42,cy-46),p(w*.60,cy-44),p(endX-85,gy-70),p(endX-26,gy-68)]
+ [p(-30,cy-76),p(d.left+.08*span,cy-76),p(neckX-.10*span,neckY-38),p(neckX,neckY-38)],
+ [p(neckX,neckY-38),p(neckX+.22*span,neckY-38),p(front-.18*span,d.greenTop+14),p(front+.38*rx,d.greenTop+10)]
  ];
  const shoulder=[
- [top.at(-1)[3],p(endX-6,gy-66),p(endX,gy-34),p(endX,gy)],
- [p(endX,gy),p(endX,gy+34),p(endX-6,gy+66),p(endX-26,gy+68)]
+ [top.at(-1)[3],p(front+.70*rx,d.greenTop+30),p(endX,gy-35),p(endX,gy)],
+ [p(endX,gy),p(endX,gy+35),p(front+.50*rx,d.greenBottom-20),p(front+.25*rx,d.greenBottom-12)]
  ];
  const bottom=[
- [shoulder.at(-1)[3],p(w*.64,cy+76),p(w*.55,cy+46),p(w*.42,cy+48)],
- [p(w*.42,cy+48),p(w*.25,cy+52),p(w*.14,cy+82),p(-30,cy+82)]
+ [shoulder.at(-1)[3],p(front-.18*span,d.greenBottom-16),p(neckX+.22*span,neckY+38),p(neckX,neckY+38)],
+ [p(neckX,neckY+38),p(neckX-.10*span,neckY+38),p(d.left+.08*span,cy+76),p(-30,cy+76)]
  ];
  const xy=p=>`${p.x},${p.y}`,path='M'+xy(top[0][0])+[...top,...shoulder,...bottom].map(c=>' C'+c.slice(1).map(xy).join(' ')).join('')+' Z';
  function edgeY(segments,x){const segment=segments.find(c=>x>=Math.min(c[0].x,c[3].x)&&x<=Math.max(c[0].x,c[3].x));if(!segment)return x<0?segments.find(c=>c.some(p=>p.x<0)).find(p=>p.x<0).y:d.greenBottom+23;let lo=0,hi=1;const forward=segment[3].x>segment[0].x;for(let i=0;i<32;i++){const t=(lo+hi)/2;if((cubicPoint(segment,t).x<x)===forward)lo=t;else hi=t;}return cubicPoint(segment,(lo+hi)/2).y;}
  const outline=[...top,...shoulder,...bottom].flatMap(segment=>Array.from({length:25},(_,i)=>cubicPoint(segment,i/25)));
- const result={path,outline,endX,topY:x=>edgeY(top,x),bottomY:x=>edgeY(bottom,x)};fairwayShapes.set(d,result);return result;
+ const result={path,outline,endX,neckX,topY:x=>edgeY(top,x),bottomY:x=>edgeY(bottom,x)};fairwayShapes.set(d,result);return result;
 }
 export function par3MidBunkers(d,style){const source=style.bunkers[0],x=Math.max(.39,Math.min(.52,source.x)),geometry=par3Fairway(d),px=x*d.width;return [{...source,x,y:geometry.topY(px)-3,angle:Math.atan((geometry.topY(px+1)-geometry.topY(px-1))/2)*180/Math.PI}];}
 export function courseSurrounds(d,style){
@@ -39,7 +39,8 @@ export function courseSurrounds(d,style){
  };
  if(d.par3){
   const contour=par3Fairway(d).path;
-  return `<defs><clipPath id="fairway-clip"><path d="${contour}"/></clipPath></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#c4d3a7"/><rect id="course-fairway" x="-30" y="-30" width="${w+60}" height="1830" fill="url(#fairway-mown)" clip-path="url(#fairway-clip)"/>`;
+  const joins=[...par3MidBunkers(d,style),...par3Bunkers(d)].map(b=>`<path d="${bunkerPath(b,2)}" transform="translate(${b.x*w},${b.y}) rotate(${b.angle})"/>`).join('');
+  return `<defs><filter id="fairway-soft-joins" filterUnits="userSpaceOnUse" x="-30" y="-30" width="${w+60}" height="490"><feMorphology operator="dilate" radius="4"/><feMorphology operator="erode" radius="4"/></filter><mask id="fairway-mask" maskUnits="userSpaceOnUse" x="-30" y="-30" width="${w+60}" height="490"><rect x="-30" y="-30" width="${w+60}" height="490" fill="black"/><g fill="white" filter="url(#fairway-soft-joins)"><path d="${contour}"/><path d="${greenPath(d)}"/>${joins}</g></mask></defs><rect id="course-rough" x="-30" y="-30" width="${w+60}" height="1830" fill="#c4d3a7"/><rect id="course-fairway" x="-30" y="-30" width="${w+60}" height="1830" fill="url(#fairway-mown)" mask="url(#fairway-mask)"/>`;
  }
  const contour=smoothContour([
   [-30,108],[w*.12,82],[w*.28,65],[w*.42,45],[w*.55,57],[w*.68,32],[w*.82,23],[w*.92,40],

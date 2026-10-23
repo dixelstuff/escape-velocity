@@ -161,3 +161,25 @@ for(const narrow of [false,true])for(const turn of ['up','down'])for(const verti
  const complex=waypointGreen(d,{phase:0});assert.ok(complex.includes('shared-collar-join'));assert.ok(!complex.includes('#9daf7d'),'greenside sand has no separate dark grass surround');
 }
 console.log('Unified green/sand collar and non-touching surfaces passed at both widths and directions.');
+
+// A waypoint entry may already be inside final-target chip range. The display
+// still has to give the next finishing shot forward space, in both orientations.
+for(const narrow of [false,true])for(const turn of ['up','down']){
+ const game=new Game(e,'laps','spin',.27,{mode:'distance',waypoint:{word:'health',threshold:.27,turn},finish_mode:'range'});
+ game.submit('swimming');game.submit('fitness');const before=game.state();
+ const d=waypointLayout(mapLayout(narrow),before),entry=waypointPosition(before,'fitness',d),flag=waypointAnchors(d).flag;
+ const shot=game.submit('marketing');assert.ok(shot.automatic_shot);assert.ok(shot.destination<shot.leg_baseline);
+ const preview=waypointPosition(before,'marketing',d,shot),landing=waypointPosition(game.state(),'marketing',d);
+ assert.deepEqual(preview,landing,'preview and settled lie use the same final-leg scale');
+ assert.ok(Math.hypot(landing.x-flag.x,landing.y-flag.y)<Math.hypot(entry.x-flag.x,entry.y-flag.y)*.4,'finishing shot lands forward in chip range');
+ const replay=restoreGame(e,before),reused=replay.submit('swimming');
+ assert.equal(reused.stage,1,'first-leg words may be used again in the final leg');
+ assert.notDeepEqual(waypointPosition(replay.state(),'swimming',d,reused),waypointPosition(before,'swimming',d),'reused word uses its new leg position');
+ const unused=restoreGame(e,before);assert.doesNotThrow(()=>unused.submit('health'),'unplayed waypoint word remains available on final leg');
+}
+console.log('LAPS / HEALTH / SPIN: forward chip landing, matching flight preview, reused words and unused waypoint word passed.');
+
+const actualWaypoint=new Game(e,'penguin','galaxy',.27,{mode:'distance',launch_min:.01,launch_max:.01,waypoint:{word:'library',threshold:.27},finish_mode:'range'});
+assert.ok(actualWaypoint.submit('library').waypoint_reached);
+assert.throws(()=>actualWaypoint.submit('library'),/waypoint word has already been played/);
+assert.equal(actualWaypoint.history.length,1,'repeating the actual waypoint word uses no shot');

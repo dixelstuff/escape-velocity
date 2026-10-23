@@ -11,3 +11,9 @@ export function retryPrefix(saved,through,attempt){
  if(!Number.isInteger(through)||through<0||through>saved.history.length||saved.history.slice(0,through).some(h=>!h.success||h.won||h.automatic))throw Error('Choose a previously landed word.');
  return {...saved,challenge:{...saved.challenge,attempt},resumed_from:{attempt:saved.challenge.attempt,through}};
 }
+
+/** Resume at the last landed lie, leaving room for another shot after a stroke cap. */
+export function retryLieThrough(saved){
+ const miss=saved.history.findIndex(h=>!h.success);
+ return Math.min(miss<0?saved.history.length:miss,maximumStrokes(saved.challenge.par)-1);
+}

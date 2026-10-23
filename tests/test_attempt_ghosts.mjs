@@ -8,7 +8,7 @@ const journeys=[prior(1),prior(2),prior(3),prior(4),prior(5),prior(5,{word_model
 const original=JSON.stringify(journeys),latest=previousAttempts(journeys,state,'active');assert.deepEqual(latest.map(g=>g.state.challenge.attempt),[5]);assert.equal(JSON.stringify(journeys),original);assert.equal(previousAttempts(journeys,{...state,challenge:undefined}).length,0);assert.equal(previousAttempts(journeys,{...state,challenge:{...challenge,id:'new-replay'}}).length,0);
 for(const narrow of [false,true]){
  const d=mapLayout(narrow),labels=previousWordLabels(latest[0].state,d);
- assert.deepEqual(labels.map(l=>l.word),['step','miss']);assert.deepEqual(labels[0].pos,projectPoint(.1,.02,.27,d,1.1*-62));assert.deepEqual(Object.keys(labels[0]).sort(),['pos','word'],'labels have no travel-line or marker geometry');
+ assert.deepEqual(labels.map(l=>l.word),['step','miss']);assert.deepEqual(labels[0].pos,projectPoint(.1,.02,.27,d,.88*-62));assert.deepEqual(Object.keys(labels[0]).sort(),['pos','word'],'labels have no travel-line or marker geometry');
  for(const change of [{outcome:'water'},{destination:.105},{destination:.05}]){
   const failed=structuredClone(latest[0].state);Object.assign(failed.history[1],change);assert.deepEqual(previousWordLabels(failed,d).map(l=>l.word),['step'],'keep the successful label, hide the unshown failed word');
  }

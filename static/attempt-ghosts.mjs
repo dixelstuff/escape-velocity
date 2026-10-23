@@ -1,6 +1,6 @@
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v89';
-import {projectPoint} from './map.mjs?v=golf-v89';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v89';
+import {waypointPosition} from './waypoint-map.mjs?v=golf-v90';
+import {projectPoint} from './map.mjs?v=golf-v90';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v90';
 /** Compare only retries in this challenge, never another model or a replay. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -10,11 +10,8 @@ export function previousAttempts(journeys,state,activeId){
 }
 /** Retain the visible word anchors for faded labels and dots, without old travel lines. */
 export function previousWordLabels(state,d){
- const seen=new Set([state.start,state.target]);
- return state.history.filter(h=>h.success||usefulForwardMiss(h,state)).flatMap(h=>{
-  if(seen.has(h.word))return [];seen.add(h.word);
-  const first=state.history.find(e=>e.word===h.word);
-  return [{word:h.word,...(h.success&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,first):projectPoint(first.destination,state.baseline,state.threshold,d,1.1*[-62,54,-104,97,-28,15][(first.attempt-1)%6])}];
- });
+ const latest=new Map();
+ for(const h of state.history.filter(h=>h.success||usefulForwardMiss(h,state)))if(![state.start,state.target].includes(h.word))latest.set(h.word,h);
+ return [...latest.values()].map(h=>({word:h.word,...(h.success&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
 }
-export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.length&&!state?.won;}
+export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.some(h=>!h.assumed)&&!state?.won;}

@@ -670,3 +670,10 @@ Validation includes the progressive-loader display-without-fetch check, all cura
 ### V89: rough around the par 3 green
 
 The par 3 fairway ends in a rounded front approach at the foremost greenside bunker line. Its complete outline is bounded by that line: no mowing extends alongside, above, below or behind the green. The green and all three greenside bunkers sit in continuous rough. The narrowed middle, wider tee, edge bunker, curved trace, path, varied tree clusters and scoring changes from V88 remain. Geometry tests check the complete fairway outline against the bunker cutoff.
+
+
+### V90: early fairway waist and a connected front approach
+
+The par 3 tee is slightly wider than its markers, then narrows rapidly to its minimum width at 32% of the tee-to-flag distance. The approach broadens to embrace the front greenside bunkers and merge under the front of the green, replacing V89's blunt stop. Mowing ends inside the front half of the green, leaving the sides and back in rough. A small morphological closing softens fairway joins beneath the painted green/bunker edges without changing their sand outlines. The header places the hole words above one baseline-aligned row for par and Attempt 1 of 6. Tests measure the early minimum, tee clearance and widening front approach on phone and desktop layouts.
+
+V90 also resumes a missed attempt at its last landed lie, carrying the prefix shots into the next attempt; earlier words remain tappable. Retry guidance omits cancellation instructions. Par-3 shot offsets are 20% smaller. Dogleg labels near the outside corner prefer the inward side while retaining readable existing placements. Final-leg display baselines reserve approach space when a waypoint entry is already inside chip range; shot/guide projection share this scale while scoring remains unchanged. Word reuse is drawn using each event's leg, and unused waypoint words stay available on the final leg.
