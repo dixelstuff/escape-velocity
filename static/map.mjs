@@ -1,4 +1,4 @@
-import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v98';
+import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v99';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -12,7 +12,7 @@ export function mapLayout(narrow=false,placement={depth:.6,vertical:(215-(GREEN_
  const base=narrow?{width:640,left:55,greenCentre:550,radius:50.82,edge:620}:{width:1000,left:80,greenCentre:860,radius:83.16,edge:960};
  const greenY=Math.max(GREEN_CENTRE_Y-20,Math.min(GREEN_CENTRE_Y+20,placement.greenCentreY??GREEN_CENTRE_Y));
  const height=placement.greenHeight??GREEN_HEIGHT;
- const d={...base,...(placement.par3?{par3:true}:{}),teeY:Math.max(191,Math.min(239,placement.teeY??215)),greenTop:greenY-height/2,greenBottom:greenY+height/2,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
+ const d={...base,...(placement.par3?{par3:true}:{}),teeY:Math.max(placement.par3?168:191,Math.min(placement.par3?262:239,placement.teeY??215)),greenTop:greenY-height/2,greenBottom:greenY+height/2,zoneLeft:base.greenCentre-base.radius,zoneRight:base.greenCentre+base.radius};
  const depth=Math.max(.5,Math.min(.7,placement.depth)),vertical=Math.max(.3,Math.min(.7,placement.vertical));
  d.right=d.zoneLeft+depth*(d.zoneRight-d.zoneLeft);d.holeY=d.greenTop+vertical*(d.greenBottom-d.greenTop);
  d.axisLength=Math.hypot(d.right-d.left,d.holeY-d.teeY);d.axisRight=d.left+d.axisLength;

@@ -696,3 +696,5 @@ V97: Tapping back to the original current lie cancels an uncommitted retry and r
 
 V98 returns desktop results to the same centred card arrangement as mobile, with the course scorecard below when playing a round. The improved continuous landscape remains. Lake highlights are scattered with varied lengths, curvature, opacity and occasional paired strokes instead of repeated identical marks.
 Result action labels are slightly larger with a four-pixel wider gap, while retaining their existing button dimensions.
+
+V99 places par-3 tees at either 40% or 60% of the map height, stable for each hole. The fairway, path, lie projection and centre trace follow the shifted tee; green and cup placement remain unchanged.

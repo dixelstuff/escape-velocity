@@ -51,7 +51,7 @@ export function courseStyle(seed){
  const u=salt=>appearanceUnit(seed,salt),count=u(':count')>.65?2:1;
  const greenCentreY=GREEN_CENTRE_Y+40*(u(':green-y')-.5),holeY=greenCentreY+GREEN_HEIGHT*(pinPlacement(seed).vertical-.5);
  const teeY=Math.max(191,Math.min(239,215-.25*(holeY-215)+4*(u(':tee')-.5)));
- return {teeY,greenCentreY,approach:u(':approach'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
+ return {teeY,par3TeeY:u(':par3-tee')<.5?172:258,greenCentreY,approach:u(':approach'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
   bunkers:Array.from({length:count},(_,i)=>({
    x:i?.65+.025*u(':bx1'):.38+(count===2?.06:.16)*u(':bx0'),y:46+16*u(':by'+i),
    rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:8+Math.floor(2*u(':shape'+i))
