@@ -9,7 +9,7 @@ assert.equal(attemptNotice({...event,destination:.11},'science',state),'Miss! Th
 assert.equal(attemptNotice({...event,destination:.09},'science',state),'Miss! The connection was too weak.','a tiny backward weak swing is also nearby');
 assert.equal(attemptNotice({...event,word:'speak',origin:'talk',outcome:'water'},'chirp',state),'Miss! SPEAK took you away from CHIRP.');
 assert.equal(attemptNotice({...event,word:'cold',destination:.05},'science',state),'Miss! COLD took you away from SCIENCE.');
-assert.equal(attemptNotice({outcome:'landed'},'science',state),'Par was out of reach. Try again.');
+assert.equal(attemptNotice({outcome:'landed'},'science',state),'');
 assert.equal(usefulForwardMiss({...event,destination:.13},state),true,'inclusive 10% of original gap');
 assert.equal(usefulForwardMiss({...event,destination:.129},state),false);
 assert.equal(usefulForwardMiss({...event,outcome:'water'},state),false);
@@ -31,3 +31,6 @@ assert.equal(shortSecondShot({...shortState,won:true},false),false);
 assert.equal(shortSecondShot({...shortState,finish_mode:'green'},false),false);
 assert.equal(vagueWordNotice(' soon '),'SOON is too vague for this hole. Try again.');
 console.log('Short-shot reveal criteria and approved per-hole blocklist copy passed.');
+
+assert.equal(attemptNotice({word:'bridge',success:true,won:true,outcome:'green'},'science',state),'','restoring a completed route must not invent a par failure');
+assert.equal(attemptNotice(null,'science',state),'');

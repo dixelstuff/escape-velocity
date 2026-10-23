@@ -303,3 +303,29 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .retry-guidance.below-label{transform:translate(-50%,0);}
 .retry-guidance.below-label::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#f9fbf0ed;}
 @media(max-width:650px){.hole-tools button{width:29px;height:29px;padding:6px;background:#f8faefb8;border-color:#8ca57a44;box-shadow:none;}.hole-tools svg{width:17px;height:17px;}}
+
+.retry-guidance{max-width:146px;}
+.attempt-log-toggle{position:absolute;top:8px;left:8px;z-index:4;display:flex;align-items:center;gap:6px;min-height:30px;padding:5px 9px;background:#f8faefd9;color:#355e42;border:1px solid #8ca57a44;border-radius:7px;font-size:11px;font-weight:600;}
+.attempt-log-toggle[aria-expanded="true"] span{transform:rotate(180deg);}
+#hole-attempt-log{padding:14px 16px 20px;}
+#hole-attempt-log[hidden]{display:none;}
+.hole-log-card{position:relative;max-width:620px;margin:auto;padding:17px 20px 19px;background:#fffdf4;color:#294b35;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:5px;box-shadow:0 5px 16px #233b3026;}
+.hole-log-card::before{content:'';position:absolute;inset:5px;border:1px solid #e6e4d1;pointer-events:none;}
+.hole-log-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.hole-log-heading h2{font:700 11px 'DM Sans',sans-serif;letter-spacing:2px;margin:0;color:#718369;}
+.hole-log-heading button{font-size:22px;line-height:1;padding:3px 6px;background:transparent;color:#667b60;}
+#hole-log-rows{list-style:none;margin:12px 0 0;padding:0;max-height:320px;overflow:auto;overscroll-behavior:contain;}
+.hole-log-attempt{padding:12px 0;border-top:1px solid #d5dec9;}
+.hole-log-attempt-heading{display:flex;justify-content:space-between;gap:12px;font-size:12px;}
+.hole-log-attempt-heading>span{color:#7c8b72;font-size:11px;}
+.hole-log-attempt ul{list-style:none;padding:0;margin:8px 0 0;}
+.hole-log-attempt ul li{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:12px;line-height:1.5;padding:5px 0;}
+.hole-log-attempt ul li>span:first-child{overflow-wrap:anywhere;min-width:0;}
+.hole-log-arrow{color:#91a184;}
+.hole-log-outcome{flex:none;font-size:10px;color:#728768;}
+.hole-log-outcome.missed{color:#a15e4b;}
+.hole-log-empty,.hole-log-from{font-size:11px;color:#7b8c73;margin:7px 0 0;}
+.attempt-log-open .course-feedback:has(>#shot-notice:not([hidden])){display:none;}
+@media(max-width:650px){.attempt-log-toggle{top:6px;left:6px;min-height:28px;font-size:10px;padding:4px 7px;}#hole-attempt-log{padding:12px 10px 15px;}.hole-log-card{padding:14px 15px 17px;}.hole-log-attempt ul li{font-size:11px;}}
+@media(max-width:650px){#hole-log-rows{max-height:min(320px,42svh);-webkit-overflow-scrolling:touch;}}
+#hole-log-rows{padding-right:6px;scrollbar-gutter:stable;}

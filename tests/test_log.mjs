@@ -173,3 +173,17 @@ assert.ok(!corrupt.exportJSON().includes('corrupt old log'));
 assert.equal(corrupt.backup.unreadableOriginal,'corrupt old log');
 corrupt.restorePrevious();assert.equal(JSON.parse(corrupt.exportJSON()).unreadableOriginal,'corrupt old log');
 console.log('Reset passed: new-only exports, persistent recovery, preservation of new rounds, failure rollback, and unreadable-original recovery.');
+
+// The in-map card recalls actual guesses across this hole's attempts, not copied prefixes.
+{
+ const {holeAttemptLog}=await import('../static/hole-attempt-log.mjs');
+ const s={start:'beetle',target:'castle',final_target:'castle',waypoint:{word:'armour'},challenge:{id:'hole-session',attempt:2},history:[{word:'knight',assumed:true}]};
+ const row=(id,number,entries,extra={})=>({id,state:{...s,challenge:{...s.challenge,attempt:number},...extra},entries});
+ const journeys=[row('first',1,[{origin:'horse',word:'knight',event:{success:true}},{origin:'armour',word:'knight',event:{success:false,outcome:'miss'}}],{challenge_failed:true}),row('current',2,[{origin:'horse',word:'knight',assumed:true,event:{success:true}},{origin:'knight',word:'castle',event:{automatic:true,success:true}},{origin:'knight',word:'xyzxyz',error:'That word is outside the supported vocabulary.'}]),row('other',1,[],{challenge:{id:'other-session',attempt:1}})];
+ const rows=holeAttemptLog(journeys,s,'current');
+ assert.deepEqual(rows.map(r=>r.number),[2,1]);assert.equal(rows[0].current,true);assert.equal(rows[0].from,'knight');
+ assert.deepEqual(rows[0].shots.map(r=>r.word),['xyzxyz']);assert.equal(rows[0].shots[0].result,'Not allowed');
+ assert.deepEqual(rows[1].shots.map(r=>r.word),['knight','knight'],'do not collapse the same guess from different lies/legs');
+ assert.deepEqual(rows[1].shots.map(r=>r.result),['Landed','Miss']);assert.equal(rows[1].result,'Ended');
+ assert.deepEqual(holeAttemptLog(journeys,{...s,challenge:undefined}),[]);
+}
