@@ -7,7 +7,7 @@ function graph(progress={tee:0,a:.05,b:.1,c:.2,flag:1},contacts={}){
  return {words,index:new Map(words.map((w,i)=>[w,i])),hub:w=>w==='b'?progress.hub??0:0,
  cosine(a,b){return a===b?1:a==='flag'?progress[b]:b==='flag'?progress[a]:pairs[[a,b].sort().join(',')]??.01;}};
 }
-const play=(e,words,rules='golf-distance-v3')=>{const g=new Game(e,'tee','flag',.6,{mode:'distance',rules});for(const w of words)assert.equal(g.submit(w).success,true,w);return g;};
+const play=(e,words,rules='golf-distance-v3')=>{const g=new Game(e,'tee','flag',.6,{mode:'distance',rules,allow_backtracking:true});for(const w of words)assert.equal(g.submit(w).success,true,w);return g;};
 let e=graph(),g=play(e,['a','b','c','flag']);
 const snapshot=JSON.stringify(g.state()),r=reviewRoute(e,g.state());
 assert.deepEqual(r.skips.map(x=>x.index),[1,2]);assert.equal(markedRoute(g.route,r),'tee → a* → b* → c → flag');

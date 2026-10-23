@@ -13,7 +13,7 @@ function graph(strongForward=false){
  for(const w of words.filter(w=>w.startsWith('green'))){set(w,'flag',.65);set('tee',w,.5);set('approach',w,strongForward?.5:0);}
  const e={words,index:new Map(words.map((w,i)=>[w,i])),cosine(a,b){return a===b?1:values.get([a,b].sort().join(','))??0;}};
  const analyser=new SkillAnalyser(e);analyser.row=w=>Float64Array.from(words.map(v=>e.cosine(w,v)));
- return {e,analyser,game:()=>new Game(e,'tee','flag',.6,{mode:'distance'})};
+ return {e,analyser,game:()=>new Game(e,'tee','flag',.6,{mode:'distance',allow_backtracking:true})};
 }
 let {e,analyser,game}=graph();let g=game();g.submit('near');let near=analyser.analyse(g.state());
 g=game();g.submit('far');let far=analyser.analyse(g.state());assert.ok(near.score>far.score);assert.ok(near.shots[0].contact_shortfall<far.shots[0].contact_shortfall);
@@ -41,7 +41,7 @@ g=new Game(e,'morph','lineage',.28,settings);g.submit('evolved');const shortcut=
 console.log(`Real vectors: EVOLVE route ${longer.score}; EVOLVED green ${shortcut.score}.`);
 // Independently check reported onward-option counts with real Game submissions.
 g=new Game(e,'morph','lineage',.28,settings);g.submit('evolve');const saved=g.state();let count=0;
-for(const word of words){if(word===saved.current)continue;const trial=restoreGame(e,saved),event=trial.submit(word);if(event.success&&event.destination>saved.progress+1e-7)count++;}
+for(const word of words){if(saved.route.includes(word))continue;const trial=restoreGame(e,saved),event=trial.submit(word);if(event.success&&event.destination>saved.progress+1e-7)count++;}
 assert.equal(longer.shots[0].good_moves_after,count);
 for(let i=0;i<longer.shots.length;i++){
  const prefix=new Game(e,'morph','lineage',.28,settings);for(const word of ['evolve','generation','lineage'].slice(0,i))prefix.submit(word);

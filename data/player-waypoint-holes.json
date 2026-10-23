@@ -118,5 +118,170 @@
     "launch_max": 0.215,
     "par": 5,
     "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "lungs",
+    "target": "perfection",
+    "waypoint": {
+      "word": "short",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "nacho",
+    "target": "tight",
+    "waypoint": {
+      "word": "clip",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "ran",
+    "target": "regal",
+    "waypoint": {
+      "word": "rage",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "makeup",
+    "target": "sport",
+    "waypoint": {
+      "word": "gossip",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "lace",
+    "target": "plaid",
+    "waypoint": {
+      "word": "witch",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "pimple",
+    "target": "mentioned",
+    "waypoint": {
+      "word": "sunscreen",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "pastel",
+    "target": "coven",
+    "waypoint": {
+      "word": "leafy",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "nest",
+    "target": "crest",
+    "waypoint": {
+      "word": "best",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "map",
+    "target": "gap",
+    "waypoint": {
+      "word": "nap",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "salt",
+    "target": "caramel",
+    "waypoint": {
+      "word": "festive",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
+  },
+  {
+    "start": "shuttle",
+    "target": "rut",
+    "waypoint": {
+      "word": "butler",
+      "threshold": 0.27,
+      "turn": "up"
+    },
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "par": 5,
+    "course_set": "player-waypoints-v1"
   }
 ]

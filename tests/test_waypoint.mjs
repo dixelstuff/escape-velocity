@@ -256,3 +256,9 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
   assert.ok(lakeContains(p,{outline})||greenContains(p,d),'second-leg ball stays on the fairway or green in either dogleg');
  }
 }
+
+// A real completed route deliberately reuses CLOAK across the waypoint.
+const lace=new Game(e,'lace','plaid',.27,{mode:'distance',launch_min:.095,launch_max:.215,waypoint:{word:'witch',threshold:.27},finish_mode:'range'});
+const firstCloak=lace.submit('cloak');lace.submit('witch');const secondCloak=lace.submit('cloak');
+assert.equal(firstCloak.stage,0);assert.equal(secondCloak.stage,1);assert.equal(secondCloak.success,true);assert.equal(lace.won,true);
+assert.deepEqual(restoreGame(e,lace.state()).state(),lace.state());

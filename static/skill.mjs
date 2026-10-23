@@ -1,6 +1,6 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v101';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v102';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v101';
+import { Game } from './engine.mjs?v=golf-v102';
 export const SKILL_VERSION='vector-skill-v4';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
@@ -13,8 +13,8 @@ export function connectionRegret(actual,candidates){
   const benchmark=Math.max(actual,...candidates);
   return {link_strength:actual,link_benchmark:benchmark,connection_loss:benchmark>0?clamp(1-actual/benchmark):0};
 }
-import {withWordModel} from './word-model.mjs?v=golf-v101';
-export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1',...(s.plural_tolerance>.02?[s.plural_tolerance]:[])]:[])]);}
+import {withWordModel} from './word-model.mjs?v=golf-v102';
+export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.allow_backtracking===false?['no-same-leg-repeats']:[]),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1',...(s.plural_tolerance>.02?[s.plural_tolerance]:[])]:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;
   const metrics=['attempt','score','contact','required','contact_shortfall','contact_score','choice_score','choice_gap','compared_choices','setup_change','good_moves_before','good_moves_after','green_moves_after','direction_shortfall','specificity_loss','forward_fraction','origin_hub','destination_hub','link_strength','link_benchmark','connection_loss'];
@@ -47,18 +47,18 @@ export class SkillAnalyser {
     const progress=v=>clamp((v-g.baseline)/gap),position=word=>target[e.index.get(word)];
     const specificityAt=(origin,word)=>word===g.target?{...specificity(e,origin,word,position(origin),position(word),g.baseline,g.threshold),specificity_loss:0}:specificity(e,origin,word,position(origin),position(word),g.baseline,g.threshold);
     const potentialCache=new Map();
-    function after(s,word){const destination=position(word),backtrack=destination+1e-7<position(s.current)&&s.route.includes(word);return {current:word,route:s.route.includes(word)?s.route:[...s.route,word],best:backtrack?destination:Math.max(s.best,destination)};}
+    function after(s,word){const destination=position(word),backtrack=g.allow_backtracking!==false&&destination+1e-7<position(s.current)&&s.route.includes(word);return {current:word,route:s.route.includes(word)?s.route:[...s.route,word],best:backtrack?destination:Math.max(s.best,destination)};}
     const options=s=>{
       const contact=this.row(s.current),current=position(s.current),reached=new Set(s.route),list=[];
       const probe=Object.assign(Object.create(g),{current:s.current,route:s.route,best_progress:s.best});
       for(let i=0;i<e.words.length;i++){
-        const word=e.words[i];if(word===s.current)continue;
+        const word=e.words[i];if(word===s.current||g.allow_backtracking===false&&reached.has(word))continue;
         let destination=target[i],required=g.requirement(s.current,word,current,destination).required,connection=contact[i],finished=g.finishesFrom(word,destination);
         if(g.plural_rescue&&((connection<required&&required-connection<=g.plural_tolerance+1e-7)||(!finished&&g.finishShortfall(word,destination)<=g.plural_tolerance+1e-7))){
           const shot=probe.pluralShot(word);
           if(shot.scoring_word){destination=shot.destination;required=shot.required;connection=shot.launch;finished=shot.won;}
         }
-        const backtrack=destination+1e-7<current&&reached.has(word);
+        const backtrack=g.allow_backtracking!==false&&destination+1e-7<current&&reached.has(word);
         if(connection+1e-7<required||(!backtrack&&destination+1e-7<s.best-g.backward_allowance))continue;
         // Strength is a bounded measure of contact surplus, not a probability.
         list.push({word,destination,contact:connection,required,strength:clamp(connection/(2*required)),p:g.finish_mode==='range'&&finished?1:progress(destination)});

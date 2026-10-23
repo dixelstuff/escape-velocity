@@ -34,7 +34,7 @@ const values={tee:0,flag:1,lie:.153,side:.07};
 let h=1;
 const fake={words:Object.keys(values),index:new Map(Object.keys(values).map((w,i)=>[w,i])),hub:w=>w==='lie'?h:0,
  cosine(a,b){return a===b?1:a==='flag'?values[b]:b==='flag'?values[a]:.6;}};
-const fresh=()=>new Game(fake,'tee','flag',.28,settings);
+const fresh=()=>new Game(fake,'tee','flag',.28,{...settings,allow_backtracking:true});
 let g=fresh();
 assert.equal(g.requirement('lie','side').hub_surcharge,0);
 assert.equal(g.requirement('lie','side',.15,.15).hub_surcharge,0);

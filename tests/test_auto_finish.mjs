@@ -25,7 +25,7 @@ for(const word of ['short','weak','water']){
  g=fresh();event=g.submit(word);assert.equal(g.won,false,word);assert.equal(g.automatic_shots.length,0,word);
  assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
 }
-g=fresh();g.submit('short');assert.equal(g.submit('tee').won,false,'returning to the tee cannot auto finish');
+g=new Game(e,'tee','flag',.27,{...settings,allow_backtracking:true});g.submit('short');assert.equal(g.submit('tee').won,false,'returning to the tee cannot auto finish');
 const old=new Game(e,'tee','flag',.27,{...settings,finish_mode:'green'});assert.equal(old.submit('near').won,false);
 assert.equal(old.submit('flag').won,true);assert.equal(old.automatic_shots.length,0,'historical manual chip stays manual');
 assert.notEqual(skillHistoryKey(old.state()),skillHistoryKey({...old.state(),finish_mode:'range'}));

@@ -6,7 +6,7 @@ import {assessHole} from '../static/assessment.mjs';
 import {FlightLog,journeyText} from '../static/flight-log.mjs';
 const vals=new Map(Object.entries({'start,target':.1,'start,forward':.6,'forward,target':.4,'forward,branch':.6,'branch,target':.2,'start,branch':.6,'start,arrival':.6,'arrival,target':.7,'start,failed':.01,'failed,target':.05,'forward,failed':.6}));
 const fake={index:new Map(['start','target','forward','branch','arrival','failed'].map(w=>[w,0])),cosine(a,b){return a===b?1:vals.get(`${a},${b}`)??vals.get(`${b},${a}`)??0;}};
-const game=()=>new Game(fake,'start','target',.5,{mode:'distance'});
+const game=()=>new Game(fake,'start','target',.5,{mode:'distance',allow_backtracking:true});
 let g=game();
 assert.equal(g.submit('arrival').won,true);
 assert.equal(g.state().attempts,2);assert.equal(g.current,'target');
@@ -95,3 +95,8 @@ for(const settings of [{start:'coffee',target:'science',threshold:.28,mode:'dist
  }
 }
 console.log('Opening bridges passed: exhaustive real-engine comparison, exact listed strengths, custom settings, fixed mode, and direct hole-in-one rows.');
+
+const currentCourse=new Game(fake,'start','target',.5,{mode:'distance'});currentCourse.submit('forward');
+assert.equal(currentCourse.shotResult('start').backtrack,false,'played words no longer bypass the backward boundary');
+assert.throws(()=>currentCourse.submit('start'),/Tap that earlier word/);assert.equal(currentCourse.history.length,1,'same-leg reuse costs no shot');
+assert.equal(currentCourse.state().allow_backtracking,false);assert.deepEqual(restoreGame(fake,currentCourse.state()).state(),currentCourse.state());
