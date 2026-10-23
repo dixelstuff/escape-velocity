@@ -362,3 +362,5 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .hole-tools button{color:#6b846e;-webkit-tap-highlight-color:transparent;}
 .hole-tools svg{stroke-width:1.55;}
 .mission{scroll-margin-top:8px;}
+
+[data-course-tree][data-hidden-for-control]{visibility:hidden;}

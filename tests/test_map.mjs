@@ -137,3 +137,19 @@ for(const width of [640,1000]){
  assert.notDeepEqual(relocated.labels.get('step'),returned.labels.get('step'),'a genuinely relocated word gets a new label position');
 }
 console.log('Stable labels passed: mobile/desktop redraws, active-ball changes, retries/ghosts, isolated collision avoidance and changed word anchors.');
+
+{
+ const {treeOverlapsControls}=await import('../static/control-trees.mjs');
+ const tree={left:90,right:110,top:20,bottom:40};
+ assert.equal(treeOverlapsControls(tree,[{left:80,right:95,top:20,bottom:40}]),true);
+ assert.equal(treeOverlapsControls(tree,[{left:80,right:88,top:20,bottom:40}]),false,'a narrower rendered button restores the tree');
+ assert.equal(treeOverlapsControls(tree,[{left:60,right:90,top:20,bottom:40}]),false,'touching bounds alone do not clear the tree');
+ assert.equal(treeOverlapsControls(tree,[]),false,'hidden controls reserve no empty area');
+ assert.equal(treeOverlapsControls(tree,[{left:90,right:110,top:42,bottom:60}]),false);
+}
+{
+ const {treeOverlapsControls}=await import('../static/control-trees.mjs');
+ const tree={left:90,right:110,top:20,bottom:40};
+ assert.equal(treeOverlapsControls(tree,[{left:71,right:91,top:20,bottom:40}]),false,'a 5% edge touch is allowed');
+ assert.equal(treeOverlapsControls(tree,[{left:71,right:91.3,top:20,bottom:40}]),true,'more substantial button coverage hides the tree');
+}
