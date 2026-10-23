@@ -329,3 +329,27 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 @media(max-width:650px){.attempt-log-toggle{top:6px;left:6px;min-height:28px;font-size:10px;padding:4px 7px;}#hole-attempt-log{padding:12px 10px 15px;}.hole-log-card{padding:14px 15px 17px;}.hole-log-attempt ul li{font-size:11px;}}
 @media(max-width:650px){#hole-log-rows{max-height:min(320px,42svh);-webkit-overflow-scrolling:touch;}}
 #hole-log-rows{padding-right:6px;scrollbar-gutter:stable;}
+
+/* Keep the log tucked into the course, with its own short scroll window. */
+.course-feedback:not(:has(> :not([hidden]))){padding:0;}
+#hole-attempt-log{position:relative;margin-top:-16px;padding:0 16px 12px;}
+.hole-tools[hidden],.attempt-log-toggle[hidden],#result-log-toggle[hidden]{display:none;}
+#result-log-toggle{display:block;margin:13px auto 0;padding:3px 6px;background:transparent;color:#74816a;font-size:11px;font-weight:500;text-decoration:underline;text-underline-offset:3px;}
+#arrival-banner #hole-attempt-log{margin:13px 0 0;padding:0;border-top:1px solid #d5dec9;}
+#arrival-banner .hole-log-card{padding:12px 0 0;border:0;background:transparent;box-shadow:none;}
+#arrival-banner .hole-log-card::before,#arrival-banner #close-attempt-log{display:none;}
+#arrival-banner #hole-log-rows{max-height:220px;}
+@media(max-width:650px){
+ #hole-attempt-log{margin-top:-18px;padding:0 10px 10px;}
+ .hole-log-card{padding:10px 13px 12px;}
+ .hole-log-heading button{font-size:19px;padding:2px 5px;}
+ #hole-log-rows{margin-top:8px;max-height:min(130px,var(--hole-log-height,18svh));}
+ .hole-log-attempt{padding:9px 0;}
+ #arrival-banner #hole-log-rows{max-height:min(180px,25svh);}
+}
+#arrival-banner .hole-log-heading h2{font:700 10px 'DM Sans',sans-serif;letter-spacing:1.5px;margin:0;color:#718369;}
+#arrival-banner .hole-log-from,#arrival-banner .hole-log-empty{font-size:11px;margin:7px 0 0;}
+
+#quick-replay[hidden]{display:none;}
+@keyframes course-control-appear{from{opacity:0}to{opacity:1}}
+.attempt-log-toggle:not([hidden]),#quick-replay:not([hidden]){animation:course-control-appear .25s ease-out;}

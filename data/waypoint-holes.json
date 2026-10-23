@@ -3,7 +3,7 @@
     "start": "penguin",
     "waypoint": {
       "word": "library",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "galaxy",
@@ -27,7 +27,7 @@
     "start": "pencil",
     "waypoint": {
       "word": "forest",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "orchestra",
@@ -51,7 +51,7 @@
     "start": "coal",
     "waypoint": {
       "word": "wedding",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "telescope",
@@ -75,7 +75,7 @@
     "start": "piano",
     "waypoint": {
       "word": "lock",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "river",
@@ -99,7 +99,7 @@
     "start": "cactus",
     "waypoint": {
       "word": "sewing",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "violence",
@@ -123,7 +123,7 @@
     "start": "squid",
     "waypoint": {
       "word": "painting",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "courtroom",
@@ -147,7 +147,7 @@
     "start": "comet",
     "waypoint": {
       "word": "jewellery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "football",
@@ -171,7 +171,7 @@
     "start": "dolphin",
     "waypoint": {
       "word": "radio",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "submarine",
@@ -195,7 +195,7 @@
     "start": "candy",
     "waypoint": {
       "word": "dentistry",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "mining",
@@ -219,7 +219,7 @@
     "start": "stool",
     "waypoint": {
       "word": "furniture",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "arithmetic",
@@ -243,7 +243,7 @@
     "start": "chocolate",
     "waypoint": {
       "word": "volcano",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "glass",
@@ -267,7 +267,7 @@
     "start": "fossil",
     "waypoint": {
       "word": "calendar",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "bicycle",
@@ -291,7 +291,7 @@
     "start": "sponge",
     "waypoint": {
       "word": "chemistry",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "detective",
@@ -315,7 +315,7 @@
     "start": "squirrel",
     "waypoint": {
       "word": "carpentry",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "target": "electricity",
@@ -339,7 +339,7 @@
     "start": "accordion",
     "waypoint": {
       "word": "bakery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "target": "geology",

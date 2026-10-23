@@ -16,8 +16,7 @@
     "target": "rainbow",
     "route": [
       "light",
-      "lens",
-      "prism"
+      "color"
     ]
   },
   {

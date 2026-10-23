@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v110';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v110';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v110';
+import {mapFraction} from './map.mjs?v=golf-v111';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v111';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v111';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -45,6 +45,15 @@ function finalLie(d,start,f,offset){
 }
 /** A close waypoint entry still needs visual room for the final approach. Scoring keeps its exact baseline. */
 export const finalLegMapBaseline=(baseline,threshold)=>Math.min(baseline,threshold*.35);
+/** Leave room for the ball around the scoring boundary, on both sides. */
+export function waypointBoundaryPosition(point,d,inside){
+ const bend=waypointAnchors(d).bend,pad=16*(d.artScale??1)+5,rx=d.width*.065+(inside?-pad:pad),ry=40+(inside?-pad:pad);
+ let dx=point.x-bend.x,dy=point.y-bend.y;
+ if(!inside&&Math.hypot(dx,dy)<1e-6){const tee=waypointAnchors(d).tee;dx=(tee.x-bend.x)*1e-6;dy=(tee.y-bend.y)*1e-6;}
+ const q=Math.hypot(dx/rx,dy/ry);
+ if((inside&&q>1)||(!inside&&q<1))return {x:bend.x+dx/q,y:bend.y+dy/q};
+ return point;
+}
 /** Store each shot in its own leg, so switching target does not move earlier labels. */
 export function waypointPosition(state,word,d,event=null){
  const a=waypointAnchors(d);
@@ -55,7 +64,7 @@ export function waypointPosition(state,word,d,event=null){
  if(h.stage===0&&h.waypoint_reached){
   const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
   const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-(h.leg_threshold??.27))/(1-(h.leg_threshold??.27))))),forward=.62*(2*depth-1),side=.18*Math.sin(h.attempt*2.4+h.destination*5);
-  return {x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)};
+  return waypointBoundaryPosition({x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)},d,true);
  }
  const entry=state.history.find(h=>h.waypoint_reached);
  const start=h.stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
@@ -63,7 +72,7 @@ export function waypointPosition(state,word,d,event=null){
  const threshold=h.leg_threshold??state.threshold,baseline=h.leg_baseline??state.baseline;
  const fraction=mapFraction(h.destination,h.stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
  const offset=[-24,26,-36,34,-12,14][(h.attempt-1)%6];
- return h.stage===1?finalLie(d,start,fraction,offset):along(start,goal,fraction,offset);
+ return h.stage===1?finalLie(d,start,fraction,offset):waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
 }
 /** The exact same path geometry drives drawing and tree clearance. */
 export function waypointCartPath(d){

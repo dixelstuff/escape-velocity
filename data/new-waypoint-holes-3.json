@@ -4,7 +4,7 @@
     "target": "castle",
     "waypoint": {
       "word": "postage",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -28,7 +28,7 @@
     "target": "rainbow",
     "waypoint": {
       "word": "optics",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -52,7 +52,7 @@
     "target": "radio",
     "waypoint": {
       "word": "politics",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -76,7 +76,7 @@
     "target": "harbour",
     "waypoint": {
       "word": "computing",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -100,7 +100,7 @@
     "target": "space",
     "waypoint": {
       "word": "fashion",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -124,7 +124,7 @@
     "target": "mountain",
     "waypoint": {
       "word": "construction",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -148,7 +148,7 @@
     "target": "dentist",
     "waypoint": {
       "word": "shipyard",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -172,7 +172,7 @@
     "target": "electricity",
     "waypoint": {
       "word": "bakery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -196,7 +196,7 @@
     "target": "trumpet",
     "waypoint": {
       "word": "architecture",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -220,7 +220,7 @@
     "target": "castle",
     "waypoint": {
       "word": "photography",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -244,7 +244,7 @@
     "target": "chapel",
     "waypoint": {
       "word": "armour",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -268,7 +268,7 @@
     "target": "fishing",
     "waypoint": {
       "word": "textiles",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -292,7 +292,7 @@
     "target": "music",
     "waypoint": {
       "word": "construction",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -316,7 +316,7 @@
     "target": "classroom",
     "waypoint": {
       "word": "lighting",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -340,7 +340,7 @@
     "target": "waterfall",
     "waypoint": {
       "word": "surgery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -364,7 +364,7 @@
     "target": "painting",
     "waypoint": {
       "word": "athletics",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -388,7 +388,7 @@
     "target": "waterfall",
     "waypoint": {
       "word": "politics",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -412,7 +412,7 @@
     "target": "archaeology",
     "waypoint": {
       "word": "transport",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -436,7 +436,7 @@
     "target": "cathedral",
     "waypoint": {
       "word": "photography",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -460,7 +460,7 @@
     "target": "harbour",
     "waypoint": {
       "word": "music",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,

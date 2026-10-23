@@ -27,5 +27,5 @@ export function restartSettings(state,opening){
 export function bankRestartSettings(state,opening,puzzles){
  const settings=restartSettings(state,opening);
  const bank=puzzles.find(h=>h.par_estimate&&h.start===state.start&&h.target===(state.final_target??state.target)&&h.waypoint?.word===state.waypoint?.word&&h.threshold===(state.final_threshold??state.threshold)&&h.mode===state.mode&&h.launch_min===state.launch_min&&h.launch_max===state.launch_max&&JSON.stringify(h.headwind??null)===JSON.stringify(state.headwind??null)&&!state.word_model);
- return bank?{...settings,par:bank.par}:settings;
+ return bank?{...settings,par:bank.par,...(bank.waypoint?{waypoint:{...bank.waypoint}}:{})}:settings;
 }

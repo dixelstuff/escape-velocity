@@ -4,7 +4,7 @@
     "target": "spooky",
     "waypoint": {
       "word": "crane",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -27,7 +27,7 @@
     "target": "sailor",
     "waypoint": {
       "word": "range",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -50,7 +50,7 @@
     "target": "ladle",
     "waypoint": {
       "word": "pole",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -73,7 +73,7 @@
     "target": "haircut",
     "waypoint": {
       "word": "glove",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -96,7 +96,7 @@
     "target": "spin",
     "waypoint": {
       "word": "health",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -119,7 +119,7 @@
     "target": "noses",
     "waypoint": {
       "word": "notes",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -142,7 +142,7 @@
     "target": "notes",
     "waypoint": {
       "word": "noses",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -165,7 +165,7 @@
     "target": "playwright",
     "waypoint": {
       "word": "carry",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -188,7 +188,7 @@
     "target": "perfection",
     "waypoint": {
       "word": "short",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -211,7 +211,7 @@
     "target": "tight",
     "waypoint": {
       "word": "clip",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -234,7 +234,7 @@
     "target": "regal",
     "waypoint": {
       "word": "rage",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -257,7 +257,7 @@
     "target": "sport",
     "waypoint": {
       "word": "gossip",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -280,7 +280,7 @@
     "target": "plaid",
     "waypoint": {
       "word": "witch",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -303,7 +303,7 @@
     "target": "mentioned",
     "waypoint": {
       "word": "sunscreen",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -326,7 +326,7 @@
     "target": "crest",
     "waypoint": {
       "word": "best",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -349,7 +349,7 @@
     "target": "gap",
     "waypoint": {
       "word": "nap",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -372,7 +372,7 @@
     "target": "caramel",
     "waypoint": {
       "word": "festive",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -395,7 +395,7 @@
     "target": "rut",
     "waypoint": {
       "word": "butler",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,

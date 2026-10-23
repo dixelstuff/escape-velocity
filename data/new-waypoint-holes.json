@@ -4,7 +4,7 @@
     "target": "orchard",
     "waypoint": {
       "word": "dentist",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -28,7 +28,7 @@
     "target": "diamond",
     "waypoint": {
       "word": "hospital",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -52,7 +52,7 @@
     "target": "trumpet",
     "waypoint": {
       "word": "parliament",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -76,7 +76,7 @@
     "target": "satellite",
     "waypoint": {
       "word": "kitchen",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -100,7 +100,7 @@
     "target": "violin",
     "waypoint": {
       "word": "shipyard",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -124,7 +124,7 @@
     "target": "engine",
     "waypoint": {
       "word": "stadium",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -148,7 +148,7 @@
     "target": "mountain",
     "waypoint": {
       "word": "concert",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -172,7 +172,7 @@
     "target": "forest",
     "waypoint": {
       "word": "laboratory",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -196,7 +196,7 @@
     "target": "astronomy",
     "waypoint": {
       "word": "wardrobe",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -220,7 +220,7 @@
     "target": "festival",
     "waypoint": {
       "word": "railway",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -244,7 +244,7 @@
     "target": "galaxy",
     "waypoint": {
       "word": "nursery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -268,7 +268,7 @@
     "target": "necklace",
     "waypoint": {
       "word": "harbour",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -292,7 +292,7 @@
     "target": "riverbank",
     "waypoint": {
       "word": "office",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -316,7 +316,7 @@
     "target": "microscope",
     "waypoint": {
       "word": "airport",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -340,7 +340,7 @@
     "target": "camera",
     "waypoint": {
       "word": "newsroom",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -364,7 +364,7 @@
     "target": "castle",
     "waypoint": {
       "word": "armour",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -388,7 +388,7 @@
     "target": "clock",
     "waypoint": {
       "word": "jewellery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -412,7 +412,7 @@
     "target": "orchestra",
     "waypoint": {
       "word": "hospital",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,
@@ -436,7 +436,7 @@
     "target": "theatre",
     "waypoint": {
       "word": "stationery",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "up"
     },
     "threshold": 0.27,
@@ -460,7 +460,7 @@
     "target": "beehive",
     "waypoint": {
       "word": "classroom",
-      "threshold": 0.27,
+      "threshold": 0.265,
       "turn": "down"
     },
     "threshold": 0.27,

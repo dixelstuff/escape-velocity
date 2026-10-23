@@ -6,7 +6,7 @@ import {restartSettings,startupAction} from '../static/startup.mjs';
 import {chipRange} from '../static/chip-range.mjs';
 import {mapLayout} from '../static/map.mjs';
 import {greenContains,greenPoints,bunkerPoints,shoreY} from '../static/course-appearance.mjs';
-import {waypointBunkers,waypointGreen,waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors} from '../static/waypoint-map.mjs';
+import {waypointBunkers,waypointGreen,waypointBankY,waypointLayout,waypointPosition,waypointLake,waypointZone,waypointLandscape,waypointChipGuide,waypointAnchors,waypointBoundaryPosition} from '../static/waypoint-map.mjs';
 import {courseTrees,clearOfCartPath,courseContinuation} from '../static/course-art.mjs';
 import {previousAttempts,previousWordLabels} from '../static/attempt-ghosts.mjs';
 const dir=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,dir)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),e=new Embeddings(JSON.parse(read(c.words_file)),decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),300,new Uint8Array(read(c.hub_file)));
@@ -283,3 +283,19 @@ assert.deepEqual(restoreGame(e,lace.state()).state(),lace.state());
  assert.equal(currentLieKey({...s,current:'knight'}),'knight@1');
 }
 console.log('Repeated cross-leg words keep distinct anchors, label identities and retry prefixes on both viewports.');
+
+// New waypoint allowance, with distinct visuals for arrival versus near miss.
+{
+ const h=c.puzzles.find(h=>h.start==='candle'&&h.waypoint?.word==='optics');
+ assert.equal(h.waypoint.threshold,.265);assert.equal(h.threshold,.27);
+ const game=new Game(e,h.start,h.target,h.threshold,{...h,finish_mode:'range'}),light=game.submit('light');
+ assert.equal(light.waypoint_reached,true,'LIGHT now reaches OPTICS');
+ const legacy=new Game(e,h.start,h.target,h.threshold,{...h,waypoint:{...h.waypoint,threshold:.27},finish_mode:'range'}),near=legacy.submit('light');assert.equal(near.waypoint_reached,undefined);
+ for(const narrow of [false,true])for(const turn of ['up','down']){
+  const state={...game.state(),waypoint:{...h.waypoint,turn}},d=waypointLayout(mapLayout(narrow),state),bend=waypointAnchors(d).bend,pad=16*d.artScale+5;
+  const inside=waypointPosition(state,'light',d,light),outside=waypointPosition(legacy.state(),'light',d,near),blocked=waypointBoundaryPosition(bend,d,false);
+  assert.ok(Math.hypot((blocked.x-bend.x)/(d.width*.065+pad),(blocked.y-bend.y)/(40+pad))>=1-1e-7,'failed contact aimed at the waypoint must also stay outside');
+  assert.ok(Math.hypot((inside.x-bend.x)/(d.width*.065-pad),(inside.y-bend.y)/(40-pad))<=1+1e-7);
+  assert.ok(Math.hypot((outside.x-bend.x)/(d.width*.065+pad),(outside.y-bend.y)/(40+pad))>=1-1e-7);
+ }
+}

@@ -163,7 +163,9 @@
     "waypoint": "hospital",
     "target": "orchestra",
     "route": [
-      "schools"
+      "science",
+      "medicine",
+      "art"
     ]
   },
   {

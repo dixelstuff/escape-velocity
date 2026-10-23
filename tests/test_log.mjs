@@ -184,6 +184,22 @@ console.log('Reset passed: new-only exports, persistent recovery, preservation o
  assert.deepEqual(rows.map(r=>r.number),[2,1]);assert.equal(rows[0].current,true);assert.equal(rows[0].from,'knight');
  assert.deepEqual(rows[0].shots.map(r=>r.word),['xyzxyz']);assert.equal(rows[0].shots[0].result,'Not allowed');
  assert.deepEqual(rows[1].shots.map(r=>r.word),['knight','knight'],'do not collapse the same guess from different lies/legs');
- assert.deepEqual(rows[1].shots.map(r=>r.result),['Landed','Miss']);assert.equal(rows[1].result,'Ended');
+ assert.deepEqual(rows[1].shots.map(r=>r.result),['Landed','Miss']);assert.equal(rows[1].result,'Missed');
  assert.deepEqual(holeAttemptLog(journeys,{...s,challenge:undefined}),[]);
+}
+
+{
+ const {holeAttemptLog}=await import('../static/hole-attempt-log.mjs');
+ const state={start:'tee',target:'flag',challenge:{id:'outcomes',attempt:4},history:[]};
+ const rows=holeAttemptLog(['won','abandoned','challenge_failed','live'].map((field,i)=>({id:String(i),state:{...state,challenge:{...state.challenge,attempt:i+1},[field]:true},entries:[{origin:'tee',word:'guess',event:{success:true}}]})),state,'3');
+ assert.deepEqual(rows.map(r=>r.result),['In progress','Missed','Abandoned','Holed']);
+}
+
+{
+ const {holeControlAvailability}=await import('../static/hole-attempt-log.mjs');
+ const s={start:'tee',challenge:{id:'fresh'},history:[]};
+ assert.deepEqual(holeControlAvailability([],s),{replay:false,log:false});
+ assert.deepEqual(holeControlAvailability([],{...s,history:[{}]}),{replay:true,log:false});
+ assert.deepEqual(holeControlAvailability([{state:{...s,history:[{}],challenge_failed:true}}],s),{replay:true,log:true});
+ assert.deepEqual(holeControlAvailability([{state:{...s,challenge:{id:'older'},history:[{}],won:true}}],s),{replay:false,log:false});
 }
