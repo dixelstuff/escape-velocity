@@ -202,7 +202,7 @@ body.typing main{background:#f5f3e8;}
 #arrival-banner #arrival-skill{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 0;min-height:31px;}
 #arrival-banner #arrival-skill[hidden]{display:none;}
 #arrival-skill-value{font:600 24px/1.2 'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums;min-width:4.4ch;text-align:right;}
-#arrival-banner #arrival-actions{width:100%;max-width:420px;justify-content:center;margin:18px auto 0;padding-top:0;border-top:0;gap:10px;}
+#arrival-banner #arrival-actions{width:100%;max-width:420px;justify-content:center;margin:18px auto 0;padding-top:0;border-top:0;gap:14px;}
 #arrival-banner #arrival-actions button{font-size:12px;min-height:44px;background:#356b43;color:#fff;border-color:#356b43;box-shadow:0 2px 7px #294b351a;}
 #arrival-banner #arrival-actions .quiet{background:#fffdf4;color:#34543b;border-color:#c8d3bb;}
 @media(max-width:650px){#arrival-banner{padding:14px 18px 13px;}#arrival-banner #arrival-title{font-size:27px;margin:10px 0 12px;}.scorecard-grid>div{padding:10px 0;}.scorecard-grid>div+div{padding-left:18px;}#arrival-banner #arrival-result,#arrival-banner #arrival-attempt{font-size:27px;}}
@@ -271,18 +271,5 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 .mission .attempts #attempts,body.typing .mission .attempts #attempts{font-weight:500;}
 
-/* On wide screens the current hole dominates a smaller round companion. */
-@media(min-width:960px){
- .course-feedback.wide-scorecards:has(>#arrival-banner:not([hidden])){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);align-items:start;gap:20px;width:100%;max-width:780px;margin:-94px auto 0;padding:0 24px 28px;}
- .wide-scorecards #arrival-banner{max-width:none;margin:0;}
- .wide-scorecards #round-scorecard{position:relative;width:100%;max-width:none;margin:0;padding:17px 12px 20px;border-top:5px solid #356b43;}
- .wide-scorecards #round-scorecard::before{content:'';position:absolute;inset:5px;border:1px solid #e6e4d1;pointer-events:none;}
- .wide-scorecards .round-card-heading{align-items:flex-start;gap:8px;}
- .wide-scorecards .round-card-heading h2{font-size:16px;line-height:1.25;}
- .wide-scorecards .round-card-heading>strong{font-size:17px;white-space:nowrap;}
- .wide-scorecards #round-scorecard th,.wide-scorecards #round-scorecard td{padding:8px 3px;font-size:10px;}
- .wide-scorecards #round-scorecard tbody th{overflow-wrap:anywhere;line-height:1.35;}
- .wide-scorecards #round-scorecard thead th{font-size:8px;letter-spacing:.025em;}
- .wide-scorecards #round-scorecard td strong{font-size:13px;}
- .wide-scorecards #round-scorecard p{font-size:10px;margin-top:12px;}
-}
+/* Enlarge the printed labels without changing the buttons’ layout dimensions. */
+#arrival-actions .result-button-label{display:inline-block;transform:scale(1.083333);}

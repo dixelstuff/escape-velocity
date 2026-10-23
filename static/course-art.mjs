@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v97';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v98';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -155,6 +155,18 @@ export function courseBunkers(d,style,{fringe=true}={}){
  </g>`).join('')}</g>`;
 }
 
+/** Stable scattered marks, with varying length, curvature, spacing and opacity. */
+function lakeRipples(width,top,bottom,phase=0){
+ const random=n=>{const v=Math.sin(n*127.1+phase*31.7)*43758.5453;return v-Math.floor(v);};
+ const count=Math.ceil(width*(bottom-top)/19000);
+ return Array.from({length:count},(_,i)=>{
+  const x=width*(.025+.93*random(i*9+1)),y=top+(bottom-top)*random(i*9+2),length=13+43*random(i*9+3),bend=(random(i*9+4)-.5)*6;
+  const mark=(x,y,len,bend)=>`M${x.toFixed(2)} ${y.toFixed(2)} q${(len*.46).toFixed(2)} ${bend.toFixed(2)} ${len.toFixed(2)} 0`;
+  const paired=random(i*9+5)>.66?mark(x+length*(.22+random(i*9+6)*.3),y+5+random(i*9+7)*4,length*.48,-bend*.55):'';
+  return `<path d="${mark(x,y,length,bend)} ${paired}" opacity="${(.28+random(i*9+8)*.4).toFixed(2)}" stroke-width="${(.7+random(i*9+9)*.6).toFixed(2)}"/>`;
+ }).join('');
+}
+
 export function courseLake(d,style,lake){
  const shore=offset=>Array.from({length:33},(_,i)=>{
   const x=-12+(d.zoneLeft-12)*i/32;
@@ -165,7 +177,7 @@ export function courseLake(d,style,lake){
  <g clip-path="url(#lake-clip)" fill="none" pointer-events="none">
  <path d="${shore(8)}" stroke="#c0d6ce" stroke-width="2" opacity=".7"/>
  <path d="${shore(19)}" stroke="#b1cdca" stroke-width=".9" opacity=".55"/>
- <path d="M32 413 h27 m8 0 h9 M${d.zoneLeft*.32} 394 h21 m8 0 h6 M${d.zoneLeft*.63} 417 h29" stroke="#d3e1d9" stroke-width="1.1" opacity=".65"/>
+ <g stroke="#d3e1d9" stroke-linecap="round">${lakeRipples(d.zoneLeft,365,450,style.phase)}</g>
  </g>`;
 }
 
@@ -208,11 +220,11 @@ export function courseContinuation(d,style,{foreground=null,lake=lakeGeometry(d,
  const defs=`<pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern>${courseArtDefs}`;
  const world=foreground??`${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${d.par3?par3PathArt(d,style):''}${courseTrees(d,style,lake)}`;
  const waterOutline=lake.outline.map(p=>`${p.x},${p.y}`).join(' '),transform=d.reflectY?'translate(0 430) scale(1 -1)':'';
- const ripples=Array.from({length:6},(_,row)=>Array.from({length:4},(_,col)=>{const x=w*(.06+col*.18)+16*Math.sin(row*2+col),y=455+row*43+7*Math.sin(col+row);return `<path d="M${x} ${y} q12 -3 27 0 t23 0 m10 0 h8"/>`;})).flat().join('');
+ const ripples=lakeRipples(w,455,760,style.phase);
  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
  <defs>${foreground?'':defs}<pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern><clipPath id="world-water"><polygon points="${waterOutline}"/></clipPath></defs>
  <rect width="${w}" height="1730" fill="#c4d3a7"/>${world}
- <g id="continuation-water-details" clip-path="url(#world-water)" fill="none"><path d="${lake.path}" transform="${transform}" stroke="#b8d1cb" stroke-width="3" opacity=".65"/><g stroke="#cfdfd8" stroke-width="1.1" opacity=".55">${ripples}</g></g>
+ <g id="continuation-water-details" clip-path="url(#world-water)" fill="none"><path d="${lake.path}" transform="${transform}" stroke="#b8d1cb" stroke-width="3" opacity=".65"/><g stroke="#cfdfd8" stroke-linecap="round">${ripples}</g></g>
  <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7" stroke-linejoin="round"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>
  <ellipse cx="${w*.16}" cy="942" rx="${w*.065}" ry="35" fill="#a2c487" stroke="#91b579" stroke-width="3" transform="rotate(-30 ${w*.16} 942)"/>

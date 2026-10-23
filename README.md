@@ -693,3 +693,6 @@ V95 also makes retry selection/cancellation synchronous using only already-loade
 V96 places result cards side by side above the extended landscape on screens at least 960px wide: the round companion is 60% of the current-hole card's width. Individual play shows a recent-practice scorecard grouped by challenge, so retries do not become extra holes. Narrow layouts retain the existing stack. The extended landscape reuses the actual hole artwork and lake geometry (including reflected doglegs), adds clipped water ripples, and rounds the neighbouring fairway's top turn.
 
 V97: Tapping back to the original current lie cancels an uncommitted retry and restores the original attempt count, route, and entry without recording another attempt.
+
+V98 returns desktop results to the same centred card arrangement as mobile, with the course scorecard below when playing a round. The improved continuous landscape remains. Lake highlights are scattered with varied lengths, curvature, opacity and occasional paired strokes instead of repeated identical marks.
+Result action labels are slightly larger with a four-pixel wider gap, while retaining their existing button dimensions.
