@@ -1,11 +1,11 @@
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v94';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v94';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v94';
-import { chipRange } from './chip-range.mjs?v=golf-v94';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v94';
-import {withWordModel} from './word-model.mjs?v=golf-v94';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v94';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v94';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v95';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v95';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v95';
+import { chipRange } from './chip-range.mjs?v=golf-v95';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v95';
+import {withWordModel} from './word-model.mjs?v=golf-v95';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v95';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v95';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -290,16 +290,25 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     return loading.get(id);
   }
   let game,historical,worker,sequence=0;const workerModels=new Set();
+  // Previously played words and their variants are already loaded. Keep retry
+  // selection synchronous so mobile focus stays in the native tap gesture.
+  function retryNow(saved,through,attempt){
+    const settings=retryPrefix(saved,through,attempt);
+    const candidate=new Game(embeddings,saved.start,saved.final_target??saved.target,saved.final_threshold??saved.threshold,settings);
+    for(const event of saved.history.slice(0,through))candidate.submit(event.word);
+    game=candidate;return {state:game.state()};
+  }
+  function restoreRetry(saved){const candidate=restoreGame(embeddings,saved);game=candidate;return {state:game.state()};}
   const pending=new Map();
   async function assess(body,operation='assess'){
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v94')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v94')).assessHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v95')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v95')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v94',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v95',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -308,11 +317,11 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(!workerModels.has(profile)){worker.postMessage({init:true,profile,words,vectors:model.vectors,dimensions:config.dimensions,hubs,localScaling:model.localScaling});workerModels.add(profile);}
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
-  return { config, prefetch(word){return prepare(word);},startBackground(){return loader?.startBackground()??Promise.resolve();},canFinish(state){return probe(state).finishesFrom(state.current,state.progress);},chipRange(state){return chipRange(probe(state));}, async request(path, body) {
+  return { config,retryNow,restoreRetry, prefetch(word){return prepare(word);},startBackground(){return loader?.startBackground()??Promise.resolve();},canFinish(state){return probe(state).finishesFrom(state.current,state.progress);},chipRange(state){return chipRange(probe(state));}, async request(path, body) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v94')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v95')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='skill')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if (path === 'new') {
@@ -336,12 +345,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
       }
       game=restoreGame(model,body.state);return {state:game.state()};
     }
-    if(path==='retry-prefix'){
-      const saved=body.state,settings=retryPrefix(saved,body.through,body.attempt);
-      const candidate=new Game(embeddings,saved.start,saved.final_target??saved.target,saved.final_threshold??saved.threshold,settings);
-      for(const event of saved.history.slice(0,body.through))candidate.submit(event.word);
-      game=candidate;return {state:game.state()};
-    }
+    if(path==='retry-prefix')return retryNow(body.state,body.through,body.attempt);
     if(path==='resume-waypoint'){
       if(!game?.waypoint||game.history.length||game.challenge_failed||game.won)throw Error('Start the next attempt before choosing a word.');
       const candidate=resumeWaypoint(embeddings,body.state,body.through,game.challenge,body.source_id);

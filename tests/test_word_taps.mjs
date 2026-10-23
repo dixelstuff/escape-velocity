@@ -14,3 +14,7 @@ for(const scale of [.4,.55,1]){
  assert.equal(nearestWordTarget([visible],{x:40+30*scale,y:cy-20}),'scaled','minimum screen hit size survives SVG shrinking');
 }
 console.log('Word taps passed: generous label/dot targets, nearest-core overlap selection and scale-independent finger sizing.');
+
+const text=target('text',40,80),nearby=target('nearby',160,160);
+nearby.boxes.push({left:60,top:85,width:6,height:6});
+assert.equal(nearestWordTarget([text,nearby],{x:63,y:88}),'text','a visible label takes priority over another lie dot under it');

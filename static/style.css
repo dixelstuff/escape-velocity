@@ -268,3 +268,5 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 .mission .attempts span,.mission .attempts #attempts{font-size:14px;}
 body.typing .map-card{touch-action:pan-x pan-y;}
 @media(max-width:650px){.mission .attempts span,.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-size:13px;}}
+
+.mission .attempts #attempts,body.typing .mission .attempts #attempts{font-weight:500;}

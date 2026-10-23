@@ -1,4 +1,4 @@
-import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v94';
+import {greenPoints,greenContains,shoreY,GREEN_HEIGHT,GREEN_CENTRE_Y} from './course-appearance.mjs?v=golf-v95';
 /** Display geometry only; scoring never depends on pixels. */
 export function mapFraction(similarity, baseline, arrival, arrivalFraction=.9) {
   if(arrival<=baseline+1e-7)return (similarity-baseline)/Math.max(1e-6,1-baseline);
@@ -121,5 +121,5 @@ export function layoutLabels(labels, obstacles, width, minimumHeight=360, previo
 /** A quiet guide follows the fairway centre, easing towards the variable pin. */
 export function par3CentreTrace(d){
  const end={x:d.right-12*d.axisX,y:d.holeY-12*d.axisY},span=end.x-d.left,cy=(d.greenTop+d.greenBottom)/2;
- return `M${d.left},${d.teeY} C${d.left+span*.32},${d.teeY-5} ${d.left+span*.72},${cy} ${end.x},${end.y}`;
+ return `M${d.left},${d.teeY} C${d.left+span*.32},${d.teeY-14} ${d.left+span*.72},${cy-8} ${end.x},${end.y}`;
 }

@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v94';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v95';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -10,18 +10,23 @@ const fairwayShapes=new WeakMap();
 function cubicPoint(segment,t){const u=1-t,[a,b,c,e]=segment;return {x:u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y:u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y};}
 export function par3Fairway(d){
  if(fairwayShapes.has(d))return fairwayShapes.get(d);
- const w=d.width,cy=d.teeY,gy=(d.greenTop+d.greenBottom)/2,front=d.zoneLeft,rx=(d.zoneRight-d.zoneLeft)/2,span=d.right-d.left,neckX=d.left+.32*span,neckY=cy+.22*(gy-cy),endX=front+.78*rx,p=(x,y)=>({x,y});
+ const w=d.width,cy=d.teeY,gy=(d.greenTop+d.greenBottom)/2,front=d.zoneLeft,rx=(d.zoneRight-d.zoneLeft)/2,span=d.right-d.left;
+ const phase=d.style?.phase??0,neckX=d.left+.32*span,neckY=cy+.22*(gy-cy)-12,endX=front+.78*rx,p=(x,y)=>({x,y});
+ // Stagger the two edge turns: a shoulder on one bank meets a longer sweep on
+ // the other, rather than two matching hourglass pinches. Vertical dimensions
+ // are about 15% wider, while the join under the front green stays unchanged.
+ const topNeck=d.left+.25*span,bottomNeck=d.left+.40*span,lean=5*Math.sin(phase);
  const top=[
- [p(-30,cy-76),p(d.left+.08*span,cy-76),p(neckX-.10*span,neckY-38),p(neckX,neckY-38)],
- [p(neckX,neckY-38),p(neckX+.22*span,neckY-38),p(front-.18*span,d.greenTop+14),p(front+.38*rx,d.greenTop+10)]
+ [p(-30,cy-87.4),p(d.left+.08*span,cy-87.4),p(topNeck-.10*span,neckY-43.7+lean),p(topNeck,neckY-43.7+lean)],
+ [p(topNeck,neckY-43.7+lean),p(topNeck+.22*span,neckY-43.7+lean),p(front-.21*span,d.greenTop-4),p(front+.38*rx,d.greenTop)]
  ];
  const shoulder=[
  [top.at(-1)[3],p(front+.70*rx,d.greenTop+30),p(endX,gy-35),p(endX,gy)],
- [p(endX,gy),p(endX,gy+35),p(front+.50*rx,d.greenBottom-20),p(front+.25*rx,d.greenBottom-12)]
+ [p(endX,gy),p(endX,gy+35),p(front+.50*rx,d.greenBottom-20),p(front+.25*rx,d.greenBottom-2)]
  ];
  const bottom=[
- [shoulder.at(-1)[3],p(front-.18*span,d.greenBottom-16),p(neckX+.22*span,neckY+38),p(neckX,neckY+38)],
- [p(neckX,neckY+38),p(neckX-.10*span,neckY+38),p(d.left+.08*span,cy+76),p(-30,cy+76)]
+ [shoulder.at(-1)[3],p(front-.13*span,d.greenBottom+6),p(bottomNeck+.15*span,neckY+43.7-lean),p(bottomNeck,neckY+43.7-lean)],
+ [p(bottomNeck,neckY+43.7-lean),p(bottomNeck-.13*span,neckY+43.7-lean),p(d.left+.08*span,cy+87.4),p(-30,cy+87.4)]
  ];
  const xy=p=>`${p.x},${p.y}`,path='M'+xy(top[0][0])+[...top,...shoulder,...bottom].map(c=>' C'+c.slice(1).map(xy).join(' ')).join('')+' Z';
  function edgeY(segments,x){const segment=segments.find(c=>x>=Math.min(c[0].x,c[3].x)&&x<=Math.max(c[0].x,c[3].x));if(!segment)return x<0?segments.find(c=>c.some(p=>p.x<0)).find(p=>p.x<0).y:d.greenBottom+23;let lo=0,hi=1;const forward=segment[3].x>segment[0].x;for(let i=0;i<32;i++){const t=(lo+hi)/2;if((cubicPoint(segment,t).x<x)===forward)lo=t;else hi=t;}return cubicPoint(segment,(lo+hi)/2).y;}
@@ -116,7 +121,11 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
   return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
  }):[];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ const fairwayTrees=d.par3?[.21,.61].flatMap((fraction,i)=>{
+  const geometry=par3Fairway(d),x=d.left+(d.zoneLeft-d.left)*(fraction+.025*(noise(i+180)-.5)),r=11+4*noise(i+190),y=geometry.topY(x);
+  return [{x,y:y+3,r,seed:110+i*3},{x:x-17-7*noise(i+200),y:y-16,r:r*.85,seed:111+i*3},{x:x+13,y:y-24,r:r*.72,seed:112+i*3}];
+ }):[];
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees,fairwayTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
 const par3Sand=new WeakMap();
