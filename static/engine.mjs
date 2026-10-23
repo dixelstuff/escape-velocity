@@ -1,11 +1,11 @@
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v103';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v103';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v103';
-import { chipRange } from './chip-range.mjs?v=golf-v103';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v103';
-import {withWordModel} from './word-model.mjs?v=golf-v103';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v103';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v103';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v104';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v104';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v104';
+import { chipRange } from './chip-range.mjs?v=golf-v104';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v104';
+import {withWordModel} from './word-model.mjs?v=golf-v104';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v104';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v104';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -193,6 +193,18 @@ export class Game {
       ...(this.rules.startsWith('golf-')?{best_progress:this.best_progress,backward_allowance:this.backward_allowance}:{})});
   }
 }
+/** Check the actual target-word shot on each leg, independently of the estimate. */
+export function waypointLegAccess(embeddings,settings){
+ const initial=new Game(embeddings,settings.start,settings.target,settings.threshold??.27,settings);
+ if(!initial.waypoint)throw Error('Choose a waypoint word.');
+ const legs=[[initial.start,initial.waypoint.word,initial.waypoint.threshold],[initial.waypoint.word,initial.final_target,initial.final_threshold]].map(([start,target,threshold])=>{
+  const game=new Game(initial.e,start,target,threshold,{mode:initial.mode,launch_min:initial.launch_min,launch_max:initial.launch_max,rules:initial.rules,finish_mode:'range'}),shot=game.submit(target);
+  return {start,target,direct:shot.success,contact:shot.launch,required:shot.required};
+ });
+ const invalid=legs.filter(leg=>leg.direct);
+ return {allowed:!invalid.length,legs,message:invalid.map(leg=>`${leg.target.toUpperCase()} can be played directly from ${leg.start.toUpperCase()}.`).join(' ')};
+}
+
 export function restoreGame(embeddings,saved) {
   const options={...saved,rules:saved.rules||'fixed-threshold-v1',mode:saved.mode||'fixed'};
   const restored=new Game(embeddings,saved.start,saved.target,saved.final_threshold??saved.threshold,options);
@@ -305,11 +317,12 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v103')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v103')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v104')).assessWaypointHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v104')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v104')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v103',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v104',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -322,10 +335,12 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v103')).reviewRoute(embeddings,body.state);}
-    if(path==='assess'||path==='skill')return assess(body,path);
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v104')).reviewRoute(embeddings,body.state);}
+    if(path==='assess'||path==='assess-waypoint'||path==='skill')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
+    if(path==='waypoint-access')return waypointLegAccess(embeddings,body);
     if (path === 'new') {
+      if(body.validate_waypoint){const validation=waypointLegAccess(embeddings,body);if(!validation.allowed)throw Error(validation.message+' Choose a less directly connected pair.');}
       const candidate=new Game(embeddings,body.start,body.target,body.threshold,body);
       if(body.validate_direct){
         const check=new Game(embeddings,body.start,body.target,body.threshold,body);

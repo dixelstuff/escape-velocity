@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Embeddings,decodeHalf,Game,waypointLegAccess,createBrowserClient} from '../static/engine.mjs';
+import {assessWaypointHole} from '../static/waypoint-assessment.mjs';
+const root=new URL('../static/model/',import.meta.url),read=f=>readFileSync(new URL(f,root)),config=JSON.parse(read('config.json')),raw=read(config.vector_fallback),e=new Embeddings(JSON.parse(read(config.words_file)),decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),300,new Uint8Array(read(config.hub_file)));
+const settings=(start,word,target)=>({start,target,threshold:.27,mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',waypoint:{word,threshold:.27}});
+for(const [s,pair] of [[settings('cat','dog','submarine'),['cat','dog']],[settings('dolphin','cat','dog'),['cat','dog']]]){
+ const check=waypointLegAccess(e,s);assert.equal(check.allowed,false);assert.ok(check.legs.find(l=>l.start===pair[0]&&l.target===pair[1]).direct);assert.equal(assessWaypointHole(e,s).suggested_par,null);
+}
+assert.equal(waypointLegAccess(e,settings('cat','dog','puppy')).legs.filter(l=>l.direct).length,2,'both invalid legs are reported');
+assert.equal(waypointLegAccess(e,settings('dolphin','radio','submarine')).allowed,true,'SONAR is not required; the actual endpoint-word shots are checked');
+assert.throws(()=>waypointLegAccess(e,settings('cat','cat','dog')),/differ|different/);
+const started=performance.now();
+for(const [s,par] of [[settings('makeup','gossip','sport'),4],[settings('shuttle','butler','rut'),5]]){
+ const before=JSON.stringify(s),result=assessWaypointHole(e,s);assert.equal(JSON.stringify(s),before);assert.equal(result.suggested_par,par);assert.ok(result.estimate);assert.ok(result.evaluated<500,'bounded search, not vocabulary-wide branching');assert.ok(result.routes.length);
+ for(const route of result.routes){const game=new Game(e,s.start,s.target,s.threshold,s);for(const word of route.words){assert.equal(game.submit(word).success,true);if(game.won)break;}assert.equal(game.won,true);assert.equal(game.state().attempts,route.strokes,'count includes automatic finish');}
+}
+const originalFetch=globalThis.fetch;globalThis.fetch=async url=>new Response(readFileSync(new URL(url)));
+try{
+ const client=await createBrowserClient({progressive:false});const s=settings('dolphin','radio','submarine');const before=(await client.request('new',s)).state;
+ assert.equal((await client.request('waypoint-access',s)).allowed,true);
+ await assert.rejects(client.request('new',{...settings('cat','dog','submarine'),validate_waypoint:true}),/DOG can be played directly from CAT/);
+ const shot=await client.request('submit',{word:'sonar'});assert.equal(shot.event.origin,before.current,'invalid custom creation does not replace the active game');
+ const report=await client.request('assess-waypoint',settings('shuttle','butler','rut'));assert.equal(report.suggested_par,5);
+}finally{globalThis.fetch=originalFetch;}
+console.log(`Waypoint assessment passed: direct-leg rejection, atomic creation, bounded exact routes, par 4/5, and worker fallback (${Math.round(performance.now()-started)} ms).`);
