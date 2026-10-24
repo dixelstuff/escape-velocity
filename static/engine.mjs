@@ -1,12 +1,12 @@
-import {familyVariants} from './word-families.mjs?v=golf-v156';
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v156';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v156';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v156';
-import { chipRange } from './chip-range.mjs?v=golf-v156';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v156';
-import {withWordModel} from './word-model.mjs?v=golf-v156';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v156';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v156';
+import {familyVariants} from './word-families.mjs?v=golf-v157';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v157';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v157';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v157';
+import { chipRange } from './chip-range.mjs?v=golf-v157';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v157';
+import {withWordModel} from './word-model.mjs?v=golf-v157';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v157';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v157';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -77,6 +77,7 @@ export class Game {
     this.challenge=successSettings(options.challenge);this.challenge_failed=false;
     this.baseline=embeddings.cosine(start,target);this.route=[start];this.history=[];this.won=false;this.best_progress=this.baseline;
     this.plural_rescue=['golf-distance-v3','golf-fixed-v3'].includes(this.rules)&&(options.plural_rescue??!Array.isArray(options.history));
+    this.continuous_play=options.continuous_play??!Array.isArray(options.history);
     this.family_rescue=['golf-distance-v3','golf-fixed-v3'].includes(this.rules)&&(options.family_rescue??!Array.isArray(options.history));
     this.plural_tolerance=options.plural_tolerance??(Array.isArray(options.history)?.02:.025);
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
@@ -186,7 +187,7 @@ export class Game {
         if(result.won)result.waypoint_finish=true;
       }
     }
-    if(this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&word!==this.target&&this.history.length+1>(this.challenge.version===STROKE_PLAY?(this.replay_stroke_cap??maximumStrokes(this.challenge.par)):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';delete result.waypoint_finish;}
+    if((!this.continuous_play||this.challenge?.version!==STROKE_PLAY)&&this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&word!==this.target&&this.history.length+1>(this.challenge.version===STROKE_PLAY?(this.replay_stroke_cap??maximumStrokes(this.challenge.par)):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';delete result.waypoint_finish;}
     if(result.won&&this.isGolden(word)){result.golden_holed=true;result.finish_reason='golden';this.current=this.target;this.route.push(this.target);}
     if(this.modern&&result.won&&word!==this.target&&!result.golden_holed){
       const automatic={word:this.target,origin:word,automatic:true,outcome:result.waypoint_reached?'chip':finishInside?'putt':'chip',attempt:this.history.length+1,success:true,inside:true,won:true};
@@ -205,7 +206,7 @@ export class Game {
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
       ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start,...(this.waypoint_auto_finish?{waypoint_auto_finish:true}:{})}:{}),
-      ...(this.modern?{plural_rescue:this.plural_rescue,family_rescue:this.family_rescue,plural_tolerance:this.plural_tolerance,...(this.allow_backtracking===false?{allow_backtracking:false}:{})}:{}),
+      ...(this.modern?{plural_rescue:this.plural_rescue,family_rescue:this.family_rescue,continuous_play:this.continuous_play,plural_tolerance:this.plural_tolerance,...(this.allow_backtracking===false?{allow_backtracking:false}:{})}:{}),
       ...(this.word_model?{word_model:this.word_model}:{}),...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
       ...(this.challenge?{challenge:this.challenge,challenge_failed:this.challenge_failed}:{}),
       ...(this.modern?{automatic_shots:this.automatic_shots}:{}),
@@ -228,7 +229,7 @@ export function restoreGame(embeddings,saved) {
   const options={...saved,rules:saved.rules||'fixed-threshold-v1',mode:saved.mode||'fixed'};
   const restored=new Game(embeddings,saved.start,saved.target,saved.final_threshold??saved.threshold,options);
   if(!Array.isArray(saved.history))throw Error('Saved scorecard is invalid.');
-  if(saved.challenge?.version===STROKE_PLAY&&Math.max(saved.history.length,saved.attempts??0)>maximumStrokes(saved.challenge.par))restored.replay_stroke_cap=saved.history.length+(saved.automatic_shots?.length??0)+1;
+  if(!saved.continuous_play&&saved.challenge?.version===STROKE_PLAY&&Math.max(saved.history.length,saved.attempts??0)>maximumStrokes(saved.challenge.par))restored.replay_stroke_cap=saved.history.length+(saved.automatic_shots?.length??0)+1;
   for(const event of saved.history)restored.submit(event.word);
   if(restored.replay_stroke_cap){delete restored.replay_stroke_cap;if(!restored.won)restored.challenge_failed=true;}
   if(saved.abandoned){restored.challenge_failed=true;restored.abandoned=true;}
@@ -338,12 +339,12 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v156')).assessWaypointHole(model,body);
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v156')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v156')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v157')).assessWaypointHole(model,body);
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v157')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v157')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v156',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v157',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -356,7 +357,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v156')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v157')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);

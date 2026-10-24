@@ -210,10 +210,10 @@ console.log('Reset passed: new-only exports, persistent recovery, preservation o
 {
  const {remainingHoleAttempts}=await import('../static/hole-attempt-log.mjs');
  const state={challenge:{par:3,attempt:1}};
- assert.equal(remainingHoleAttempts(state),6);
- assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2}}),5);
- assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2},won:true}),4);
- assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:6},challenge_failed:true}),0);
+ assert.equal(remainingHoleAttempts(state),10);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2}}),9);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2},won:true}),8);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:10},challenge_failed:true}),0);
 }
 
 // Practice is retained for feedback, but exports no competitive stroke score.

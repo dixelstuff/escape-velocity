@@ -9,8 +9,8 @@ import {par3Bunkers,par3Fairway,par3MidBunkers,neighbouringCourse,par3CartPath,c
 import {mapLayout} from '../static/map.mjs';
 const words=['tee','hole','a','b','c','d','e','f','g','h','miss','bridge'];
 const e={index:new Map(words.map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){if(a===b)return 1;if(a==='miss'||b==='miss')return 0;if(a==='hole'||b==='hole')return (a==='bridge'||b==='bridge')?.3:.04;return .5;}};
-const options=par=>({mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:STROKE_PLAY,par,attempt:1,id:'caps-'+par}});
-for(const [par,tries,cap] of [[3,6,5],[4,12,6],[5,18,7]]){
+const options=par=>({continuous_play:false,mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:STROKE_PLAY,par,attempt:1,id:'caps-'+par}});
+for(const [par,tries,cap] of [[3,10,5],[4,15,6],[5,20,7]]){
  assert.equal(attemptLimit(par),tries);assert.equal(maximumStrokes(par),cap);
  let g=new Game(e,'tee','hole',.27,options(par));
  for(const word of ['a','b','c','d','e','f','g','h'].slice(0,cap-1)){g.submit(word);assert.equal(g.challenge_failed,false,'no early cutoff just because par is impossible');}
@@ -19,7 +19,7 @@ for(const [par,tries,cap] of [[3,6,5],[4,12,6],[5,18,7]]){
 }
 let g=new Game(e,'tee','hole',.27,{...options(3),golden_paths:[['bridge']]});assert.equal(g.submit('bridge').golden_holed,true);assert.equal(g.state().attempts,1);assert.equal(g.automatic_shots.length,0);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
 g=new Game(e,'tee','hole',.27,options(3));g.submit('bridge');assert.equal(g.state().attempts,2,'ordinary connected finish still counts its finishing shot');
-g=new Game(e,'tee','hole',.27,options(3));g.submit('a');g.submit('b');const original=g.state(),prefix=retryPrefix(original,1,2);const replay=new Game(e,'tee','hole',.27,prefix);replay.submit('a');assert.equal(replay.state().attempts,1);assert.equal(replay.state().challenge.attempt,2);assert.deepEqual(g.state(),original,'preview never mutates the source');assert.throws(()=>retryPrefix(original,1,7),/limit/);assert.throws(()=>retryPrefix({...original,history:[{success:false}]},1,2),/landed/);
+g=new Game(e,'tee','hole',.27,options(3));g.submit('a');g.submit('b');const original=g.state(),prefix=retryPrefix(original,1,2);const replay=new Game(e,'tee','hole',.27,prefix);replay.submit('a');assert.equal(replay.state().attempts,1);assert.equal(replay.state().challenge.attempt,2);assert.deepEqual(g.state(),original,'preview never mutates the source');assert.throws(()=>retryPrefix(original,1,11),/limit/);assert.throws(()=>retryPrefix({...original,history:[{success:false}]},1,2),/landed/);
 // Smooth landing and roll share one ground trajectory, with no direction change.
 const a={x:60,y:220},b={x:550,y:185},fraction=.92,landing=1000/1850;
 const poses=Array.from({length:1001},(_,i)=>shotMotion('golden',a,b,i/1000,{tee:true,landingFraction:fraction}));

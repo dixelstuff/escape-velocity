@@ -1,6 +1,6 @@
 /** Per-hole limits. Archived challenge versions retain their original rules. */
 export const STROKE_PLAY='stroke-play-v1';
-export const attemptLimit=par=>par<=3?6:par===4?12:18;
+export const attemptLimit=par=>par<=3?10:par===4?15:20;
 export const maximumStrokes=par=>par+2;
 export const maximumName=par=>'double bogey';
 export const maximumScoreText=par=>`${maximumStrokes(par)} strokes — ${maximumName(par)}`;
@@ -15,7 +15,7 @@ export function retryPrefix(saved,through,attempt){
 /** Resume at the last landed lie, leaving room for another shot after a stroke cap. */
 export function retryLieThrough(saved){
  const miss=saved.history.findIndex(h=>!h.success);
- return Math.min(miss<0?saved.history.length:miss,maximumStrokes(saved.challenge.par)-1);
+ return saved.continuous_play?(miss<0?saved.history.length:miss):Math.min(miss<0?saved.history.length:miss,maximumStrokes(saved.challenge.par)-1);
 }
 
 /** Selecting the original live lie cancels an uncommitted retry preview. */

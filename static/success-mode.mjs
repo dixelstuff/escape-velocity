@@ -1,4 +1,4 @@
-import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v156';
+import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v157';
 /** A challenge attempt keeps ordinary shot scoring, including the automatic finish. */
 export function successSettings(value){
  if(!value)return null;
@@ -10,7 +10,7 @@ export function successSettings(value){
 }
 export function parUnreachable(game){
  const c=game.challenge;if(!c||game.won)return false;
- if(c.version===STROKE_PLAY)return ['miss','water'].includes(game.history.at(-1)?.outcome)||game.history.length>=(game.replay_stroke_cap??maximumStrokes(c.par));
+ if(c.version===STROKE_PLAY)return ['miss','water'].includes(game.history.at(-1)?.outcome)||!game.continuous_play&&game.history.length>=(game.replay_stroke_cap??maximumStrokes(c.par));
  if(c.version==='waypoint-trial-v1')return ['miss','water'].includes(game.history.at(-1)?.outcome);
  if(c.version==='par-challenge-v2'&&['miss','water'].includes(game.history.at(-1)?.outcome))return true;
  const remaining=c.par-game.history.length;

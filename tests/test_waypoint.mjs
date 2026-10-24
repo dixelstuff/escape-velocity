@@ -207,7 +207,7 @@ const ace=albatross.submit('bridge');assert.ok(ace.waypoint_reached&&ace.automat
 console.log('Waypoint auto-finish: correct final similarity, chip/putt choice, counted stroke, two-stroke albatross and historical replay passed.');
 
 for(const setup of [5,6]){
- const capped=new Game(toy,'tee','hole',.27,{mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'waypoint-cap'}});
+ const capped=new Game(toy,'tee','hole',.27,{continuous_play:false,mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'waypoint-cap'}});
  for(const w of ['a','b','c','d','e','f','g'].slice(0,setup))capped.submit(w);
  const shot=capped.submit('bridge');assert.equal(capped.state().attempts,7,'automatic finish never exceeds the stroke cap');
  assert.equal(capped.won,setup===5);assert.equal(!!shot.automatic_shot,setup===5);

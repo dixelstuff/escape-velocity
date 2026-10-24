@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
+import {Game,restoreGame} from '../static/engine.mjs';
+import {STROKE_PLAY,attemptLimit,maximumStrokes,retryLieThrough,retryPrefix} from '../static/stroke-play.mjs';
+import {SCORING_CLOSED,scoringReminder,currentStrokeText} from '../static/scoring-status.mjs';
+import {FlightLog} from '../static/flight-log.mjs';
+import {bestHoleResult} from '../static/practice-scorecard.mjs';
+for(const [par,n] of [[3,10],[4,15],[5,20]])assert.equal(attemptLimit(par),n);
+assert.equal(currentStrokeText({attempts:8,challenge:{par:5}}),'8 strokes (Max score)');
+assert.equal(currentStrokeText({attempts:1,challenge:{par:3}}),'1 stroke');
+assert.equal(scoringReminder(4),'');assert.equal(scoringReminder(3),'3 scoring attempts remaining.');assert.equal(scoringReminder(1),'1 scoring attempt remaining.');assert.equal(scoringReminder(0),SCORING_CLOSED);
+const e={index:new Map(['tee','hole','a','b','c','d','e','f','g','bridge','miss'].map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){return a===b?1:a==='miss'||b==='miss'?0:a==='hole'||b==='hole'?(a==='bridge'||b==='bridge'?.3:.04):.5;}};
+const options={mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:STROKE_PLAY,par:3,attempt:1,id:'continuous'}};
+const g=new Game(e,'tee','hole',.27,options);
+for(const w of ['a','b','c','d','e','f']){g.submit(w);assert.equal(g.challenge_failed,false);}
+assert.equal(retryLieThrough(g.state()),6,'a long route keeps the whole last successful prefix');
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state(),'restore does not invent a cutoff');
+g.submit('bridge');assert.equal(g.won,true);assert.equal(g.state().attempts,8,'the actual route still counts every stroke');
+const log=new FlightLog(null,()=>new Date().toISOString(),()=> 'bag-test');log.begin(g.state(),'test');log.record('bridge',g.state(),g.history.at(-1));assert.equal(log.active.scored_strokes,maximumStrokes(3));assert.equal(log.active.score_to_par,2);
+const locked={score:0,attempt:2},practice=new Game(e,'tee','hole',.27,{...options,challenge:{...options.challenge,attempt:11,practice:true,locked_result:locked}});practice.submit('bridge');assert.equal(practice.won,true);assert.deepEqual(bestHoleResult([],practice.state()),locked,'a better practice result cannot replace the locked best');
+const p=retryPrefix({...g.state(),challenge:{...g.challenge,attempt:10,practice:true,locked_result:locked}},0,11);assert.equal(p.challenge.practice,true);
+// Delayed reminders leave the shot explanation visible first and are cancelled by editing/navigation.
+const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
+const code=app.slice(app.indexOf('let scoringNoticeTimer'),app.indexOf('function renderBag()'));
+const field={value:''},timers=new Map();let clock=0;
+const ctx={scoringReminder,remainingHoleAttempts:()=>3,state:{challenge:{id:'one'}},$:()=>field,document:{activeElement:null},desktopInteraction:()=>false,busy:false,activeNotice:'A needed a stronger link.',noticeDismissed:false,renderNotice(){},setTimeout(fn,ms){timers.set(++clock,{fn,ms});return clock;},clearTimeout(id){timers.delete(id);}};
+runInNewContext(code,ctx);ctx.queueScoringNotice();assert.equal(ctx.activeNotice,'A needed a stronger link.');assert.equal([...timers.values()][0].ms,1500);[...timers.values()][0].fn();assert.equal(ctx.activeNotice,scoringReminder(3));
+ctx.activeNotice='Miss feedback';ctx.queueScoringNotice(2);ctx.cancelScoringNotice();assert.equal(timers.size,0);assert.equal(ctx.activeNotice,'Miss feedback');
+ctx.queueScoringNotice(1);ctx.state.challenge.id='two';[...timers.values()][0].fn();assert.equal(ctx.activeNotice,'Miss feedback');
+ctx.queueScoringNotice(0);field.value='typing';[...timers.values()].at(-1).fn();assert.equal(ctx.activeNotice,'Miss feedback');
+console.log('Bag play passed: budgets, delayed reminders/cancellation, continuous routes, capped scoring, exact restore and immutable practice best.');
