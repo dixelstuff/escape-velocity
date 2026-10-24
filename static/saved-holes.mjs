@@ -1,4 +1,4 @@
-import {restartSettings} from './startup.mjs?v=golf-v136';
+import {restartSettings} from './startup.mjs?v=golf-v137';
 export const savedHoleKey=h=>[h.start,h.waypoint?.word??'',h.final_target??h.target].join('|');
 /** Recover custom layouts from scorecards while preserving them across log resets. */
 export function collectSavedHoles(stored,journeys,puzzles,retired=[]){

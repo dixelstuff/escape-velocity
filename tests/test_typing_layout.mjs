@@ -28,3 +28,38 @@ assert.equal(keyboardLayoutVisible(false,{height:430,scale:1},720),false,'blur a
 assert.equal(keyboardLayoutVisible(true,{height:680,scale:1},720),false,'browser toolbar changes are not a keyboard');
 assert.equal(keyboardLayoutVisible(true,{height:430,scale:2},720),false,'zoom is not a keyboard');
 assert.equal(keyboardLayoutVisible(true,undefined,720),false);
+
+// Execute the real course-render/update functions with touch-device conditions.
+// Desktop short-circuiting previously hid a scope error in this path.
+const {readFileSync}=await import('node:fs');
+const {runInNewContext}=await import('node:vm');
+const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
+const functionSource=(name,next)=>app.slice(app.indexOf(`function ${name}(`),app.indexOf(`function ${next}(`));
+const nodes=new Map(),node=id=>{if(!nodes.has(id))nodes.set(id,{hidden:true,textContent:'',value:'',classList:{toggle(){}}});return nodes.get(id);};
+const labels=[{},{}],headerScroll=[],pageScroll=[];
+let desktop=false;
+const hole={settings:{par:4},attempts:[]};
+const context={
+ $:node,document:{querySelector:selector=>selector==='.mission'?{scrollIntoView:options=>headerScroll.push(options)}:node(selector),querySelectorAll:selector=>selector.includes('scorecard-label')?labels:[]},
+ window:{scrollTo:options=>pageScroll.push(options)},
+ state:{current:'tee',start:'tee',target:'flag',challenge:{par:4,attempt:1},history:[]},
+ config:{vocabulary:100,release:'test'},rounds:{active:{index:0,finished:false,holes:[hole]},hole},
+ desktopInteraction:()=>desktop,inCourse:()=>true,practising:()=>false,roundSummary:()=>false,
+ courseExhausted:()=>false,holeResult:()=>context.state.won===true,courseResult:()=>context.state.won===true,
+ bestAttempt:()=>null,attemptLimit:()=>12,reviewingSubmittedHole:false,
+ modelName:()=>'',bestHoleResult:()=>null,renderStrokeScore(){},renderBestRoute(){},styleResultButtonLabels(){},
+ renderAttemptCounter(){},placeHoleLog(){},renderNotice(){},recordCourseState(){},map(){},telemetry(){},renderLog(){},
+ renderLimitOverlay(){},leaveWordEntry(){},showChipRange:false,
+};
+context.updateArrivalSkill=()=>context.renderCourseOutcome();
+runInNewContext(functionSource('renderCourseOutcome','renderCourseScorecard')+functionSource('update','renderLimitOverlay')+app.slice(app.indexOf('function anchorCourseHole('),app.indexOf('async function navigateCourseHole(')),context);
+context.update();
+assert.equal(pageScroll.length,0,'ordinary touch-device course rendering must not scroll or throw');
+context.state.won=true;context.state.attempts=4;
+context.update();assert.equal(pageScroll.length,1,'new mobile result anchors at page top');
+context.update();assert.equal(pageScroll.length,1,'rerendering an existing result does not scroll again');
+context.anchorCourseHole({sameHole:true});assert.equal(headerScroll.length,1,'same-hole retry keeps mobile header anchor');
+context.anchorCourseHole();assert.equal(pageScroll.length,2,'different hole anchors to page top');
+desktop=true;context.state.won=false;context.update();context.state.won=true;context.update();
+assert.equal(pageScroll.length,2,'desktop shot results do not move the viewport');
+console.log('Touch rendering regression passed: course updates, one-time result anchors, same-hole header anchors and unchanged desktop shot viewport.');

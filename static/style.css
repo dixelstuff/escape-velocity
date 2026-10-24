@@ -542,3 +542,6 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .mission .hole-navigation #header-next-hole{font-size:14px;transform:translateY(1px);}
 #header-next-hole span{display:inline-block;font-size:19px;line-height:1;transform:translateY(1px);}
 @media(max-width:650px){.mission .hole-navigation #header-next-hole{font-size:13px;}#header-next-hole span{font-size:18px;}}
+
+#header-next-hole span{margin-left:2px;font-size:18px;transform:translateY(2px);}
+@media(max-width:650px){#header-next-hole span{font-size:17px;}}
