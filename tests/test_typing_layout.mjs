@@ -87,23 +87,21 @@ console.log('Scroll coordination passed: immediate downward corrections before p
 
 const {createKeyboardLayoutManager}=await import('../static/typing-layout.mjs');
 let keyboardTime=0,keyboardId=0;
-const keyboardFrames=new Map(),layouts=[],pins=[],releases=[];
+const keyboardFrames=new Map(),layouts=[],releases=[];
 const keyboardState={focused:true,enabled:true,height:720,top:0,restingHeight:720};
-const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),pin:value=>pins.push(value),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
+const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
 const keyboardAdvance=ms=>{for(let i=0;i<ms/20;i++){keyboardTime+=20;const batch=[...keyboardFrames.values()];keyboardFrames.clear();batch.forEach(fn=>fn());}};
-keyboard.notify();keyboardAdvance(120);assert.equal(layouts.length,0,'native focus alone leaves the page in its normal layout');assert.equal(pins.length,0);
+keyboard.beginFocus();assert.equal(layouts.length,1,'restore the focus-event pin before Safari can pan the page');
+assert.equal(layouts[0].height,720);keyboardAdvance(120);assert.equal(releases.length,0,'do not unpin while waiting for the opening keyboard');
 for(const height of [680,590,480,410]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
-assert.equal(layouts.length,0,'do not repeatedly shrink the map during keyboard opening');
-assert.equal(pins.length,1,'pin immediately when the opening keyboard is detected, before the settle delay');
-assert.equal(pins[0].height,720,'pin the existing layout without shrinking it through intermediate keyboard sizes');
-keyboardAdvance(100);assert.equal(layouts.length,1);assert.equal(layouts[0].height,410,'fit once after keyboard opening settles');
-keyboardState.focused=false;keyboard.notify();keyboardAdvance(40);
-assert.equal(releases.length,0,'blur holds the compact layout while the keyboard closes');
+assert.equal(layouts.at(-1).height,410,'track the opening viewport from the already pinned layout, as in the earlier working code');
+const openingFits=layouts.length;keyboardState.focused=false;keyboard.notify();keyboardAdvance(40);
+assert.equal(releases.length,0,'preserve the working close: hold the compact view while keyboard closes');
 for(const height of [480,590,680,720]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
-assert.equal(layouts.length,1,'closing never expands the compact map through intermediate sizes');
-assert.equal(releases.length,0);keyboardAdvance(100);assert.equal(releases.length,1,'release exactly once after keyboard closes');
-keyboardState.focused=true;keyboardState.height=410;keyboard.notify();keyboardAdvance(120);
-keyboardState.focused=false;keyboard.notify();keyboardAdvance(20);keyboardState.focused=true;keyboard.notify();keyboardAdvance(120);
-assert.equal(releases.length,1,'switching between reached words does not tear down and rebuild the keyboard layout');
-assert.equal(layouts.length,2);
-console.log('Keyboard transitions passed: one settled fit, no intermediate resizing, delayed single release and no layout toggle during focus handoff.');
+assert.equal(layouts.length,openingFits,'closing does not resize through intermediate sizes');
+assert.equal(releases.length,0);keyboardAdvance(100);assert.equal(releases.length,1,'release once after keyboard closes');
+keyboardState.focused=true;keyboardState.height=410;keyboard.beginFocus();keyboardAdvance(120);
+keyboardState.focused=false;keyboard.notify();keyboardAdvance(20);keyboardState.focused=true;keyboard.beginFocus();keyboardAdvance(120);
+assert.equal(releases.length,1,'focus handoff does not tear down the entry view');
+const touchFits=layouts.length;keyboardState.enabled=false;keyboard.beginFocus();keyboardAdvance(120);assert.equal(layouts.length,touchFits,'desktop entry never gets a fixed mobile layout');
+console.log('Keyboard transitions passed: synchronous focus-time opening restored, immediate opening viewport fit, unchanged settled closing and stable focus handoffs.');
