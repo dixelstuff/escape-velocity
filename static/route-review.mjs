@@ -1,5 +1,5 @@
 /** Exact one-step omissions from the played route, not a global shortest-path search. */
-import {Game} from './engine.mjs?v=golf-v120';
+import {Game} from './engine.mjs?v=golf-v121';
 export const ROUTE_REVIEW_VERSION='route-review-v1';
 export function reviewRoute(e,saved){
  if(!saved.won||!['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules))throw Error('Shortcut review is available for completed current-course rounds.');
