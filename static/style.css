@@ -420,3 +420,25 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 }
 
 #locked-feedback{font-size:11px;line-height:1.4;color:#7b7964;margin:0 0 13px;}
+
+/* Keep play feedback in the map and make course navigation part of the card. */
+#status{display:none;}
+#shot-notice.miss-notice{background:#b3546b;color:#fff;}
+#result-log-toggle{margin-top:4px;}
+#hole-log-remaining[hidden]{display:none;}
+#hole-log-title{line-height:1.4;}
+#round-rows tr[data-course-row]{cursor:pointer;}
+#round-rows tr[data-course-row]:hover{background:#e9efdd;}
+#round-rows button{padding:3px 0;background:transparent;color:inherit;font:inherit;text-align:left;border-radius:3px;}
+#round-rows button:hover{filter:none;}
+#submit-scorecard{display:block;margin:16px auto 0;font-size:12px;}
+#submit-course-dialog{max-width:min(440px,calc(100vw - 32px));padding:24px;background:#fffdf4;color:#294b35;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:6px;box-shadow:0 10px 35px #233b3040;}
+#submit-course-dialog::backdrop{background:#24483270;}
+#submit-course-dialog h2{margin:0 0 12px;font-size:23px;font-weight:600;}
+#submit-course-detail{font-size:13px;line-height:1.6;color:#6b7e61;margin:0 0 20px;}
+.submission-actions{display:flex;justify-content:center;gap:12px;}
+.submission-actions button{font-size:11px;padding:12px;}
+.round-scorecard #round-status:empty{display:none;}
+@media(max-width:650px){.round-scorecard th,.round-scorecard td{padding-left:4px;padding-right:4px;}.round-scorecard{padding:14px 10px;}}
+
+#submit-scorecard[hidden]{display:none;}

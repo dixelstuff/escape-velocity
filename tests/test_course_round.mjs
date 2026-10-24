@@ -11,7 +11,7 @@ for(let n=4;n<=6;n++)save(n);assert.equal(attemptResult(bestAttempt(store.hole),
 assert.equal(store.settings().challenge.version,STROKE_PLAY);assert.equal(store.settings().challenge.par,4);assert.equal(attemptLimit(4),12);
 for(let n=1;n<=12;n++)save(n,{strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),4),3);assert.throws(()=>store.settings(),/limit/);store.advance();
 assert.equal(store.hole.settings.par,5);for(let n=1;n<=18;n++)save(n);assert.throws(()=>store.settings(),/limit/);store.advance();
-save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),8);
+save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.completed,true);assert.equal(store.active.finished,false);store.submit();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),8);
 const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,8);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-first-best-attempt');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
 assert.equal(resultText(-2),'Eagle');assert.equal(resultText(3),'Triple bogey');assert.equal(scoreText(0),'Even');assert.equal(scoreText(-2),'−2');
 // Original scorecards retain their historical progress-based scores.
@@ -36,7 +36,26 @@ assert.equal(store.skip(exploring,'stale',.9),false,'stale hole controls cannot 
   const before=JSON.stringify(store.hole.attempts),practice={...store.hole.attempts[0].state,attempts:1,challenge:{...store.hole.attempts[0].state.challenge,attempt:20,practice:true,locked_result:{score:0,attempt:1}}};
   store.record(practice,'practice',.9);assert.equal(JSON.stringify(store.hole.attempts),before);
   if(i===7)assert.equal(new CourseRounds(storage).active.holes.length,9);
-  store.advance();assert.equal(store.active.finished,i===8);
+  store.advance();assert.equal(store.active.finished,false);assert.equal(!!store.active.completed,i===8);
  }
- assert.equal(store.exportData().at(-1).results.length,9);assert.equal(roundTotal(store.active),0);
+ store.submit();assert.equal(store.active.finished,true);assert.equal(store.exportData().at(-1).results.length,9);assert.equal(roundTotal(store.active),0);
+}
+
+
+// Exploratory misses stay unposted; only reached holes are navigable and submission is final.
+{
+ const {postedAttempt,reachedHole}=await import('../static/course-round.mjs');
+ store.begin(course);save(1,{won:false,strokes:1});
+ assert.equal(postedAttempt(store.hole),null);assert.equal(roundTotal(store.active),0);
+ assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(1),false);
+ save(2,{won:true,strokes:3});assert.equal(attemptResult(postedAttempt(store.hole),3),0);
+ store.advance();assert.equal(reachedHole(store.active),1);assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(2),false);
+ store.active.index=0;assert.equal(store.reopen(),true);assert.equal(store.hole.locked,false);assert.equal(store.settings().challenge.attempt,3);
+ assert.equal(reachedHole(new CourseRounds(storage).active),1);
+ store.active.index=1;assert.equal(store.unfinished(),4);store.submit();
+ assert.equal(store.active.finished,true);assert.ok(store.active.submittedAt);assert.equal(roundTotal(store.active),11);
+ assert.equal(store.active.holes.filter(h=>h.attempts.some(a=>a.state.default_score)).length,4);
+ assert.equal(store.exportData().at(-1).attempts_used,2,'unplayed defaults are not fabricated player attempts');
+ assert.equal(store.canVisit(2),false,'awarding unplayed defaults never unlocks later holes for navigation');
+ assert.equal(store.reopen(),false);const frozen=JSON.stringify(store.active.holes);save(3,{won:true,strokes:1});assert.equal(JSON.stringify(store.active.holes),frozen);
 }
