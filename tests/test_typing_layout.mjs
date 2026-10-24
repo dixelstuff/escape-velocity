@@ -50,6 +50,7 @@ const context={
  modelName:()=>'',bestHoleResult:()=>null,renderStrokeScore(){},renderBestRoute(){},styleResultButtonLabels(){},
  renderAttemptCounter(){},placeHoleLog(){},renderNotice(){},recordCourseState(){},map(){},telemetry(){},renderLog(){},
  renderLimitOverlay(){},leaveWordEntry(){},showChipRange:false,
+ scrollHoleTo:target=>(target==='page'?pageScroll:headerScroll).push({behavior:'smooth'}),
 };
 context.updateArrivalSkill=()=>context.renderCourseOutcome();
 runInNewContext(functionSource('renderCourseOutcome','renderCourseScorecard')+functionSource('update','renderLimitOverlay')+app.slice(app.indexOf('function anchorCourseHole('),app.indexOf('async function navigateCourseHole(')),context);
@@ -63,3 +64,18 @@ context.anchorCourseHole();assert.equal(pageScroll.length,2,'different hole anch
 desktop=true;context.state.won=false;context.update();context.state.won=true;context.update();
 assert.equal(pageScroll.length,2,'desktop shot results do not move the viewport');
 console.log('Touch rendering regression passed: course updates, one-time result anchors, same-hole header anchors and unchanged desktop shot viewport.');
+
+const {createHoleScroller}=await import('../static/hole-scroll.mjs');
+let time=0,nextId=0,geometry=[720,0,64,240],closing=false,motionReduced=false;
+const frames=new Map(),scrolls=[];
+const coordinator=createHoleScroller({snapshot:()=>({geometry,keyboardClosing:closing}),scroll:(target,behavior)=>scrolls.push({target,behavior}),frame:fn=>{frames.set(++nextId,fn);return nextId;},cancelFrame:id=>frames.delete(id),now:()=>time,reducedMotion:()=>motionReduced});
+const advance=ms=>{for(let i=0;i<ms/20;i++){time+=20;const work=[...frames.values()];frames.clear();work.forEach(fn=>fn());}};
+coordinator.to('header');advance(40);geometry=[430,0,64,200];closing=true;advance(160);
+assert.equal(scrolls.length,0,'wait while the keyboard is still closing');
+coordinator.to('page');advance(60);closing=false;geometry=[720,0,64,240];advance(100);
+assert.equal(scrolls.length,1,'one final scroll after keyboard and layout settle');
+assert.deepEqual(scrolls[0],{target:'page',behavior:'smooth'},'latest action replaces stale within-hole scroll');
+advance(200);assert.equal(scrolls.length,1,'no delayed second jump');
+coordinator.to('header');coordinator.cancel();advance(200);assert.equal(scrolls.length,1,'entering text cancels pending scrolling');
+motionReduced=true;coordinator.to('header');advance(120);assert.deepEqual(scrolls.at(-1),{target:'header',behavior:'instant'});
+console.log('Scroll coordination passed: keyboard settling, latest destination wins, smooth scrolling, cancellation and reduced motion.');

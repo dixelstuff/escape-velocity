@@ -545,3 +545,6 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 #header-next-hole span{margin-left:2px;font-size:18px;transform:translateY(2px);}
 @media(max-width:650px){#header-next-hole span{font-size:17px;}}
+
+/* A filled back-one-word arrow, centred in its own symmetric SVG viewBox. */
+.map-reset svg{width:22px;height:22px;fill:currentColor;stroke:none;}

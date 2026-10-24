@@ -25,7 +25,7 @@ const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
 const code=app.slice(app.indexOf("$('quick-replay').addEventListener('pointerdown'"),app.indexOf("$('header-next-hole').onclick="));
 for(const practice of [false,true]){
  const calls=[],button={addEventListener(type,fn){this.pointerdown=fn;}},history=[{success:true,attempt:1},{success:true,attempt:2}];
- const context={$:()=>button,busy:false,state:{challenge:{practice},history},retryTimer:0,clearTimeout(){},inCourse:()=>true,practising:()=>practice,rounds:{hole:{locked:practice},active:{finished:practice}},courseExhausted:()=>false,previousRetryThrough:()=>1,retryFromWord:(through,options)=>calls.push({through,focusEntry:options.focusEntry}),retryCourseHole:()=>{throw Error('Practice step-back must not restart the hole');}};
+ const context={$:()=>button,busy:false,state:{challenge:{practice},history},retryTimer:0,clearTimeout(){},returnToHoleHeader(){},inCourse:()=>true,practising:()=>practice,rounds:{hole:{locked:practice},active:{finished:practice}},courseExhausted:()=>false,previousRetryThrough:()=>1,retryFromWord:(through,options)=>calls.push({through,focusEntry:options.focusEntry}),retryCourseHole:()=>{throw Error('Practice step-back must not restart the hole');}};
  runInNewContext(code,context);let prevented=false;button.pointerdown({preventDefault(){prevented=true;}});button.onclick();
  assert.equal(prevented,true,'pointerdown preserves current entry focus');
  assert.equal(calls.length,1);assert.equal(calls[0].through,1);assert.equal(calls[0].focusEntry,false,'button never requests keyboard focus');
