@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {shotMotion} from '../static/shot-motion.mjs';
+import {shotMotion,shotTrail} from '../static/shot-motion.mjs';
 const a={x:100,y:270},b={x:800,y:215};
 for(const kind of ['flight','putt','chip']){
  const original=JSON.stringify({a,b});let previousX=a.x;
@@ -34,3 +34,20 @@ const shortTee=shotMotion('flight',{x:55,y:199},{x:120,y:215},.5,{tee:true});
 assert.ok(longTee.lift>flat.lift*1.7,'long tee shots have noticeably more height');
 assert.ok(shortTee.lift<40,'small tee shots keep a gentle arc');
 assert.equal(shotMotion('putt',a,b,.5,{tee:true}).lift,0);
+
+// Curated finishes conceal their result until the ordinary flight lands.
+for(const landingFraction of [.75,.9,.97]){
+ const landing={x:a.x+(b.x-a.x)*landingFraction,y:a.y+(b.y-a.y)*landingFraction};
+ for(const ms of [0,100,250,500,750,999]){
+  const golden=shotMotion('golden',a,b,ms/1850,{tee:true,landingFraction});
+  const normal=shotMotion('flight',a,landing,ms/1000,{tee:true});
+  for(const key of ['x','y','lift','scale','shadowScale','shadowOpacity'])assert.ok(Math.abs(golden[key]-normal[key])<1e-8,`${key} starts like a normal shot`);
+ }
+ const opts={tee:true,landingFraction};
+ assert.ok(shotMotion('golden',a,b,1100/1850,opts).lift>0,'one bounce follows touchdown');
+ assert.equal(shotMotion('golden',a,b,1600/1850,opts).lift,0,'finishes by rolling');
+ assert.equal(shotMotion('golden',a,b,1,opts).scale,0);
+ const trail=shotTrail('golden',a,b,opts);
+ assert.equal(trail.split(' L ').length,121);assert.ok(trail.endsWith(`${b.x},${b.y}`));
+ assert.notEqual(trail,`M ${a.x},${a.y} L ${b.x},${b.y}`);
+}
