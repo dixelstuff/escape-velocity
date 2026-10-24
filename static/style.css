@@ -419,7 +419,7 @@ body.typing .map-card{touch-action:pan-x pan-y;}
  .lock-actions{gap:9px;}.lock-actions button{padding:11px;font-size:11px;}
 }
 
-#locked-feedback{font-size:11px;line-height:1.4;color:#7b7964;margin:0 0 13px;}
+
 
 /* Keep play feedback in the map and make course navigation part of the card. */
 #status{display:none;}
