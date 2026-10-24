@@ -18,3 +18,8 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
  const frame=stableTypingViewport(viewport,restingHeight);
  return !!focused&&!!viewport&&!!frame&&restingHeight-frame.height>=100;
 }
+
+/** Compare visual-viewport heights with each other, never with layout height. */
+export function keyboardRestingHeight(viewport,fallbackHeight){
+ return Number.isFinite(viewport?.height)&&viewport.height>0?viewport.height:fallbackHeight;
+}

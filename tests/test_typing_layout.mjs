@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible} from '../static/typing-layout.mjs';
+import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from '../static/typing-layout.mjs';
 for(const viewport of [320,360,390,430,650])for(const available of [60,100,140,200,280,600])for(const viewHeight of [430,520]){
  const maximum=viewport-36,border=2,width=typingCourseWidth(maximum,available,640,viewHeight,border);
  const height=(width-border)*viewHeight/640+border;
@@ -47,3 +47,16 @@ const {createViewportDiagnostics}=await import('../static/viewport-diagnostics.m
 const diagnostic=createViewportDiagnostics(2);for(let i=0;i<3;i++)diagnostic.record('resize',{height:700-i});
 assert.deepEqual(diagnostic.export().map(e=>e.height),[699,698]);
 console.log('Mobile anchor rollback passed: header navigation only, no page-top coordinator, no new keyboard transition state machine and unchanged desktop navigation.');
+
+// Chrome browser chrome can leave the layout viewport larger than the visible
+// viewport by more than the 100px keyboard threshold even with no keyboard.
+const chromeViewport={height:690,offsetTop:0,scale:1},layoutHeight=844;
+const resting=keyboardRestingHeight(chromeViewport,layoutHeight);
+assert.equal(resting,690,'the baseline uses the same viewport as keyboard detection');
+assert.equal(keyboardLayoutVisible(true,chromeViewport,resting),false,'focus alone cannot falsely activate compact layout');
+assert.equal(keyboardLayoutVisible(true,{...chromeViewport,height:390},resting),true,'actual keyboard shrink activates compact layout');
+assert.equal(keyboardLayoutVisible(true,chromeViewport,resting),false,'Done exits compact mode even if the input retains native focus');
+assert.equal(keyboardLayoutVisible(true,{...chromeViewport,height:650},resting),false,'browser toolbar restoration also exits compact mode');
+assert.equal(keyboardRestingHeight({height:740},layoutHeight),740,'each new entry uses its current visible baseline, not a historical maximum');
+assert.equal(keyboardRestingHeight(undefined,844),844);
+console.log('Chrome keyboard baseline passed: layout/visual height mismatch, no premature entry, Done with retained focus and browser toolbar changes.');
