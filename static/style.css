@@ -465,6 +465,8 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .round-scorecard thead th:nth-child(2){text-align:left;}
 .round-scorecard thead th:nth-child(3),.round-scorecard thead th:nth-child(4){text-align:center;}
 .round-scorecard tbody th:nth-child(2){max-width:none;font-size:12px;}
-#hole-log-title,#arrival-banner #hole-log-title{font:600 15px/1.3 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;margin:0;color:#294b35;text-align:left;}
+#hole-log-title,#arrival-banner #hole-log-title{font:600 16px/1.3 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;margin:0;color:#294b35;text-align:left;}
 #hole-log-remaining,#arrival-banner #hole-log-remaining{font:400 12px/1.35 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;margin:3px 0 0;color:#718369;text-align:left;}
 .hole-log-heading{align-items:center;}
+
+#close-attempt-log{font-size:25px;line-height:1;padding:2px 5px;}
