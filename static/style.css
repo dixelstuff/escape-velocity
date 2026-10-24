@@ -399,7 +399,7 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .input-row #word,.input-row #launch,body.typing .input-row #word,body.typing .input-row #launch{height:50px;min-height:50px;padding:12px;border:1px solid #d6ded2;line-height:24px;}
 .input-row #launch,body.typing .input-row #launch{border-color:transparent;}
 .input-row #word:focus{outline:none;border-color:#78ac8e;box-shadow:inset 0 0 0 1px #78ac8e;}
-#result-attempts-remaining{font-size:11px;line-height:1.4;text-align:center;color:#78876d;margin:10px 0 0;}
+#result-attempts-remaining{font-size:11px;line-height:1.4;text-align:center;color:#78876d;margin:11px 0 0;}
 #score-lock-overlay{position:absolute;inset:0;z-index:8;display:grid;place-items:center;padding:14px;background:#24483238;backdrop-filter:blur(1px);}
 #score-lock-overlay[hidden]{display:none;}
 .score-lock-card{width:min(440px,100%);padding:22px;background:#fffdf4;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:5px;box-shadow:0 5px 20px #233b3030;text-align:center;}
@@ -423,7 +423,7 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 /* Keep play feedback in the map and make course navigation part of the card. */
 #status{display:none;}
-#shot-notice.miss-notice{background:#b3546b;color:#fff;}
+#shot-notice.miss-notice{background:#294b35;color:#fffdf4;}
 #result-log-toggle{margin-top:4px;}
 #hole-log-remaining[hidden]{display:none;}
 #hole-log-title{line-height:1.4;}
@@ -442,3 +442,18 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 @media(max-width:650px){.round-scorecard th,.round-scorecard td{padding-left:4px;padding-right:4px;}.round-scorecard{padding:14px 10px;}}
 
 #submit-scorecard[hidden]{display:none;}
+
+/* Match painted control edges as well as their outer dimensions. */
+.input-row #launch,body.typing .input-row #launch{background-clip:padding-box;}
+#shot-notice{padding-bottom:7px;}
+#hole-log-title,#arrival-banner #hole-log-title{font-size:12px;font-weight:600;line-height:1.4;letter-spacing:0;text-transform:none;}
+#arrival-attempt-cell[hidden]{display:none;}
+#arrival-banner .scorecard-grid:has(#arrival-attempt-cell[hidden]){grid-template-columns:1fr;}
+.round-scorecard thead th:nth-child(1),.round-scorecard thead th:nth-child(2),.round-scorecard thead th:nth-child(4),.round-scorecard thead th:nth-child(5),.round-scorecard tbody td{text-align:center;}
+#round-rows td:first-child button{width:100%;text-align:center;}
+.round-scorecard tbody th{font-size:12px;text-align:left;}
+.round-scorecard tbody td:nth-child(2){font-size:12px;}
+.round-scorecard tbody th:nth-child(3){max-width:none;}
+#submit-scorecard:disabled{opacity:.45;cursor:default;}
+.round-scorecard #submit-scorecard-note{font-size:11px;text-align:center;margin-top:8px;color:#78876d;}
+#submit-scorecard-note[hidden]{display:none;}

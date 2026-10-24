@@ -1,4 +1,4 @@
-import {greenContains} from './course-appearance.mjs?v=golf-v122';
+import {greenContains} from './course-appearance.mjs?v=golf-v123';
 /** Presentation-only motion. Scoring and shot counts never depend on animation. */
 const ease=t=>t*t*(3-2*t);
 export function shotMotion(kind,a,b,time,{tee=false,landingFraction=.9}={}){

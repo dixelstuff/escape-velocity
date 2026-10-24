@@ -42,20 +42,35 @@ assert.equal(store.skip(exploring,'stale',.9),false,'stale hole controls cannot 
 }
 
 
-// Exploratory misses stay unposted; only reached holes are navigable and submission is final.
+// Exploratory misses stay unposted; all holes are navigable and submission is final.
 {
  const {postedAttempt,reachedHole}=await import('../static/course-round.mjs');
  store.begin(course);save(1,{won:false,strokes:1});
  assert.equal(postedAttempt(store.hole),null);assert.equal(roundTotal(store.active),0);
- assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(1),false);
+ assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(1),true);
  save(2,{won:true,strokes:3});assert.equal(attemptResult(postedAttempt(store.hole),3),0);
- store.advance();assert.equal(reachedHole(store.active),1);assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(2),false);
+ store.advance();assert.equal(reachedHole(store.active),1);assert.equal(store.canVisit(0),true);assert.equal(store.canVisit(2),true);
  store.active.index=0;assert.equal(store.reopen(),true);assert.equal(store.hole.locked,false);assert.equal(store.settings().challenge.attempt,3);
  assert.equal(reachedHole(new CourseRounds(storage).active),1);
- store.active.index=1;assert.equal(store.unfinished(),4);store.submit();
+ store.active.index=1;assert.equal(store.unfinished(),4);
+ assert.equal(store.canSubmit(),false);assert.equal(store.submit(),false,'one played hole cannot submit a five-hole course');
+ save(1,{strokes:1});store.active.index=2;save(1,{strokes:1});
+ assert.equal(store.attemptedHoles(),3);assert.equal(store.canSubmit(),true);store.submit();
  assert.equal(store.active.finished,true);assert.ok(store.active.submittedAt);assert.equal(roundTotal(store.active),11);
- assert.equal(store.active.holes.filter(h=>h.attempts.some(a=>a.state.default_score)).length,4);
- assert.equal(store.exportData().at(-1).attempts_used,2,'unplayed defaults are not fabricated player attempts');
- assert.equal(store.canVisit(2),false,'awarding unplayed defaults never unlocks later holes for navigation');
+ assert.equal(store.active.holes.filter(h=>h.attempts.some(a=>a.state.default_score)).length,2);
+ assert.equal(store.exportData().at(-1).attempts_used,4,'unplayed defaults are not fabricated player attempts');
+ assert.equal(store.canVisit(2),true,'submitted holes remain available for review');
  assert.equal(store.reopen(),false);const frozen=JSON.stringify(store.active.holes);save(3,{won:true,strokes:1});assert.equal(JSON.stringify(store.active.holes),frozen);
 }
+
+// Submission needs real play on half the distinct holes, rounded up.
+store.begin({...course,id:'gate-nine',holes:Array.from({length:9},(_,i)=>course.holes[i%5])});
+assert.equal(store.minimumAttemptedHoles(),5);
+const untouched={...store.settings(),baseline:0,history:[],attempts:0,won:false,challenge_failed:false};
+store.skip(untouched,'empty',.9);assert.equal(store.attemptedHoles(),0);
+for(let i=1;i<=4;i++){store.active.index=i;save(1,{strokes:1});}
+assert.equal(store.canSubmit(),false);assert.equal(store.submit(),false);
+store.active.index=4;save(2,{strokes:1});assert.equal(store.attemptedHoles(),4,'repeated attempts do not count as extra holes');
+store.active.index=5;save(1,{strokes:1});assert.equal(store.canSubmit(),true);
+assert.equal(store.canVisit(-1),false);assert.equal(store.canVisit(9),false);
+assert.equal(store.submit(),true);assert.equal(store.canSubmit(),false);

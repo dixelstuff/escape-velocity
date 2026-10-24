@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v122';
-import {mapFraction} from './map.mjs?v=golf-v122';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v123';
+import {mapFraction} from './map.mjs?v=golf-v123';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;
@@ -85,10 +85,13 @@ export class CourseRounds{
   if(!this.hole||this.active.finished||Math.max(0,...this.hole.attempts.map(a=>a.number))>=attemptLimit(this.hole.settings.par))return false;
   this.hole.locked=false;this.save();return true;
  }
- canVisit(index){return !!this.active&&Number.isInteger(index)&&index>=0&&index<=reachedHole(this.active);}
+ canVisit(index){return !!this.active&&Number.isInteger(index)&&index>=0&&index<this.active.holes.length;}
+ attemptedHoles(){return this.active?.holes.filter(h=>h.attempts.some(a=>!a.state.default_score&&a.state.history.length>0)).length??0;}
+ minimumAttemptedHoles(){return Math.ceil((this.active?.holes.length??0)/2);}
+ canSubmit(){return !!this.active&&!this.active.finished&&this.attemptedHoles()>=this.minimumAttemptedHoles();}
  unfinished(){return this.active?.holes.filter(h=>!postedAttempt(h)).length??0;}
  submit(){
-  const r=this.active;if(!r||r.finished)return false;
+  const r=this.active;if(!this.canSubmit())return false;
   r.furthestIndex=reachedHole(r);
   for(const h of r.holes){
    if(!bestAttempt(h)){
