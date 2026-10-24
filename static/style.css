@@ -553,3 +553,6 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .map-reset{color:#758b70;background:#f8faefd9;opacity:.92;border-color:#8ca57a22;}
 .map-reset svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;}
 .map-reset:hover{filter:none;}
+
+/* Explicit course selection fades in place after its scroll has completed. */
+body.course-hole-changing .mission,body.course-hole-changing .map-card,body.course-hole-changing .controls{pointer-events:none;}

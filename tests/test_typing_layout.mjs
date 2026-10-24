@@ -63,7 +63,7 @@ console.log('Chrome keyboard baseline passed: layout/visual height mismatch, no 
 
 {
  const frames=[],locks=[],visits=[],scrolls=[];
- const navigation={busy:false,rounds:{canVisit:()=>true},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>({getBoundingClientRect:()=>({top:-520})})},scrollY:600,reduced:false,performance:{now:()=>0},window:{scrollTo:options=>scrolls.push(options)},requestAnimationFrame:fn=>frames.push(fn),navigateCourseHole:index=>visits.push(index)};
+ const navigation={busy:false,narrow:()=>false,rounds:{canVisit:()=>true},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>({getBoundingClientRect:()=>({top:-520})})},scrollY:600,reduced:false,performance:{now:()=>0},window:{scrollTo:options=>scrolls.push(options)},requestAnimationFrame:fn=>frames.push(fn),navigateCourseHole:index=>visits.push(index)};
  const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index)'));
  runInNewContext(code,navigation);
  const changing=navigation.navigateCourseHoleFromCard(3);
@@ -73,3 +73,18 @@ console.log('Chrome keyboard baseline passed: layout/visual height mismatch, no 
  assert.deepEqual(locks,[true,false]);assert.deepEqual(visits,[3],'selected hole becomes playable after the scroll settles');
 }
 console.log('Course-card navigation passed: one smooth scroll with input locked until completion.');
+
+{
+ const fades=[],locks=[],visits=[],classes=new Set();
+ const view={getBoundingClientRect:()=>({top:8}),animate:(keyframes,options)=>{let finish;const finished=new Promise(resolve=>{finish=resolve;});const animation={finished,cancel(){this.cancelled=true;}};fades.push({keyframes,options,finish,animation});return animation;}};
+ const navigation={busy:false,narrow:()=>true,rounds:{canVisit:()=>true,active:{index:0}},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>view,body:{classList:{add:name=>classes.add(name),remove:name=>classes.delete(name)}}},scrollY:0,reduced:false,performance:{now:()=>0},window:{scrollTo(){}},navigateCourseHole:index=>visits.push(index)};
+ const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index)'));
+ runInNewContext(code,navigation);
+ const changing=navigation.navigateCourseHoleFromCard(2);
+ assert.equal(fades.length,3);assert.equal(visits.length,0,'old hole stays until its fade-out finishes');
+ fades.forEach(fade=>fade.finish());await new Promise(resolve=>setImmediate(resolve));
+ assert.deepEqual(visits,[2]);assert.equal(fades.length,6);assert.equal(locks.at(-1),true,'new hole stays locked until fade-in finishes');
+ fades.slice(3).forEach(fade=>fade.finish());await changing;
+ assert.equal(locks.at(-1),false);assert.equal(classes.size,0);assert.ok(fades.every(fade=>fade.animation.cancelled),'remove finished animation effects');
+}
+console.log('Course-card transition passed: fade out, replace hole, fade in, then enable input.');
