@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v133';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v134';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -121,11 +121,15 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
   return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
  }):[];
+ const topTrees=d.par3?[.38,.54].flatMap((f,i)=>{
+  const x=d.width*(f+.025*(noise(i+220)-.5));
+  return [{x,y:9+8*noise(i+230),r:13+4*noise(i+240),seed:140+i*3},{x:x-19,y:24+8*noise(i+250),r:11+3*noise(i+260),seed:141+i*3},{x:x+17,y:28+7*noise(i+270),r:9+3*noise(i+280),seed:142+i*3}];
+ }):[];
  const fairwayTrees=d.par3?[.21,.61].flatMap((fraction,i)=>{
   const geometry=par3Fairway(d),x=d.left+(d.zoneLeft-d.left)*(fraction+.025*(noise(i+180)-.5)),r=11+4*noise(i+190),y=geometry.topY(x);
   return [{x,y:y+3,r,seed:110+i*3},{x:x-17-7*noise(i+200),y:y-16,r:r*.85,seed:111+i*3},{x:x+13,y:y-24,r:r*.72,seed:112+i*3}];
  }):[];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees,fairwayTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees,fairwayTrees,topTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
 const par3Sand=new WeakMap();

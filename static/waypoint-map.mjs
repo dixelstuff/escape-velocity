@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v133';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v133';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v133';
+import {mapFraction} from './map.mjs?v=golf-v134';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v134';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v134';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';

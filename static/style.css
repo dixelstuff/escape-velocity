@@ -502,3 +502,21 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 @media(max-width:650px){#arrival-banner .scorecard-grid #arrival-skill-value,#arrival-banner .scorecard-grid #arrival-attempt{font-size:27px;}}
 
 @media (hover:hover) and (pointer:fine){main{overflow-anchor:none;}}
+
+/* A single route/log separator, compact navigation and quiet map reset. */
+#result-route-section #hole-log-rows>.hole-log-attempt:first-child{border-top:0;}
+.round-scorecard th:first-child,.round-scorecard td:first-child{width:48px;min-width:48px;}
+.mission{padding-top:1px;}
+.controls{margin-top:29px;}
+.mission .hole-navigation #header-next-hole{display:flex;gap:6px;width:auto;height:29px;padding:3px 0 3px 7px;font-size:12px;font-weight:500;white-space:nowrap;}
+#header-next-hole svg{width:18px;height:18px;}
+.map-reset{position:absolute;right:8px;bottom:8px;z-index:4;display:grid;place-items:center;width:29px;height:29px;padding:6px;background:#f8faefb8;color:#6b846e;border:1px solid #8ca57a44;border-radius:50%;box-shadow:none;-webkit-tap-highlight-color:transparent;}
+.map-reset svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;}
+.map-reset:focus:not(:focus-visible){outline:none;}
+.attempt-log-open .map-reset,.score-locked .map-reset{visibility:hidden;}
+@media(max-width:650px){
+ .controls{margin-top:19px;}
+ body.typing .controls{margin-top:19px;}
+ .map-reset{right:6px;bottom:6px;width:26px;height:26px;padding:5px;}
+ .round-scorecard th:first-child,.round-scorecard td:first-child{width:40px;min-width:40px;}
+}
