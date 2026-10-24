@@ -199,8 +199,11 @@ console.log('Reset passed: new-only exports, persistent recovery, preservation o
  const {holeControlAvailability}=await import('../static/hole-attempt-log.mjs');
  const s={start:'tee',challenge:{id:'fresh'},history:[]};
  assert.deepEqual(holeControlAvailability([],s),{replay:false,log:true});
- assert.deepEqual(holeControlAvailability([],{...s,history:[{}]}),{replay:true,log:true});
- assert.deepEqual(holeControlAvailability([{state:{...s,history:[{}],challenge_failed:true}}],s),{replay:true,log:true});
+ assert.deepEqual(holeControlAvailability([],{...s,history:[{success:false}]}),{replay:false,log:true});
+ assert.deepEqual(holeControlAvailability([],{...s,history:[{success:true,automatic:true}]}),{replay:false,log:true});
+ assert.deepEqual(holeControlAvailability([],{...s,history:[{success:true,assumed:true}]}),{replay:true,log:true});
+ assert.deepEqual(holeControlAvailability([],{...s,history:[{success:true}]}),{replay:true,log:true});
+ assert.deepEqual(holeControlAvailability([{state:{...s,history:[{success:true}],challenge_failed:true}}],s),{replay:false,log:true});
  assert.deepEqual(holeControlAvailability([{state:{...s,challenge:{id:'older'},history:[{}],won:true}}],s),{replay:false,log:true});
 }
 

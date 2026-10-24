@@ -1,4 +1,4 @@
-import {attemptLimit} from './stroke-play.mjs?v=golf-v142';
+import {attemptLimit} from './stroke-play.mjs?v=golf-v143';
 /** This challenge only; assumed prefixes describe the lie, not new guesses. */
 export function holeAttemptLog(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -10,8 +10,7 @@ export function holeAttemptLog(journeys,state,activeId){
 }
 
 export function holeControlAvailability(journeys,state){
- const same=journeys.filter(j=>j.state.challenge?.id===state?.challenge?.id&&j.state.start===state?.start);
- return {replay:!!state?.history?.length||same.some(j=>j.state.history.length>0),log:!!state};
+ return {replay:!!state?.history?.some(shot=>shot.success&&!shot.automatic),log:!!state};
 }
 
 /** An in-progress attempt is still available; a finished attempt has been spent. */
