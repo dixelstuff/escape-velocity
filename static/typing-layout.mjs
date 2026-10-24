@@ -18,3 +18,33 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
  const frame=stableTypingViewport(viewport,restingHeight);
  return !!focused&&!!viewport&&!!frame&&restingHeight-frame.height>=100;
 }
+
+/** Hold one compact layout through keyboard animation; never change input focus. */
+export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancelFrame,now}){
+ let active=false,applied='',pending=null;
+ function notify(){
+  if(pending)return;
+  const job={started:now(),last:'',stableSince:now(),id:null};pending=job;
+  const tick=()=>{
+   if(pending!==job)return;
+   const s=snapshot(),stamp=JSON.stringify([s.focused,s.enabled,s.height,s.top,s.restingHeight]);
+   if(stamp!==job.last){job.last=stamp;job.stableSince=now();}
+   const stable=now()-job.stableSince>=80,shrink=s.restingHeight-s.height;
+   const open=s.enabled&&s.focused&&shrink>=(active?60:100);
+   if(open&&stable){
+    const layout=JSON.stringify([s.height,s.top]);
+    if(layout!==applied||!active){active=true;applied=layout;apply({height:s.height,top:s.top});}
+    pending=null;return;
+   }
+   if(!open&&((shrink<60&&stable)||!s.enabled||now()-job.started>=800)){
+    if(active){active=false;applied='';release();}
+    pending=null;return;
+   }
+   // No keyboard has appeared: keep native focus without entering a fixed view.
+   if(!active&&stable&&!open){pending=null;return;}
+   job.id=frame(tick);
+  };
+  job.id=frame(tick);
+ }
+ return {notify,cancel(){if(pending){cancelFrame(pending.id);pending=null;}}};
+}

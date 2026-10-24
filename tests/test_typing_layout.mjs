@@ -84,3 +84,24 @@ closing=false;advance(120);const count=scrolls.length;advance(200);assert.equal(
 currentY=200;coordinator.to('header');coordinator.cancel();advance(200);assert.equal(scrolls.length,count,'entering text cancels a pending upward return');
 motionReduced=true;coordinator.to('header');advance(120);assert.deepEqual(scrolls.at(-1),{target:'header',behavior:'instant'});
 console.log('Scroll coordination passed: immediate downward corrections before paint, smooth upward returns, keyboard settling, cancellation and reduced motion.');
+
+const {createKeyboardLayoutManager}=await import('../static/typing-layout.mjs');
+let keyboardTime=0,keyboardId=0;
+const keyboardFrames=new Map(),layouts=[],releases=[];
+const keyboardState={focused:true,enabled:true,height:720,top:0,restingHeight:720};
+const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
+const keyboardAdvance=ms=>{for(let i=0;i<ms/20;i++){keyboardTime+=20;const batch=[...keyboardFrames.values()];keyboardFrames.clear();batch.forEach(fn=>fn());}};
+keyboard.notify();keyboardAdvance(120);assert.equal(layouts.length,0,'native focus alone leaves the page in its normal layout');
+for(const height of [680,590,480,410]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
+assert.equal(layouts.length,0,'do not repeatedly shrink the map during keyboard opening');
+keyboardAdvance(100);assert.equal(layouts.length,1);assert.equal(layouts[0].height,410,'fit once after keyboard opening settles');
+keyboardState.focused=false;keyboard.notify();keyboardAdvance(40);
+assert.equal(releases.length,0,'blur holds the compact layout while the keyboard closes');
+for(const height of [480,590,680,720]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
+assert.equal(layouts.length,1,'closing never expands the compact map through intermediate sizes');
+assert.equal(releases.length,0);keyboardAdvance(100);assert.equal(releases.length,1,'release exactly once after keyboard closes');
+keyboardState.focused=true;keyboardState.height=410;keyboard.notify();keyboardAdvance(120);
+keyboardState.focused=false;keyboard.notify();keyboardAdvance(20);keyboardState.focused=true;keyboard.notify();keyboardAdvance(120);
+assert.equal(releases.length,1,'switching between reached words does not tear down and rebuild the keyboard layout');
+assert.equal(layouts.length,2);
+console.log('Keyboard transitions passed: one settled fit, no intermediate resizing, delayed single release and no layout toggle during focus handoff.');
