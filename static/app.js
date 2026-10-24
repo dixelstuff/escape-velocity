@@ -551,6 +551,7 @@ function renderBag(){
  $('bag-return-tee').disabled=busy||state.history.length===0;
 }
 function setBag(open){
+ if($('golf-bag-menu').hidden===!open)return;
  if(open&&(!state||holeResult()||courseResult()))return;
  if(open&&narrow())leaveWordEntry();
  $('golf-bag-menu').hidden=!open;$('toggle-bag').setAttribute('aria-expanded',String(open));
