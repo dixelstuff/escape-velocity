@@ -30,3 +30,17 @@ ctx.activeNotice='Miss feedback';ctx.queueScoringNotice(2);ctx.cancelScoringNoti
 ctx.queueScoringNotice(1);ctx.state.challenge.id='two';[...timers.values()][0].fn();assert.equal(ctx.activeNotice,'Miss feedback');
 ctx.queueScoringNotice(0);field.value='typing';[...timers.values()].at(-1).fn();assert.equal(ctx.activeNotice,'Miss feedback');
 console.log('Bag play passed: budgets, delayed reminders/cancellation, continuous routes, capped scoring, exact restore and immutable practice best.');
+// The best-route card follows the recorded scoring winner, including during practice.
+const routeHelper=app.slice(app.indexOf('function bestRouteState()'),app.indexOf('function renderHoleLog()'));
+const winner={start:'tee',won:true,route:['tee','specific','hole'],challenge:{id:'same',attempt:2}},later={...winner,route:['tee','other','hole'],challenge:{id:'same',attempt:3}};
+const routeCtx={state:later,inCourse:()=>false,practising:()=>false,bestHoleResult:()=>({score:0,attempt:2}),flightLog:{data:{journeys:[{state:winner},{state:later}]}},bestAttempt:()=>({state:winner}),rounds:{hole:{}}};
+runInNewContext(routeHelper,routeCtx);assert.equal(routeCtx.bestRouteState(),winner);
+routeCtx.state={...later,challenge:{...later.challenge,practice:true}};routeCtx.practising=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
+routeCtx.inCourse=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
+routeCtx.bestAttempt=()=>null;assert.equal(routeCtx.bestRouteState(),null);
+// At the tee the menu action simply dismisses; elsewhere it previews a retry.
+const teeAction=app.slice(app.indexOf("$('bag-return-tee').onclick="),app.indexOf("$('word').addEventListener('focus'",app.indexOf("$('bag-return-tee').onclick=")));
+const teeButton={},teeCalls=[],teeCtx={$:()=>teeButton,state:{history:[]},setBag:v=>teeCalls.push(['bag',v]),retryFromWord:(n,o)=>teeCalls.push(['retry',n,o.focusEntry]),returnToHoleHeader:()=>teeCalls.push(['anchor'])};
+runInNewContext(teeAction,teeCtx);teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false]]);
+teeCtx.state.history=[{success:true}];teeCalls.length=0;teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false],['retry',0,false],['anchor']]);
+console.log('Bag cards passed: recorded best-route selection, practice isolation, and no-op Return to tee at the tee.');

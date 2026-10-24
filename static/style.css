@@ -562,11 +562,20 @@ body.course-hole-changing .mission,body.course-hole-changing .map-card,body.cour
 .hole-tools .bag-toggle svg{display:block;width:18px;height:24px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;overflow:visible;}
 .hole-tools .bag-toggle:hover,.hole-tools .bag-toggle:active{background:#f4f7eef0;opacity:1;}
 #golf-bag-menu{position:absolute;bottom:50px;left:9px;z-index:6;width:min(270px,calc(100% - 18px));max-height:calc(100% - 62px);overflow:auto;overscroll-behavior:contain;background:#fffdf4f7;color:#294b35;border:1px solid #becbad;border-radius:9px;box-shadow:0 4px 15px #233b3026;padding:14px 16px;}
-#golf-bag-menu[hidden],#bag-playing-tips[hidden]{display:none;}
+#golf-bag-menu[hidden]{display:none;}
 .bag-stats{margin:0;font-size:13px;line-height:1.6;}.bag-stats>div{display:flex;gap:5px;}.bag-stats dt{font-weight:500;}.bag-stats dd{margin:0;font-weight:650;}
 #bag-scoring-status{font-size:11px;color:#738568;margin:6px 0 12px;line-height:1.4;}
 .bag-actions{border-top:1px solid #d7dfcd;padding-top:6px;}.bag-actions>button{display:block;width:100%;text-align:left;background:transparent;color:#365b3e;border:0;border-radius:4px;margin:0;padding:9px 0;box-shadow:none;font-size:13px;font-weight:500;}
 .bag-actions>button:hover{color:#21462b;background:#e9efdf;}.bag-actions>button:disabled{opacity:.4;}
-#bag-playing-tips{font-size:12px;line-height:1.5;padding:0 0 4px;color:#53694b;}#bag-playing-tips p{margin:5px 0 9px;}
 body.typing .hole-tools{bottom:9px;left:9px;}
 @media(max-width:650px){.hole-tools{bottom:7px;left:7px;width:30px;height:32px;}.hole-tools .bag-toggle{width:30px;height:32px;padding:4px 6px;}#golf-bag-menu{left:7px;bottom:46px;font-size:12px;padding:10px 12px;}.bag-stats{font-size:12px;}#bag-scoring-status{margin:4px 0 8px;}.bag-actions>button{padding:5px 0;font-size:12px;line-height:16px;}}
+
+/* Bag actions read as navigation; tips and routes share the scrolling hole card. */
+.hole-tools .bag-toggle svg{transform:translateX(-1px);}
+.bag-actions>button{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600;}
+.bag-action-arrow{font-size:19px;line-height:16px;font-weight:400;color:#8b9d80;}
+.bag-actions>button+button{border-top:1px solid #e6e9db;border-radius:0;}
+.bag-tip{padding:9px 0;border-top:1px solid #d5dec9;font-size:13px;line-height:1.5;}
+.bag-tip:first-child{border-top:0;padding-top:0;}.bag-tip>strong{font-weight:650;color:#365b3e;}.bag-tip p{margin:3px 0 0;color:#53694b;}
+.bag-route{font-size:14px;font-weight:600;line-height:1.8;overflow-wrap:anywhere;}
+@media(max-width:650px){#golf-bag-menu{max-height:calc(100% - 52px);padding:8px 12px;}.bag-stats{line-height:1.4;}.bag-actions{padding-top:4px;}.bag-tip{font-size:12px;}}
