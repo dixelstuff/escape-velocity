@@ -19,21 +19,9 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
  return !!focused&&!!viewport&&!!frame&&restingHeight-frame.height>=100;
 }
 
-/** Restore synchronous focus-time opening; hold the layout during keyboard closing. */
+/** Hold one compact layout through keyboard animation; never change input focus. */
 export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancelFrame,now}){
- let active=false,seenKeyboard=false,applied='',pending=null;
- function applyFrame(s){
-  const key=JSON.stringify([s.height,s.top]);
-  if(!active||key!==applied){active=true;applied=key;apply({height:s.height,top:s.top});}
- }
- function beginFocus(){
-  const s=snapshot();if(!s.enabled||!s.focused)return;
-  if(!active)seenKeyboard=false;
-  if(s.restingHeight-s.height>=60)seenKeyboard=true;
-  // Same order as the earlier working implementation: fix the play view in
-  // the focus event, before Safari starts scrolling the original input into view.
-  applyFrame(s);notify();
- }
+ let active=false,applied='',pending=null;
  function notify(){
   if(pending)return;
   const job={started:now(),last:'',stableSince:now(),id:null};pending=job;
@@ -42,18 +30,21 @@ export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancel
    const s=snapshot(),stamp=JSON.stringify([s.focused,s.enabled,s.height,s.top,s.restingHeight]);
    if(stamp!==job.last){job.last=stamp;job.stableSince=now();}
    const stable=now()-job.stableSince>=80,shrink=s.restingHeight-s.height;
-   if(shrink>=60)seenKeyboard=true;
-   if(s.enabled&&s.focused&&active&&(!seenKeyboard||shrink>=60)){
-    applyFrame(s);pending=null;return;
-   }
-   if(!s.enabled||((!s.focused||seenKeyboard&&shrink<60)&&((shrink<60&&stable)||now()-job.started>=800))){
-    if(active){active=false;seenKeyboard=false;applied='';release();}
+   const open=s.enabled&&s.focused&&shrink>=(active?60:100);
+   if(open&&stable){
+    const layout=JSON.stringify([s.height,s.top]);
+    if(layout!==applied||!active){active=true;applied=layout;apply({height:s.height,top:s.top});}
     pending=null;return;
    }
-   if(!active){pending=null;return;}
+   if(!open&&((shrink<60&&stable)||!s.enabled||now()-job.started>=800)){
+    if(active){active=false;applied='';release();}
+    pending=null;return;
+   }
+   // No keyboard has appeared: keep native focus without entering a fixed view.
+   if(!active&&stable&&!open){pending=null;return;}
    job.id=frame(tick);
   };
   job.id=frame(tick);
  }
- return {beginFocus,notify,cancel(){if(pending){cancelFrame(pending.id);pending=null;}}};
+ return {notify,cancel(){if(pending){cancelFrame(pending.id);pending=null;}}};
 }

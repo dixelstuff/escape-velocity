@@ -1,7 +1,7 @@
 /** Downward corrections happen before paint; upward returns wait for stable layout. */
-export function createHoleScroller({snapshot,scroll,frame,cancelFrame,now,reducedMotion}){
+export function createHoleScroller({snapshot,scroll,frame,cancelFrame,now,reducedMotion,stop=()=>{}}){
  let pending=null;
- function cancel(){if(pending){cancelFrame(pending.frame);pending=null;}}
+ function cancel(){if(pending){cancelFrame(pending.frame);pending=null;}stop();}
  function to(target){
   cancel();const job={target,started:now(),stableSince:now(),last:null,frame:null};pending=job;
   const correctDownward=()=>{
