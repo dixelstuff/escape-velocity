@@ -475,3 +475,10 @@ body.typing .map-card{touch-action:pan-x pan-y;}
  /* Keep the input and header at the same horizontal anchors on focus. */
  body.typing main{padding-left:18px;padding-right:18px;}
 }
+
+/* Match each row's hierarchy: large hole / score, small par / result. */
+#round-rows td:first-child,#round-rows .course-hole-score{font-size:20px;font-weight:600;line-height:1.15;}
+#round-rows .course-hole-par,#round-rows .course-score-label{display:block;margin-top:3px;font:400 10px/1.3 'DM Sans',sans-serif;color:#7b8a71;}
+.round-scorecard #round-rows th,.round-scorecard #round-rows th button{font-size:13px;line-height:1.4;text-transform:uppercase;}
+.hole-log-heading{padding-top:4px;align-items:flex-start;}
+#close-attempt-log{display:grid;place-items:center;width:25px;height:21px;min-height:0;padding:0;line-height:1;font-size:25px;margin:0;flex:none;}
