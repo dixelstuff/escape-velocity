@@ -20,8 +20,8 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
 }
 
 /** Hold one compact layout through keyboard animation; never change input focus. */
-export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancelFrame,now}){
- let active=false,applied='',pending=null;
+export function createKeyboardLayoutManager({snapshot,pin=()=>{},apply,release,frame,cancelFrame,now}){
+ let active=false,pinned=false,pinnedTop=null,applied='',pending=null;
  function notify(){
   if(pending)return;
   const job={started:now(),last:'',stableSince:now(),id:null};pending=job;
@@ -30,18 +30,21 @@ export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancel
    const s=snapshot(),stamp=JSON.stringify([s.focused,s.enabled,s.height,s.top,s.restingHeight]);
    if(stamp!==job.last){job.last=stamp;job.stableSince=now();}
    const stable=now()-job.stableSince>=80,shrink=s.restingHeight-s.height;
-   const open=s.enabled&&s.focused&&shrink>=(active?60:100);
+   const open=s.enabled&&s.focused&&shrink>=((active||pinned)?60:100);
+   // Pin before the settling delay so native keyboard panning cannot move the
+   // hole down the page. Defer the actual compact map sizing until stable.
+   if(open&&!active&&(!pinned||pinnedTop!==s.top)){pinned=true;pinnedTop=s.top;pin({height:s.restingHeight,top:s.top});}
    if(open&&stable){
     const layout=JSON.stringify([s.height,s.top]);
     if(layout!==applied||!active){active=true;applied=layout;apply({height:s.height,top:s.top});}
     pending=null;return;
    }
    if(!open&&((shrink<60&&stable)||!s.enabled||now()-job.started>=800)){
-    if(active){active=false;applied='';release();}
+    if(active||pinned){active=false;pinned=false;pinnedTop=null;applied='';release();}
     pending=null;return;
    }
    // No keyboard has appeared: keep native focus without entering a fixed view.
-   if(!active&&stable&&!open){pending=null;return;}
+   if(!active&&!pinned&&stable&&!open){pending=null;return;}
    job.id=frame(tick);
   };
   job.id=frame(tick);

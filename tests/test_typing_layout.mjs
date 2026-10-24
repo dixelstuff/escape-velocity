@@ -87,13 +87,15 @@ console.log('Scroll coordination passed: immediate downward corrections before p
 
 const {createKeyboardLayoutManager}=await import('../static/typing-layout.mjs');
 let keyboardTime=0,keyboardId=0;
-const keyboardFrames=new Map(),layouts=[],releases=[];
+const keyboardFrames=new Map(),layouts=[],pins=[],releases=[];
 const keyboardState={focused:true,enabled:true,height:720,top:0,restingHeight:720};
-const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
+const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),pin:value=>pins.push(value),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
 const keyboardAdvance=ms=>{for(let i=0;i<ms/20;i++){keyboardTime+=20;const batch=[...keyboardFrames.values()];keyboardFrames.clear();batch.forEach(fn=>fn());}};
-keyboard.notify();keyboardAdvance(120);assert.equal(layouts.length,0,'native focus alone leaves the page in its normal layout');
+keyboard.notify();keyboardAdvance(120);assert.equal(layouts.length,0,'native focus alone leaves the page in its normal layout');assert.equal(pins.length,0);
 for(const height of [680,590,480,410]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
 assert.equal(layouts.length,0,'do not repeatedly shrink the map during keyboard opening');
+assert.equal(pins.length,1,'pin immediately when the opening keyboard is detected, before the settle delay');
+assert.equal(pins[0].height,720,'pin the existing layout without shrinking it through intermediate keyboard sizes');
 keyboardAdvance(100);assert.equal(layouts.length,1);assert.equal(layouts[0].height,410,'fit once after keyboard opening settles');
 keyboardState.focused=false;keyboard.notify();keyboardAdvance(40);
 assert.equal(releases.length,0,'blur holds the compact layout while the keyboard closes');
