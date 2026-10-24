@@ -548,3 +548,8 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 /* A filled back-one-word arrow, centred in its own symmetric SVG viewBox. */
 .map-reset svg{width:22px;height:22px;fill:currentColor;stroke:none;}
+
+/* A quiet outline hint; tapping a word remains the primary way to step back. */
+.map-reset{color:#758b70;background:#f8faef78;border-color:#8ca57a22;}
+.map-reset svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;}
+.map-reset:hover{filter:none;}
