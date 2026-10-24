@@ -1,4 +1,4 @@
-import {STROKE_PLAY,maximumStrokes} from './stroke-play.mjs?v=golf-v135';
+import {STROKE_PLAY,maximumStrokes} from './stroke-play.mjs?v=golf-v136';
 /** Recent individual holes, grouped by challenge; retries never become extra holes. */
 export function practiceScorecard(journeys,limit=5){
  const groups=new Map();

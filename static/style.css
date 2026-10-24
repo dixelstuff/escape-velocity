@@ -535,3 +535,10 @@ body.typing .map-card{touch-action:pan-x pan-y;}
  .map-reset{width:29px;height:29px;padding:6px;}
  .round-scorecard th:first-child,.round-scorecard td:first-child{width:50px;min-width:50px;}
 }
+
+/* Centre the circular arc itself; the arrowhead may extend beyond it. */
+.map-reset{display:flex;align-items:center;justify-content:center;padding:0;}
+.map-reset svg{flex:none;}
+.mission .hole-navigation #header-next-hole{font-size:14px;transform:translateY(1px);}
+#header-next-hole span{display:inline-block;font-size:19px;line-height:1;transform:translateY(1px);}
+@media(max-width:650px){.mission .hole-navigation #header-next-hole{font-size:13px;}#header-next-hole span{font-size:18px;}}
