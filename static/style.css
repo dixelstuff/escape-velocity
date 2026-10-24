@@ -377,15 +377,15 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .hole-navigation button:hover{background:#dbe4d14d;filter:none;}
 .hole-navigation button:focus:not(:focus-visible){outline:none;}
 .attempt-log-open .hole-tools{visibility:hidden;}
-.map-card>#hole-attempt-log{margin-top:-14px;padding:0 16px 14px;background:transparent;}
-.course-feedback:has(>#shot-notice:not([hidden])){top:10px;bottom:auto;}
+.map-card>#hole-attempt-log{margin-top:-18px;padding:0 16px 14px;background:transparent;}
+.course-feedback:has(>#shot-notice:not([hidden])){top:11px;bottom:auto;}
 @media(max-width:650px){
  .hole-tools{top:auto;left:6px;bottom:6px;right:auto;}
  .hole-tools .attempt-log-toggle{height:29px;min-height:29px;font-size:10px;padding:4px 7px;}
  .mission .hole-navigation{gap:3px;}
  .hole-navigation button{width:27px;height:27px;}
- .map-card>#hole-attempt-log{margin-top:-14px;padding:0 10px 10px;}
- .course-feedback:has(>#shot-notice:not([hidden])){top:8px;}
+ .map-card>#hole-attempt-log{margin-top:-18px;padding:0 10px 10px;}
+ .course-feedback:has(>#shot-notice:not([hidden])){top:9px;}
 }
 
 /* One continuous scenery layer avoids a join where the map meets an open card. */
@@ -423,7 +423,7 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 /* Keep play feedback in the map and make course navigation part of the card. */
 #status{display:none;}
-#shot-notice.miss-notice{background:#294b35;color:#fffdf4;}
+#shot-notice.miss-notice{background:var(--green);color:#fffdf4;}
 #result-log-toggle{margin-top:4px;}
 #hole-log-remaining[hidden]{display:none;}
 #hole-log-title{line-height:1.4;}
@@ -457,3 +457,14 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 #submit-scorecard:disabled{opacity:.45;cursor:default;}
 .round-scorecard #submit-scorecard-note{font-size:11px;text-align:center;margin-top:8px;color:#78876d;}
 #submit-scorecard-note[hidden]{display:none;}
+
+/* Readable card headings and a single hole identity column. */
+.round-card-heading{padding-inline:6px;}
+#round-rows td:first-child{font-size:14px;font-weight:600;}
+#round-rows .course-hole-par{display:block;font-size:10px;font-weight:400;color:#7b8a71;margin-top:3px;}
+.round-scorecard thead th:nth-child(2){text-align:left;}
+.round-scorecard thead th:nth-child(3),.round-scorecard thead th:nth-child(4){text-align:center;}
+.round-scorecard tbody th:nth-child(2){max-width:none;font-size:12px;}
+#hole-log-title,#arrival-banner #hole-log-title{font:600 15px/1.3 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;margin:0;color:#294b35;text-align:left;}
+#hole-log-remaining,#arrival-banner #hole-log-remaining{font:400 12px/1.35 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;margin:3px 0 0;color:#718369;text-align:left;}
+.hole-log-heading{align-items:center;}
