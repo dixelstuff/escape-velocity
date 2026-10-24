@@ -25,3 +25,9 @@ export function returnsToOriginalLie(preview,through){
   through===original.history.length&&source?.start===original.start&&
   original.history.every((shot,i)=>shot.success&&source.history[i]?.success&&source.history[i].word===shot.word);
 }
+
+/** Previous landed lie, excluding misses and the automatic finishing stroke. */
+export function previousRetryThrough(state){
+ const lies=state.history.filter(h=>h.success&&!h.automatic);
+ return lies.length>1?lies.at(-2).attempt:0;
+}

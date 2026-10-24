@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v134';
+import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v135';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -108,7 +108,7 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   [.51,351,21],[.54,368,15],[.56,339,17],
   [.79,416,18],[.824,399,12],[.842,426,16],
   ...edgeTrees
- ]:[
+ ]:d.par3?edgeTrees:[
   [.035,28,14],[.068,42,18],[.105,25,17],[.14,43,13],
   [.24,19,15],[.273,28,12],[.69,15,14],[.729,27,18],[.765,12,14],...edgeTrees
  ];
@@ -121,10 +121,28 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
   return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
  }):[];
- const topTrees=d.par3?[.38,.54].flatMap((f,i)=>{
-  const x=d.width*(f+.025*(noise(i+220)-.5));
-  return [{x,y:9+8*noise(i+230),r:13+4*noise(i+240),seed:140+i*3},{x:x-19,y:24+8*noise(i+250),r:11+3*noise(i+260),seed:141+i*3},{x:x+17,y:28+7*noise(i+270),r:9+3*noise(i+280),seed:142+i*3}];
- }):[];
+ // Grow irregular groves in the broad top rough, leaving open pockets between
+ // them. Sample the actual fairway edge rather than lining trees along the frame.
+ const topTrees=[];
+ if(d.par3){
+  const geometry=par3Fairway(d),centres=[],count=4+Math.floor(3*noise(310));
+  for(let i=0;i<40&&centres.length<count;i++){
+   const x=d.width*(.025+.79*noise(320+i*7)),ceiling=geometry.topY(x)-26;
+   if(ceiling<22)continue;
+   const y=10+(ceiling-10)*noise(321+i*7);
+   if(centres.some(c=>Math.hypot((x-c.x)*.8,y-c.y)<62))continue;
+   centres.push({x,y});
+   const n=1+Math.floor(4*noise(322+i*7)),grove=[];
+   for(let j=0;j<n*5&&grove.length<n;j++){
+    const angle=noise(600+i*23+j*3)*Math.PI*2,spread=j?9+18*noise(601+i*23+j*3):0;
+    const tx=x+Math.cos(angle)*spread,ty=y+Math.sin(angle)*spread*.85,r=8+10*noise(602+i*23+j*3);
+    if(ty+r>geometry.topY(tx)+2||ty<-r*.25||tx<r*.3||tx>d.zoneLeft-25)continue;
+    if(grove.some(a=>Math.hypot(tx-a.x,ty-a.y)<9))continue;
+    if(grove.some((a,k)=>grove.slice(k+1).some(b=>{const ux=b.x-a.x,uy=b.y-a.y,vx=tx-a.x,vy=ty-a.y;return Math.abs(ux*vy-uy*vx)<.24*Math.hypot(ux,uy)*Math.hypot(vx,vy);})))continue;
+    const sapling={x:tx,y:ty,r,seed:150+i*20+j};grove.push(sapling);topTrees.push(sapling);
+   }
+  }
+ }
  const fairwayTrees=d.par3?[.21,.61].flatMap((fraction,i)=>{
   const geometry=par3Fairway(d),x=d.left+(d.zoneLeft-d.left)*(fraction+.025*(noise(i+180)-.5)),r=11+4*noise(i+190),y=geometry.topY(x);
   return [{x,y:y+3,r,seed:110+i*3},{x:x-17-7*noise(i+200),y:y-16,r:r*.85,seed:111+i*3},{x:x+13,y:y-24,r:r*.72,seed:112+i*3}];

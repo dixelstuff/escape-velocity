@@ -520,3 +520,18 @@ body.typing .map-card{touch-action:pan-x pan-y;}
  .map-reset{right:6px;bottom:6px;width:26px;height:26px;padding:5px;}
  .round-scorecard th:first-child,.round-scorecard td:first-child{width:40px;min-width:40px;}
 }
+
+/* Restore the simple text arrow and align both map controls by their centres. */
+.mission .hole-navigation #header-next-hole{display:block;height:auto;background:transparent;color:#6b8068;font-size:13px;font-weight:500;padding:4px 0 4px 10px;white-space:nowrap;}
+#header-next-hole span{margin-left:4px;}
+.map-reset{width:32px;height:32px;padding:7px;}
+.round-scorecard th:first-child,.round-scorecard td:first-child{width:62px;min-width:62px;}
+@media(min-width:651px){
+ .mission,.map-card{width:100%;max-width:1020px;margin-left:auto;margin-right:auto;}
+ .round-scorecard{max-width:none;width:100%;padding-left:clamp(32px,7vw,100px);padding-right:clamp(32px,7vw,100px);}
+}
+@media(max-width:650px){
+ .mission .hole-navigation #header-next-hole{font-size:12px;}
+ .map-reset{width:29px;height:29px;padding:6px;}
+ .round-scorecard th:first-child,.round-scorecard td:first-child{width:50px;min-width:50px;}
+}

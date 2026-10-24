@@ -92,3 +92,11 @@ assert.deepEqual([...teeSides].sort((a,b)=>a-b),[168,187,210]);
  old.submit('bridge');const saved=old.state();assert.equal(saved.won,true);assert.equal(saved.attempts,7);
  assert.deepEqual(restoreGame(e,saved).state(),saved);
 }
+
+const {previousRetryThrough}=await import('../static/stroke-play.mjs');
+const stepHistory=[{attempt:1,success:true},{attempt:2,success:true,waypoint_reached:true},{attempt:3,success:true},{attempt:4,success:false}];
+assert.equal(previousRetryThrough({history:stepHistory}),2,'step back from last landed lie, ignoring a failed swing');
+assert.equal(previousRetryThrough({history:stepHistory.slice(0,2)}),1,'step back across the dogleg');
+assert.equal(previousRetryThrough({history:stepHistory.slice(0,1)}),0,'first landed word goes back to tee');
+assert.equal(previousRetryThrough({history:[]}),0,'tee has no earlier lie');
+assert.equal(previousRetryThrough({history:[...stepHistory,{attempt:5,success:true,automatic:true}]}),2,'automatic finish is not a selectable lie');
