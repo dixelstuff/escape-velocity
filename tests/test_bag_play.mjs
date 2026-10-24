@@ -37,10 +37,19 @@ const routeCtx={state:later,inCourse:()=>false,practising:()=>false,bestHoleResu
 runInNewContext(routeHelper,routeCtx);assert.equal(routeCtx.bestRouteState(),winner);
 routeCtx.state={...later,challenge:{...later.challenge,practice:true}};routeCtx.practising=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
 routeCtx.inCourse=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
-routeCtx.bestAttempt=()=>null;assert.equal(routeCtx.bestRouteState(),null);
+routeCtx.bestAttempt=()=>null;routeCtx.flightLog.data.journeys=[];routeCtx.state={won:false,challenge:{id:'same'}};assert.equal(routeCtx.bestRouteState(),null);
+const practiceRoute={won:true,attempts:3,route:['tee','setup','hole'],challenge:{id:'same',attempt:11,practice:true}};routeCtx.flightLog.data.journeys=[{state:practiceRoute}];assert.equal(routeCtx.bestRouteState(),practiceRoute,'a practice hole-out is available when no scoring route was holed');
 // At the tee the menu action simply dismisses; elsewhere it previews a retry.
 const teeAction=app.slice(app.indexOf("$('bag-return-tee').onclick="),app.indexOf("$('word').addEventListener('focus'",app.indexOf("$('bag-return-tee').onclick=")));
-const teeButton={},teeCalls=[],teeCtx={$:()=>teeButton,state:{history:[]},setBag:v=>teeCalls.push(['bag',v]),retryFromWord:(n,o)=>teeCalls.push(['retry',n,o.focusEntry]),returnToHoleHeader:()=>teeCalls.push(['anchor'])};
-runInNewContext(teeAction,teeCtx);teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false]]);
-teeCtx.state.history=[{success:true}];teeCalls.length=0;teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false],['retry',0,false],['anchor']]);
+const teeButton={},teeCalls=[],teeCtx={$:()=>teeButton,state:{history:[]},setBag:v=>teeCalls.push(['bag',v]),retryFromWord:(n,o)=>teeCalls.push(['retry',n,o.focusEntry]),returnToHoleHeader:()=>teeCalls.push(['anchor']),showReturnTeeTip:()=>teeCalls.push(['tip'])};
+runInNewContext(teeAction,teeCtx);teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false],['tip']]);
+teeCtx.state.history=[{success:true}];teeCalls.length=0;teeButton.onclick();assert.deepEqual(teeCalls,[['bag',false],['retry',0,false],['anchor'],['tip']]);
 console.log('Bag cards passed: recorded best-route selection, practice isolation, and no-op Return to tee at the tee.');
+
+// The return-to-tee hint is shown once per browser session, surviving reloads.
+const sessionTip=app.slice(app.indexOf('let returnTeeTipShown'),app.indexOf("$('bag-return-tee').onclick="));
+const sessionValues=new Map();let notices=0;
+const sessionCtx={sessionStorage:{getItem:k=>sessionValues.get(k),setItem:(k,v)=>sessionValues.set(k,v)},cancelScoringNotice(){},renderNotice(){notices++;},activeNotice:'',noticeDismissed:true};
+runInNewContext(sessionTip,sessionCtx);sessionCtx.showReturnTeeTip();assert.equal(notices,1);assert.match(sessionCtx.activeNotice,/tap any previous lie/);assert.equal(sessionCtx.noticeDismissed,false);sessionCtx.showReturnTeeTip();assert.equal(notices,1);
+const reloadCtx={...sessionCtx};runInNewContext(sessionTip,reloadCtx);reloadCtx.showReturnTeeTip();assert.equal(notices,1);
+console.log('Session retry hint passed: first selection only, with reload persistence.');
