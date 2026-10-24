@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader} from '../static/typing-layout.mjs';
+import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible} from '../static/typing-layout.mjs';
 for(const viewport of [320,360,390,430,650])for(const available of [60,100,140,200,280,600])for(const viewHeight of [430,520]){
  const maximum=viewport-36,border=2,width=typingCourseWidth(maximum,available,640,viewHeight,border);
  const height=(width-border)*viewHeight/640+border;
@@ -21,3 +21,10 @@ assert.equal(shouldReturnHoleHeader({top:-30,bottom:-4},640),true);
 assert.equal(shouldReturnHoleHeader({top:650,bottom:690},640),true);
 assert.equal(shouldReturnHoleHeader({top:64,bottom:92},640),false,'do not scroll an already visible header');
 assert.equal(shouldReturnHoleHeader({top:8,bottom:36},640),false);
+
+assert.equal(keyboardLayoutVisible(true,{height:720,scale:1},720),false,'focus with no keyboard must keep the standard view');
+assert.equal(keyboardLayoutVisible(true,{height:430,scale:1},720),true);
+assert.equal(keyboardLayoutVisible(false,{height:430,scale:1},720),false,'blur always leaves keyboard layout');
+assert.equal(keyboardLayoutVisible(true,{height:680,scale:1},720),false,'browser toolbar changes are not a keyboard');
+assert.equal(keyboardLayoutVisible(true,{height:430,scale:2},720),false,'zoom is not a keyboard');
+assert.equal(keyboardLayoutVisible(true,undefined,720),false);

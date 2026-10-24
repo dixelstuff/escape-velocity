@@ -12,3 +12,9 @@ export function stableTypingViewport(viewport,fallbackHeight){
 
 /** Re-anchor only when the hole header has actually left the usable viewport. */
 export function shouldReturnHoleHeader({top,bottom},height){return top<0||bottom>height;}
+
+/** Focus alone does not prove that a mobile software keyboard is visible. */
+export function keyboardLayoutVisible(focused,viewport,restingHeight){
+ const frame=stableTypingViewport(viewport,restingHeight);
+ return !!focused&&!!viewport&&!!frame&&restingHeight-frame.height>=100;
+}
