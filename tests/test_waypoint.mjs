@@ -308,3 +308,33 @@ console.log('Repeated cross-leg words keep distinct anchors, label identities an
  assert.ok(leader.automatic_shot.launch>=leader.automatic_shot.required);
  assert.equal(g.state().attempts,3);assert.equal(g.won,true);
 }
+
+// SPONGE report: destination membership is independent of whether the swing connects.
+const spongeHole=JSON.parse(readFileSync(new URL('../data/new-mixed-holes.json',import.meta.url))).find(h=>h.start==='sponge');
+const spongeGame=()=>new Game(e,spongeHole.start,spongeHole.target,spongeHole.threshold,spongeHole);
+const directPathology=spongeGame();directPathology.submit('cells');const weakPathology=directPathology.submit('pathology');
+const viaPathogen=spongeGame();viaPathogen.submit('cells');viaPathogen.submit('pathogen');const reachedPathology=viaPathogen.submit('pathology');
+assert.equal(weakPathology.inside,true);assert.equal(weakPathology.success,false);assert.equal(directPathology.stage,0);
+assert.equal(reachedPathology.waypoint_reached,true);assert.equal(viaPathogen.stage,1);assert.equal(weakPathology.destination,reachedPathology.destination);
+for(const narrow of [true,false])for(const turn of ['up','down']){
+ const scene={...spongeHole,waypoint:{...spongeHole.waypoint,turn}},d=waypointLayout(mapLayout(narrow),scene),bend=waypointAnchors(d).bend;
+ for(const [game,shot]of [[directPathology,weakPathology],[viaPathogen,reachedPathology]]){
+  const p=waypointPosition(game.state(),'pathology',d,shot);
+  assert.ok(Math.hypot((p.x-bend.x)/(d.width*.065),(p.y-bend.y)/40)<1,'weak inside-dogleg shots must be shown inside, without awarding the dogleg');
+ }
+ const before=new Game(e,scene.start,scene.target,scene.threshold,scene);before.submit('cells');before.submit('pathogen');
+ const landmark=waypointPosition(before.state(),'microbiology',d);const hit=before.submit('microbiology');
+ assert.equal(hit.waypoint_reached,true);assert.deepEqual(waypointPosition(before.state(),'microbiology',d,hit),landmark,'playing the named waypoint preserves its exact ground anchor');
+}
+// An invisible backward proposal must not become the current ball's label obstacle.
+const {runInNewContext}=await import('node:vm');
+const appSource=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
+const ballSource=appSource.match(/function ballPosition\(word,event=null\)\{[^\n]+/)[0];
+const currentScene=spongeGame();currentScene.submit('cells');currentScene.submit('bacteria');const currentBefore=currentScene.state(),backward=currentScene.submit('microscopic');
+assert.equal(backward.outcome,'water');
+for(const narrow of [true,false]){
+ const d=waypointLayout(mapLayout(narrow),currentBefore),ball=runInNewContext('('+ballSource+')',{state:currentBefore,dimensions:()=>d,position:(word,event)=>waypointPosition(currentBefore,word,d,event)});
+ assert.deepEqual({...ball('bacteria',backward)},{...ball('bacteria')},'hidden backward shot leaves the current ball obstacle exactly where it was');
+}
+assert.match(appSource,/state\.waypoint&&p\.key===waypointKey/,'reserve future ball clearance at the waypoint label before it is played');
+console.log('Sponge regression passed: fixed destination membership, honest weak-hit ghosts, stable named dogleg, and no obstacle teleport on hidden backward shots.');

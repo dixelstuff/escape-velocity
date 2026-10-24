@@ -1,6 +1,6 @@
-import {mapFraction} from './map.mjs?v=golf-v154';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v154';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v154';
+import {mapFraction} from './map.mjs?v=golf-v155';
+import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v155';
+import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v155';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -60,8 +60,12 @@ export function waypointPosition(state,word,d,event=null){
  const h=event??state.history.findLast(h=>h.word===word&&h.success)??state.history.findLast(h=>h.word===word);
  if(word===state.start&&h?.stage!==1)return a.tee;
  if(word===state.final_target)return a.flag;
+ // The named dogleg is a fixed landmark; playing it must not move its marker.
+ if(word===state.waypoint.word&&(!h||h.stage===0))return a.bend;
  if(!h)return a.bend;
- if(h.stage===0&&h.waypoint_reached){
+ // A weak swing can aim inside the zone. Keep its faded intended lie honest,
+ // without treating it as a successful arrival or advancing the game stage.
+ if(h.stage===0&&(h.waypoint_reached||h.inside)){
   const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
   const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-(h.leg_threshold??.27))/(1-(h.leg_threshold??.27))))),forward=.62*(2*depth-1),side=.18*Math.sin(h.attempt*2.4+h.destination*5);
   return waypointBoundaryPosition({x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)},d,true);
