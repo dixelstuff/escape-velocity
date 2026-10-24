@@ -1,4 +1,4 @@
-import {maximumStrokes} from './stroke-play.mjs?v=golf-v159';
+import {maximumStrokes} from './stroke-play.mjs?v=golf-v160';
 export const SCORING_CLOSED='Your best score is recorded. Play next hole when ready.';
 export function scoringReminder(remaining){
  if(remaining===0)return SCORING_CLOSED;

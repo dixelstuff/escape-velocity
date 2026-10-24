@@ -41,6 +41,7 @@ jobs:
           node tests/test_headwind.mjs
           node tests/test_word_model.mjs
           node tests/test_local_scaling.mjs
+          node tests/test_overlay_presentation.mjs
           node tests/test_bag_play.mjs
           node tests/test_stroke_play.mjs
           node tests/test_success_mode.mjs

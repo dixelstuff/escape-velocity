@@ -64,12 +64,12 @@ console.log('Chrome keyboard baseline passed: layout/visual height mismatch, no 
 {
  const frames=[],locks=[],visits=[],scrolls=[];
  const navigation={busy:false,narrow:()=>false,rounds:{canVisit:()=>true},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>({getBoundingClientRect:()=>({top:-520})})},scrollY:600,reduced:false,performance:{now:()=>0},window:{scrollTo:options=>scrolls.push(options)},requestAnimationFrame:fn=>frames.push(fn),navigateCourseHole:index=>visits.push(index)};
- const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index)'));
+ const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index,'));
  runInNewContext(code,navigation);
  const changing=navigation.navigateCourseHoleFromCard(3);
- assert.deepEqual(locks,[true]);assert.equal(scrolls[0].behavior,'smooth');assert.equal(visits.length,0,'do not activate the next input while native navigation is still scrolling');
+ assert.deepEqual(locks,[true]);assert.equal(scrolls[0].behavior,'smooth');assert.equal(scrolls[0].top,0,'course-card selection returns to the Word golf title');assert.equal(visits.length,0,'do not activate the next input while native navigation is still scrolling');
  frames.shift()();assert.equal(visits.length,0);
- navigation.scrollY=72;frames.shift()();frames.shift()();await changing;
+ navigation.scrollY=0;frames.shift()();frames.shift()();await changing;
  assert.deepEqual(locks,[true,false]);assert.deepEqual(visits,[3],'selected hole becomes playable after the scroll settles');
 }
 console.log('Course-card navigation passed: one smooth scroll with input locked until completion.');
@@ -78,7 +78,7 @@ console.log('Course-card navigation passed: one smooth scroll with input locked 
  const fades=[],locks=[],visits=[],classes=new Set();
  const view={getBoundingClientRect:()=>({top:8}),animate:(keyframes,options)=>{let finish;const finished=new Promise(resolve=>{finish=resolve;});const animation={finished,cancel(){this.cancelled=true;}};fades.push({keyframes,options,finish,animation});return animation;}};
  const navigation={busy:false,narrow:()=>true,rounds:{canVisit:()=>true,active:{index:0}},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>view,body:{classList:{add:name=>classes.add(name),remove:name=>classes.delete(name)}}},scrollY:0,reduced:false,performance:{now:()=>0},window:{scrollTo(){}},navigateCourseHole:index=>visits.push(index)};
- const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index)'));
+ const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index,'));
  runInNewContext(code,navigation);
  const changing=navigation.navigateCourseHoleFromCard(2);
  assert.equal(fades.length,3);assert.equal(visits.length,0,'old hole stays until its fade-out finishes');
