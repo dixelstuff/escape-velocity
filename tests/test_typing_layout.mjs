@@ -66,16 +66,21 @@ assert.equal(pageScroll.length,2,'desktop shot results do not move the viewport'
 console.log('Touch rendering regression passed: course updates, one-time result anchors, same-hole header anchors and unchanged desktop shot viewport.');
 
 const {createHoleScroller}=await import('../static/hole-scroll.mjs');
-let time=0,nextId=0,geometry=[720,0,64,240],closing=false,motionReduced=false;
+let time=0,nextId=0,geometry=[720,0,64,240],closing=false,motionReduced=false,currentY=200;
 const frames=new Map(),scrolls=[];
-const coordinator=createHoleScroller({snapshot:()=>({geometry,keyboardClosing:closing}),scroll:(target,behavior)=>scrolls.push({target,behavior}),frame:fn=>{frames.set(++nextId,fn);return nextId;},cancelFrame:id=>frames.delete(id),now:()=>time,reducedMotion:()=>motionReduced});
+const coordinator=createHoleScroller({snapshot:target=>({geometry,keyboardClosing:closing,currentY,targetY:target==='page'?0:64}),scroll:(target,behavior)=>{scrolls.push({target,behavior});currentY=target==='page'?0:64;},frame:fn=>{frames.set(++nextId,fn);return nextId;},cancelFrame:id=>frames.delete(id),now:()=>time,reducedMotion:()=>motionReduced});
 const advance=ms=>{for(let i=0;i<ms/20;i++){time+=20;const work=[...frames.values()];frames.clear();work.forEach(fn=>fn());}};
 coordinator.to('header');advance(40);geometry=[430,0,64,200];closing=true;advance(160);
-assert.equal(scrolls.length,0,'wait while the keyboard is still closing');
+assert.equal(scrolls.length,0,'upward return waits while the keyboard is still closing');
 coordinator.to('page');advance(60);closing=false;geometry=[720,0,64,240];advance(100);
-assert.equal(scrolls.length,1,'one final scroll after keyboard and layout settle');
-assert.deepEqual(scrolls[0],{target:'page',behavior:'smooth'},'latest action replaces stale within-hole scroll');
+assert.equal(scrolls.length,1,'one final upward scroll after keyboard and layout settle');
+assert.deepEqual(scrolls[0],{target:'page',behavior:'smooth'},'upward page return remains visibly smooth');
 advance(200);assert.equal(scrolls.length,1,'no delayed second jump');
-coordinator.to('header');coordinator.cancel();advance(200);assert.equal(scrolls.length,1,'entering text cancels pending scrolling');
+coordinator.to('header');assert.deepEqual(scrolls.at(-1),{target:'header',behavior:'instant'},'downward header correction runs synchronously before the next paint');
+closing=true;currentY=0;advance(20);
+assert.equal(currentY,64,'Safari keyboard-close reset is corrected before the next paint');
+assert.equal(scrolls.at(-1).behavior,'instant','keyboard-close correction never animates down past the title');
+closing=false;advance(120);const count=scrolls.length;advance(200);assert.equal(scrolls.length,count,'settling adds no redundant correction');
+currentY=200;coordinator.to('header');coordinator.cancel();advance(200);assert.equal(scrolls.length,count,'entering text cancels a pending upward return');
 motionReduced=true;coordinator.to('header');advance(120);assert.deepEqual(scrolls.at(-1),{target:'header',behavior:'instant'});
-console.log('Scroll coordination passed: keyboard settling, latest destination wins, smooth scrolling, cancellation and reduced motion.');
+console.log('Scroll coordination passed: immediate downward corrections before paint, smooth upward returns, keyboard settling, cancellation and reduced motion.');
