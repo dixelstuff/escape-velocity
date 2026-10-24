@@ -203,3 +203,12 @@ console.log('Reset passed: new-only exports, persistent recovery, preservation o
  assert.deepEqual(holeControlAvailability([{state:{...s,history:[{}],challenge_failed:true}}],s),{replay:true,log:true});
  assert.deepEqual(holeControlAvailability([{state:{...s,challenge:{id:'older'},history:[{}],won:true}}],s),{replay:false,log:true});
 }
+
+{
+ const {remainingHoleAttempts}=await import('../static/hole-attempt-log.mjs');
+ const state={challenge:{par:3,attempt:1}};
+ assert.equal(remainingHoleAttempts(state),6);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2}}),5);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2},won:true}),4);
+ assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:6},challenge_failed:true}),0);
+}

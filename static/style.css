@@ -390,3 +390,6 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 
 /* One continuous scenery layer avoids a join where the map meets an open card. */
 .map-card.attempt-log-open #map .course-scenery,.map-card.arrived #map .course-scenery{visibility:hidden;}
+
+#hole-log-remaining{font-size:10px;line-height:1.3;color:#7b8b72;margin:4px 0 0;}
+.hole-log-heading{align-items:flex-start;}
