@@ -1,4 +1,4 @@
-import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v155';
+import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v156';
 /** A challenge attempt keeps ordinary shot scoring, including the automatic finish. */
 export function successSettings(value){
  if(!value)return null;

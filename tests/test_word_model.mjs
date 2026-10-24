@@ -9,16 +9,17 @@ import {puzzleKey} from '../static/bridge-feedback.mjs';
 import {restartSettings} from '../static/startup.mjs';
 import {FlightLog,journeyText} from '../static/flight-log.mjs';
 const dir=new URL('../static/model/',import.meta.url),config=JSON.parse(readFileSync(new URL('config.json',dir))),id='abtt-1-v1',profile=config.word_models[id];
-assert.equal(config.vector_sha256,'a70969cfc311e8a2839c68f5cd24427855955243170fbf98f33c034b1a199584','current model remains byte identical');
+const frozenVocabulary=JSON.parse(readFileSync(new URL('../data/vocabulary-extension.json',import.meta.url))).baseline.words;
+const frozenCount=report=>report.opening_bridges.filter(b=>words.indexOf(b.word)<frozenVocabulary).length;
 const words=JSON.parse(readFileSync(new URL(config.words_file,dir))),hubs=new Uint8Array(readFileSync(new URL(config.hub_file,dir)));
 function load(p){const raw=readFileSync(new URL(p.vector_fallback,dir));assert.equal(createHash('sha256').update(raw).digest('hex'),p.vector_sha256);return new Embeddings(words,decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),config.dimensions,hubs);}
 const e=load(config),trial=load(profile),models=new Map([['',e],[id,trial]]);e.wordModels=models;trial.wordModels=models;trial.word_model=id;
 // Preserve the pre-rescue model comparison baseline.
-const normal={...config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),plural_rescue:false},settings={...normal,...profile.defaults,word_model:id};
+const normal={family_rescue:false,...config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),plural_rescue:false},settings={...normal,...profile.defaults,word_model:id};
 for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};if(q.waypoint)assert.throws(()=>new Game(e,q.start,q.target,q.threshold,q).submit(q.target),/Reach/);else assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
 const preview=assessHole(e,settings),plain=assessHole(e,normal);
-assert.equal(preview.settings.word_model,id);assert.equal(plain.green_bridges,67);
-assert.ok(preview.green_bridges>=50&&preview.green_bridges<=55,`ABTT bridge count: ${preview.green_bridges}`);
+assert.equal(preview.settings.word_model,id);assert.equal(frozenCount(plain),67);
+assert.ok(frozenCount(preview)>=50&&frozenCount(preview)<=55,`ABTT bridge count: ${preview.green_bridges}`);
 for(const word of ['around','still','come','will','continued','hold','keep','expected'])assert.ok(!preview.opening_bridges.some(b=>b.word===word),word);
 assert.ok(preview.opening_bridges.some(b=>b.word==='shiny'));
 const g=new Game(e,settings.start,settings.target,settings.threshold,settings),shot=g.submit('shiny');assert.ok(g.won);

@@ -30,7 +30,7 @@ def main():
         if stale.name != words_file:stale.unlink()
     (output/words_file).write_text(words_json)
     (output / 'words.json').write_text(words_json)
-    config = dict(release='golf-v155', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='stroke-play-v1',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())+json.loads((DATA / 'player-waypoint-holes.json').read_text())+json.loads((DATA / 'new-waypoint-holes.json').read_text())+json.loads((DATA / 'new-waypoint-holes-3.json').read_text())+json.loads((DATA / '24-october-holes.json').read_text())+json.loads((DATA / 'new-mixed-holes.json').read_text())], vocabulary=len(e.words),
+    config = dict(release='golf-v156', vector_file=filename, words_file=words_file, vector_fallback=f'vectors-{digest}.f16', vector_bytes=len(packed), vector_sha256=hashlib.sha256(packed).hexdigest(), historical_vocabulary=19989,puzzles=[dict(p,finish_mode='range',success_mode=True,success_version='stroke-play-v1',par=p.get('par',3)) for p in json.loads((DATA / 'puzzles.json').read_text())+json.loads((DATA / 'comparison-holes.json').read_text())+json.loads((DATA / 'ls-comparison-holes.json').read_text())+json.loads((DATA / 'fresh-course.json').read_text())+json.loads((DATA / 'player-discoveries.json').read_text())+json.loads((DATA / 'waypoint-holes.json').read_text())+json.loads((DATA / 'player-waypoint-holes.json').read_text())+json.loads((DATA / 'new-waypoint-holes.json').read_text())+json.loads((DATA / 'new-waypoint-holes-3.json').read_text())+json.loads((DATA / '24-october-holes.json').read_text())+json.loads((DATA / 'new-mixed-holes.json').read_text())], vocabulary=len(e.words),
                   dimensions=e.vectors.shape[1], model='GloVe 6B · 300 dimensions')
     config['retired_waypoint_holes']=json.loads((DATA / 'retired-waypoint-holes.json').read_text())
     config['courses']=json.loads((DATA / 'five-hole-courses.json').read_text())
@@ -88,6 +88,8 @@ def main():
     config.update(hub_file=hub_meta['file'],hub_sha256=hub_meta['sha256'],hub_version=hub_meta['version'])
     from build_ls import build_ls
     config['word_models']['ls15-v1']=build_ls(config)
+    from build_word_families import main as build_word_families
+    build_word_families(config)
     (output / 'config.json').write_text(json.dumps(config, separators=(',', ':')))
     (output / 'ATTRIBUTION.txt').write_text(
         'Word vectors: Stanford GloVe 6B 300d, Wikipedia 2014 + Gigaword 5.\n'

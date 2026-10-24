@@ -1,5 +1,5 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game } from './engine.mjs?v=golf-v155';
+import { Game } from './engine.mjs?v=golf-v156';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.27,{mode:'distance',launch_min:.095,launch_max:.215,...settings});
   e=game.e;
@@ -38,5 +38,5 @@ export function assessHole(e,settings){
   }
   opening_bridges.sort((a,b)=>b.contact-a.contact||b.destination-a.destination||a.word.localeCompare(b.word));
   const bridges=opening_bridges.length;
-  return {settings:{start,target,threshold,mode:game.mode,launch_min,launch_max,rules:game.rules,plural_rescue:game.plural_rescue,plural_tolerance:game.plural_tolerance,...(game.finish_mode==='range'?{finish_mode:'range'}:{}),...(game.word_model?{word_model:game.word_model}:{}),...(game.headwind?{headwind:game.headwind}:{})},start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
+  return {settings:{start,target,threshold,mode:game.mode,launch_min,launch_max,rules:game.rules,plural_rescue:game.plural_rescue,family_rescue:game.family_rescue,plural_tolerance:game.plural_tolerance,...(game.finish_mode==='range'?{finish_mode:'range'}:{}),...(game.word_model?{word_model:game.word_model}:{}),...(game.headwind?{headwind:game.headwind}:{})},start,target,connection:baseline,separation_degrees:Math.acos(Math.max(-1,Math.min(1,baseline)))*180/Math.PI,direct_hole_in_one:direct,playable:!direct&&openings>0,openings,green_bridges:bridges,opening_bridges,green_threshold:threshold,two_step_openings:twoStepOpenings,difficulty:bridges>=8?'Gentle':bridges>0||twoStepOpenings>=3?'Moderate':'Challenging',estimate:true};
 }

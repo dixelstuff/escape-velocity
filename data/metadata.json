@@ -1,11 +1,1 @@
-{
-  "source": {
-    "glove.6B.zip": "https://nlp.stanford.edu/data/glove.6B.zip",
-    "wordnet.zip": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip"
-  },
-  "dimensions": 300,
-  "words": 24995,
-  "frequency_floor": 2.5,
-  "selection": "wordfreq English frequency rank intersected with lowercase single-word WordNet lemmas; regular inflections and common names excluded",
-  "expansion": "Appended dictionary words and common inflections; existing vectors unchanged"
-}
+{"source":{"glove.6B.zip":"https://nlp.stanford.edu/data/glove.6B.zip","wordnet.zip":"https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip"},"dimensions":300,"words":36306,"frequency_floor":2.5,"selection":"wordfreq English frequency rank intersected with lowercase single-word WordNet lemmas; regular inflections and common names excluded","expansion":"Appended lowercase WordNet lemmas with wordfreq Zipf >=2.0 plus source-backed outdoor/inflected additions; original rows and hub scores preserved","expansion_frequency_floor":2.0}

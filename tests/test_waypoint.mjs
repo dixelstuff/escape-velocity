@@ -311,7 +311,7 @@ console.log('Repeated cross-leg words keep distinct anchors, label identities an
 
 // SPONGE report: destination membership is independent of whether the swing connects.
 const spongeHole=JSON.parse(readFileSync(new URL('../data/new-mixed-holes.json',import.meta.url))).find(h=>h.start==='sponge');
-const spongeGame=()=>new Game(e,spongeHole.start,spongeHole.target,spongeHole.threshold,spongeHole);
+const spongeGame=()=>new Game(e,spongeHole.start,spongeHole.target,spongeHole.threshold,{...spongeHole,family_rescue:false});
 const directPathology=spongeGame();directPathology.submit('cells');const weakPathology=directPathology.submit('pathology');
 const viaPathogen=spongeGame();viaPathogen.submit('cells');viaPathogen.submit('pathogen');const reachedPathology=viaPathogen.submit('pathology');
 assert.equal(weakPathology.inside,true);assert.equal(weakPathology.success,false);assert.equal(directPathology.stage,0);
