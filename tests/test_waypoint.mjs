@@ -206,12 +206,12 @@ const albatross=new Game(toy,'tee','hole',.27,{mode:'distance',waypoint:{word:'w
 const ace=albatross.submit('bridge');assert.ok(ace.waypoint_reached&&ace.automatic_shot);assert.equal(albatross.state().attempts,2);assert.equal(ace.golden_holed,undefined);assert.equal(ace.automatic_shot.outcome,'chip','the ball finishes across the final leg from its waypoint lie');
 console.log('Waypoint auto-finish: correct final similarity, chip/putt choice, counted stroke, two-stroke albatross and historical replay passed.');
 
-for(const setup of [6,7]){
+for(const setup of [5,6]){
  const capped=new Game(toy,'tee','hole',.27,{mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',challenge:{version:'stroke-play-v1',par:5,attempt:1,id:'waypoint-cap'}});
  for(const w of ['a','b','c','d','e','f','g'].slice(0,setup))capped.submit(w);
- const shot=capped.submit('bridge');assert.equal(capped.state().attempts,8,'automatic finish never exceeds the stroke cap');
- assert.equal(capped.won,setup===6);assert.equal(!!shot.automatic_shot,setup===6);
- assert.equal(shot.waypoint_finish,setup===6?true:undefined);assert.deepEqual(restoreGame(toy,capped.state()).state(),capped.state());
+ const shot=capped.submit('bridge');assert.equal(capped.state().attempts,7,'automatic finish never exceeds the stroke cap');
+ assert.equal(capped.won,setup===5);assert.equal(!!shot.automatic_shot,setup===5);
+ assert.equal(shot.waypoint_finish,setup===5?true:undefined);assert.deepEqual(restoreGame(toy,capped.state()).state(),capped.state());
 }
 
 for(const narrow of [false,true])for(const turn of ['up','down']){

@@ -10,11 +10,11 @@ import {mapLayout} from '../static/map.mjs';
 const words=['tee','hole','a','b','c','d','e','f','g','h','miss','bridge'];
 const e={index:new Map(words.map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){if(a===b)return 1;if(a==='miss'||b==='miss')return 0;if(a==='hole'||b==='hole')return (a==='bridge'||b==='bridge')?.3:.04;return .5;}};
 const options=par=>({mode:'distance',launch_min:.095,launch_max:.215,finish_mode:'range',challenge:{version:STROKE_PLAY,par,attempt:1,id:'caps-'+par}});
-for(const [par,tries,cap] of [[3,6,5],[4,12,7],[5,18,8]]){
+for(const [par,tries,cap] of [[3,6,5],[4,12,6],[5,18,7]]){
  assert.equal(attemptLimit(par),tries);assert.equal(maximumStrokes(par),cap);
  let g=new Game(e,'tee','hole',.27,options(par));
  for(const word of ['a','b','c','d','e','f','g','h'].slice(0,cap-1)){g.submit(word);assert.equal(g.challenge_failed,false,'no early cutoff just because par is impossible');}
- g.submit('miss');assert.equal(g.history.length,cap);assert.equal(g.challenge_failed,true);assert.equal(challengeFailure(g.state()),`Maximum score: ${cap} strokes — ${par===3?'double':'triple'} bogey.`);assert.equal(g.current,['a','b','c','d','e','f','g','h'][cap-2]);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+ g.submit('miss');assert.equal(g.history.length,cap);assert.equal(g.challenge_failed,true);assert.equal(challengeFailure(g.state()),`Maximum score: ${cap} strokes — double bogey.`);assert.equal(g.current,['a','b','c','d','e','f','g','h'][cap-2]);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
  g=new Game(e,'tee','hole',.27,options(par));g.submit('miss');assert.equal(g.challenge_failed,true,'early misses still end the attempt');
 }
 let g=new Game(e,'tee','hole',.27,{...options(3),golden_paths:[['bridge']]});assert.equal(g.submit('bridge').golden_holed,true);assert.equal(g.state().attempts,1);assert.equal(g.automatic_shots.length,0);assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
@@ -65,7 +65,7 @@ for(let i=0;i<30;i++){
  assert.equal(angled.teeY,style.par3TeeY);assert.equal(angled.holeY,before.holeY);assert.equal(angled.greenTop,before.greenTop);assert.equal(angled.greenBottom,before.greenBottom);
  const turf=par3Fairway(angled);assert.ok(turf.topY(angled.left)<angled.teeY-64&&turf.bottomY(angled.left)>angled.teeY+64,'both tee markers remain in fairway');
 }
-assert.deepEqual([...teeSides].sort((a,b)=>a-b),[172,258]);
+assert.deepEqual([...teeSides].sort((a,b)=>a-b),[168,187,210]);
 
 // Practice preserves the scored milestone through retry, completion and restore.
 {
@@ -83,4 +83,12 @@ assert.deepEqual([...teeSides].sort((a,b)=>a-b),[172,258]);
   for(const word of fixture.route){if(game.won)break;const shot=game.submit(word);assert.equal(shot.success,true,h.start+' '+word);}
   assert.equal(game.won,true,h.start+' has a verified recognisable route');
  }
+}
+
+// Older longer attempts remain replayable after the new double-bogey cap.
+{
+ const old=new Game(e,'tee','hole',.27,options(4));old.replay_stroke_cap=7;
+ for(const w of ['a','b','c','d','e'])old.submit(w);
+ old.submit('bridge');const saved=old.state();assert.equal(saved.won,true);assert.equal(saved.attempts,7);
+ assert.deepEqual(restoreGame(e,saved).state(),saved);
 }

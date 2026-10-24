@@ -1,25 +1,25 @@
-import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v129';
-import {treeOverlapsControls} from './control-trees.mjs?v=golf-v129';
-import {holeAttemptLog,holeControlAvailability,remainingHoleAttempts} from './hole-attempt-log.mjs?v=golf-v129';
-import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v129';
-import {collectSavedHoles} from './saved-holes.mjs?v=golf-v129';
-import {STROKE_PLAY,attemptLimit,maximumStrokes,maximumName,maximumScoreText,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=golf-v129';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=golf-v129';
-import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v129';
-import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader} from './typing-layout.mjs?v=golf-v129';
-import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v129';
-import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v129';
-import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v129';
-import { hubWarningText } from './hub-warning.mjs?v=golf-v129';
-import { createBrowserClient } from './engine.mjs?v=golf-v129';
-import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v129';
-import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v129';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v129';
-import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v129';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v129';
-import {successOutcome} from './success-mode.mjs?v=golf-v129';
-import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v129';
-import {nearestWordTarget} from './word-taps.mjs?v=golf-v129';
+import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v130';
+import {treeOverlapsControls} from './control-trees.mjs?v=golf-v130';
+import {holeAttemptLog,holeControlAvailability,remainingHoleAttempts} from './hole-attempt-log.mjs?v=golf-v130';
+import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v130';
+import {collectSavedHoles} from './saved-holes.mjs?v=golf-v130';
+import {STROKE_PLAY,attemptLimit,maximumStrokes,maximumName,maximumScoreText,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=golf-v130';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=golf-v130';
+import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v130';
+import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader} from './typing-layout.mjs?v=golf-v130';
+import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v130';
+import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v130';
+import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v130';
+import { hubWarningText } from './hub-warning.mjs?v=golf-v130';
+import { createBrowserClient } from './engine.mjs?v=golf-v130';
+import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v130';
+import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v130';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v130';
+import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v130';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v130';
+import {successOutcome} from './success-mode.mjs?v=golf-v130';
+import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v130';
+import {nearestWordTarget} from './word-taps.mjs?v=golf-v130';
 const $=id=>document.getElementById(id);
 const windKey=p=>JSON.stringify(p.headwind??null);
 const holeLabel=p=>`${p.start} → ${p.waypoint?p.waypoint.word+' → ':''}${p.final_target??p.target}${p.word_model==='ls15-v1'?' · LS 15%':p.word_model?' · ABTT 1':''}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
@@ -55,7 +55,7 @@ const courseExhausted=()=>exhausted(state);
 const practising=()=>!!state?.challenge?.practice;
 const bestScoreText=value=>`${resultText(value)} (${value===0?'EVEN':value>0?'+'+value:String(value)})`;
 const maxed=()=>isStrokePlay(state)&&state.challenge_failed&&state.history.length>=maximumStrokes(state.challenge.par);
-const holeResult=()=>state?.won||maxed()||courseExhausted()||inCourse()&&rounds.hole.locked&&!practising()&&!retryPreview;
+const holeResult=()=>state?.won||courseExhausted()||inCourse()&&rounds.hole.locked&&!practising()&&!retryPreview;
 const courseResult=()=>inCourse()&&(holeResult()||rounds.active.finished&&!practising());
 const roundSummary=()=>inCourse()&&rounds.active.finished&&!reviewingSubmittedHole;
 function leaveCourse(){rounds.data.activeId=null;rounds.save();$('round-scorecard').hidden=true;}
@@ -83,7 +83,7 @@ function renderCourseOutcome(){
   labels[0].textContent='SCORE';labels[1].textContent='HOLES COMPLETED';
   $('arrival-skill-value').textContent=scoreText(roundTotal(r));
   $('arrival-attempt').textContent=`${r.holes.filter(h=>h.attempts.some(a=>a.state.won)).length}/${r.holes.length}`;
-  $('replay-hole').hidden=false;$('replay-hole').textContent='PLAY AGAIN';$('next-hole').textContent='NEXT COURSE';
+  $('replay-hole').hidden=false;$('replay-hole').textContent='PRACTISE HOLE';$('next-hole').textContent='NEXT COURSE';
  }else{
   if(!state.won)$('arrival-title').textContent=courseExhausted()?'Attempt limit reached':maximumScoreText(h.settings.par);
   $('arrival-par').textContent=`HOLE ${r.index+1} OF ${r.holes.length} · PAR ${h.settings.par}`;
@@ -119,7 +119,7 @@ function submitCourse(){
  clearTimeout(retryTimer);recordCourseState();
  if(!rounds.canSubmit())return;
  const count=rounds.unfinished();
- if(count){$('submit-course-detail').textContent=`${count} ${count===1?'hole has':'holes have'} no completed score. Those holes will receive double bogey for par 3, or triple bogey for par 4 and par 5. Your round will then be locked.`;$('submit-course-dialog').showModal();}
+ if(count){$('submit-course-detail').textContent=`${count} ${count===1?'hole has':'holes have'} no completed score. Those holes will receive double bogey. Your round will then be locked.`;$('submit-course-dialog').showModal();}
  else confirmCourseSubmission();
 }
 function confirmCourseSubmission(){
@@ -141,7 +141,10 @@ async function startCourse(courseId,profile=state?.word_model??''){
  if(busy)return;
  profile='';
  const course=config.courses.find(c=>c.id===courseId);if(!course)return;
- clearTimeout(retryTimer);reviewingSubmittedHole=false;rounds.begin(course,profile,config.word_models?.[profile]?.defaults??{});
+ clearTimeout(retryTimer);reviewingSubmittedHole=false;
+ const existing=rounds.data.rounds.findLast(r=>r.courseId===courseId&&!r.finished&&!r.model&&r.version==='five-hole-v2');
+ if(existing){rounds.data.activeId=existing.id;rounds.save();$('course-select').value=course.id;return navigateCourseHole(existing.index);}
+ rounds.begin(course,profile,config.word_models?.[profile]?.defaults??{});
  $('course-select').value=course.id;
  if(await newGame(rounds.settings()))document.querySelector('.mission').scrollIntoView({block:'start',behavior:reduced?'instant':'smooth'});
 }
@@ -150,7 +153,7 @@ async function advanceCourse(){
  if(rounds.hole.locked&&!rounds.active.finished)return navigateCourseHole(rounds.active.index+1);
  if(!rounds.advance())return;
  if(rounds.active.finished){update();document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});}
- else await playFromResult(rounds.settings());
+ else await navigateCourseHole(rounds.active.index);
 }
 async function initialiseCourses(){
  $('course-select').innerHTML=(config.courses??[]).map(c=>`<option value="${esc(c.id)}">${esc(c.name)} · ${c.holes.length} holes</option>`).join('')+'<option value="practice">Individual holes</option>';
@@ -158,11 +161,7 @@ async function initialiseCourses(){
  if(rounds.active.model||rounds.active.version!=='five-hole-v2'){leaveCourse();return;}
  if(!config.courses.some(c=>c.id===rounds.active.courseId)){leaveCourse();return;}
  $('course-select').value=rounds.active.courseId;
- if(!inCourse()){
-  const journey=flightLog.data.journeys.findLast(j=>j.state.challenge?.id===rounds.hole.challengeId);
-  if(journey){state=(await api('restore',{state:journey.state})).state;flightLog.data.activeId=journey.id;selectedLogId=journey.id;flightLog.save();shownEvent=state.history.at(-1)||null;}
-  else if(!rounds.active.finished)await newGame(rounds.settings());
- }
+ if(!inCourse())await navigateCourseHole(rounds.active.index);
  if(inCourse()){update();if(state.challenge_failed&&!courseExhausted())scheduleRetry();}
 }
 $('course-select').onchange=()=>{$('start-course').textContent=$('course-select').value==='practice'?'PLAY INDIVIDUAL HOLES':'START COURSE';};
@@ -186,6 +185,7 @@ function ballPosition(word,event=null){const p=position(word,event),landed=event
 
 const path=(a,b)=>`M ${a.x},${a.y} Q ${(a.x+b.x)/2},${Math.min(a.y,b.y)-65} ${b.x},${b.y}`;
 function noticeForAttempt(event,saved){
+ if(event?.outcome==='miss'&&attemptNotice(event,saved.target,saved)==='Miss! The connection was too weak.')return `${event.word.toUpperCase()} needed a stronger link to ${event.origin.toUpperCase()}.`;
  return !isStrokePlay(saved)&&shortSecondShot(saved,client.canFinish(saved))?'The shot landed short of chip-in range. Try again.':attemptNotice(event,saved.target,saved);
 }
 function chipShading(d,zone){
@@ -525,12 +525,8 @@ $('score-lock-overlay').addEventListener('keydown',event=>{
 });
 function renderNotice(){
  $('shot-notice').hidden=noticeDismissed||!activeNotice||holeResult()||courseResult();
- $('shot-notice').classList.toggle('miss-notice',activeNotice.startsWith('Miss!'));
- const text=$('shot-notice-text');
- if(activeNotice.startsWith('Miss!')){
-  const lead=document.createElement('strong');lead.className='notice-lead';lead.textContent='MISS!';
-  text.replaceChildren(lead,document.createTextNode(activeNotice.slice(5)));
- }else text.textContent=activeNotice;
+ $('shot-notice').classList.remove('miss-notice');
+ $('shot-notice-text').textContent=activeNotice.replace(/^Miss!\s*/i,'');
 }
 async function newGame(puzzle,{notice=''}={}){
  if(busy)return false;
@@ -584,17 +580,17 @@ async function submit(word){
    await delay(reduced?250:1100);$('status').textContent='Lining up the finish…';renderAttemptCounter();await animate(event.automatic_shot);
  }
 
- state=data.state;shownEvent=event;activeNotice=state.challenge_failed?(maxed()?`Maximum score: ${maximumScoreText(state.challenge.par)}.`:noticeForAttempt(event,data.state)):isStrokePlay(state)&&!state.won&&state.history.length===maximumStrokes(state.challenge.par)-1?`Final shot · maximum score: ${maximumScoreText(state.challenge.par)}.`:event.waypoint_reached&&!event.won?'Waypoint reached. Now aim for the hole.':'';update();$('word').value='';
+ state=data.state;shownEvent=event;activeNotice=state.challenge_failed?(maxed()?`Maximum score: ${maximumScoreText(state.challenge.par)}.`:noticeForAttempt(event,data.state)):isStrokePlay(state)&&!state.won&&state.history.length===maximumStrokes(state.challenge.par)-1?`Final shot · maximum score: ${maximumScoreText(state.challenge.par)}.`:event.waypoint_reached&&!event.won?'Dogleg reached. Now target the flag.':'';update();$('word').value='';
  if(event.won)document.querySelector('.map-card').scrollIntoView({block:'center',behavior:reduced?'instant':'smooth'});
  $('status').textContent=event.waypoint_reached&&!event.won?`Waypoint reached. Aim for ${state.target.toUpperCase()} now.`:event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Returned to ${event.word}.`:event.outcome==='recovery'?`Recovered to ${event.word}.`:event.success?`Landed on ${event.word}.`:'Ball stayed put. One shot counted.';
 
- if(state.challenge_failed&&!maxed())scheduleRetry();
+ if(state.challenge_failed)scheduleRetry();
  return true;
  }catch(error){renderAttemptCounter();activeNotice=entryNotice(error,state.current);noticeDismissed=false;renderNotice();return false;}
  finally{lock(false);$('word').disabled=!!state.challenge_failed;if(state.won||state.challenge_failed)$('launch').disabled=true;else if(!narrow())$('word').focus({preventScroll:true});}
 }
 function scheduleRetry(){
- clearTimeout(retryTimer);if(maxed()||courseExhausted()||inCourse()&&rounds.active.finished&&!practising())return;const failed=flightLog.active?.id;
+ clearTimeout(retryTimer);if(courseExhausted()||inCourse()&&rounds.active.finished&&!practising())return;const failed=flightLog.active?.id;
  retryTimer=setTimeout(async()=>{
   if(busy||!state.challenge_failed||flightLog.active?.id!==failed)return;
   const saved=state,notice=activeNotice,prefix=retryLieThrough(saved);
@@ -617,7 +613,7 @@ async function playFromResult(puzzle){
  if(await newGame(puzzle)){if(narrow())returnToHoleHeader();else document.querySelector('.mission').scrollIntoView({block:'start',behavior:reduced?'instant':'smooth'});}
 }
 function retryCourseHole(){
- if(rounds.active.finished&&!reviewingSubmittedHole)return startCourse(rounds.active.courseId,rounds.active.model);
+ if(rounds.active.finished&&!reviewingSubmittedHole)reviewingSubmittedHole=true;
  if(rounds.active.finished||courseExhausted()||!rounds.reopen())return keepPractising();
  return playFromResult(rounds.settings());
 }
@@ -636,11 +632,13 @@ function anchorCourseHole(){
 async function navigateCourseHole(index){
  if(busy||!rounds.canVisit(index))return;
  clearTimeout(retryTimer);recordCourseState();setHoleLog(false);retryPreview=null;
- const hole=rounds.active.holes[index],best=bestAttempt(hole),review=hole.locked||rounds.active.finished,journey=(review?flightLog.data.journeys.find(j=>j.id===best?.journeyId):null)??flightLog.data.journeys.findLast(j=>j.state.challenge?.id===hole.challengeId&&(!review||!j.state.challenge.practice));
- if(!journey&&!hole.locked){reviewingSubmittedHole=false;rounds.active.index=index;rounds.save();await playFromResult(rounds.settings());anchorCourseHole();return;}
+ const hole=rounds.active.holes[index];
+ if(!postedAttempt(hole)&&!rounds.active.finished)hole.locked=false;
+ const best=bestAttempt(hole),review=!!postedAttempt(hole)||rounds.active.finished,record=review?best:[...hole.attempts].sort((a,b)=>b.number-a.number)[0],journey=(review?flightLog.data.journeys.find(j=>j.id===best?.journeyId):null)??flightLog.data.journeys.findLast(j=>j.state.challenge?.id===hole.challengeId&&(!review||!j.state.challenge.practice));
+ if(!journey&&!record&&!hole.locked){reviewingSubmittedHole=false;rounds.active.index=index;rounds.save();await playFromResult(rounds.settings());anchorCourseHole();return;}
  lock(true);
  try{
-  const restored=(await api('restore',{state:journey?.state??bestAttempt(hole).state})).state;
+  const restored=(await api('restore',{state:journey?.state??record.state})).state;
   rounds.active.index=index;rounds.save();reviewingSubmittedHole=rounds.active.finished;state=restored;if(!journey)flightLog.begin(state,modelName(state),modelHash(state));else flightLog.data.activeId=journey.id;selectedLogId=flightLog.data.activeId;flightLog.save();shownEvent=state.history.at(-1)||null;activeNotice='';noticeDismissed=false;syncPuzzleSelection();update();$('status').textContent='';
  }finally{lock(false);}
  anchorCourseHole();
@@ -666,7 +664,7 @@ $('header-next-hole').onclick=async()=>{
   if(rounds.hole.locked)return rounds.active.index===rounds.active.holes.length-1?advanceCourse():navigateCourseHole(rounds.active.index+1);
   const skipped=rounds.skip(state,flightLog.active?.id,dimensions().arrivalDistance/dimensions().axisLength);
   if(!skipped)return;
-  if(rounds.active.finished||rounds.active.completed&&rounds.active.index===rounds.active.holes.length-1){update();$('round-scorecard').scrollIntoView({block:'start',behavior:reduced?'instant':'smooth'});}else await playFromResult(rounds.settings());
+  if(rounds.active.finished||rounds.active.completed&&rounds.active.index===rounds.active.holes.length-1){update();$('round-scorecard').scrollIntoView({block:'start',behavior:reduced?'instant':'smooth'});}else await navigateCourseHole(rounds.active.index);
  }else $('next-hole').click();
 };
 $('word-model').onchange=async()=>{
@@ -866,7 +864,7 @@ $('download-log').onclick=()=>{
  link.href=url;link.download='word-golf-scorecards.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('log-feedback').textContent='Scorecards download requested. If it does not appear, use Copy scorecard.';
 };
 renderLog();
-try{lock(true);$('status').textContent='Preparing the hole…';client=await createBrowserClient({onProgress:progress=>{const note=$('word-loading-note');note.hidden=progress.complete;note.textContent=progress.error?'Some words are still loading. You can keep playing.':'More words are loading in the background…';}});config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${(p.course_number??p.comparison_number)?String(p.course_number??p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="24 October · 9 holes">${options(p=>p.course_set==='24-october')}</optgroup><optgroup label="More waypoint holes · 20">${options(p=>p.course_set==='waypoint-discovery-v3')}</optgroup><optgroup label="New waypoint holes · 20">${options(p=>p.course_set==='waypoint-discovery-v2')}</optgroup><optgroup label="Player-created waypoint holes · 18">${options(p=>p.course_set==='player-waypoints-v1')}</optgroup><optgroup label="New waypoint tests · 12 holes">${options(p=>p.course_set==='waypoint-discovery-v1')}</optgroup><optgroup label="Waypoint trials · 3 longer holes">${options(p=>p.course_set==='waypoint-trial-v1')}</optgroup><optgroup label="Fresh course · 10 holes">${options(p=>p.course_set==='fresh-course-v1')}</optgroup><optgroup label="Player discoveries · 4 holes">${options(p=>p.course_set==='player-discoveries-v1')}</optgroup><optgroup label="Discovery holes · set 2">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Discovery holes · set 1">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set&&!p.course_set)}</optgroup>`;refreshSavedHoles();$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v129'}`;if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='removed'){await newGame(config.puzzles[0]);$('status').textContent='That hole was removed because a leg could be played directly. Your scorecards are saved.';}else if(flightLog.active?.state.word_model){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],...restartSettings(saved,config.puzzles[0])}));}else if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],...restartSettings(saved,config.puzzles[0]),...(saved.headwind?{headwind:saved.headwind}:{})}));$('status').textContent='Teed up this hole with the new scoring rules. Earlier scorecards are saved below.';}else if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='restore'){try{state=(await api('display',{state:flightLog.active.state})).state;restoring=true;shownEvent=state.history.at(-1)||null;update();lock(true);await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));state=(await api('restore',{state})).state;restoring=false;lock(false);shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):state.history.every(h=>h.assumed)&&previous?noticeForAttempt(previous.history.at(-1),previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed&&!maxed())scheduleRetry();}catch{restoring=false;lock(false);await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);await initialiseCourses();requestAnimationFrame(()=>requestAnimationFrame(()=>{void client.startBackground().catch(()=>{});}));}
+try{lock(true);$('status').textContent='Preparing the hole…';client=await createBrowserClient({onProgress:progress=>{const note=$('word-loading-note');note.hidden=progress.complete;note.textContent=progress.error?'Some words are still loading. You can keep playing.':'More words are loading in the background…';}});config=client.config;lock(false);const options=predicate=>config.puzzles.map((p,i)=>predicate(p)?`<option value="${i}">${(p.course_number??p.comparison_number)?String(p.course_number??p.comparison_number).padStart(2,'0')+' · ':''}${esc(holeLabel(p))}</option>`:'').join('');$('puzzle').innerHTML=`<optgroup label="24 October · 9 holes">${options(p=>p.course_set==='24-october')}</optgroup><optgroup label="More waypoint holes · 20">${options(p=>p.course_set==='waypoint-discovery-v3')}</optgroup><optgroup label="New waypoint holes · 20">${options(p=>p.course_set==='waypoint-discovery-v2')}</optgroup><optgroup label="Player-created waypoint holes · 18">${options(p=>p.course_set==='player-waypoints-v1')}</optgroup><optgroup label="New waypoint tests · 12 holes">${options(p=>p.course_set==='waypoint-discovery-v1')}</optgroup><optgroup label="Waypoint trials · 3 longer holes">${options(p=>p.course_set==='waypoint-trial-v1')}</optgroup><optgroup label="Fresh course · 10 holes">${options(p=>p.course_set==='fresh-course-v1')}</optgroup><optgroup label="Player discoveries · 4 holes">${options(p=>p.course_set==='player-discoveries-v1')}</optgroup><optgroup label="Discovery holes · set 2">${options(p=>p.comparison_set==='current-ls15-v1')}</optgroup><optgroup label="Discovery holes · set 1">${options(p=>p.comparison_set==='current-abtt-v1')}</optgroup><optgroup label="Regular course">${options(p=>!p.comparison_set&&!p.course_set)}</optgroup>`;refreshSavedHoles();$('model-info').textContent=`${config.model} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release||'golf-v130'}`;if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='removed'){await newGame(config.puzzles[0]);$('status').textContent='That hole was removed because a leg could be played directly. Your scorecards are saved.';}else if(flightLog.active?.state.word_model){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],...restartSettings(saved,config.puzzles[0])}));}else if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='upgrade'){const saved=flightLog.active.state;await newGame(courseSettings({...config.puzzles[0],...restartSettings(saved,config.puzzles[0]),...(saved.headwind?{headwind:saved.headwind}:{})}));$('status').textContent='Teed up this hole with the new scoring rules. Earlier scorecards are saved below.';}else if(startupAction(flightLog.active,config.puzzles[0],config.retired_waypoint_holes)==='restore'){try{state=(await api('display',{state:flightLog.active.state})).state;restoring=true;shownEvent=state.history.at(-1)||null;update();lock(true);await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));state=(await api('restore',{state})).state;restoring=false;lock(false);shownEvent=state.history.at(-1)||null;noticeDismissed=!!flightLog.active.notice_dismissed;const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0]?.state;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):state.history.every(h=>h.assumed)&&previous?noticeForAttempt(previous.history.at(-1),previous):'';syncPuzzleSelection();update();$('status').textContent='';if(state.won||state.challenge_failed)$('launch').disabled=true;if(state.challenge_failed)scheduleRetry();}catch{restoring=false;lock(false);await newGame(config.puzzles[0]);$('status').textContent='Teed up a fresh hole. Your earlier scorecards are still available below.';}}else await newGame(config.puzzles[0]);await initialiseCourses();requestAnimationFrame(()=>requestAnimationFrame(()=>{void client.startBackground().catch(()=>{});}));}
 catch(error){$('status').textContent=`Course unavailable: ${error.message}. Please reload to try again.`;}
 
 window.addEventListener('resize',()=>{if(state&&!busy&&!document.body.classList.contains('typing'))map();});
@@ -901,13 +899,6 @@ function syncEntryWaypoint(){
  const target=[...$('map').querySelectorAll('.word-label[data-lie-key]')].find(node=>node.dataset.lieKey===wordLieKey(state.target,state.stage??0));
  if(target){target.classList.toggle('waypoint-reference-label',display.reference);target.toggleAttribute('data-waypoint-reference',display.reference);}
 }
-// Keep the native focus gesture synchronous so iOS opens the keyboard, but
-// prevent its default scroll-to-input from fighting our fitted keyboard layout.
-$('word').addEventListener('pointerdown',event=>{
- if(!narrow()||event.button!==0||event.isPrimary===false||$('word').disabled||document.activeElement===$('word'))return;
- event.preventDefault();
- $('word').focus({preventScroll:true});
-});
 $('word').addEventListener('focus',()=>{
  if(narrow())setHoleLog(false);
  document.body.classList.add('word-entry-active');

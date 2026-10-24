@@ -9,10 +9,10 @@ function save(number,{won=false,strokes=3,abandoned=false}={}){const h=store.hol
 let a=save(1,{won:true,strokes:2});assert.equal(attemptResult(a,3),-1);save(2,{won:true,strokes:2});assert.equal(bestAttempt(store.hole).number,1,'earlier attempt breaks score ties');save(3,{won:true,strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),3),-2,'eagles remain -2');
 for(let n=4;n<=6;n++)save(n);assert.equal(attemptResult(bestAttempt(store.hole),3),-2,'later failed attempts cannot erase an eagle');assert.throws(()=>store.settings(),/limit/);store.advance();
 assert.equal(store.settings().challenge.version,STROKE_PLAY);assert.equal(store.settings().challenge.par,4);assert.equal(attemptLimit(4),12);
-for(let n=1;n<=12;n++)save(n,{strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),4),3);assert.throws(()=>store.settings(),/limit/);store.advance();
+for(let n=1;n<=12;n++)save(n,{strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),4),2);assert.throws(()=>store.settings(),/limit/);store.advance();
 assert.equal(store.hole.settings.par,5);for(let n=1;n<=18;n++)save(n);assert.throws(()=>store.settings(),/limit/);store.advance();
-save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.completed,true);assert.equal(store.active.finished,false);store.submit();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),8);
-const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,8);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-first-best-attempt');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
+save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.completed,true);assert.equal(store.active.finished,false);store.submit();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),5);
+const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,5);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-first-best-attempt');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
 assert.equal(resultText(-2),'Eagle');assert.equal(resultText(3),'Triple bogey');assert.equal(scoreText(0),'Even');assert.equal(scoreText(-2),'−2');
 // Original scorecards retain their historical progress-based scores.
 assert.equal(attemptResult({state:{won:false},progress:.8},3),1);assert.equal(attemptResult({state:{won:false},progress:.2},3),2);
@@ -22,7 +22,7 @@ console.log('Course scoring passed: mixed pars, 6/12/18 limits, eagles, capped f
 store.begin(course);
 const empty={...store.settings(),baseline:0,history:[],attempts:0,won:false,challenge_failed:false};
 assert.equal(store.skip(empty,'skipped-empty',.9),true,'skip works before the first shot');
-assert.equal(store.active.index,1);assert.equal(store.active.holes[0].locked,true);assert.equal(attemptResult(bestAttempt(store.active.holes[0]),3),2,'unplayed skipped hole receives the normal maximum score');
+assert.equal(store.active.index,1);assert.equal(store.active.holes[0].locked,false);assert.equal(bestAttempt(store.active.holes[0]),null,'an untouched skipped hole remains unscored');assert.equal(store.active.holes[0].attempts.length,0,'navigation does not spend an attempt');
 save(1,{won:true,strokes:3});
 const exploring={...store.settings(),baseline:0,attempts:1,history:[{word:'setup',success:true,destination:.1}],won:false,challenge_failed:false};
 assert.equal(store.skip(exploring,'skipped-live',.9),true);assert.equal(attemptResult(bestAttempt(store.active.holes[1]),4),-1,'skip after an unsuccessful exploration preserves the earlier birdie');
@@ -56,7 +56,7 @@ assert.equal(store.skip(exploring,'stale',.9),false,'stale hole controls cannot 
  assert.equal(store.canSubmit(),false);assert.equal(store.submit(),false,'one played hole cannot submit a five-hole course');
  save(1,{strokes:1});store.active.index=2;save(1,{strokes:1});
  assert.equal(store.attemptedHoles(),3);assert.equal(store.canSubmit(),true);store.submit();
- assert.equal(store.active.finished,true);assert.ok(store.active.submittedAt);assert.equal(roundTotal(store.active),11);
+ assert.equal(store.active.finished,true);assert.ok(store.active.submittedAt);assert.equal(roundTotal(store.active),8);
  assert.equal(store.active.holes.filter(h=>h.attempts.some(a=>a.state.default_score)).length,2);
  assert.equal(store.exportData().at(-1).attempts_used,4,'unplayed defaults are not fabricated player attempts');
  assert.equal(store.canVisit(2),true,'submitted holes remain available for review');
@@ -74,3 +74,23 @@ store.active.index=4;save(2,{strokes:1});assert.equal(store.attemptedHoles(),4,'
 store.active.index=5;save(1,{strokes:1});assert.equal(store.canSubmit(),true);
 assert.equal(store.canVisit(-1),false);assert.equal(store.canVisit(9),false);
 assert.equal(store.submit(),true);assert.equal(store.canSubmit(),false);
+
+// Leaving a hole is navigation, not a default score or a finalisation.
+{
+ const {postedAttempt}=await import('../static/course-round.mjs');
+ store.begin(course);save(1,{strokes:1});store.advance();
+ assert.equal(postedAttempt(store.active.holes[0]),null);
+ const reloaded=new CourseRounds(storage);assert.equal(reloaded.active.holes[0].locked,false);
+ assert.equal(roundTotal(reloaded.active),0);
+ // Older duplicate default rows and stray practice rows must not discard a round.
+ const roundId=store.active.id,hole=store.active.holes[0],real=structuredClone(hole.attempts[0]);
+ hole.attempts.push({...structuredClone(real),state:{...structuredClone(real.state),default_score:true}});
+ hole.attempts.push({...structuredClone(real),number:99,state:{...structuredClone(real.state),challenge:{...real.state.challenge,practice:true}}});store.save();
+ const repaired=new CourseRounds(storage);assert.equal(repaired.active.id,roundId);assert.equal(repaired.active.holes[0].attempts.length,1);assert.equal(repaired.active.holes[0].attempts[0].state.default_score,undefined);
+}
+// Submitting on the final live attempt must not fabricate a duplicate number.
+store.begin(course);for(let i=0;i<3;i++){store.active.index=i;save(attemptLimit(store.hole.settings.par),{strokes:1});store.hole.attempts[0].ended=false;store.hole.attempts[0].state.challenge_failed=false;}store.save();
+assert.equal(store.submit(),true);assert.equal(new CourseRounds(storage).active.id,store.active.id);
+assert.ok(store.active.holes.every(h=>new Set(h.attempts.map(a=>a.number)).size===h.attempts.length));
+
+store.begin(course);store.active.index=1;save(1,{strokes:1});save(2,{won:true,strokes:6});assert.equal(bestAttempt(store.hole).number,2,'a completed double bogey takes precedence over an earlier unposted miss');

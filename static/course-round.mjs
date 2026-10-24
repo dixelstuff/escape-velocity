@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v129';
-import {mapFraction} from './map.mjs?v=golf-v129';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v130';
+import {mapFraction} from './map.mjs?v=golf-v130';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;
@@ -9,11 +9,11 @@ export function landedProgress(state,arrivalFraction=.9){
  return state.won?1:clamp(mapFraction(best,state.baseline,state.threshold,arrivalFraction));
 }
 export function attemptResult(record,par=3){
- if(record.state.challenge?.version===STROKE_PLAY)return record.state.won?record.state.attempts-par:maximumStrokes(par)-par;
+ if(record.state.challenge?.version===STROKE_PLAY)return record.state.won?Math.min(2,record.state.attempts-par):maximumStrokes(par)-par;
  return record.state.won?Math.max(-1,record.state.attempts-par):record.progress+1e-7>=.5?1:2;
 }
 export function bestAttempt(hole){
- return [...hole.attempts].filter(a=>a.ended).sort((a,b)=>attemptResult(a,hole.settings.par)-attemptResult(b,hole.settings.par)||
+ return [...hole.attempts].filter(a=>a.ended).sort((a,b)=>attemptResult(a,hole.settings.par)-attemptResult(b,hole.settings.par)||Number(b.state.won)-Number(a.state.won)||
   (a.state.challenge?.version===STROKE_PLAY?a.number-b.number:0)||
   // On unfinished holes retain the furthest landed position, never the missed destination.
   (!a.state.won&&!b.state.won?b.progress-a.progress:0)||
@@ -22,7 +22,7 @@ export function bestAttempt(hole){
 /** A failed exploration is not a posted score until the hole closes or its limit is spent. */
 export function postedAttempt(hole){
  const best=bestAttempt(hole);
- return hole.locked||hole.attempts.some(a=>a.state.won)||hole.attempts.some(a=>a.ended&&a.number>=attemptLimit(hole.settings.par))?best:null;
+ return hole.finalized||hole.attempts.some(a=>a.state.won)||hole.attempts.some(a=>a.ended&&a.number>=attemptLimit(hole.settings.par))?best:null;
 }
 export function reachedHole(round){
  return round.furthestIndex??Math.min(round.holes.length-1,Math.max(round.index,...round.holes.map((h,i)=>h.locked?i+1:h.attempts.length?i:0)));
@@ -39,7 +39,17 @@ export class CourseRounds{
   try{this.data=JSON.parse(storage?.getItem('word-golf-courses-v1')??'null');}catch{}
   if(!this.data||!Array.isArray(this.data.rounds))this.data={version:ROUND_VERSION,rounds:[],activeId:null};
   // Invalid or incompatible saves must never disable practice play.
-  this.data.rounds=this.data.rounds.filter(r=>[ROUND_VERSION,'five-hole-v1'].includes(r.version)&&[5,9].includes(r.holes?.length)&&Number.isInteger(r.index)&&r.index>=0&&r.index<r.holes.length&&r.holes.every(h=>h.settings&&typeof h.challengeId==='string'&&Array.isArray(h.attempts)&&h.attempts.length<=attemptLimit(h.settings.par)&&new Set(h.attempts.map(a=>a.number)).size===h.attempts.length&&h.attempts.every(a=>Number.isInteger(a.number)&&a.number>=1&&a.number<=attemptLimit(h.settings.par)&&Array.isArray(a.state?.history)&&Number.isFinite(a.progress))));
+  this.data.rounds=this.data.rounds.filter(r=>[ROUND_VERSION,'five-hole-v1'].includes(r.version)&&[5,9].includes(r.holes?.length)&&Number.isInteger(r.index)&&r.index>=0&&r.index<r.holes.length&&r.holes.every(h=>h.settings&&typeof h.challengeId==='string'&&Array.isArray(h.attempts)));
+  for(const r of this.data.rounds)for(const h of r.holes){
+   const unique=new Map();
+   for(const a of h.attempts){
+    if(!Number.isInteger(a.number)||a.number<1||a.number>attemptLimit(h.settings.par)||a.state?.challenge?.practice||!Array.isArray(a.state?.history)||!Number.isFinite(a.progress))continue;
+    const old=unique.get(a.number);
+    if(!old||!a.state.default_score&&(!old.state.won||a.state.won))unique.set(a.number,a);
+   }
+   h.attempts=[...unique.values()];h.finalized=!!r.finished;
+   if(!r.finished&&!postedAttempt(h))h.locked=false;
+  }
  }
  get active(){return this.data.rounds.find(r=>r.id===this.data.activeId)??null;}
  get hole(){return this.active?.holes[this.active.index]??null;}
@@ -69,14 +79,14 @@ export class CourseRounds{
  skip(state,journeyId,arrivalFraction){
   if(!this.belongs(state)||this.active.finished)return false;
   if(state.challenge?.practice)return this.advance();
-  if(!state.won&&!state.challenge_failed)this.record({...state,challenge_failed:true,abandoned:true,skipped:true},journeyId,arrivalFraction);
+  if(!state.won&&!state.challenge_failed){if(state.history.length)this.record({...state,challenge_failed:true,abandoned:true,skipped:true},journeyId,arrivalFraction);}
   else this.record(state,journeyId,arrivalFraction);
   return this.advance();
  }
  advance(){
-  if(!this.active||this.active.finished||!bestAttempt(this.hole))return false;
+  if(!this.active||this.active.finished)return false;
   const h=this.hole;if(this.active.version==='five-hole-v1'&&!h.attempts.some(a=>a.state.won)&&h.attempts.filter(a=>a.ended).length<5)return false;
-  h.locked=true;
+  h.locked=!!postedAttempt(h);
   if(this.active.index===this.active.holes.length-1){this.active.completed=true;this.active.completedAt=this.now();}else this.active.index++;
   this.active.furthestIndex=Math.max(reachedHole(this.active),this.active.index);
   this.save();return true;
@@ -96,9 +106,11 @@ export class CourseRounds{
   for(const h of r.holes){
    if(!bestAttempt(h)){
     const state={...h.settings,start:h.settings.start,target:h.settings.target,...(h.settings.waypoint?{waypoint:h.settings.waypoint,final_target:h.settings.target}:{}),threshold:h.settings.threshold,baseline:0,history:[],route:[h.settings.start],attempts:0,won:false,challenge_failed:true,abandoned:true,default_score:true,challenge:{id:h.challengeId,version:STROKE_PLAY,par:h.settings.par,attempt:attemptLimit(h.settings.par)}};
-    h.attempts.push({number:attemptLimit(h.settings.par),journeyId:null,state,key:'',progress:0,ended:true});
+    const live=h.attempts.find(a=>a.number===attemptLimit(h.settings.par));
+    if(live){live.ended=true;live.state={...live.state,challenge_failed:true,abandoned:true};}
+    else h.attempts.push({number:attemptLimit(h.settings.par),journeyId:null,state,key:'',progress:0,ended:true});
    }
-   h.locked=true;
+   h.locked=true;h.finalized=true;
   }
   r.finished=true;r.submittedAt=this.now();this.save();return true;
  }
