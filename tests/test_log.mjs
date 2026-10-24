@@ -212,3 +212,10 @@ console.log('Reset passed: new-only exports, persistent recovery, preservation o
  assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:2},won:true}),4);
  assert.equal(remainingHoleAttempts({...state,challenge:{par:3,attempt:6},challenge_failed:true}),0);
 }
+
+// Practice is retained for feedback, but exports no competitive stroke score.
+{
+ const state={...game.state(),challenge:{version:'stroke-play-v1',id:'practice-log',par:3,attempt:7,practice:true,locked_result:{score:0,attempt:2}},won:true,challenge_failed:false,attempts:1};
+ const history=newLog();history.begin(state,'test');history.record('area',state,{success:true,attempt:1,word:'area',origin:state.start,won:true});
+ assert.equal(history.active.practice,true);assert.equal(history.active.scored_strokes,null);assert.equal(history.active.score_to_par,null);assert.deepEqual(history.active.locked_result,{score:0,attempt:2});
+}

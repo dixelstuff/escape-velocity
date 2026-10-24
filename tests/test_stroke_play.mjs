@@ -65,3 +65,21 @@ for(let i=0;i<30;i++){
  const turf=par3Fairway(angled);assert.ok(turf.topY(angled.left)<angled.teeY-64&&turf.bottomY(angled.left)>angled.teeY+64,'both tee markers remain in fairway');
 }
 assert.deepEqual([...teeSides].sort((a,b)=>a-b),[172,258]);
+
+// Practice preserves the scored milestone through retry, completion and restore.
+{
+ const locked={score:0,attempt:2};
+ const g=new Game(e,'tee','hole',.27,{...options(3),challenge:{...options(3).challenge,attempt:7,practice:true,locked_result:locked}});
+ g.submit('miss');
+ const saved=g.state();assert.equal(saved.challenge.practice,true);assert.deepEqual(saved.challenge.locked_result,locked);
+ const next=retryPrefix(saved,0,8);const p=new Game(e,'tee','hole',.27,next);p.submit('bridge');
+ assert.equal(p.won,true);assert.deepEqual(restoreGame(e,p.state()).state().challenge.locked_result,locked);
+ const {exhausted}=await import('../static/stroke-play.mjs');assert.equal(exhausted(p.state()),false);
+ const course=c.courses.find(x=>x.id==='24-october');assert.equal(course.holes.length,9);
+ for(const fixture of JSON.parse(readFileSync(new URL('../data/24-october-route-checks.json',import.meta.url)))){
+  const h=course.holes.find(x=>x.start===fixture.start),game=new Game(exact,h.start,h.target,h.threshold,{...h,challenge:{version:STROKE_PLAY,par:h.par,attempt:1,id:'october-route'}});
+  if(h.waypoint){const {waypointLegAccess}=await import('../static/engine.mjs');assert.equal(waypointLegAccess(exact,h).allowed,true);}
+  for(const word of fixture.route){if(game.won)break;const shot=game.submit(word);assert.equal(shot.success,true,h.start+' '+word);}
+  assert.equal(game.won,true,h.start+' has a verified recognisable route');
+ }
+}

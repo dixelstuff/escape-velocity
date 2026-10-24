@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v119';
-import {mapFraction} from './map.mjs?v=golf-v119';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v120';
+import {mapFraction} from './map.mjs?v=golf-v120';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;
@@ -31,20 +31,20 @@ export class CourseRounds{
   try{this.data=JSON.parse(storage?.getItem('word-golf-courses-v1')??'null');}catch{}
   if(!this.data||!Array.isArray(this.data.rounds))this.data={version:ROUND_VERSION,rounds:[],activeId:null};
   // Invalid or incompatible saves must never disable practice play.
-  this.data.rounds=this.data.rounds.filter(r=>[ROUND_VERSION,'five-hole-v1'].includes(r.version)&&r.holes?.length===5&&Number.isInteger(r.index)&&r.index>=0&&r.index<5&&r.holes.every(h=>h.settings&&typeof h.challengeId==='string'&&Array.isArray(h.attempts)&&h.attempts.length<=attemptLimit(h.settings.par)&&new Set(h.attempts.map(a=>a.number)).size===h.attempts.length&&h.attempts.every(a=>Number.isInteger(a.number)&&a.number>=1&&a.number<=attemptLimit(h.settings.par)&&Array.isArray(a.state?.history)&&Number.isFinite(a.progress))));
+  this.data.rounds=this.data.rounds.filter(r=>[ROUND_VERSION,'five-hole-v1'].includes(r.version)&&[5,9].includes(r.holes?.length)&&Number.isInteger(r.index)&&r.index>=0&&r.index<r.holes.length&&r.holes.every(h=>h.settings&&typeof h.challengeId==='string'&&Array.isArray(h.attempts)&&h.attempts.length<=attemptLimit(h.settings.par)&&new Set(h.attempts.map(a=>a.number)).size===h.attempts.length&&h.attempts.every(a=>Number.isInteger(a.number)&&a.number>=1&&a.number<=attemptLimit(h.settings.par)&&Array.isArray(a.state?.history)&&Number.isFinite(a.progress))));
  }
  get active(){return this.data.rounds.find(r=>r.id===this.data.activeId)??null;}
  get hole(){return this.active?.holes[this.active.index]??null;}
  save(){try{if(!this.storage)throw Error('Storage unavailable');this.storage.setItem('word-golf-courses-v1',JSON.stringify(this.data));this.warning='';}catch{this.warning='This round could not be saved on this device. Download your scorecards before leaving.';}}
  begin(course,model='',defaults={}){
-  if(course.holes.length!==5)throw Error('A course needs five holes.');
+  if(![5,9].includes(course.holes.length))throw Error('A course needs five or nine holes.');
   const r={version:ROUND_VERSION,id:this.makeId(),courseId:course.id,name:course.name,model,startedAt:this.now(),index:0,finished:false,holes:course.holes.map(p=>({settings:{...p,...defaults,word_model:model,par:p.par??3},challengeId:this.makeId(),arrivalFraction:null,locked:false,attempts:[]}))};
   this.data.rounds.push(r);this.data.activeId=r.id;this.save();return r;
  }
  belongs(state){return !!this.hole&&state?.challenge?.id===this.hole.challengeId;}
  settings(){const h=this.hole;if(!h||this.active.finished||h.locked)throw Error('The hole is closed.');const number=Math.max(0,...h.attempts.map(a=>a.number))+1;if(number>attemptLimit(h.settings.par))throw Error('Attempt limit reached.');return {...h.settings,challenge:{version:STROKE_PLAY,par:h.settings.par,attempt:number,id:h.challengeId}};}
  record(state,journeyId,arrivalFraction){
-  if(!this.belongs(state)||this.active.finished||this.hole.locked||(!state.history.length&&!state.challenge_failed))return;
+  if(state.challenge?.practice||!this.belongs(state)||this.active.finished||this.hole.locked||(!state.history.length&&!state.challenge_failed))return;
   const h=this.hole;h.arrivalFraction??=arrivalFraction;
   const number=state.challenge.attempt;if(number>attemptLimit(h.settings.par))return;
   const old=h.attempts.find(a=>a.number===number),key=JSON.stringify(state.history.map(x=>x.word)),record={number,journeyId,state:structuredClone(state),key,progress:landedProgress(state,h.arrivalFraction),ended:state.won||state.challenge_failed};
@@ -60,6 +60,7 @@ export class CourseRounds{
  /** Close the current hole early, preserving any better completed attempt. */
  skip(state,journeyId,arrivalFraction){
   if(!this.belongs(state)||this.active.finished)return false;
+  if(state.challenge?.practice)return this.advance();
   if(!state.won&&!state.challenge_failed)this.record({...state,challenge_failed:true,abandoned:true,skipped:true},journeyId,arrivalFraction);
   else this.record(state,journeyId,arrivalFraction);
   return this.advance();
@@ -68,10 +69,10 @@ export class CourseRounds{
   if(!this.active||this.active.finished||!bestAttempt(this.hole))return false;
   const h=this.hole;if(this.active.version==='five-hole-v1'&&!h.attempts.some(a=>a.state.won)&&h.attempts.filter(a=>a.ended).length<5)return false;
   h.locked=true;
-  if(this.active.index===4){this.active.finished=true;this.active.completedAt=this.now();}else this.active.index++;
+  if(this.active.index===this.active.holes.length-1){this.active.finished=true;this.active.completedAt=this.now();}else this.active.index++;
   this.save();return true;
  }
- exportData(){return this.data.rounds.map(r=>({...structuredClone(r),total_score:roundTotal(r),attempts_used:r.holes.reduce((sum,h)=>sum+h.attempts.filter(a=>a.ended).length,0),ranking_order:'score-then-attempts',overall_skill:overallSkill(r),skill_version:'best-five-paths-v1',results:r.holes.map((h,i)=>{const a=bestAttempt(h);return {hole:i+1,start:h.settings.start,target:h.settings.target,score:a?attemptResult(a,h.settings.par):null,best_attempt:a?.number??null,attempts_used:h.attempts.filter(a=>a.ended).length,locked:h.locked};})}));}
+ exportData(){return this.data.rounds.map(r=>({...structuredClone(r),total_score:roundTotal(r),attempts_used:r.holes.reduce((sum,h)=>sum+h.attempts.filter(a=>a.ended).length,0),attempts_to_best:r.holes.reduce((sum,h)=>sum+(bestAttempt(h)?.number??0),0),ranking_order:'score-then-first-best-attempt',overall_skill:overallSkill(r),skill_version:'best-five-paths-v1',results:r.holes.map((h,i)=>{const a=bestAttempt(h);return {hole:i+1,start:h.settings.start,target:h.settings.target,score:a?attemptResult(a,h.settings.par):null,best_attempt:a?.number??null,attempts_used:h.attempts.filter(a=>a.ended).length,locked:h.locked};})}));}
  reset(){this.data={version:ROUND_VERSION,rounds:[],activeId:null,backup:this.data.rounds};this.save();}
  restore(){const ids=new Set(this.data.rounds.map(r=>r.id));this.data.rounds=[...(this.data.backup??[]).filter(r=>!ids.has(r.id)),...this.data.rounds];delete this.data.backup;this.save();}
 }

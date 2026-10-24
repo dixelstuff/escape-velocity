@@ -19,3 +19,10 @@ console.log('Practice scorecard passed: best per hole, unique retries, capped mi
  assert.deepEqual(bestHoleResult([journey('other',1,1)],journey('best',2,3).state),{score:0,attempt:2},'other challenges cannot supply a best');
  assert.equal(bestHoleResult([],{...js[0].state,won:false,challenge_failed:false}),null);
 }
+{
+ const {bestHoleResult}=await import('../static/practice-scorecard.mjs');
+ const won=journey('frozen',2,3),practice=journey('frozen',7,1);practice.state.challenge.practice=true;practice.state.challenge.locked_result={score:0,attempt:2};
+ assert.deepEqual(bestHoleResult([won,practice],practice.state),{score:0,attempt:2});
+ assert.equal(practiceScorecard([won,practice])[0].score,0);
+ assert.equal(practiceScorecard([practice]).length,0);
+}

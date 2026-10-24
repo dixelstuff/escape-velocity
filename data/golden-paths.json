@@ -245,6 +245,24 @@
           "organic"
         ]
       ]
+    },
+    {
+      "start": "beaver",
+      "target": "electricity",
+      "paths": [
+        [
+          "dam"
+        ]
+      ]
+    },
+    {
+      "start": "sunflower",
+      "target": "cooking",
+      "paths": [
+        [
+          "oil"
+        ]
+      ]
     }
   ]
 }

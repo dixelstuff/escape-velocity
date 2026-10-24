@@ -19,7 +19,7 @@ for(const h of [...config.puzzles,...config.courses.flatMap(c=>c.holes)].filter(
  const golden=config.golden_holes.find(g=>g.start===h.start&&g.waypoint===h.waypoint.word&&g.target===h.target);
  if(h.par===4&&golden)h.golden_paths=golden.paths;
 }
-for(const name of ['data/waypoint-holes.json','data/player-waypoint-holes.json','data/new-waypoint-holes.json','data/new-waypoint-holes-3.json','data/five-hole-courses.json']){
+for(const name of ['data/waypoint-holes.json','data/player-waypoint-holes.json','data/new-waypoint-holes.json','data/new-waypoint-holes-3.json','data/24-october-holes.json','data/five-hole-courses.json']){
  const data=JSON.parse(read(name)),holes=name.includes('five-hole')?data.flatMap(c=>c.holes):data;
  for(const h of holes){const result=results.get(key(h));if(result){h.par=result.suggested_par;h.par_estimate=result;}}
  writeFileSync(path(name),JSON.stringify(data,null,2)+'\n');

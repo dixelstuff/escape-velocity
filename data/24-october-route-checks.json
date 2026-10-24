@@ -1,0 +1,83 @@
+[
+  {
+    "start": "beaver",
+    "route": [
+      "dam"
+    ],
+    "strokes": 1
+  },
+  {
+    "start": "spider",
+    "route": [
+      "silk",
+      "shirt",
+      "jersey",
+      "team"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "feather",
+    "route": [
+      "quill",
+      "pen",
+      "ink",
+      "squid"
+    ],
+    "strokes": 5
+  },
+  {
+    "start": "kangaroo",
+    "route": [
+      "pouch",
+      "pocket",
+      "suit"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "snowflake",
+    "route": [
+      "crystal",
+      "diamond",
+      "cut"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "giraffe",
+    "route": [
+      "neck",
+      "collar",
+      "shirt",
+      "button"
+    ],
+    "strokes": 5
+  },
+  {
+    "start": "sunflower",
+    "route": [
+      "oil"
+    ],
+    "strokes": 1
+  },
+  {
+    "start": "snail",
+    "route": [
+      "shell",
+      "house",
+      "hall"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "peacock",
+    "route": [
+      "feathers",
+      "dress",
+      "costume",
+      "stage"
+    ],
+    "strokes": 4
+  }
+]

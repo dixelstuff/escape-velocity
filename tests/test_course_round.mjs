@@ -12,7 +12,7 @@ assert.equal(store.settings().challenge.version,STROKE_PLAY);assert.equal(store.
 for(let n=1;n<=12;n++)save(n,{strokes:1});assert.equal(attemptResult(bestAttempt(store.hole),4),3);assert.throws(()=>store.settings(),/limit/);store.advance();
 assert.equal(store.hole.settings.par,5);for(let n=1;n<=18;n++)save(n);assert.throws(()=>store.settings(),/limit/);store.advance();
 save(1,{won:true,strokes:4});assert.equal(attemptResult(bestAttempt(store.hole),3),1);assert.equal(store.advance(),true,'may move on after a bogey without exhausting attempts');save(1,{abandoned:true,strokes:0});assert.equal(bestAttempt(store.hole).number,1);store.advance();assert.equal(store.active.finished,true);assert.equal(roundTotal(store.active),8);
-const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,8);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-attempts');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
+const copy=new CourseRounds(storage);assert.equal(copy.active.id,store.active.id);assert.equal(copy.active.holes[2].attempts.length,18,'longer courses survive reload');const exported=copy.exportData()[0];assert.equal(exported.total_score,8);assert.equal(exported.attempts_used,38);assert.equal(exported.ranking_order,'score-then-first-best-attempt');assert.equal(exported.results.length,5);assert.equal(exported.overall_skill,null,'new play does not need skill analysis');
 assert.equal(resultText(-2),'Eagle');assert.equal(resultText(3),'Triple bogey');assert.equal(scoreText(0),'Even');assert.equal(scoreText(-2),'−2');
 // Original scorecards retain their historical progress-based scores.
 assert.equal(attemptResult({state:{won:false},progress:.8},3),1);assert.equal(attemptResult({state:{won:false},progress:.2},3),2);
@@ -27,3 +27,16 @@ save(1,{won:true,strokes:3});
 const exploring={...store.settings(),baseline:0,attempts:1,history:[{word:'setup',success:true,destination:.1}],won:false,challenge_failed:false};
 assert.equal(store.skip(exploring,'skipped-live',.9),true);assert.equal(attemptResult(bestAttempt(store.active.holes[1]),4),-1,'skip after an unsuccessful exploration preserves the earlier birdie');
 assert.equal(store.skip(exploring,'stale',.9),false,'stale hole controls cannot advance another hole');
+
+// Nine-hole navigation and practice preserve the scored round across reload.
+{
+ const nine={...course,id:'nine',holes:Array.from({length:9},(_,i)=>({...course.holes[i%5]}))};store.begin(nine);
+ for(let i=0;i<9;i++){
+  save(1,{won:true,strokes:store.hole.settings.par});
+  const before=JSON.stringify(store.hole.attempts),practice={...store.hole.attempts[0].state,attempts:1,challenge:{...store.hole.attempts[0].state.challenge,attempt:20,practice:true,locked_result:{score:0,attempt:1}}};
+  store.record(practice,'practice',.9);assert.equal(JSON.stringify(store.hole.attempts),before);
+  if(i===7)assert.equal(new CourseRounds(storage).active.holes.length,9);
+  store.advance();assert.equal(store.active.finished,i===8);
+ }
+ assert.equal(store.exportData().at(-1).results.length,9);assert.equal(roundTotal(store.active),0);
+}
