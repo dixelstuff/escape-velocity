@@ -1,0 +1,159 @@
+[
+  {
+    "start": "saxophone",
+    "route": [
+      "brass"
+    ],
+    "strokes": 2
+  },
+  {
+    "start": "almond",
+    "route": [
+      "cake",
+      "decorate"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "biscuit",
+    "route": [
+      "crust",
+      "oceanic",
+      "plates"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "porcupine",
+    "route": [
+      "quill",
+      "needle"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "falcon",
+    "route": [
+      "aircraft",
+      "radar"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "squid",
+    "route": [
+      "ink",
+      "forged"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "rhubarb",
+    "route": [
+      "herbs"
+    ],
+    "strokes": 2
+  },
+  {
+    "start": "backpack",
+    "route": [
+      "boots",
+      "ankle"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "jigsaw",
+    "route": [
+      "carving",
+      "prints"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "trout",
+    "route": [
+      "speckled"
+    ],
+    "strokes": 2
+  },
+  {
+    "start": "saffron",
+    "route": [
+      "garlic",
+      "herbs"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "anvil",
+    "route": [
+      "iron",
+      "bronze"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "mosaic",
+    "route": [
+      "illustrations"
+    ],
+    "strokes": 2
+  },
+  {
+    "start": "sponge",
+    "route": [
+      "bacterial",
+      "yeast"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "balloon",
+    "route": [
+      "weather",
+      "atmospheric",
+      "instrument"
+    ],
+    "strokes": 4
+  },
+  {
+    "start": "syringe",
+    "route": [
+      "needle"
+    ],
+    "strokes": 2
+  },
+  {
+    "start": "igloo",
+    "route": [
+      "fireplace",
+      "stove"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "swan",
+    "route": [
+      "ballet",
+      "dance"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "skeleton",
+    "route": [
+      "dinosaur",
+      "animated"
+    ],
+    "strokes": 3
+  },
+  {
+    "start": "raven",
+    "route": [
+      "mythology",
+      "gothic"
+    ],
+    "strokes": 3
+  }
+]

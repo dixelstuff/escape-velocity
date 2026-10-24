@@ -1,0 +1,464 @@
+[
+  {
+    "start": "saxophone",
+    "target": "plumbing",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 1,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "almond",
+    "target": "statue",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "confectionery",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 2,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 65,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "biscuit",
+    "target": "porcelain",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "geology",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 3,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 76,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "porcupine",
+    "target": "acupuncture",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 4,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "falcon",
+    "target": "binoculars",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "aviation",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 5,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 115,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 6,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "squid",
+    "target": "espionage",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "printing",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 6,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 97,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "rhubarb",
+    "target": "pharmacy",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 7,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "backpack",
+    "target": "clinic",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "mountaineering",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 8,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 79,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "jigsaw",
+    "target": "passport",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "timber",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 9,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 86,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "trout",
+    "target": "camouflage",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 10,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "saffron",
+    "target": "alchemy",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "cuisine",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 11,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 105,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 4,
+      "strong_four_opening_families": 4
+    }
+  },
+  {
+    "start": "anvil",
+    "target": "portrait",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "metallurgy",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 12,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 71,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "mosaic",
+    "target": "cookbook",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 13,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "sponge",
+    "target": "cheddar",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "microbiology",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 14,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 46,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "balloon",
+    "target": "keyboard",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "meteorology",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 15,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 59,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "syringe",
+    "target": "embroidery",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "par": 3,
+    "course_set": "new-discoveries-v1",
+    "course_number": 16,
+    "success_mode": true,
+    "success_version": "stroke-play-v1"
+  },
+  {
+    "start": "igloo",
+    "target": "pastry",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "insulation",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 4,
+    "course_set": "new-discoveries-v1",
+    "course_number": 17,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 128,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "swan",
+    "target": "revolution",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "choreography",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 18,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 154,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "skeleton",
+    "target": "screenplay",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "paleontology",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 19,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 79,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 2
+    }
+  },
+  {
+    "start": "raven",
+    "target": "chimney",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "waypoint": {
+      "word": "literature",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par": 5,
+    "course_set": "new-discoveries-v1",
+    "course_number": 20,
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 85,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  }
+]

@@ -15,3 +15,6 @@ reports/llm-route-review/
 !data/waypoint-holes.json
 
 !data/golden-paths.json
+
+!data/new-mixed-holes.json
+!data/new-mixed-route-checks.json
