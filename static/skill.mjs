@@ -1,6 +1,6 @@
-import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v150';
+import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v151';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=golf-v150';
+import { Game } from './engine.mjs?v=golf-v151';
 export const SKILL_VERSION='vector-skill-v4';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;
@@ -13,7 +13,7 @@ export function connectionRegret(actual,candidates){
   const benchmark=Math.max(actual,...candidates);
   return {link_strength:actual,link_benchmark:benchmark,connection_loss:benchmark>0?clamp(1-actual/benchmark):0};
 }
-import {withWordModel} from './word-model.mjs?v=golf-v150';
+import {withWordModel} from './word-model.mjs?v=golf-v151';
 export function skillHistoryKey(s){return JSON.stringify([s.start,s.target,s.threshold,s.mode,s.rules,s.launch_min,s.launch_max,s.history.map(h=>h.word),...(s.allow_backtracking===false?['no-backtrack-exemption']:[]),...(s.finish_mode==='range'?['range']:[]),...(s.headwind?[s.headwind]:[]),...(s.word_model?[s.word_model]:[]),...(s.challenge?['successful-path-connections']:[]),...(s.plural_rescue?['plural-rescue-v1',...(s.plural_tolerance>.02?[s.plural_tolerance]:[])]:[])]);}
 export function validSkillReport(report,state,modelSha){
   if(!report||report.version!==SKILL_VERSION||report.history_key!==skillHistoryKey(state)||report.model_sha!==modelSha||!report.complete||!Number.isInteger(report.score)||report.score<0||report.score>1000||!Array.isArray(report.shots)||report.shots.length!==state.history.length)return false;

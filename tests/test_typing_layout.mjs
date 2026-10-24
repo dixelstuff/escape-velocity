@@ -60,3 +60,16 @@ assert.equal(keyboardLayoutVisible(true,{...chromeViewport,height:650},resting),
 assert.equal(keyboardRestingHeight({height:740},layoutHeight),740,'each new entry uses its current visible baseline, not a historical maximum');
 assert.equal(keyboardRestingHeight(undefined,844),844);
 console.log('Chrome keyboard baseline passed: layout/visual height mismatch, no premature entry, Done with retained focus and browser toolbar changes.');
+
+{
+ const frames=[],locks=[],visits=[],scrolls=[];
+ const navigation={busy:false,rounds:{canVisit:()=>true},leaveWordEntry(){},lock:value=>locks.push(value),desktopInteraction:()=>false,document:{querySelector:()=>({getBoundingClientRect:()=>({top:-520})})},scrollY:600,reduced:false,performance:{now:()=>0},window:{scrollTo:options=>scrolls.push(options)},requestAnimationFrame:fn=>frames.push(fn),navigateCourseHole:index=>visits.push(index)};
+ const code=app.slice(app.indexOf('async function navigateCourseHoleFromCard('),app.indexOf('async function navigateCourseHole(index)'));
+ runInNewContext(code,navigation);
+ const changing=navigation.navigateCourseHoleFromCard(3);
+ assert.deepEqual(locks,[true]);assert.equal(scrolls[0].behavior,'smooth');assert.equal(visits.length,0,'do not activate the next input while native navigation is still scrolling');
+ frames.shift()();assert.equal(visits.length,0);
+ navigation.scrollY=72;frames.shift()();frames.shift()();await changing;
+ assert.deepEqual(locks,[true,false]);assert.deepEqual(visits,[3],'selected hole becomes playable after the scroll settles');
+}
+console.log('Course-card navigation passed: one smooth scroll with input locked until completion.');
