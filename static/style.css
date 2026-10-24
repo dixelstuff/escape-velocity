@@ -470,3 +470,8 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 .hole-log-heading{align-items:center;}
 
 #close-attempt-log{font-size:25px;line-height:1;padding:2px 5px;}
+
+@media(max-width:650px){
+ /* Keep the input and header at the same horizontal anchors on focus. */
+ body.typing main{padding-left:18px;padding-right:18px;}
+}
