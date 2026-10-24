@@ -19,10 +19,24 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
  return !!focused&&!!viewport&&!!frame&&restingHeight-frame.height>=100;
 }
 
-/** Hold one compact layout through keyboard animation; never change input focus. */
-export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancelFrame,now}){
- let active=false,applied='',pending=null;
+/** Pin after native focus completes; position live, resize only after settling. */
+export function createKeyboardLayoutManager({snapshot,pin=()=>{},position=()=>{},apply,release,frame,cancelFrame,now}){
+ let active=false,pinned=false,seenKeyboard=false,applied='',pending=null,focusFrame=null;
+ function prepareFocus(){
+  if(focusFrame!==null)cancelFrame(focusFrame);
+  // Never move a tapped input inside its native focus/click event.
+  focusFrame=frame(()=>{
+   focusFrame=null;const s=snapshot();
+   if(s.enabled&&s.focused&&!active&&!pinned){pinned=true;pin({height:s.restingHeight,top:s.top});}
+   notify();
+  });
+ }
  function notify(){
+  const live=snapshot(),shrink=live.restingHeight-live.height;
+  if(shrink>=60)seenKeyboard=true;
+  // Top-offset compensation must not wait for the resize debounce: otherwise
+  // Chrome can briefly pan the pinned header above the visible browser area.
+  if((active||pinned)&&live.enabled&&live.focused&&(!seenKeyboard||shrink>=60))position({top:live.top});
   if(pending)return;
   const job={started:now(),last:'',stableSince:now(),id:null};pending=job;
   const tick=()=>{
@@ -30,21 +44,22 @@ export function createKeyboardLayoutManager({snapshot,apply,release,frame,cancel
    const s=snapshot(),stamp=JSON.stringify([s.focused,s.enabled,s.height,s.top,s.restingHeight]);
    if(stamp!==job.last){job.last=stamp;job.stableSince=now();}
    const stable=now()-job.stableSince>=80,shrink=s.restingHeight-s.height;
-   const open=s.enabled&&s.focused&&shrink>=(active?60:100);
+   if(shrink>=60)seenKeyboard=true;
+   const open=s.enabled&&s.focused&&shrink>=((active||pinned)?60:100);
    if(open&&stable){
     const layout=JSON.stringify([s.height,s.top]);
     if(layout!==applied||!active){active=true;applied=layout;apply({height:s.height,top:s.top});}
     pending=null;return;
    }
-   if(!open&&((shrink<60&&stable)||!s.enabled||now()-job.started>=800)){
-    if(active){active=false;applied='';release();}
+   const waitingForKeyboard=pinned&&s.focused&&!seenKeyboard;
+   if(!open&&((!waitingForKeyboard&&shrink<60&&stable)||!s.enabled||now()-job.started>=800)){
+    if(active||pinned){active=false;pinned=false;seenKeyboard=false;applied='';release();}
     pending=null;return;
    }
-   // No keyboard has appeared: keep native focus without entering a fixed view.
-   if(!active&&stable&&!open){pending=null;return;}
+   if(!active&&!pinned&&stable&&!open){pending=null;return;}
    job.id=frame(tick);
   };
   job.id=frame(tick);
  }
- return {notify,cancel(){if(pending){cancelFrame(pending.id);pending=null;}}};
+ return {prepareFocus,notify,cancel(){if(focusFrame!==null){cancelFrame(focusFrame);focusFrame=null;}if(pending){cancelFrame(pending.id);pending=null;}}};
 }

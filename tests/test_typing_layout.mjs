@@ -87,24 +87,25 @@ console.log('Scroll coordination passed: immediate downward corrections before p
 
 const {createKeyboardLayoutManager}=await import('../static/typing-layout.mjs');
 let keyboardTime=0,keyboardId=0;
-const keyboardFrames=new Map(),layouts=[],releases=[];
+const keyboardFrames=new Map(),layouts=[],pins=[],positions=[],releases=[];
 const keyboardState={focused:true,enabled:true,height:720,top:0,restingHeight:720};
-const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
+const keyboard=createKeyboardLayoutManager({snapshot:()=>({...keyboardState}),pin:value=>pins.push(value),position:value=>positions.push(value),apply:value=>layouts.push(value),release:()=>releases.push(keyboardTime),frame:fn=>{keyboardFrames.set(++keyboardId,fn);return keyboardId;},cancelFrame:id=>keyboardFrames.delete(id),now:()=>keyboardTime});
 const keyboardAdvance=ms=>{for(let i=0;i<ms/20;i++){keyboardTime+=20;const batch=[...keyboardFrames.values()];keyboardFrames.clear();batch.forEach(fn=>fn());}};
-keyboard.notify();keyboardAdvance(120);assert.equal(layouts.length,0,'native focus alone leaves the page in its normal layout');
+keyboard.prepareFocus();assert.equal(pins.length,0,'native focus event must finish before the tapped input moves');
+keyboardAdvance(20);assert.equal(pins.length,1,'pin on the first frame, before waiting for the keyboard animation');
+assert.equal(layouts.length,0);keyboardAdvance(120);assert.equal(releases.length,0,'hold the pin while the keyboard starts opening');
 for(const height of [680,590,480,410]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
-assert.equal(layouts.length,0,'do not repeatedly shrink the map during keyboard opening');
-keyboardAdvance(100);assert.equal(layouts.length,1);assert.equal(layouts[0].height,410,'fit once after keyboard opening settles');
+assert.equal(layouts.length,0,'opening does not resize the map repeatedly');
+keyboardState.top=45;keyboard.notify();assert.equal(positions.at(-1).top,45,'viewport top correction is immediate, not delayed by map fitting');
+keyboardState.top=0;keyboard.notify();assert.equal(positions.at(-1).top,0);keyboardAdvance(120);
+assert.equal(layouts.length,1);assert.equal(layouts[0].height,410);
 keyboardState.focused=false;keyboard.notify();keyboardAdvance(40);
-assert.equal(releases.length,0,'blur holds the compact layout while the keyboard closes');
 for(const height of [480,590,680,720]){keyboardState.height=height;keyboard.notify();keyboardAdvance(40);}
-assert.equal(layouts.length,1,'closing never expands the compact map through intermediate sizes');
-assert.equal(releases.length,0);keyboardAdvance(100);assert.equal(releases.length,1,'release exactly once after keyboard closes');
-keyboardState.focused=true;keyboardState.height=410;keyboard.notify();keyboardAdvance(120);
-keyboardState.focused=false;keyboard.notify();keyboardAdvance(20);keyboardState.focused=true;keyboard.notify();keyboardAdvance(120);
-assert.equal(releases.length,1,'switching between reached words does not tear down and rebuild the keyboard layout');
-assert.equal(layouts.length,2);
-console.log('Keyboard transitions passed: one settled fit, no intermediate resizing, delayed single release and no layout toggle during focus handoff.');
+assert.equal(layouts.length,1,'closing preserves its working stable layout');assert.equal(releases.length,0);keyboardAdvance(100);assert.equal(releases.length,1);
+keyboardState.focused=true;keyboardState.height=410;keyboard.prepareFocus();keyboardAdvance(140);
+keyboardState.focused=false;keyboard.notify();keyboardAdvance(20);keyboardState.focused=true;keyboard.prepareFocus();keyboardAdvance(140);
+assert.equal(releases.length,1,'switching reached words does not release the pinned view');assert.equal(pins.length,2);
+console.log('Recorded opening regression passed: focus completes first, pin before keyboard animation, immediate top compensation, one settled resize and unchanged closing.');
 
 const {createViewportDiagnostics}=await import('../static/viewport-diagnostics.mjs');
 const diagnostic=createViewportDiagnostics(2);
