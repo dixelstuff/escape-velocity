@@ -6,7 +6,7 @@ for(const scale of [.4,.6,1,1.6])for(const top of [0,10,25,50,100]){
  const lift=completedCourseLift(true,top,scale);
  assert.ok(lift>=0&&lift<=24);assert.ok(lift<=Math.max(0,top*scale-10),'high labels retain ten pixels of clearance');assert.equal(completedCourseLift(false,top,scale),0);
 }
-for(const bottom of [40,150,250,400,450]){const overlap=completedCardOverlap(238,bottom,.55,24);assert.ok(overlap>=0&&overlap<=158);assert.ok(238-overlap>=Math.min(238,bottom*.55-24+18),'card never covers the route');}
+for(const bottom of [40,150,250,400,450]){const overlap=completedCardOverlap(238,bottom,.55,24);assert.ok(overlap>=0&&overlap<=158);assert.ok(238-overlap>=Math.min(238,bottom*.55-24+24),'card never covers the route');}
 assert.equal(completedCourseLift(true,100,.5),24);assert.equal(completedCourseLift(true,25,.5),2.5);
 const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
 const classes=new Set(),attributes=new Set(),frame={},panel={hidden:true,parentElement:frame},bag={hidden:true},scrim={hidden:true},map={setAttribute(){},querySelectorAll:()=>[],toggleAttribute:(name,on)=>on?attributes.add(name):attributes.delete(name)};
