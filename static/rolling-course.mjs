@@ -1,5 +1,5 @@
-import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v165';
-import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v165';
+import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v166';
+import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v166';
 export const utcDay=value=>new Date(value).toISOString().slice(0,10);
 export const addDays=(day,n)=>utcDay(Date.parse(day+'T00:00:00Z')+n*86400000);
 export function scopedStorage(storage,prefix){return {getItem:k=>storage?.getItem(prefix+k)??null,setItem:(k,v)=>{if(!storage)throw Error('Storage unavailable');storage.setItem(prefix+k,v);},removeItem:k=>storage?.removeItem(prefix+k)};}
@@ -70,7 +70,7 @@ export class RollingCourse extends CourseRounds{
   return endedAttempts(h)<h.allowance&&(!state||state.challenge.attempt<=h.allowance);
  }
  reopen(){if(!this.hole||!this.playable())return false;this.hole.locked=false;this.save();return true;}
- advance(){if(!this.active||this.active.finished)return false;this.active.index=(this.active.index+1)%9;this.save();return true;}
+ advance(){if(!this.active||this.active.finished)return false;if(this.active.index<8)this.active.index++;else this.active.completed=true;this.save();return true;}
  canSubmit(){return !!this.active&&!this.active.finished;}
  unfinished(){return this.current.holes.filter(h=>!holeBest(h)).length;}
  submit(){

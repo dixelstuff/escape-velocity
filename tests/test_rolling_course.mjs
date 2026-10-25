@@ -53,3 +53,5 @@ guards.scheduleRetry();assert.equal(messages,1);
 runInNewContext(app.slice(app.indexOf('function keepPractising('),app.indexOf('let scoringEntryKey')),guards);guards.keepPractising();assert.equal(messages,2);
 const canPlay={...guards,checkRollingDay:()=>true,retryPreview:null};runInNewContext(app.slice(app.indexOf('function rollingCanPlay(){'),app.indexOf('async function startRollingPractice()')),canPlay);assert.equal(canPlay.rollingCanPlay(),false);canPlay.inCourse=()=>false;assert.equal(canPlay.rollingCanPlay(),true,'retired practice remains playable after daily submission');
 console.log('Rolling UI guards passed: competitive exhaustion pauses instead of entering practice; retired practice stays available.');
+
+const finalHoleRound=new RollingCourse(scopedStorage(storage,'last-hole.'),rollingManifest,'2026-10-25');finalHoleRound.active.index=8;finalHoleRound.advance();assert.equal(finalHoleRound.active.index,8,'View scorecard on the last hole must not turn its completed route into practice');assert.equal(finalHoleRound.active.finished,false);
