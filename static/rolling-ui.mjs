@@ -1,5 +1,5 @@
-import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v167';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v167';
+import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v168';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v168';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSubmit,onView,onLocked}){
  const $=id=>document.getElementById(id);
@@ -26,6 +26,7 @@ export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSu
  const banner=document.createElement('div');banner.id='rolling-day-banner';tableFrame.before(banner);
  banner.addEventListener('click',e=>{if(!e.target.closest('#rolling-info'))return;$('rolling-lock-title').textContent='Your daily nine';$('rolling-lock-copy').textContent='A new hole arrives each day, and the oldest retires. Your progress carries forward.\n\nSubmit once a day. The course reopens at 00:00 UTC.';$('rolling-lock-close').textContent='GOT IT';$('rolling-lock-card').hidden=true;$('rolling-lock-practice').hidden=true;if(!dialog.open)dialog.showModal();});
  const info=document.createElement('p');info.id='rolling-card-meta';$('round-scorecard').querySelector('.round-card-heading').after(info);
+ const heading=$('round-scorecard').querySelector('.round-card-heading'),sheet=document.createElement('div');sheet.className='rolling-sheet';heading.before(sheet);sheet.append(heading,info,banner,tableFrame);
  function lockMessage(){
   $('rolling-lock-close').textContent='VIEW HOLE';$('rolling-lock-card').hidden=false;$('rolling-lock-practice').hidden=false;
   const submitted=!!rounds.store.submissions[rounds.day];
@@ -40,7 +41,7 @@ export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSu
   $('rolling-practice-label').hidden=!practice;document.body.classList.toggle('rolling-practising',practice);
   $('round-scorecard').hidden=false;$('round-course-name').textContent=new Date(rounds.day+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
   let strokes=0,scoredPar=0;for(const h of r.holes){const best=holeBest(h),posted=best?Math.min(h.settings.par+2,best.state.attempts):endedAttempts(h)>=h.allowance?h.settings.par+2:null;if(posted!==null){strokes+=posted;scoredPar+=h.settings.par;}}
-  $('round-running-score').innerHTML=`<span>Total:</span> <b>${submission?submission.total:finished?strokes:'—'}</b> ${submission||finished?`<em>(${scoreText(submission?submission.total-par:strokes-scoredPar)})</em>`:''}`;
+  $('round-running-score').innerHTML=`<span>Total</span> <b>${submission?submission.total:finished?strokes:'—'}</b> ${submission||finished?`<em>(${scoreText(submission?submission.total-par:strokes-scoredPar)})</em>`:''}`;
   $('rolling-card-meta').textContent=`9 HOLES · PAR ${par}${submission?' · SUBMITTED':finished<9?` · ${finished}/9 SCORED`:''}`;
   const bonus=rounds.store.bonus??[];
   $('rolling-day-banner').innerHTML=`<svg class="rolling-calendar" viewBox="0 0 32 34" aria-hidden="true"><rect x="4" y="7" width="24" height="24" rx="3"/><path d="M4 15h24M11 3v9M22 3v9"/><circle cx="22" cy="24" r="2"/></svg><div><strong>${submission?'Scorecard submitted for today':'New hole today'}</strong><p>${submission?'Your scores unlock tomorrow at 00:00 UTC.':bonus.length?`Previously played holes have <b>+3 attempts</b>`:'Previously played holes receive <b>+3 attempts</b> when you return'}</p></div><button id="rolling-info" type="button" aria-label="About the rolling course"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10"/><path d="M13 12v7M13 7v1"/></svg></button>`;

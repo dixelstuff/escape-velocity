@@ -1,7 +1,7 @@
-import {wordLieKey} from './word-lies.mjs?v=golf-v167';
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v167';
-import {projectPoint} from './map.mjs?v=golf-v167';
-import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v167';
+import {wordLieKey} from './word-lies.mjs?v=golf-v168';
+import {waypointPosition} from './waypoint-map.mjs?v=golf-v168';
+import {projectPoint} from './map.mjs?v=golf-v168';
+import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v168';
 /** Compare only retries in this challenge, including a completed attempt replayed within the same challenge. */
 export function previousAttempts(journeys,state,activeId){
  if(!state?.challenge)return [];
