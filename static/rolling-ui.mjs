@@ -1,5 +1,5 @@
-import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v169';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v169';
+import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v170';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v170';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSubmit,onView,onLocked}){
  const $=id=>document.getElementById(id);
@@ -21,14 +21,15 @@ export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSu
  $('rolling-reset-sim').onclick=()=>{if(!confirm('Reset simulated progress and submissions? Your real-date progress and original games will stay saved.'))return;for(const key of Object.keys(localStorage))if(key.startsWith('word-golf.rolling-sim.'))localStorage.removeItem(key);simulationURL(rounds.manifest.epoch);};
  $('rolling-download').onclick=()=>document.getElementById('download-log').click();
  $('submit-scorecard').onclick=onSubmit;
- $('round-scorecard').querySelector('thead tr').innerHTML='<th scope="col">Hole</th><th scope="col">Par</th><th scope="col">Tee → Flag</th><th scope="col">Strokes</th><th scope="col">Attempts</th>';
+ $('round-scorecard').querySelector('thead tr').innerHTML=['Hole','Par','Tee → Flag','Strokes','Attempts'].map(label=>`<th scope="col"><span class="rolling-column-label">${label}</span></th>`).join('');
  const table=$('round-scorecard').querySelector('table'),tableFrame=document.createElement('div');tableFrame.className='rolling-table-frame';table.before(tableFrame);tableFrame.append(table);
  const banner=document.createElement('div');banner.id='rolling-day-banner';tableFrame.before(banner);
- banner.addEventListener('click',e=>{if(!e.target.closest('#rolling-info'))return;$('rolling-lock-title').textContent='Your daily nine';$('rolling-lock-copy').textContent='A new hole arrives each day, and the oldest retires. Your progress carries forward.\n\nSubmit once a day. The course reopens at 00:00 UTC.';$('rolling-lock-close').textContent='GOT IT';$('rolling-lock-card').hidden=true;$('rolling-lock-practice').hidden=true;if(!dialog.open)dialog.showModal();});
+ banner.addEventListener('click',e=>{if(!e.target.closest('#rolling-info'))return;dialog.classList.add('rolling-info-dialog');$('rolling-lock-title').textContent='Your daily nine';$('rolling-lock-copy').textContent='A new hole arrives each day, and the oldest retires. Progress carries forward, and you can reattempt submitted holes from earlier days to try and improve your stroke score.\n\nSubmit once a day to compare your score with other players. The course reopens at 00:00 UTC.';$('rolling-lock-close').textContent='GOT IT';$('rolling-lock-card').hidden=true;$('rolling-lock-practice').hidden=true;if(!dialog.open)dialog.showModal();});
  const info=document.createElement('p');info.id='rolling-card-meta';$('round-scorecard').querySelector('.round-card-heading').after(info);
  const heading=$('round-scorecard').querySelector('.round-card-heading'),sheet=document.createElement('div');sheet.className='rolling-sheet';heading.before(sheet);heading.append(info);sheet.append(heading,banner,tableFrame);
  const footer=document.createElement('div');footer.className='rolling-sheet-footer';footer.append($('round-status'),$('submit-scorecard'),$('submit-scorecard-note'));sheet.append(footer);
  function lockMessage(){
+  dialog.classList.remove('rolling-info-dialog');
   $('rolling-lock-close').textContent='VIEW HOLE';$('rolling-lock-card').hidden=false;$('rolling-lock-practice').hidden=false;
   const submitted=!!rounds.store.submissions[rounds.day];
   $('rolling-lock-title').textContent=submitted?'Today’s scorecard is submitted':'No scoring attempts remaining';
@@ -51,7 +52,7 @@ export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSu
    const best=holeBest(h),posted=submission?.rows[i],score=posted?.strokes??(best?Math.min(h.settings.par+2,best.state.attempts):endedAttempts(h)>=h.allowance?h.settings.par+2:null),outcome=score===null?'No score yet':resultText(score-h.settings.par);
    return `<tr data-course-row="${i}" class="${i===0?'rolling-new':i===8?'rolling-retiring':''} ${!practice&&i===r.index?'current-hole':''}"><td><button type="button" data-course-hole="${i}" aria-label="View hole ${i+1}">${i+1}${i===0?'<span class="rolling-badge">NEW</span>':i===8?'<span class="rolling-badge retiring">LAST DAY</span>':''}</button></td><td class="rolling-par">${h.settings.par}</td><th scope="row"><button type="button" data-course-hole="${i}" aria-label="View hole ${i+1}: ${esc(h.settings.start)} to ${esc(h.settings.target)}">${esc(h.settings.start)} <span>→</span> ${esc(h.settings.target)}</button></th><td><strong class="course-hole-score ${score===null?'unplayed':score<h.settings.par?'under-par':''}">${score??'—'}</strong><span class="course-score-label">${outcome}</span></td><td class="rolling-attempts"><span>${usedAttempts(h)}/${h.allowance}</span>${h.lastBonus===rounds.day?'<span class="rolling-bonus">+3 today</span>':''}<span class="rolling-row-arrow" aria-hidden="true">›</span></td></tr>`;
   }).join('');
-  $('round-status').textContent=rounds.warning||(submission?'Submitted · all nine competitive holes are locked until 00:00 UTC.':'Unfinished holes receive double bogey when you submit. Your saved progress carries forward.');
+  $('round-status').textContent=rounds.warning||(submission?'Submitted · all nine competitive holes are locked until 00:00 UTC.':'Submit to compare yourself with other players. Any unfinished holes receive double bogey. Progress carries forward and holes unlock again tomorrow.');
   $('submit-scorecard').hidden=!!submission;$('submit-scorecard').disabled=false;$('submit-scorecard-note').hidden=true;
   $('rolling-history').innerHTML=Object.values(rounds.store.submissions).reverse().map(s=>`<p><strong>${s.date}</strong><span>${s.total} strokes (${scoreText(s.total-s.par)})</span></p>`).join('')||'<p>No submitted scorecards yet.</p>';
   $('rolling-queue').textContent=`${rounds.retired().length} retired holes available. Trial queue runs through ${addDays(rounds.manifest.epoch,rounds.manifest.holes.length-rounds.manifest.initialNewest-1)}.`;

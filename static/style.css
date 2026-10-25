@@ -648,8 +648,8 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 .rolling-mode #round-scorecard thead th{padding:17px 6px;font-size:inherit;font-weight:600;text-align:center;}
 .rolling-mode #round-scorecard th:nth-child(1),.rolling-mode #round-scorecard td:nth-child(1){width:10%;min-width:0;}
 .rolling-mode #round-scorecard th:nth-child(2),.rolling-mode #round-scorecard td:nth-child(2){width:8%;min-width:0;}
-.rolling-mode #round-scorecard th:nth-child(3){width:43%;text-align:left;max-width:none;}
-.rolling-mode #round-scorecard th:nth-child(4){width:18%;}.rolling-mode #round-scorecard th:nth-child(5){width:21%;}
+.rolling-mode #round-scorecard th:nth-child(3){width:46%;text-align:left;max-width:none;}
+.rolling-mode #round-scorecard th:nth-child(4){width:17%;}.rolling-mode #round-scorecard th:nth-child(5){width:19%;}
 .rolling-mode #round-scorecard tbody td,.rolling-mode #round-scorecard tbody th{padding:20px 7px;height:88px;box-sizing:border-box;border-bottom:1px solid #dbe0d5;}
 .rolling-mode #round-rows tr:last-child>*{border-bottom:0;}.rolling-mode #round-rows .rolling-new{background:linear-gradient(95deg,#f0f6ed,#f6f8ef);}.rolling-mode #round-rows .rolling-retiring{background:linear-gradient(95deg,#fbefed,#fcf4f0);}
 .rolling-mode #round-rows td:first-child{font-size:32px;font-weight:650;line-height:1.1;color:#233e35;text-align:center;}.rolling-mode #round-rows td:first-child button{font:inherit;line-height:1.1;}
@@ -661,7 +661,7 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 .rolling-mode #round-rows .unplayed{background:#eceee8;color:#6b796f;}.rolling-mode #round-rows .under-par{background:#e3f2ed;color:#1a6958;}
 .rolling-mode #round-rows .course-score-label{font:400 13px/1.35 'DM Sans',sans-serif;color:#788174;margin:0;text-align:center;}
 .rolling-mode #round-rows td:nth-child(4){text-align:center;}.rolling-mode #round-rows .rolling-attempts{position:relative;font-size:22px;color:#314b3f;padding-right:25px;text-align:center;}
-.rolling-row-arrow{position:absolute;right:17px;top:50%;transform:translateY(-53%);font-size:30px;font-weight:300;color:#416353;}.rolling-bonus{display:block;font-size:11px;color:#3f8063;margin-top:5px;}
+.rolling-row-arrow{position:absolute;right:19px;top:50%;transform:translateY(-53%);font-size:30px;font-weight:300;color:#416353;}.rolling-bonus{display:block;font-size:11px;color:#3f8063;margin-top:5px;}
 .rolling-mode #round-scorecard #round-status{font-size:12px;line-height:1.5;color:#6b7f65;margin:12px 5px 0;}
 .rolling-mode #round-scorecard #submit-scorecard{display:block;width:100%;font-size:20px;letter-spacing:.02em;padding:19px;margin-top:24px;border-radius:8px;}
 .rolling-mode #round-scorecard #submit-scorecard[hidden]{display:none;}
@@ -679,9 +679,9 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
  .rolling-mode .round-card-heading{align-items:flex-start;gap:12px;}.rolling-mode #round-course-name{font-size:17px;max-width:59%;}.rolling-mode #round-running-score{font-size:16px;}
  .rolling-mode #rolling-card-meta{font-size:10px;margin-bottom:17px;}.rolling-mode #round-scorecard{margin-top:25px;}
  #rolling-day-banner{margin-bottom:16px;padding:15px 12px;gap:12px;}#rolling-day-banner .rolling-calendar{width:30px;height:32px;}#rolling-day-banner strong{font-size:16px;}.rolling-mode #rolling-day-banner p{font-size:11px;}#rolling-info{width:24px;height:24px;}
- .rolling-mode #round-scorecard thead th{padding:12px 2px;font-size:8px;letter-spacing:0;}.rolling-mode #round-scorecard th:nth-child(1),.rolling-mode #round-scorecard td:nth-child(1){width:13%;}.rolling-mode #round-scorecard th:nth-child(2),.rolling-mode #round-scorecard td:nth-child(2){width:7%;}.rolling-mode #round-scorecard th:nth-child(3){width:40%;}.rolling-mode #round-scorecard th:nth-child(4){width:19%;}.rolling-mode #round-scorecard th:nth-child(5){width:21%;}
+ .rolling-mode #round-scorecard thead th{padding:12px 2px;font-size:8px;letter-spacing:0;}.rolling-mode #round-scorecard th:nth-child(1),.rolling-mode #round-scorecard td:nth-child(1){width:13%;}.rolling-mode #round-scorecard th:nth-child(2),.rolling-mode #round-scorecard td:nth-child(2){width:7%;}.rolling-mode #round-scorecard th:nth-child(3){width:42%;}.rolling-mode #round-scorecard th:nth-child(4){width:18%;}.rolling-mode #round-scorecard th:nth-child(5){width:20%;}
  .rolling-mode #round-scorecard tbody td,.rolling-mode #round-scorecard tbody th{padding:13px 4px;height:71px;}.rolling-mode #round-rows td:first-child{font-size:25px;}.rolling-badge{font-size:7px;padding:2px 4px;border-radius:4px;}.rolling-mode #round-rows .rolling-par{font-size:16px;}
- .rolling-mode #round-rows th,.rolling-mode #round-rows th button{font-size:11px;line-height:1.5;}.rolling-mode #round-rows .course-hole-score{font-size:22px;min-width:29px;padding:4px 7px;}.rolling-mode #round-rows .course-score-label{font-size:9px;}.rolling-mode #round-rows .rolling-attempts{font-size:13px;padding-right:12px;}.rolling-row-arrow{right:5px;font-size:23px;}.rolling-bonus{font-size:8px;}
+ .rolling-mode #round-rows th,.rolling-mode #round-rows th button{font-size:11px;line-height:1.5;}.rolling-mode #round-rows .course-hole-score{font-size:22px;min-width:29px;padding:4px 7px;}.rolling-mode #round-rows .course-score-label{font-size:9px;}.rolling-mode #round-rows .rolling-attempts{font-size:13px;padding-right:12px;}.rolling-row-arrow{right:7px;font-size:23px;}.rolling-bonus{font-size:8px;}
  .rolling-mode #round-scorecard #submit-scorecard{font-size:16px;padding:16px;}.rolling-mode #round-scorecard #round-status{font-size:10px;}
  .rolling-practice{display:grid;grid-template-columns:43px 1fr;gap:14px;padding:19px 16px;}.rolling-practice-icon{width:43px;height:43px;}.rolling-practice-icon svg{width:23px;height:29px;}.rolling-practice h2{font-size:18px;}.rolling-practice p{font-size:12px;}.rolling-practice button{grid-column:2;font-size:11px;padding:11px;justify-self:start;}
  body.typing .rolling-top{display:none;}
@@ -691,7 +691,7 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 .rolling-sheet{background:#fffef8;border:1px solid #d5ddce;border-radius:12px;box-shadow:0 7px 22px #243c2810;overflow:hidden;}
 .rolling-mode .rolling-sheet .round-card-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;padding:23px 24px 18px;margin:0;gap:3px 20px;align-items:start;}
 .rolling-mode .rolling-sheet #round-course-name{grid-column:1;grid-row:1;font-size:clamp(25px,3vw,35px);line-height:1.2;max-width:none;}
-.rolling-mode .rolling-sheet #round-running-score{grid-column:2;grid-row:1 / span 2;align-self:center;display:flex;align-items:baseline;gap:7px;background:none;padding:0;border-radius:0;font-weight:500;}
+.rolling-mode .rolling-sheet #round-running-score{grid-column:2;grid-row:1 / span 2;align-self:end;display:flex;align-items:baseline;gap:7px;background:none;padding:0;border-radius:0;font-weight:500;}
 .rolling-mode .rolling-sheet #round-running-score[hidden]{display:none;}
 .rolling-mode .rolling-sheet #round-running-score>span{font-size:19px;font-weight:450;color:#48634e;text-transform:none;letter-spacing:0;margin:0;}
 .rolling-mode .rolling-sheet #round-running-score b,.rolling-mode .rolling-sheet #round-running-score em{font-size:34px;line-height:1.1;font-weight:650;}
@@ -715,3 +715,9 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
  .rolling-sheet #rolling-day-banner strong{font-size:15px;}.rolling-mode .rolling-sheet #rolling-day-banner p{font-size:11px;}
  .rolling-sheet-footer{padding:13px 12px 16px;}.rolling-mode #round-scorecard .rolling-sheet-footer #round-status{font-size:10px;}
 }
+
+.rolling-mode #round-scorecard thead th{vertical-align:baseline;}
+.rolling-column-label{display:block;line-height:20px;}
+#rolling-lock-dialog.rolling-info-dialog .rolling-dialog-actions{justify-content:flex-end;}
+#rolling-lock-dialog.rolling-info-dialog #rolling-lock-close{background:var(--green);color:#fff;border:0;border-radius:6px;padding:12px 22px;min-width:105px;font-size:13px;font-weight:600;line-height:1.3;}
+@media(max-width:650px){.rolling-column-label{line-height:14px;}}
