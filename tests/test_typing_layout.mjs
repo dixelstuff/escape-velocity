@@ -35,7 +35,7 @@ const {readFileSync}=await import('node:fs'),{runInNewContext}=await import('nod
 const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
 const anchor=app.slice(app.indexOf('function anchorCourseHole('),app.indexOf('async function navigateCourseHole('));
 const headerAnchors=[],pageAnchors=[];let desktop=false;
-const context={leaveWordEntry:options=>{if(options.anchor&&!desktop)headerAnchors.push(options);},desktopInteraction:()=>desktop,window:{scrollTo:options=>pageAnchors.push(options)}};
+const context={resultNavigationActive:false,leaveWordEntry:options=>{if(options.anchor&&!desktop)headerAnchors.push(options);},desktopInteraction:()=>desktop,window:{scrollTo:options=>pageAnchors.push(options)}};
 runInNewContext(anchor,context);
 context.anchorCourseHole();context.anchorCourseHole({sameHole:true});
 assert.equal(headerAnchors.length,2);assert.equal(pageAnchors.length,0,'mobile never goes to page top when navigating or retrying a hole');
