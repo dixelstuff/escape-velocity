@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v163';
-import {mapFraction} from './map.mjs?v=golf-v163';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v164';
+import {mapFraction} from './map.mjs?v=golf-v164';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;
@@ -22,7 +22,7 @@ export function bestAttempt(hole){
 /** A failed exploration is not a posted score until the hole closes or its limit is spent. */
 export function postedAttempt(hole){
  const best=bestAttempt(hole);
- return hole.finalized||hole.attempts.some(a=>a.state.won)||hole.attempts.some(a=>a.ended&&a.number>=attemptLimit(hole.settings.par))?best:null;
+ return hole.finalized||hole.attempts.some(a=>a.state.won)||hole.attempts.some(a=>a.ended&&a.number>=(hole.allowance??attemptLimit(hole.settings.par)))?best:null;
 }
 export function reachedHole(round){
  return round.furthestIndex??Math.min(round.holes.length-1,Math.max(round.index,...round.holes.map((h,i)=>h.locked?i+1:h.attempts.length?i:0)));

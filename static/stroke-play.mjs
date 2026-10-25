@@ -1,13 +1,14 @@
 /** Per-hole limits. Archived challenge versions retain their original rules. */
 export const STROKE_PLAY='stroke-play-v1';
 export const attemptLimit=par=>par<=3?10:par===4?15:20;
+export const challengeAttemptLimit=c=>c?.rolling&&Number.isInteger(c.attempt_limit)&&c.attempt_limit>=attemptLimit(c.par)?c.attempt_limit:attemptLimit(c?.par??3);
 export const maximumStrokes=par=>par+2;
 export const maximumName=par=>'double bogey';
 export const maximumScoreText=par=>`${maximumStrokes(par)} strokes — ${maximumName(par)}`;
 export const isStrokePlay=state=>state?.challenge?.version===STROKE_PLAY;
-export const exhausted=state=>isStrokePlay(state)&&!state.challenge.practice&&state.challenge.attempt>=attemptLimit(state.challenge.par)&&(state.won||state.challenge_failed);
+export const exhausted=state=>isStrokePlay(state)&&!state.challenge.practice&&state.challenge.attempt>=challengeAttemptLimit(state.challenge)&&(state.won||state.challenge_failed);
 export function retryPrefix(saved,through,attempt){
- if(!isStrokePlay(saved)||!Number.isInteger(attempt)||attempt<=saved.challenge.attempt||(!saved.challenge.practice&&attempt>attemptLimit(saved.challenge.par)))throw Error('Attempt limit reached or invalid retry.');
+ if(!isStrokePlay(saved)||!Number.isInteger(attempt)||attempt<=saved.challenge.attempt||(!saved.challenge.practice&&attempt>challengeAttemptLimit(saved.challenge)))throw Error('Attempt limit reached or invalid retry.');
  if(!Number.isInteger(through)||through<0||through>saved.history.length||saved.history.slice(0,through).some(h=>!h.success||h.won||h.automatic))throw Error('Choose a previously landed word.');
  return {...saved,challenge:{...saved.challenge,attempt},resumed_from:{attempt:saved.challenge.attempt,through}};
 }

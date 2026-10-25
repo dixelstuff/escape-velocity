@@ -1,4 +1,4 @@
-import {attemptLimit} from './stroke-play.mjs?v=golf-v163';
+import {attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v164';
 /** This challenge only; assumed prefixes describe the lie, not new guesses. */
 export function holeAttemptLog(journeys,state,activeId){
  if(!state?.challenge)return [];
@@ -17,5 +17,5 @@ export function holeControlAvailability(journeys,state){
 export function remainingHoleAttempts(state){
  if(!state?.challenge)return null;
  if(state.challenge.practice)return 0;
- return Math.max(0,attemptLimit(state.challenge.par)-state.challenge.attempt+(state.won||state.challenge_failed?0:1));
+ return Math.max(0,challengeAttemptLimit(state.challenge)-state.challenge.attempt+(state.won||state.challenge_failed?0:1));
 }

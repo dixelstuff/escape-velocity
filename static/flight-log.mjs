@@ -1,8 +1,8 @@
-import {STROKE_PLAY,maximumStrokes,attemptLimit} from './stroke-play.mjs?v=golf-v163';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v163';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v163';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v163';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v163';
+import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v164';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v164';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v164';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v164';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v164';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
@@ -113,7 +113,7 @@ export class FlightLog {
     }
     delete journey.skill;
     journey.state = structuredClone(state);
-    if(state.challenge?.version===STROKE_PLAY){journey.attempt_limit=attemptLimit(state.challenge.par);journey.maximum_strokes=maximumStrokes(state.challenge.par);journey.scored_strokes=state.challenge.practice?null:state.won?Math.min(state.attempts,journey.maximum_strokes):state.challenge_failed?journey.maximum_strokes:null;if(state.challenge.practice){journey.practice=true;journey.locked_result=structuredClone(state.challenge.locked_result);}journey.score_to_par=journey.scored_strokes===null?null:journey.scored_strokes-state.challenge.par;}
+    if(state.challenge?.version===STROKE_PLAY){journey.attempt_limit=challengeAttemptLimit(state.challenge);journey.maximum_strokes=maximumStrokes(state.challenge.par);journey.scored_strokes=state.challenge.practice?null:state.won?Math.min(state.attempts,journey.maximum_strokes):state.challenge_failed?journey.maximum_strokes:null;if(state.challenge.practice){journey.practice=true;journey.locked_result=structuredClone(state.challenge.locked_result);}journey.score_to_par=journey.scored_strokes===null?null:journey.scored_strokes-state.challenge.par;}
     if(state.challenge)journey.challenge_result=state.won?'success':state.challenge_failed?'failed':'in-progress';
     journey.updatedAt = timestamp;
     this.save();

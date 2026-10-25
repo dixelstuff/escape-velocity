@@ -620,3 +620,69 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 #entry-scoring-note{transition:opacity 180ms ease;}
 .map-card:is(.bag-open,.hole-panel-overlay)+.controls #entry-scoring-note{opacity:0;}
 @media(prefers-reduced-motion:reduce){#entry-scoring-note{transition:none;}}
+
+/* Balanced two-column allowance table, shared by both rulebooks. */
+.how-to-attempts{width:100%;max-width:none;table-layout:fixed;border:1px solid #d5dec9;border-radius:6px;overflow:hidden;background:#f8f9f1;}
+.how-to-attempts th,.how-to-attempts td{text-align:center;padding:7px 12px;width:50%;}
+.how-to-attempts th{background:#eaf0df;}.how-to-attempts tbody tr:last-child td{border-bottom:0;}
+
+.mode-link{display:block;width:max-content;margin:0 auto 14px;font-size:11px;color:#63806b;text-decoration:none;}
+.rolling-mode .mode-link,.rolling-mode .journey-picker,.rolling-mode #debug,.rolling-mode .lower,.rolling-mode #flight-log,.rolling-mode .five-course-picker{display:none;}
+.rolling-top{max-width:1000px;margin:24px auto 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.rolling-top .eyebrow{font-size:9px;letter-spacing:.09em;}.rolling-top p{margin:5px 0 0;color:#365b3e;font-size:14px;}
+.rolling-top nav{display:flex;align-items:center;gap:8px;}.rolling-top button{font-size:11px;padding:7px 9px;}.rolling-top a{font-size:11px;color:#61775f;}
+.rolling-mode #round-scorecard{max-width:1000px;width:100%;margin:36px auto 0;padding:0;background:transparent;border:0;box-shadow:none;color:#213b36;overflow:visible;}
+.rolling-mode .round-card-heading{padding:0 5px;gap:16px;align-items:baseline;margin:0 0 8px;}
+.rolling-mode #round-course-name{font-size:clamp(18px,2.5vw,30px);font-weight:500;line-height:1.3;color:#243b36;}
+.rolling-mode #round-running-score{white-space:nowrap;font-size:clamp(19px,2.5vw,30px);font-weight:400;}
+#round-running-score b{font-size:1.45em;font-weight:700;}.rolling-mode #round-running-score em{font-size:1.25em;font-style:normal;font-weight:650;color:#19846d;}
+.rolling-mode #rolling-card-meta{margin:0 5px 24px;font-size:clamp(11px,1.6vw,18px);letter-spacing:.06em;color:#747b74;}
+#rolling-day-banner{display:flex;align-items:center;gap:20px;padding:22px 25px;background:linear-gradient(110deg,#eaf3eb,#eff5ec);border-radius:10px;margin:0 0 24px;color:#284b40;}
+#rolling-day-banner .rolling-calendar{width:43px;height:46px;flex-shrink:0;fill:none;stroke:#139377;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+#rolling-day-banner strong{font-size:clamp(16px,2.1vw,25px);font-weight:650;}.rolling-mode #rolling-day-banner p{margin:6px 0 0;line-height:1.45;font-size:clamp(12px,1.7vw,20px);color:#3b6253;}
+#rolling-info{padding:0;width:33px;height:33px;flex-shrink:0;margin-left:auto;border:0;box-shadow:none;background:transparent;color:#81867c;}
+#rolling-info svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;}
+.rolling-table-frame{overflow:hidden;border:1px solid #d9ded1;border-radius:10px;background:#fffef8;box-shadow:0 7px 20px #243c2810;}
+.rolling-mode #round-scorecard table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:20px;}
+.rolling-mode #round-scorecard thead{font-size:clamp(9px,1.3vw,14px);letter-spacing:.02em;color:#757b72;}
+.rolling-mode #round-scorecard thead th{padding:17px 6px;font-size:inherit;font-weight:600;text-align:center;}
+.rolling-mode #round-scorecard th:nth-child(1),.rolling-mode #round-scorecard td:nth-child(1){width:10%;min-width:0;}
+.rolling-mode #round-scorecard th:nth-child(2),.rolling-mode #round-scorecard td:nth-child(2){width:8%;min-width:0;}
+.rolling-mode #round-scorecard th:nth-child(3){width:43%;text-align:left;max-width:none;}
+.rolling-mode #round-scorecard th:nth-child(4){width:18%;}.rolling-mode #round-scorecard th:nth-child(5){width:21%;}
+.rolling-mode #round-scorecard tbody td,.rolling-mode #round-scorecard tbody th{padding:20px 7px;height:88px;box-sizing:border-box;border-bottom:1px solid #dbe0d5;}
+.rolling-mode #round-rows tr:last-child>*{border-bottom:0;}.rolling-mode #round-rows .rolling-new{background:linear-gradient(95deg,#f0f6ed,#f6f8ef);}.rolling-mode #round-rows .rolling-retiring{background:linear-gradient(95deg,#fbefed,#fcf4f0);}
+.rolling-mode #round-rows td:first-child{font-size:32px;font-weight:650;line-height:1.1;color:#233e35;text-align:center;}.rolling-mode #round-rows td:first-child button{font:inherit;line-height:1.1;}
+.rolling-mode #round-rows .rolling-new td:first-child{color:#0d6c56;}.rolling-mode #round-rows .rolling-retiring td:first-child{color:#a4443c;}
+.rolling-badge{display:block;width:max-content;margin:5px auto 0;background:#148d76;color:white;border-radius:6px;font-size:10px;line-height:1.5;padding:2px 7px;font-weight:650;letter-spacing:.01em;}.rolling-badge.retiring{background:#ae4940;}
+.rolling-mode #round-rows .rolling-par{font-size:23px;font-weight:400;color:#7d8278;text-align:center;}
+.rolling-mode #round-rows th,.rolling-mode #round-rows th button{font-size:clamp(12px,1.9vw,22px);font-weight:450;line-height:1.4;text-transform:uppercase;text-align:left;color:#213b36;}
+.rolling-mode #round-rows th span{color:#8e998c;}.rolling-mode #round-rows .course-hole-score{width:max-content;min-width:54px;padding:5px 9px;border-radius:8px;background:#eaf3e5;margin:0 auto 5px;font-size:30px;line-height:1.1;font-weight:650;color:#234d3d;}
+.rolling-mode #round-rows .unplayed{background:#eceee8;color:#6b796f;}.rolling-mode #round-rows .under-par{background:#e3f2ed;color:#1a6958;}
+.rolling-mode #round-rows .course-score-label{font:400 13px/1.35 'DM Sans',sans-serif;color:#788174;margin:0;text-align:center;}
+.rolling-mode #round-rows td:nth-child(4){text-align:center;}.rolling-mode #round-rows .rolling-attempts{position:relative;font-size:22px;color:#314b3f;padding-right:25px;text-align:center;}
+.rolling-row-arrow{position:absolute;right:17px;top:50%;transform:translateY(-53%);font-size:30px;font-weight:300;color:#416353;}.rolling-bonus{display:block;font-size:11px;color:#3f8063;margin-top:5px;}
+.rolling-mode #round-scorecard #round-status{font-size:12px;line-height:1.5;color:#6b7f65;margin:12px 5px 0;}
+.rolling-mode #round-scorecard #submit-scorecard{display:block;width:100%;font-size:20px;letter-spacing:.02em;padding:19px;margin-top:24px;border-radius:8px;}
+.rolling-mode #round-scorecard #submit-scorecard[hidden]{display:none;}
+.rolling-extras{max-width:1000px;margin:20px auto 36px;}.rolling-practice{display:flex;align-items:center;justify-content:space-between;gap:21px;padding:25px;background:linear-gradient(110deg,#f0f8f6,#fafcf8);border:1px solid #c9e3db;border-radius:9px;box-shadow:0 8px 24px #204c3510;}
+.rolling-practice-icon{width:65px;height:65px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:#d5ece1;}.rolling-practice-icon svg{width:33px;height:39px;fill:#15755b;stroke:#15755b;stroke-width:2;stroke-linejoin:round;}
+.rolling-practice h2{margin:0 0 6px;font-size:24px;color:#213c37;}.rolling-practice p{font-size:17px;line-height:1.5;margin:0;color:#74806d;}.rolling-practice button{white-space:nowrap;font-size:14px;font-weight:650;border:2px solid #39785f;background:transparent;color:#23634f;border-radius:7px;}
+.rolling-history,.rolling-admin{border-bottom:1px solid #d5ddcb;padding:18px 8px;font-size:12px;color:#5d7457;}.rolling-history summary,.rolling-admin summary{cursor:pointer;font-weight:600;}
+#rolling-history p{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #e1e7d6;}
+.rolling-admin p{line-height:1.6;}.rolling-admin input{display:block;margin:8px 0 12px;width:180px;}.rolling-admin button{font-size:10px;padding:9px;margin:0 5px 8px 0;}
+.rolling-local-note{font-size:11px;color:#7d8876;line-height:1.6;padding:0 8px;}.rolling-practice-label{max-width:1000px;margin:12px auto;color:#57764d;font-size:12px;text-align:center;}
+#rolling-lock-dialog{max-width:460px;width:calc(100% - 40px);border:1px solid #c5d2b6;border-top:6px solid #356b46;border-radius:9px;background:#fffdf3;color:#335c3c;padding:28px;box-sizing:border-box;}
+#rolling-lock-dialog::backdrop{background:#20362666;backdrop-filter:blur(2px);}#rolling-lock-dialog h2{font-size:23px;margin:0 0 12px;}#rolling-lock-dialog p{font-size:14px;line-height:1.6;}.rolling-dialog-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}.rolling-dialog-actions button{font-size:11px;padding:10px 12px;}
+@media(max-width:650px){
+ .rolling-top{display:block;margin:0 3px 14px;}.rolling-top nav{margin-top:9px;}.rolling-top nav a{margin-left:auto;}.rolling-top p{font-size:12px;}.rolling-top .eyebrow{font-size:8px;}
+ .rolling-mode .round-card-heading{align-items:flex-start;gap:12px;}.rolling-mode #round-course-name{font-size:17px;max-width:59%;}.rolling-mode #round-running-score{font-size:16px;}
+ .rolling-mode #rolling-card-meta{font-size:10px;margin-bottom:17px;}.rolling-mode #round-scorecard{margin-top:25px;}
+ #rolling-day-banner{margin-bottom:16px;padding:15px 12px;gap:12px;}#rolling-day-banner .rolling-calendar{width:30px;height:32px;}#rolling-day-banner strong{font-size:16px;}.rolling-mode #rolling-day-banner p{font-size:11px;}#rolling-info{width:24px;height:24px;}
+ .rolling-mode #round-scorecard thead th{padding:12px 2px;font-size:8px;letter-spacing:0;}.rolling-mode #round-scorecard th:nth-child(1),.rolling-mode #round-scorecard td:nth-child(1){width:13%;}.rolling-mode #round-scorecard th:nth-child(2),.rolling-mode #round-scorecard td:nth-child(2){width:7%;}.rolling-mode #round-scorecard th:nth-child(3){width:40%;}.rolling-mode #round-scorecard th:nth-child(4){width:19%;}.rolling-mode #round-scorecard th:nth-child(5){width:21%;}
+ .rolling-mode #round-scorecard tbody td,.rolling-mode #round-scorecard tbody th{padding:13px 4px;height:71px;}.rolling-mode #round-rows td:first-child{font-size:25px;}.rolling-badge{font-size:7px;padding:2px 4px;border-radius:4px;}.rolling-mode #round-rows .rolling-par{font-size:16px;}
+ .rolling-mode #round-rows th,.rolling-mode #round-rows th button{font-size:11px;line-height:1.5;}.rolling-mode #round-rows .course-hole-score{font-size:22px;min-width:29px;padding:4px 7px;}.rolling-mode #round-rows .course-score-label{font-size:9px;}.rolling-mode #round-rows .rolling-attempts{font-size:13px;padding-right:12px;}.rolling-row-arrow{right:5px;font-size:23px;}.rolling-bonus{font-size:8px;}
+ .rolling-mode #round-scorecard #submit-scorecard{font-size:16px;padding:16px;}.rolling-mode #round-scorecard #round-status{font-size:10px;}
+ .rolling-practice{display:grid;grid-template-columns:43px 1fr;gap:14px;padding:19px 16px;}.rolling-practice-icon{width:43px;height:43px;}.rolling-practice-icon svg{width:23px;height:29px;}.rolling-practice h2{font-size:18px;}.rolling-practice p{font-size:12px;}.rolling-practice button{grid-column:2;font-size:11px;padding:11px;justify-self:start;}
+ body.typing .rolling-top{display:none;}
+}
