@@ -1,5 +1,5 @@
-import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v166';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v166';
+import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v167';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v167';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSubmit,onView,onLocked}){
  const $=id=>document.getElementById(id);
@@ -24,9 +24,10 @@ export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSu
  $('round-scorecard').querySelector('thead tr').innerHTML='<th scope="col">Hole</th><th scope="col">Par</th><th scope="col">Tee → Flag</th><th scope="col">Strokes</th><th scope="col">Attempts</th>';
  const table=$('round-scorecard').querySelector('table'),tableFrame=document.createElement('div');tableFrame.className='rolling-table-frame';table.before(tableFrame);tableFrame.append(table);
  const banner=document.createElement('div');banner.id='rolling-day-banner';tableFrame.before(banner);
- banner.addEventListener('click',e=>{if(!e.target.closest('#rolling-info'))return;$('rolling-lock-title').textContent='A fresh hole every day';$('rolling-lock-copy').textContent='At 00:00 UTC, a new hole joins at number 1 and hole 9 retires. Your routes and best scores move with each hole. Previously attempted holes gain +3 attempts on each day you return, without backdating missed days. Submit once per day to lock that day’s nine scores. You can always explore retired holes in practice.';if(!dialog.open)dialog.showModal();});
+ banner.addEventListener('click',e=>{if(!e.target.closest('#rolling-info'))return;$('rolling-lock-title').textContent='Your daily nine';$('rolling-lock-copy').textContent='A new hole arrives each day, and the oldest retires. Your progress carries forward.\n\nSubmit once a day. The course reopens at 00:00 UTC.';$('rolling-lock-close').textContent='GOT IT';$('rolling-lock-card').hidden=true;$('rolling-lock-practice').hidden=true;if(!dialog.open)dialog.showModal();});
  const info=document.createElement('p');info.id='rolling-card-meta';$('round-scorecard').querySelector('.round-card-heading').after(info);
  function lockMessage(){
+  $('rolling-lock-close').textContent='VIEW HOLE';$('rolling-lock-card').hidden=false;$('rolling-lock-practice').hidden=false;
   const submitted=!!rounds.store.submissions[rounds.day];
   $('rolling-lock-title').textContent=submitted?'Today’s scorecard is submitted':'No scoring attempts remaining';
   $('rolling-lock-copy').textContent=submitted?'Your nine scores are final for today. The daily course unlocks at 00:00 UTC. You can play retired practice holes now.':'Your progress is saved. Return on a later UTC day for +3 attempts on this hole, or explore a retired practice hole now.';

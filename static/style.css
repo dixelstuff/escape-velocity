@@ -673,7 +673,7 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 .rolling-admin p{line-height:1.6;}.rolling-admin input{display:block;margin:8px 0 12px;width:180px;}.rolling-admin button{font-size:10px;padding:9px;margin:0 5px 8px 0;}
 .rolling-local-note{font-size:11px;color:#7d8876;line-height:1.6;padding:0 8px;}.rolling-practice-label{max-width:1000px;margin:12px auto;color:#57764d;font-size:12px;text-align:center;}
 #rolling-lock-dialog{max-width:460px;width:calc(100% - 40px);border:1px solid #c5d2b6;border-top:6px solid #356b46;border-radius:9px;background:#fffdf3;color:#335c3c;padding:28px;box-sizing:border-box;}
-#rolling-lock-dialog::backdrop{background:#20362666;backdrop-filter:blur(2px);}#rolling-lock-dialog h2{font-size:23px;margin:0 0 12px;}#rolling-lock-dialog p{font-size:14px;line-height:1.6;}.rolling-dialog-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}.rolling-dialog-actions button{font-size:11px;padding:10px 12px;}
+#rolling-lock-dialog::backdrop{background:#20362666;backdrop-filter:blur(2px);}#rolling-lock-dialog h2{font-size:23px;margin:0 0 12px;}#rolling-lock-dialog p{font-size:14px;line-height:1.6;white-space:pre-line;}.rolling-dialog-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}.rolling-dialog-actions button{font-size:11px;padding:10px 12px;}
 @media(max-width:650px){
  .rolling-top{display:block;margin:0 3px 14px;}.rolling-top nav{margin-top:9px;}.rolling-top nav a{margin-left:auto;}.rolling-top p{font-size:12px;}.rolling-top .eyebrow{font-size:8px;}
  .rolling-mode .round-card-heading{align-items:flex-start;gap:12px;}.rolling-mode #round-course-name{font-size:17px;max-width:59%;}.rolling-mode #round-running-score{font-size:16px;}
