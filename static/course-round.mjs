@@ -1,5 +1,5 @@
-import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v172';
-import {mapFraction} from './map.mjs?v=golf-v172';
+import {STROKE_PLAY,attemptLimit,maximumStrokes} from './stroke-play.mjs?v=golf-v173';
+import {mapFraction} from './map.mjs?v=golf-v173';
 export const ROUND_VERSION='five-hole-v2';
 const clamp=v=>Math.max(0,Math.min(1,v));
 export const scoreText=value=>value===0?'Even':value>0?`+${value}`:`−${Math.abs(value)}`;

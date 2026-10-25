@@ -1,5 +1,5 @@
-import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v172';
-import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v172';
+import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v173';
+import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v173';
 export const utcDay=value=>new Date(value).toISOString().slice(0,10);
 export const addDays=(day,n)=>utcDay(Date.parse(day+'T00:00:00Z')+n*86400000);
 export function scopedStorage(storage,prefix){return {getItem:k=>storage?.getItem(prefix+k)??null,setItem:(k,v)=>{if(!storage)throw Error('Storage unavailable');storage.setItem(prefix+k,v);},removeItem:k=>storage?.removeItem(prefix+k)};}

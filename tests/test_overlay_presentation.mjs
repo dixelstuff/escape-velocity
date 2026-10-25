@@ -31,3 +31,14 @@ runInNewContext(app.slice(app.indexOf("$('map-scrim').addEventListener"),app.ind
 let prevented=0,stopped=0;const gesture={preventDefault(){prevented++;},stopPropagation(){stopped++;}};
 handlers.pointerdown(gesture);handlers.click(gesture);assert.equal(prevented,2);assert.equal(stopped,2);assert.deepEqual(dismissals,[['bag',false],['panel',false]]);
 console.log('Backdrop dismissal passed: no pointer or click bubbles through to a previous lie.');
+
+// Help consumes the pointer before native form/input focus; keyboard activation stays available.
+const helpEvents={},helpButton={addEventListener:(type,handler)=>helpEvents[type]=handler},helpCalls=[];
+const helpCtx={busy:false,state:{},$:()=>helpButton,leaveWordEntry:()=>helpCalls.push('leave-entry'),setHoleLog:(open,options)=>helpCalls.push([open,options.mode])};
+runInNewContext(app.slice(app.indexOf('function openShotHelp(){'),app.indexOf("$('bag-best-route').onclick=")),helpCtx);
+let helpPrevented=0,helpStopped=0;const helpGesture={button:0,isPrimary:true,preventDefault(){helpPrevented++;},stopPropagation(){helpStopped++;}};
+helpEvents.pointerdown(helpGesture);assert.equal(helpPrevented,1);assert.equal(helpStopped,1);assert.deepEqual(helpCalls,['leave-entry',[true,'tips']]);
+helpButton.onclick({...helpGesture,detail:1});assert.equal(helpCalls.length,2,'a generated click must not open the card a second time');
+helpButton.onclick({...helpGesture,detail:0});assert.equal(helpCalls.length,4,'keyboard activation opens the same overlay');
+helpCtx.busy=true;helpEvents.pointerdown(helpGesture);assert.equal(helpCalls.length,4,'help cannot interrupt an in-flight shot');
+console.log('Guidance help passed: consumed pointer focus, one open per tap, keyboard access and no in-flight interruption.');
