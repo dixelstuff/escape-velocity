@@ -582,7 +582,7 @@ body.course-hole-changing .mission,body.course-hole-changing .map-card,body.cour
 /* In-play cards sit over the course; results and their embedded log stay inline. */
 #map-scrim{position:absolute;inset:0;z-index:4;background:#18352229;backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);cursor:pointer;}
 #map-scrim[hidden]{display:none;}.bag-open:not(.hole-panel-overlay) #map-scrim{background:#1835221a;backdrop-filter:blur(.65px);-webkit-backdrop-filter:blur(.65px);}
-.map-card.hole-panel-overlay .hole-play-area{min-height:min(320px,50svh);}
+.map-card.hole-panel-overlay .hole-play-area{min-height:var(--hole-panel-height,0px);}
 .hole-panel-overlay #map .course-scenery{visibility:visible;}
 .hole-play-area>#hole-attempt-log{position:absolute;inset:18px;z-index:7;padding:0;margin:0;display:flex;align-items:center;justify-content:center;pointer-events:none;background:none;}
 .hole-play-area>#hole-attempt-log[hidden]{display:none;}
@@ -684,7 +684,7 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
  .rolling-mode #round-rows th,.rolling-mode #round-rows th button{font-size:11px;line-height:1.5;}.rolling-mode #round-rows .course-hole-score{font-size:22px;min-width:29px;padding:4px 7px;}.rolling-mode #round-rows .course-score-label{font-size:9px;}.rolling-mode #round-rows .rolling-attempts{font-size:13px;padding-right:12px;}.rolling-row-arrow{right:7px;font-size:23px;}.rolling-bonus{font-size:8px;}
  .rolling-mode #round-scorecard #submit-scorecard{font-size:16px;padding:16px;}.rolling-mode #round-scorecard #round-status{font-size:10px;}
  .rolling-practice{display:grid;grid-template-columns:43px 1fr;gap:14px;padding:19px 16px;}.rolling-practice-icon{width:43px;height:43px;}.rolling-practice-icon svg{width:23px;height:29px;}.rolling-practice h2{font-size:18px;}.rolling-practice p{font-size:12px;}.rolling-practice button{grid-column:2;font-size:11px;padding:11px;justify-self:start;}
- body.typing .rolling-top{display:none;}
+ body.typing .rolling-top,body.typing .rolling-extras,body.typing .rolling-practice-label{display:none;}
 }
 
 /* One scorecard surface connects its title, total, daily note and rows. */
@@ -725,3 +725,7 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 #shot-context-help{display:block;width:max-content;max-width:100%;margin:3px auto 0;padding:0;border:0;border-radius:2px;background:transparent;box-shadow:none;color:#4f7758;font:500 13px/1.5 'DM Sans',sans-serif;text-align:center;text-transform:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;touch-action:manipulation;}
 body.word-entry-active #shot-context-help,body.typing #shot-context-help{display:none;}
 @media(max-width:650px){#shot-context-help{display:inline;width:auto;margin:0;font-size:inherit;line-height:inherit;text-align:inherit;}}
+
+#arrival-banner.result-review .scorecard-heading{justify-content:flex-end;margin-bottom:8px;}
+#arrival-context[hidden],#arrival-title[hidden]{display:none;}
+#rolling-submit-now{padding:0;border:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;}

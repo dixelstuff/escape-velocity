@@ -55,3 +55,41 @@ const canPlay={...guards,checkRollingDay:()=>true,retryPreview:null};runInNewCon
 console.log('Rolling UI guards passed: competitive exhaustion pauses instead of entering practice; retired practice stays available.');
 
 const finalHoleRound=new RollingCourse(scopedStorage(storage,'last-hole.'),rollingManifest,'2026-10-25');finalHoleRound.active.index=8;finalHoleRound.advance();assert.equal(finalHoleRound.active.index,8,'View scorecard on the last hole must not turn its completed route into practice');assert.equal(finalHoleRound.active.finished,false);
+
+// Every published date has the same bounded par and exactly one arrival/retirement.
+const {balancePublications}=await import('../static/rolling-schedule.mjs');
+const {publicationLength,addDays}=await import('../static/rolling-course.mjs');
+let previousWindow;
+for(let dayIndex=0;dayIndex<publicationLength(rollingManifest)-rollingManifest.initialNewest;dayIndex++){
+ const date=addDays(rollingManifest.epoch,dayIndex),window=publicationWindow(rollingManifest,date),total=window.active.reduce((sum,h)=>sum+h.settings.par,0);
+ assert.ok(total===35||total===36,date+' has par '+total);
+ assert.ok(window.active.every((h,i)=>!i||h.settings.par!==3||window.active[i-1].settings.par!==3),date+' has consecutive par 3s');
+ if(previousWindow){assert.deepEqual(window.active.slice(1).map(h=>h.id),previousWindow.active.slice(0,8).map(h=>h.id));assert.ok(window.retired.some(h=>h.id===previousWindow.active[8].id));}
+ previousWindow=window;
+}
+assert.equal(new Set(rollingManifest.publicationIds).size,rollingManifest.publicationIds.length);
+const manifestBefore=JSON.stringify(rollingManifest),rebuilt=balancePublications(rollingManifest);
+assert.deepEqual(rebuilt.publicationIds,rollingManifest.publicationIds,'rebuilding cannot reorder frozen publications');assert.equal(JSON.stringify(rollingManifest),manifestBefore,'scheduling never changes an existing hole or its par');
+const expanded={...rollingManifest,holes:[...rollingManifest.holes,{id:'future-curated-four',settings:{start:'new-tee',target:'new-flag',par:4}},{id:'future-curated-five',settings:{start:'other-tee',target:'other-flag',par:5}}]};
+assert.deepEqual(balancePublications(expanded).publicationIds.slice(0,rollingManifest.publicationIds.length),rollingManifest.publicationIds,'future curation appends without moving earlier holes');
+// A submitted scorecard keeps its original nine even when upgrading the starter schedule.
+const legacyManifest={...rollingManifest,publicationIds:undefined},migrationStorage=scopedStorage(storage,'migration.');
+const legacy=new RollingCourse(migrationStorage,legacyManifest,'2026-10-26');legacy.submit();const oldSnapshot=structuredClone(legacy.store.submissions['2026-10-26']);
+const migrated=new RollingCourse(migrationStorage,rollingManifest,'2026-10-26');assert.deepEqual(migrated.current.holes.map(h=>h.challengeId),oldSnapshot.rows.map(h=>h.id));assert.deepEqual(migrated.store.submissions['2026-10-26'],oldSnapshot);assert.ok(migrated.retired().every(h=>!migrated.current.holes.some(a=>a.challengeId===h.id)));
+const nextBalancedDay=new RollingCourse(migrationStorage,rollingManifest,'2026-10-27');assert.equal(nextBalancedDay.current.finished,false);assert.ok([35,36].includes(nextBalancedDay.current.holes.reduce((n,h)=>n+h.settings.par,0)));assert.deepEqual(nextBalancedDay.store.submissions['2026-10-26'],oldSnapshot);
+console.log('Balanced schedule passed: all 131 dates stay par 35–36, no adjacent par 3, exact daily rotation, immutable IDs/pars, append-only curation and preserved historical submissions.');
+
+// Locked course rows still restore the best route, including a never-played default row.
+const {bestAttempt,postedAttempt}=await import('../static/course-round.mjs');
+const reviewRound=new RollingCourse(scopedStorage(storage,'locked-review.'),rollingManifest,'2026-10-25');
+const reviewWin={...winning,challenge:reviewRound.settings().challenge};reviewRound.record(reviewWin,'recorded-winner',.9);reviewRound.submit();
+const reviewSnapshot=JSON.stringify(reviewRound.store.submissions),reviewLog={data:{journeys:[],activeId:null},begin(state){const j={id:'review-journey-'+this.data.journeys.length,state};this.data.journeys.push(j);this.data.activeId=j.id;return j;},save(){}};
+let emptyReviews=0;
+const reviewCtx={STROKE_PLAY,rollingMode:true,checkRollingDay:()=>true,rounds:reviewRound,busy:false,justHoled:true,reviewingSubmittedHole:false,state:reviewWin,setBag(){},leaveWordEntry(){},clearTimeout(){},retryTimer:0,recordCourseState(){},setHoleLog(){},retryPreview:null,postedAttempt,bestAttempt,flightLog:reviewLog,lock(v){reviewCtx.busy=v;},api:async(path,body)=>({state:structuredClone(body.state)}),modelName:()=>'',modelHash:()=>'',selectedLogId:null,shownEvent:null,activeNotice:'',noticeDismissed:false,syncPuzzleSelection(){},update(){},$:()=>({textContent:''}),anchorCourseHole(){},holeResult:()=>true,scheduleRetry(){},playFromResult:async settings=>{emptyReviews++;reviewCtx.state={...settings,challenge:settings.challenge,won:false,history:[],route:[settings.start]};}};
+runInNewContext(app.slice(app.indexOf('async function navigateCourseHole(index,'),app.indexOf("$('header-next-hole').onclick=")),reviewCtx);
+await reviewCtx.navigateCourseHole(0);assert.equal(reviewCtx.reviewingSubmittedHole,true);assert.equal(reviewCtx.justHoled,false);assert.deepEqual(reviewCtx.state.route,reviewWin.route);
+await reviewCtx.navigateCourseHole(8);assert.equal(emptyReviews,1);assert.equal(reviewCtx.state.challenge.id,reviewRound.current.holes[8].challengeId);assert.equal(reviewRound.current.finished,true);assert.equal(JSON.stringify(reviewRound.store.submissions),reviewSnapshot,'reviewing never rewrites the submitted score');
+const reviewNodes=Object.fromEntries(['replay-hole','next-hole','result-attempts-remaining','arrival-skill-value','arrival-attempt'].map(id=>[id,{}])),reviewLabels=[{},{}];
+const resultCtx={...reviewCtx,inCourse:()=>true,roundSummary:()=>false,$:id=>reviewNodes[id],document:{querySelectorAll:()=>reviewLabels},renderStrokeScore(node,par,score){node.score=score;},styleResultButtonLabels(){}};
+runInNewContext(app.slice(app.indexOf('function renderRollingResult(){'),app.indexOf('function courseScoringFinished(){')),resultCtx);resultCtx.renderRollingResult();assert.equal(reviewNodes['replay-hole'].hidden,true);assert.equal(reviewNodes['next-hole'].textContent,'PRACTICE HOLES');assert.equal(reviewNodes['arrival-skill-value'].score,2);
+console.log('Locked review passed: recorded route restoration, unplayed default review, practice CTA and immutable submitted scores.');

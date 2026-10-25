@@ -1,14 +1,17 @@
-import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v173';
-import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v173';
+import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v174';
+import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v174';
 export const utcDay=value=>new Date(value).toISOString().slice(0,10);
 export const addDays=(day,n)=>utcDay(Date.parse(day+'T00:00:00Z')+n*86400000);
 export function scopedStorage(storage,prefix){return {getItem:k=>storage?.getItem(prefix+k)??null,setItem:(k,v)=>{if(!storage)throw Error('Storage unavailable');storage.setItem(prefix+k,v);},removeItem:k=>storage?.removeItem(prefix+k)};}
+export const publicationLength=manifest=>manifest.publicationIds?.length??manifest.holes.length;
 export function publicationWindow(manifest,day){
+ const definitions=new Map(manifest.holes.map(h=>[h.id,h]));
+ const publications=manifest.publicationIds?manifest.publicationIds.map(id=>definitions.get(id)):manifest.holes;
  const offset=Math.floor((Date.parse(day+'T00:00:00Z')-Date.parse(manifest.epoch+'T00:00:00Z'))/86400000);
  const newest=manifest.initialNewest+Math.max(0,offset);
  // Stop at the end of the trial queue, rather than repeat a competitive hole.
- if(newest>=manifest.holes.length)throw Error('The trial publication queue has ended. Your saved scorecards are safe.');
- return {active:manifest.holes.slice(newest-8,newest+1).reverse(),retired:manifest.holes.slice(0,newest-8)};
+ if(newest>=publications.length)throw Error('The trial publication queue has ended. Your saved scorecards are safe.');
+ return {active:publications.slice(newest-8,newest+1).reverse(),retired:publications.slice(0,newest-8)};
 }
 export function usedAttempts(hole){return Math.max(0,...hole.attempts.filter(a=>a.state.history.some(s=>!s.assumed&&!s.automatic)).map(a=>a.number));}
 export function endedAttempts(hole){return Math.max(0,...hole.attempts.filter(a=>a.ended).map(a=>a.number));}
@@ -29,6 +32,9 @@ export class RollingCourse extends CourseRounds{
  rollover(requested){
   const day=this.store.day&&this.store.day>requested?this.store.day:requested;
   const changed=this.store.day!==day,window=publicationWindow(this.manifest,day),bonus=[];
+  // Submitted daily courses are immutable, including snapshots made before the balanced trial schedule.
+  const snapshot=this.store.submissions[day],definitions=new Map(this.manifest.holes.map(h=>[h.id,h]));
+  if(snapshot?.rows?.length===9&&snapshot.rows.every(r=>definitions.has(r.id)))window.active=snapshot.rows.map(r=>definitions.get(r.id));
   for(const def of window.active){
    const h=this.ensure(def);
    if(changed&&usedAttempts(h)>0&&h.lastPlayedDay<day&&h.lastBonus!==day){h.allowance+=3;h.lastBonus=day;bonus.push(def.id);}
@@ -79,7 +85,7 @@ export class RollingCourse extends CourseRounds{
   this.store.submissions[this.day]={date:this.day,submittedAt:new Date().toISOString(),rows,total:rows.reduce((s,h)=>s+h.strokes,0),par:rows.reduce((s,h)=>s+h.par,0)};
   this.current.finished=true;this.save();return true;
  }
- retired(){return publicationWindow(this.manifest,this.day).retired;}
+ retired(){const active=new Set(this.current.holes.map(h=>h.challengeId));return publicationWindow(this.manifest,this.day).retired.filter(h=>!active.has(h.id));}
  pickPractice(random=Math.random){
   const retired=this.retired(),unseen=retired.filter(d=>!this.store.practiceSeen.includes(d.id)&&!this.store.bank[d.id]?.attempts.some(a=>a.state.history.some(s=>!s.assumed))),unpractised=retired.filter(d=>!this.store.practiceSeen.includes(d.id)),pool=unseen.length?unseen:unpractised.length?unpractised:retired;
   const def=pool[Math.floor(random()*pool.length)];if(!def)return null;

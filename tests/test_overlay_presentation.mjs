@@ -42,3 +42,15 @@ helpButton.onclick({...helpGesture,detail:1});assert.equal(helpCalls.length,2,'a
 helpButton.onclick({...helpGesture,detail:0});assert.equal(helpCalls.length,4,'keyboard activation opens the same overlay');
 helpCtx.busy=true;helpEvents.pointerdown(helpGesture);assert.equal(helpCalls.length,4,'help cannot interrupt an in-flight shot');
 console.log('Guidance help passed: consumed pointer focus, one open per tap, keyboard access and no in-flight interruption.');
+
+const {holePanelHeight,resultContext}=await import('../static/result-presentation.mjs');
+assert.equal(holePanelHeight(240,110,844,22),240,'a short log does not extend the map');
+assert.equal(holePanelHeight(240,340,844,22),384,'only the space needed for a medium log is revealed');
+assert.equal(holePanelHeight(240,1200,844,22),844*.64,'long help/log content is capped before internal scrolling');
+assert.equal(holePanelHeight(700,1200,844,22),700,'a large existing map never shrinks to the overlay cap');
+assert.equal(resultContext(true,true),'just-now');assert.equal(resultContext(false,true),'review');assert.equal(resultContext(true,false),'review');assert.equal(resultContext(false,true,true),'round');
+console.log('Result context and card sizing passed: latest-result moment, compact return review, no unnecessary expansion and bounded tall cards.');
+
+const rollingUI=readFileSync(new URL('../static/rolling-ui.mjs',import.meta.url),'utf8');let submitBannerHandler,submissionsOpened=0;
+runInNewContext(rollingUI.split('\n').find(line=>line.includes("banner.addEventListener('click'")),{banner:{addEventListener(type,fn){submitBannerHandler=fn;}},onSubmit(){submissionsOpened++;}});
+submitBannerHandler({target:{closest:selector=>selector==='#rolling-submit-now'?{}:null}});assert.equal(submissionsOpened,1,'completed-course banner uses the normal submit action');
