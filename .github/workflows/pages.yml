@@ -43,6 +43,7 @@ jobs:
           node tests/test_local_scaling.mjs
           node tests/test_daily_discoveries.mjs
           node tests/test_course_dialog.mjs
+          node tests/test_tour_course.mjs
           node tests/test_rolling_course.mjs
           node tests/test_result_actions.mjs
           node tests/test_overlay_presentation.mjs

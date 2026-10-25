@@ -1,0 +1,75 @@
+import {openCourseDialog} from './course-dialog.mjs?v=golf-v177';
+import {holeBest} from './rolling-course.mjs?v=golf-v177';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v177';
+import {TOURS,tourFor,tourStatus,spentAttempts,rankTourScores} from './tour-course.mjs?v=golf-v177';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dateText=day=>new Date(day+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+export function mountTourUI(rounds,{simulation,onDaily,onPractice,onSubmit,onView,onLocked}){
+ const $=id=>document.getElementById(id);document.body.classList.add('rolling-mode','tour-mode');
+ const card=$('round-scorecard'),heading=card.querySelector('.round-card-heading'),meta=document.createElement('p');meta.id='rolling-card-meta';heading.append(meta);
+ const sheet=document.createElement('div');sheet.className='rolling-sheet';heading.before(sheet);sheet.append(heading);
+ const banner=document.createElement('div');banner.id='rolling-day-banner';banner.className='tour-qualification';sheet.append(banner);
+ const frame=document.createElement('div');frame.className='rolling-table-frame';const table=card.querySelector('table');frame.append(table);sheet.append(frame);
+ table.querySelector('thead tr').innerHTML=['Hole','Par','Tee → Flag','Strokes','Attempts'].map(label=>`<th scope="col"><span class="rolling-column-label">${label}</span></th>`).join('');
+ const footer=document.createElement('div');footer.className='rolling-sheet-footer';footer.append($('round-status'),$('submit-scorecard'),$('submit-scorecard-note'));sheet.append(footer);
+ const hud=document.createElement('div');hud.id='tour-hud';hud.setAttribute('aria-live','polite');document.querySelector('.hole-play-area').append(hud);
+ card.insertAdjacentHTML('afterend',`<section class="rolling-extras tour-extras"><section class="tour-standings" aria-labelledby="tour-standings-title"><div class="tour-standings-heading"><h2 id="tour-standings-title">Tour standings</h2><span>On this device</span></div><p>Lowest strokes, then most eagles, then fewest attempts.</p><div class="tour-tabs" role="tablist" aria-label="Tour standings">${TOURS.map(t=>`<button type="button" role="tab" id="tour-tab-${t.id}" data-tour-tab="${t.id}" aria-selected="false" aria-controls="tour-standings-panel">${t.icon} ${t.name}</button>`).join('')}</div><div id="tour-standings-panel" role="tabpanel"></div><p class="tour-local-note">Shared online standings will be added when accounts and server scoring are connected.</p></section><div class="rolling-practice"><span class="rolling-practice-icon" aria-hidden="true"><svg viewBox="0 0 30 36"><path d="M9 30V5m1 0c6-4 10 5 17 1v13c-7 4-11-5-17-1"/><ellipse cx="10" cy="32" rx="8" ry="2"/></svg></span><div><h2>Practice holes</h2><p>Explore earlier holes with unlimited attempts. Your daily Tour score stays unchanged.</p></div><button id="rolling-practice" class="quiet" type="button">PLAY PRACTICE HOLE →</button></div><details class="rolling-history"><summary>Your submitted Tour scorecards</summary><div id="tour-history"></div></details><details class="rolling-admin"><summary>Trial controls</summary><p>Date simulation has separate progress. It cannot change your real daily Tour or other game modes.</p><label for="tour-test-date">Simulated UTC date</label><input id="tour-test-date" type="date"><div><button id="tour-open-date" class="quiet" type="button">OPEN SIMULATION</button><button id="tour-next-day" class="quiet" type="button">NEXT DAY +1</button><button id="tour-download" class="quiet" type="button">DOWNLOAD SCORECARDS</button><button id="tour-reset-sim" class="quiet" type="button">RESET SIMULATION</button><a href="?mode=tour">REAL UTC DATE</a></div><p id="tour-queue"></p></details><nav class="tour-mode-links"><button id="tour-return-daily" class="quiet" type="button">Daily Tour</button><button id="tour-view-card" class="quiet" type="button">Scorecard</button><a href="?mode=rolling">Rolling nine</a><a href="./">Original game</a></nav></section>`);
+ const info=document.createElement('dialog');info.id='rolling-lock-dialog';info.setAttribute('aria-labelledby','rolling-lock-title');info.innerHTML='<h2 id="rolling-lock-title"></h2><p id="rolling-lock-copy"></p><div class="rolling-dialog-actions"><button id="rolling-lock-close" class="quiet" type="button">GOT IT</button><button id="rolling-lock-card" class="quiet" type="button">SCORECARD</button><button id="rolling-lock-practice" type="button">PRACTICE HOLES</button></div>';document.body.append(info);
+ const boundary=document.createElement('dialog');boundary.id='tour-boundary-dialog';boundary.setAttribute('aria-labelledby','tour-boundary-title');boundary.innerHTML='<h2 id="tour-boundary-title"></h2><p id="tour-boundary-copy"></p><div class="rolling-dialog-actions"><button id="tour-boundary-stay" class="quiet" type="button">REVIEW SCORECARD</button><button id="tour-boundary-continue" type="button"></button></div>';document.body.append(boundary);
+ let lastSubmitted=false;
+ let standingsTour=rounds.store.submissions[rounds.day]?.tour??rounds.qualification().tour.id,pendingBoundary;
+ function showInfo(){
+  onLocked?.();info.classList.add('rolling-info-dialog');$('rolling-lock-title').textContent='Your daily five';
+  $('rolling-lock-copy').textContent='Five fresh holes each day. Keep improving your best stroke scores before submitting. Attempts are unlimited: your total across all five holes determines your Tour.\n\nPro Tour: 0–24 attempts\nAmateur Tour: 25–49 attempts\nSocial Tour: 50+ attempts\n\nLowest strokes wins, then most eagles, then fewest attempts. Submitting locks your scores and Tour until the next course at 00:00 UTC.';
+  $('rolling-lock-close').textContent='GOT IT';$('rolling-lock-card').hidden=true;$('rolling-lock-practice').hidden=true;openCourseDialog(info);
+ }
+ function lockMessage(){
+  onLocked?.();const s=rounds.store.submissions[rounds.day],t=tourFor(s?.totalAttempts??rounds.totalAttempts());info.classList.remove('rolling-info-dialog');
+  $('rolling-lock-title').textContent=s?`${t.name} scorecard submitted`:'Daily Tour';$('rolling-lock-copy').textContent=s?`${s.total} strokes · ${s.totalAttempts} ${s.totalAttempts===1?'attempt':'attempts'}.\n\nYour five scores and Tour are final for today. You can review your routes or play earlier practice holes. Five fresh holes arrive at 00:00 UTC.`:'Your progress is saved.';
+  $('rolling-lock-close').textContent='VIEW HOLE';$('rolling-lock-card').hidden=false;$('rolling-lock-practice').hidden=false;openCourseDialog(info);
+ }
+ $('rolling-lock-close').onclick=()=>info.close();$('rolling-lock-card').onclick=()=>{info.close();onView();};$('rolling-lock-practice').onclick=()=>{info.close();onPractice();};
+ info.addEventListener('click',e=>{if(e.target===info)info.close();});
+ banner.addEventListener('click',e=>{if(e.target.closest('#rolling-info'))showInfo();});
+ $('tour-download').onclick=()=>$('download-log').click();
+ $('tour-reset-sim').hidden=!simulation;$('tour-reset-sim').onclick=()=>{if(!simulation||!confirm('Reset this Tour simulation? Your real daily Tour and other game modes will stay saved.'))return;for(const key of Object.keys(localStorage))if(key.startsWith('word-golf.tour-sim.'))localStorage.removeItem(key);openDate(rounds.manifest.epoch);};
+ $('submit-scorecard').onclick=onSubmit;$('rolling-practice').onclick=onPractice;$('tour-return-daily').onclick=onDaily;$('tour-view-card').onclick=onView;
+ $('tour-test-date').value=rounds.day;$('tour-test-date').min=rounds.manifest.epoch;$('tour-test-date').max=rounds.manifest.courses.at(-1).date;
+ const openDate=day=>{location.href=`?mode=tour&date=${encodeURIComponent(day)}`;};
+ $('tour-open-date').onclick=()=>{if($('tour-test-date').reportValidity())openDate($('tour-test-date').value);};
+ $('tour-next-day').onclick=()=>{const day=new Date(rounds.day+'T00:00:00Z');day.setUTCDate(day.getUTCDate()+1);openDate(day.toISOString().slice(0,10));};
+ document.querySelector('.tour-tabs').addEventListener('click',e=>{const tab=e.target.closest('[data-tour-tab]');if(tab){standingsTour=tab.dataset.tourTab;renderStandings();}});
+ document.querySelector('.tour-tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let i=TOURS.findIndex(t=>t.id===standingsTour);i=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;standingsTour=TOURS[i].id;renderStandings();$('tour-tab-'+standingsTour).focus();});
+ function renderStandings(){
+  const scores=rankTourScores(Object.values(rounds.store.submissions),rounds.day,standingsTour);
+  for(const t of TOURS){const tab=$('tour-tab-'+t.id);tab.setAttribute('aria-selected',String(t.id===standingsTour));tab.tabIndex=t.id===standingsTour?0:-1;}
+  $('tour-standings-panel').setAttribute('aria-labelledby','tour-tab-'+standingsTour);
+  $('tour-standings-panel').innerHTML=scores.length?`<table><thead><tr><th>Rank</th><th>Player</th><th>Strokes</th><th>Eagles</th><th>Attempts</th></tr></thead><tbody>${scores.map(s=>`<tr><td>${s.rank}</td><th scope="row">${esc(s.player)}</th><td>${s.total} <span>(${scoreText(s.total-s.par)})</span></td><td>${s.eagles}</td><td>${s.totalAttempts}</td></tr>`).join('')}</tbody></table>`:`<p class="tour-empty">No submitted ${TOURS.find(t=>t.id===standingsTour).name} scorecard on this device for today.</p>`;
+ }
+ function syncLocks(){$('submit-scorecard').disabled=rounds.current.finished;$('tour-next-day').disabled=rounds.day>=$('tour-test-date').max;}
+ function render(practice=false){
+  const r=rounds.current,s=rounds.store.submissions[rounds.day],attempts=s?.totalAttempts??rounds.totalAttempts(),status=tourStatus(attempts),par=r.holes.reduce((n,h)=>n+h.settings.par,0);
+  if(s&&!lastSubmitted)standingsTour=s.tour;lastSubmitted=!!s;
+  document.body.classList.toggle('rolling-practising',practice);card.hidden=false;$('round-course-name').textContent=dateText(rounds.day);meta.textContent=`5 HOLES · PAR ${par}${s?' · SUBMITTED':''}`;
+  const scored=r.holes.filter(h=>holeBest(h)),strokes=scored.reduce((n,h)=>n+Math.min(h.settings.par+2,holeBest(h).state.attempts),0),scoredPar=scored.reduce((n,h)=>n+h.settings.par,0);
+  $('round-running-score').hidden=!s&&!scored.length;$('round-running-score').innerHTML=`<span>Total</span><b>${s?.total??strokes}</b><em>(${scoreText(s?s.total-par:strokes-scoredPar)})</em>`;
+  banner.classList.toggle('tour-boundary-near',!!status.next&&status.left<=3);
+  banner.innerHTML=`<span class="tour-emblem" aria-hidden="true">${status.tour.icon}</span><div><strong>${status.tour.name}${s?' · submitted':''}</strong><p><b>${attempts}</b> total ${attempts===1?'attempt':'attempts'}${s?'':' · provisional'}</p>${s?'':`<p class="tour-boundary-detail">${status.detail}</p>`}</div><button id="rolling-info" type="button" aria-label="About the daily Tours"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10"/><path d="M13 12v7M13 7v1"/></svg></button>`;
+  $('round-rows').innerHTML=r.holes.map((h,i)=>{const best=holeBest(h),posted=s?.rows[i],score=posted?.strokes??(best?Math.min(h.settings.par+2,best.state.attempts):null);return `<tr data-course-row="${i}" class="${!practice&&i===r.index?'current-hole':''}"><td><button type="button" data-course-hole="${i}" aria-label="View hole ${i+1}">${i+1}</button></td><td class="rolling-par">${h.settings.par}</td><th scope="row"><button type="button" data-course-hole="${i}" aria-label="View hole ${i+1}: ${esc(h.settings.start)} to ${esc(h.settings.target)}">${esc(h.settings.start)} <span>→</span> ${esc(h.settings.target)}</button></th><td><strong class="course-hole-score ${score===null?'unplayed':score<h.settings.par?'under-par':''}">${score??'—'}</strong><span class="course-score-label">${score===null?'No score yet':resultText(score-h.settings.par)}</span></td><td class="rolling-attempts">${spentAttempts(h)}<span class="rolling-row-arrow" aria-hidden="true">›</span></td></tr>`;}).join('');
+  $('round-status').textContent=rounds.warning||(s?'Submitted · your scores and Tour are final for today.':'Your best score on each hole counts. Submit when ready; unfinished holes receive double bogey.');
+  $('submit-scorecard').hidden=!!s;$('submit-scorecard').textContent='SUBMIT SCORECARD';$('submit-scorecard-note').hidden=true;
+  hud.hidden=practice||r.finished||!!document.querySelector('.map-card.arrived');hud.classList.toggle('tour-boundary-near',!!status.next&&status.left<=3);hud.innerHTML=`<strong>${status.tour.name} · ${attempts} ${attempts===1?'attempt':'attempts'}</strong><span>${status.detail}</span>`;
+  $('tour-history').innerHTML=Object.values(rounds.store.submissions).reverse().map(v=>`<p><strong>${dateText(v.date)}</strong><span>${v.total} strokes (${scoreText(v.total-v.par)}) · ${tourFor(v.totalAttempts).name} · ${v.totalAttempts} attempts</span></p>`).join('')||'<p>No submitted Tour scorecards yet.</p>';
+  $('tour-queue').textContent=`Daily courses are prepared through ${dateText(rounds.manifest.courses.at(-1).date)}. Rollover: 00:00 UTC.`;
+  renderStandings();syncLocks();
+ }
+ function refreshQualification(){const q=rounds.qualification();hud.querySelector('strong').textContent=`${q.tour.name} · ${rounds.totalAttempts()} ${rounds.totalAttempts()===1?'attempt':'attempts'}`;hud.querySelector('span').textContent=q.detail;hud.classList.toggle('tour-boundary-near',!!q.next&&q.left<=3);}
+ async function confirmAttempt(state){
+  if(!rounds.needsBoundaryConsent(state))return true;if(pendingBoundary)return pendingBoundary;
+  onLocked?.();const {tour,next}=rounds.qualification();$('tour-boundary-title').textContent=`Your next attempt enters ${next.name}`;$('tour-boundary-copy').textContent=`You have used ${rounds.totalAttempts()} attempts across the five holes. You can submit in ${tour.name}, or keep exploring in ${next.name}. Your stroke scores stay the same.`;$('tour-boundary-continue').textContent=`CONTINUE IN ${next.name.toUpperCase()}`;
+  let accepted=false,review=false;openCourseDialog(boundary);
+  pendingBoundary=new Promise(resolve=>{boundary.addEventListener('close',()=>{if(accepted)rounds.acknowledgeBoundary();pendingBoundary=null;if(review)onView();resolve(accepted);},{once:true});});
+  $('tour-boundary-stay').onclick=()=>{review=true;boundary.close();};$('tour-boundary-continue').onclick=()=>{accepted=true;boundary.close();};return pendingBoundary;
+ }
+ return {render,lockMessage,confirmAttempt,syncLocks,refreshQualification};
+}

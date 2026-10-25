@@ -1,4 +1,4 @@
-import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v176';
+import {STROKE_PLAY,maximumStrokes,maximumName,maximumScoreText} from './stroke-play.mjs?v=golf-v177';
 /** A challenge attempt keeps ordinary shot scoring, including the automatic finish. */
 export function successSettings(value){
  if(!value)return null;
@@ -6,7 +6,7 @@ export function successSettings(value){
  if(![STROKE_PLAY,'par-challenge-v1','par-challenge-v2','waypoint-trial-v1'].includes(value.version)||!Number.isInteger(par)||par<2||par>9||!Number.isInteger(attempt)||attempt<1||typeof id!=='string'||!id||id.length>100)throw Error('Invalid Success mode settings.');
  const practice=value.practice===true,locked=value.locked_result;
  if(practice&&(!locked||!Number.isFinite(locked.score)||!Number.isInteger(locked.attempt)||locked.attempt<1))throw Error('Practice needs a locked score.');
- return {version:value.version,par,attempt,id,...(value.rolling===true&&Number.isInteger(value.attempt_limit)&&value.attempt_limit>=10&&value.attempt_limit<=10000?{rolling:true,attempt_limit:value.attempt_limit}:{}),...(practice?{practice:true,locked_result:{score:locked.score,attempt:locked.attempt}}:{})};
+ return {version:value.version,par,attempt,id,...(value.tour===true?{tour:true,rolling:true}:{}),...(value.rolling===true&&Number.isInteger(value.attempt_limit)&&value.attempt_limit>=10&&value.attempt_limit<=10000?{rolling:true,attempt_limit:value.attempt_limit}:{}),...(practice?{practice:true,locked_result:{score:locked.score,attempt:locked.attempt}}:{})};
 }
 export function parUnreachable(game){
  const c=game.challenge;if(!c||game.won)return false;

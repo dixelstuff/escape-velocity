@@ -1,7 +1,7 @@
 /** Per-hole limits. Archived challenge versions retain their original rules. */
 export const STROKE_PLAY='stroke-play-v1';
 export const attemptLimit=par=>par<=3?10:par===4?15:20;
-export const challengeAttemptLimit=c=>c?.rolling&&Number.isInteger(c.attempt_limit)&&c.attempt_limit>=attemptLimit(c.par)?c.attempt_limit:attemptLimit(c?.par??3);
+export const challengeAttemptLimit=c=>c?.tour?Infinity:c?.rolling&&Number.isInteger(c.attempt_limit)&&c.attempt_limit>=attemptLimit(c.par)?c.attempt_limit:attemptLimit(c?.par??3);
 export const maximumStrokes=par=>par+2;
 export const maximumName=par=>'double bogey';
 export const maximumScoreText=par=>`${maximumStrokes(par)} strokes — ${maximumName(par)}`;

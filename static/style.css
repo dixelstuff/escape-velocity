@@ -739,3 +739,24 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 #arrival-banner.result-review h2{font-size:25px;font-weight:600;text-align:center;margin:2px 0 24px;}
 #submit-course-dialog,#rolling-lock-dialog{position:fixed;max-height:85svh;overflow:auto;overscroll-behavior:contain;}
 #submit-course-dialog h2:focus,#rolling-lock-dialog h2:focus{outline:none;}
+
+/* Daily Tours reuse the daily scorecard surface and its five aligned columns. */
+.tour-emblem{font-size:28px;line-height:1;flex:none;width:34px;text-align:center;}
+.tour-qualification .tour-boundary-detail{font-weight:550;color:#56725d;}
+.tour-qualification.tour-boundary-near{background:#f6f0da;}
+#tour-hud{position:absolute;bottom:9px;left:9px;z-index:3;max-width:calc(100% - 60px);padding:6px 9px;border:1px solid #b8c7aa80;border-radius:7px;background:#f4f7eef0;color:#536c50;font:400 10px/1.4 'DM Sans',sans-serif;pointer-events:none;transition:opacity 180ms ease;}
+#tour-hud[hidden]{display:none;}#tour-hud strong,#tour-hud span{display:block;}#tour-hud strong{font-weight:650;}#tour-hud.tour-boundary-near{background:#f6f0daed;border-color:#c7b877;}
+.bag-open #tour-hud,.hole-panel-overlay #tour-hud{opacity:0;}
+.tour-standings{margin:22px 0;padding:22px 24px;background:#fffdf4;border:1px solid #d6d6bb;border-radius:8px;color:#294b35;}
+.tour-standings-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}.tour-standings h2{margin:0;font-size:24px;}.tour-standings-heading>span{font-size:11px;color:#7a8873;white-space:nowrap;}
+.tour-standings>p{font-size:12px;line-height:1.5;color:#718168;}.tour-tabs{display:flex;gap:7px;margin:16px 0;}.tour-tabs button{flex:1;padding:10px 8px;font-size:12px;color:#57714f;background:#f0f3e9;border:1px solid #d5dfca;box-shadow:none;}.tour-tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:white;}
+.tour-standings table{width:100%;border-collapse:collapse;font-size:13px;}.tour-standings th,.tour-standings td{padding:11px 5px;border-bottom:1px solid #dce3d5;text-align:center;}.tour-standings thead th{font-size:10px;color:#728267;font-weight:600;}.tour-standings td span{font-size:11px;color:#73836a;}.tour-empty{padding:14px 6px;font-size:13px;line-height:1.5;text-align:center;color:#6c8065;}
+.tour-mode-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;padding:20px 0;}.tour-mode-links a,.tour-mode-links button,.tour-extras .rolling-admin a{font-size:11px;color:#61775a;}.tour-mode-links button{padding:8px 12px;}
+#tour-boundary-dialog{position:fixed;width:min(470px,calc(100vw - 32px));max-height:85svh;overflow:auto;overscroll-behavior:contain;padding:25px;background:#fffdf4;color:#294b35;border:1px solid #d6d6bb;border-top:5px solid #356b43;border-radius:6px;box-shadow:0 10px 35px #233b3040;}
+#tour-boundary-dialog::backdrop{background:#20362666;backdrop-filter:blur(2px);}#tour-boundary-dialog h2{font-size:23px;margin:0 0 12px;}#tour-boundary-dialog h2:focus{outline:none;}#tour-boundary-dialog p{font-size:14px;line-height:1.6;}#tour-boundary-dialog button{font-size:11px;padding:12px 14px;}
+@media(max-width:650px){
+ #tour-hud{bottom:7px;left:7px;font-size:9px;padding:5px 7px;}
+ .tour-emblem{font-size:24px;width:28px;}.tour-standings{padding:18px 12px;}.tour-standings h2{font-size:21px;}.tour-tabs{gap:5px;}.tour-tabs button{font-size:10px;padding:9px 4px;line-height:1.5;}.tour-standings table{font-size:12px;}.tour-standings th,.tour-standings td{padding:10px 3px;}
+ body.typing .tour-extras{display:none;}
+}
+@media(max-width:650px){#tour-boundary-dialog .rolling-dialog-actions{display:grid;grid-template-columns:1fr;}#tour-boundary-dialog .rolling-dialog-actions button{width:100%;}}

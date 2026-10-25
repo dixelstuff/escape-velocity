@@ -24,7 +24,7 @@ const p=retryPrefix({...g.state(),challenge:{...g.challenge,attempt:10,practice:
 const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');
 const code=app.slice(app.indexOf('let scoringEntryKey'),app.indexOf('function renderBag()'));
 let active=false,desktop=false,saves=0;
-const ctx={rollingMode:false,state:{challenge:{id:'entry',par:3,attempt:8},history:[]},scoringReminder,remainingHoleAttempts:s=>s.challenge.practice?0:11-s.challenge.attempt,SCORING_CLOSED,PRACTICE_MODE,busy:false,holeResult:()=>false,courseResult:()=>false,desktopInteraction:()=>desktop,document:{body:{classList:{contains:()=>active}}},retryPreview:null,flightLog:{data:{},save(){saves++;}},activeNotice:'A needed a stronger link.'};
+const ctx={tourMode:false,rollingMode:false,state:{challenge:{id:'entry',par:3,attempt:8},history:[]},scoringReminder,remainingHoleAttempts:s=>s.challenge.practice?0:11-s.challenge.attempt,SCORING_CLOSED,PRACTICE_MODE,busy:false,holeResult:()=>false,courseResult:()=>false,desktopInteraction:()=>desktop,document:{body:{classList:{contains:()=>active}}},retryPreview:null,flightLog:{data:{},save(){saves++;}},activeNotice:'A needed a stronger link.'};
 runInNewContext(code,ctx);assert.equal(ctx.entryScoringNotice(),'');
 active=true;assert.equal(ctx.entryScoringNotice(),'3 scoring attempts remaining.');assert.equal(ctx.activeNotice,'A needed a stronger link.');
 active=false;assert.equal(ctx.entryScoringNotice(),'');assert.equal(ctx.activeNotice,'A needed a stronger link.');
@@ -49,7 +49,7 @@ noticeCtx.desktopInteraction=()=>true;noticeCtx.entryScoringNotice=()=>PRACTICE_
 // The best-route card follows the recorded scoring winner, including during practice.
 const routeHelper=app.slice(app.indexOf('function bestRouteState()'),app.indexOf('function renderHoleLog()'));
 const winner={start:'tee',won:true,route:['tee','specific','hole'],challenge:{id:'same',attempt:2}},later={...winner,route:['tee','other','hole'],challenge:{id:'same',attempt:3}};
-const routeCtx={rollingMode:false,state:later,inCourse:()=>false,practising:()=>false,bestHoleResult:()=>({score:0,attempt:2}),flightLog:{data:{journeys:[{state:winner},{state:later}]}},bestAttempt:()=>({state:winner}),rounds:{hole:{}}};
+const routeCtx={tourMode:false,rollingMode:false,state:later,inCourse:()=>false,practising:()=>false,bestHoleResult:()=>({score:0,attempt:2}),flightLog:{data:{journeys:[{state:winner},{state:later}]}},bestAttempt:()=>({state:winner}),rounds:{hole:{}}};
 runInNewContext(routeHelper,routeCtx);assert.equal(routeCtx.bestRouteState(),winner);
 routeCtx.state={...later,challenge:{...later.challenge,practice:true}};routeCtx.practising=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
 routeCtx.inCourse=()=>true;assert.equal(routeCtx.bestRouteState(),winner);
