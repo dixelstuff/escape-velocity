@@ -1,8 +1,8 @@
-import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v164';
-import { failedShotSummary } from './round-summary.mjs?v=golf-v164';
-import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v164';
-import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v164';
-import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v164';
+import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v165';
+import { failedShotSummary } from './round-summary.mjs?v=golf-v165';
+import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v165';
+import { skillFeedbackKey, currentSkillFeedback, validSkillFeedback } from './skill-feedback.mjs?v=golf-v165';
+import { bridgeKey, puzzleKey, puzzleSettings, bridgeMetrics, validBridgeFeedback, bridgeComparison, bridgeFeedbackText } from './bridge-feedback.mjs?v=golf-v165';
 /** Device-local playtest history. No guesses are sent to a server. */
 export const LOG_KEY = 'escape-velocity.flight-log.v1';
 export const RESET_BACKUP_KEY = 'escape-velocity.flight-log.reset-backup.v1';
