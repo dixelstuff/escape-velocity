@@ -34,6 +34,18 @@ ctx.state.history.push({});assert.equal(ctx.entryScoringNotice(),PRACTICE_MODE);
 const restored={...ctx};runInNewContext(code,restored);assert.equal(restored.entryScoringNotice(),PRACTICE_MODE,'the introduction does not repeat after reload');
 ctx.retryPreview={original:{state:{challenge:{id:'entry',par:3,attempt:10},history:[]}}};assert.equal(ctx.entryScoringNotice(),'1 scoring attempt remaining.','an uncommitted retry does not announce practice early');
 console.log('Entry reminders passed: mobile phases, independent desktop context, preserved feedback, one-time practice introduction and reload persistence.');
+// Render the actual notice: exhausted mobile holes must not add an idle fallback.
+const noticeNodes={
+ 'entry-scoring-note':{},
+ 'shot-notice':{classList:{remove(){}}},
+ 'shot-notice-text':{replaceChildren(...children){this.children=children;}}
+};
+const noticeCtx={entryScoringNotice:()=>'',desktopInteraction:()=>false,activeNotice:'',noticeDismissed:false,holeResult:()=>false,courseResult:()=>false,practising:()=>true,PRACTICE_MODE,$:id=>noticeNodes[id],document:{querySelector:()=>({classList:{toggle(){}}}),createTextNode:text=>text,createElement:()=>({textContent:''})}};
+runInNewContext(app.slice(app.indexOf('function renderNotice(){'),app.indexOf('async function newGame(')),noticeCtx);
+noticeCtx.renderNotice();assert.equal(noticeNodes['shot-notice'].hidden,true,'inactive practice has no unsolicited reminder');
+noticeCtx.entryScoringNotice=()=>PRACTICE_MODE;noticeCtx.renderNotice();assert.equal(noticeNodes['shot-notice'].hidden,false,'active mobile entry shows practice context');
+noticeCtx.entryScoringNotice=()=>'';noticeCtx.activeNotice='CLAY needed a stronger link to BAG.';noticeCtx.renderNotice();assert.equal(noticeNodes['shot-notice'].hidden,false);assert.equal(noticeNodes['shot-notice-text'].children.map(n=>typeof n==='string'?n:n.textContent).join(''),noticeCtx.activeNotice,'inactive view preserves previous-shot feedback');
+noticeCtx.desktopInteraction=()=>true;noticeCtx.entryScoringNotice=()=>PRACTICE_MODE;noticeCtx.activeNotice='';noticeCtx.renderNotice();assert.equal(noticeNodes['shot-notice'].hidden,true);assert.equal(noticeNodes['entry-scoring-note'].textContent,PRACTICE_MODE,'desktop keeps its separate entry note');
 // The best-route card follows the recorded scoring winner, including during practice.
 const routeHelper=app.slice(app.indexOf('function bestRouteState()'),app.indexOf('function renderHoleLog()'));
 const winner={start:'tee',won:true,route:['tee','specific','hole'],challenge:{id:'same',attempt:2}},later={...winner,route:['tee','other','hole'],challenge:{id:'same',attempt:3}};
