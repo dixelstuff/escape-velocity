@@ -760,3 +760,5 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
  body.typing .tour-extras{display:none;}
 }
 @media(max-width:650px){#tour-boundary-dialog .rolling-dialog-actions{display:grid;grid-template-columns:1fr;}#tour-boundary-dialog .rolling-dialog-actions button{width:100%;}}
+
+.social-round-result{padding:20px 22px;border:1px solid #c9d9ce;border-radius:10px;background:#f3f8f3;color:var(--ink,#284a36);margin:18px 0}.social-round-result h2{font-size:15px;letter-spacing:.08em;margin:0 0 9px}.social-round-result p{margin:7px 0;line-height:1.5}.social-placement{font-style:italic;line-height:1.5;font-size:14px}.social-round-result[hidden],#competitive-result-placement[hidden],.tour-tabs[hidden]{display:none}#competitive-result-placement{margin:16px 0;text-align:center}

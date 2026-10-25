@@ -1,4 +1,4 @@
-import {RollingCourse,holeBest} from './rolling-course.mjs?v=golf-v177';
+import {RollingCourse,holeBest} from './rolling-course.mjs?v=golf-v178';
 export const TOURS=[{id:'pro',name:'Pro Tour',icon:'🏆',max:24},{id:'amateur',name:'Amateur Tour',icon:'⛳',max:49},{id:'social',name:'Social Tour',icon:'🏌️',max:Infinity}];
 export const tourFor=attempts=>TOURS.find(t=>attempts<=t.max)??TOURS[2];
 export const spentAttempts=hole=>hole.attempts.filter(a=>a.state.history.some(s=>!s.assumed&&!s.automatic)).length;
@@ -36,11 +36,12 @@ export class TourCourse extends RollingCourse{
  playable(){return !this.current.finished;}
  reopen(){if(!this.playable())return false;this.hole.locked=false;this.save();return true;}
  advance(){if(!this.active||this.active.finished)return false;if(this.active.index<4)this.active.index++;else this.active.completed=true;this.save();return true;}
+ submissionIdentity(){return {tour:tourFor(this.totalAttempts()).id};}
  submit(){
   if(this.hasExternalChanges()||!this.canSubmit())return false;
   const rows=this.current.holes.map(h=>{const best=holeBest(h);return {id:h.challengeId,par:h.settings.par,strokes:best?Math.min(h.settings.par+2,best.state.attempts):h.settings.par+2,bestAttempt:best?.number??null,default:!best,attempts:spentAttempts(h)};});
   const totalAttempts=this.totalAttempts();
-  this.store.submissions[this.day]={id:'tour-'+this.day,date:this.day,player:'You',submittedAt:new Date().toISOString(),rows,total:rows.reduce((s,h)=>s+h.strokes,0),par:rows.reduce((s,h)=>s+h.par,0),totalAttempts,eagles:rows.filter(h=>h.par-h.strokes===2).length,tour:tourFor(totalAttempts).id};
+  this.store.submissions[this.day]={id:'tour-'+this.day,date:this.day,player:'You',submittedAt:new Date().toISOString(),rows,total:rows.reduce((s,h)=>s+h.strokes,0),par:rows.reduce((s,h)=>s+h.par,0),totalAttempts,eagles:rows.filter(h=>h.par-h.strokes===2).length,...this.submissionIdentity()};
   this.current.finished=true;this.save();return true;
  }
  retired(){return tourWindow(this.manifest,this.day).retired;}
