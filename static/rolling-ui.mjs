@@ -1,5 +1,5 @@
-import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v170';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v170';
+import {holeBest,usedAttempts,endedAttempts,addDays} from './rolling-course.mjs?v=golf-v171';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v171';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSubmit,onView,onLocked}){
  const $=id=>document.getElementById(id);
