@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import {RollingCourse,scopedStorage,publicationWindow,usedAttempts,holeBest,utcDay} from '../static/rolling-course.mjs';
-import {rollingManifest} from '../static/rolling-manifest.mjs';
+import {rollingManifest as dailyManifest} from '../static/rolling-manifest.mjs';
+import {readFileSync as readFixture} from 'node:fs';
+const rollingManifest={...dailyManifest,holes:dailyManifest.holes.filter(h=>!dailyManifest.dailyRelease.holeIds.includes(h.id)),arrivalsPerDay:1,publicationIds:JSON.parse(readFixture(new URL('./rolling-legacy-publications.json',import.meta.url)))};
 import {retryPrefix,exhausted,STROKE_PLAY} from '../static/stroke-play.mjs';
 import {remainingHoleAttempts} from '../static/hole-attempt-log.mjs';
 import {Game,restoreGame} from '../static/engine.mjs';
@@ -93,3 +95,31 @@ const reviewNodes=Object.fromEntries(['replay-hole','next-hole','result-attempts
 const resultCtx={...reviewCtx,inCourse:()=>true,roundSummary:()=>false,$:id=>reviewNodes[id],document:{querySelectorAll:()=>reviewLabels},renderStrokeScore(node,par,score){node.score=score;},styleResultButtonLabels(){}};
 runInNewContext(app.slice(app.indexOf('function renderRollingResult(){'),app.indexOf('function courseScoringFinished(){')),resultCtx);resultCtx.renderRollingResult();assert.equal(reviewNodes['replay-hole'].hidden,true);assert.equal(reviewNodes['next-hole'].textContent,'PRACTICE HOLES');assert.equal(reviewNodes['arrival-skill-value'].score,2);
 console.log('Locked review passed: recorded route restoration, unplayed default review, practice CTA and immutable submitted scores.');
+
+// The live daily trio queue retains identities, prior snapshots and exactly six carried holes.
+const {publicationDays,arrivalsPerDay}=await import('../static/rolling-course.mjs');
+assert.equal(arrivalsPerDay(dailyManifest),3);let prior;
+for(let offset=0;offset<publicationDays(dailyManifest);offset++){
+ const date=addDays(dailyManifest.epoch,offset),w=publicationWindow(dailyManifest,date),par=w.active.reduce((n,h)=>n+h.settings.par,0);
+ assert.ok([35,36].includes(par));assert.equal(w.active.length,9);
+ assert.ok(w.active.every((h,i)=>!i||h.settings.par!==3||w.active[i-1].settings.par!==3));
+ if(prior){assert.deepEqual(w.active.slice(3).map(h=>h.id),prior.active.slice(0,6).map(h=>h.id));assert.equal(w.retired.length-prior.retired.length,3);}
+ prior=w;
+}
+assert.throws(()=>publicationWindow(dailyManifest,addDays(dailyManifest.epoch,publicationDays(dailyManifest))),/queue has ended/);
+for(let d=0;d<6;d++){
+ const fresh=publicationWindow(dailyManifest,addDays(dailyManifest.epoch,d)).active.slice(0,3);
+ assert.deepEqual(fresh.map(h=>h.settings.par),[3,4,5]);assert.deepEqual(fresh.map(h=>h.id),dailyManifest.dailyRelease.holeIds.slice(d*3,d*3+3));
+}
+const movedQueue=dailyManifest.publicationIds.filter(id=>!dailyManifest.dailyRelease.holeIds.includes(id));
+assert.deepEqual(movedQueue,rollingManifest.publicationIds,'all old holes retain their relative order after the insertion');
+const trioStore=scopedStorage(storage,'trio-migration.'),oldTrio=new RollingCourse(trioStore,rollingManifest,'2026-10-25');oldTrio.record({...winning,challenge:oldTrio.settings().challenge},'old-trio-route',.9);oldTrio.submit();
+const lockedOld=structuredClone(oldTrio.store.submissions['2026-10-25']),upgradeTrio=new RollingCourse(trioStore,dailyManifest,'2026-10-25');
+assert.deepEqual(upgradeTrio.current.holes.map(h=>h.challengeId),lockedOld.rows.map(h=>h.id));assert.equal(upgradeTrio.store.bank[first.challengeId].attempts[0].journeyId,'old-trio-route');
+const tomorrowTrio=new RollingCourse(trioStore,dailyManifest,'2026-10-26');assert.equal(tomorrowTrio.current.finished,false);assert.deepEqual(tomorrowTrio.store.submissions['2026-10-25'],lockedOld);
+const retainedId=publicationWindow(dailyManifest,'2026-10-25').active[0].id,bonusScope=scopedStorage(storage,'trio-bonus.');let bonusTrio=new RollingCourse(bonusScope,dailyManifest,'2026-10-25');
+bonusTrio.record({...failed,challenge:bonusTrio.settings().challenge},'new-trio-route',.9);bonusTrio=new RollingCourse(bonusScope,dailyManifest,'2026-10-26');assert.equal(bonusTrio.store.bank[retainedId].allowance,13);assert.equal(bonusTrio.current.holes[3].challengeId,retainedId);
+bonusTrio=new RollingCourse(bonusScope,dailyManifest,'2026-10-26');assert.equal(bonusTrio.store.bank[retainedId].allowance,13);
+console.log('Three daily arrivals passed: six-day new release, exact three-in/three-out, daily par 35–36, old queue order, saved submissions/routes and once-daily bonuses.');
+
+assert.deepEqual(balancePublications(dailyManifest).publicationIds,dailyManifest.publicationIds,'rebuilding the daily trio queue preserves every scheduled hole');

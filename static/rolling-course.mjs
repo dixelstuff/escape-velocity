@@ -1,14 +1,16 @@
-import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v175';
-import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v175';
+import {CourseRounds,bestAttempt,attemptResult,landedProgress} from './course-round.mjs?v=golf-v176';
+import {STROKE_PLAY,attemptLimit} from './stroke-play.mjs?v=golf-v176';
 export const utcDay=value=>new Date(value).toISOString().slice(0,10);
 export const addDays=(day,n)=>utcDay(Date.parse(day+'T00:00:00Z')+n*86400000);
 export function scopedStorage(storage,prefix){return {getItem:k=>storage?.getItem(prefix+k)??null,setItem:(k,v)=>{if(!storage)throw Error('Storage unavailable');storage.setItem(prefix+k,v);},removeItem:k=>storage?.removeItem(prefix+k)};}
 export const publicationLength=manifest=>manifest.publicationIds?.length??manifest.holes.length;
+export const arrivalsPerDay=manifest=>manifest.arrivalsPerDay??1;
+export const publicationDays=manifest=>Math.floor((publicationLength(manifest)-1-manifest.initialNewest)/arrivalsPerDay(manifest))+1;
 export function publicationWindow(manifest,day){
  const definitions=new Map(manifest.holes.map(h=>[h.id,h]));
  const publications=manifest.publicationIds?manifest.publicationIds.map(id=>definitions.get(id)):manifest.holes;
  const offset=Math.floor((Date.parse(day+'T00:00:00Z')-Date.parse(manifest.epoch+'T00:00:00Z'))/86400000);
- const newest=manifest.initialNewest+Math.max(0,offset);
+ const newest=manifest.initialNewest+Math.max(0,offset)*arrivalsPerDay(manifest);
  // Stop at the end of the trial queue, rather than repeat a competitive hole.
  if(newest>=publications.length)throw Error('The trial publication queue has ended. Your saved scorecards are safe.');
  return {active:publications.slice(newest-8,newest+1).reverse(),retired:publications.slice(0,newest-8)};

@@ -9,7 +9,7 @@ const e=new Embeddings(words,decodeHalf(bytes.buffer.slice(bytes.byteOffset,byte
 const manifest=JSON.parse(read('static/model/'+config.progressive.manifest_file)),seed=new Set(manifest.seed.rows.map(i=>words[i]));
 assert.equal(holes.length,20);assert.deepEqual([3,4,5].map(par=>holes.filter(h=>h.par===par).length),[6,6,8]);
 const endpoints=holes.flatMap(h=>[h.start,h.waypoint?.word,h.target].filter(Boolean));assert.equal(new Set(endpoints).size,endpoints.length);
-const oldEndpoints=new Set(config.puzzles.filter(h=>h.course_set!=='new-discoveries-v1').flatMap(h=>[h.start,h.waypoint?.word,h.target].filter(Boolean)));
+const oldEndpoints=new Set(config.puzzles.filter(h=>h.course_set!=='new-discoveries-v1'&&h.course_set!=='daily-discoveries-2026-10-25').flatMap(h=>[h.start,h.waypoint?.word,h.target].filter(Boolean)));
 assert.equal(endpoints.filter(w=>oldEndpoints.has(w)).length,3);
 for(const h of holes){
  assert.deepEqual(config.puzzles.find(p=>p.course_set===h.course_set&&p.course_number===h.course_number),h);

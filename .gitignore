@@ -20,3 +20,6 @@ reports/llm-route-review/
 !data/new-mixed-route-checks.json
 
 !data/vocabulary-extension.json
+
+!data/25-october-daily-holes.json
+!data/25-october-daily-route-checks.json

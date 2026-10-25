@@ -1,0 +1,587 @@
+[
+  {
+    "start": "oyster",
+    "waypoint": null,
+    "target": "jewellery",
+    "par": 3,
+    "route": [
+      "pearl"
+    ],
+    "strokes": 1,
+    "reason": "Pearls come from oysters and become jewellery.",
+    "events": [
+      {
+        "word": "pearl",
+        "stage": null,
+        "contact": 0.2813003504634253,
+        "required": 0.16488016535824732,
+        "destination": 0.16782949114349321,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "honeycomb",
+    "waypoint": "architecture",
+    "target": "orchestra",
+    "par": 4,
+    "route": [
+      "geometry",
+      "acoustics"
+    ],
+    "strokes": 3,
+    "reason": "Hexagonal geometry links honeycombs to architectural design; architectural acoustics link to orchestras.",
+    "events": [
+      {
+        "word": "geometry",
+        "stage": null,
+        "contact": 0.389776356274524,
+        "required": 0.215,
+        "destination": 0.3030959389425334,
+        "waypointReached": true
+      },
+      {
+        "word": "acoustics",
+        "stage": null,
+        "contact": 0.29573084799631033,
+        "required": 0.215,
+        "destination": 0.27458654770452995,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "rabbit",
+    "waypoint": "computing",
+    "target": "bakery",
+    "par": 5,
+    "route": [
+      "mouse",
+      "chip",
+      "cookie"
+    ],
+    "strokes": 4,
+    "reason": "A mouse shifts from animal to computer hardware; a chip shifts from silicon to a cookie ingredient.",
+    "events": [
+      {
+        "word": "mouse",
+        "stage": null,
+        "contact": 0.5082113629550804,
+        "required": 0.18845120669794668,
+        "destination": 0.19793406646385847,
+        "waypointReached": false
+      },
+      {
+        "word": "chip",
+        "stage": null,
+        "contact": 0.24041575452065445,
+        "required": 0.1215487933020533,
+        "destination": 0.2881372786932843,
+        "waypointReached": true
+      },
+      {
+        "word": "cookie",
+        "stage": null,
+        "contact": 0.3226060413535379,
+        "required": 0.215,
+        "destination": 0.29087153891305206,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "violin",
+    "waypoint": null,
+    "target": "archery",
+    "par": 3,
+    "route": [
+      "bow"
+    ],
+    "strokes": 1,
+    "reason": "Bow has two precise, familiar meanings.",
+    "events": [
+      {
+        "word": "bow",
+        "stage": null,
+        "contact": 0.23834698476275662,
+        "required": 0.15891290925903973,
+        "destination": 0.19494898220000323,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "hamster",
+    "waypoint": "exercise",
+    "target": "electricity",
+    "par": 4,
+    "route": [
+      "treadmill",
+      "wheel",
+      "generator"
+    ],
+    "strokes": 4,
+    "reason": "A hamster exercises on a treadmill or wheel; rotation drives a generator.",
+    "events": [
+      {
+        "word": "treadmill",
+        "stage": null,
+        "contact": 0.28058052877531736,
+        "required": 0.215,
+        "destination": 0.40160966842086054,
+        "waypointReached": true
+      },
+      {
+        "word": "wheel",
+        "stage": null,
+        "contact": 0.20902971470604825,
+        "required": 0.129902369751155,
+        "destination": 0.07592830722933286,
+        "waypointReached": false
+      },
+      {
+        "word": "generator",
+        "stage": null,
+        "contact": 0.25954260454818723,
+        "required": 0.180097630248845,
+        "destination": 0.5290812203365931,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "flute",
+    "waypoint": "plumbing",
+    "target": "botany",
+    "par": 5,
+    "route": [
+      "brass",
+      "pipe",
+      "water",
+      "garden"
+    ],
+    "strokes": 5,
+    "reason": "Brass and pipes connect the instrument to plumbing; water connects plumbing to growing plants.",
+    "events": [
+      {
+        "word": "brass",
+        "stage": null,
+        "contact": 0.39605832006782293,
+        "required": 0.16189975802965023,
+        "destination": 0.19732156416830549,
+        "waypointReached": false
+      },
+      {
+        "word": "pipe",
+        "stage": null,
+        "contact": 0.38821942353388295,
+        "required": 0.14810024197034977,
+        "destination": 0.4282290107112203,
+        "waypointReached": true
+      },
+      {
+        "word": "water",
+        "stage": null,
+        "contact": 0.3746190346828371,
+        "required": 0.12681515917842032,
+        "destination": 0.013223402798757888,
+        "waypointReached": false
+      },
+      {
+        "word": "garden",
+        "stage": null,
+        "contact": 0.27793984696609186,
+        "required": 0.1669419734658794,
+        "destination": 0.2008184395635908,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "bishop",
+    "waypoint": null,
+    "target": "fortress",
+    "par": 3,
+    "route": [
+      "castle"
+    ],
+    "strokes": 2,
+    "reason": "Chess provides the bridge from a bishop to a castle, then to fortification.",
+    "events": [
+      {
+        "word": "castle",
+        "stage": null,
+        "contact": 0.2789154350757599,
+        "required": 0.215,
+        "destination": 0.5794554309252362,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "apricot",
+    "waypoint": "perfumery",
+    "target": "chemistry",
+    "par": 4,
+    "route": [
+      "fragrance",
+      "organic"
+    ],
+    "strokes": 3,
+    "reason": "Fruit fragrance leads to perfumery and organic chemistry.",
+    "events": [
+      {
+        "word": "fragrance",
+        "stage": null,
+        "contact": 0.2815858958529134,
+        "required": 0.215,
+        "destination": 0.36423786252453283,
+        "waypointReached": true
+      },
+      {
+        "word": "organic",
+        "stage": null,
+        "contact": 0.29884345822574687,
+        "required": 0.215,
+        "destination": 0.4361844893119269,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "tortoise",
+    "waypoint": "navigation",
+    "target": "wedding",
+    "par": 5,
+    "route": [
+      "turtle",
+      "sea",
+      "cruise"
+    ],
+    "strokes": 4,
+    "reason": "A sea turtle sets up navigation; a cruise can be a honeymoon journey.",
+    "events": [
+      {
+        "word": "turtle",
+        "stage": null,
+        "contact": 0.547737560863311,
+        "required": 0.13268501797534837,
+        "destination": 0.056480249608284794,
+        "waypointReached": false
+      },
+      {
+        "word": "sea",
+        "stage": null,
+        "contact": 0.3865879180993943,
+        "required": 0.17731498202465162,
+        "destination": 0.30709963336994406,
+        "waypointReached": true
+      },
+      {
+        "word": "cruise",
+        "stage": null,
+        "contact": 0.3400707760829391,
+        "required": 0.215,
+        "destination": 0.2915843794489774,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "loom",
+    "waypoint": null,
+    "target": "spider",
+    "par": 3,
+    "route": [
+      "weaving"
+    ],
+    "strokes": 2,
+    "reason": "A loom and a spider both weave.",
+    "events": [
+      {
+        "word": "weaving",
+        "stage": null,
+        "contact": 0.3730560260009952,
+        "required": 0.19915626464718766,
+        "destination": 0.24430898578066262,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "hammock",
+    "waypoint": "textiles",
+    "target": "navigation",
+    "par": 4,
+    "route": [
+      "rope",
+      "bamboo",
+      "rafts"
+    ],
+    "strokes": 4,
+    "reason": "Ropes and hammock materials lead through textile craft to bamboo rafts.",
+    "events": [
+      {
+        "word": "rope",
+        "stage": null,
+        "contact": 0.29193851125455694,
+        "required": 0.1426976179659719,
+        "destination": 0.11239411271890276,
+        "waypointReached": false
+      },
+      {
+        "word": "bamboo",
+        "stage": null,
+        "contact": 0.38516627701028483,
+        "required": 0.16730238203402809,
+        "destination": 0.2820859339353774,
+        "waypointReached": true
+      },
+      {
+        "word": "rafts",
+        "stage": null,
+        "contact": 0.35023278377693146,
+        "required": 0.18435903647359309,
+        "destination": 0.20730582133910502,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "hourglass",
+    "waypoint": "geology",
+    "target": "computer",
+    "par": 5,
+    "route": [
+      "quartz",
+      "mineral",
+      "crystal"
+    ],
+    "strokes": 4,
+    "reason": "Sand and quartz connect the hourglass to geology; crystals are used in computer timing and electronics.",
+    "events": [
+      {
+        "word": "quartz",
+        "stage": null,
+        "contact": 0.2227479079811019,
+        "required": 0.1799936213804431,
+        "destination": 0.16930047135667792,
+        "waypointReached": false
+      },
+      {
+        "word": "mineral",
+        "stage": null,
+        "contact": 0.3565979975828668,
+        "required": 0.1300063786195569,
+        "destination": 0.4259924392108587,
+        "waypointReached": true
+      },
+      {
+        "word": "crystal",
+        "stage": null,
+        "contact": 0.2630927543773396,
+        "required": 0.18569523510094266,
+        "destination": 0.19545623374688148,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "acorn",
+    "waypoint": null,
+    "target": "vineyard",
+    "par": 3,
+    "route": [
+      "oak"
+    ],
+    "strokes": 2,
+    "reason": "An acorn becomes an oak; oak barrels are familiar in wine making.",
+    "events": [
+      {
+        "word": "oak",
+        "stage": null,
+        "contact": 0.22754525828986516,
+        "required": 0.215,
+        "destination": 0.2802795205207076,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "marble",
+    "waypoint": "geology",
+    "target": "music",
+    "par": 4,
+    "route": [
+      "limestone",
+      "rock"
+    ],
+    "strokes": 3,
+    "reason": "Marble and limestone establish geology, then rock changes meaning to music.",
+    "events": [
+      {
+        "word": "limestone",
+        "stage": null,
+        "contact": 0.6164388883497622,
+        "required": 0.215,
+        "destination": 0.34644436805319856,
+        "waypointReached": true
+      },
+      {
+        "word": "rock",
+        "stage": null,
+        "contact": 0.39379309914693295,
+        "required": 0.215,
+        "destination": 0.5477863771203602,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "chameleon",
+    "waypoint": "theatre",
+    "target": "medicine",
+    "par": 5,
+    "route": [
+      "mask",
+      "costume",
+      "mask",
+      "surgery"
+    ],
+    "strokes": 5,
+    "reason": "Disguise and costume reach theatre; a mask shifts to surgical use on the second leg.",
+    "events": [
+      {
+        "word": "mask",
+        "stage": null,
+        "contact": 0.17605869959515985,
+        "required": 0.1045026615005461,
+        "destination": 0.08720422742771916,
+        "waypointReached": false
+      },
+      {
+        "word": "costume",
+        "stage": null,
+        "contact": 0.46353408142249464,
+        "required": 0.2054973384994539,
+        "destination": 0.30073096865316984,
+        "waypointReached": true
+      },
+      {
+        "word": "mask",
+        "stage": null,
+        "contact": 0.46353408142249464,
+        "required": 0.11421061513147111,
+        "destination": 0.11752081266968162,
+        "waypointReached": false
+      },
+      {
+        "word": "surgery",
+        "stage": null,
+        "contact": 0.20511742534654331,
+        "required": 0.19578938486852887,
+        "destination": 0.4218370653998136,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "glacier",
+    "waypoint": null,
+    "target": "glass",
+    "par": 3,
+    "route": [
+      "ice"
+    ],
+    "strokes": 2,
+    "reason": "Ice and glass share transparent, brittle material qualities.",
+    "events": [
+      {
+        "word": "ice",
+        "stage": null,
+        "contact": 0.39106227503907576,
+        "required": 0.215,
+        "destination": 0.32844907468188467,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "teapot",
+    "waypoint": "ceramics",
+    "target": "astronaut",
+    "par": 4,
+    "route": [
+      "ceramic",
+      "insulation",
+      "shuttle"
+    ],
+    "strokes": 4,
+    "reason": "Ceramic teapots lead to heat-insulating ceramics used on the space shuttle.",
+    "events": [
+      {
+        "word": "ceramic",
+        "stage": null,
+        "contact": 0.2682110279620247,
+        "required": 0.215,
+        "destination": 0.7261700531817041,
+        "waypointReached": true
+      },
+      {
+        "word": "insulation",
+        "stage": null,
+        "contact": 0.37008102629943096,
+        "required": 0.13239916946556807,
+        "destination": 0.07797999676495238,
+        "waypointReached": false
+      },
+      {
+        "word": "shuttle",
+        "stage": null,
+        "contact": 0.33185571503894806,
+        "required": 0.17760083053443193,
+        "destination": 0.5234478282395685,
+        "waypointReached": false
+      }
+    ]
+  },
+  {
+    "start": "anemone",
+    "waypoint": "photography",
+    "target": "medicine",
+    "par": 5,
+    "route": [
+      "coral",
+      "underwater",
+      "photography"
+    ],
+    "strokes": 4,
+    "reason": "Coral and anemones set up underwater photography; photography also serves medical documentation.",
+    "events": [
+      {
+        "word": "coral",
+        "stage": null,
+        "contact": 0.22864184803802345,
+        "required": 0.14239110996150475,
+        "destination": 0.03349170574438176,
+        "waypointReached": false
+      },
+      {
+        "word": "underwater",
+        "stage": null,
+        "contact": 0.32812145810567017,
+        "required": 0.16760889003849522,
+        "destination": 0.3000654090150192,
+        "waypointReached": true
+      },
+      {
+        "word": "photography",
+        "stage": null,
+        "contact": 0.3000654090150192,
+        "required": 0.18170262170092563,
+        "destination": 0.20050966926191904,
+        "waypointReached": false
+      }
+    ]
+  }
+]

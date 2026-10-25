@@ -1,0 +1,420 @@
+[
+  {
+    "start": "oyster",
+    "target": "jewellery",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 1,
+    "golden_paths": [
+      [
+        "pearl"
+      ]
+    ]
+  },
+  {
+    "start": "honeycomb",
+    "target": "orchestra",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 2,
+    "waypoint": {
+      "word": "architecture",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 105,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "rabbit",
+    "target": "bakery",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 3,
+    "waypoint": {
+      "word": "computing",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 44,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "violin",
+    "target": "archery",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 4,
+    "golden_paths": [
+      [
+        "bow"
+      ]
+    ]
+  },
+  {
+    "start": "hamster",
+    "target": "electricity",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 5,
+    "waypoint": {
+      "word": "exercise",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 85,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 2,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "flute",
+    "target": "botany",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 6,
+    "waypoint": {
+      "word": "plumbing",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 46,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "bishop",
+    "target": "fortress",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 7
+  },
+  {
+    "start": "apricot",
+    "target": "chemistry",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 8,
+    "waypoint": {
+      "word": "perfumery",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 81,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "tortoise",
+    "target": "wedding",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 9,
+    "waypoint": {
+      "word": "navigation",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 47,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "loom",
+    "target": "spider",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 10
+  },
+  {
+    "start": "hammock",
+    "target": "navigation",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 11,
+    "waypoint": {
+      "word": "textiles",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 90,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 3,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "hourglass",
+    "target": "computer",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 12,
+    "waypoint": {
+      "word": "geology",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 70,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 1
+    }
+  },
+  {
+    "start": "acorn",
+    "target": "vineyard",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 13
+  },
+  {
+    "start": "marble",
+    "target": "music",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 14,
+    "waypoint": {
+      "word": "geology",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 105,
+      "best_sampled_strokes": 2,
+      "quick_opening_families": 4,
+      "strong_four_opening_families": 4
+    }
+  },
+  {
+    "start": "chameleon",
+    "target": "medicine",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 15,
+    "waypoint": {
+      "word": "theatre",
+      "threshold": 0.265,
+      "turn": "down"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 62,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  },
+  {
+    "start": "glacier",
+    "target": "glass",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 3,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 16
+  },
+  {
+    "start": "teapot",
+    "target": "astronaut",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 4,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 17,
+    "waypoint": {
+      "word": "ceramics",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 4,
+      "sampled_routes": 90,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 1,
+      "strong_four_opening_families": 3
+    }
+  },
+  {
+    "start": "anemone",
+    "target": "medicine",
+    "threshold": 0.27,
+    "mode": "distance",
+    "launch_min": 0.095,
+    "launch_max": 0.215,
+    "finish_mode": "range",
+    "success_mode": true,
+    "success_version": "stroke-play-v1",
+    "par": 5,
+    "course_set": "daily-discoveries-2026-10-25",
+    "course_number": 18,
+    "waypoint": {
+      "word": "photography",
+      "threshold": 0.265,
+      "turn": "up"
+    },
+    "par_estimate": {
+      "version": "waypoint-par-v1",
+      "suggested_par": 5,
+      "sampled_routes": 86,
+      "best_sampled_strokes": 3,
+      "quick_opening_families": 0,
+      "strong_four_opening_families": 0
+    }
+  }
+]

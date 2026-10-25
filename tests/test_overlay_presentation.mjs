@@ -54,3 +54,11 @@ console.log('Result context and card sizing passed: latest-result moment, compac
 const rollingUI=readFileSync(new URL('../static/rolling-ui.mjs',import.meta.url),'utf8');let submitBannerHandler,submissionsOpened=0;
 runInNewContext(rollingUI.split('\n').find(line=>line.includes("banner.addEventListener('click'")),{banner:{addEventListener(type,fn){submitBannerHandler=fn;}},onSubmit(){submissionsOpened++;}});
 submitBannerHandler({target:{closest:selector=>selector==='#rolling-submit-now'?{}:null}});assert.equal(submissionsOpened,1,'completed-course banner uses the normal submit action');
+
+const resultNodes=Object.fromEntries(['arrival-context','arrival-title','arrival-par','arrival-banner'].map(id=>[id,{hidden:false,textContent:'',classList:{toggle(){}}}]));
+resultNodes['arrival-par'].textContent='HOLE 4 · PAR 5';
+const resultView={$:id=>resultNodes[id],resultContext,justHoled:false,state:{won:true},roundSummary:()=>false};
+runInNewContext(app.slice(app.indexOf('function renderResultContext(){'),app.indexOf('function renderRollingResult(){')),resultView);
+resultView.renderResultContext();assert.equal(resultNodes['arrival-title'].textContent,'HOLE 4 (PAR 5)');assert.equal(resultNodes['arrival-title'].hidden,false);assert.equal(resultNodes['arrival-context'].hidden,true);
+resultView.justHoled=true;resultNodes['arrival-title'].textContent='Holed in 4 strokes!';resultView.renderResultContext();assert.equal(resultNodes['arrival-context'].textContent,'JUST NOW');assert.equal(resultNodes['arrival-title'].textContent,'Holed in 4 strokes!');
+console.log('Result review title passed: centred hole/par title on return, fresh latest-stroke heading preserved.');

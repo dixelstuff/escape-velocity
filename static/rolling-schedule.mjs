@@ -21,7 +21,7 @@ export function balancePublications(manifest){
   ids=[...retired.map(h=>h.id),...picked.reverse()];
  }
  if(new Set(ids).size!==ids.length||ids.some(id=>!definitions.has(id)))throw Error('Invalid publication identities.');
- for(let i=manifest.initialNewest;i<ids.length;i++){
+ for(let i=manifest.initialNewest;i<ids.length;i+=manifest.arrivalsPerDay??1){
   const nine=ids.slice(i-8,i+1),total=nine.reduce((n,id)=>n+par(id),0);
   if(total<35||total>36||nine.some((id,j)=>j>0&&par(id)===3&&par(nine[j-1])===3))throw Error('The frozen publication queue is not balanced.');
  }
@@ -34,5 +34,20 @@ export function balancePublications(manifest){
   if(next===undefined)break; // Never break the rules or quietly alter a hole's par.
   ids.push(remaining.splice(next,1)[0].id);
  }
- return {publicationIds:ids,unreleasedIds:remaining.map(h=>h.id),scheduleVersion:'par35-36-v1'};
+ return {publicationIds:ids,unreleasedIds:remaining.map(h=>h.id),scheduleVersion:manifest.arrivalsPerDay===3?'par35-36-three-daily-v1':'par35-36-v1'};
+}
+
+/** Explicit editorial insertion: keep IDs/pars and existing order, move upcoming holes later. */
+export function insertDailyTrios(manifest,newIds,day){
+ if(day!==manifest.epoch)throw Error('This migration starts on the trial epoch; later insertions need a dated schedule phase.');
+ if(newIds.length%3||new Set(newIds).size!==newIds.length)throw Error('Supply complete, distinct daily trios.');
+ const queue=[...manifest.publicationIds],definitions=new Map(manifest.holes.map(h=>[h.id,h]));
+ if(newIds.some(id=>queue.includes(id)||!definitions.has(id)))throw Error('New publications must have fresh, defined identities.');
+ queue.splice(manifest.initialNewest-2,0,...newIds);
+ const next={...manifest,publicationIds:queue,arrivalsPerDay:3,scheduleVersion:'par35-36-three-daily-v1'};
+ for(let i=next.initialNewest;i<queue.length;i+=3){
+  const nine=queue.slice(i-8,i+1).map(id=>definitions.get(id)),par=nine.reduce((n,h)=>n+h.settings.par,0);
+  if(![35,36].includes(par)||nine.some((h,j)=>j&&h.settings.par===3&&nine[j-1].settings.par===3))throw Error(`Unbalanced daily trio at publication ${i}.`);
+ }
+ return next;
 }

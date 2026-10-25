@@ -557,17 +557,17 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 /* Explicit course selection fades in place after its scroll has completed. */
 body.course-hole-changing .mission,body.course-hole-changing .map-card,body.course-hole-changing .controls{pointer-events:none;}
 /* One compact bag replaces the undo and attempts controls. No invisible hit padding. */
-.hole-tools{position:absolute;inset:9px 9px auto auto;z-index:5;width:32px;height:34px;pointer-events:auto;}
+.hole-tools{position:absolute;inset:auto 9px 9px auto;z-index:5;width:32px;height:34px;pointer-events:auto;}
 .hole-tools .bag-toggle{display:grid;place-items:center;width:32px;height:34px;min-height:0;margin:0;padding:5px 7px;background:#f4f7eef0;color:#688063;border:1px solid #bdcdae;border-radius:8px;box-shadow:none;opacity:.87;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .hole-tools .bag-toggle svg{display:block;width:18px;height:24px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;overflow:visible;}
 .hole-tools .bag-toggle:hover,.hole-tools .bag-toggle:active{background:#f4f7eef0;opacity:1;}
-#golf-bag-menu{position:absolute;top:50px;right:9px;z-index:6;width:min(270px,calc(100% - 18px));max-height:calc(100% - 62px);overflow:auto;overscroll-behavior:contain;background:#fffdf4f7;color:#294b35;border:1px solid #becbad;border-radius:9px;box-shadow:0 4px 15px #233b3026;padding:14px 16px;}
+#golf-bag-menu{position:absolute;bottom:50px;right:9px;z-index:6;width:min(270px,calc(100% - 18px));max-height:calc(100% - 62px);overflow:auto;overscroll-behavior:contain;background:#fffdf4f7;color:#294b35;border:1px solid #becbad;border-radius:9px;box-shadow:0 4px 15px #233b3026;padding:14px 16px;}
 #golf-bag-menu[hidden]{display:none;}
 .bag-stats{margin:0;font-size:13px;line-height:1.6;}.bag-stats>div{display:flex;gap:5px;}.bag-stats dt{font-weight:500;}.bag-stats dd{margin:0;font-weight:650;}
 #bag-scoring-status{font-size:11px;color:#738568;margin:6px 0 12px;line-height:1.4;}
 .bag-actions{border-top:1px solid #d7dfcd;padding-top:6px;}.bag-actions>button{display:block;width:100%;text-align:left;background:transparent;color:#365b3e;border:0;border-radius:4px;margin:0;padding:9px 0;box-shadow:none;font-size:13px;font-weight:500;}
 .bag-actions>button:hover{color:#21462b;background:#e9efdf;}.bag-actions>button:disabled{opacity:.4;}
-@media(max-width:650px){.hole-tools{inset:7px 7px auto auto;width:30px;height:32px;}.hole-tools .bag-toggle{width:30px;height:32px;padding:4px 6px;}#golf-bag-menu{right:7px;top:46px;font-size:12px;padding:10px 12px;}.bag-stats{font-size:12px;}#bag-scoring-status{margin:4px 0 8px;}.bag-actions>button{padding:5px 0;font-size:12px;line-height:16px;}}
+@media(max-width:650px){.hole-tools{inset:auto 7px 7px auto;width:30px;height:32px;}.hole-tools .bag-toggle{width:30px;height:32px;padding:4px 6px;}#golf-bag-menu{right:7px;bottom:46px;font-size:12px;padding:10px 12px;}.bag-stats{font-size:12px;}#bag-scoring-status{margin:4px 0 8px;}.bag-actions>button{padding:5px 0;font-size:12px;line-height:16px;}}
 
 /* Bag actions read as navigation; tips and routes share the scrolling hole card. */
 .hole-tools .bag-toggle svg{transform:translateX(-1px);}
@@ -729,3 +729,13 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 #arrival-banner.result-review .scorecard-heading{justify-content:flex-end;margin-bottom:8px;}
 #arrival-context[hidden],#arrival-title[hidden]{display:none;}
 #rolling-submit-now{padding:0;border:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;}
+
+/* Keep the daily sheet still while native focus begins, before compact keyboard layout. */
+@media(max-width:650px){
+ body.word-entry-active:not(.typing) #shot-context-help{display:block;visibility:hidden;pointer-events:none;}
+ .rolling-sheet,.rolling-extras{overflow-anchor:none;}
+}
+#arrival-banner.result-review .scorecard-heading{display:none;}
+#arrival-banner.result-review h2{font-size:25px;font-weight:600;text-align:center;margin:2px 0 24px;}
+#submit-course-dialog,#rolling-lock-dialog{position:fixed;max-height:85svh;overflow:auto;overscroll-behavior:contain;}
+#submit-course-dialog h2:focus,#rolling-lock-dialog h2:focus{outline:none;}
