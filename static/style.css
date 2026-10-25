@@ -689,24 +689,29 @@ body.typing .course-feedback.entry-scoring-notice{display:block;height:0;overflo
 
 /* One scorecard surface connects its title, total, daily note and rows. */
 .rolling-sheet{background:#fffef8;border:1px solid #d5ddce;border-radius:12px;box-shadow:0 7px 22px #243c2810;overflow:hidden;}
-.rolling-mode .rolling-sheet .round-card-heading{padding:22px 24px 0;margin:0 0 5px;gap:18px;align-items:center;}
-.rolling-mode .rolling-sheet #round-course-name{font-size:clamp(18px,2.3vw,27px);}
-.rolling-mode .rolling-sheet #round-running-score{display:flex;align-items:baseline;gap:7px;background:#eef3e7;padding:7px 12px;border-radius:7px;font-size:24px;}
-.rolling-mode .rolling-sheet #round-running-score>span{font-size:11px;font-weight:600;color:#697d61;text-transform:uppercase;letter-spacing:.04em;margin-right:2px;}
-.rolling-mode .rolling-sheet #round-running-score b{font-size:30px;line-height:1.1;}.rolling-mode .rolling-sheet #round-running-score em{font-size:22px;line-height:1.1;}
-.rolling-mode .rolling-sheet #rolling-card-meta{margin:0;padding:0 24px 16px;font-size:12px;letter-spacing:.04em;}
+.rolling-mode .rolling-sheet .round-card-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;padding:23px 24px 18px;margin:0;gap:3px 20px;align-items:start;}
+.rolling-mode .rolling-sheet #round-course-name{grid-column:1;grid-row:1;font-size:clamp(25px,3vw,35px);line-height:1.2;max-width:none;}
+.rolling-mode .rolling-sheet #round-running-score{grid-column:2;grid-row:1 / span 2;align-self:center;display:flex;align-items:baseline;gap:7px;background:none;padding:0;border-radius:0;font-weight:500;}
+.rolling-mode .rolling-sheet #round-running-score[hidden]{display:none;}
+.rolling-mode .rolling-sheet #round-running-score>span{font-size:19px;font-weight:450;color:#48634e;text-transform:none;letter-spacing:0;margin:0;}
+.rolling-mode .rolling-sheet #round-running-score b,.rolling-mode .rolling-sheet #round-running-score em{font-size:34px;line-height:1.1;font-weight:650;}
+.rolling-mode .rolling-sheet #rolling-card-meta{grid-column:1;grid-row:2;margin:0;padding:0;font-size:16px;line-height:1.4;letter-spacing:.04em;}
 .rolling-sheet #rolling-day-banner{margin:0 16px 8px;padding:13px 16px;border-radius:6px;gap:13px;background:#edf4e9;}
 .rolling-sheet #rolling-day-banner .rolling-calendar{width:31px;height:34px;}
 .rolling-sheet #rolling-day-banner strong{font-size:18px;}.rolling-mode .rolling-sheet #rolling-day-banner p{font-size:14px;margin-top:3px;}
 .rolling-sheet .rolling-table-frame{border:0;border-radius:0;box-shadow:none;background:transparent;}
+.rolling-sheet-footer{border-top:1px solid #dbe0d5;padding:16px 24px 23px;}
+.rolling-mode #round-scorecard .rolling-sheet-footer #round-status{margin:0;font-size:12px;}
+.rolling-mode #round-scorecard .rolling-sheet-footer #submit-scorecard{margin-top:13px;}
 @media(max-width:650px){
- .rolling-mode .rolling-sheet .round-card-heading{padding:16px 12px 0;gap:8px;align-items:center;}
- .rolling-mode .rolling-sheet #round-course-name{font-size:16px;max-width:none;}
- .rolling-mode .rolling-sheet #round-running-score{gap:4px;padding:6px 7px;flex-shrink:0;}
- .rolling-mode .rolling-sheet #round-running-score>span{font-size:9px;margin:0;letter-spacing:0;}
- .rolling-mode .rolling-sheet #round-running-score b{font-size:23px;}.rolling-mode .rolling-sheet #round-running-score em{font-size:17px;}
- .rolling-mode .rolling-sheet #rolling-card-meta{padding:0 12px 12px;font-size:9px;}
+ .rolling-mode .rolling-sheet .round-card-heading{padding:18px 12px 15px;gap:4px 10px;}
+ .rolling-mode .rolling-sheet #round-course-name{font-size:22px;}
+ .rolling-mode .rolling-sheet #round-running-score{gap:4px;}
+ .rolling-mode .rolling-sheet #round-running-score>span{font-size:13px;}
+ .rolling-mode .rolling-sheet #round-running-score b,.rolling-mode .rolling-sheet #round-running-score em{font-size:25px;}
+ .rolling-mode .rolling-sheet #rolling-card-meta{font-size:12px;}
  .rolling-sheet #rolling-day-banner{margin:0 8px 5px;padding:11px 10px;gap:9px;}
  .rolling-sheet #rolling-day-banner .rolling-calendar{width:25px;height:28px;}
  .rolling-sheet #rolling-day-banner strong{font-size:15px;}.rolling-mode .rolling-sheet #rolling-day-banner p{font-size:11px;}
+ .rolling-sheet-footer{padding:13px 12px 16px;}.rolling-mode #round-scorecard .rolling-sheet-footer #round-status{font-size:10px;}
 }

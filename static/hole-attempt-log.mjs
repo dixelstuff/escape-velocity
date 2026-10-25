@@ -1,4 +1,4 @@
-import {attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v168';
+import {attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v169';
 /** This challenge only; assumed prefixes describe the lie, not new guesses. */
 export function holeAttemptLog(journeys,state,activeId){
  if(!state?.challenge)return [];
