@@ -778,3 +778,8 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 #semantic-analysis .semantic-status{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
 #semantic-analysis:has(.semantic-retry:not([hidden])) .semantic-status{position:static;width:auto;height:auto;clip-path:none;white-space:normal;}
 #result-route-section:not([hidden])+#semantic-analysis{border-top:0;padding-top:1px;}
+/* Journey experiments remain within the existing results-card inspector. */
+.semantic-summary .semantic-pivot-sequence{display:block;max-width:270px;font-size:9px;line-height:1.5;font-weight:400;color:var(--muted,#657766);white-space:normal;margin-top:3px}
+.semantic-journey{margin:14px 0;font-size:11px;line-height:1.5}
+.semantic-journey h4{margin:0 0 6px}
+.semantic-journey th{max-width:220px;white-space:normal}

@@ -1,4 +1,4 @@
-# Semantic analysis experiment — v1
+# Semantic analysis experiment — v2
 
 These are inspectable computational measurements, not a cleverness score, player percentiles or a change to stroke play. They run only for a completed hole. No possible routes are enumerated. The existing model/vocabulary, dogleg thresholds and shot rules are unchanged.
 
@@ -66,7 +66,7 @@ Show the number of alternatives, lower/tied counts and up to 12 alternatives by 
 
 ## Route summary
 
-Report the maximum D and maximum S separately, identifying their words and positions. Ties choose the first played position. Report whether the same word and the same occurrence achieved both maxima. Do not average, combine or convert them into a stroke bonus, ranking or label of cleverness. Dogleg distinctiveness remains a third independent line.
+Report the maximum D and maximum S separately, identifying their words and positions. Ties choose the first played position. Report whether the same word and the same occurrence achieved both maxima. Do not average the route or convert these measures into a stroke bonus, ranking or label of cleverness. The new supported-pivot experiment below combines local factors only; the original D/S measures remain separate and unchanged. Dogleg distinctiveness remains a third independent line.
 
 Immediately after holing, analyse the current completed route even when an earlier route remains the stroke best. The card labels it "This completed route" and the inspector displays the exact analysed path. On a locked-hole review without a current completed state, a recorded completed best may be analysed and labelled accordingly. Whole-course result cards do not show hole-level analysis.
 
@@ -89,3 +89,65 @@ node scripts/benchmark_semantic_analysis.mjs
 The tests include ideal separated/shared/one-sided/weak profiles, strict ranking ties, negative similarities, exact endpoint roles, repeated word positions, deterministic nearest-neighbour ties, real-model dogleg alternatives checked exhaustively at the actual lie, unchanged saved game state, cached results, stale asynchronous responses and retryable offline errors.
 
 See `benchmark.json` and `BENCHMARK.md` for six contrasting completed routes. The measurements are not tuned to force the desired routes to win. Generic routes also achieve high distinctiveness, and the BASS pivot is not the maximum-separation word in its route. These are findings to inspect before considering any scoring use.
+
+
+## 4. Setup gain
+
+For each internal played B between A and C:
+
+`G(B) = sim(B,C) − sim(A,C)`.
+
+Retain signed raw cosine units, including negative values. Display a signed decimal, not a probability. Q, D and S are unchanged. For a payoff pivot P in `A → B → P → C`, **B’s** setup gain is `sim(B,P) − sim(A,P)`. This differs from P’s own setup gain into C. The inspector shows both.
+
+## 5. Semantic backtracking and longer returns
+
+For **every non-adjacent pair** of route positions i,j, including endpoints, compute:
+
+```
+r = max(0, sim(word_i, word_j))
+e = max over i<k<j of max(0, r − min(sim(word_i,word_k), sim(word_j,word_k)))
+raw_loop(i,j) = clamp(r × e, 0, 1)
+```
+
+Thus endpoints must be similar *and* an interior word must depart from that neighbourhood. An equally close synonym chain has no excursion. Real vector synonym chains may still have small signals; this is not a binary claim that a detour was pointless. Preserve every endpoint pair, return similarity, excursion and furthest interior position in JSON and in the expandable returns table.
+
+When saved objective data is available, `gain = max(0, objective_j − objective_i)` and `adjusted_loop = raw_loop × (1 − gain)`. If the interval crosses an actual successful dogleg landing, adjusted_loop is zero, with its raw evidence still retained. This explicit protection prevents a useful dogleg return from being treated as pointless. A return spanning a dogleg is protected even if other parts of that broad interval were wasteful; narrower subintervals remain inspectable. It is deliberately conservative.
+
+Route backtracking is the **maximum** adjusted loop, not a sum that grows automatically with route length. Each word also gets the maximum loop containing it as an interior position. The four-word pivot window uses the maximum loop wholly within that window. No distance-from-flag penalty is used.
+
+## 6. Objective coordinates
+
+Use successful actual history entries, their credited destination similarity, leg baseline and leg threshold. A credited plural/adjective destination is appropriate here because this measurement describes actual game progress; neighbourhood scores still use the typed word.
+
+```
+leg_fraction = clamp((destination − leg_baseline) / (leg_threshold − leg_baseline), 0, 1)
+single-target objective = leg_fraction
+dogleg objective = (leg_index + leg_fraction) / 2
+```
+
+Use denominator at least 1e-12. An actual dogleg landing receives exactly .5, then the baseline resets to the typed landing word’s similarity to the flag, as in the engine. Before that landing, the waypoint is the objective; its relation to the flag is irrelevant. After it, the flag is the objective. Two legs have equal weight; these are semantic coordinates, not the nonlinear map geometry. Fixed flag completion is recorded as 1 for route inspection, but **excluded from pivot-progress windows** so automatic completion does not itself create a productive pivot.
+
+A pivot’s progress window starts two positions before the pivot and ends at its successor if that successor was player chosen, otherwise at the pivot itself. Net positive objective change over this window credits the preceding setup plus its immediate payoff, even if the setup alone was tiny. No per-shot minimum is imposed. If the window makes no net progress its productive score is zero.
+
+For supplied abstract paths lacking saved rules/thresholds, objective progress is explicitly unavailable. Compute semantic diagnostics with the progression factor omitted and mark the pivot **semantic only**. Do not invent a waypoint or claim the abstract path was legal. Those values are not directly comparable with objective-adjusted gameplay scores.
+
+## 7. Productive pivot experiment
+
+For P in `A → B → P → C`:
+
+```
+g = max(0, G(B))
+support = 0.5 + 0.5 × g/(1+g)
+conceptual_difference = 1 − max(0, sim(B,C))
+loop = maximum adjusted loop wholly inside [A,B,P,C]
+progress_factor = sqrt(clamp(local_objective_gain,0,1))
+productive_pivot(P) = S(P) × support × conceptual_difference × (1−loop) × progress_factor
+```
+
+Clamp to [0,1] for floating-point safety. The first chosen word has no preceding setup and gets no supported-pivot measurement; its original D/S and its setup gain into the next word remain available. Highest pivot wins, ties use earliest route position. Show the full four-word sequence and supporting word, not just P. Negative setup gains are retained but get no bonus; they do not automatically disqualify a potentially meaningful pivot. Positive setup adds a bounded bonus to the structural evidence rather than becoming a hard gate that excludes modest legitimate setups. A synonym chain is reduced by shared neighbourhood affinity (S), and again by similarity between the two sides. Loop and zero-progress factors reduce apparently interesting but unproductive journeys.
+
+**These design choices are provisional:** the half base support, equal leg weighting, progress square root and multiplicative combination have not been fitted to human ratings. The score does not prove polysemy, intuitive satisfaction or necessity of a step. Low scores may still describe satisfying direct material/category bridges. A route may have one high pivot without every word doing well. No aggregate cleverness rating is produced, and the existing neighbourhood distinctiveness and dogleg distinctiveness do not feed this formula.
+
+## Testing the extension
+
+`node tests/test_semantic_journey.mjs` checks exact signed gains, short/long explicit return loops, a uniform synonym control, dogleg crossing protection, zero objective progress, immutable saved games, deterministic results and the supplied ROBOT path using the actual model. The existing six legal benchmark paths remain. Three semantic-only controls are added with an explicit missing-objectives label. `benchmark.json` retains all factor values, per-word gains, loop intervals and progress coordinates; `BENCHMARK.md` summarises findings and limitations. The path-local calculations add no nearest-neighbour searches: they reuse the existing 100-neighbour separation and cached vectors. Complexity is O(k³) for short route loops, with O(k²) output, independent of the number of possible game routes. All computations run in the existing analysis worker after completion.

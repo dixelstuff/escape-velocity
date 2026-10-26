@@ -46,6 +46,7 @@ jobs:
           node tests/test_tour_course.mjs
           node tests/test_competitive_course.mjs
           node tests/test_semantic_analysis.mjs
+          node tests/test_semantic_journey.mjs
           node tests/test_semantic_panel.mjs
           node tests/test_rolling_course.mjs
           node tests/test_result_actions.mjs

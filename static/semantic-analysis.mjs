@@ -1,8 +1,9 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=golf-v179';
-import {withWordModel} from './word-model.mjs?v=golf-v179';
-import {withHeadwind} from './headwind.mjs?v=golf-v179';
-export const SEMANTIC_VERSION='bridge-neighbourhood-v1';
+import {Game} from './engine.mjs?v=golf-v180';
+import {withWordModel} from './word-model.mjs?v=golf-v180';
+import {withHeadwind} from './headwind.mjs?v=golf-v180';
+import {analyseJourney} from './semantic-journey.mjs?v=golf-v180';
+export const SEMANTIC_VERSION='bridge-journey-v2';
 export const NEIGHBOUR_COUNT=100;
 const EPS=1e-12;
 const lexical=(a,b)=>a<b?-1:a>b?1:0;
@@ -34,7 +35,7 @@ export function completedBridgeRoute(saved){
 }
 export function semanticRouteKey(saved){
  if(!saved?.won)return null;
- return JSON.stringify([SEMANTIC_VERSION,saved.start,saved.final_target??saved.target,saved.waypoint??null,saved.final_threshold??saved.threshold,saved.mode,saved.rules,saved.launch_min,saved.launch_max,saved.word_model??'',saved.headwind??null,saved.plural_rescue,saved.plural_tolerance,saved.family_rescue,saved.allow_backtracking,(saved.history??[]).map(h=>[h.word,!!h.success,!!h.automatic,!!h.waypoint_reached,h.scoring_word??null,h.stage??null])]);
+ return JSON.stringify([SEMANTIC_VERSION,saved.start,saved.final_target??saved.target,saved.waypoint??null,saved.final_threshold??saved.threshold,saved.mode,saved.rules,saved.launch_min,saved.launch_max,saved.word_model??'',saved.headwind??null,saved.plural_rescue,saved.plural_tolerance,saved.family_rescue,saved.allow_backtracking,saved.finish_mode,saved.waypoint_auto_finish,(saved.history??[]).map(h=>[h.word,!!h.success,!!h.automatic,!!h.waypoint_reached,h.scoring_word??null,h.stage??null,h.destination??null,h.leg_baseline??null,h.leg_threshold??null])]);
 }
 const highest=(bridges,key)=>bridges.reduce((best,b)=>b[key].value!==null&&(!best||b[key].value>best.value+EPS)?{word:b.word,position:b.position,value:b[key].value}:best,null);
 export class SemanticAnalyser{
@@ -63,8 +64,10 @@ export class SemanticAnalyser{
    return {...b,quality,distinctiveness:distinctiveness(quality,neighbours.map(n=>n.quality)),separation:neighbourhoodSeparation(neighbours.map(n=>[n.incoming,n.outgoing])),neighbours};
   });
   const bestDistinctiveness=highest(results,'distinctiveness'),bestSeparation=highest(results,'separation');
+  const journey=analyseJourney({route,bridges:results,saved,cosine:(a,b)=>e.cosine(a,b)});
+  for(const b of results){const w=journey.words.find(w=>w.position===b.position);Object.assign(b,{setup:w.setup,backtracking:w.backtracking,pivot:w.pivot});}
   let dogleg=null;if(saved.waypoint){try{dogleg=this.dogleg(saved,results);}catch(error){dogleg={available:false,reason:'The saved dogleg prefix could not be reproduced. General neighbourhood measures are still shown.'};}}
-  return {version:SEMANTIC_VERSION,key:semanticRouteKey(saved),experimental:true,neighbour_count:NEIGHBOUR_COUNT,vocabulary:e.words.length,route,bridges:results,best_distinctiveness:bestDistinctiveness,best_separation:bestSeparation,same_best_word:!!bestDistinctiveness&&bestDistinctiveness.word===bestSeparation?.word,same_best_position:!!bestDistinctiveness&&bestDistinctiveness.position===bestSeparation?.position,dogleg,elapsed_ms:(typeof performance==='undefined'?Date.now():performance.now())-begin};
+  return {version:SEMANTIC_VERSION,key:semanticRouteKey(saved),experimental:true,neighbour_count:NEIGHBOUR_COUNT,vocabulary:e.words.length,route,bridges:results,journey,best_distinctiveness:bestDistinctiveness,best_separation:bestSeparation,same_best_word:!!bestDistinctiveness&&bestDistinctiveness.word===bestSeparation?.word,same_best_position:!!bestDistinctiveness&&bestDistinctiveness.position===bestSeparation?.position,dogleg,elapsed_ms:(typeof performance==='undefined'?Date.now():performance.now())-begin};
  }
  dogleg(saved,bridges){
   const chosen=bridges.find(b=>b.dogleg);if(!chosen)return {available:false,reason:'This saved route does not identify its dogleg landing.'};

@@ -1,4 +1,4 @@
-import {TourCourse,compareTourScores} from './tour-course.mjs?v=golf-v179';
+import {TourCourse,compareTourScores} from './tour-course.mjs?v=golf-v180';
 export const CATEGORIES=[{id:'competitive',name:'Competitive',icon:'🏆',max:25},{id:'social',name:'Social',icon:'🏌️',max:Infinity}];
 export const categoryFor=attempts=>CATEGORIES[attempts>25?1:0];
 export function competitiveStatus(attempts,social=false){

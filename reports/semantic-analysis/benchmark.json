@@ -1,5 +1,5 @@
 {
-  "version": "bridge-neighbourhood-v1",
+  "version": "bridge-journey-v2",
   "model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
   "vocabulary": 36306,
   "results": [
@@ -51,8 +51,305 @@
           "mean_positive_affinity": 0.19992399922335657
         }
       ],
-      "first_ms": 230.89925000000005,
-      "warm_ms": 50.99712499999998
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "pencil",
+              "value": 0,
+              "stage": 0,
+              "target": "forest"
+            },
+            {
+              "position": 1,
+              "word": "lines",
+              "value": 0.3037338991603239,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.1500069753092248,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": false
+            },
+            {
+              "position": 2,
+              "word": "lake",
+              "value": 0.5,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.376228917753906,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 3,
+              "word": "bass",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "destination": 0.35836287765596353,
+              "baseline": 0.10962399202981032,
+              "threshold": 0.27,
+              "dogleg_reached": false
+            },
+            {
+              "position": 4,
+              "word": "orchestra",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "lines",
+              "lake"
+            ],
+            "return_similarity": 0,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "pencil",
+              "lines",
+              "lake",
+              "bass"
+            ],
+            "return_similarity": 0.12507890021038293,
+            "excursion": 0.14796809445465442,
+            "furthest": 2,
+            "raw": 0.018507686520614235,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 4,
+            "sequence": [
+              "pencil",
+              "lines",
+              "lake",
+              "bass",
+              "orchestra"
+            ],
+            "return_similarity": 0.010888379333891862,
+            "excursion": 0.033777573578163356,
+            "furthest": 2,
+            "raw": 0.0003677830340974857,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "lines",
+              "lake",
+              "bass"
+            ],
+            "return_similarity": 0.20497776057982264,
+            "excursion": 0.07691814703957789,
+            "furthest": 2,
+            "raw": 0.01576650952812219,
+            "objective_gain": 0.6962661008396761,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 4,
+            "sequence": [
+              "lines",
+              "lake",
+              "bass",
+              "orchestra"
+            ],
+            "return_similarity": 0.04787537677475484,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": 0.6962661008396761,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 2,
+            "to": 4,
+            "sequence": [
+              "lake",
+              "bass",
+              "orchestra"
+            ],
+            "return_similarity": 0.10962399202981032,
+            "excursion": 0,
+            "furthest": 3,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "lines",
+            "setup": {
+              "value": 0.15094880778451625,
+              "incoming": 0.22305455166087995,
+              "outgoing": 0.12805961354024475,
+              "bypass": -0.022889194244271494
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 2
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "lake",
+            "setup": {
+              "value": 0.046157469409081386,
+              "incoming": 0.12805961354024475,
+              "outgoing": 0.25113522998890403,
+              "bypass": 0.20497776057982264
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 3
+            },
+            "pivot": {
+              "word": "lake",
+              "position": 2,
+              "setup_word": "lines",
+              "sequence": [
+                "pencil",
+                "lines",
+                "lake",
+                "bass"
+              ],
+              "value": 0.15859764870306456,
+              "separation": 0.35271720009023577,
+              "setup_gain": 0.15094880778451625,
+              "setup_factor": 0.5655758130872391,
+              "endpoint_similarity": 0.20497776057982264,
+              "conceptual_difference": 0.7950222394201774,
+              "backtracking": 0,
+              "objective_gain": 1,
+              "progression_factor": 1,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 3
+            }
+          },
+          {
+            "position": 3,
+            "word": "bass",
+            "setup": {
+              "value": 0.2487388856261532,
+              "incoming": 0.25113522998890403,
+              "outgoing": 0.35836287765596353,
+              "bypass": 0.10962399202981032
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "bass",
+              "position": 3,
+              "setup_word": "lake",
+              "sequence": [
+                "lines",
+                "lake",
+                "bass",
+                "orchestra"
+              ],
+              "value": 0.06391477867470051,
+              "separation": 0.1647856530362544,
+              "setup_gain": 0.046157469409081386,
+              "setup_factor": 0.5220604788278925,
+              "endpoint_similarity": 0.10962399202981032,
+              "conceptual_difference": 0.8903760079701897,
+              "backtracking": 0,
+              "objective_gain": 0.6962661008396761,
+              "progression_factor": 0.8344256113277421,
+              "progression_available": true,
+              "window_start": 1,
+              "window_end": 3
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "lake",
+          "position": 2,
+          "setup_word": "lines",
+          "sequence": [
+            "pencil",
+            "lines",
+            "lake",
+            "bass"
+          ],
+          "value": 0.15859764870306456,
+          "separation": 0.35271720009023577,
+          "setup_gain": 0.15094880778451625,
+          "setup_factor": 0.5655758130872391,
+          "endpoint_similarity": 0.20497776057982264,
+          "conceptual_difference": 0.7950222394201774,
+          "backtracking": 0,
+          "objective_gain": 1,
+          "progression_factor": 1,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 3
+        },
+        "best_setup": {
+          "word": "bass",
+          "position": 3,
+          "value": 0.2487388856261532
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "lines",
+              "lake"
+            ],
+            "return_similarity": 0,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0.018507686520614235
+        }
+      },
+      "first_ms": 209.13220800000005,
+      "warm_ms": 57.66829199999995
     },
     {
       "kind": "specific material-to-instrument connection",
@@ -94,8 +391,206 @@
           "mean_positive_affinity": 0.23992262796603378
         }
       ],
-      "first_ms": 92.86679200000003,
-      "warm_ms": 13.86641700000007
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "pencil",
+              "value": 0,
+              "stage": 0,
+              "target": "forest"
+            },
+            {
+              "position": 1,
+              "word": "bamboo",
+              "value": 0.5,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.32312208709231527,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 2,
+              "word": "flute",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "destination": 0.48005919351817283,
+              "baseline": 0.16487605767451896,
+              "threshold": 0.27,
+              "dogleg_reached": false
+            },
+            {
+              "position": 3,
+              "word": "orchestra",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "bamboo",
+              "flute"
+            ],
+            "return_similarity": 0.18644421504245656,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "pencil",
+              "bamboo",
+              "flute",
+              "orchestra"
+            ],
+            "return_similarity": 0.010888379333891862,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "bamboo",
+              "flute",
+              "orchestra"
+            ],
+            "return_similarity": 0.16487605767451896,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "bamboo",
+            "setup": {
+              "value": 0.16002012838293922,
+              "incoming": 0.22676257478224215,
+              "outgoing": 0.3464643434253958,
+              "bypass": 0.18644421504245656
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 0
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "flute",
+            "setup": {
+              "value": 0.31518313584365387,
+              "incoming": 0.3464643434253958,
+              "outgoing": 0.48005919351817283,
+              "bypass": 0.16487605767451896
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 0
+            },
+            "pivot": {
+              "word": "flute",
+              "position": 2,
+              "setup_word": "bamboo",
+              "sequence": [
+                "pencil",
+                "bamboo",
+                "flute",
+                "orchestra"
+              ],
+              "value": 0.016242686941030003,
+              "separation": 0.03418340212237012,
+              "setup_gain": 0.16002012838293922,
+              "setup_factor": 0.5689729964453316,
+              "endpoint_similarity": 0.16487605767451896,
+              "conceptual_difference": 0.835123942325481,
+              "backtracking": 0,
+              "objective_gain": 1,
+              "progression_factor": 1,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 2
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "flute",
+          "position": 2,
+          "setup_word": "bamboo",
+          "sequence": [
+            "pencil",
+            "bamboo",
+            "flute",
+            "orchestra"
+          ],
+          "value": 0.016242686941030003,
+          "separation": 0.03418340212237012,
+          "setup_gain": 0.16002012838293922,
+          "setup_factor": 0.5689729964453316,
+          "endpoint_similarity": 0.16487605767451896,
+          "conceptual_difference": 0.835123942325481,
+          "backtracking": 0,
+          "objective_gain": 1,
+          "progression_factor": 1,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 2
+        },
+        "best_setup": {
+          "word": "flute",
+          "position": 2,
+          "value": 0.31518313584365387
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "bamboo",
+              "flute"
+            ],
+            "return_similarity": 0.18644421504245656,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0
+        }
+      },
+      "first_ms": 82.64387499999998,
+      "warm_ms": 16.066874999999982
     },
     {
       "kind": "generic grammatical bridge",
@@ -137,8 +632,206 @@
           "mean_positive_affinity": 0.18494219605167012
         }
       ],
-      "first_ms": 84.68774999999994,
-      "warm_ms": 13.278374999999983
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "pencil",
+              "value": 0,
+              "stage": 0,
+              "target": "forest"
+            },
+            {
+              "position": 1,
+              "word": "work",
+              "value": 0.26976578958501457,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.1301049359535682,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": false
+            },
+            {
+              "position": 2,
+              "word": "consists",
+              "value": 0.5,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.2968269887714996,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 3,
+              "word": "orchestra",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "work",
+              "consists"
+            ],
+            "return_similarity": 0.09014326450960652,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "pencil",
+              "work",
+              "consists",
+              "orchestra"
+            ],
+            "return_similarity": 0.010888379333891862,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "work",
+              "consists",
+              "orchestra"
+            ],
+            "return_similarity": 0.20817158578211092,
+            "excursion": 0.003124589584331261,
+            "furthest": 2,
+            "raw": 0.0006504507686885054,
+            "objective_gain": 0.7302342104149855,
+            "crosses_dogleg": true,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "work",
+            "setup": {
+              "value": 0.11490373168817314,
+              "incoming": 0.16659851521217206,
+              "outgoing": 0.20504699619777966,
+              "bypass": 0.09014326450960652
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 0
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "consists",
+            "setup": {
+              "value": 0.03138197589669289,
+              "incoming": 0.20504699619777966,
+              "outgoing": 0.23955356167880382,
+              "bypass": 0.20817158578211092
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "consists",
+              "position": 2,
+              "setup_word": "work",
+              "sequence": [
+                "pencil",
+                "work",
+                "consists",
+                "orchestra"
+              ],
+              "value": 0.02657303940680443,
+              "separation": 0.08605089421851735,
+              "setup_gain": 0.11490373168817314,
+              "setup_factor": 0.5515307862115536,
+              "endpoint_similarity": 0.20817158578211092,
+              "conceptual_difference": 0.7918284142178891,
+              "backtracking": 0,
+              "objective_gain": 0.5,
+              "progression_factor": 0.7071067811865476,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 2
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "consists",
+          "position": 2,
+          "setup_word": "work",
+          "sequence": [
+            "pencil",
+            "work",
+            "consists",
+            "orchestra"
+          ],
+          "value": 0.02657303940680443,
+          "separation": 0.08605089421851735,
+          "setup_gain": 0.11490373168817314,
+          "setup_factor": 0.5515307862115536,
+          "endpoint_similarity": 0.20817158578211092,
+          "conceptual_difference": 0.7918284142178891,
+          "backtracking": 0,
+          "objective_gain": 0.5,
+          "progression_factor": 0.7071067811865476,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 2
+        },
+        "best_setup": {
+          "word": "work",
+          "position": 1,
+          "value": 0.11490373168817314
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "work",
+              "consists"
+            ],
+            "return_similarity": 0.09014326450960652,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0.0006504507686885054
+        }
+      },
+      "first_ms": 75.15741600000001,
+      "warm_ms": 16.00574999999992
     },
     {
       "kind": "generic category/descriptor",
@@ -180,8 +873,206 @@
           "mean_positive_affinity": 0.18722937715296098
         }
       ],
-      "first_ms": 87.55687499999999,
-      "warm_ms": 12.331083000000035
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "pencil",
+              "value": 0,
+              "stage": 0,
+              "target": "forest"
+            },
+            {
+              "position": 1,
+              "word": "look",
+              "value": 0.33836583400784964,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.1702979523142858,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": false
+            },
+            {
+              "position": 2,
+              "word": "national",
+              "value": 0.5,
+              "stage": 0,
+              "target": "forest",
+              "destination": 0.3421212996236136,
+              "baseline": -0.02795182458612544,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 3,
+              "word": "orchestra",
+              "value": 1,
+              "stage": 1,
+              "target": "orchestra",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "look",
+              "national"
+            ],
+            "return_similarity": 0,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "pencil",
+              "look",
+              "national",
+              "orchestra"
+            ],
+            "return_similarity": 0.010888379333891862,
+            "excursion": 0.058647620111969445,
+            "furthest": 2,
+            "raw": 0.0006385775348091089,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "look",
+              "national",
+              "orchestra"
+            ],
+            "return_similarity": 0.04676143236520147,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": 0.6616341659921503,
+            "crosses_dogleg": true,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "look",
+            "setup": {
+              "value": 0.25473107964251085,
+              "incoming": 0.205990613787435,
+              "outgoing": 0.20697183886443327,
+              "bypass": -0.04775924077807758
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "national",
+            "setup": {
+              "value": 0.18764450208800554,
+              "incoming": 0.20697183886443327,
+              "outgoing": 0.234405934453207,
+              "bypass": 0.04676143236520147
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "national",
+              "position": 2,
+              "setup_word": "look",
+              "sequence": [
+                "pencil",
+                "look",
+                "national",
+                "orchestra"
+              ],
+              "value": 0.020323248454822713,
+              "separation": 0.05012621817185453,
+              "setup_gain": 0.25473107964251085,
+              "setup_factor": 0.6015082370140569,
+              "endpoint_similarity": 0.04676143236520147,
+              "conceptual_difference": 0.9532385676347985,
+              "backtracking": 0,
+              "objective_gain": 0.5,
+              "progression_factor": 0.7071067811865476,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 2
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "national",
+          "position": 2,
+          "setup_word": "look",
+          "sequence": [
+            "pencil",
+            "look",
+            "national",
+            "orchestra"
+          ],
+          "value": 0.020323248454822713,
+          "separation": 0.05012621817185453,
+          "setup_gain": 0.25473107964251085,
+          "setup_factor": 0.6015082370140569,
+          "endpoint_similarity": 0.04676143236520147,
+          "conceptual_difference": 0.9532385676347985,
+          "backtracking": 0,
+          "objective_gain": 0.5,
+          "progression_factor": 0.7071067811865476,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 2
+        },
+        "best_setup": {
+          "word": "look",
+          "position": 1,
+          "value": 0.25473107964251085
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "pencil",
+              "look",
+              "national"
+            ],
+            "return_similarity": 0,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0.0006385775348091089
+        }
+      },
+      "first_ms": 69.94200000000001,
+      "warm_ms": 12.231082999999899
     },
     {
       "kind": "publisher / science fiction association",
@@ -223,8 +1114,206 @@
           "mean_positive_affinity": 0.13250633871406925
         }
       ],
-      "first_ms": 137.60179199999993,
-      "warm_ms": 12.88916600000016
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "penguin",
+              "value": 0,
+              "stage": 0,
+              "target": "library"
+            },
+            {
+              "position": 1,
+              "word": "book",
+              "value": 0.5,
+              "stage": 0,
+              "target": "library",
+              "destination": 0.4165499874727061,
+              "baseline": 0.19855009350203545,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 2,
+              "word": "alien",
+              "value": 0.7214960344696834,
+              "stage": 1,
+              "target": "galaxy",
+              "destination": 0.21079784987614403,
+              "baseline": 0.1637139907305709,
+              "threshold": 0.27,
+              "dogleg_reached": false
+            },
+            {
+              "position": 3,
+              "word": "galaxy",
+              "value": 1,
+              "stage": 1,
+              "target": "galaxy",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "penguin",
+              "book",
+              "alien"
+            ],
+            "return_similarity": 0.06518454041543009,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.7214960344696834,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "penguin",
+              "book",
+              "alien",
+              "galaxy"
+            ],
+            "return_similarity": 0.16315656941333145,
+            "excursion": 0.09797202899790136,
+            "furthest": 2,
+            "raw": 0.015984780149761017,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "book",
+              "alien",
+              "galaxy"
+            ],
+            "return_similarity": 0.1637139907305709,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "book",
+            "setup": {
+              "value": 0.10930539183755172,
+              "incoming": 0.38171305524701893,
+              "outgoing": 0.17448993225298182,
+              "bypass": 0.06518454041543009
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "alien",
+            "setup": {
+              "value": 0.047083859145573115,
+              "incoming": 0.17448993225298182,
+              "outgoing": 0.21079784987614403,
+              "bypass": 0.1637139907305709
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "alien",
+              "position": 2,
+              "setup_word": "book",
+              "sequence": [
+                "penguin",
+                "book",
+                "alien",
+                "galaxy"
+              ],
+              "value": 0.14359715306965226,
+              "separation": 0.3680358516628136,
+              "setup_gain": 0.10930539183755172,
+              "setup_factor": 0.5492674932628284,
+              "endpoint_similarity": 0.1637139907305709,
+              "conceptual_difference": 0.8362860092694291,
+              "backtracking": 0,
+              "objective_gain": 0.7214960344696834,
+              "progression_factor": 0.8494092267391986,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 2
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "alien",
+          "position": 2,
+          "setup_word": "book",
+          "sequence": [
+            "penguin",
+            "book",
+            "alien",
+            "galaxy"
+          ],
+          "value": 0.14359715306965226,
+          "separation": 0.3680358516628136,
+          "setup_gain": 0.10930539183755172,
+          "setup_factor": 0.5492674932628284,
+          "endpoint_similarity": 0.1637139907305709,
+          "conceptual_difference": 0.8362860092694291,
+          "backtracking": 0,
+          "objective_gain": 0.7214960344696834,
+          "progression_factor": 0.8494092267391986,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 2
+        },
+        "best_setup": {
+          "word": "book",
+          "position": 1,
+          "value": 0.10930539183755172
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "penguin",
+              "book",
+              "alien"
+            ],
+            "return_similarity": 0.06518454041543009,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.7214960344696834,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0.015984780149761017
+        }
+      },
+      "first_ms": 118.86466700000005,
+      "warm_ms": 10.211416999999983
     },
     {
       "kind": "reading device / Galaxy brand pivot",
@@ -266,8 +1355,1149 @@
           "mean_positive_affinity": 0.09114082692941054
         }
       ],
-      "first_ms": 90.40329199999996,
-      "warm_ms": 11.079625000000078
+      "journey": {
+        "progression": {
+          "available": true,
+          "units": "fraction of objective journey (equal weight per leg)",
+          "points": [
+            {
+              "position": 0,
+              "word": "penguin",
+              "value": 0,
+              "stage": 0,
+              "target": "library"
+            },
+            {
+              "position": 1,
+              "word": "books",
+              "value": 0.5,
+              "stage": 0,
+              "target": "library",
+              "destination": 0.5052121347022194,
+              "baseline": 0.19855009350203545,
+              "threshold": 0.265,
+              "dogleg_reached": true
+            },
+            {
+              "position": 2,
+              "word": "tablet",
+              "value": 0.7175437849342732,
+              "stage": 1,
+              "target": "galaxy",
+              "destination": 0.18692497489246307,
+              "baseline": 0.12294176464092743,
+              "threshold": 0.27,
+              "dogleg_reached": false
+            },
+            {
+              "position": 3,
+              "word": "galaxy",
+              "value": 1,
+              "stage": 1,
+              "target": "galaxy",
+              "fixed": true
+            }
+          ]
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "penguin",
+              "books",
+              "tablet"
+            ],
+            "return_similarity": 0.0022679458979837364,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.7175437849342732,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "penguin",
+              "books",
+              "tablet",
+              "galaxy"
+            ],
+            "return_similarity": 0.16315656941333145,
+            "excursion": 0.16088862351534772,
+            "furthest": 2,
+            "raw": 0.02625003587039718,
+            "objective_gain": 1,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "books",
+              "tablet",
+              "galaxy"
+            ],
+            "return_similarity": 0.12294176464092743,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": 0.5,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "books",
+            "setup": {
+              "value": 0.16192100621083227,
+              "incoming": 0.41413405683852034,
+              "outgoing": 0.164188952108816,
+              "bypass": 0.0022679458979837364
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "tablet",
+            "setup": {
+              "value": 0.06398321025153564,
+              "incoming": 0.164188952108816,
+              "outgoing": 0.18692497489246307,
+              "bypass": 0.12294176464092743
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "tablet",
+              "position": 2,
+              "setup_word": "books",
+              "sequence": [
+                "penguin",
+                "books",
+                "tablet",
+                "galaxy"
+              ],
+              "value": 0.10963330886121313,
+              "separation": 0.25903612041179036,
+              "setup_gain": 0.16192100621083227,
+              "setup_factor": 0.5696781473720304,
+              "endpoint_similarity": 0.12294176464092743,
+              "conceptual_difference": 0.8770582353590726,
+              "backtracking": 0,
+              "objective_gain": 0.7175437849342732,
+              "progression_factor": 0.8470795623400869,
+              "progression_available": true,
+              "window_start": 0,
+              "window_end": 2
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "tablet",
+          "position": 2,
+          "setup_word": "books",
+          "sequence": [
+            "penguin",
+            "books",
+            "tablet",
+            "galaxy"
+          ],
+          "value": 0.10963330886121313,
+          "separation": 0.25903612041179036,
+          "setup_gain": 0.16192100621083227,
+          "setup_factor": 0.5696781473720304,
+          "endpoint_similarity": 0.12294176464092743,
+          "conceptual_difference": 0.8770582353590726,
+          "backtracking": 0,
+          "objective_gain": 0.7175437849342732,
+          "progression_factor": 0.8470795623400869,
+          "progression_available": true,
+          "window_start": 0,
+          "window_end": 2
+        },
+        "best_setup": {
+          "word": "books",
+          "position": 1,
+          "value": 0.16192100621083227
+        },
+        "backtracking": {
+          "value": 0,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "penguin",
+              "books",
+              "tablet"
+            ],
+            "return_similarity": 0.0022679458979837364,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": 0.7175437849342732,
+            "crosses_dogleg": true,
+            "value": 0
+          },
+          "raw_maximum": 0.02625003587039718
+        }
+      },
+      "first_ms": 73.61424999999986,
+      "warm_ms": 10.346542
+    }
+  ],
+  "semantic_only": [
+    {
+      "route": [
+        "robot",
+        "activity",
+        "disorder",
+        "chaotic",
+        "spiral",
+        "stairs"
+      ],
+      "kind": "semantic-only diagnostic, not a claim of legal gameplay",
+      "journey": {
+        "progression": {
+          "available": false,
+          "reason": "No saved game objectives; semantic-only diagnostics.",
+          "points": []
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "robot",
+              "activity",
+              "disorder"
+            ],
+            "return_similarity": 0.03977834871420782,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "robot",
+              "activity",
+              "disorder",
+              "chaotic"
+            ],
+            "return_similarity": 0.06257042191055007,
+            "excursion": 0.022792073196342244,
+            "furthest": 2,
+            "raw": 0.0014261096361112737,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.0014261096361112737
+          },
+          {
+            "from": 0,
+            "to": 4,
+            "sequence": [
+              "robot",
+              "activity",
+              "disorder",
+              "chaotic",
+              "spiral"
+            ],
+            "return_similarity": 0.11828203725053754,
+            "excursion": 0.07850368853632972,
+            "furthest": 2,
+            "raw": 0.009285576211758748,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.009285576211758748
+          },
+          {
+            "from": 0,
+            "to": 5,
+            "sequence": [
+              "robot",
+              "activity",
+              "disorder",
+              "chaotic",
+              "spiral",
+              "stairs"
+            ],
+            "return_similarity": 0.13286480023816694,
+            "excursion": 0.12764920703557436,
+            "furthest": 1,
+            "raw": 0.016960086393342,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.016960086393342
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "activity",
+              "disorder",
+              "chaotic"
+            ],
+            "return_similarity": 0.16852896025875452,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 4,
+            "sequence": [
+              "activity",
+              "disorder",
+              "chaotic",
+              "spiral"
+            ],
+            "return_similarity": 0.1958662751439988,
+            "excursion": 0.027337314885244268,
+            "furthest": 3,
+            "raw": 0.005354458039011387,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.005354458039011387
+          },
+          {
+            "from": 1,
+            "to": 5,
+            "sequence": [
+              "activity",
+              "disorder",
+              "chaotic",
+              "spiral",
+              "stairs"
+            ],
+            "return_similarity": 0.005215593202592572,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 2,
+            "to": 4,
+            "sequence": [
+              "disorder",
+              "chaotic",
+              "spiral"
+            ],
+            "return_similarity": 0.19835480508936598,
+            "excursion": 0,
+            "furthest": 3,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 2,
+            "to": 5,
+            "sequence": [
+              "disorder",
+              "chaotic",
+              "spiral",
+              "stairs"
+            ],
+            "return_similarity": 0.023248895689903293,
+            "excursion": 0,
+            "furthest": 3,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 3,
+            "to": 5,
+            "sequence": [
+              "chaotic",
+              "spiral",
+              "stairs"
+            ],
+            "return_similarity": 0.03303432710526977,
+            "excursion": 0,
+            "furthest": 4,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "activity",
+            "setup": {
+              "value": 0.2198703619569642,
+              "incoming": 0.12011025388437702,
+              "outgoing": 0.259648710671172,
+              "bypass": 0.03977834871420782
+            },
+            "backtracking": {
+              "value": 0.016960086393342,
+              "loop_count": 3
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "disorder",
+            "setup": {
+              "value": 0.09039810200670217,
+              "incoming": 0.259648710671172,
+              "outgoing": 0.2589270622654567,
+              "bypass": 0.16852896025875452
+            },
+            "backtracking": {
+              "value": 0.016960086393342,
+              "loop_count": 4
+            },
+            "pivot": {
+              "word": "disorder",
+              "position": 2,
+              "setup_word": "activity",
+              "sequence": [
+                "robot",
+                "activity",
+                "disorder",
+                "chaotic"
+              ],
+              "value": 0.13342852117329856,
+              "separation": 0.27232074424074304,
+              "setup_gain": 0.2198703619569642,
+              "setup_factor": 0.5901203803346118,
+              "endpoint_similarity": 0.16852896025875452,
+              "conceptual_difference": 0.8314710397412455,
+              "backtracking": 0.0014261096361112737,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 0,
+              "window_end": 3
+            }
+          },
+          {
+            "position": 3,
+            "word": "chaotic",
+            "setup": {
+              "value": 0.031172932295703504,
+              "incoming": 0.2589270622654567,
+              "outgoing": 0.22952773738506949,
+              "bypass": 0.19835480508936598
+            },
+            "backtracking": {
+              "value": 0.016960086393342,
+              "loop_count": 3
+            },
+            "pivot": {
+              "word": "chaotic",
+              "position": 3,
+              "setup_word": "disorder",
+              "sequence": [
+                "activity",
+                "disorder",
+                "chaotic",
+                "spiral"
+              ],
+              "value": 0.07944189315188722,
+              "separation": 0.1840090508460491,
+              "setup_gain": 0.09039810200670217,
+              "setup_factor": 0.5414518797493957,
+              "endpoint_similarity": 0.19835480508936598,
+              "conceptual_difference": 0.801645194910634,
+              "backtracking": 0.005354458039011387,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 1,
+              "window_end": 4
+            }
+          },
+          {
+            "position": 4,
+            "word": "spiral",
+            "setup": {
+              "value": 0.29700470083753316,
+              "incoming": 0.22952773738506949,
+              "outgoing": 0.33003902794280293,
+              "bypass": 0.03303432710526977
+            },
+            "backtracking": {
+              "value": 0.016960086393342,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "spiral",
+              "position": 4,
+              "setup_word": "chaotic",
+              "sequence": [
+                "disorder",
+                "chaotic",
+                "spiral",
+                "stairs"
+              ],
+              "value": 0.26905569241027205,
+              "separation": 0.5401653180883907,
+              "setup_gain": 0.031172932295703504,
+              "setup_factor": 0.5151152785916825,
+              "endpoint_similarity": 0.03303432710526977,
+              "conceptual_difference": 0.9669656728947302,
+              "backtracking": 0,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 2,
+              "window_end": 4
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "spiral",
+          "position": 4,
+          "setup_word": "chaotic",
+          "sequence": [
+            "disorder",
+            "chaotic",
+            "spiral",
+            "stairs"
+          ],
+          "value": 0.26905569241027205,
+          "separation": 0.5401653180883907,
+          "setup_gain": 0.031172932295703504,
+          "setup_factor": 0.5151152785916825,
+          "endpoint_similarity": 0.03303432710526977,
+          "conceptual_difference": 0.9669656728947302,
+          "backtracking": 0,
+          "objective_gain": null,
+          "progression_factor": 1,
+          "progression_available": false,
+          "window_start": 2,
+          "window_end": 4
+        },
+        "best_setup": {
+          "word": "spiral",
+          "position": 4,
+          "value": 0.29700470083753316
+        },
+        "backtracking": {
+          "value": 0.016960086393342,
+          "strongest_loop": {
+            "from": 0,
+            "to": 5,
+            "sequence": [
+              "robot",
+              "activity",
+              "disorder",
+              "chaotic",
+              "spiral",
+              "stairs"
+            ],
+            "return_similarity": 0.13286480023816694,
+            "excursion": 0.12764920703557436,
+            "furthest": 1,
+            "raw": 0.016960086393342,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.016960086393342
+          },
+          "raw_maximum": 0.016960086393342
+        }
+      },
+      "individual": [
+        {
+          "word": "activity",
+          "distinctiveness": 0.88,
+          "separation": 0.04500848899943351
+        },
+        {
+          "word": "disorder",
+          "distinctiveness": 0.99,
+          "separation": 0.27232074424074304
+        },
+        {
+          "word": "chaotic",
+          "distinctiveness": 0.96,
+          "separation": 0.1840090508460491
+        },
+        {
+          "word": "spiral",
+          "distinctiveness": 0.99,
+          "separation": 0.5401653180883907
+        }
+      ]
+    },
+    {
+      "route": [
+        "ocean",
+        "beach",
+        "ocean",
+        "beach",
+        "sand"
+      ],
+      "kind": "semantic-only diagnostic, not a claim of legal gameplay",
+      "journey": {
+        "progression": {
+          "available": false,
+          "reason": "No saved game objectives; semantic-only diagnostics.",
+          "points": []
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "ocean",
+              "beach",
+              "ocean"
+            ],
+            "return_similarity": 0.9999596276684777,
+            "excursion": 0.5606702388795846,
+            "furthest": 1,
+            "raw": 0.5606476033148258,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.5606476033148258
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "ocean",
+              "beach",
+              "ocean",
+              "beach"
+            ],
+            "return_similarity": 0.4392893887888931,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 4,
+            "sequence": [
+              "ocean",
+              "beach",
+              "ocean",
+              "beach",
+              "sand"
+            ],
+            "return_similarity": 0.39500657554185636,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "beach",
+              "ocean",
+              "beach"
+            ],
+            "return_similarity": 0.9999467803750441,
+            "excursion": 0.560657391586151,
+            "furthest": 2,
+            "raw": 0.5606275536100421,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.5606275536100421
+          },
+          {
+            "from": 1,
+            "to": 4,
+            "sequence": [
+              "beach",
+              "ocean",
+              "beach",
+              "sand"
+            ],
+            "return_similarity": 0.46813453661752646,
+            "excursion": 0.0731279610756701,
+            "furthest": 2,
+            "raw": 0.034233724171943335,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.034233724171943335
+          },
+          {
+            "from": 2,
+            "to": 4,
+            "sequence": [
+              "ocean",
+              "beach",
+              "sand"
+            ],
+            "return_similarity": 0.39500657554185636,
+            "excursion": 0,
+            "furthest": 3,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "beach",
+            "setup": {
+              "value": -0.5606702388795846,
+              "incoming": 0.4392893887888931,
+              "outgoing": 0.4392893887888931,
+              "bypass": 0.9999596276684777
+            },
+            "backtracking": {
+              "value": 0.5606476033148258,
+              "loop_count": 1
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "ocean",
+            "setup": {
+              "value": -0.560657391586151,
+              "incoming": 0.4392893887888931,
+              "outgoing": 0.4392893887888931,
+              "bypass": 0.9999467803750441
+            },
+            "backtracking": {
+              "value": 0.5606275536100421,
+              "loop_count": 2
+            },
+            "pivot": {
+              "word": "ocean",
+              "position": 2,
+              "setup_word": "beach",
+              "sequence": [
+                "ocean",
+                "beach",
+                "ocean",
+                "beach"
+              ],
+              "value": 0,
+              "separation": 0,
+              "setup_gain": -0.5606702388795846,
+              "setup_factor": 0.5,
+              "endpoint_similarity": 0.9999467803750441,
+              "conceptual_difference": 0.00005321962495585808,
+              "backtracking": 0.5606476033148258,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 0,
+              "window_end": 3
+            }
+          },
+          {
+            "position": 3,
+            "word": "beach",
+            "setup": {
+              "value": 0.0731279610756701,
+              "incoming": 0.4392893887888931,
+              "outgoing": 0.46813453661752646,
+              "bypass": 0.39500657554185636
+            },
+            "backtracking": {
+              "value": 0.034233724171943335,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "beach",
+              "position": 3,
+              "setup_word": "ocean",
+              "sequence": [
+                "beach",
+                "ocean",
+                "beach",
+                "sand"
+              ],
+              "value": 0.018803852646216666,
+              "separation": 0.14147944979629679,
+              "setup_gain": -0.560657391586151,
+              "setup_factor": 0.5,
+              "endpoint_similarity": 0.39500657554185636,
+              "conceptual_difference": 0.6049934244581436,
+              "backtracking": 0.5606275536100421,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 1,
+              "window_end": 3
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "beach",
+          "position": 3,
+          "setup_word": "ocean",
+          "sequence": [
+            "beach",
+            "ocean",
+            "beach",
+            "sand"
+          ],
+          "value": 0.018803852646216666,
+          "separation": 0.14147944979629679,
+          "setup_gain": -0.560657391586151,
+          "setup_factor": 0.5,
+          "endpoint_similarity": 0.39500657554185636,
+          "conceptual_difference": 0.6049934244581436,
+          "backtracking": 0.5606275536100421,
+          "objective_gain": null,
+          "progression_factor": 1,
+          "progression_available": false,
+          "window_start": 1,
+          "window_end": 3
+        },
+        "best_setup": {
+          "word": "beach",
+          "position": 3,
+          "value": 0.0731279610756701
+        },
+        "backtracking": {
+          "value": 0.5606476033148258,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "ocean",
+              "beach",
+              "ocean"
+            ],
+            "return_similarity": 0.9999596276684777,
+            "excursion": 0.5606702388795846,
+            "furthest": 1,
+            "raw": 0.5606476033148258,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.5606476033148258
+          },
+          "raw_maximum": 0.5606476033148258
+        }
+      },
+      "individual": [
+        {
+          "word": "beach",
+          "distinctiveness": 0.87,
+          "separation": 0
+        },
+        {
+          "word": "ocean",
+          "distinctiveness": 0.94,
+          "separation": 0
+        },
+        {
+          "word": "beach",
+          "distinctiveness": 0.99,
+          "separation": 0.14147944979629679
+        }
+      ]
+    },
+    {
+      "route": [
+        "big",
+        "large",
+        "huge",
+        "enormous",
+        "gigantic"
+      ],
+      "kind": "semantic-only diagnostic, not a claim of legal gameplay",
+      "journey": {
+        "progression": {
+          "available": false,
+          "reason": "No saved game objectives; semantic-only diagnostics.",
+          "points": []
+        },
+        "loops": [
+          {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "big",
+              "large",
+              "huge"
+            ],
+            "return_similarity": 0.6951358731439541,
+            "excursion": 0.10797692783556556,
+            "furthest": 1,
+            "raw": 0.07505863601037759,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.07505863601037759
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "sequence": [
+              "big",
+              "large",
+              "huge",
+              "enormous"
+            ],
+            "return_similarity": 0.5020292797507864,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 0,
+            "to": 4,
+            "sequence": [
+              "big",
+              "large",
+              "huge",
+              "enormous",
+              "gigantic"
+            ],
+            "return_similarity": 0.45606881215826434,
+            "excursion": 0,
+            "furthest": 1,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "sequence": [
+              "large",
+              "huge",
+              "enormous"
+            ],
+            "return_similarity": 0.5737557473403285,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 1,
+            "to": 4,
+            "sequence": [
+              "large",
+              "huge",
+              "enormous",
+              "gigantic"
+            ],
+            "return_similarity": 0.4877969136232423,
+            "excursion": 0,
+            "furthest": 2,
+            "raw": 0,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0
+          },
+          {
+            "from": 2,
+            "to": 4,
+            "sequence": [
+              "huge",
+              "enormous",
+              "gigantic"
+            ],
+            "return_similarity": 0.6801989978666825,
+            "excursion": 0.0706633659842737,
+            "furthest": 3,
+            "raw": 0.048065150728389586,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.048065150728389586
+          }
+        ],
+        "words": [
+          {
+            "position": 1,
+            "word": "large",
+            "setup": {
+              "value": 0.040142212209957506,
+              "incoming": 0.5871589453083885,
+              "outgoing": 0.7352780853539116,
+              "bypass": 0.6951358731439541
+            },
+            "backtracking": {
+              "value": 0.07505863601037759,
+              "loop_count": 1
+            },
+            "pivot": null
+          },
+          {
+            "position": 2,
+            "word": "huge",
+            "setup": {
+              "value": 0.27057042470050874,
+              "incoming": 0.7352780853539116,
+              "outgoing": 0.8443261720408373,
+              "bypass": 0.5737557473403285
+            },
+            "backtracking": {
+              "value": 0,
+              "loop_count": 0
+            },
+            "pivot": {
+              "word": "huge",
+              "position": 2,
+              "setup_word": "large",
+              "sequence": [
+                "big",
+                "large",
+                "huge",
+                "enormous"
+              ],
+              "value": 0.02894728292649043,
+              "separation": 0.14139031787357878,
+              "setup_gain": 0.040142212209957506,
+              "setup_factor": 0.5192965018334698,
+              "endpoint_similarity": 0.5737557473403285,
+              "conceptual_difference": 0.4262442526596715,
+              "backtracking": 0.07505863601037759,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 0,
+              "window_end": 3
+            }
+          },
+          {
+            "position": 3,
+            "word": "enormous",
+            "setup": {
+              "value": -0.0706633659842737,
+              "incoming": 0.8443261720408373,
+              "outgoing": 0.6095356318824088,
+              "bypass": 0.6801989978666825
+            },
+            "backtracking": {
+              "value": 0.048065150728389586,
+              "loop_count": 1
+            },
+            "pivot": {
+              "word": "enormous",
+              "position": 3,
+              "setup_word": "huge",
+              "sequence": [
+                "large",
+                "huge",
+                "enormous",
+                "gigantic"
+              ],
+              "value": 0.011206185824667808,
+              "separation": 0.06069559581134608,
+              "setup_gain": 0.27057042470050874,
+              "setup_factor": 0.6064759652202223,
+              "endpoint_similarity": 0.6801989978666825,
+              "conceptual_difference": 0.3198010021333175,
+              "backtracking": 0.048065150728389586,
+              "objective_gain": null,
+              "progression_factor": 1,
+              "progression_available": false,
+              "window_start": 1,
+              "window_end": 3
+            }
+          }
+        ],
+        "best_pivot": {
+          "word": "huge",
+          "position": 2,
+          "setup_word": "large",
+          "sequence": [
+            "big",
+            "large",
+            "huge",
+            "enormous"
+          ],
+          "value": 0.02894728292649043,
+          "separation": 0.14139031787357878,
+          "setup_gain": 0.040142212209957506,
+          "setup_factor": 0.5192965018334698,
+          "endpoint_similarity": 0.5737557473403285,
+          "conceptual_difference": 0.4262442526596715,
+          "backtracking": 0.07505863601037759,
+          "objective_gain": null,
+          "progression_factor": 1,
+          "progression_available": false,
+          "window_start": 0,
+          "window_end": 3
+        },
+        "best_setup": {
+          "word": "huge",
+          "position": 2,
+          "value": 0.27057042470050874
+        },
+        "backtracking": {
+          "value": 0.07505863601037759,
+          "strongest_loop": {
+            "from": 0,
+            "to": 2,
+            "sequence": [
+              "big",
+              "large",
+              "huge"
+            ],
+            "return_similarity": 0.6951358731439541,
+            "excursion": 0.10797692783556556,
+            "furthest": 1,
+            "raw": 0.07505863601037759,
+            "objective_gain": null,
+            "crosses_dogleg": false,
+            "value": 0.07505863601037759
+          },
+          "raw_maximum": 0.07505863601037759
+        }
+      },
+      "individual": [
+        {
+          "word": "large",
+          "distinctiveness": 0.98,
+          "separation": 0.13089581760121505
+        },
+        {
+          "word": "huge",
+          "distinctiveness": 1,
+          "separation": 0.14139031787357878
+        },
+        {
+          "word": "enormous",
+          "distinctiveness": 0.98,
+          "separation": 0.06069559581134608
+        }
+      ]
     }
   ]
 }
