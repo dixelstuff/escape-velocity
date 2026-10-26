@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {mountSemanticPanel} from '../static/semantic-panel.mjs';
+import {semanticRouteKey,SEMANTIC_VERSION} from '../static/semantic-analysis.mjs';
+const nodes=new Map(),listeners=new Map(),node={hidden:true,innerHTML:'',querySelector(s){if(!nodes.has(s))nodes.set(s,{hidden:false,open:false,textContent:'',innerHTML:''});return nodes.get(s);},addEventListener(name,fn){listeners.set(name,fn);}};
+const deferred=[],tick=()=>new Promise(resolve=>setImmediate(resolve));
+const panel=mountSemanticPanel(node,{request:state=>new Promise((resolve,reject)=>deferred.push({state,resolve,reject})),modelHash:()=> 'same-model'});
+const state=word=>({won:true,start:'tee',target:'flag',history:[{word,success:true}],route:['tee',word,'flag']});
+const result=s=>({version:SEMANTIC_VERSION,key:semanticRouteKey(s),route:s.route,bridges:[],best_distinctiveness:{word:s.history[0].word,value:.5},best_separation:{word:s.history[0].word,value:.2},dogleg:null});
+const a=state('alpha'),b=state('beta');panel.show(a);await tick();panel.show(b);await tick();assert.equal(deferred.length,2);
+deferred[0].resolve(result(a));await tick();assert.ok(!nodes.get('.semantic-summary').innerHTML.includes('ALPHA'),'late response from prior hole is ignored');
+deferred[1].resolve(result(b));await tick();assert.match(nodes.get('.semantic-summary').innerHTML,/BETA/);assert.equal(node.hidden,false);
+panel.show(null,{visible:false});assert.equal(node.hidden,true);panel.show(b);await tick();assert.equal(deferred.length,2,'repeat presentation uses completed-report cache');
+const c=state('gamma');panel.show(c);await tick();panel.show(null,{visible:false});deferred[2].resolve(result(c));await tick();assert.equal(node.hidden,true,'analysis never reopens a card after navigation');
+const d=state('delta');panel.show(d);await tick();deferred[3].reject(Error('offline'));await tick();assert.equal(nodes.get('.semantic-retry').hidden,false);assert.match(nodes.get('.semantic-status').textContent,/keep playing/);
+const e=state('epsilon');panel.show(e);await tick();deferred[4].resolve(result(d));await tick();assert.equal(nodes.get('.semantic-retry').hidden,false,'route-key mismatch is not presented');
+console.log('Semantic panel passed: stale completion suppression, hidden-card safety, report caching, retryable offline failures and route/model identity checks.');

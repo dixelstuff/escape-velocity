@@ -1,0 +1,273 @@
+{
+  "version": "bridge-neighbourhood-v1",
+  "model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "vocabulary": 36306,
+  "results": [
+    {
+      "kind": "conceptual pivot: fishing line / bass fish and instrument",
+      "route": [
+        "pencil",
+        "lines",
+        "lake",
+        "bass",
+        "orchestra"
+      ],
+      "strokes": 4,
+      "best_distinctiveness": {
+        "word": "bass",
+        "position": 3,
+        "value": 0.99
+      },
+      "best_separation": {
+        "word": "lake",
+        "position": 2,
+        "value": 0.35271720009023577
+      },
+      "dogleg": {
+        "word": "lake",
+        "value": 0.8321167883211679,
+        "alternatives": 137
+      },
+      "individual": [
+        {
+          "word": "lines",
+          "distinctiveness": 0.92,
+          "separation": 0.21404659445005533,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.10491378212987869
+        },
+        {
+          "word": "lake",
+          "distinctiveness": 0.78,
+          "separation": 0.35271720009023577,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.12959539183130903
+        },
+        {
+          "word": "bass",
+          "distinctiveness": 0.99,
+          "separation": 0.1647856530362544,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.19992399922335657
+        }
+      ],
+      "first_ms": 230.89925000000005,
+      "warm_ms": 50.99712499999998
+    },
+    {
+      "kind": "specific material-to-instrument connection",
+      "route": [
+        "pencil",
+        "bamboo",
+        "flute",
+        "orchestra"
+      ],
+      "strokes": 3,
+      "best_distinctiveness": {
+        "word": "flute",
+        "position": 2,
+        "value": 1
+      },
+      "best_separation": {
+        "word": "bamboo",
+        "position": 1,
+        "value": 0.251079359649155
+      },
+      "dogleg": {
+        "word": "bamboo",
+        "value": 1,
+        "alternatives": 2
+      },
+      "individual": [
+        {
+          "word": "bamboo",
+          "distinctiveness": 0.99,
+          "separation": 0.251079359649155,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.14699072643089695
+        },
+        {
+          "word": "flute",
+          "distinctiveness": 1,
+          "separation": 0.03418340212237012,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.23992262796603378
+        }
+      ],
+      "first_ms": 92.86679200000003,
+      "warm_ms": 13.86641700000007
+    },
+    {
+      "kind": "generic grammatical bridge",
+      "route": [
+        "pencil",
+        "work",
+        "consists",
+        "orchestra"
+      ],
+      "strokes": 3,
+      "best_distinctiveness": {
+        "word": "work",
+        "position": 1,
+        "value": 0.97
+      },
+      "best_separation": {
+        "word": "work",
+        "position": 1,
+        "value": 0.2214733741954057
+      },
+      "dogleg": {
+        "word": "consists",
+        "value": 0.9863945578231292,
+        "alternatives": 147
+      },
+      "individual": [
+        {
+          "word": "work",
+          "distinctiveness": 0.97,
+          "separation": 0.2214733741954057,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.11069342714340305
+        },
+        {
+          "word": "consists",
+          "distinctiveness": 0.89,
+          "separation": 0.08605089421851735,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.18494219605167012
+        }
+      ],
+      "first_ms": 84.68774999999994,
+      "warm_ms": 13.278374999999983
+    },
+    {
+      "kind": "generic category/descriptor",
+      "route": [
+        "pencil",
+        "look",
+        "national",
+        "orchestra"
+      ],
+      "strokes": 3,
+      "best_distinctiveness": {
+        "word": "look",
+        "position": 1,
+        "value": 0.98
+      },
+      "best_separation": {
+        "word": "look",
+        "position": 1,
+        "value": 0.10310121484213595
+      },
+      "dogleg": {
+        "word": "national",
+        "value": 1,
+        "alternatives": 154
+      },
+      "individual": [
+        {
+          "word": "look",
+          "distinctiveness": 0.98,
+          "separation": 0.10310121484213595,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.15940382702425626
+        },
+        {
+          "word": "national",
+          "distinctiveness": 0.94,
+          "separation": 0.05012621817185453,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.18722937715296098
+        }
+      ],
+      "first_ms": 87.55687499999999,
+      "warm_ms": 12.331083000000035
+    },
+    {
+      "kind": "publisher / science fiction association",
+      "route": [
+        "penguin",
+        "book",
+        "alien",
+        "galaxy"
+      ],
+      "strokes": 3,
+      "best_distinctiveness": {
+        "word": "book",
+        "position": 1,
+        "value": 0.92
+      },
+      "best_separation": {
+        "word": "alien",
+        "position": 2,
+        "value": 0.3680358516628136
+      },
+      "dogleg": {
+        "word": "book",
+        "value": 1,
+        "alternatives": 22
+      },
+      "individual": [
+        {
+          "word": "book",
+          "distinctiveness": 0.92,
+          "separation": 0.26699806942916077,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.14459479842354084
+        },
+        {
+          "word": "alien",
+          "distinctiveness": 0.91,
+          "separation": 0.3680358516628136,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.13250633871406925
+        }
+      ],
+      "first_ms": 137.60179199999993,
+      "warm_ms": 12.88916600000016
+    },
+    {
+      "kind": "reading device / Galaxy brand pivot",
+      "route": [
+        "penguin",
+        "books",
+        "tablet",
+        "galaxy"
+      ],
+      "strokes": 3,
+      "best_distinctiveness": {
+        "word": "tablet",
+        "position": 2,
+        "value": 0.97
+      },
+      "best_separation": {
+        "word": "tablet",
+        "position": 2,
+        "value": 0.25903612041179036
+      },
+      "dogleg": {
+        "word": "books",
+        "value": 0.5909090909090909,
+        "alternatives": 22
+      },
+      "individual": [
+        {
+          "word": "books",
+          "distinctiveness": 0.84,
+          "separation": 0.18974383580225612,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.1609333088227906
+        },
+        {
+          "word": "tablet",
+          "distinctiveness": 0.97,
+          "separation": 0.25903612041179036,
+          "neighbour_count": 100,
+          "mean_positive_affinity": 0.09114082692941054
+        }
+      ],
+      "first_ms": 90.40329199999996,
+      "warm_ms": 11.079625000000078
+    }
+  ]
+}
