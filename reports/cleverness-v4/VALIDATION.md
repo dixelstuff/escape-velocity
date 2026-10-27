@@ -4,19 +4,19 @@ All 13 current-rule paths retain their V2 engine reproduction. No vocabulary/sho
 
 | Case | V2 context leaders | Necessary setups | V4 ms |
 |---|---|---|---|
-| A | ink, document | ink, document | 532.2 |
-| B | head, ruler, king | king, ruler, head | 464.9 |
-| C | spiral, disorder, chaotic | activity, disorder, chaotic, spiral | 497.3 |
-| D | wheel, power | wheel, power | 313.1 |
-| E | pipe, water, plant | pipe, plant | 365.3 |
-| F | perfume, smell, chemical | perfume, chemical | 413.7 |
-| G | pattern, lattice, notes | design, music | 559.2 |
-| H | computer, pad, mouse | bunny, pad, computer, electric, cook, oven | 816.5 |
-| I | mouse, computer, engineer | mouse, computer, engineer, baker | 264.4 |
-| J | chips, mouse, pie | mouse, chips, pie | 212.6 |
-| K | stone, sugar, hard | sugar, hard, stone | 377.1 |
-| L | beach, sea | sea, beach | 302.9 |
-| M | dinner, date, friend | friend, dinner, date | 386.2 |
+| A | ink, document | ink, document | 539.1 |
+| B | head, ruler, king | king, ruler, head | 476.1 |
+| C | spiral, disorder, chaotic | activity, disorder, chaotic, spiral | 507.2 |
+| D | wheel, power | wheel, power | 322.4 |
+| E | pipe, water, plant | pipe, plant | 381.4 |
+| F | perfume, smell, chemical | perfume, chemical | 408.5 |
+| G | pattern, lattice, notes | design, music | 550.8 |
+| H | computer, pad, mouse | bunny, pad, computer, electric, cook, oven | 805.3 |
+| I | mouse, computer, engineer | mouse, computer, engineer, baker | 260.9 |
+| J | chips, mouse, pie | mouse, chips, pie | 209.8 |
+| K | stone, sugar, hard | sugar, hard, stone | 364.6 |
+| L | beach, sea | sea, beach | 290.5 |
+| M | dinner, date, friend | friend, dinner, date | 357.7 |
 
 ## Word-level geometry at 200 neighbours
 

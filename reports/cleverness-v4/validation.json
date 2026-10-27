@@ -139,7 +139,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"squid\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"espionage\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"printing\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"up\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"ink\\\\\\\\\\\\\\\",true,false,true,null,0,0.4397187797785591,0.046718280675122514,0.265],[\\\\\\\\\\\\\\\"document\\\\\\\\\\\\\\\",true,false,false,null,1,0.1855610381958286,0.03720248399395132,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"squid\\\\\\\",\\\\\\\"espionage\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"printing\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"up\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"ink\\\\\\\",true,false,true,null,0,0.4397187797785591,0.046718280675122514,0.265],[\\\\\\\"document\\\\\\\",true,false,false,null,1,0.1855610381958286,0.03720248399395132,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "squid",
           "ink",
@@ -11332,10 +11332,10 @@
           "profiles_for_route_words": 4
         },
         "timing": {
-          "elapsed_ms": 532.1564169999999,
-          "profile_loading_ms": 80.6719579999999,
-          "geometry_ms": 78.1700420000002,
-          "association_ms": 372.788084
+          "elapsed_ms": 539.1415410000001,
+          "profile_loading_ms": 79.05362500000001,
+          "geometry_ms": 82.07508300000006,
+          "association_ms": 377.48129199999994
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -11519,7 +11519,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"prawn\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"salesman\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"tyrant\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"king\\\\\\\\\\\\\\\",true,false,false,null,0,0.18502026845953878,0.17190429389302153,0.265],[\\\\\\\\\\\\\\\"ruler\\\\\\\\\\\\\\\",true,false,true,null,0,0.4066374776593875,0.17190429389302153,0.265],[\\\\\\\\\\\\\\\"head\\\\\\\\\\\\\\\",true,false,false,null,1,0.1601264620785514,0.02946592927673919,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"prawn\\\\\\\",\\\\\\\"salesman\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"tyrant\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"king\\\\\\\",true,false,false,null,0,0.18502026845953878,0.17190429389302153,0.265],[\\\\\\\"ruler\\\\\\\",true,false,true,null,0,0.4066374776593875,0.17190429389302153,0.265],[\\\\\\\"head\\\\\\\",true,false,false,null,1,0.1601264620785514,0.02946592927673919,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "prawn",
           "king",
@@ -28730,10 +28730,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 464.8795419999999,
-          "profile_loading_ms": 29.342334000000164,
-          "geometry_ms": 86.61316599999986,
-          "association_ms": 348.878833
+          "elapsed_ms": 476.095875,
+          "profile_loading_ms": 28.714833,
+          "geometry_ms": 83.42983300000014,
+          "association_ms": 363.89999999999986
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -28941,7 +28941,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"robot\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"stairs\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"manic\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"activity\\\\\\\\\\\\\\\",true,false,false,null,0,0.07927173451298586,0.05602261655712937,0.265],[\\\\\\\\\\\\\\\"disorder\\\\\\\\\\\\\\\",true,false,true,null,0,0.4503098580371443,0.05602261655712937,0.265],[\\\\\\\\\\\\\\\"chaotic\\\\\\\\\\\\\\\",true,false,false,null,1,0.03303432710526977,0.023248895689903293,0.27],[\\\\\\\\\\\\\\\"spiral\\\\\\\\\\\\\\\",true,false,false,null,1,0.33003902794280293,0.023248895689903293,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"robot\\\\\\\",\\\\\\\"stairs\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"manic\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"activity\\\\\\\",true,false,false,null,0,0.07927173451298586,0.05602261655712937,0.265],[\\\\\\\"disorder\\\\\\\",true,false,true,null,0,0.4503098580371443,0.05602261655712937,0.265],[\\\\\\\"chaotic\\\\\\\",true,false,false,null,1,0.03303432710526977,0.023248895689903293,0.27],[\\\\\\\"spiral\\\\\\\",true,false,false,null,1,0.33003902794280293,0.023248895689903293,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "robot",
           "activity",
@@ -59064,10 +59064,10 @@
           "profiles_for_route_words": 6
         },
         "timing": {
-          "elapsed_ms": 497.2642920000003,
-          "profile_loading_ms": 28.21612499999992,
-          "geometry_ms": 88.62933299999986,
-          "association_ms": 380.252792
+          "elapsed_ms": 507.1691669999998,
+          "profile_loading_ms": 26.618082999999842,
+          "geometry_ms": 88.4540420000003,
+          "association_ms": 391.94566699999996
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -59229,7 +59229,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"hamster\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"electricity\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"exercise\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"up\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"wheel\\\\\\\\\\\\\\\",true,false,false,null,0,0.22418513883349078,0.08454002259850313,0.265],[\\\\\\\\\\\\\\\"power\\\\\\\\\\\\\\\",true,false,true,null,0,0.28414529075325845,0.08454002259850313,0.265]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",4],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"hamster\\\\\\\",\\\\\\\"electricity\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"exercise\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"up\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"wheel\\\\\\\",true,false,false,null,0,0.22418513883349078,0.08454002259850313,0.265],[\\\\\\\"power\\\\\\\",true,false,true,null,0,0.28414529075325845,0.08454002259850313,0.265]]]\\\",[\\\"stroke-play-v1\\\",4],[],true]\"]",
         "route": [
           "hamster",
           "wheel",
@@ -70077,10 +70077,10 @@
           "profiles_for_route_words": 4
         },
         "timing": {
-          "elapsed_ms": 313.0572910000001,
-          "profile_loading_ms": 10.627791999999772,
-          "geometry_ms": 44.22883300000012,
-          "association_ms": 258.14170799999965
+          "elapsed_ms": 322.3834999999999,
+          "profile_loading_ms": 10.359042000000045,
+          "geometry_ms": 45.370542000000114,
+          "association_ms": 266.5982079999999
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -70265,7 +70265,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"flute\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"botany\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"plumbing\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"up\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"pipe\\\\\\\\\\\\\\\",true,false,true,null,0,0.4282290107112203,0.11205507925296843,0.265],[\\\\\\\\\\\\\\\"water\\\\\\\\\\\\\\\",true,false,false,null,1,0.013223402798757888,-0.07394845116505167,0.27],[\\\\\\\\\\\\\\\"plant\\\\\\\\\\\\\\\",true,false,false,null,1,0.1836692526085244,-0.07394845116505167,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"flute\\\\\\\",\\\\\\\"botany\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"plumbing\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"up\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"pipe\\\\\\\",true,false,true,null,0,0.4282290107112203,0.11205507925296843,0.265],[\\\\\\\"water\\\\\\\",true,false,false,null,1,0.013223402798757888,-0.07394845116505167,0.27],[\\\\\\\"plant\\\\\\\",true,false,false,null,1,0.1836692526085244,-0.07394845116505167,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "flute",
           "pipe",
@@ -89965,10 +89965,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 365.3376250000001,
-          "profile_loading_ms": 7.810958000000028,
-          "geometry_ms": 57.35366699999986,
-          "association_ms": 300.11304199999995
+          "elapsed_ms": 381.41104099999984,
+          "profile_loading_ms": 7.021916000000147,
+          "geometry_ms": 59.20066699999961,
+          "association_ms": 315.13070800000014
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -90153,7 +90153,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"apricot\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"chemistry\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"perfumery\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"smell\\\\\\\\\\\\\\\",true,false,false,null,0,0.10763455094559049,0.08720922112752305,0.265],[\\\\\\\\\\\\\\\"perfume\\\\\\\\\\\\\\\",true,false,true,null,0,0.3538964756903624,0.08720922112752305,0.265],[\\\\\\\\\\\\\\\"chemical\\\\\\\\\\\\\\\",true,false,false,null,1,0.4542564832681819,0.09016712567427021,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",4],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"apricot\\\\\\\",\\\\\\\"chemistry\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"perfumery\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"smell\\\\\\\",true,false,false,null,0,0.10763455094559049,0.08720922112752305,0.265],[\\\\\\\"perfume\\\\\\\",true,false,true,null,0,0.3538964756903624,0.08720922112752305,0.265],[\\\\\\\"chemical\\\\\\\",true,false,false,null,1,0.4542564832681819,0.09016712567427021,0.27]]]\\\",[\\\"stroke-play-v1\\\",4],[],true]\"]",
         "route": [
           "apricot",
           "smell",
@@ -109912,10 +109912,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 413.6624160000001,
-          "profile_loading_ms": 13.369666000000052,
-          "geometry_ms": 67.1717920000001,
-          "association_ms": 333.04295900000034
+          "elapsed_ms": 408.50599999999986,
+          "profile_loading_ms": 12.358082999999624,
+          "geometry_ms": 66.65095900000006,
+          "association_ms": 329.35304199999973
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -110148,7 +110148,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"honeycomb\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"orchestra\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"architecture\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"lattice\\\\\\\\\\\\\\\",true,false,false,null,0,0.143044531590931,0.037995958013198106,0.265],[\\\\\\\\\\\\\\\"pattern\\\\\\\\\\\\\\\",true,false,false,null,0,0.23767647119166213,0.037995958013198106,0.265],[\\\\\\\\\\\\\\\"design\\\\\\\\\\\\\\\",true,false,true,null,0,0.6462654302176816,0.037995958013198106,0.265],[\\\\\\\\\\\\\\\"notes\\\\\\\\\\\\\\\",true,false,false,null,1,0.16774755837332123,0.14513905326202803,0.27],[\\\\\\\\\\\\\\\"music\\\\\\\\\\\\\\\",true,false,false,null,1,0.528320518153123,0.14513905326202803,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",4],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"honeycomb\\\\\\\",\\\\\\\"orchestra\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"architecture\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"lattice\\\\\\\",true,false,false,null,0,0.143044531590931,0.037995958013198106,0.265],[\\\\\\\"pattern\\\\\\\",true,false,false,null,0,0.23767647119166213,0.037995958013198106,0.265],[\\\\\\\"design\\\\\\\",true,false,true,null,0,0.6462654302176816,0.037995958013198106,0.265],[\\\\\\\"notes\\\\\\\",true,false,false,null,1,0.16774755837332123,0.14513905326202803,0.27],[\\\\\\\"music\\\\\\\",true,false,false,null,1,0.528320518153123,0.14513905326202803,0.27]]]\\\",[\\\"stroke-play-v1\\\",4],[],true]\"]",
         "route": [
           "honeycomb",
           "lattice",
@@ -151412,10 +151412,10 @@
           "profiles_for_route_words": 7
         },
         "timing": {
-          "elapsed_ms": 559.1694170000001,
-          "profile_loading_ms": 22.523249999999734,
-          "geometry_ms": 83.07333300000028,
-          "association_ms": 453.51441699999987
+          "elapsed_ms": 550.7869169999999,
+          "profile_loading_ms": 18.893833000000086,
+          "geometry_ms": 86.28766700000006,
+          "association_ms": 445.51870800000006
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -151720,7 +151720,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"rabbit\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"bakery\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"computing\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"bunny\\\\\\\\\\\\\\\",true,false,false,null,0,-0.02483068374931463,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"mat\\\\\\\\\\\\\\\",true,false,false,null,0,0.024100444081341266,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"pad\\\\\\\\\\\\\\\",true,false,false,null,0,0.14225635144566695,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"mouse\\\\\\\\\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"computer\\\\\\\\\\\\\\\",true,false,true,null,0,0.617863352472682,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"electric\\\\\\\\\\\\\\\",true,false,false,null,1,0.09871643062069779,0.021050512048077508,0.27],[\\\\\\\\\\\\\\\"cook\\\\\\\\\\\\\\\",true,false,false,null,1,0.13772062212387937,0.021050512048077508,0.27],[\\\\\\\\\\\\\\\"oven\\\\\\\\\\\\\\\",true,false,false,null,1,0.2764945810449717,0.021050512048077508,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"rabbit\\\\\\\",\\\\\\\"bakery\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"computing\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"bunny\\\\\\\",true,false,false,null,0,-0.02483068374931463,-0.03813664100562164,0.265],[\\\\\\\"mat\\\\\\\",true,false,false,null,0,0.024100444081341266,-0.03813664100562164,0.265],[\\\\\\\"pad\\\\\\\",true,false,false,null,0,0.14225635144566695,-0.03813664100562164,0.265],[\\\\\\\"mouse\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\"computer\\\\\\\",true,false,true,null,0,0.617863352472682,-0.03813664100562164,0.265],[\\\\\\\"electric\\\\\\\",true,false,false,null,1,0.09871643062069779,0.021050512048077508,0.27],[\\\\\\\"cook\\\\\\\",true,false,false,null,1,0.13772062212387937,0.021050512048077508,0.27],[\\\\\\\"oven\\\\\\\",true,false,false,null,1,0.2764945810449717,0.021050512048077508,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "rabbit",
           "bunny",
@@ -214228,10 +214228,10 @@
           "profiles_for_route_words": 10
         },
         "timing": {
-          "elapsed_ms": 816.4554170000001,
-          "profile_loading_ms": 39.82737500000076,
-          "geometry_ms": 126.06374999999935,
-          "association_ms": 650.4999589999998
+          "elapsed_ms": 805.3345829999998,
+          "profile_loading_ms": 29.4423340000003,
+          "geometry_ms": 141.90420799999993,
+          "association_ms": 633.925792
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -214440,7 +214440,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"rabbit\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"bakery\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"computing\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"mouse\\\\\\\\\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"computer\\\\\\\\\\\\\\\",true,false,true,null,0,0.617863352472682,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"engineer\\\\\\\\\\\\\\\",true,false,false,null,1,0.07159647867229069,0.021050512048077508,0.27],[\\\\\\\\\\\\\\\"baker\\\\\\\\\\\\\\\",true,false,false,null,1,0.21112057762866243,0.021050512048077508,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"rabbit\\\\\\\",\\\\\\\"bakery\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"computing\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"mouse\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\"computer\\\\\\\",true,false,true,null,0,0.617863352472682,-0.03813664100562164,0.265],[\\\\\\\"engineer\\\\\\\",true,false,false,null,1,0.07159647867229069,0.021050512048077508,0.27],[\\\\\\\"baker\\\\\\\",true,false,false,null,1,0.21112057762866243,0.021050512048077508,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "rabbit",
           "mouse",
@@ -245476,10 +245476,10 @@
           "profiles_for_route_words": 6
         },
         "timing": {
-          "elapsed_ms": 264.3968329999998,
-          "profile_loading_ms": 9.052416999999878,
-          "geometry_ms": 30.984375,
-          "association_ms": 224.20337500000005
+          "elapsed_ms": 260.8831250000003,
+          "profile_loading_ms": 10.649000000000342,
+          "geometry_ms": 31.857332999999926,
+          "association_ms": 218.2515000000003
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -245664,7 +245664,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"rabbit\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"bakery\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"computing\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"mouse\\\\\\\\\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"chips\\\\\\\\\\\\\\\",true,false,true,null,0,0.3010916510138486,-0.03813664100562164,0.265],[\\\\\\\\\\\\\\\"pie\\\\\\\\\\\\\\\",true,false,false,null,1,0.2990989445061132,0.1515571243216982,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"rabbit\\\\\\\",\\\\\\\"bakery\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"computing\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"mouse\\\\\\\",true,false,false,null,0,0.19793406646385847,-0.03813664100562164,0.265],[\\\\\\\"chips\\\\\\\",true,false,true,null,0,0.3010916510138486,-0.03813664100562164,0.265],[\\\\\\\"pie\\\\\\\",true,false,false,null,1,0.2990989445061132,0.1515571243216982,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "rabbit",
           "mouse",
@@ -265348,10 +265348,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 212.62320900000032,
-          "profile_loading_ms": 7.354540999999699,
-          "geometry_ms": 28.30687500000022,
-          "association_ms": 176.67566700000043
+          "elapsed_ms": 209.84299999999985,
+          "profile_loading_ms": 6.825667000000067,
+          "geometry_ms": 28.639208000000508,
+          "association_ms": 173.68637499999932
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -265536,7 +265536,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"almond\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"statue\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"confectionery\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"up\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"sugar\\\\\\\\\\\\\\\",true,false,true,null,0,0.30753412535887037,0.15409743370400975,0.265],[\\\\\\\\\\\\\\\"hard\\\\\\\\\\\\\\\",true,false,false,null,1,0.09095063618678978,0.029153445415431634,0.27],[\\\\\\\\\\\\\\\"stone\\\\\\\\\\\\\\\",true,false,false,null,1,0.4260734862291429,0.029153445415431634,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",4],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"almond\\\\\\\",\\\\\\\"statue\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"confectionery\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"up\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"sugar\\\\\\\",true,false,true,null,0,0.30753412535887037,0.15409743370400975,0.265],[\\\\\\\"hard\\\\\\\",true,false,false,null,1,0.09095063618678978,0.029153445415431634,0.27],[\\\\\\\"stone\\\\\\\",true,false,false,null,1,0.4260734862291429,0.029153445415431634,0.27]]]\\\",[\\\"stroke-play-v1\\\",4],[],true]\"]",
         "route": [
           "almond",
           "sugar",
@@ -284267,10 +284267,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 377.1150829999997,
-          "profile_loading_ms": 13.760124999999789,
-          "geometry_ms": 58.03045800000018,
-          "association_ms": 305.2727909999994
+          "elapsed_ms": 364.6484580000006,
+          "profile_loading_ms": 12.136124999999993,
+          "geometry_ms": 61.066249999999854,
+          "association_ms": 291.4022499999992
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -284431,7 +284431,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"tortoise\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"wedding\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"navigation\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265,\\\\\\\\\\\\\\\"turn\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"down\\\\\\\\\\\\\\\"},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"sea\\\\\\\\\\\\\\\",true,false,true,null,0,0.30709963336994406,-0.038983180601462664,0.265],[\\\\\\\\\\\\\\\"beach\\\\\\\\\\\\\\\",true,false,false,null,1,0.2446808347881415,0.12570356069045374,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"tortoise\\\\\\\",\\\\\\\"wedding\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"navigation\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265,\\\\\\\"turn\\\\\\\":\\\\\\\"down\\\\\\\"},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"sea\\\\\\\",true,false,true,null,0,0.30709963336994406,-0.038983180601462664,0.265],[\\\\\\\"beach\\\\\\\",true,false,false,null,1,0.2446808347881415,0.12570356069045374,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "tortoise",
           "sea",
@@ -296453,10 +296453,10 @@
           "profiles_for_route_words": 4
         },
         "timing": {
-          "elapsed_ms": 302.89958300000035,
-          "profile_loading_ms": 11.264624999999796,
-          "geometry_ms": 46.01641600000039,
-          "association_ms": 245.5752910000001
+          "elapsed_ms": 290.5388749999993,
+          "profile_loading_ms": 9.973374999999578,
+          "geometry_ms": 47.64979200000016,
+          "association_ms": 232.87183300000015
         },
         "memory": {
           "profile_cache_limit_shards": 16,
@@ -296640,7 +296640,7 @@
       },
       "report": {
         "version": "narrowness-strategy-v4",
-        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"association-specificity-v3\\\",\\\"wordnet3-wiktionary-snapshot-v1\\\",\\\"[\\\\\\\"cleverness-diagnostics-v2\\\\\\\",\\\\\\\"dictionary-morphology-v1\\\\\\\",\\\\\\\"[\\\\\\\\\\\\\\\"bridge-journey-v2\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"mate\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"fate\\\\\\\\\\\\\\\",{\\\\\\\\\\\\\\\"word\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"plate\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"threshold\\\\\\\\\\\\\\\":0.265},0.27,\\\\\\\\\\\\\\\"distance\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"golf-distance-v3\\\\\\\\\\\\\\\",0.095,0.215,\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",null,true,0.025,true,false,\\\\\\\\\\\\\\\"range\\\\\\\\\\\\\\\",true,[[\\\\\\\\\\\\\\\"friend\\\\\\\\\\\\\\\",true,false,false,null,0,0.07682326222584379,0.03552833795220067,0.265],[\\\\\\\\\\\\\\\"dinner\\\\\\\\\\\\\\\",true,false,true,null,0,0.3101456798331128,0.03552833795220067,0.265],[\\\\\\\\\\\\\\\"date\\\\\\\\\\\\\\\",true,false,false,null,1,0.2579117211771518,0.014565880966983968,0.27]]]\\\\\\\",[\\\\\\\"stroke-play-v1\\\\\\\",5],[],true]\\\"]\"]",
+        "key": "[\"narrowness-strategy-v4\",\"semantic-profiles-v4\",\"wordnet-only-v1\",\"[\\\"cleverness-diagnostics-v2\\\",\\\"dictionary-morphology-v1\\\",\\\"[\\\\\\\"bridge-journey-v2\\\\\\\",\\\\\\\"mate\\\\\\\",\\\\\\\"fate\\\\\\\",{\\\\\\\"word\\\\\\\":\\\\\\\"plate\\\\\\\",\\\\\\\"threshold\\\\\\\":0.265},0.27,\\\\\\\"distance\\\\\\\",\\\\\\\"golf-distance-v3\\\\\\\",0.095,0.215,\\\\\\\"\\\\\\\",null,true,0.025,true,false,\\\\\\\"range\\\\\\\",true,[[\\\\\\\"friend\\\\\\\",true,false,false,null,0,0.07682326222584379,0.03552833795220067,0.265],[\\\\\\\"dinner\\\\\\\",true,false,true,null,0,0.3101456798331128,0.03552833795220067,0.265],[\\\\\\\"date\\\\\\\",true,false,false,null,1,0.2579117211771518,0.014565880966983968,0.27]]]\\\",[\\\"stroke-play-v1\\\",5],[],true]\"]",
         "route": [
           "mate",
           "friend",
@@ -317376,10 +317376,10 @@
           "profiles_for_route_words": 5
         },
         "timing": {
-          "elapsed_ms": 386.1912919999995,
-          "profile_loading_ms": 12.999958999999762,
-          "geometry_ms": 59.18975000000046,
-          "association_ms": 313.93441600000006
+          "elapsed_ms": 357.6526249999997,
+          "profile_loading_ms": 12.47504200000003,
+          "geometry_ms": 59.96150000000034,
+          "association_ms": 285.1642499999998
         },
         "memory": {
           "profile_cache_limit_shards": 16,

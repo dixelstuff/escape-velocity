@@ -1,6 +1,6 @@
-import {openCourseDialog} from './course-dialog.mjs?v=golf-v187';
-import {holeBest,usedAttempts,endedAttempts,addDays,publicationDays,arrivalsPerDay} from './rolling-course.mjs?v=golf-v187';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v187';
+import {openCourseDialog} from './course-dialog.mjs?v=golf-v188';
+import {holeBest,usedAttempts,endedAttempts,addDays,publicationDays,arrivalsPerDay} from './rolling-course.mjs?v=golf-v188';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v188';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountRollingUI(rounds,{simulation,onDaily,onPractice,onNext,onSubmit,onView,onLocked}){
  const $=id=>document.getElementById(id);
