@@ -1,0 +1,2069 @@
+{
+  "version": "band-free-harmonic-v2-one-stroke",
+  "results": [
+    {
+      "id": "PLAY-A",
+      "route": [
+        "feather",
+        "quill",
+        "pen",
+        "fountain",
+        "ocean"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4683930896503295,
+        "strategic_effectiveness": 0.7955881276847294,
+        "route_elegance": 0.6711404157650717
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 78,
+      "previous_unrounded": 77.70630927959172,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 78,
+        "unrounded_score": 77.70630927959172,
+        "before_bonus_score": 78,
+        "before_bonus_unrounded_score": 77.70630927959172,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5896416435697539,
+        "quality": 0.6849903029467087,
+        "unbounded_quality": 0.6849903029467087,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.041088983454571654,
+          "strategy_interaction": 0.15762312009525173,
+          "elegance": 0.06845616630602867
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 77.70630927959172,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-B",
+      "route": [
+        "feather",
+        "quill",
+        "pen",
+        "ink",
+        "squid",
+        "ocean"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4565954363562668,
+        "strategic_effectiveness": 0.768031947427477,
+        "route_elegance": 0.738365004646934
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 65,
+      "previous_unrounded": 65.06259229716059,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 65,
+        "unrounded_score": 65.06259229716059,
+        "before_bonus_score": 65,
+        "before_bonus_unrounded_score": 65.06259229716059,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5727127889100487,
+        "quality": 0.689872627441837,
+        "unbounded_quality": 0.689872627441837,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.05642593273685314,
+          "strategy_interaction": 0.1509525583199165,
+          "elegance": 0.09534600185877361
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.07511075659271,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 13.012518459432115,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-C",
+      "route": [
+        "kangaroo",
+        "pouch",
+        "pants",
+        "suit",
+        "court"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.6680837110762369,
+        "strategic_effectiveness": 0.7234375,
+        "route_elegance": 0.7483252787454076
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 90,
+      "previous_unrounded": 89.89966960647226,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 90,
+        "unrounded_score": 89.89966960647226,
+        "before_bonus_score": 90,
+        "before_bonus_unrounded_score": 89.89966960647226,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6946596370714405,
+        "quality": 0.8523876396910357,
+        "unbounded_quality": 0.8523876396910357,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.21850882439910793,
+          "strategy_interaction": 0.034548703793764735,
+          "elegance": 0.09933011149816302
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 89.89966960647226,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-D",
+      "route": [
+        "kangaroo",
+        "fur",
+        "seal",
+        "court"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.6177801077496692,
+        "strategic_effectiveness": 0.7984374999999999,
+        "route_elegance": 0.6813531018440426
+      },
+      "legs": [
+        1,
+        2
+      ],
+      "previous": 88,
+      "previous_unrounded": 88.18397408989047,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 91,
+        "unrounded_score": 90.66828390345067,
+        "before_bonus_score": 88,
+        "before_bonus_unrounded_score": 88.18397408989047,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.484309813560196,
+          "applied_amount": 2.484309813560202,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6965861772685501,
+        "quality": 0.8281032711867321,
+        "unbounded_quality": 0.8281032711867321,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.15311414007456994,
+          "strategy_interaction": 0.1024478903745452,
+          "elegance": 0.07254124073761706
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 88.18397408989047,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-E",
+      "route": [
+        "snowflake",
+        "sparkle",
+        "diamond",
+        "blade",
+        "surgery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.454768741277066,
+        "strategic_effectiveness": 0.8214155781985543,
+        "route_elegance": 0.581976632199934
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 75,
+      "previous_unrounded": 74.56227695966777,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 75,
+        "unrounded_score": 74.56227695966777,
+        "before_bonus_score": 75,
+        "before_bonus_unrounded_score": 74.56227695966777,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5854234734935811,
+        "quality": 0.6438411684216291,
+        "unbounded_quality": 0.6438411684216291,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.05880063633981419,
+          "strategy_interaction": 0.16985115188146968,
+          "elegance": 0.032790652879973604
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 74.56227695966777,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-F",
+      "route": [
+        "snowflake",
+        "crystal",
+        "diamond",
+        "drill",
+        "scalpel",
+        "surgery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.41111084100830264,
+        "strategic_effectiveness": 0.8096187031985542,
+        "route_elegance": 0.6174695868223389
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 60,
+      "previous_unrounded": 59.66964358716453,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 60,
+        "unrounded_score": 59.66964358716453,
+        "before_bonus_score": 60,
+        "before_bonus_unrounded_score": 59.66964358716453,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5453182116342841,
+        "quality": 0.6059015098535049,
+        "unbounded_quality": 0.6059015098535049,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.11555590668920657,
+          "strategy_interaction": 0.17446958181377586,
+          "elegance": 0.04698783472893556
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 71.60357230459744,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 11.933928717432906,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-G",
+      "route": [
+        "snowflake",
+        "beautiful",
+        "jewel",
+        "crown",
+        "head",
+        "surgery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4690249418865798,
+        "strategic_effectiveness": 0.7545166957359237,
+        "route_elegance": 0.6560705115547666
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 63,
+      "previous_unrounded": 63.45297090329122,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 63,
+        "unrounded_score": 63.45297090329122,
+        "before_bonus_score": 63,
+        "before_bonus_unrounded_score": 63.45297090329122,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.578463598603221,
+        "quality": 0.6644308828060941,
+        "unbounded_quality": 0.6644308828060941,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.04026757554744628,
+          "strategy_interaction": 0.14227025373163366,
+          "elegance": 0.06242820462190664
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 76.14356508394945,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.690594180658238,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "PLAY-H",
+      "route": [
+        "snowflake",
+        "beautiful",
+        "diamond",
+        "quality",
+        "precision",
+        "technique",
+        "surgery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.3464032888364905,
+        "strategic_effectiveness": 0.7036571457138513,
+        "route_elegance": 0.624223798650133
+      },
+      "legs": [
+        2,
+        4
+      ],
+      "previous": 32,
+      "previous_unrounded": 31.633285049769515,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 32,
+        "unrounded_score": 31.633285049769515,
+        "before_bonus_score": 32,
+        "before_bonus_unrounded_score": 31.633285049769515,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.4642573731348221,
+        "quality": 0.503224104535322,
+        "unbounded_quality": 0.503224104535322,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.19967572451256232,
+          "strategy_interaction": 0.1532103095878311,
+          "elegance": 0.049689519460053205
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 63.26657009953903,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 4,
+            "factor": 0.5
+          }
+        ],
+        "applied_factor": 0.5,
+        "penalty_points": 31.633285049769515,
+        "maximum_for_legs": 50,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "P-A",
+      "route": [
+        "penguin",
+        "fish",
+        "market",
+        "volatile",
+        "volcano"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4503810156417157,
+        "strategic_effectiveness": 0.7580140081480569,
+        "route_elegance": 0.6243232172334998
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 74,
+      "previous_unrounded": 73.82225389405053,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 74,
+        "unrounded_score": 73.82225389405053,
+        "before_bonus_score": 74,
+        "before_bonus_unrounded_score": 73.82225389405053,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5650389353469615,
+        "quality": 0.6342799028444499,
+        "unbounded_quality": 0.6342799028444499,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.06450467966576963,
+          "strategy_interaction": 0.14905529561681954,
+          "elegance": 0.04972928689339993
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 73.82225389405053,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "P-B",
+      "route": [
+        "penguin",
+        "books",
+        "cash",
+        "rise",
+        "volcano"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5489867216012188,
+        "strategic_effectiveness": 0.6951976097647006,
+        "route_elegance": 0.6360311075187226
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 79,
+      "previous_unrounded": 78.98474112245731,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 79,
+        "unrounded_score": 78.98474112245731,
+        "before_bonus_score": 79,
+        "before_bonus_unrounded_score": 78.98474112245731,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6135011461376143,
+        "quality": 0.7019639329863877,
+        "unbounded_quality": 0.7019639329863877,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.06368273808158438,
+          "strategy_interaction": 0.08386875189731423,
+          "elegance": 0.05441244300748904
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.98474112245731,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "P-C",
+      "route": [
+        "penguin",
+        "book",
+        "note",
+        "message",
+        "danger",
+        "volcano"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5003446687732073,
+        "strategic_effectiveness": 0.7451799491485505,
+        "route_elegance": 0.7162813828960984
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 67,
+      "previous_unrounded": 66.62186048381106,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 67,
+        "unrounded_score": 66.62186048381106,
+        "before_bonus_score": 67,
+        "before_bonus_unrounded_score": 66.62186048381106,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5986984271018055,
+        "quality": 0.7148205083907866,
+        "unbounded_quality": 0.7148205083907866,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.00044806940516944893,
+          "strategy_interaction": 0.12785988582717775,
+          "elegance": 0.08651255315843938
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 79.94623258057327,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 13.324372096762204,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "V-A",
+      "route": [
+        "velvet",
+        "red",
+        "television",
+        "drama",
+        "jealousy"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.48010195639290093,
+        "strategic_effectiveness": 0.7751209701811237,
+        "route_elegance": 0.6724951495823899
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 78,
+      "previous_unrounded": 78.07132476695804,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 78,
+        "unrounded_score": 78.07132476695804,
+        "before_bonus_score": 78,
+        "before_bonus_unrounded_score": 78.07132476695804,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5929418374165981,
+        "quality": 0.6898224484745334,
+        "unbounded_quality": 0.6898224484745334,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.025867456689228793,
+          "strategy_interaction": 0.14669184533080634,
+          "elegance": 0.06899805983295595
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.07132476695804,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "V-B",
+      "route": [
+        "velvet",
+        "smooth",
+        "orbit",
+        "sphere",
+        "relationship",
+        "jealousy"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4687671037665072,
+        "strategic_effectiveness": 0.8099195772907991,
+        "route_elegance": 0.612826424707677
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 64,
+      "previous_unrounded": 63.62370921227105,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 64,
+        "unrounded_score": 63.62370921227105,
+        "before_bonus_score": 64,
+        "before_bonus_unrounded_score": 63.62370921227105,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5938337516997825,
+        "quality": 0.6671144470927881,
+        "unbounded_quality": 0.6671144470927881,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.040602765103540626,
+          "strategy_interaction": 0.16258664231325784,
+          "elegance": 0.045130569883070806
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 76.34845105472526,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.724741842454208,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "V-C",
+      "route": [
+        "velvet",
+        "curtain",
+        "slide",
+        "drift",
+        "orbit",
+        "eye",
+        "tears",
+        "jealousy"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.34471570144326047,
+        "strategic_effectiveness": 0.799450827290799,
+        "route_elegance": 0.6447698717835862
+      },
+      "legs": [
+        4,
+        3
+      ],
+      "previous": 27,
+      "previous_unrounded": 27.43006106051581,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 27,
+        "unrounded_score": 27.43006106051581,
+        "before_bonus_score": 27,
+        "before_bonus_unrounded_score": 27.43006106051581,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.4817187809258086,
+        "quality": 0.5341423639169857,
+        "unbounded_quality": 0.5341423639169857,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.2018695881237614,
+          "strategy_interaction": 0.17810400332731258,
+          "elegance": 0.0579079487134345
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 65.83214654523795,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 4,
+            "factor": 0.5
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.4166666666666667,
+        "penalty_points": 38.402085484722136,
+        "maximum_for_legs": 41.66666666666667,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "A",
+      "route": [
+        "squid",
+        "ink",
+        "document",
+        "espionage"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5422095105414712,
+        "strategic_effectiveness": 0.7793749999999999,
+        "route_elegance": 0.6338552417297515
+      },
+      "legs": [
+        1,
+        2
+      ],
+      "previous": 81,
+      "previous_unrounded": 81.43701249457175,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 84,
+        "unrounded_score": 83.64173535166906,
+        "before_bonus_score": 81,
+        "before_bonus_unrounded_score": 81.43701249457175,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.2047228570973143,
+          "applied_amount": 2.204722857097309,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6395119402619519,
+        "quality": 0.7349076190324381,
+        "unbounded_quality": 0.7349076190324381,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.0548723637039125,
+          "strategy_interaction": 0.126493158636625,
+          "elegance": 0.053542096691900604
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 81.43701249457175,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "B",
+      "route": [
+        "prawn",
+        "king",
+        "ruler",
+        "head",
+        "salesman"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.3852190067334233,
+        "strategic_effectiveness": 0.784375,
+        "route_elegance": 0.5765546573480951
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 67,
+      "previous_unrounded": 67.3168131446042,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 67,
+        "unrounded_score": 67.3168131446042,
+        "before_bonus_score": 67,
+        "before_bonus_unrounded_score": 67.3168131446042,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5166855450130519,
+        "quality": 0.5523130714562055,
+        "unbounded_quality": 0.5523130714562055,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.14921529124654972,
+          "strategy_interaction": 0.17090649976351713,
+          "elegance": 0.030621862939238034
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 67.3168131446042,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "C",
+      "route": [
+        "robot",
+        "activity",
+        "disorder",
+        "chaotic",
+        "spiral",
+        "stairs"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.45010633791440247,
+        "strategic_effectiveness": 0.75078125,
+        "route_elegance": 0.5669822065721473
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 60,
+      "previous_unrounded": 59.83595405439033,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 60,
+        "unrounded_score": 59.83595405439033,
+        "before_bonus_score": 60,
+        "before_bonus_unrounded_score": 59.83595405439033,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5628027176118748,
+        "quality": 0.6084364155242962,
+        "unbounded_quality": 0.6084364155242962,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.06486176071127679,
+          "strategy_interaction": 0.14650529360671408,
+          "elegance": 0.026792882628858906
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 71.8031448652684,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 11.967190810878066,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "D",
+      "route": [
+        "hamster",
+        "wheel",
+        "power",
+        "electricity"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5735868516121511,
+        "strategic_effectiveness": 0.9797753264258307,
+        "route_elegance": 0.7488461972285366
+      },
+      "legs": [
+        2,
+        1
+      ],
+      "previous": 93,
+      "previous_unrounded": 92.53799344553485,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 95,
+        "unrounded_score": 95.20854749459195,
+        "before_bonus_score": 93,
+        "before_bonus_unrounded_score": 92.53799344553485,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.670554049057096,
+          "applied_amount": 2.6705540490571025,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.7235740031750902,
+        "quality": 0.890184683019032,
+        "unbounded_quality": 0.890184683019032,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.09566290709579638,
+          "strategy_interaction": 0.19498329703182093,
+          "elegance": 0.09953847889141465
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 92.53799344553485,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 1,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "E",
+      "route": [
+        "flute",
+        "pipe",
+        "water",
+        "plant",
+        "botany"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5630878396008866,
+        "strategic_effectiveness": 0.6534350078083446,
+        "route_elegance": 0.5713666303411212
+      },
+      "legs": [
+        1,
+        3
+      ],
+      "previous": 63,
+      "previous_unrounded": 63.48443465705562,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 65,
+        "unrounded_score": 65.14674750840265,
+        "before_bonus_score": 63,
+        "before_bonus_unrounded_score": 63.48443465705562,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 1.6623128513470338,
+          "applied_amount": 1.662312851347032,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6049065295402808,
+        "quality": 0.6649251405388135,
+        "unbounded_quality": 0.6649251405388135,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.08201419148115258,
+          "strategy_interaction": 0.05436429692121245,
+          "elegance": 0.028546652136448494
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 76.18132158846674,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.696886931411122,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "F",
+      "route": [
+        "apricot",
+        "smell",
+        "perfume",
+        "chemical",
+        "chemistry"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.3780813829161058,
+        "strategic_effectiveness": 0.5828485894345152,
+        "route_elegance": 0.5549951483258727
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 60,
+      "previous_unrounded": 60.29932496212941,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 60,
+        "unrounded_score": 60.29932496212941,
+        "before_bonus_score": 60,
+        "before_bonus_unrounded_score": 60.29932496212941,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.4586477830118037,
+        "quality": 0.46824017724569394,
+        "unbounded_quality": 0.46824017724569394,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.15849420220906243,
+          "strategy_interaction": 0.10473632012440724,
+          "elegance": 0.021998059330349085
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 60.29932496212941,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "G",
+      "route": [
+        "honeycomb",
+        "lattice",
+        "pattern",
+        "design",
+        "notes",
+        "music",
+        "orchestra"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.2979066002618857,
+        "strategic_effectiveness": 0.574239889383654,
+        "route_elegance": 0.46203513873214763
+      },
+      "legs": [
+        3,
+        3
+      ],
+      "previous": 34,
+      "previous_unrounded": 34.14665845679351,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 34,
+        "unrounded_score": 34.14665845679351,
+        "before_bonus_score": 34,
+        "before_bonus_unrounded_score": 34.14665845679351,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.39229614568665494,
+        "quality": 0.3447990448855105,
+        "unbounded_quality": 0.3447990448855105,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.2627214196595486,
+          "strategy_interaction": 0.12270640905220001,
+          "elegance": -0.015185944507140947
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 49.171188177782646,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.6944444444444445,
+        "penalty_points": 15.024529720989136,
+        "maximum_for_legs": 69.44444444444446,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "H",
+      "route": [
+        "rabbit",
+        "bunny",
+        "mat",
+        "pad",
+        "mouse",
+        "computer",
+        "electric",
+        "cook",
+        "oven",
+        "bakery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.3360873939030604,
+        "strategic_effectiveness": 0.6163802033823251,
+        "route_elegance": 0.6146804083190259
+      },
+      "legs": [
+        5,
+        4
+      ],
+      "previous": 10,
+      "previous_unrounded": 9.702432368213186,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 10,
+        "unrounded_score": 9.702432368213186,
+        "before_bonus_score": 10,
+        "before_bonus_unrounded_score": 9.702432368213186,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.43499141975773453,
+        "quality": 0.4613610090126653,
+        "unbounded_quality": 0.4613610090126653,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.21308638792602147,
+          "strategy_interaction": 0.12857523361107637,
+          "elegance": 0.04587216332761038
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 59.70727611208114,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 5,
+            "factor": 0.325
+          },
+          {
+            "leg": 2,
+            "strokes": 4,
+            "factor": 0.5
+          }
+        ],
+        "applied_factor": 0.1625,
+        "penalty_points": 50.00484374386795,
+        "maximum_for_legs": 16.25,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "I",
+      "route": [
+        "rabbit",
+        "mouse",
+        "computer",
+        "engineer",
+        "baker",
+        "bakery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5439393211835805,
+        "strategic_effectiveness": 0.7343002980827571,
+        "route_elegance": 0.7144616294557614
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 69,
+      "previous_unrounded": 68.6808570272514,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 69,
+        "unrounded_score": 68.6808570272514,
+        "before_bonus_score": 69,
+        "before_bonus_unrounded_score": 68.6808570272514,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6249451193091403,
+        "quality": 0.748213306884187,
+        "unbounded_quality": 0.748213306884187,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.0571211175386546,
+          "strategy_interaction": 0.10530753756322782,
+          "elegance": 0.08578465178230457
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 82.41702843270168,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 13.736171405450278,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "J",
+      "route": [
+        "rabbit",
+        "mouse",
+        "chips",
+        "pie",
+        "bakery"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4807343974964993,
+        "strategic_effectiveness": 0.8663932135565043,
+        "route_elegance": 0.7033357060577001
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 81,
+      "previous_unrounded": 81.45879424506529,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 81,
+        "unrounded_score": 81.45879424506529,
+        "before_bonus_score": 81,
+        "before_bonus_unrounded_score": 81.45879424506529,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6183601554845635,
+        "quality": 0.7352024845530125,
+        "unbounded_quality": 0.7352024845530125,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.025045283254550882,
+          "strategy_interaction": 0.1789134853844834,
+          "elegance": 0.08133428242308005
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 81.45879424506529,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "K",
+      "route": [
+        "almond",
+        "sugar",
+        "hard",
+        "stone",
+        "statue"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4453198414498396,
+        "strategic_effectiveness": 0.7941964737137404,
+        "route_elegance": 0.6348806213814916
+      },
+      "legs": [
+        1,
+        3
+      ],
+      "previous": 62,
+      "previous_unrounded": 62.26188781618002,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 64,
+        "unrounded_score": 63.87641478814148,
+        "before_bonus_score": 62,
+        "before_bonus_unrounded_score": 62.26188781618002,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 1.614526971961457,
+          "applied_amount": 1.6145269719614603,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5706604155630662,
+        "quality": 0.6458107887845828,
+        "unbounded_quality": 0.6458107887845828,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.07108420611520852,
+          "strategy_interaction": 0.16294274634719463,
+          "elegance": 0.05395224855259664
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 74.71426537941602,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.452377563235999,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "L",
+      "route": [
+        "tortoise",
+        "sea",
+        "beach",
+        "wedding"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.5583814974702552,
+        "strategic_effectiveness": 0.8896559733818279,
+        "route_elegance": 0.6746724204224049
+      },
+      "legs": [
+        1,
+        2
+      ],
+      "previous": 87,
+      "previous_unrounded": 87.0249879943403,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 89,
+        "unrounded_score": 89.46048282873085,
+        "before_bonus_score": 87,
+        "before_bonus_unrounded_score": 87.0249879943403,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.435494834390552,
+          "applied_amount": 2.4354948343905534,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6861251102265811,
+        "quality": 0.8118316114635173,
+        "unbounded_quality": 0.8118316114635173,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.0758959467113318,
+          "strategy_interaction": 0.1660666965832236,
+          "elegance": 0.06986896816896197
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 87.0249879943403,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "M",
+      "route": [
+        "mate",
+        "friend",
+        "dinner",
+        "date",
+        "fate"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4264552040579619,
+        "strategic_effectiveness": 0.7786503910655732,
+        "route_elegance": 0.680898656975827
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 74,
+      "previous_unrounded": 74.1705197938115,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 74,
+        "unrounded_score": 74.1705197938115,
+        "before_bonus_score": 74,
+        "before_bonus_unrounded_score": 74.1705197938115,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5510878262541657,
+        "quality": 0.6387736369207463,
+        "unbounded_quality": 0.6387736369207463,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.09560823472464955,
+          "strategy_interaction": 0.16202240885506503,
+          "elegance": 0.07235946279033079
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 74.1705197938115,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "AN-A",
+      "route": [
+        "anchor",
+        "sea",
+        "natural",
+        "beautiful",
+        "butterfly"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.3926646218348114,
+        "strategic_effectiveness": 0.8228188457270662,
+        "route_elegance": 0.6217543264217128
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 70,
+      "previous_unrounded": 70.3306622839445,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 70,
+        "unrounded_score": 70.3306622839445,
+        "before_bonus_score": 70,
+        "before_bonus_unrounded_score": 70.3306622839445,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.531626895006742,
+        "quality": 0.5898166940774496,
+        "unbounded_quality": 0.5898166940774496,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.13953599161474523,
+          "strategy_interaction": 0.1806509551235098,
+          "elegance": 0.048701730568685125
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 70.3306622839445,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "AN-B",
+      "route": [
+        "anchor",
+        "sea",
+        "sick",
+        "fly",
+        "butterfly"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.43544566434424176,
+        "strategic_effectiveness": 0.7791429133591998,
+        "route_elegance": 0.5656484770643284
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 71,
+      "previous_unrounded": 71.33727744144481,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 71,
+        "unrounded_score": 71.33727744144481,
+        "before_bonus_score": 71,
+        "before_bonus_unrounded_score": 71.33727744144481,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5586655592765557,
+        "quality": 0.6025246178852538,
+        "unbounded_quality": 0.6025246178852538,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.08392063635248571,
+          "strategy_interaction": 0.16018586341200813,
+          "elegance": 0.026259390825731366
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 71.33727744144481,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "AN-C",
+      "route": [
+        "anchor",
+        "news",
+        "drugs",
+        "high",
+        "fly",
+        "butterfly"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.44397470865681,
+        "strategic_effectiveness": 0.7861519045490051,
+        "route_elegance": 0.6229293217484334
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 62,
+      "previous_unrounded": 61.68694477035808,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 62,
+        "unrounded_score": 61.68694477035808,
+        "before_bonus_score": 62,
+        "before_bonus_unrounded_score": 61.68694477035808,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5674725821475153,
+        "quality": 0.6368860854911432,
+        "unbounded_quality": 0.6368860854911432,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.07283287874614701,
+          "strategy_interaction": 0.1605472355379169,
+          "elegance": 0.04917172869937336
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 74.0243337244297,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.337388954071614,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "AN-D",
+      "route": [
+        "anchor",
+        "news",
+        "drugs",
+        "herbal",
+        "flowers",
+        "butterfly"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.44397470865681,
+        "strategic_effectiveness": 0.7622686860025425,
+        "route_elegance": 0.6396403828400077
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 62,
+      "previous_unrounded": 61.58588069563732,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 62,
+        "unrounded_score": 61.58588069563732,
+        "before_bonus_score": 62,
+        "before_bonus_unrounded_score": 61.58588069563732,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5611272472613398,
+        "quality": 0.6353215745757448,
+        "unbounded_quality": 0.6353215745757448,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.07283287874614701,
+          "strategy_interaction": 0.15229830018588872,
+          "elegance": 0.055856153136003076
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 73.90305683476478,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 12.317176139127461,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "FEATHER-A",
+      "route": [
+        "feather",
+        "quill",
+        "pen",
+        "fountain",
+        "ocean"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4683930896503295,
+        "strategic_effectiveness": 0.7955881276847294,
+        "route_elegance": 0.6711404157650717
+      },
+      "legs": [
+        2,
+        2
+      ],
+      "previous": 78,
+      "previous_unrounded": 77.70630927959172,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 78,
+        "unrounded_score": 77.70630927959172,
+        "before_bonus_score": 78,
+        "before_bonus_unrounded_score": 77.70630927959172,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5896416435697539,
+        "quality": 0.6849903029467087,
+        "unbounded_quality": 0.6849903029467087,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.041088983454571654,
+          "strategy_interaction": 0.15762312009525173,
+          "elegance": 0.06845616630602867
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 77.70630927959172,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    },
+    {
+      "id": "FEATHER-B",
+      "route": [
+        "feather",
+        "quill",
+        "pen",
+        "ink",
+        "squid",
+        "ocean"
+      ],
+      "components": {
+        "semantic_ingenuity": 0.4565954363562668,
+        "strategic_effectiveness": 0.768031947427477,
+        "route_elegance": 0.738365004646934
+      },
+      "legs": [
+        2,
+        3
+      ],
+      "previous": 65,
+      "previous_unrounded": 65.06259229716059,
+      "final": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 65,
+        "unrounded_score": 65.06259229716059,
+        "before_bonus_score": 65,
+        "before_bonus_unrounded_score": 65.06259229716059,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5727127889100487,
+        "quality": 0.689872627441837,
+        "unbounded_quality": 0.689872627441837,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.05642593273685314,
+          "strategy_interaction": 0.1509525583199165,
+          "elegance": 0.09534600185877361
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.07511075659271,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.8333333333333334
+          }
+        ],
+        "applied_factor": 0.8333333333333334,
+        "penalty_points": 13.012518459432115,
+        "maximum_for_legs": 83.33333333333334,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      }
+    }
+  ]
+}

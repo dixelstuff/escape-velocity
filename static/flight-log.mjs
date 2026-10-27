@@ -1,4 +1,4 @@
-import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=bandfree-v1';
+import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=onestroke-v1';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v189';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
 import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v189';

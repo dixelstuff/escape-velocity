@@ -770,7 +770,7 @@ Calculations reuse the assessment worker, full existing model and bounded per-wo
 
 ### Standalone vector cleverness
 
-The live results card shows experimental band-free vector cleverness after each completed attempt, alongside the previous harmonic score.
+The live results card shows experimental band-free vector cleverness after each completed attempt, alongside the previous harmonic score. A quality-scaled bonus applies once when any actual leg takes one stroke, within the existing ceiling.
 Analysis runs asynchronously in a browser worker using the existing word vectors,
 neighbourhood profiles and authoritative route history. No Python service,
 WordNet lookup, LLM or scoring API is required. This works on GitHub Pages and
