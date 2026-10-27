@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {mountClevernessPanel,clevernessFindings} from '../static/cleverness-panel.mjs';
+import {clevernessKey,CLEVERNESS_VERSION,LEXICAL_DIAGNOSTIC_VERSION} from '../static/cleverness-key.mjs';
+import {LEXICAL_VERSION} from '../static/lexical-relations.mjs';
+assert.equal(LEXICAL_VERSION,LEXICAL_DIAGNOSTIC_VERSION);
+const nodes=new Map(),listeners=new Map(),node={hidden:true,innerHTML:'',querySelector(s){if(!nodes.has(s))nodes.set(s,{hidden:false,open:false,textContent:'',innerHTML:''});return nodes.get(s);},addEventListener(name,fn){listeners.set(name,fn);}};
+const deferred=[],tick=()=>new Promise(r=>setImmediate(r)),panel=mountClevernessPanel(node,{request:s=>new Promise((resolve,reject)=>deferred.push({s,resolve,reject})),modelHash:()=> 'test-model'});
+const state=word=>({won:true,start:'tee',target:'flag',history:[{word,success:true}],route:['tee',word,'flag']}),result=s=>({version:CLEVERNESS_VERSION,key:clevernessKey(s),route:s.route,semantic_pivots:[],strongest_pivots:[{word:s.history[0].word,predecessor:'tee',successor:'flag',lexical_shortcuts:[]}],lexical_shortcuts:[],mechanics:{available:false,reason:'Legacy route differs'},dogleg:null,secondary:{},limitations:['Not a rating']});
+const a=state('alpha'),b=state('beta');panel.show(a);await tick();panel.show(b);await tick();deferred[0].resolve(result(a));await tick();assert.ok(!nodes.get('.clever-findings').innerHTML.includes('ALPHA'));deferred[1].resolve(result(b));await tick();assert.match(nodes.get('.clever-findings').innerHTML,/BETA/);assert.equal(node.hidden,false);
+panel.show(null,{visible:false});assert.equal(node.hidden,true);panel.show(b);await tick();assert.equal(deferred.length,2,'route report cached');
+const c=state('gamma');panel.show(c);await tick();panel.show(null,{visible:false});deferred[2].resolve(result(c));await tick();assert.equal(node.hidden,true,'late response cannot reopen hidden card');
+const d=state('delta');panel.show(d);await tick();deferred[3].reject(Error('offline'));await tick();assert.equal(nodes.get('.clever-retry').hidden,false);assert.match(nodes.get('.clever-status').textContent,/gameplay is unaffected/);
+const e=state('epsilon');panel.show(e);await tick();deferred[4].resolve(result(d));await tick();assert.equal(nodes.get('.clever-retry').hidden,false,'wrong-route report refused');
+assert.match(clevernessFindings(result(state('<unsafe>'))),/&lt;UNSAFE&gt;/);assert.doesNotMatch(clevernessFindings(result(state('<unsafe>'))),/<UNSAFE>/);
+assert.notEqual(clevernessKey(a),clevernessKey({...a,challenge:{par:4,attempt:1,version:'stroke-play-v1',id:'x'}}),'mechanical cache includes challenge/golden context');
+console.log('Cleverness panel passed: cache identity, lexical version identity, escaped findings, stale/hidden reports, retryable errors and no game/viewport mutations.');

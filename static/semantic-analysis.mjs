@@ -1,8 +1,8 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=golf-v180';
-import {withWordModel} from './word-model.mjs?v=golf-v180';
-import {withHeadwind} from './headwind.mjs?v=golf-v180';
-import {analyseJourney} from './semantic-journey.mjs?v=golf-v180';
+import {Game} from './engine.mjs?v=golf-v181';
+import {withWordModel} from './word-model.mjs?v=golf-v181';
+import {withHeadwind} from './headwind.mjs?v=golf-v181';
+import {analyseJourney} from './semantic-journey.mjs?v=golf-v181';
 export const SEMANTIC_VERSION='bridge-journey-v2';
 export const NEIGHBOUR_COUNT=100;
 const EPS=1e-12;

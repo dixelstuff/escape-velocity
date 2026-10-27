@@ -783,3 +783,16 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 .semantic-journey{margin:14px 0;font-size:11px;line-height:1.5}
 .semantic-journey h4{margin:0 0 6px}
 .semantic-journey th{max-width:220px;white-space:normal}
+/* v2 findings explain a route; the earlier measurements remain inspectable. */
+#cleverness-analysis{margin-top:12px;padding-top:10px;border-top:1px solid #cbd4be;text-align:left;font-size:11px;line-height:1.5}
+#cleverness-analysis[hidden],#semantic-comparison[hidden]{display:none}
+#cleverness-analysis h3{font:600 9px/1.4 'DM Sans',sans-serif;letter-spacing:.11em;color:#71816b;margin:0 0 3px}
+.clever-source,.clever-status{font-size:10px;color:#71816b;margin:3px 0 8px}
+.clever-findings{margin:8px 0}.clever-findings>div{margin:8px 0}.clever-findings dt{font-size:10px;color:#71816b}.clever-findings dd{margin:1px 0 0;overflow-wrap:anywhere}.clever-findings dd strong{font-weight:600}
+#cleverness-analysis summary,#semantic-comparison>summary{font:500 11px/1.5 'DM Sans',sans-serif;cursor:pointer;color:#526e4e;padding:4px 0}
+#semantic-comparison{margin-top:10px;text-align:left}#semantic-comparison #semantic-analysis{border-top:0;margin-top:2px;padding-top:3px}
+.clever-words{list-style:none;padding:0}.clever-words>li{border-top:1px solid #dce3d3;padding:10px 0}.clever-words h4{font-size:12px;margin:0}.clever-words h4 small{font-weight:400;color:#71816b}.clever-words p{margin:5px 0}.clever-content{font-size:11px}.clever-content details{margin:6px 0}.clever-route{font-weight:600;overflow-wrap:anywhere}.clever-warning{color:#89582e}.clever-lexical{font-size:10px;color:#71816b}
+.clever-table-scroll{max-height:190px;overflow:auto}.clever-table-scroll table{border-collapse:collapse;font-size:10px;width:100%}.clever-table-scroll td,.clever-table-scroll th{padding:4px;text-align:left;border-bottom:1px solid #dce3d3}
+#cleverness-analysis button{min-height:0;padding:4px 0;border:0;box-shadow:none;background:none;color:#61745a;font:500 10px 'DM Sans',sans-serif}
+.clever-other-pivots{display:block;font-size:10px;color:#71816b;margin-top:2px}
+#result-route-section:not([hidden])+#cleverness-analysis{border-top:0;padding-top:1px}

@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {Embeddings,Game,decodeHalf} from '../static/engine.mjs';
+import {clevernessKey,CLEVERNESS_VERSION} from '../static/cleverness-key.mjs';
+import {SemanticAnalyser} from '../static/semantic-analysis.mjs';
+import {ClevernessAnalyser} from '../static/cleverness.mjs';
+const messages=[];globalThis.self={postMessage:r=>messages.push(r)};await import('../static/assessment-worker.mjs');
+const root=new URL('../static/model/',import.meta.url),read=f=>fs.readFileSync(new URL(f,root)),c=JSON.parse(read('config.json')),b=read(c.vector_fallback),words=JSON.parse(read(c.words_file)),vectors=decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),hubs=new Uint8Array(read(c.hub_file)),e=new Embeddings(words,vectors,c.dimensions,hubs),settings=c.puzzles.find(h=>h.start==='squid'&&h.waypoint?.word==='printing'&&h.target==='espionage'),g=new Game(e,settings.start,settings.target,settings.threshold,{...settings,finish_mode:'range',challenge:{version:'stroke-play-v1',par:4,attempt:1,id:'worker-test',rolling:true,attempt_limit:15}});
+for(const w of ['ink','document'])g.submit(w);assert.equal(g.won,true);const saved=g.state(),before=structuredClone(saved);
+await self.onmessage({data:{init:true,profile:'',words,vectors,dimensions:c.dimensions,hubs}});
+await self.onmessage({data:{id:1,operation:'semantic-analysis',body:{state:saved}}});assert.ok(!messages[0].error);const old=messages[0].result;
+const forwarded=structuredClone(saved);forwarded.challenge.attempt_limit=50;
+await self.onmessage({data:{id:2,operation:'cleverness-analysis',body:{state:forwarded}}});assert.ok(!messages[1].error,messages[1].error);const report=messages[1].result;assert.equal(report.version,CLEVERNESS_VERSION);assert.equal(report.key,clevernessKey(saved),'UI and worker agree even when daily allowance metadata is forwarded');assert.equal(report.strongest_pivots[0].word,'ink');
+await self.onmessage({data:{id:3,operation:'semantic-analysis',body:{state:saved}}});assert.deepEqual(messages[2].result,old,'v1 report remains unchanged and reuses worker cache');assert.deepEqual(saved,before);
+const independent=new ClevernessAnalyser(e,new SemanticAnalyser(e)).analyse(saved),{elapsed_ms,...a}=report,{elapsed_ms:ignore,...other}=independent;assert.deepEqual(a,other,'independent evaluation is deterministic, not only report-cache reuse');
+console.log('Cleverness worker passed: real worker protocol, shared v1 neighbourhoods, async module loading, daily allowance identity, deterministic independent evaluation and unchanged game state.');
