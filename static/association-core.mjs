@@ -1,6 +1,6 @@
 /** Read-only post-hole diagnostics. No final cleverness score. */
-import {ClevernessAnalyser,replaySelection,freshRouteGame} from './cleverness.mjs?v=golf-v188';
-import {ASSOCIATION_VERSION,associationKey} from './association-key.mjs?v=golf-v188';
+import {ClevernessAnalyser,replaySelection,freshRouteGame} from './cleverness.mjs?v=golf-v189';
+import {ASSOCIATION_VERSION,associationKey} from './association-key.mjs?v=golf-v189';
 export {ASSOCIATION_VERSION,associationKey};
 const EPS=1e-12,lex=(a,b)=>a<b?-1:a>b?1:0,now=()=>performance.now();
 export const COSINE_THRESHOLDS=[.1,.2,.3,.4];

@@ -1,0 +1,63 @@
+/** Local research only. Exhaustive one-shot dogleg approaches, at most two finishing strokes. */
+import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
+import {Game} from '../static/engine.mjs';
+import {SemanticAnalyser} from '../static/semantic-analysis.mjs';
+import {loadResearchModel,researchSettings} from './cleverness-research-utils.mjs';
+const compact=h=>({word:h.word,success:h.success,won:h.won,stage:h.stage,waypoint_reached:!!h.waypoint_reached,scoring_word:h.scoring_word??h.word,launch:h.launch,required:h.required,destination:h.destination,finish_reason:h.finish_reason??null,automatic:!!h.automatic_shot});
+const cloneGame=g=>Object.assign(Object.create(Game.prototype),g,{route:[...g.route],history:[...g.history],automatic_shots:[...g.automatic_shots]});
+const strokes=g=>g.history.length+g.automatic_shots.length;
+function continuationGeometry(e,words){
+ if(!words.length)return {count:0,mean_pairwise_cosine:null,representatives:[]};
+ const d=e.dimensions,sum=new Float64Array(d);let n=0;
+ for(const w of words){const i=e.index.get(w)*d;let norm=0;for(let k=0;k<d;k++)norm+=e.vectors[i+k]**2;norm=Math.sqrt(norm);for(let k=0;k<d;k++)sum[k]+=e.vectors[i+k]/norm;n++;}
+ const norm2=sum.reduce((s,x)=>s+x*x,0),mean=n>1?(norm2-n)/(n*(n-1)):null;
+ // Farthest-first representatives are a deterministic coverage sketch, not semantic classes.
+ const representatives=[words[0]];while(representatives.length<Math.min(8,n)){let best=null,score=Infinity;for(const w of words){if(representatives.includes(w))continue;const nearest=Math.max(...representatives.map(r=>e.cosine(w,r)));if(nearest<score){score=nearest;best=w;}}representatives.push(best);}
+ return {count:n,mean_pairwise_cosine:mean,representatives,interpretation:'Unit-vector concentration and farthest-first coverage sketch, not inferred senses or ingenuity.'};
+}
+/** Complete short-route coverage cells, not discovered semantic senses. */
+export function strategySketch(e,landings){
+ const routes=landings.flatMap(l=>[...(l.immediate_finish?[{landing:l.word,continuation:null,route:l.immediate_finish.route}]:[]),...l.two_stroke_finishes.map(x=>({landing:l.word,continuation:x.word,route:x.route}))]);
+ if(!routes.length)return {method:'deterministic farthest-first route cells',cells:[],routes:0};
+ const similarity=(a,b)=>(e.cosine(a.landing,b.landing)+e.cosine(a.continuation??a.route.at(-1),b.continuation??b.route.at(-1)))/2;
+ const selected=[0],nearest=routes.map(r=>similarity(r,routes[0]));
+ while(selected.length<Math.min(8,routes.length)){let best=-1;for(let i=0;i<routes.length;i++)if(!selected.includes(i)&&(best<0||nearest[i]<nearest[best]))best=i;selected.push(best);for(let i=0;i<routes.length;i++)nearest[i]=Math.max(nearest[i],similarity(routes[i],routes[best]));}
+ const cells=selected.map((id,i)=>({id:i+1,representative:routes[id].route,members:[]}));
+ routes.forEach(r=>{let best=0;for(let j=1;j<selected.length;j++)if(similarity(r,routes[selected[j]])>similarity(r,routes[selected[best]]))best=j;cells[best].members.push(r);});
+ return {method:'Eight or fewer farthest-first Voronoi cells, equal mean cosine of landing slot and continuation slot; immediate finishes use flag in continuation slot. Lexical vocabulary order breaks ties.',routes:routes.length,cells:cells.map(c=>({...c,size:c.members.length})),largest_cell_fraction:Math.max(...cells.map(c=>c.members.length))/routes.length,interpretation:'A reproducible geometric coverage sketch; forced cells do not prove conceptual families. Inspect representatives and all members. No rarity bonus.'};
+}
+export function solutionLandscape(e,settings,{maximumLandings=Infinity,onProgress=()=>{}}={}){
+ if(!settings.waypoint)throw Error('A dogleg hole is required.');if(settings.word_model||settings.headwind)throw Error('This research runner supports the unmodified Current model.');
+ const begin=performance.now(),semantic=new SemanticAnalyser(e),fixed=new Map([settings.start,settings.target,settings.waypoint.word].map(w=>[w,semantic.row(w)]));let currentWord=null,currentRow=null;
+ // Rows use the exact Float64 accumulation/clamping of Embeddings.cosine. Morphology pairs use the same original function.
+ const fast=Object.create(e);fast.cosine=(a,b)=>fixed.has(a)?fixed.get(a)[e.index.get(b)]:fixed.has(b)?fixed.get(b)[e.index.get(a)]:a===currentWord?currentRow[e.index.get(b)]:b===currentWord?currentRow[e.index.get(a)]:e.cosine(a,b);
+ const initial=new Game(fast,settings.start,settings.target,settings.threshold,settings),landings=[];let firstTests=0,continuationTests=0;
+ for(const word of e.words){if(word===initial.current||word===settings.target)continue;firstTests++;const probe=initial.pluralShot(word);if(!probe.success||!probe.inside)continue;const g=cloneGame(initial);try{const shot=g.submit(word);if(shot.success&&shot.waypoint_reached)landings.push({word,game:g,shot});}catch{} }
+ const totalLandings=landings.length,selected=landings.slice(0,maximumLandings),results=[];
+ for(const landing of selected){
+  const {word,game:g,shot}=landing;currentWord=word;currentRow=semantic.row(word);
+  let immediate=null;if(g.won&&strokes(g)===2)immediate={route:[...g.route],strokes:2,events:g.history.map(compact),automatic:true};
+  if(!g.won){const final=cloneGame(g);try{const h=final.submit(settings.target);if(h.success&&final.won&&strokes(final)===2)immediate={route:[...final.route],strokes:2,events:final.history.map(compact),automatic:!!h.automatic_shot};}catch{}}
+  const finishes=[];
+  // A finished landing has no legal third stroke: never invent continuations after automatic completion.
+  if(!g.won)for(const x of e.words){if(x===word||x===settings.target)continue;continuationTests++;const probe=g.pluralShot(x);if(!probe.success)continue;const trial=cloneGame(g);try{const h=trial.submit(x);if(!h.success)continue;if(!trial.won){const last=trial.submit(settings.target);if(!last.success)continue;}if(trial.won&&strokes(trial)===3)finishes.push({word:x,route:[...trial.route],strokes:3,events:trial.history.map(compact),automatic:trial.automatic_shots.length>0});}catch{} }
+  results.push({word,first_shot:compact(shot),immediate_finish:immediate,two_stroke_finishes:finishes,continuation_geometry:continuationGeometry(e,finishes.map(x=>x.word)),landing_to_flag_cosine:e.cosine(word,settings.target),hub:e.hub(word)});
+  onProgress({done:results.length,total:totalLandings,word,finishes:finishes.length});
+ }
+ const finishWords=[...new Set(results.flatMap(r=>r.two_stroke_finishes.map(x=>x.word)))].sort(),allShort=results.filter(r=>r.immediate_finish||r.two_stroke_finishes.length);
+ return {version:'short-landscape-v5',settings,vocabulary:e.words.length,coverage:{exhaustive_first_shot_landings:true,legal_landings:totalLandings,landings_examined:results.length,exhaustive_finishes:results.length===totalLandings,first_shot_tests:firstTests,continuation_tests:continuationTests,scope:'All vocabulary one-shot dogleg landings and zero/one intermediate finishing word; no two-shot approaches or longer paths.',rules:'Every accepted route submitted to Game, including rescue forms, objective reset, automatic finish, curated paths and directional rules. Exact cosine row reuse only.'},counts:{legal_first_shot_dogleg_landings:totalLandings,immediate_finishes:results.filter(r=>r.immediate_finish).length,two_stroke_finishes:results.reduce((n,r)=>n+r.two_stroke_finishes.length,0),landings_with_short_finish:allShort.length,distinct_continuation_words:finishWords.length},strategy_sketch:strategySketch(e,results),landing_geometry:continuationGeometry(e,allShort.map(x=>x.word)),continuation_geometry:continuationGeometry(e,finishWords),landings:results,elapsed_ms:performance.now()-begin,limitations:['Scope is short solutions only; a two-shot dogleg approach such as FISH → MARKET is deliberately outside it.','Counts and geometric breadth are not semantic originality or human satisfaction.','No labels, thresholds, model changes, browser integration or production persistence.']};
+}
+export function comparePlayerToLandscape(report,saved){
+ const chosen=saved.history.find(h=>h.waypoint_reached),firstShot=!!chosen&&saved.history.indexOf(chosen)===0;
+ const landing=firstShot?report.landings.find(x=>x.word===chosen.word):null,next=chosen?saved.history[saved.history.indexOf(chosen)+1]?.word??null:null;
+ const playerStrokes=saved.history.length+(saved.automatic_shots?.length??0),sameRoute=r=>r.strokes===playerStrokes&&JSON.stringify(r.route)===JSON.stringify(saved.route);
+ const completeMatch=!!landing&&[...(landing.immediate_finish?[landing.immediate_finish]:[]),...landing.two_stroke_finishes].some(sameRoute);
+ return {landing:chosen?.word??null,one_shot_approach:firstShot,landing_within_search_scope:!!landing,within_search_scope:completeMatch,player_strokes:playerStrokes,continuation:next,
+  landing_continuation_count_rank:landing?1+report.landings.filter(l=>l.two_stroke_finishes.length>landing.two_stroke_finishes.length).length:null,landing_count_population:report.coverage.landings_examined,
+  fraction_short_routes_through_landing:landing&&report.strategy_sketch.routes?(landing.two_stroke_finishes.length+Number(!!landing.immediate_finish))/report.strategy_sketch.routes:null,
+  available_short_continuations:landing?.two_stroke_finishes.length??null,observed_continuation_in_landscape:landing?landing.two_stroke_finishes.some(x=>x.word===next):null,
+  interpretation:!firstShot?'The player used a multi-shot approach, outside this landscape. No rarity or missed-opportunity claim.':!landing?'The landing was not examined; continuation availability is unknown.':!completeMatch?'Only the first-shot landing is comparable; the complete played suffix is outside the short-solution set. No rarity or missed-opportunity claim.':'Mechanical availability only; not a semantic originality ranking.'};
+}
+export function landscapeMarkdown(reports){return ['# Short-solution landscape V5','','Exact game rules; a two-stroke finish includes the finishing stroke. Counts do not establish ingenuity.','','| Hole | Legal one-shot doglegs | Immediate (2 strokes) | Via X (3 strokes) | Coverage | Seconds |','|---|---:|---:|---:|---|---:|',...reports.map(r=>`| ${[r.settings.start,r.settings.waypoint.word,r.settings.target].join(' → ')} (Par ${r.settings.challenge.par}) | ${r.counts.legal_first_shot_dogleg_landings} | ${r.counts.immediate_finishes} | ${r.counts.two_stroke_finishes} | ${r.coverage.landings_examined}/${r.coverage.legal_landings} landings | ${(r.elapsed_ms/1000).toFixed(2)} |`),...reports.flatMap(r=>['',`## ${r.settings.start} → ${r.settings.target}`,'','| Landing | Immediate | 3-stroke finishes | Coverage representatives |','|---|---|---:|---|',...r.landings.map(l=>`| ${l.word} | ${!!l.immediate_finish} | ${l.two_stroke_finishes.length} | ${l.continuation_geometry.representatives.join(', ')} |`),'', 'Geometric coverage cells (not named semantic strategies):', ...r.strategy_sketch.cells.map(c=>`- ${c.size} routes; representative ${c.representative.join(' → ')}`)]),'','Automatic completion ends a route. No later X is counted for that landing. First-shot doglegs not yet examined (if bounded) are unknown, never zero. Farthest-first representatives describe coverage, not discovered semantic strategies.',''].join('\n');}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const {e,config}=loadResearchModel(),args=process.argv.slice(2),single=args.length>=3&&!args[0].startsWith('--'),holes=single?[[...args.slice(0,3),Number(args[3]??5)]]:[['penguin','currency','volcano',5],['velvet','satellite','jealousy',5],['rabbit','computing','bakery',4],['almond','confectionery','statue',5],['hamster','exercise','electricity',4]],results=[];for(const [t,w,f,p]of holes){let last=performance.now();const r=solutionLandscape(e,researchSettings(t,w,f,p),{onProgress:x=>{if(performance.now()-last>5000){console.log(`${t}: ${x.done}/${x.total} (${x.word})`);last=performance.now();}}});results.push(r);console.log(t,r.counts,(r.elapsed_ms/1000).toFixed(2)+'s');}fs.mkdirSync('reports/cleverness-v5',{recursive:true});const fixtures=JSON.parse(fs.readFileSync('reports/cleverness-v5/validation.json')).results,player_comparisons=fixtures.flatMap(test=>{const r=results.find(r=>r.settings.start===test.state.start&&r.settings.target===(test.state.final_target??test.state.target)&&r.settings.waypoint.word===test.state.waypoint?.word);return r?[{case:test.id,...comparePlayerToLandscape(r,test.state)}]:[];});fs.writeFileSync('reports/cleverness-v5/landscape.json',JSON.stringify({model_sha:config.vector_sha256,results,player_comparisons},null,2)+'\n');fs.writeFileSync('reports/cleverness-v5/LANDSCAPE.md',landscapeMarkdown(results));}

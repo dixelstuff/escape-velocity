@@ -57,6 +57,10 @@ jobs:
           node tests/test_cleverness_v4.mjs
           node tests/test_cleverness_v4_panel.mjs
           node tests/test_cleverness_v4_worker.mjs
+          node tests/test_cleverness_v5.mjs
+          node tests/test_cleverness_v5_panel.mjs
+          node tests/test_cleverness_v5_worker.mjs
+          node tests/test_hole_solution_landscape.mjs
           node tests/test_semantic_panel.mjs
           node tests/test_rolling_course.mjs
           node tests/test_result_actions.mjs

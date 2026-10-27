@@ -1,8 +1,8 @@
 /** Experimental explanations only. Never consulted by gameplay or ranking. */
-import {Game} from './engine.mjs?v=golf-v188';
-import {SemanticAnalyser,semanticRouteKey} from './semantic-analysis.mjs?v=golf-v188';
-import {lexicalRelation} from './lexical-relations.mjs?v=golf-v188';
-import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v188';
+import {Game} from './engine.mjs?v=golf-v189';
+import {SemanticAnalyser,semanticRouteKey} from './semantic-analysis.mjs?v=golf-v189';
+import {lexicalRelation} from './lexical-relations.mjs?v=golf-v189';
+import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v189';
 export {clevernessKey,CLEVERNESS_VERSION};
 const positive=x=>Math.max(0,x),EPS=1e-12;
 const lexical=(a,b)=>a<b?-1:a>b?1:0;

@@ -1,6 +1,6 @@
-import {wordnetPairEvidence} from './wordnet-evidence.mjs?v=golf-v188';
-import data from './phrase-evidence-data.mjs?v=golf-v188';
-import {lexicalRelation} from './lexical-relations.mjs?v=golf-v188';
+import {wordnetPairEvidence} from './wordnet-evidence.mjs?v=golf-v189';
+import data from './phrase-evidence-data.mjs?v=golf-v189';
+import {lexicalRelation} from './lexical-relations.mjs?v=golf-v189';
 const wordIds=new Map(data.words.map((w,i)=>[w,i]));
 function lookup(a,b){
  const left=wordIds.get(a),right=wordIds.get(b);if(left===undefined||right===undefined)return [];

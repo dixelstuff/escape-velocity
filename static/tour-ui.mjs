@@ -1,8 +1,8 @@
-import {openCourseDialog} from './course-dialog.mjs?v=golf-v188';
-import {holeBest} from './rolling-course.mjs?v=golf-v188';
-import {scoreText,resultText} from './course-round.mjs?v=golf-v188';
-import {TOURS as THREE_TOURS,tourFor as threeTourFor,spentAttempts,rankTourScores} from './tour-course.mjs?v=golf-v188';
-import {CATEGORIES,categoryFor,competitiveStandings,socialPlacementText} from './competitive-course.mjs?v=golf-v188';
+import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
+import {holeBest} from './rolling-course.mjs?v=golf-v189';
+import {scoreText,resultText} from './course-round.mjs?v=golf-v189';
+import {TOURS as THREE_TOURS,tourFor as threeTourFor,spentAttempts,rankTourScores} from './tour-course.mjs?v=golf-v189';
+import {CATEGORIES,categoryFor,competitiveStandings,socialPlacementText} from './competitive-course.mjs?v=golf-v189';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const dateText=day=>new Date(day+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
 export function mountTourUI(rounds,{simulation,competitive=false,onDaily,onPractice,onSubmit,onView,onLocked}){

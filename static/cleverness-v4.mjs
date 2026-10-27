@@ -1,8 +1,8 @@
 /** Embedding geometry + observed strategy; never an overall cleverness score. */
-import {AssociationAnalyser} from './association-core.mjs?v=golf-v188';
-import {wordnetPairEvidence,wordnetCoverage} from './wordnet-evidence.mjs?v=golf-v188';
-import {SemanticProfileStore,neighbourFingerprint} from './semantic-profile-store.mjs?v=golf-v188';
-import {CLEVERNESS_V4_VERSION,clevernessV4Key} from './cleverness-v4-key.mjs?v=golf-v188';
+import {AssociationAnalyser} from './association-core.mjs?v=golf-v189';
+import {wordnetPairEvidence,wordnetCoverage} from './wordnet-evidence.mjs?v=golf-v189';
+import {SemanticProfileStore,neighbourFingerprint} from './semantic-profile-store.mjs?v=golf-v189';
+import {CLEVERNESS_V4_VERSION,clevernessV4Key} from './cleverness-v4-key.mjs?v=golf-v189';
 export {CLEVERNESS_V4_VERSION,clevernessV4Key};
 const now=()=>performance.now(),EPS=1e-12,positive=x=>Math.max(0,x),lex=(a,b)=>a<b?-1:a>b?1:0;
 /** Continuous, effective support and pairwise cosine concentration, no sense labels. */
