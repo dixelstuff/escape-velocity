@@ -796,3 +796,13 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 #cleverness-analysis button{min-height:0;padding:4px 0;border:0;box-shadow:none;background:none;color:#61745a;font:500 10px 'DM Sans',sans-serif}
 .clever-other-pivots{display:block;font-size:10px;color:#71816b;margin-top:2px}
 #result-route-section:not([hidden])+#cleverness-analysis{border-top:0;padding-top:1px}
+
+/* Association diagnostics remain collapsed and fetch evidence only on request. */
+#association-analysis{margin-top:16px;border-top:1px solid #cfdbc5;padding-top:12px;text-align:left;font-size:12px;line-height:1.5}
+#association-analysis>summary{cursor:pointer;font-weight:600;color:#365c42}
+#association-analysis details{margin:10px 0}
+#association-analysis p{margin:9px 0}
+#association-analysis table{width:100%;min-width:540px;border-collapse:collapse;font-size:11px}
+#association-analysis th,#association-analysis td{padding:7px;text-align:left;vertical-align:top;border-bottom:1px solid #dce3d5}
+#association-analysis a{color:#356845;text-decoration:underline}
+#association-analysis .clever-table-scroll{max-height:none;overflow-x:auto}

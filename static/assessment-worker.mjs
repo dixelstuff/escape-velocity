@@ -1,21 +1,22 @@
-import {assessWaypointHole} from './waypoint-assessment.mjs?v=golf-v183';
-import { Embeddings } from './engine.mjs?v=golf-v183';
-import { assessHole } from './assessment.mjs?v=golf-v183';
-import { SkillAnalyser } from './skill.mjs?v=golf-v183';
-import {SemanticAnalyser,semanticRouteKey} from './semantic-analysis.mjs?v=golf-v183';
-const models=new Map(),skills=new Map(),semantics=new Map(),cleverness=new Map(),reports=new Map();
-import {localScalingModel} from './local-scaling.mjs?v=golf-v183';
+import {assessWaypointHole} from './waypoint-assessment.mjs?v=golf-v184';
+import { Embeddings } from './engine.mjs?v=golf-v184';
+import { assessHole } from './assessment.mjs?v=golf-v184';
+import { SkillAnalyser } from './skill.mjs?v=golf-v184';
+import {SemanticAnalyser,semanticRouteKey} from './semantic-analysis.mjs?v=golf-v184';
+const models=new Map(),skills=new Map(),semantics=new Map(),cleverness=new Map(),associations=new Map(),reports=new Map();
+import {localScalingModel} from './local-scaling.mjs?v=golf-v184';
 self.onmessage=async({data})=>{
   if(data.init){let e=new Embeddings(data.words,data.vectors,data.dimensions,data.hubs);if(data.localScaling)e=localScalingModel(e,data.localScaling.radii,data.localScaling.scaling,data.profile);e.word_model=data.profile||undefined;e.wordModels=models;models.set(data.profile,e);skills.set(data.profile,new SkillAnalyser(e));semantics.set(data.profile,new SemanticAnalyser(e));return;}
   let phase='Initialising analysis';
   try{const profile=(data.body.state??data.body).word_model??'';
-  if(['semantic-analysis','cleverness-analysis'].includes(data.operation)){
+  if(['semantic-analysis','cleverness-analysis','association-analysis'].includes(data.operation)){
    const state=data.body.state,key=JSON.stringify([profile,semanticRouteKey(state)]);
    phase='Calculating neighbourhood evidence';
    if(!reports.has(key)){if(reports.size>=24)reports.delete(reports.keys().next().value);reports.set(key,semantics.get(profile).analyse(state));}
    let result=reports.get(key);
-   if(data.operation==='cleverness-analysis'){if(!cleverness.has(profile)){phase='Loading cleverness analysis files';const {ClevernessAnalyser}=await import('./cleverness.mjs?v=golf-v183');cleverness.set(profile,new ClevernessAnalyser(models.get(profile),semantics.get(profile)));}phase='Calculating cleverness diagnostics';result=cleverness.get(profile).analyse(state,result);}
+   if(['cleverness-analysis','association-analysis'].includes(data.operation)){if(!cleverness.has(profile)){phase='Loading cleverness analysis files';const {ClevernessAnalyser}=await import('./cleverness.mjs?v=golf-v184');cleverness.set(profile,new ClevernessAnalyser(models.get(profile),semantics.get(profile)));}phase='Calculating cleverness diagnostics';result=cleverness.get(profile).analyse(state,result);}
+   if(data.operation==='association-analysis'){phase='Loading association evidence';if(!associations.has(profile)){const {AssociationAnalyser}=await import('./association.mjs?v=golf-v184');associations.set(profile,new AssociationAnalyser(models.get(profile),semantics.get(profile),cleverness.get(profile)));}phase='Calculating association specificity';result=associations.get(profile).analyse(state,reports.get(key),result);}
    self.postMessage({id:data.id,result});return;
   }
-  self.postMessage({id:data.id,result:data.operation==='semantic-analysis'?semantics.get(profile).analyse(data.body.state):data.operation==='assess-waypoint'?assessWaypointHole(models.get(profile),data.body):data.operation==='skill'?skills.get(profile).analyse(data.body.state):assessHole(models.get(profile),data.body)});}catch(error){self.postMessage({id:data.id,error:data.operation==='cleverness-analysis'?phase+': '+error.message:error.message});}
+  self.postMessage({id:data.id,result:data.operation==='semantic-analysis'?semantics.get(profile).analyse(data.body.state):data.operation==='assess-waypoint'?assessWaypointHole(models.get(profile),data.body):data.operation==='skill'?skills.get(profile).analyse(data.body.state):assessHole(models.get(profile),data.body)});}catch(error){self.postMessage({id:data.id,error:['cleverness-analysis','association-analysis'].includes(data.operation)?phase+': '+error.message:error.message});}
 };

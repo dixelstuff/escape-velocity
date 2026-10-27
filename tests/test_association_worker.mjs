@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {decodeHalf} from '../static/engine.mjs';
+import {associationKey} from '../static/association-key.mjs';
+const messages=[];globalThis.self={postMessage:r=>{structuredClone(r);messages.push(r);}};await import('../static/assessment-worker.mjs');
+const c=JSON.parse(fs.readFileSync('static/model/config.json')),read=f=>fs.readFileSync('static/model/'+f),b=read(c.vector_fallback),words=JSON.parse(read(c.words_file)),vectors=decodeHalf(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),hubs=new Uint8Array(read(c.hub_file)),test=JSON.parse(fs.readFileSync('reports/association-v3/validation.json')).results.find(r=>r.id==='J'),saved=structuredClone(test.state),before=structuredClone(saved);
+await self.onmessage({data:{init:true,profile:'',words,vectors,dimensions:c.dimensions,hubs}});
+await self.onmessage({data:{id:1,operation:'cleverness-analysis',body:{state:saved}}});assert.ok(!messages[0].error,messages[0].error);const v2=messages[0].result;
+await self.onmessage({data:{id:2,operation:'association-analysis',body:{state:saved}}});assert.ok(!messages[1].error,messages[1].error);assert.equal(messages[1].result.key,associationKey(saved));assert.equal(messages[1].result.bridges.find(b=>b.word==='chips').dogleg,true);assert.equal(messages[1].result.timing.included_v2,false,'reuse V2 report rather than recomputing');
+await self.onmessage({data:{id:3,operation:'cleverness-analysis',body:{state:saved}}});assert.deepEqual(messages[2].result,v2,'V3 leaves V2 untouched');assert.deepEqual(saved,before);
+console.log('Association worker: real lazy module protocol, structured-clone-safe proofs, V2 reuse, exact route identity and unchanged saved state.');

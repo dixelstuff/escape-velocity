@@ -1,0 +1,259 @@
+{
+  "wordnet_version": "3.0",
+  "archive_sha256": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59",
+  "vocabulary_size": 36306,
+  "dictionary_single_words": 32444,
+  "multiword_part_words": 10846,
+  "dictionary_pair_keys": 65748,
+  "sources": [
+    {
+      "name": "Princeton WordNet 3.0",
+      "url": "https://wordnet.princeton.edu/",
+      "license": "WORDNET-LICENSE.txt"
+    },
+    {
+      "name": "English Wiktionary targeted snapshot",
+      "url": "https://en.wiktionary.org/",
+      "license": "CC BY-SA 4.0; see PHRASE-SOURCES.md; revision links per entry"
+    }
+  ],
+  "collocation_counts_available": false,
+  "pmi": null,
+  "npmi": null,
+  "limitation": "Dictionary headword/synset evidence does not resolve intended senses; no corpus frequency evidence. A missing match is not evidence an expression does not exist.",
+  "wiktionary": {
+    "coverage": "Targeted prototype: candidate expressions from every adjacent pair of the 13 validation routes; not a full Wiktionary extract. Unqueried pairs have unknown coverage.",
+    "queried_pairs": [
+      [
+        "activity",
+        "disorder"
+      ],
+      [
+        "activity",
+        "robot"
+      ],
+      [
+        "almond",
+        "sugar"
+      ],
+      [
+        "apricot",
+        "smell"
+      ],
+      [
+        "baker",
+        "bakery"
+      ],
+      [
+        "baker",
+        "engineer"
+      ],
+      [
+        "bakery",
+        "oven"
+      ],
+      [
+        "bakery",
+        "pie"
+      ],
+      [
+        "beach",
+        "sea"
+      ],
+      [
+        "beach",
+        "wedding"
+      ],
+      [
+        "botany",
+        "plant"
+      ],
+      [
+        "bunny",
+        "mat"
+      ],
+      [
+        "bunny",
+        "rabbit"
+      ],
+      [
+        "chaotic",
+        "disorder"
+      ],
+      [
+        "chaotic",
+        "spiral"
+      ],
+      [
+        "chemical",
+        "chemistry"
+      ],
+      [
+        "chemical",
+        "perfume"
+      ],
+      [
+        "chips",
+        "mouse"
+      ],
+      [
+        "chips",
+        "pie"
+      ],
+      [
+        "computer",
+        "electric"
+      ],
+      [
+        "computer",
+        "engineer"
+      ],
+      [
+        "computer",
+        "mouse"
+      ],
+      [
+        "cook",
+        "electric"
+      ],
+      [
+        "cook",
+        "oven"
+      ],
+      [
+        "date",
+        "dinner"
+      ],
+      [
+        "date",
+        "fate"
+      ],
+      [
+        "design",
+        "notes"
+      ],
+      [
+        "design",
+        "pattern"
+      ],
+      [
+        "dinner",
+        "friend"
+      ],
+      [
+        "document",
+        "espionage"
+      ],
+      [
+        "document",
+        "ink"
+      ],
+      [
+        "electricity",
+        "power"
+      ],
+      [
+        "flute",
+        "pipe"
+      ],
+      [
+        "friend",
+        "mate"
+      ],
+      [
+        "hamster",
+        "wheel"
+      ],
+      [
+        "hard",
+        "stone"
+      ],
+      [
+        "hard",
+        "sugar"
+      ],
+      [
+        "head",
+        "ruler"
+      ],
+      [
+        "head",
+        "salesman"
+      ],
+      [
+        "honeycomb",
+        "lattice"
+      ],
+      [
+        "ink",
+        "squid"
+      ],
+      [
+        "king",
+        "prawn"
+      ],
+      [
+        "king",
+        "ruler"
+      ],
+      [
+        "lattice",
+        "pattern"
+      ],
+      [
+        "mat",
+        "pad"
+      ],
+      [
+        "mouse",
+        "pad"
+      ],
+      [
+        "mouse",
+        "rabbit"
+      ],
+      [
+        "music",
+        "notes"
+      ],
+      [
+        "music",
+        "orchestra"
+      ],
+      [
+        "perfume",
+        "smell"
+      ],
+      [
+        "pipe",
+        "water"
+      ],
+      [
+        "plant",
+        "water"
+      ],
+      [
+        "power",
+        "wheel"
+      ],
+      [
+        "sea",
+        "tortoise"
+      ],
+      [
+        "spiral",
+        "stairs"
+      ],
+      [
+        "statue",
+        "stone"
+      ]
+    ],
+    "source": "English Wiktionary",
+    "url": "https://en.wiktionary.org/",
+    "license": "CC BY-SA 4.0; no definitions copied",
+    "method": "Exact English section required; closed compounds require explicit compound/affix template decomposition. No redirects or search-result guesses.",
+    "queried_titles": 336,
+    "verified_english_pages": 17
+  }
+}

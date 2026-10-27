@@ -1,5 +1,5 @@
 /** Read-only result explanations; no keyboard, scroll or shot controls. */
-import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v183';
+import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v184';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const word=w=>esc(w.toUpperCase()),route=xs=>xs.map(word).join(' → '),n=x=>Number.isFinite(x)?x.toFixed(3):'—',pct=x=>Number.isFinite(x)?(100*x).toFixed(1)+'%':'—';
 const shotText=s=>s?.error?esc(s.error):s?`${s.success?'Playable':'Not playable'}; contact ${n(s.launch)}, required ${n(s.required)}, hit margin ${n(s.hit_margin)}${s.connected===true&&s.safe===false?' (backwards restriction)':''}${s.scoring_word&&s.scoring_word!==s.word?`; credited ${word(s.scoring_word)}`:''}.`:'No recorded manual comparison.';

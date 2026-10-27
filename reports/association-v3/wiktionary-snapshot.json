@@ -1,0 +1,706 @@
+{
+  "coverage": "Targeted prototype: candidate expressions from every adjacent pair of the 13 validation routes; not a full Wiktionary extract. Unqueried pairs have unknown coverage.",
+  "queried_pairs": [
+    [
+      "activity",
+      "disorder"
+    ],
+    [
+      "activity",
+      "robot"
+    ],
+    [
+      "almond",
+      "sugar"
+    ],
+    [
+      "apricot",
+      "smell"
+    ],
+    [
+      "baker",
+      "bakery"
+    ],
+    [
+      "baker",
+      "engineer"
+    ],
+    [
+      "bakery",
+      "oven"
+    ],
+    [
+      "bakery",
+      "pie"
+    ],
+    [
+      "beach",
+      "sea"
+    ],
+    [
+      "beach",
+      "wedding"
+    ],
+    [
+      "botany",
+      "plant"
+    ],
+    [
+      "bunny",
+      "mat"
+    ],
+    [
+      "bunny",
+      "rabbit"
+    ],
+    [
+      "chaotic",
+      "disorder"
+    ],
+    [
+      "chaotic",
+      "spiral"
+    ],
+    [
+      "chemical",
+      "chemistry"
+    ],
+    [
+      "chemical",
+      "perfume"
+    ],
+    [
+      "chips",
+      "mouse"
+    ],
+    [
+      "chips",
+      "pie"
+    ],
+    [
+      "computer",
+      "electric"
+    ],
+    [
+      "computer",
+      "engineer"
+    ],
+    [
+      "computer",
+      "mouse"
+    ],
+    [
+      "cook",
+      "electric"
+    ],
+    [
+      "cook",
+      "oven"
+    ],
+    [
+      "date",
+      "dinner"
+    ],
+    [
+      "date",
+      "fate"
+    ],
+    [
+      "design",
+      "notes"
+    ],
+    [
+      "design",
+      "pattern"
+    ],
+    [
+      "dinner",
+      "friend"
+    ],
+    [
+      "document",
+      "espionage"
+    ],
+    [
+      "document",
+      "ink"
+    ],
+    [
+      "electricity",
+      "power"
+    ],
+    [
+      "flute",
+      "pipe"
+    ],
+    [
+      "friend",
+      "mate"
+    ],
+    [
+      "hamster",
+      "wheel"
+    ],
+    [
+      "hard",
+      "stone"
+    ],
+    [
+      "hard",
+      "sugar"
+    ],
+    [
+      "head",
+      "ruler"
+    ],
+    [
+      "head",
+      "salesman"
+    ],
+    [
+      "honeycomb",
+      "lattice"
+    ],
+    [
+      "ink",
+      "squid"
+    ],
+    [
+      "king",
+      "prawn"
+    ],
+    [
+      "king",
+      "ruler"
+    ],
+    [
+      "lattice",
+      "pattern"
+    ],
+    [
+      "mat",
+      "pad"
+    ],
+    [
+      "mouse",
+      "pad"
+    ],
+    [
+      "mouse",
+      "rabbit"
+    ],
+    [
+      "music",
+      "notes"
+    ],
+    [
+      "music",
+      "orchestra"
+    ],
+    [
+      "perfume",
+      "smell"
+    ],
+    [
+      "pipe",
+      "water"
+    ],
+    [
+      "plant",
+      "water"
+    ],
+    [
+      "power",
+      "wheel"
+    ],
+    [
+      "sea",
+      "tortoise"
+    ],
+    [
+      "spiral",
+      "stairs"
+    ],
+    [
+      "statue",
+      "stone"
+    ]
+  ],
+  "queried_titles": [
+    "activity disorder",
+    "activity of disorder",
+    "activity of robot",
+    "activity robot",
+    "activitydisorder",
+    "activityrobot",
+    "almond of sugar",
+    "almond sugar",
+    "almondsugar",
+    "apricot of smell",
+    "apricot smell",
+    "apricotsmell",
+    "baker bakery",
+    "baker engineer",
+    "baker of bakery",
+    "baker of engineer",
+    "bakerbakery",
+    "bakerengineer",
+    "bakery baker",
+    "bakery of baker",
+    "bakery of oven",
+    "bakery of pie",
+    "bakery oven",
+    "bakery pie",
+    "bakerybaker",
+    "bakeryoven",
+    "bakerypie",
+    "beach of sea",
+    "beach of wedding",
+    "beach sea",
+    "beach wedding",
+    "beachsea",
+    "beachwedding",
+    "botany of plant",
+    "botany plant",
+    "botanyplant",
+    "bunny mat",
+    "bunny of mat",
+    "bunny of rabbit",
+    "bunny rabbit",
+    "bunnymat",
+    "bunnyrabbit",
+    "chaotic disorder",
+    "chaotic of disorder",
+    "chaotic of spiral",
+    "chaotic spiral",
+    "chaoticdisorder",
+    "chaoticspiral",
+    "chemical chemistry",
+    "chemical of chemistry",
+    "chemical of perfume",
+    "chemical perfume",
+    "chemicalchemistry",
+    "chemicalperfume",
+    "chemistry chemical",
+    "chemistry of chemical",
+    "chemistrychemical",
+    "chips mouse",
+    "chips of mouse",
+    "chips of pie",
+    "chips pie",
+    "chipsmouse",
+    "chipspie",
+    "computer electric",
+    "computer engineer",
+    "computer mouse",
+    "computer of electric",
+    "computer of engineer",
+    "computer of mouse",
+    "computerelectric",
+    "computerengineer",
+    "computermouse",
+    "cook electric",
+    "cook of electric",
+    "cook of oven",
+    "cook oven",
+    "cookelectric",
+    "cookoven",
+    "date dinner",
+    "date fate",
+    "date of dinner",
+    "date of fate",
+    "datedinner",
+    "datefate",
+    "design notes",
+    "design of notes",
+    "design of pattern",
+    "design pattern",
+    "designnotes",
+    "designpattern",
+    "dinner date",
+    "dinner friend",
+    "dinner of date",
+    "dinner of friend",
+    "dinnerdate",
+    "dinnerfriend",
+    "disorder activity",
+    "disorder chaotic",
+    "disorder of activity",
+    "disorder of chaotic",
+    "disorderactivity",
+    "disorderchaotic",
+    "document espionage",
+    "document ink",
+    "document of espionage",
+    "document of ink",
+    "documentespionage",
+    "documentink",
+    "electric computer",
+    "electric cook",
+    "electric of computer",
+    "electric of cook",
+    "electriccomputer",
+    "electriccook",
+    "electricity of power",
+    "electricity power",
+    "electricitypower",
+    "engineer baker",
+    "engineer computer",
+    "engineer of baker",
+    "engineer of computer",
+    "engineerbaker",
+    "engineercomputer",
+    "espionage document",
+    "espionage of document",
+    "espionagedocument",
+    "fate date",
+    "fate of date",
+    "fatedate",
+    "flute of pipe",
+    "flute pipe",
+    "flutepipe",
+    "friend dinner",
+    "friend mate",
+    "friend of dinner",
+    "friend of mate",
+    "frienddinner",
+    "friendmate",
+    "hamster of wheel",
+    "hamster wheel",
+    "hamsterwheel",
+    "hard of stone",
+    "hard of sugar",
+    "hard stone",
+    "hard sugar",
+    "hardstone",
+    "hardsugar",
+    "head of ruler",
+    "head of salesman",
+    "head ruler",
+    "head salesman",
+    "headruler",
+    "headsalesman",
+    "honeycomb lattice",
+    "honeycomb of lattice",
+    "honeycomblattice",
+    "ink document",
+    "ink of document",
+    "ink of squid",
+    "ink squid",
+    "inkdocument",
+    "inksquid",
+    "king of prawn",
+    "king of ruler",
+    "king prawn",
+    "king ruler",
+    "kingprawn",
+    "kingruler",
+    "lattice honeycomb",
+    "lattice of honeycomb",
+    "lattice of pattern",
+    "lattice pattern",
+    "latticehoneycomb",
+    "latticepattern",
+    "mat bunny",
+    "mat of bunny",
+    "mat of pad",
+    "mat pad",
+    "matbunny",
+    "mate friend",
+    "mate of friend",
+    "matefriend",
+    "matpad",
+    "mouse chips",
+    "mouse computer",
+    "mouse of chips",
+    "mouse of computer",
+    "mouse of pad",
+    "mouse of rabbit",
+    "mouse pad",
+    "mouse rabbit",
+    "mousechips",
+    "mousecomputer",
+    "mousepad",
+    "mouserabbit",
+    "music notes",
+    "music of notes",
+    "music of orchestra",
+    "music orchestra",
+    "musicnotes",
+    "musicorchestra",
+    "notes design",
+    "notes music",
+    "notes of design",
+    "notes of music",
+    "notesdesign",
+    "notesmusic",
+    "orchestra music",
+    "orchestra of music",
+    "orchestramusic",
+    "oven bakery",
+    "oven cook",
+    "oven of bakery",
+    "oven of cook",
+    "ovenbakery",
+    "ovencook",
+    "pad mat",
+    "pad mouse",
+    "pad of mat",
+    "pad of mouse",
+    "padmat",
+    "padmouse",
+    "pattern design",
+    "pattern lattice",
+    "pattern of design",
+    "pattern of lattice",
+    "patterndesign",
+    "patternlattice",
+    "perfume chemical",
+    "perfume of chemical",
+    "perfume of smell",
+    "perfume smell",
+    "perfumechemical",
+    "perfumesmell",
+    "pie bakery",
+    "pie chips",
+    "pie of bakery",
+    "pie of chips",
+    "piebakery",
+    "piechips",
+    "pipe flute",
+    "pipe of flute",
+    "pipe of water",
+    "pipe water",
+    "pipeflute",
+    "pipewater",
+    "plant botany",
+    "plant of botany",
+    "plant of water",
+    "plant water",
+    "plantbotany",
+    "plantwater",
+    "power electricity",
+    "power of electricity",
+    "power of wheel",
+    "power wheel",
+    "powerelectricity",
+    "powerwheel",
+    "prawn king",
+    "prawn of king",
+    "prawnking",
+    "rabbit bunny",
+    "rabbit mouse",
+    "rabbit of bunny",
+    "rabbit of mouse",
+    "rabbitbunny",
+    "rabbitmouse",
+    "robot activity",
+    "robot of activity",
+    "robotactivity",
+    "ruler head",
+    "ruler king",
+    "ruler of head",
+    "ruler of king",
+    "rulerhead",
+    "rulerking",
+    "salesman head",
+    "salesman of head",
+    "salesmanhead",
+    "sea beach",
+    "sea of beach",
+    "sea of tortoise",
+    "sea tortoise",
+    "seabeach",
+    "seatortoise",
+    "smell apricot",
+    "smell of apricot",
+    "smell of perfume",
+    "smell perfume",
+    "smellapricot",
+    "smellperfume",
+    "spiral chaotic",
+    "spiral of chaotic",
+    "spiral of stairs",
+    "spiral stairs",
+    "spiralchaotic",
+    "spiralstairs",
+    "squid ink",
+    "squid of ink",
+    "squidink",
+    "stairs of spiral",
+    "stairs spiral",
+    "stairsspiral",
+    "statue of stone",
+    "statue stone",
+    "statuestone",
+    "stone hard",
+    "stone of hard",
+    "stone of statue",
+    "stone statue",
+    "stonehard",
+    "stonestatue",
+    "sugar almond",
+    "sugar hard",
+    "sugar of almond",
+    "sugar of hard",
+    "sugaralmond",
+    "sugarhard",
+    "tortoise of sea",
+    "tortoise sea",
+    "tortoisesea",
+    "water of pipe",
+    "water of plant",
+    "water pipe",
+    "water plant",
+    "waterpipe",
+    "waterplant",
+    "wedding beach",
+    "wedding of beach",
+    "weddingbeach",
+    "wheel hamster",
+    "wheel of hamster",
+    "wheel of power",
+    "wheel power",
+    "wheelhamster",
+    "wheelpower"
+  ],
+  "pages": [
+    {
+      "title": "bunny rabbit",
+      "revision": 83077563,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "computer engineer",
+      "revision": 89024894,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "design pattern",
+      "revision": 91144446,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "hamster wheel",
+      "revision": 93698729,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "hardstone",
+      "revision": 93576980,
+      "compound_components": [
+        [
+          "hard",
+          "stone"
+        ]
+      ],
+      "alternative_spellings": []
+    },
+    {
+      "title": "king prawn",
+      "revision": 81997580,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "mouse pad",
+      "revision": 92060647,
+      "compound_components": [
+        [
+          "mouse",
+          "pad"
+        ]
+      ],
+      "alternative_spellings": []
+    },
+    {
+      "title": "mousepad",
+      "revision": 91223834,
+      "compound_components": [],
+      "alternative_spellings": [
+        "mouse pad"
+      ]
+    },
+    {
+      "title": "power wheel",
+      "revision": 89648375,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "sea tortoise",
+      "revision": 90519783,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "seabeach",
+      "revision": 81498817,
+      "compound_components": [
+        [
+          "sea",
+          "beach"
+        ]
+      ],
+      "alternative_spellings": []
+    },
+    {
+      "title": "squid ink",
+      "revision": 88243734,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "stonehard",
+      "revision": 93724972,
+      "compound_components": [
+        [
+          "stone",
+          "hard"
+        ]
+      ],
+      "alternative_spellings": []
+    },
+    {
+      "title": "water pipe",
+      "revision": 91796558,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "water plant",
+      "revision": 78836276,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "waterpipe",
+      "revision": 83672214,
+      "compound_components": [],
+      "alternative_spellings": []
+    },
+    {
+      "title": "waterplant",
+      "revision": 81755959,
+      "compound_components": [
+        [
+          "water",
+          "plant"
+        ],
+        [
+          "water",
+          "plant"
+        ]
+      ],
+      "alternative_spellings": []
+    }
+  ],
+  "source": "English Wiktionary",
+  "url": "https://en.wiktionary.org/",
+  "license": "CC BY-SA 4.0; no definitions copied",
+  "method": "Exact English section required; closed compounds require explicit compound/affix template decomposition. No redirects or search-result guesses."
+}

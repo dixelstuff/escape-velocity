@@ -1,0 +1,14 @@
+{
+  "environment": "v26.5.0",
+  "case": "J",
+  "elapsed_including_module_parse_ms": 241.421375,
+  "calculation_ms": 197.76245799999992,
+  "retained_memory_delta_bytes": {
+    "rss": 84426752,
+    "heapTotal": 48914432,
+    "heapUsed": 19615232,
+    "external": -26041057,
+    "arrayBuffers": -7260509
+  },
+  "limitation": "Node process experiment after V2 warmed, not an iPhone/browser heap measurement; module parsing, lexical map, rank buffers and report included."
+}

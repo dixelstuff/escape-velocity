@@ -1,0 +1,78 @@
+"""Build diagnostic lexical tables; no runtime requests or invented collocations.
+WordNet provides full-vocabulary coverage. Optional Wiktionary snapshot is a
+bounded, explicitly targeted prototype from adjacent pairs in validation.json.
+"""
+from pathlib import Path
+from zipfile import ZipFile
+from collections import defaultdict
+import argparse,json,re,hashlib,subprocess,itertools
+ROOT=Path(__file__).resolve().parents[1]
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--wiktionary',action='store_true');args=p.parse_args()
+ c=json.loads((ROOT/'static/model/config.json').read_text());v=set(json.loads((ROOT/'static/model'/c['words_file']).read_text()))
+ entries=defaultdict(list);attested=set();phrased=set();synonym_pairs=0
+ archive=ROOT/'data/wordnet.zip'
+ with ZipFile(archive) as z:
+  for part in ['noun','verb','adj','adv']:
+   for raw in z.read('wordnet/data.'+part).decode().splitlines():
+    if not raw or not raw[0].isdigit():continue
+    f=raw.split(' | ')[0].split();terms=[f[4+2*i].split('(')[0] for i in range(int(f[3],16))];singles=sorted(set(terms)&v);attested.update(singles)
+    for a,b in itertools.combinations(singles,2):
+     key='\0'.join([a,b]);item=['synonym',f[0]+'-'+f[2]]
+     if item not in entries[key]:entries[key].append(item);synonym_pairs+=1
+    for term in terms:
+     parts=re.split('[_-]',term)
+     # Exact dictionary headwords, not gloss co-occurrence or semantic paraphrase.
+     if len(parts)==2 or (len(parts)==3 and parts[1] in ['of','the']):
+      for a,b in itertools.combinations(sorted(set(parts)&v),2):
+       key='\0'.join([a,b]);item=['multiword',term.replace('_',' ')]
+       if item not in entries[key]:entries[key].append(item);phrased.update([a,b])
+ coverage={'wordnet_version':'3.0','archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'vocabulary_size':len(v),'dictionary_single_words':len(attested),'multiword_part_words':len(phrased),'dictionary_pair_keys':len(entries),'sources':[{'name':'Princeton WordNet 3.0','url':'https://wordnet.princeton.edu/','license':'WORDNET-LICENSE.txt'}],'collocation_counts_available':False,'pmi':None,'npmi':None,'limitation':'Dictionary headword/synset evidence does not resolve intended senses; no corpus frequency evidence. A missing match is not evidence an expression does not exist.'}
+ out=ROOT/'reports/association-v3';out.mkdir(exist_ok=True)
+ snapshot_path=out/'wiktionary-snapshot.json';snapshot={'coverage':'Not built','pages':[],'queried_titles':[]}
+ if args.wiktionary:
+  validation=json.loads((ROOT/'reports/cleverness-v2/validation.json').read_text())
+  pairs=sorted({tuple(sorted((a,b))) for r in validation['results'] for a,b in zip(r['requested_route'],r['requested_route'][1:]) if a!=b})
+  titles=sorted({s for a,b in pairs for s in [a+' '+b,b+' '+a,a+b,b+a,a+' of '+b,b+' of '+a]})
+  pages=[]
+  for start in range(0,len(titles),40):
+   # curl uses the host's working certificate roots. No Python network dependency.
+   from urllib.parse import urlencode
+   params={'action':'query','format':'json','prop':'revisions','rvprop':'ids|content','rvslots':'main','titles':'|'.join(titles[start:start+40])}
+   response=subprocess.check_output(['curl','--fail','--silent','--show-error','--retry','2','https://en.wiktionary.org/w/api.php?'+urlencode(params)])
+   data=json.loads(response)
+   if 'query' not in data:raise RuntimeError(str(data))
+   for page in data['query']['pages'].values():
+    if 'missing' in page or 'revisions' not in page:continue
+    rev=page['revisions'][0];text=rev['slots']['main']['*'];english=re.search(r'^==English==\s*$(.*?)(?=^==[^=]|\Z)',text,re.M|re.S)
+    if not english:continue
+    content=english.group(1)
+    # Keep revision provenance and compound decomposition, not definitions.
+    compounds=[]
+    for match in re.finditer(r'\{\{(?:compound|com|affix|af)\|en\|([^{}]+)\}\}',content):
+     components=[s for s in match.group(1).split('|') if s and '=' not in s]
+     if len(components)==2 and all(s in v for s in components):compounds.append(components)
+    aliases=re.findall(r'\{\{alt (?:sp|form)\|en\|([^{}|]+)(?:\|[^{}]*)?\}\}',content)
+    pages.append({'title':page['title'],'revision':rev['revid'],'compound_components':compounds,'alternative_spellings':aliases})
+  snapshot={'coverage':'Targeted prototype: candidate expressions from every adjacent pair of the 13 validation routes; not a full Wiktionary extract. Unqueried pairs have unknown coverage.','queried_pairs':pairs,'queried_titles':titles,'pages':pages,'source':'English Wiktionary','url':'https://en.wiktionary.org/','license':'CC BY-SA 4.0; no definitions copied','method':'Exact English section required; closed compounds require explicit compound/affix template decomposition. No redirects or search-result guesses.'}
+  snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
+ elif snapshot_path.exists():snapshot=json.loads(snapshot_path.read_text())
+ for page in snapshot['pages']:
+  title=page['title'];parts=title.split();source='https://en.wiktionary.org/w/index.php?oldid='+str(page['revision'])
+  for a,b in snapshot.get('queried_pairs',[]):
+   direct=title in [a+' '+b,b+' '+a,a+' of '+b,b+' of '+a]
+   closed=any(sorted(cs)==[a,b] for cs in page['compound_components'])
+   for alias in page.get('alternative_spellings',[]):
+    attestation=next((p for p in snapshot['pages'] if p['title']==alias),None)
+    if attestation and any(sorted(cs)==[a,b] for cs in attestation['compound_components']):closed=True
+   if direct or closed:entries['\0'.join([a,b])].append(['wiktionary-compound' if closed else 'wiktionary-multiword',title,source])
+ coverage['wiktionary']={k:val for k,val in snapshot.items() if k not in ['pages','queried_titles']};coverage['wiktionary'].update({'queried_titles':len(snapshot['queried_titles']),'verified_english_pages':len(snapshot['pages'])})
+ coverage['sources'].append({'name':'English Wiktionary targeted snapshot','url':'https://en.wiktionary.org/','license':'CC BY-SA 4.0; see PHRASE-SOURCES.md; revision links per entry'})
+ names=sorted({w for key in entries for w in key.split('\0')}); ids={w:i for i,w in enumerate(names)}
+ labels=sorted({value for items in entries.values() for item in items for value in item});lid={s:i for i,s in enumerate(labels)}
+ packed=[[ids[a],ids[b],[[lid[x] for x in item] for item in items]] for key,items in sorted(entries.items()) for a,b in [key.split('\0')]]
+ payload={'coverage':coverage,'words':names,'labels':labels,'entries':packed}
+ (ROOT/'static/phrase-evidence-data.mjs').write_text('/** Generated by scripts/build_phrase_evidence.py; diagnostic dictionary evidence only. */\nexport default JSON.parse('+json.dumps(json.dumps(payload,separators=(',',':')))+');\n')
+ (out/'phrase-coverage.json').write_text(json.dumps(coverage,indent=2)+'\n')
+ print(json.dumps({k:val for k,val in coverage.items() if k!='wiktionary'},indent=2));print('Wiktionary titles',len(snapshot['queried_titles']),'English pages',len(snapshot['pages']));print('king/prawn',entries.get('king\0prawn'))
+if __name__=='__main__':main()
