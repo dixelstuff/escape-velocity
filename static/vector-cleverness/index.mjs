@@ -1,3 +1,4 @@
+import {bandFreeScore} from './band-free.mjs?v=bandfree-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
 import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=vector-v1';
 import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=vector-v1';
@@ -5,7 +6,7 @@ import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=vector-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=vector-v1';
 import {rescoreV66} from './cleverness-v6.7.mjs?v=vector-v1';
-import {makePlaytestReport,playtestKey} from '../cleverness-playtest-data.mjs?v=vector-v1';
+import {makePlaytestReport,playtestKey} from '../cleverness-playtest-data.mjs?v=bandfree-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
@@ -18,7 +19,7 @@ export async function scoreVectorInput(input,evidence,modelSha){
   const departure=stageAssessment('departure',baseline.route,candidates,words,baseline.coherence.pairs.map(p=>p.value),c,P),aggregation=aggregateStages({departure},c),opportunity=opportunityCorrection(aggregation.raw_ingenuity,baseline.route.length-2,c);
   score=rescoreV66({...baseline,version:'cleverness-score-v6.6-candidate',components:{semantic_ingenuity:opportunity.adjusted_ingenuity,strategic_effectiveness:departure.effectiveness,route_elegance:baseline.components.route_elegance},stages:{departure},aggregation,opportunity,strongest_stage:'departure',strongest_moment:departure.strongest,corner_contribution:null},'harmonic');
  }
- const r=makePlaytestReport(clean.state,score,baseline,modelSha);r.evidence_mode='vectors-only';r.formula_version=r.scorer_version;r.scorer_version='vector-harmonic-v1';r.baseline_label='V6.2 vector-only comparison';r.reproducibility={input:clean,evidence:clean.state.waypoint?vectorEvidence(evidence):null};return r;
+ const r=makePlaytestReport(clean.state,score,baseline,modelSha);r.band_free=bandFreeScore(r.components,r.leg_efficiency.legs.map(l=>l.strokes));r.primary_score=r.band_free.score;r.primary_scorer=r.band_free.version;r.evidence_mode='vectors-only';r.formula_version=r.scorer_version;r.scorer_version='vector-harmonic-v1';r.baseline_label='V6.2 vector-only comparison';r.reproducibility={input:clean,evidence:clean.state.waypoint?vectorEvidence(evidence):null};return r;
 }
 export class VectorClevernessAnalyser{
  constructor(e,options={}){this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}

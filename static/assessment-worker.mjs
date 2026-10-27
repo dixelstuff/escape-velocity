@@ -10,7 +10,7 @@ self.onmessage=async({data})=>{
   if(data.init){modelShas.set(data.profile,data.modelSha);let e=new Embeddings(data.words,data.vectors,data.dimensions,data.hubs);if(data.localScaling)e=localScalingModel(e,data.localScaling.radii,data.localScaling.scaling,data.profile);e.word_model=data.profile||undefined;e.wordModels=models;models.set(data.profile,e);skills.set(data.profile,new SkillAnalyser(e));semantics.set(data.profile,new SemanticAnalyser(e));return;}
   let phase='Initialising analysis';
   try{const profile=(data.body.state??data.body).word_model??'';
-  if(data.operation==='cleverness-vector'){if(!vectorAnalysers.has(profile)){const {VectorClevernessAnalyser}=await import('./vector-cleverness/index.mjs?v=vector-v1');vectorAnalysers.set(profile,new VectorClevernessAnalyser(models.get(profile),{modelSha:modelShas.get(profile)}));}const result=await vectorAnalysers.get(profile).analyse(data.body.state);self.postMessage({id:data.id,result});return;}
+  if(data.operation==='cleverness-vector'){if(!vectorAnalysers.has(profile)){const {VectorClevernessAnalyser}=await import('./vector-cleverness/index.mjs?v=bandfree-v1');vectorAnalysers.set(profile,new VectorClevernessAnalyser(models.get(profile),{modelSha:modelShas.get(profile)}));}const result=await vectorAnalysers.get(profile).analyse(data.body.state);self.postMessage({id:data.id,result});return;}
   if(['semantic-analysis','cleverness-analysis','association-analysis','cleverness-v4','cleverness-v5'].includes(data.operation)){
    const state=data.body.state,key=JSON.stringify([profile,semanticRouteKey(state)]);
    phase='Calculating neighbourhood evidence';

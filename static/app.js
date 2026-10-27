@@ -1,5 +1,5 @@
-import {mountPlaytestPanel} from './cleverness-playtest-panel.mjs';
-import {completedPlaytests} from './cleverness-playtest-data.mjs';
+import {mountPlaytestPanel} from './cleverness-playtest-panel.mjs?v=bandfree-v1';
+import {completedPlaytests} from './cleverness-playtest-data.mjs?v=bandfree-v1';
 import {mountClevernessV5Panel} from './cleverness-v5-panel.mjs?v=golf-v189';
 import {mountClevernessV4Panel} from './cleverness-v4-panel.mjs?v=golf-v189';
 import {mountAssociationPanel} from './association-panel.mjs?v=golf-v189';
@@ -22,10 +22,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v189';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=vector-v1';
+import { createBrowserClient } from './engine.mjs?v=bandfree-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=vector-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=bandfree-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v189';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';

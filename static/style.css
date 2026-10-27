@@ -821,3 +821,5 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 .playtest-components th{text-align:left;font-weight:400}.playtest-components td{text-align:right;font-variant-numeric:tabular-nums}.playtest-components th,.playtest-components td{padding:3px 0}
 .playtest-history-label{display:block;margin-top:12px}.playtest-history{display:block;width:100%;max-width:100%;font-size:13px;margin-top:4px;padding:6px}
 .playtest-actions{display:flex;gap:8px;flex-wrap:wrap}.playtest-actions button{padding:7px 10px;min-height:34px;font-size:12px}.playtest-copy-status{min-height:18px}
+
+#cleverness-playtest .playtest-previous{font-size:12px;color:#5e765d;margin:0 0 7px}
