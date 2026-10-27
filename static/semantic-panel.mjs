@@ -1,5 +1,5 @@
 /** Result-card presentation only; asynchronous responses never touch game state. */
-import {semanticRouteKey,SEMANTIC_VERSION} from './semantic-analysis.mjs?v=golf-v184';
+import {semanticRouteKey,SEMANTIC_VERSION} from './semantic-analysis.mjs?v=golf-v185';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const semanticPercent=value=>value===null||value===undefined?'—':`${(100*value).toFixed(1).replace(/\.0$/,'')}%`;
 const number=v=>Number(v).toFixed(3);

@@ -1,4 +1,4 @@
-import {addDays} from './rolling-course.mjs?v=golf-v184';
+import {addDays} from './rolling-course.mjs?v=golf-v185';
 /** Freeze existing daily fives; append new curated layouts without reusing a hole. */
 export function buildTourSchedule(bank,existing=null){
  const definitions=new Map(bank.holes.map(h=>[h.id,h])),key=id=>{const h=definitions.get(id)?.settings;if(!h)throw Error('A published Tour hole is missing: '+id);return [h.start,h.waypoint?.word,h.target].join('|');};

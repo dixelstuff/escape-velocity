@@ -806,3 +806,4 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 #association-analysis th,#association-analysis td{padding:7px;text-align:left;vertical-align:top;border-bottom:1px solid #dce3d5}
 #association-analysis a{color:#356845;text-decoration:underline}
 #association-analysis .clever-table-scroll{max-height:none;overflow-x:auto}
+@media(min-width:700px){#association-analysis table{min-width:0;table-layout:fixed;font-size:10px}#association-analysis th,#association-analysis td{padding:6px 3px;overflow-wrap:anywhere}}

@@ -1,5 +1,5 @@
 /** Lazy, inspectable diagnostics. No focus/viewport/gameplay side effects. */
-import {associationKey,ASSOCIATION_VERSION} from './association-key.mjs?v=golf-v184';
+import {associationKey,ASSOCIATION_VERSION} from './association-key.mjs?v=golf-v185';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),word=x=>esc(x?.toUpperCase()),n=x=>Number.isFinite(x)?x.toFixed(3):'—',rank=x=>Number.isFinite(x)?Number(x.toFixed(1)).toLocaleString('en'):'—';
 const phrases=p=>p.evidence.phrase_matches.map(m=>`${word(m.label)} (${esc(m.source)})`).join('; ');
 const pairText=p=>`${word(p.from)} ↔ ${word(p.to)}: cosine ${n(p.cosine)}; ranks ${rank(p.forward_rank)} / ${rank(p.reverse_rank)} of ${p.population.toLocaleString('en')}; percentile ${(100*p.forward_percentile).toFixed(2)} / ${(100*p.reverse_percentile).toFixed(2)}%; |log₂ rank ratio| ${n(p.absolute_log2_rank_ratio)}; reciprocal prominence ${n(p.reciprocal_prominence)}.`;

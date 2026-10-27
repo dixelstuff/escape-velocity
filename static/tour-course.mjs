@@ -1,4 +1,4 @@
-import {RollingCourse,holeBest} from './rolling-course.mjs?v=golf-v184';
+import {RollingCourse,holeBest} from './rolling-course.mjs?v=golf-v185';
 export const TOURS=[{id:'pro',name:'Pro Tour',icon:'🏆',max:24},{id:'amateur',name:'Amateur Tour',icon:'⛳',max:49},{id:'social',name:'Social Tour',icon:'🏌️',max:Infinity}];
 export const tourFor=attempts=>TOURS.find(t=>attempts<=t.max)??TOURS[2];
 export const spentAttempts=hole=>hole.attempts.filter(a=>a.state.history.some(s=>!s.assumed&&!s.automatic)).length;
