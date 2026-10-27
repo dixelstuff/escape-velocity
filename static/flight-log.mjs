@@ -1,3 +1,4 @@
+import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=golf-v189';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
 import {successTitle,challengeFailure} from './success-mode.mjs?v=golf-v189';
@@ -134,6 +135,12 @@ export class FlightLog {
   }
   unflagBridge(key){this.data.bridgeFeedback=this.data.bridgeFeedback.filter(r=>r.key!==key);this.save();}
   noteBridge(key,note){const r=this.data.bridgeFeedback.find(r=>r.key===key);if(r){r.note=String(note).trim().slice(0,500);r.updated_at=this.now();this.save();}}
+  recordClevernessPlaytest(report) {
+    if(report?.version!==PLAYTEST_VERSION||!Number.isFinite(report.score)||!Number.isFinite(report.baseline_score))return false;
+    const journey=this.data.journeys.find(j=>j.state?.won&&playtestKey(j.state,j.model_sha)===report.key);
+    if(!journey||JSON.stringify(journey.state.route)!==JSON.stringify(report.route))return false;
+    journey.cleverness_playtest=structuredClone(compactPlaytestReport(report));this.save();return true;
+  }
   recordSkill(id, report) {
     const journey=this.data.journeys.find(j=>j.id===id);
     if(!journey||!journey.state.won||!report.complete)return false;

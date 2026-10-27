@@ -1,0 +1,29 @@
+/** Local final-quality experiment. All route evidence comes unchanged from V6.6. */
+import {scoreV66} from './cleverness-v6.6.mjs';
+import {applyLegEfficiency} from './cleverness-v6.mjs';
+export const VERSION='cleverness-score-v6.7-experiment';
+export const CANDIDATES=Object.freeze(['smooth_gate','harmonic','geometric']);
+// Unit-strength smooth interaction is a design comparison, not a fitted weight.
+export const PARAMETERS=Object.freeze({semantic_gain:1.30,strategy_gain:1.00,elegance_gain:.40});
+const clip=x=>Math.max(0,Math.min(1,x));
+function parameters(overrides){for(const k of Object.keys(overrides))if(!(k in PARAMETERS))throw Error('Unknown final-quality parameter '+k);const p={...PARAMETERS,...overrides};for(const [k,v]of Object.entries(p))if(!Number.isFinite(v)||v<0||v>2)throw Error('Invalid final-quality parameter '+k);return p;}
+/** Missing scalar measurements are explicitly neutral, never invented as zero. */
+export function finalQuality(I,S,E,candidate='harmonic',overrides={}){
+ if(!CANDIDATES.includes(candidate))throw Error('Unknown V6.7 candidate '+candidate);
+ const p=parameters(overrides),uncertainty=[];
+ const value=(x,name)=>{if(x===null||x===undefined){uncertainty.push('Missing '+name+': neutral 0.50 used for final-formula inspection.');return .5;}if(!Number.isFinite(x)||x<0||x>1)throw Error('Invalid component '+name);return x;};
+ I=value(I,'ingenuity');S=value(S,'strategy');E=value(E,'elegance');
+ const joint=candidate==='harmonic'?(I+S===0?0:2*I*S/(I+S)):candidate==='geometric'?Math.sqrt(I*S):I;
+ const terms={baseline:.50,ingenuity:p.semantic_gain*(I-.50),strategy_interaction:candidate==='smooth_gate'?p.strategy_gain*I*(S-.50):p.semantic_gain*(joint-I),elegance:p.elegance_gain*(E-.50)};
+ const unbounded=Object.values(terms).reduce((a,b)=>a+b,0),q=clip(unbounded);
+ // For joint means the split into I and interaction is algebraic, not independent evidence.
+ const dS=candidate==='smooth_gate'?p.strategy_gain*I:candidate==='harmonic'?(I+S===0?0:p.semantic_gain*2*I*I/(I+S)**2):S>0?p.semantic_gain*.5*Math.sqrt(I/S):I>0?null:0;
+ return {value:q,unbounded,terms,clipped:q!==unbounded,components_used:{I,S,E},joint_signal:joint,candidate,parameters:p,d_quality_d_strategy_before_clipping:dS,uncertainty,interpretation:candidate==='smooth_gate'?'A smooth I gate replaces the old thresholded strategy gate.':'I and S form one complementary signal. Term decomposition is an accounting identity, not two independent creativity awards.'};
+}
+/** Reuse an existing scored V6.6 route for comparison without recomputing evidence. */
+export function rescoreV66(base,candidate='harmonic',overrides={}){
+ if(base?.version!=='cleverness-score-v6.6-candidate')throw Error('A complete V6.6 score is required');
+ const {semantic_ingenuity:I,strategic_effectiveness:S,route_elegance:E}=base.components,raw=finalQuality(I,S,E,candidate,overrides),quality={...applyLegEfficiency(raw,base.leg_efficiency),clipped:raw.clipped,components_used:raw.components_used,joint_signal:raw.joint_signal,candidate,parameters:raw.parameters,d_quality_d_strategy_before_clipping:raw.d_quality_d_strategy_before_clipping,uncertainty:raw.uncertainty},unrounded=base.golf.range[0]+(base.golf.range[1]-base.golf.range[0])*quality.value,influences=Object.entries(quality.terms).filter(([k])=>k!=='baseline').map(([source,contribution])=>({source,contribution}));
+ return {...base,version:VERSION,candidate,final_quality_parameters:raw.parameters,quality,corner_contribution:{...base.corner_contribution,quality_before_clipping:undefined,interpretation:'Nested corner evidence in S, not extra points. See corner_ablation for the exact nonlinear final-score effect.'},influential_positive:influences.filter(x=>x.contribution>0),influential_negative:influences.filter(x=>x.contribution<0),uncertainty:[...base.uncertainty,...raw.uncertainty,'V6.7 changes only final component interaction; I and S are correlated diagnostic evidence, not independent probability estimates.'],score:Math.round(unrounded),unrounded_score:unrounded};
+}
+export function scoreV67(input,evidence,candidate='harmonic',overrides={}){return rescoreV66(scoreV66(input,evidence),candidate,overrides);}

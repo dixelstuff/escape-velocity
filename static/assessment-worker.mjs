@@ -3,12 +3,14 @@ import { Embeddings } from './engine.mjs?v=golf-v189';
 import { assessHole } from './assessment.mjs?v=golf-v189';
 import { SkillAnalyser } from './skill.mjs?v=golf-v189';
 import {SemanticAnalyser,semanticRouteKey} from './semantic-analysis.mjs?v=golf-v189';
+const vectorAnalysers=new Map();
 const models=new Map(),skills=new Map(),semantics=new Map(),cleverness=new Map(),associations=new Map(),v4s=new Map(),v5s=new Map(),modelShas=new Map(),reports=new Map();
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
 self.onmessage=async({data})=>{
   if(data.init){modelShas.set(data.profile,data.modelSha);let e=new Embeddings(data.words,data.vectors,data.dimensions,data.hubs);if(data.localScaling)e=localScalingModel(e,data.localScaling.radii,data.localScaling.scaling,data.profile);e.word_model=data.profile||undefined;e.wordModels=models;models.set(data.profile,e);skills.set(data.profile,new SkillAnalyser(e));semantics.set(data.profile,new SemanticAnalyser(e));return;}
   let phase='Initialising analysis';
   try{const profile=(data.body.state??data.body).word_model??'';
+  if(data.operation==='cleverness-vector'){if(!vectorAnalysers.has(profile)){const {VectorClevernessAnalyser}=await import('./vector-cleverness/index.mjs?v=vector-v1');vectorAnalysers.set(profile,new VectorClevernessAnalyser(models.get(profile),{modelSha:modelShas.get(profile)}));}const result=await vectorAnalysers.get(profile).analyse(data.body.state);self.postMessage({id:data.id,result});return;}
   if(['semantic-analysis','cleverness-analysis','association-analysis','cleverness-v4','cleverness-v5'].includes(data.operation)){
    const state=data.body.state,key=JSON.stringify([profile,semanticRouteKey(state)]);
    phase='Calculating neighbourhood evidence';

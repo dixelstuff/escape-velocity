@@ -767,3 +767,13 @@ The single official comparison table filters Competitive submissions only and ra
 V179 adds an expandable SEMANTIC ANALYSIS section to completed hole result cards. It reports separate maxima for strict 100-neighbour weakest-link distinctiveness and continuous balanced neighbourhood separation, plus a separate dogleg-landing comparison against legally reachable alternatives from the actual incoming lie. Every typed internal word is inspectable, including its neighbour table and affinity components; the unplayed dogleg is never inserted. The section analyses the current completed route, independently of the best stroke route, and explicitly says the percentages are experimental vector measures, not player percentiles. JSON downloads enable inspection without filling localStorage with neighbourhood lists. No gameplay, ball animation, stroke calculation, attempt counting or leaderboard logic is changed.
 
 Calculations reuse the assessment worker, full existing model and bounded per-word/report caches. Analysis never enumerates complete routes; only the requested neighbourhoods and one-shot dogleg alternatives are evaluated. The UI suppresses stale responses on navigation and provides a retry on download/worker failures. Full formulas and limitations are in `reports/semantic-analysis/FORMULAS.md`; the six-route comparison is in `reports/semantic-analysis/BENCHMARK.md`. Generic routes also score highly on distinctiveness, so this experiment does not yet establish a reliable human-satisfaction measure.
+
+### Standalone vector cleverness
+
+The live results card shows vector-only cleverness after a completed hole.
+Analysis runs asynchronously in a browser worker using the existing word vectors,
+neighbourhood profiles and authoritative route history. No Python service,
+WordNet lookup, LLM or scoring API is required. This works on GitHub Pages and
+any ordinary static web server. Par 3 and dogleg holes are supported.
+Expand the details to inspect components, prior completed attempts, and copy or
+export results. Golf scoring is unchanged. See [implementation notes](VECTOR_CLEVERNESS.md).

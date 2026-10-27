@@ -1,3 +1,5 @@
+import {mountPlaytestPanel} from './cleverness-playtest-panel.mjs';
+import {completedPlaytests} from './cleverness-playtest-data.mjs';
 import {mountClevernessV5Panel} from './cleverness-v5-panel.mjs?v=golf-v189';
 import {mountClevernessV4Panel} from './cleverness-v4-panel.mjs?v=golf-v189';
 import {mountAssociationPanel} from './association-panel.mjs?v=golf-v189';
@@ -20,10 +22,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v189';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=golf-v189';
+import { createBrowserClient } from './engine.mjs?v=vector-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=golf-v189';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=vector-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v189';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
@@ -240,11 +242,14 @@ async function initialiseRolling(){
  if(!rollingSimulation){setInterval(()=>{if(!busy)checkRollingDay();},30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!busy)checkRollingDay();});}
 }
 let selectedLogId=flightLog.data.activeId;
+const playtestPanel=mountPlaytestPanel($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,onReport:(_state,report)=>flightLog.recordClevernessPlaytest(report)});
 const clevernessV5Panel=mountClevernessV5Panel($('cleverness-v5'),{request:saved=>api('cleverness-v5',{state:saved}),modelHash});
 const clevernessV4Panel=mountClevernessV4Panel($('cleverness-v4'),{request:saved=>api('cleverness-v4',{state:saved}),modelHash});
 const associationPanel=mountAssociationPanel($('association-analysis'),{request:saved=>api('association-analysis',{state:saved}),modelHash});
 const clevernessPanel=mountClevernessPanel($('cleverness-analysis'),{request:saved=>api('cleverness-analysis',{state:saved}),modelHash});
 const semanticPanel=mountSemanticPanel($('semantic-analysis'),{request:saved=>api('semantic-analysis',{state:saved}),modelHash});
+function showLegacyAnalyses(source,options){const visible=options.visible&&document.querySelector('.playtest-earlier').open;for(const panel of [semanticPanel,clevernessPanel,associationPanel,clevernessV4Panel,clevernessV5Panel])panel.show(source,{...options,visible});}
+document.querySelector('.playtest-earlier').addEventListener('toggle',()=>showLegacyAnalyses(state?.won?state:bestRouteState(),{visible:!!holeResult()&&!roundSummary(),caption:state?.won?'This completed route':'Recorded best route'}));
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -252,7 +257,7 @@ async function api(path,body){
  if(rollingMode&&body?.state?.challenge?.rolling){const saved=body.state,h=rounds.store.bank[saved.challenge.id];if(h)body={...body,state:{...saved,challenge:{...saved.challenge,attempt_limit:h.allowance}}};}
  return client.request(path,body);
 }
-function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())return;busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id))e.disabled=value&&!(changingRetry&&e.id==='word');$('word').readOnly=false;if(!value){courseInputLocks();if(state){renderBag();renderNotice();}}}
+function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())return;busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id)&&!e.closest('#cleverness-playtest'))e.disabled=value&&!(changingRetry&&e.id==='word');$('word').readOnly=false;if(!value){courseInputLocks();if(state){renderBag();renderNotice();}}}
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const desktopInteraction=()=>matchMedia('(hover: hover) and (pointer: fine)').matches;
 let appearanceKey,appearanceLayout,backdropLayout;
@@ -605,7 +610,7 @@ function update(){
  styleResultButtonLabels();
  if(rollingMode&&rollingUI){rollingUI.render(!inCourse());renderRollingResult();rollingUI.renderSubmissionResult?.(roundSummary());}
  renderResultContext();
- const semanticSource=state?.won?state:bestRouteState(),analysisOptions={visible:!!holeResult()&&!roundSummary(),caption:state?.won?'This completed route':'Recorded best route'};semanticPanel.show(semanticSource,analysisOptions);clevernessPanel.show(semanticSource,analysisOptions);associationPanel.show(semanticSource,analysisOptions);clevernessV4Panel.show(semanticSource,analysisOptions);clevernessV5Panel.show(semanticSource,analysisOptions);$('semantic-comparison').hidden=!analysisOptions.visible||!semanticSource?.won;
+ const semanticSource=state?.won?state:bestRouteState(),analysisOptions={visible:!!holeResult()&&!roundSummary(),caption:state?.won?'This completed route':'Recorded best route'};playtestPanel.show(semanticSource,{...analysisOptions,completed:semanticSource?completedPlaytests(flightLog.data.journeys,semanticSource):[]});showLegacyAnalyses(semanticSource,analysisOptions);$('semantic-comparison').hidden=!analysisOptions.visible||!semanticSource?.won;
 }
 function renderResultContext(){
  const context=resultContext(justHoled,state?.won,roundSummary()),moment=context==='just-now',review=context==='review';

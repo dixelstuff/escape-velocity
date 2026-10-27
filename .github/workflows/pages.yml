@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check browser scoring against Python fixtures
         run: |
+          node tests/test_vector_cleverness.mjs
           node tests/test_progressive.mjs
           node tests/test_progressive_recovery.mjs
           node tests/test_browser.mjs
