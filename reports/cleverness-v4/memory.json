@@ -1,0 +1,21 @@
+{
+  "environment": "v26.5.0",
+  "case": "J",
+  "elapsed_including_module_loading_ms": 465.7885000000001,
+  "calculation": {
+    "elapsed_ms": 414.5130419999999,
+    "profile_loading_ms": 108.9520829999999,
+    "geometry_ms": 106.17266700000005,
+    "association_ms": 199.0915409999999
+  },
+  "profile_shards": 5,
+  "profile_bytes": 201162,
+  "retained_delta_bytes": {
+    "rss": 104394752,
+    "heapTotal": 64901120,
+    "heapUsed": 28310816,
+    "external": -3349512,
+    "arrayBuffers": -8417016
+  },
+  "limitation": "Node process, V2 already warmed; local file fetch/decompression, not Internet transfer or real iPhone performance. Heap/RSS include module parsing, WordNet data, V3 numeric evidence, profiles and V4 output."
+}

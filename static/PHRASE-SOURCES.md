@@ -1,5 +1,7 @@
 # Phrase evidence — sources and redistribution
 
+**V4 source policy:** V4 uses only the vocabulary-wide WordNet portion. The targeted Wiktionary supplement remains confined to the historical V3 comparison panel and never enters V4 calculations or annotations.
+
 This diagnostic table is a modified extract, not a complete dictionary or collocation corpus. It contains headword titles, WordNet synset identifiers and Wiktionary compound decompositions/revision links; no definitions, corpus text or invented phrase frequencies.
 
 * **Princeton WordNet3.0**, Copyright2006 Princeton University. See [the included full license](WORDNET-LICENSE.txt) and [WordNet licensing](https://wordnet.princeton.edu/license-and-commercial-use). Build modifications: restrict to the game's vocabulary, extract shared synsets and exact two-word or three-word `of/the` headwords, encode into indexed arrays. Dictionary single-entry coverage32,444/36,306 (89.4%);10,846 words appear as indexed multiword components. This is not pair-recall or phrase-recall coverage. No fuzzy word replacement or gloss co-occurrence inference.

@@ -1,0 +1,62 @@
+{
+  "version": "semantic-profiles-v4",
+  "model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "words_sha": "6b25d177b8e9e39b416fbaecc964824e187d0b4b97cde8a747ece171fe12fe56",
+  "vocabulary": 36306,
+  "dimensions": 300,
+  "scales": [
+    25,
+    50,
+    100,
+    200
+  ],
+  "shard_size": 128,
+  "record_bytes": 361,
+  "format": "WGP4 little-endian fixed records; neighbour IDs reconstructed from the existing model, checked by FNV1a-ID fingerprint",
+  "method": {
+    "neighbours": "Raw game-vector dot products; top256 float32 BLAS candidates refined in float64, conservative error-bound fallback; self excluded, lexical ties.",
+    "geometry": "Unit-normalized existing vectors for diagnostics only. No game model changes.",
+    "clustering": "Deterministic two-way spherical partition, first/farthest seeds,8 iterations; not identified dictionary senses.",
+    "silhouette": "Exact mean cosine-distance silhouette from cluster sums; singleton silhouette0.",
+    "stability": "Adjusted Rand index against k200 on shared neighbours; labels can swap.",
+    "broad_counts": "Float32 similarity threshold sensitivity; possible boundary rounding.",
+    "entropy_temperature": 0.1,
+    "no_global_narrowness_score": true
+  },
+  "build": {
+    "seconds": 63.16754904203117,
+    "max_rss_bytes": 1191346176,
+    "numpy": "2.5.4",
+    "guarded_full_rows": 0,
+    "raw_bytes": 13109874,
+    "gzip_bytes": 11439880
+  },
+  "statistics": {
+    "concentration200_quantiles": [
+      0.057166375133024305,
+      0.13565045003277243,
+      0.16408261577348657,
+      0.19831879093037036,
+      0.23737095191308186,
+      0.2761382101919917,
+      0.48426580339884384
+    ],
+    "concentration200_vs_density200_spearman": 0.8982781998196074,
+    "concentration200_vs_indegree200_spearman": 0.7495477167405612,
+    "silhouette200_quantiles": [
+      0.01368037127510454,
+      0.05061681226225046,
+      0.08555951120286326,
+      0.13006967314698173,
+      0.3540600401548105
+    ],
+    "loss_gain200_quantiles": [
+      0.0067906188778579235,
+      0.04103030078113079,
+      0.06838316097855568,
+      0.10084924474358559,
+      0.244386687874794
+    ]
+  },
+  "word_order_sha256": "4460910667aef949e8ebec556c4521eeab86c3c145c4c862b8166c276fc9da42"
+}

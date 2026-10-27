@@ -1,5 +1,6 @@
-import data from './phrase-evidence-data.mjs?v=golf-v185';
-import {lexicalRelation} from './lexical-relations.mjs?v=golf-v185';
+import {wordnetPairEvidence} from './wordnet-evidence.mjs?v=golf-v187';
+import data from './phrase-evidence-data.mjs?v=golf-v187';
+import {lexicalRelation} from './lexical-relations.mjs?v=golf-v187';
 const wordIds=new Map(data.words.map((w,i)=>[w,i]));
 function lookup(a,b){
  const left=wordIds.get(a),right=wordIds.get(b);if(left===undefined||right===undefined)return [];
@@ -10,6 +11,6 @@ function lookup(a,b){
 export const phraseCoverage=data.coverage;
 export function pairEvidence(a,b){
  const key=[a,b].sort().join('\0'),matches=(lookup(a,b)).map(([kind,label,url])=>({type:kind==='synonym'?'dictionary-supported semantic relationship':kind==='wiktionary-compound'?'compound':'dictionary multiword term',label,source:kind.startsWith('wiktionary')?'English Wiktionary':'Princeton WordNet 3.0',url:url??(kind==='synonym'?'https://wordnet.princeton.edu/':'https://wordnet.princeton.edu/'),synset:kind==='synonym'?label:null,kind}));
- const morphology=lexicalRelation(a,b);
+ const base=wordnetPairEvidence(a,b);matches.unshift(...base.matches);const morphology=base.morphology;
  return {matches,morphology,phrase_matches:matches.filter(m=>m.kind!=='synonym'),dictionary_semantic:matches.filter(m=>m.kind==='synonym'),wiktionary_pair_queried:(data.coverage.wiktionary?.queried_pairs??[]).some(p=>p.join('\0')===key),frequency:null,pmi:null,npmi:null,uncertainty:matches.length?'Dictionary evidence is attested, but intended sense is not determined.':'No match in this limited source coverage; this is not proof no expression exists.'};
 }
