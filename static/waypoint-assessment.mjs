@@ -1,4 +1,4 @@
-import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=golf-v182';
+import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=golf-v183';
 export const WAYPOINT_PAR_VERSION='waypoint-par-v1';
 const caches=new WeakMap();
 function similarityRow(e,word){

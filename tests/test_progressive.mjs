@@ -17,7 +17,7 @@ globalThis.fetch=async(url,options={})=>{
   if(unsupported)return new Response(null,{status:200});
   const [,a,b]=options.headers.Range.match(/bytes=(\d+)-(\d+)/);return new Response(raw.subarray(+a,+b+1),{status:206,headers:{'Content-Range':`bytes ${a}-${b}/${raw.length}`}});
  }
- return new Response(corrupt&&file===manifest.seed.file?new Uint8Array([1,2]):read(file));
+ return new Response(corrupt&&[manifest.seed.file,manifest.seed.raw_file].includes(file)?new Uint8Array([1,2]):read(file));
 };
 try{
  const loader=await progressiveModel(config,words,decodeHalf);

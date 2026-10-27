@@ -12,8 +12,8 @@ export async function progressiveModel(config,words,decode,onProgress=()=>{}) {
  try{cache=await caches.open('word-golf-progressive-v1');}catch{}
  const report=()=>onProgress({loaded:count,total:words.length,complete:count===words.length});
  function install(row,values){vectors.set(values,row*config.dimensions);if(!ready[row]){ready[row]=1;count++;}}
- async function verified(response,bytes,sha,gzip=false){
-  if(!response.ok)throw Error('Word data could not load. Try again.');
+ async function verified(response,bytes,sha,gzip=false,source=''){
+  if(!response.ok)throw Error(`Word data could not load (HTTP ${response.status}${source?'; '+source:''}). Try again.`);
   let buffer;try{buffer=await (gzip?new Response(response.body.pipeThrough(new DecompressionStream('gzip'))):response).arrayBuffer();}catch{throw Error('Word data is damaged or incomplete. Try again.');}
   if(buffer.byteLength!==bytes)throw Error('Incomplete word data. Try again.');
   if(sha&&globalThis.crypto?.subtle){const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',buffer)),b=>b.toString(16).padStart(2,'0')).join('');if(hash!==sha)throw Error('Word data is damaged. Try again.');}
@@ -22,12 +22,35 @@ export async function progressiveModel(config,words,decode,onProgress=()=>{}) {
  function packLoad(pack){
   if(pack.rows.every(row=>ready[row]))return Promise.resolve();
   if(!jobs.has(pack.file))jobs.set(pack.file,(async()=>{
-   const address=url(typeof DecompressionStream==='function'?pack.file:pack.raw_file);
-   let response=await cache?.match(address),cached=!!response;
-   response??=await fetch(address,{cache:'force-cache'});const copy=response.clone();
-   let values;try{values=await verified(response,pack.bytes,pack.sha256,address.pathname.endsWith('.gz'));}catch(error){await cache?.delete(address);throw error;}
-   for(let i=0;i<pack.rows.length;i++)install(pack.rows[i],values.subarray(i*config.dimensions,(i+1)*config.dimensions));
-   if(!cached)try{await cache?.put(address,copy);}catch{}report();
+   const preferred=typeof DecompressionStream==='function'?pack.file:pack.raw_file;
+   const files=[...new Set([preferred,pack.raw_file])];let lastError;
+   async function accept(response,file,cached){
+    const address=url(file),copy=cached?null:response.clone();
+    try{
+     const values=await verified(response,pack.bytes,pack.sha256,file.endsWith('.gz'),file);
+     for(let i=0;i<pack.rows.length;i++)install(pack.rows[i],values.subarray(i*config.dimensions,(i+1)*config.dimensions));
+     if(copy)try{await cache?.put(address,copy);}catch{}
+     report();return true;
+    }catch(error){
+     lastError=error;
+     try{await cache?.delete(address);}catch{}
+     // A cloned response tees its stream: awaiting one branch's cancellation
+     // before cancelling the other can deadlock. Release both without blocking.
+     for(const body of [response.body,copy?.body])try{body?.cancel()?.catch(()=>{});}catch{}
+     return false;
+    }
+   }
+   // Reuse a verified raw fallback offline too. Cache-storage failures must not
+   // prevent a network repair, and no rows are installed before verification.
+   for(const file of files){let response;try{response=await cache?.match(url(file));}catch{}
+    if(response&&await accept(response,file,true))return;
+   }
+   const attempts=[[preferred,'force-cache'],[preferred,'reload'],...(preferred!==pack.raw_file?[[pack.raw_file,'reload']]:[])];
+   for(const [file,mode] of attempts){
+    try{if(await accept(await fetch(url(file),{cache:mode}),file,false))return;}
+    catch(error){lastError=error;}
+   }
+   throw lastError??Error('Word data could not load. Try again.');
   })().finally(()=>jobs.delete(pack.file)));
   return jobs.get(pack.file);
  }

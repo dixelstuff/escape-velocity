@@ -1,12 +1,12 @@
-import {familyVariants} from './word-families.mjs?v=golf-v182';
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v182';
-import {progressiveModel} from './progressive-model.mjs?v=golf-v182';
-import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v182';
-import { chipRange } from './chip-range.mjs?v=golf-v182';
-import { endpointHubs } from './hub-warning.mjs?v=golf-v182';
-import {withWordModel} from './word-model.mjs?v=golf-v182';
-import {localScalingModel} from './local-scaling.mjs?v=golf-v182';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v182';
+import {familyVariants} from './word-families.mjs?v=golf-v183';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v183';
+import {progressiveModel} from './progressive-model.mjs?v=golf-v183';
+import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v183';
+import { chipRange } from './chip-range.mjs?v=golf-v183';
+import { endpointHubs } from './hub-warning.mjs?v=golf-v183';
+import {withWordModel} from './word-model.mjs?v=golf-v183';
+import {localScalingModel} from './local-scaling.mjs?v=golf-v183';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v183';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -339,14 +339,14 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v182')).assessWaypointHole(model,body);
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v182')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=golf-v182')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v182')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v182')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v182')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v183')).assessWaypointHole(model,body);
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v183')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=golf-v183')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v183')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v183')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=golf-v183')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v182',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=golf-v183',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -359,7 +359,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v182')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v183')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);
