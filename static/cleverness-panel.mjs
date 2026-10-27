@@ -1,5 +1,5 @@
 /** Read-only result explanations; no keyboard, scroll or shot controls. */
-import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v181';
+import {clevernessKey,CLEVERNESS_VERSION} from './cleverness-key.mjs?v=golf-v182';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const word=w=>esc(w.toUpperCase()),route=xs=>xs.map(word).join(' → '),n=x=>Number.isFinite(x)?x.toFixed(3):'—',pct=x=>Number.isFinite(x)?(100*x).toFixed(1)+'%':'—';
 const shotText=s=>s?.error?esc(s.error):s?`${s.success?'Playable':'Not playable'}; contact ${n(s.launch)}, required ${n(s.required)}, hit margin ${n(s.hit_margin)}${s.connected===true&&s.safe===false?' (backwards restriction)':''}${s.scoring_word&&s.scoring_word!==s.word?`; credited ${word(s.scoring_word)}`:''}.`:'No recorded manual comparison.';
@@ -19,17 +19,17 @@ function detailsMarkup(r){
 }
 export function mountClevernessPanel(node,{request,modelHash=()=>'',download=report=>{const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)+'\n'],{type:'application/json'}));a.href=url;a.download='word-golf-cleverness-v2.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}){
  const cache=new Map(),pending=new Set();let active=null,source=null,activeReport=null;
- node.innerHTML='<h3 class="scorecard-label">CLEVERNESS ANALYSIS v2</h3><p class="clever-source"></p><dl class="clever-findings"></dl><p class="clever-status" role="status" aria-live="polite"></p><details class="clever-inspector" hidden><summary>Inspect words & evidence</summary><div class="clever-content"></div></details><button type="button" class="clever-retry" hidden>RETRY ANALYSIS</button>';
+ node.innerHTML='<h3 class="scorecard-label">CLEVERNESS ANALYSIS v2</h3><p class="clever-source"></p><dl class="clever-findings"></dl><p class="clever-status" role="status" aria-live="polite"></p><details class="clever-inspector" hidden><summary>Inspect words & evidence</summary><div class="clever-content"></div></details><button type="button" class="clever-retry" hidden>RETRY ANALYSIS</button><details class="clever-error" hidden><summary>Error details</summary><p class="clever-error-message"></p></details>';
  const $=s=>node.querySelector(s),inspector=$('.clever-inspector');
- function draw(r,key){if(key!==active)return;activeReport=r;$('.clever-findings').innerHTML=clevernessFindings(r);$('.clever-status').textContent='Experimental diagnostics, not a player rating.';$('.clever-retry').hidden=true;$('.clever-content').innerHTML=detailsMarkup(r);inspector.hidden=false;}
+ function draw(r,key){if(key!==active)return;activeReport=r;$('.clever-findings').innerHTML=clevernessFindings(r);$('.clever-status').textContent='Experimental diagnostics, not a player rating.';$('.clever-retry').hidden=true;$('.clever-error').hidden=true;$('.clever-content').innerHTML=detailsMarkup(r);inspector.hidden=false;}
  function load(saved,key){
-  if(pending.has(key))return;pending.add(key);$('.clever-status').textContent='Checking the completed route and local bypasses…';
-  Promise.resolve().then(()=>request(saved)).then(r=>{if(r.version!==CLEVERNESS_VERSION||r.key!==clevernessKey(saved))throw Error('Route mismatch');r={...r,model_sha:modelHash(saved)};if(cache.size>=24)cache.delete(cache.keys().next().value);cache.set(key,r);draw(r,key);}).catch(()=>{if(key===active){$('.clever-status').textContent='Analysis unavailable; gameplay is unaffected.';$('.clever-retry').hidden=false;}}).finally(()=>pending.delete(key));
+  if(pending.has(key))return;pending.add(key);const expectedKey=clevernessKey(saved),snapshot=structuredClone(saved);let phase='Loading or calculating analysis';$('.clever-error').hidden=true;$('.clever-status').textContent='Checking the completed route and local bypasses…';
+  Promise.resolve().then(()=>request(snapshot)).then(r=>{phase='Checking analysis identity';if(r.version!==CLEVERNESS_VERSION)throw Error('Analysis files are from different versions. Refresh the page and retry.');if(r.key!==expectedKey)throw Error('The completed route changed while analysis was running. Retry analysis.');r={...r,model_sha:modelHash(saved)};if(cache.size>=24)cache.delete(cache.keys().next().value);phase='Displaying analysis';draw(r,key);cache.set(key,r);}).catch(error=>{if(key===active){$('.clever-status').textContent='Analysis unavailable. Retry or open error details.';$('.clever-retry').hidden=false;$('.clever-error-message').textContent=phase+': '+(error?.message||'The analysis failed without an error description.');$('.clever-error').hidden=false;}}).finally(()=>pending.delete(key));
  }
  function show(saved,{visible=true,caption='This completed route'}={}){
   if(!visible||!saved?.won){active=null;activeReport=null;node.hidden=true;return;}
-  node.hidden=false;source=saved;$('.clever-source').textContent=caption;const key=JSON.stringify([modelHash(saved),clevernessKey(saved)]);if(key===active)return;active=key;activeReport=null;inspector.open=false;inspector.hidden=true;$('.clever-findings').innerHTML='';$('.clever-retry').hidden=true;
-  if(cache.has(key))draw(cache.get(key),key);else load(saved,key);
+  node.hidden=false;source=structuredClone(saved);$('.clever-source').textContent=caption;const key=JSON.stringify([modelHash(source),clevernessKey(source)]);if(key===active)return;active=key;activeReport=null;inspector.open=false;inspector.hidden=true;$('.clever-findings').innerHTML='';$('.clever-retry').hidden=true;
+  if(cache.has(key))draw(cache.get(key),key);else load(source,key);
  }
  node.addEventListener('click',event=>{if(event.target.closest('.clever-download')&&activeReport)download(activeReport);if(event.target.closest('.clever-retry')&&active)load(source,active);});return {show};
 }
