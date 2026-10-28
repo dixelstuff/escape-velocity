@@ -52,3 +52,12 @@ Clear play history now starts a new research/export batch and retains player sta
 Ghosts and live word positions import the same versioned waypoint mapper. Dogleg membership derives from leg destination/threshold independently of contact success, with legacy-stage inference. Decorative lateral placement is keyed by word rather than shot number. Retry branch changes and changed ground anchors do not animate from old label boxes; temporary text used for measurement is invisible.
 
 Regression coverage includes actual byte-limited local storage, atomic async archive failures and metadata rollback, failed-save/reset recovery, retained bests across restart, current-only export, stale tabs, and identical intended positions for missed/successful PATHOLOGY approaches in both map directions and viewport widths. Real user history is not reset by browser verification.
+
+
+## Remaining text flash / tiny keyboard shrink
+
+SVG label bodies now receive their previous pose synchronously before WAAPI is installed, with `fill: both` holding the first/last frame. Completion, cancellation and unsupported-animation fallbacks restore the underlying transform. Existing scene/ground-anchor guards and collision layout are unchanged.
+
+The keyboard fit can spend up to six pixels of its existing 19px map/input gap before shrinking the course. It only does this for a shortfall within that budget, preserving the minimum 13px gap. Genuine small viewports retain existing uniform map scaling. Each measurement uses the base gap, avoiding oscillation after a prior adjustment. Focus/blur, keyboard detection, navigation and scroll coordination are unchanged.
+
+The real CSS in an isolated 390px-wide browser fixture measured 354.00 × 218.23px in both resting and active layouts with a two-pixel height shortfall (gap changed 19→17px). Unit and integrated fit tests cover fractional shortages, crowded maps, repeated callbacks and animation lifecycle. This is a software-keyboard simulation, not physical iPhone verification.

@@ -23,3 +23,15 @@ export function keyboardLayoutVisible(focused,viewport,restingHeight){
 export function keyboardRestingHeight(viewport,fallbackHeight){
  return Number.isFinite(viewport?.height)&&viewport.height>0?viewport.height:fallbackHeight;
 }
+
+/** Spend a few pixels of the map/input gap before scaling the whole course.
+ * The available height is always measured against the base gap, so repeated
+ * visual-viewport frames cannot oscillate between a reduced gap and map width.
+ */
+export function typingCourseFit(maxWidth,availableHeight,viewWidth,viewHeight,gap=19,minimumGap=13,border=2){
+ if(!(maxWidth>0&&viewWidth>0&&viewHeight>0))return {width:0,gap};
+ const fullHeight=(maxWidth-border)*viewHeight/viewWidth+border;
+ const shortage=Math.max(0,fullHeight-availableHeight),budget=Math.max(0,gap-minimumGap);
+ if(shortage<=budget)return {width:maxWidth,gap:gap-shortage};
+ return {width:typingCourseWidth(maxWidth,availableHeight,viewWidth,viewHeight,border),gap};
+}

@@ -88,3 +88,23 @@ console.log('Course-card navigation passed: one smooth scroll with input locked 
  assert.equal(locks.at(-1),false);assert.equal(classes.size,0);assert.ok(fades.every(fade=>fade.animation.cancelled),'remove finished animation effects');
 }
 console.log('Course-card transition passed: fade out, replace hole, fade in, then enable input.');
+
+const {typingCourseFit}=await import('../static/typing-layout.mjs');
+for(const width of [284,324,354,394])for(const view of [[640,430],[700,430],[700,460]]){
+ const natural=(width-2)*view[1]/view[0]+2;
+ for(const missing of [0,.25,1,2,4,6]){const fit=typingCourseFit(width,natural-missing,...view);assert.equal(fit.width,width,'tiny shortfall must not shrink the mobile map');assert.ok(Math.abs(fit.gap-(19-missing))<1e-9);assert.ok(fit.gap>=13);assert.deepEqual(typingCourseFit(width,natural-missing,...view),fit,'repeat fit is deterministic');}
+ const short=typingCourseFit(width,natural-30,...view);assert.ok(short.width<width,'genuinely short screens still fit');assert.equal(short.gap,19);
+}
+assert.deepEqual(typingCourseFit(0,200,640,430),{width:0,gap:19});
+console.log('Tiny keyboard shortfalls preserve exact map width by spending at most 6px of input gap; small screens retain uniform scaling and repeated fits do not oscillate.');
+
+{
+ const styles=new Map(),input={},main={clientHeight:0,clientWidth:390},mission={getBoundingClientRect:()=>({height:34})},controls={getBoundingClientRect:()=>({height:78})},feedback={getBoundingClientRect:()=>({height:0})};
+ const natural=(354-2)*430/700+2,overhead=10+4+34+8+78+19;main.clientHeight=natural-2+overhead;
+ const css=node=>node===main?{paddingTop:'10',paddingBottom:'4',paddingLeft:'18',paddingRight:'18'}:node===mission?{marginTop:'0',marginBottom:'8'}:{marginTop:String(styles.get('--typing-controls-gap')??19),marginBottom:'0',getPropertyValue:()=> '19'};
+ const nodes={word:input,map:{viewBox:{baseVal:{width:700,height:430}}}};
+ const context={desktopInteraction:()=>false,keyboardLayoutVisible,stableTypingViewport,typingCourseFit,typingRestHeight:844,typingMaxWidth:354,innerHeight:844,window:{visualViewport:{height:main.clientHeight,offsetTop:0,scale:1}},document:{activeElement:input,body:{classList:{add(){},contains:()=>false}},documentElement:{style:{setProperty:(key,value)=>styles.set(key,value)}},querySelector:key=>({'main':main,'.mission':mission,'.controls':controls,'.course-feedback':feedback}[key])},$:id=>nodes[id],getComputedStyle:css,requestAnimationFrame(){},syncControlTrees(){},leaveWordEntry(){throw Error('keyboard must stay engaged');}};
+ const code=app.slice(app.indexOf('function applyTypingView(){'),app.indexOf("$('launch').addEventListener('pointerdown'"));
+ runInNewContext(code,context);context.applyTypingView();assert.equal(styles.get('--typing-course-width'),'354px');assert.ok(Math.abs(parseFloat(styles.get('--typing-controls-gap'))-17)<1e-9);const first=[...styles];context.applyTypingView();assert.deepEqual([...styles],first,'real fit must measure the base gap rather than its previous adjustment');
+}
+console.log('Integrated mobile fit passed: exact resting width, input gap absorbs two-pixel shortage, repeated visual-viewport callbacks stay stable, and the existing keyboard guard remains active.');

@@ -1,3 +1,4 @@
+import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
@@ -19,7 +20,7 @@ import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
 import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=stable-lies-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
-import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=golf-v189';
+import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=stable-frame-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
@@ -343,7 +344,7 @@ function moveWordLabels(previous){
   const next=labelLayout.get(label.dataset.lieKey);if(old.anchor&&next&&(Math.abs(old.anchor.anchorX-next.anchorX)>.25||Math.abs(old.anchor.anchorY-next.anchorY)>.25))continue;
   const dx=old.x-Number(rect.getAttribute('x')),dy=old.y-Number(rect.getAttribute('y'));
   if(Math.hypot(dx,dy)<.25)continue;
-  body.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0px,0px)'}],{duration:360,easing:'cubic-bezier(.2,.8,.2,1)'});
+  void animateLabelBody(body,dx,dy);
   const connector=label.querySelector('path');if(!connector||!old.path)continue;
   const motion=document.createElementNS('http://www.w3.org/2000/svg','animate');
   for(const [key,value] of Object.entries({attributeName:'d',from:old.path,to:connector.getAttribute('d'),dur:'.36s',begin:'indefinite',calcMode:'spline',keyTimes:'0;1',keySplines:'.2 .8 .2 1'}))motion.setAttribute(key,value);
@@ -1331,9 +1332,12 @@ function applyTypingView(){
  document.documentElement.style.setProperty('--typing-top',`${frame.top}px`);
  const main=document.querySelector('main'),mission=document.querySelector('.mission'),controls=document.querySelector('.controls');
  const ms=getComputedStyle(main),hs=getComputedStyle(mission),cs=getComputedStyle(controls),px=v=>parseFloat(v)||0;
- const available=main.clientHeight-px(ms.paddingTop)-px(ms.paddingBottom)-mission.getBoundingClientRect().height-px(hs.marginTop)-px(hs.marginBottom)-controls.getBoundingClientRect().height-px(cs.marginTop)-px(cs.marginBottom)-document.querySelector('.course-feedback').getBoundingClientRect().height;
+ const baseGap=px(cs.getPropertyValue('--typing-controls-gap-base'))||px(cs.marginTop);
+ const available=main.clientHeight-px(ms.paddingTop)-px(ms.paddingBottom)-mission.getBoundingClientRect().height-px(hs.marginTop)-px(hs.marginBottom)-controls.getBoundingClientRect().height-baseGap-px(cs.marginBottom)-document.querySelector('.course-feedback').getBoundingClientRect().height;
  const box=$('map').viewBox.baseVal,limit=Math.min(typingMaxWidth,main.clientWidth-px(ms.paddingLeft)-px(ms.paddingRight));
- document.documentElement.style.setProperty('--typing-course-width',`${typingCourseWidth(limit,available,box.width,box.height)}px`);
+ const fit=typingCourseFit(limit,available,box.width,box.height,baseGap);
+ document.documentElement.style.setProperty('--typing-course-width',`${fit.width}px`);
+ document.documentElement.style.setProperty('--typing-controls-gap',`${fit.gap}px`);
  requestAnimationFrame(syncControlTrees);
 }
 $('launch').addEventListener('pointerdown',event=>{
@@ -1364,6 +1368,7 @@ $('word').addEventListener('focus',()=>{
  entryDiagnosticUntil=performance.now()+1200;recordEntryDiagnostic('focus');
  if(narrow())setHoleLog(false);
  if(!document.body.classList.contains('typing')){
+  document.documentElement.style.removeProperty('--typing-controls-gap');
   typingScroll=window.scrollY;typingMaxWidth=document.querySelector('.map-card').getBoundingClientRect().width;
   typingRestHeight=keyboardRestingHeight(window.visualViewport,innerHeight);
   document.documentElement.style.setProperty('--typing-course-width',`${typingMaxWidth}px`);

@@ -995,3 +995,7 @@ body.personal-daily .hole-tools{width:26px;height:27px;}
 .personal-distribution .result-cleverness{font-size:16px;text-align:right;color:#31553a;}
 .personal-distribution .result-cleverness span{font-size:9px;margin:2px 0 0;color:#71846a;}
 @media(max-width:650px){.personal-distribution>button{grid-template-columns:85px minmax(0,1fr) 22px 63px;gap:7px;}}
+
+/* Preserve the resting course scale when only a few pixels of keyboard room
+   are missing; the fit may spend up to 6px of this input gap first. */
+@media(max-width:650px){body.typing .controls{--typing-controls-gap-base:19px;margin-top:var(--typing-controls-gap,19px);}}
