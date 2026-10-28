@@ -8,7 +8,7 @@ const data=new Map([['escape-velocity.flight-log.v1','untouched legacy data']]),
 let today='2026-10-28';const game=new DailyGame(storage,dailyManifest,{today:()=>today,now});
 assert.ok(dailyManifest.holes.length>=100);assert.equal(new Set(dailyManifest.holes.map(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target].join('|'))).size,dailyManifest.holes.length);
 for(const [i,h]of dailyManifest.holes.entries()){assert.equal(h.date,addDay(dailyManifest.epoch,i));assert.equal(h.settings.par,5);assert.ok(h.settings.waypoint);assert.deepEqual(h.settings.golden_paths,[]);assert.equal(h.settings.continuous_play,true);}
-assert.equal(game.latest().date,today);assert.equal(dayUTC(new Date('2026-10-29T00:30:00+11:00')),'2026-10-28');assert.throws(()=>game.visit('2026-10-29'));
+assert.equal(game.latest().date,today);assert.equal(dayUTC(new Date('2026-10-29T00:30:00+11:00')),'2026-10-28');assert.equal(game.available().filter(h=>h.date>today).length,50);assert.equal(game.definition(addDay(today,50)).date,addDay(today,50));assert.equal(game.definition(addDay(today,51)),undefined);
 const def=game.visit(today),challenge=successSettings({version:STROKE_PLAY,par:5,attempt:1000,id:def.id,unlimited:true});assert.equal(challenge.unlimited,true);assert.equal(challengeAttemptLimit(challenge),Infinity);
 assert.equal(exhausted({challenge,won:true}),false);assert.equal(retryPrefix({challenge,history:[]},0,1001).challenge.attempt,1001);
 assert.equal(parUnreachable({challenge,won:false,continuous_play:true,history:Array.from({length:50},()=>({outcome:'landed'}))}),false);
@@ -31,3 +31,10 @@ log.begin(long.state,'Current');log.record('flag',long.state,{success:true,won:t
 assert.equal(log.active.scored_strokes,12);assert.equal(log.active.maximum_strokes,null);assert.equal(log.active.attempt_limit,null);assert.equal(log.active.score_to_par,7);
 const failed=structuredClone(long.state);failed.won=false;failed.challenge_failed=true;log.record('miss',failed,{outcome:'miss',success:false});assert.equal(log.active.scored_strokes,null);
 console.log('Personal export records actual strokes beyond seven; failed/unfinished attempts receive no default score.');
+
+const own=game.addCustom({...def.settings,start:'rabbit',waypoint:{...def.settings.waypoint,word:'computing'},target:'bakery'});
+assert.equal(game.addCustom(own.settings).id,own.id);assert.equal(game.data.customHoles.length,1);game.visit(own.date);
+const ownJourney=journey('own',4,82);ownJourney.state.challenge={...challenge,id:own.id};ownJourney.state.start='rabbit';ownJourney.state.waypoint=own.settings.waypoint;ownJourney.state.final_target='bakery';game.record(ownJourney);
+assert.equal(game.current().bestStrokes.strokes,4);assert.equal(game.current().bestCleverness.score,82);
+const customReload=new DailyGame(storage,dailyManifest,{today:()=>today,now});assert.equal(customReload.selected().id,own.id);assert.equal(customReload.current().bestStrokes.strokes,4);
+console.log('Future 50-day access and saved custom-hole bests survive refresh.');

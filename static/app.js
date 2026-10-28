@@ -1,6 +1,6 @@
-import {DailyGame,golfResult} from './daily-game.mjs?v=personal-daily-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=personal-daily-v3';
 import {dailyManifest} from './daily-manifest.mjs?v=personal-daily-v1';
-import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=personal-daily-v1';
+import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=personal-daily-v3';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=personal-daily-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=onestroke-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -268,7 +268,7 @@ async function openDaily(day){
   finally{lock(false);$('launch').disabled=!!(state?.won||state?.challenge_failed);}
  }else if(!await newGame({...def.settings,challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})){daily.data.selected=previousDay;daily.save();dailyUI?.render();}
 }
-function adjacentDaily(offset){const all=daily.published(),i=all.findIndex(h=>h.id===daily.selected()?.id);return all[i+offset];}
+function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.id===daily.selected()?.id);return all[i+offset];}
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
@@ -1133,7 +1133,7 @@ function previewHole(){
  const start=$('custom-start').value.trim().toLowerCase(),target=$('custom-target').value.trim().toLowerCase(),waypoint=$('custom-waypoint').value.trim().toLowerCase();
  const warning=$('custom-hub-warning');warning.textContent='';warning.hidden=true;
  if(client)api('breadth',{start,target}).then(endpoints=>{if(sequence!==assessmentSequence)return;warning.textContent=hubWarningText(endpoints);warning.hidden=!endpoints.length;});
- $('custom-assessment').dataset.valid='pending';customParEstimate=null;$('custom-par-control').hidden=!waypoint;$('custom-par').value='auto';$('custom-par').querySelector('[value="auto"]').textContent='Suggested par';$('custom-par-details').textContent='';document.querySelector('#custom-form button').disabled=false;
+ $('custom-assessment').dataset.valid='pending';customParEstimate=null;$('custom-par-control').hidden=simpleDaily||!waypoint;$('custom-par').value='auto';$('custom-par').querySelector('[value="auto"]').textContent='Suggested par';$('custom-par-details').textContent='';document.querySelector('#custom-form button').disabled=false;
  customBridgeResult=null;$('custom-bridges').hidden=true;$('custom-bridges').open=false;$('custom-bridge-list').textContent='';
  if(!start||!target||!client){$('custom-assessment').textContent='';return;}
  $('custom-assessment').textContent='Assessing these words…';
@@ -1144,6 +1144,7 @@ function previewHole(){
     const settings=customWaypointSettings(start,waypoint,target),validation=await api('waypoint-access',settings);
     if(sequence!==assessmentSequence)return;
     if(!validation.allowed){$('custom-assessment').dataset.valid='false';$('custom-assessment').textContent=`Not allowed. ${validation.message} Choose a less directly connected pair.`;document.querySelector('#custom-form button').disabled=true;return;}
+    if(simpleDaily){$('custom-assessment').dataset.valid='true';$('custom-assessment').textContent='Par 5 · Unlimited play';return;}
     $('custom-assessment').textContent='Checking routes for a suggested par…';
     const result=await assessWaypoint(settings);if(sequence!==assessmentSequence)return;
     customParEstimate=result;$('custom-assessment').dataset.valid='true';renderCustomPar();return;
@@ -1163,6 +1164,15 @@ $('custom-form').onsubmit=async event=>{
  $('custom-start').blur();$('custom-waypoint').blur();$('custom-target').blur();$('custom-feedback').textContent='';creatingCustom=true;
  const button=document.querySelector('#custom-form button');button.disabled=true;
  try{
+  if(simpleDaily){
+   if(!middle)throw Error('Choose a dogleg word too.');
+   if(new Set([start,middle,target]).size!==3)throw Error('Choose three different words.');
+   const settings=customWaypointSettings(start,middle,target),validation=await api('waypoint-access',settings);
+   if(key!==customWordsKey())return;
+   if(!validation.allowed)throw Error(validation.message);
+   const def=daily.addCustom(settings);await navigateDaily(def.date);
+   $('custom-feedback').textContent='Your Par 5 hole is saved and ready to play.';return;
+  }
   let settings;
   if(middle){
    settings=customWaypointSettings(start,middle,target);
@@ -1223,6 +1233,7 @@ if(simpleDaily){
  try{
   lock(true);$('status').textContent='Preparing the hole…';
   client=await createBrowserClient({onProgress:p=>{const note=$('word-loading-note');note.hidden=p.complete;note.textContent=p.error?'Some words are still loading.':'More words are loading in the background…';}});config=client.config;lock(false);
+  $('personal-create-hole').append($('create-journey'));$('custom-waypoint').required=true;$('custom-waypoint').parentElement.firstChild.textContent='Dogleg word';$('create-journey').querySelector('p').textContent='Choose three words for a Par 5 hole. Your holes are saved on this device.';
   dailyUI=mountDailyUI(daily,{onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);

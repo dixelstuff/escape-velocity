@@ -1,6 +1,6 @@
 # Personal daily Word Golf
 
-The default app is one daily waypoint hole, always Par 5, with an archive navigated by previous/next. New holes publish at 00:00 UTC; future dates are unavailable. There is no submission, league, score lock, practice distinction, scoring-attempt budget or stroke ceiling.
+The default app is one daily waypoint hole, always Par 5, with an archive navigated by previous/next. New holes publish at 00:00 UTC; the next 50 scheduled dates are also available for advance playtesting. Previous/next navigation and the “Choose or create a hole” picker include these previews. There is no submission, league, score lock, practice distinction, scoring-attempt budget or stroke ceiling.
 
 The existing distance/contact/waypoint rules, misses ending attempts, tap-to-retry behaviour, mobile keyboard handling and animations are retained. `continuous_play` permits long successful paths; the explicit `challenge.unlimited` marker survives engine construction, restoration and prefix retries. Automatic finishing strokes still count.
 
@@ -23,4 +23,8 @@ Historical experimental UI and course modes are retained behind `?lab` (e.g. `?l
 
 ## Verification
 
-`node tests/test_personal_daily.mjs` checks publication dates/future gating, independent records, unrounded comparisons, delayed reports, persistence, recent-nine retention, unlimited prefix retries and strokes, exact exports and once-per-hole stats. Existing band-free/one-stroke scoring, waypoint, tap, animation, log and typing-layout regression tests remain applicable. Desktop and 390px browser checks cover completing a hole, scoring, reload, archive navigation, reopening from the recent-nine card, personal routes, menu and help. Actual iPhone keyboard behaviour requires device testing; its existing handlers are unchanged.
+`node tests/test_personal_daily.mjs` checks publication dates/50-day preview boundaries, independent records, unrounded comparisons, delayed reports, persistence, recent-nine retention, unlimited prefix retries and strokes, exact exports and once-per-hole stats. Existing band-free/one-stroke scoring, waypoint, tap, animation, log and typing-layout regression tests remain applicable. Desktop and 390px browser checks cover completing a hole, scoring, reload, archive navigation, reopening from the recent-nine card, personal routes, menu and help. Actual iPhone keyboard behaviour requires device testing; its existing handlers are unchanged.
+
+## Custom holes
+
+“Choose or create a hole” below the playing area contains the scheduled-hole picker and a three-word hole form. Direct-leg validation is retained. Custom holes are always Par 5 with unlimited play and no golden shortcuts. Definitions and independent personal bests persist in the same local daily history; repeated creation of the same three words reopens the existing record. They appear in the picker and recent-nine card as “Your hole”. No live scoring formulas changed.

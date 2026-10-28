@@ -10,12 +10,14 @@ export class DailyGame{
   catch{this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today());}
- definition(day){return this.published().find(h=>h.date===day);}
+ available(){return this.manifest.holes.filter(h=>h.date<=addDay(this.today(),50)).concat(this.data.customHoles??[]);}
+ definition(day){return this.available().find(h=>h.date===day);}
+ addCustom(settings){const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
  latest(){return this.published().at(-1);}
  selected(){return this.definition(this.data.selected)??this.latest();}
  save(){try{if(!this.storage||this.unreadable)throw Error();this.storage.setItem(DAILY_KEY,JSON.stringify(this.data));this.warning='';}catch{this.warning='Progress could not be saved on this device. Export your play data before closing this page.';}}
  visit(day){const def=this.definition(day);if(!def)throw Error('That daily hole is not available.');this.data.selected=day;const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:def.settings.start,waypoint:def.settings.waypoint.word,flag:def.settings.target};h.lastPlayedAt=this.now();this.save();return def;}
- record(journey){const s=journey?.state,def=this.manifest.holes.find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
+ record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
   if(s.won){const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes)h.bestStrokes=candidate;
