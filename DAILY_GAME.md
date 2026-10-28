@@ -34,3 +34,13 @@ The current live scorer is `band-free-harmonic-v3-opportunity08-bonus2`: opportu
 ### Starting a fresh export batch
 
 Use **Export play data**, then **Reset play data**. Reset requires confirmation, clears personal bests, statistics and attempt history, and tees up the selected hole. Saved custom hole definitions and downloaded word files stay intact. A recovery copy is available through **Restore previous play data** until the next reset; recovery preserves any new play too. Normal exports contain only the current batch.
+
+### Simplified course interface
+
+The personal app has one `Word golf #…` heading, framed by previous/next carts. Its map control shows the current stroke count and opens How to play; the chip-range toggle is in that panel. A completed hole's personal-best routes remain available through `Your bests on this hole` while playing and the result card on completion.
+
+The recent card includes only the nine most recently completed holes. It also shows up to three best holes, ranked by ingenuity or strokes, with expandable best routes. The result distribution filters recent finishes. `Ingenuity` is the display name for the existing live cleverness calculation; neither the stored scorer identity nor its formula changed.
+
+Resets now use isolated storage batches. Existing data is read from the legacy keys until the first reset, then the app uses a fresh namespace. Stale tabs cannot write into that namespace, and even older releases writing legacy history cannot contaminate its exports. Tabs on the current release reload when another tab resets. A single previous batch remains recoverable.
+
+Semantic profile downloads and local neighbourhood caches are prepared for known route words during play in the assessment worker. Complete-route scoring starts during the final shot animation. Partial routes are never assigned or saved a score. Final reports reuse exactly the same scorer and evidence.

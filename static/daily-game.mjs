@@ -21,12 +21,17 @@ export class DailyGame{
  record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
-  if(s.won){const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes)h.bestStrokes=candidate;
+  if(s.won){h.completedAt=journey.updatedAt;const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes)h.bestStrokes=candidate;
    const report=journey.cleverness_playtest,score=report?.band_free;
    if(score?.version===BAND_FREE_VERSION&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
   }this.save();
  }
- recordReport(journey){const selected=this.data.selected,h=this.data.holes[journey?.state?.challenge?.id],latest=h?.journeyId,at=h?.lastPlayedAt,updated=h?.updatedAt;this.record(journey);if(h){h.journeyId=latest;h.lastPlayedAt=at;h.updatedAt=updated;}this.data.selected=selected;this.save();}
+ recordReport(journey){const selected=this.data.selected,h=this.data.holes[journey?.state?.challenge?.id],latest=h?.journeyId,at=h?.lastPlayedAt,updated=h?.updatedAt,completedAt=h?.completedAt;this.record(journey);if(h){h.journeyId=latest;h.lastPlayedAt=at;h.updatedAt=updated;h.completedAt=completedAt;}this.data.selected=selected;this.save();}
+ refreshCompletedAt(journeys){
+  let changed=false;
+  for(const h of Object.values(this.data.holes))if(h.bestStrokes&&!h.completedAt){const dates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id).map(j=>j.updatedAt).sort();if(dates.length){h.completedAt=dates.at(-1);changed=true;}}
+  if(changed)this.save();
+ }
  refreshClevernessBests(journeys){
   let changed=false;
   for(const h of Object.values(this.data.holes)){

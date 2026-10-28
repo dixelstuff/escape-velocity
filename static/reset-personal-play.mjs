@@ -4,6 +4,14 @@ export const DAILY_RESET_BACKUP_KEY='word-golf.personal-daily.reset-backup.v1';
  * The caller prepares a fresh engine state before touching saved history.
  */
 export function resetPersonalPlay(daily,log,state,model,modelSha){
+ if(daily.storage?.newBatch){
+  const before={daily:daily.data,log:log.data,backup:log.backup};
+  try{return daily.storage.newBatch(()=>resetBatch(daily,log,state,model,modelSha));}
+  catch(error){daily.data=before.daily;log.data=before.log;log.backup=before.backup;throw error;}
+ }
+ return resetBatch(daily,log,state,model,modelSha);
+}
+function resetBatch(daily,log,state,model,modelSha){
  const next={...daily.data,holes:{}};
  const previousRaw=daily.storage?.getItem(DAILY_KEY),previousBackup=daily.storage?.getItem(DAILY_RESET_BACKUP_KEY);
  if(!daily.storage||daily.unreadable)throw Error('Could not reset play data safely. Export your data first and check browser storage.');

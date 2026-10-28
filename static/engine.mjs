@@ -336,7 +336,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
   function restoreRetry(saved){const candidate=restoreGame(embeddings,saved);game=candidate;return {state:game.state()};}
   const pending=new Map();
   async function assess(body,operation='assess'){
-    if(operation==='cleverness-vector'&&typeof Worker==='undefined')throw Error('Vector scoring needs a browser worker; gameplay remains available.');
+    if(['cleverness-vector','cleverness-warm'].includes(operation)&&typeof Worker==='undefined')throw Error('Vector scoring needs a browser worker; gameplay remains available.');
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
@@ -349,7 +349,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
       return (await import('./assessment.mjs?v=golf-v189')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=opportunity08-bonus2-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=warm-analysis-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -363,7 +363,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
     if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v189')).reviewRoute(embeddings,body.state);}
-    if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector')return assess(body,path);
+    if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);
     if (path === 'new') {

@@ -22,6 +22,9 @@ jobs:
         run: |
           node tests/test_live_opportunity08.mjs
           node tests/test_one_stroke_bonus.mjs
+          node tests/test_personal_play_storage.mjs
+          node tests/test_personal_completed_ui.mjs
+          node tests/test_semantic_warm.mjs
           node tests/test_personal_reset.mjs
           node tests/test_personal_daily.mjs
           node tests/test_future_daily_proposals.mjs

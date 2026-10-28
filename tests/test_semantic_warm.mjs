@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';
+import {Embeddings,decodeHalf} from '../static/engine.mjs';import {SemanticProfileStore} from '../static/semantic-profile-store.mjs';import {VectorClevernessAnalyser} from '../static/vector-cleverness/index.mjs';
+const base=new URL('../static/model/',import.meta.url),read=f=>fs.readFileSync(new URL(f,base)),config=JSON.parse(read('config.json')),bytes=read(config.vector_fallback),e=new Embeddings(JSON.parse(read(config.words_file)),decodeHalf(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)),config.dimensions,new Uint8Array(read(config.hub_file)));
+const make=()=>new VectorClevernessAnalyser(e,{modelSha:config.vector_sha256,store:new SemanticProfileStore({modelSha:config.vector_sha256,base:new URL('../static/semantic-profiles/',import.meta.url),fetcher:async url=>new Response(fs.readFileSync(url))})});
+const a=make(),b=make(),f=JSON.parse(fs.readFileSync('tests/opportunity08-bonus2-fixtures.json')).fixtures.find(f=>f.id==='PLAY-C'),partial={...structuredClone(f.state),won:false,route:f.state.route.slice(0,-1)};
+const before=JSON.stringify(partial);await a.warm(partial);assert.equal(JSON.stringify(partial),before);assert.equal(a.cache.size,0,'warming must not score/save an incomplete route');for(const word of partial.route)assert.ok(a.v5.v4.neighbours.has(word));
+const transferred=a.v5.v4.store.loaded_bytes;await a.warm(partial);assert.equal(a.v5.v4.store.loaded_bytes,transferred);
+const warmed=await a.analyse(f.state),cold=await b.analyse(f.state);assert.deepEqual(warmed.band_free,cold.band_free);assert.deepEqual(warmed.components,cold.components);assert.equal(warmed.primary_score,92);
+console.log('Semantic warm passed: partial-route caches, no partial score or state changes, shard reuse, identical warm/cold live score.');

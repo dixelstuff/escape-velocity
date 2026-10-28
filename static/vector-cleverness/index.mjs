@@ -23,6 +23,12 @@ export async function scoreVectorInput(input,evidence,modelSha){
 }
 export class VectorClevernessAnalyser{
  constructor(e,options={}){this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}
+ async warm(state){
+  const words=[...new Set([state.start,...(state.route??[]),state.waypoint?.word,state.final_target??state.target].filter(w=>this.e.index.has(w)))];
+  const v4=this.v5.v4,profiles=await v4.store.forWords(this.e,words);
+  for(const word of words){v4.semantic.nearest(word);v4.local(word,profiles.get(word));await new Promise(resolve=>setTimeout(resolve,0));}
+  return {prepared:words.length};
+ }
  async analyse(state){const key=playtestKey(state,this.modelSha);if(this.cache.has(key))return this.cache.get(key);const task=(async()=>{
   if(!state.waypoint){replayCompleted(this.e,state);const diagnostics=await this.v5.analyse(state);return scoreVectorInput(evidenceFor(state,diagnostics,this.e),null,this.modelSha);}
   const {input,evidence}=await buildLiveEvidence(this.e,this.v5,state,async triples=>triples.map(triple=>({triple,distinct_senses_supported:false,uncertainty:[]})));return scoreVectorInput(input,evidence,this.modelSha);
