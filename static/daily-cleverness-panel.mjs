@@ -1,4 +1,4 @@
-import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=onestroke-v1';
+import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=onestroke-legs-v2';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountDailyCleverness(node,{request,modelHash,onReport,getSavedReport}){
  let active=null;const pending=new Map(),cache=new Map();

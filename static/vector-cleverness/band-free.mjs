@@ -4,7 +4,8 @@ export const BAND_FREE_VERSION='band-free-harmonic-v2-one-stroke';
 export const QUALITY_POWER=2/3;
 export function legFactor(strokes){
  if(!Number.isInteger(strokes)||strokes<1)throw Error('Actual positive integer leg strokes required.');
- return strokes<=2?1:strokes===3?5/6:.5*.65**(strokes-4);
+ // Retain the original six-plus-stroke decay; only the 3–5 stroke entries change.
+ return strokes<=2?1:strokes===3?.88:strokes===4?.66:strokes===5?.45:.5*.65**(strokes-4);
 }
 export function bandFreeScore(components,legStrokes){
  if(!Array.isArray(legStrokes)||!legStrokes.length||legStrokes.length>2)throw Error('One actual leg or two actual dogleg legs required.');

@@ -1,8 +1,8 @@
 import {DailyGame,golfResult} from './daily-game.mjs?v=personal-daily-v3';
 import {dailyManifest} from './daily-manifest.mjs?v=personal-daily-v1';
 import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=personal-daily-v3';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=personal-daily-v1';
-import {completedPlaytests} from './cleverness-playtest-data.mjs?v=onestroke-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=onestroke-legs-v2';
+import {completedPlaytests} from './cleverness-playtest-data.mjs?v=onestroke-legs-v2';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,holePanelHeight,resultContext} from './result-presentation.mjs?v=golf-v189';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
@@ -20,10 +20,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v189';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=personal-daily-v1';
+import { createBrowserClient } from './engine.mjs?v=onestroke-legs-v2';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=onestroke-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=onestroke-legs-v2';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v189';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
@@ -272,7 +272,7 @@ function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
-const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=onestroke-v1')).mountPlaytestPanel;
+const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=onestroke-legs-v2')).mountPlaytestPanel;
 const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(journey)daily.recordReport(journey);renderDailyBests();}}});
 const oldPanels=[];
 if(!simpleDaily){
