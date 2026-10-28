@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';
 import {typingCourseWidth} from '../static/typing-layout.mjs';import {courseStyle,pinPlacement,bunkerPoints,greenContains} from '../static/course-appearance.mjs';import {mapLayout} from '../static/map.mjs';import {waypointLayout,waypointLandscape,waypointBunkers,waypointLake} from '../static/waypoint-map.mjs';import {courseTrees,clearOfCartPath} from '../static/course-art.mjs';
 const css=fs.readFileSync('static/style.css','utf8'),html=fs.readFileSync('static/index.html','utf8');
-assert.ok(html.includes('<body class="personal-daily">'),'first paint uses final personal header');assert.ok(!html.includes('personal-hole-bests'),'no result link in entry area');assert.match(css,/margin:16px auto 12px/);assert.match(css,/personal-daily\.typing \.mission\{padding:0 2px;margin-top:0;margin-bottom:8px/);assert.match(css,/width:26px;height:27px/);
+assert.ok(html.includes('<body class="personal-daily">'),'first paint uses final personal header');assert.ok(!html.includes('personal-hole-bests'),'no result link in entry area');assert.match(css,/margin:16px auto 12px/);assert.match(css,/personal-daily \.mission,body\.personal-daily\.typing \.mission\{padding:0 2px;margin:0 auto 8px/);assert.match(css,/personal-daily main\{padding-top:10px/);assert.match(css,/margin-top:clamp\(32px,4vw,52px\)/);assert.match(css,/width:26px;height:27px/);
 assert.equal(typingCourseWidth(354,220,700,430),354);assert.ok(typingCourseWidth(354,220-32,700,430)<354,'the removed 32px header overhead caused a real shrink');
 const treeVariants=new Set(),sandVariants=new Set(),lakeVariants=new Set(),pathVariants=new Set(),rotations=[];
 for(const narrow of [true,false])for(let i=0;i<18;i++){

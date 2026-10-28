@@ -964,8 +964,8 @@ body.personal-daily .hole-tools .bag-toggle{width:26px;height:27px;border-radius
 .personal-stat-hint{font-size:11px;text-align:center;color:#87947c;}
 .personal-empty{font-size:13px;color:#7b8a74;padding:12px 0;}
 @media(max-width:650px){
- body.personal-daily .mission{padding:0 2px;margin-top:16px;margin-bottom:12px;}
- body.personal-daily.typing .mission{padding:0 2px;margin-top:0;margin-bottom:8px;}
+ body.personal-daily main{padding-top:10px;}
+ body.personal-daily .mission,body.personal-daily.typing .mission{padding:0 2px;margin:0 auto 8px;scroll-margin-top:10px;}
  .personal-card-heading{flex-wrap:wrap;gap:8px;}
  .personal-best-grid{grid-template-columns:1fr;gap:9px;}
  .personal-best-grid article{position:relative;padding:13px 14px 13px 45px;}
@@ -977,3 +977,5 @@ body.personal-daily .hole-tools .bag-toggle{width:26px;height:27px;border-radius
 .personal-card .finish-routes summary{cursor:pointer;font-size:10px;color:#7b8972;}
 .personal-card .finish-routes p{font-size:11px;line-height:1.5;color:#31553a;overflow-wrap:anywhere;}
 body.personal-daily .hole-tools{width:26px;height:27px;}
+
+@media(min-width:651px){body.personal-daily .mission{margin-top:clamp(32px,4vw,52px);}}

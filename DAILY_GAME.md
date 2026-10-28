@@ -39,7 +39,7 @@ Use **Export play data**, then **Reset play data**. Reset requires confirmation,
 
 The personal app has one `Word golf #…` heading, framed by previous/next carts. Its map control shows the current stroke count and opens How to play; the chip-range toggle is in that panel. A completed hole's personal-best routes remain available through `Your bests on this hole` while playing and the result card on completion.
 
-The recent card includes only the nine most recently completed holes. It also shows up to three best holes, ranked by ingenuity or strokes, with expandable best routes. The result distribution filters recent finishes. `Ingenuity` is the display name for the existing live cleverness calculation; neither the stored scorer identity nor its formula changed.
+The recent card includes only the nine most recently completed holes. It also shows up to three best holes, ranked by cleverness or strokes, with expandable best routes. The result distribution filters recent finishes. `Cleverness` is the display name for the existing live cleverness calculation; neither the stored scorer identity nor its formula changed.
 
 Resets now use isolated storage batches. Existing data is read from the legacy keys until the first reset, then the app uses a fresh namespace. Stale tabs cannot write into that namespace, and even older releases writing legacy history cannot contaminate its exports. Tabs on the current release reload when another tab resets. A single previous batch remains recoverable.
 
