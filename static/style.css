@@ -889,7 +889,7 @@ body.personal-daily .arrived #golf-bag-menu{top:48px;bottom:auto;}
 /* A centred, quiet hole number flanked by directional golf carts. */
 body.personal-daily .mission{display:grid;grid-template-columns:70px minmax(0,1fr) 70px;align-items:center;}
 body.personal-daily .mission .hole-navigation{display:contents;}
-body.personal-daily .mission h2{grid-column:2;grid-row:1;text-align:center;font-size:17px;font-weight:400;letter-spacing:.035em;color:#7b8a74;margin:0;}
+body.personal-daily .mission h2{grid-column:2;grid-row:1;text-align:center;font-size:18px;font-weight:400;letter-spacing:.035em;color:#7b8a74;margin:0;}
 body.personal-daily #hole-par,body.personal-daily #header-today{display:none!important;}
 body.personal-daily #header-prev-hole,body.personal-daily #header-next-hole{display:flex;align-items:center;justify-content:center;gap:4px;grid-row:1;background:transparent;border:0;box-shadow:none;color:#7b8a74;padding:4px 0;margin:0;min-height:32px;}
 body.personal-daily #header-prev-hole{grid-column:1;justify-self:start;}
@@ -898,7 +898,7 @@ body.personal-daily .hole-navigation .hole-cart{display:block;width:31px;height:
 body.personal-daily #header-prev-hole .hole-cart{transform:scaleX(-1);}
 body.personal-daily .hole-navigation .hole-nav-chevron{position:static;transform:none;font-size:21px;line-height:1;margin:0;}
 body.developer-mode .hole-cart{display:none;}
-@media(max-width:650px){body.personal-daily .mission h2{font-size:15px;}body.personal-daily .hole-navigation .hole-cart{width:28px;height:23px;}}
+@media(max-width:650px){body.personal-daily .mission h2{font-size:16px;}body.personal-daily .hole-navigation .hole-cart{width:28px;height:23px;}}
 body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole){display:flex;flex-direction:row;align-items:center;justify-content:center;width:52px;height:32px;min-height:32px;padding:0;margin:0;transform:none;}
 body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{flex:none;width:31px;height:25px;}
 body.personal-daily .mission #hole-number{font-weight:400;color:#7b8a74;}
@@ -909,5 +909,5 @@ body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next
 @media(max-width:650px){body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{width:32px;height:27px;}}
 
 body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole){width:64px;gap:5px;}
-body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-nav-arrow{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-nav-arrow{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 body.personal-daily #header-next-hole .hole-nav-arrow{transform:scaleX(-1);}
