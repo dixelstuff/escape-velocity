@@ -1,0 +1,3486 @@
+{
+  "source": "reports/clever-birdies-experiment/results.json; prespecified opp08-b2",
+  "modelSha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "fixtures": [
+    {
+      "id": "PLAY-A",
+      "state": {
+        "start": "feather",
+        "current": "ocean",
+        "target": "ocean",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.09047480071330938,
+        "progress": 0.9999596276684777,
+        "attempts": 4,
+        "route": [
+          "feather",
+          "quill",
+          "pen",
+          "fountain",
+          "ocean"
+        ],
+        "history": [
+          {
+            "word": "quill",
+            "origin": "feather",
+            "launch": 0.3567659464897588,
+            "destination": 0.12102498737931455,
+            "required": 0.13661445868141825,
+            "trip_fraction": 0.3467871556784854,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "writing",
+            "leg_baseline": 0.04458943417557748,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "pen",
+            "origin": "quill",
+            "launch": 0.41095009881973965,
+            "destination": 0.31680847310781246,
+            "required": 0.17338554131858175,
+            "trip_fraction": 0.6532128443215146,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "writing",
+            "leg_baseline": 0.04458943417557748,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "fountain",
+            "origin": "pen",
+            "launch": 0.2688170904857543,
+            "destination": 0.18597604246986066,
+            "required": 0.15883587962203013,
+            "trip_fraction": 0.5319656635169178,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "ocean",
+            "leg_baseline": 0.09047480071330938,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "ocean",
+              "origin": "fountain",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.15116412037796986,
+              "trip_fraction": 0.46803433648308224,
+              "hub_surcharge": 0,
+              "launch": 0.18597604246986066,
+              "destination": 0.9999596276684777
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "writing",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "final_target": "ocean",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "pen",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "connectivity-A"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "ocean",
+            "origin": "fountain",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.15116412037796986,
+            "trip_fraction": 0.46803433648308224,
+            "hub_surcharge": 0,
+            "launch": 0.18597604246986066,
+            "destination": 0.9999596276684777
+          }
+        ],
+        "best_progress": 0.18597604246986066,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.5808074311664085,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.4683930896503295,
+        "strategic_effectiveness": 0.7955881276847294,
+        "route_elegance": 0.6711404157650717
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.5808074311664085,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.4683930896503295,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 78,
+        "unrounded_score": 77.70630927959172,
+        "before_bonus_score": 78,
+        "before_bonus_unrounded_score": 77.70630927959172,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5896416435697539,
+        "quality": 0.6849903029467087,
+        "unbounded_quality": 0.6849903029467087,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.041088983454571654,
+          "strategy_interaction": 0.15762312009525173,
+          "elegance": 0.06845616630602867
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 77.70630927959172,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 80,
+        "unrounded": 80.14109580143656,
+        "quality": 0.717435586044186,
+        "joint": 0.6145995536447364,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5006960613503523,
+          "strategic_effectiveness": 0.7955881276847294,
+          "route_elegance": 0.6711404157650717
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "PLAY-B",
+      "state": {
+        "start": "feather",
+        "current": "ocean",
+        "target": "ocean",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.09047480071330938,
+        "progress": 0.9999596276684777,
+        "attempts": 5,
+        "route": [
+          "feather",
+          "quill",
+          "pen",
+          "ink",
+          "squid",
+          "ocean"
+        ],
+        "history": [
+          {
+            "word": "quill",
+            "origin": "feather",
+            "launch": 0.3567659464897588,
+            "destination": 0.12102498737931455,
+            "required": 0.13661445868141825,
+            "trip_fraction": 0.3467871556784854,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "writing",
+            "leg_baseline": 0.04458943417557748,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "pen",
+            "origin": "quill",
+            "launch": 0.41095009881973965,
+            "destination": 0.31680847310781246,
+            "required": 0.17338554131858175,
+            "trip_fraction": 0.6532128443215146,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "writing",
+            "leg_baseline": 0.04458943417557748,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "ink",
+            "origin": "pen",
+            "launch": 0.4554789976136817,
+            "destination": 0.12837080922054156,
+            "required": 0.1203308228534856,
+            "trip_fraction": 0.21109019044571342,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "ocean",
+            "leg_baseline": 0.09047480071330938,
+            "leg_threshold": 0.27
+          },
+          {
+            "word": "squid",
+            "origin": "ink",
+            "launch": 0.2958750667144159,
+            "destination": 0.23852725090552696,
+            "required": 0.16863185254616364,
+            "trip_fraction": 0.6135987712180303,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 4,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "ocean",
+            "leg_baseline": 0.09047480071330938,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "ocean",
+              "origin": "squid",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 5,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.11603732460035074,
+              "trip_fraction": 0.17531103833625622,
+              "hub_surcharge": 0,
+              "launch": 0.23852725090552696,
+              "destination": 0.9999596276684777
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "writing",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "final_target": "ocean",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "pen",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "connectivity-B"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "ocean",
+            "origin": "squid",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 5,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.11603732460035074,
+            "trip_fraction": 0.17531103833625622,
+            "hub_surcharge": 0,
+            "launch": 0.23852725090552696,
+            "destination": 0.9999596276684777
+          }
+        ],
+        "best_progress": 0.23852725090552696,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6209697934445229,
+      "positions": 4,
+      "previousComponents": {
+        "semantic_ingenuity": 0.4565954363562668,
+        "strategic_effectiveness": 0.768031947427477,
+        "route_elegance": 0.738365004646934
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6209697934445229,
+        "pivot_positions": 4,
+        "extra_positions": 3,
+        "factor": 0.7352941176470589,
+        "adjusted_ingenuity": 0.4565954363562668,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 69,
+        "unrounded_score": 68.70609746580158,
+        "before_bonus_score": 69,
+        "before_bonus_unrounded_score": 68.70609746580158,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5727127889100487,
+        "quality": 0.689872627441837,
+        "unbounded_quality": 0.689872627441837,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.05642593273685314,
+          "strategy_interaction": 0.1509525583199165,
+          "elegance": 0.09534600185877361
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.07511075659271,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 3,
+            "factor": 0.88
+          }
+        ],
+        "applied_factor": 0.88,
+        "penalty_points": 9.36901329079113,
+        "maximum_for_legs": 88,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 72,
+        "unrounded": 71.57213101300154,
+        "quality": 0.7334861439368369,
+        "joint": 0.6062616477523564,
+        "L": 0.88,
+        "bonus": 0,
+        "ceiling": 88,
+        "components": {
+          "semantic_ingenuity": 0.5007820914875185,
+          "strategic_effectiveness": 0.768031947427477,
+          "route_elegance": 0.738365004646934
+        },
+        "opportunityFactor": 0.8064516129032259,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "PLAY-C",
+      "state": {
+        "start": "kangaroo",
+        "current": "court",
+        "target": "court",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.07622171292678104,
+        "progress": 0.9998691855591915,
+        "attempts": 4,
+        "route": [
+          "kangaroo",
+          "pouch",
+          "pants",
+          "suit",
+          "court"
+        ],
+        "history": [
+          {
+            "word": "pouch",
+            "origin": "kangaroo",
+            "launch": 0.2670041808833048,
+            "destination": 0.16367773788715567,
+            "required": 0.14818233464487335,
+            "trip_fraction": 0.4431861220406112,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "clothing",
+            "leg_baseline": 0.08303208195138723,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "pants",
+            "origin": "pouch",
+            "launch": 0.24203780303287203,
+            "destination": 0.47489841852711834,
+            "required": 0.16181766535512665,
+            "trip_fraction": 0.5568138779593887,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "clothing",
+            "leg_baseline": 0.08303208195138723,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "suit",
+            "origin": "pants",
+            "launch": 0.49485086548156687,
+            "destination": 0.46619257634870337,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "court",
+            "leg_baseline": 0.07622171292678104,
+            "leg_threshold": 0.27,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "court",
+              "origin": "suit",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.46619257634870337,
+              "destination": 0.9998691855591915
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "clothing",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "final_target": "court",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "pants",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "connectivity-C"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "court",
+            "origin": "suit",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.46619257634870337,
+            "destination": 0.9998691855591915
+          }
+        ],
+        "best_progress": 0.46619257634870337,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.8284238017345337,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.6680837110762369,
+        "strategic_effectiveness": 0.7234375,
+        "route_elegance": 0.7483252787454076
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.8284238017345337,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.6680837110762369,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 90,
+        "unrounded_score": 89.89966960647226,
+        "before_bonus_score": 90,
+        "before_bonus_unrounded_score": 89.89966960647226,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6946596370714405,
+        "quality": 0.8523876396910357,
+        "unbounded_quality": 0.8523876396910357,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.21850882439910793,
+          "strategy_interaction": 0.034548703793764735,
+          "elegance": 0.09933011149816302
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 89.89966960647226,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 92,
+        "unrounded": 92.0900248353968,
+        "quality": 0.8837285489243809,
+        "joint": 0.7187680287893984,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.7141584497711497,
+          "strategic_effectiveness": 0.7234375,
+          "route_elegance": 0.7483252787454076
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "PLAY-D",
+      "state": {
+        "start": "kangaroo",
+        "current": "court",
+        "target": "court",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.0018629299229360186,
+        "progress": 0.9998691855591915,
+        "attempts": 3,
+        "route": [
+          "kangaroo",
+          "fur",
+          "seal",
+          "court"
+        ],
+        "history": [
+          {
+            "word": "fur",
+            "origin": "kangaroo",
+            "launch": 0.24946180981078214,
+            "destination": 0.39152592354912485,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "clothing",
+            "leg_baseline": 0.08303208195138723,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "seal",
+            "origin": "fur",
+            "launch": 0.3239182575725863,
+            "destination": 0.2161717186745591,
+            "required": 0.1912402554813783,
+            "trip_fraction": 0.8020021290114859,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "court",
+            "leg_baseline": -0.0018629299229360186,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "court",
+              "origin": "seal",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.11924939963539584,
+              "trip_fraction": 0.19799787098851407,
+              "hub_surcharge": 0.0004896551167741565,
+              "launch": 0.2161717186745591,
+              "destination": 0.9998691855591915
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "clothing",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "final_target": "court",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "fur",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "connectivity-D"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "court",
+            "origin": "seal",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.11924939963539584,
+            "trip_fraction": 0.19799787098851407,
+            "hub_surcharge": 0.0004896551167741565,
+            "launch": 0.2161717186745591,
+            "destination": 0.9998691855591915
+          }
+        ],
+        "best_progress": 0.2161717186745591,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6919137206796295,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.6177801077496692,
+        "strategic_effectiveness": 0.7984374999999999,
+        "route_elegance": 0.6813531018440426
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6919137206796295,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.6177801077496692,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 91,
+        "unrounded_score": 90.66828390345067,
+        "before_bonus_score": 88,
+        "before_bonus_unrounded_score": 88.18397408989047,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.484309813560196,
+          "applied_amount": 2.484309813560202,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6965861772685501,
+        "quality": 0.8281032711867321,
+        "unbounded_quality": 0.8281032711867321,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.15311414007456994,
+          "strategy_interaction": 0.1024478903745452,
+          "elegance": 0.07254124073761706
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 88.18397408989047,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 91,
+        "unrounded": 91.19354693510526,
+        "quality": 0.8467114936981384,
+        "joint": 0.7109001945850164,
+        "L": 1,
+        "bonus": 1.693422987396275,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.6406608524811384,
+          "strategic_effectiveness": 0.7984374999999999,
+          "route_elegance": 0.6813531018440426
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "approach",
+            "weight": 0.3,
+            "pairConfidence": 0.8118272622634777,
+            "pair": {
+              "from": "kangaroo",
+              "to": "fur",
+              "cosine": 0.24946180981078214,
+              "value": 0.8118272622634777,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CROC-1",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.27423396106485143,
+        "progress": 1,
+        "attempts": 3,
+        "route": [
+          "crocodile",
+          "bag",
+          "runway",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "bag",
+            "origin": "crocodile",
+            "launch": 0.20878371033541043,
+            "destination": 0.19990223135755514,
+            "required": 0.17076934337763622,
+            "trip_fraction": 0.6314111948136351,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "runway",
+            "origin": "bag",
+            "launch": 0.1649079987746518,
+            "destination": 0.3398349538892944,
+            "required": 0.13923065662236378,
+            "trip_fraction": 0.3685888051863649,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true,
+            "waypoint_finish": true,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "runway",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.27423396106485143,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "runway",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "runway",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.27423396106485143,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.27423396106485143,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.5886228573916807,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.5255561226711435,
+        "strategic_effectiveness": 0.9849999999999999,
+        "route_elegance": 0.594722762959111
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.5886228573916807,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.5255561226711435,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 87,
+        "unrounded_score": 86.99342372360135,
+        "before_bonus_score": 85,
+        "before_bonus_unrounded_score": 84.6566695694481,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.33675415415326,
+          "applied_amount": 2.3367541541532546,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6854068816929043,
+        "quality": 0.77891805138442,
+        "unbounded_quality": 0.77891805138442,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.03322295947248654,
+          "strategy_interaction": 0.20780598672828907,
+          "elegance": 0.03788910518364439
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 84.6566695694481,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 1,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 88,
+        "unrounded": 87.78945924605125,
+        "quality": 0.8001635457342897,
+        "joint": 0.7017495696543425,
+        "L": 1,
+        "bonus": 1.6003270914685856,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5450211642515562,
+          "strategic_effectiveness": 0.9849999999999999,
+          "route_elegance": 0.594722762959111
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "departure",
+            "weight": 0.3,
+            "pairConfidence": 0.8427924513310643,
+            "pair": {
+              "from": "runway",
+              "to": "space",
+              "cosine": 0.27423396106485143,
+              "value": 0.8427924513310643,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CROC-2",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.048195767172728665,
+        "progress": 1,
+        "attempts": 3,
+        "route": [
+          "crocodile",
+          "handbag",
+          "closet",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "handbag",
+            "origin": "crocodile",
+            "launch": 0.31898483880604545,
+            "destination": 0.3147806542838225,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "closet",
+            "origin": "handbag",
+            "launch": 0.2753881224889483,
+            "destination": 0.27029636056613526,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "space",
+            "leg_baseline": -0.048195767172728665,
+            "leg_threshold": 0.27,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "closet",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.27029636056613526,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "handbag",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "closet",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.27029636056613526,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.27029636056613526,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6014116515255814,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.5369746888621262,
+        "strategic_effectiveness": 0.783125,
+        "route_elegance": 0.7188130711343446
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6014116515255814,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.5369746888621262,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 86,
+        "unrounded_score": 85.99757666123773,
+        "before_bonus_score": 84,
+        "before_bonus_unrounded_score": 83.70030774190911,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.2972689193286095,
+          "applied_amount": 2.2972689193286158,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6371008292224093,
+        "quality": 0.7657563064428698,
+        "unbounded_quality": 0.7657563064428698,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.04806709552076404,
+          "strategy_interaction": 0.13016398246836805,
+          "elegance": 0.08752522845373784
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 83.70030774190911,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 87,
+        "unrounded": 86.5689914334683,
+        "quality": 0.7836837372208278,
+        "joint": 0.6508911605900692,
+        "L": 1,
+        "bonus": 1.567367474441653,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5568626403014642,
+          "strategic_effectiveness": 0.783125,
+          "route_elegance": 0.7188130711343446
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "approach",
+            "weight": 0.3,
+            "pairConfidence": 0.8987310485075568,
+            "pair": {
+              "from": "crocodile",
+              "to": "handbag",
+              "cosine": 0.31898483880604545,
+              "value": 0.8987310485075568,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CROC-3",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.12802176969807988,
+        "progress": 1,
+        "attempts": 3,
+        "route": [
+          "crocodile",
+          "leather",
+          "suit",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "leather",
+            "origin": "crocodile",
+            "launch": 0.29930652479015407,
+            "destination": 0.28052187971115927,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "suit",
+            "origin": "leather",
+            "launch": 0.3426591195807305,
+            "destination": 0.20222469650616404,
+            "required": 0.15771631360691551,
+            "trip_fraction": 0.5226359467242959,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "space",
+            "leg_baseline": 0.12802176969807988,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "suit",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.1543792560020992,
+              "trip_fraction": 0.477364053275704,
+              "hub_surcharge": 0.002095569609014716,
+              "launch": 0.20222469650616404,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "leather",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "suit",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.1543792560020992,
+            "trip_fraction": 0.477364053275704,
+            "hub_surcharge": 0.002095569609014716,
+            "launch": 0.20222469650616404,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.20222469650616404,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.562168098642892,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.5019358023597249,
+        "strategic_effectiveness": 0.753125,
+        "route_elegance": 0.6567942454587195
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.562168098642892,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.5019358023597249,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 81,
+        "unrounded_score": 80.61140118995736,
+        "before_bonus_score": 79,
+        "before_bonus_unrounded_score": 78.5239124110774,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.0874887788799583,
+          "applied_amount": 2.0874887788799583,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.602393765212691,
+        "quality": 0.695829592959986,
+        "unbounded_quality": 0.695829592959986,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.002516543067642374,
+          "strategy_interaction": 0.13059535170885586,
+          "elegance": 0.06271769818348778
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 78.5239124110774,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 81,
+        "unrounded": 81.23491088879766,
+        "quality": 0.7129800885376361,
+        "joint": 0.6155864541185756,
+        "L": 1,
+        "bonus": 1.4259601770752681,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5205260172619369,
+          "strategic_effectiveness": 0.753125,
+          "route_elegance": 0.6567942454587195
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "approach",
+            "weight": 0.3,
+            "pairConfidence": 0.8741331559876926,
+            "pair": {
+              "from": "crocodile",
+              "to": "leather",
+              "cosine": 0.29930652479015407,
+              "value": 0.8741331559876926,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CROC-4",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.12332802428591094,
+        "progress": 1,
+        "attempts": 3,
+        "route": [
+          "crocodile",
+          "boots",
+          "suit",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "boots",
+            "origin": "crocodile",
+            "launch": 0.21872103499754303,
+            "destination": 0.2751154038232926,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "suit",
+            "origin": "boots",
+            "launch": 0.3692614002593473,
+            "destination": 0.20222469650616404,
+            "required": 0.15954948616009493,
+            "trip_fraction": 0.5379123846674577,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "space",
+            "leg_baseline": 0.12332802428591094,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "suit",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.1524141061581463,
+              "trip_fraction": 0.46208761533254233,
+              "hub_surcharge": 0.001963592318241228,
+              "launch": 0.20222469650616404,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "boots",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "suit",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.1524141061581463,
+            "trip_fraction": 0.46208761533254233,
+            "hub_surcharge": 0.001963592318241228,
+            "launch": 0.20222469650616404,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.20222469650616404,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.4983598804324527,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.44496417895754703,
+        "strategic_effectiveness": 0.7596875,
+        "route_elegance": 0.6412044531457309
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.4983598804324527,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.44496417895754703,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 76,
+        "unrounded_score": 75.86849395972081,
+        "before_bonus_score": 74,
+        "before_bonus_unrounded_score": 73.96031381506491,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 1.9081801446558946,
+          "applied_amount": 1.9081801446559012,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5612140515079531,
+        "quality": 0.6360600482186315,
+        "unbounded_quality": 0.6360600482186315,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.07154656735518887,
+          "strategy_interaction": 0.15112483431552792,
+          "elegance": 0.056481781258292375
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 73.96031381506491,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 77,
+        "unrounded": 76.56351771997026,
+        "quality": 0.6528705451560489,
+        "joint": 0.5741452029982742,
+        "L": 1,
+        "bonus": 1.3057410903120967,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.4614443337337525,
+          "strategic_effectiveness": 0.7596875,
+          "route_elegance": 0.6412044531457309
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "approach",
+            "weight": 0.3,
+            "pairConfidence": 0.7734012937469288,
+            "pair": {
+              "from": "crocodile",
+              "to": "boots",
+              "cosine": 0.21872103499754303,
+              "value": 0.7734012937469288,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CROC-5",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.18103758666984504,
+        "progress": 1,
+        "attempts": 4,
+        "route": [
+          "crocodile",
+          "hat",
+          "fashion",
+          "runway",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "hat",
+            "origin": "crocodile",
+            "launch": 0.24669077184535126,
+            "destination": 0.23967961050766462,
+            "required": 0.1977960700261272,
+            "trip_fraction": 0.8566339168843933,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "fashion",
+            "origin": "hat",
+            "launch": 0.23967961050766462,
+            "destination": 1,
+            "required": 0.11220392997387281,
+            "trip_fraction": 0.14336608311560675,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "runway",
+            "origin": "fashion",
+            "launch": 0.3398349538892944,
+            "destination": 0.27423396106485143,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "space",
+            "leg_baseline": 0.18103758666984504,
+            "leg_threshold": 0.27,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "runway",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.27423396106485143,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "fashion",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "runway",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.27423396106485143,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.27423396106485143,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.5222880600421431,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.4212000484210832,
+        "strategic_effectiveness": 0.714375,
+        "route_elegance": 0.7028679797898691
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.5222880600421431,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.4212000484210832,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 73,
+        "unrounded_score": 72.71572431955701,
+        "before_bonus_score": 73,
+        "before_bonus_unrounded_score": 72.71572431955701,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5299425784481245,
+        "quality": 0.6200725438985095,
+        "unbounded_quality": 0.6200725438985095,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.10243993705259181,
+          "strategy_interaction": 0.14136528903515372,
+          "elegance": 0.08114719191594766
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 72.71572431955701,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 75,
+        "unrounded": 74.97668918390936,
+        "quality": 0.6492162599854431,
+        "joint": 0.5523608215919196,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.4502483276225372,
+          "strategic_effectiveness": 0.714375,
+          "route_elegance": 0.7028679797898691
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "CROC-6",
+      "state": {
+        "start": "crocodile",
+        "current": "space",
+        "target": "space",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.09192878292560636,
+        "progress": 1,
+        "attempts": 4,
+        "route": [
+          "crocodile",
+          "necklace",
+          "jewelry",
+          "box",
+          "space"
+        ],
+        "history": [
+          {
+            "word": "necklace",
+            "origin": "crocodile",
+            "launch": 0.20627832845639205,
+            "destination": 0.16152026273994124,
+            "required": 0.1446907279378265,
+            "trip_fraction": 0.41408939948188755,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "jewelry",
+            "origin": "necklace",
+            "launch": 0.5417206019756122,
+            "destination": 0.43579300032752144,
+            "required": 0.1653092720621735,
+            "trip_fraction": 0.5859106005181124,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "fashion",
+            "leg_baseline": 0.08838647368975217,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "box",
+            "origin": "jewelry",
+            "launch": 0.2508456158957415,
+            "destination": 0.23669907673138368,
+            "required": 0.19255891795491864,
+            "trip_fraction": 0.8129909829576554,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "space",
+            "leg_baseline": 0.09192878292560636,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "space",
+              "origin": "box",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.11776269072511003,
+              "trip_fraction": 0.18700901704234463,
+              "hub_surcharge": 0.00032160868002867674,
+              "launch": 0.23669907673138368,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265
+        },
+        "final_target": "space",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "jewelry",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "space",
+            "origin": "box",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.11776269072511003,
+            "trip_fraction": 0.18700901704234463,
+            "hub_surcharge": 0.00032160868002867674,
+            "launch": 0.23669907673138368,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.23669907673138368,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.5194618533082846,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.41892084944216507,
+        "strategic_effectiveness": 0.7474999999999999,
+        "route_elegance": 0.6780976643470129
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.5194618533082846,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.41892084944216507,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 73,
+        "unrounded_score": 72.65128066246787,
+        "before_bonus_score": 73,
+        "before_bonus_unrounded_score": 72.65128066246787,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5369302771084341,
+        "quality": 0.6192484259797695,
+        "unbounded_quality": 0.6192484259797695,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.10540289572518542,
+          "strategy_interaction": 0.15341225596614977,
+          "elegance": 0.07123906573880516
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 72.65128066246787,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 75,
+        "unrounded": 74.9871670525789,
+        "quality": 0.6493523550925006,
+        "joint": 0.5600871456566888,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.44781194250714196,
+          "strategic_effectiveness": 0.7474999999999999,
+          "route_elegance": 0.6780976643470129
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "USER-20",
+      "state": {
+        "start": "cigar",
+        "current": "necklace",
+        "target": "necklace",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.10360695174131251,
+        "progress": 1,
+        "attempts": 4,
+        "route": [
+          "cigar",
+          "imported",
+          "ship",
+          "bow",
+          "necklace"
+        ],
+        "history": [
+          {
+            "word": "imported",
+            "origin": "cigar",
+            "launch": 0.16451552045327844,
+            "destination": 0.039963932442333316,
+            "required": 0.09924684913366326,
+            "trip_fraction": 0.03539040944719378,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "harbour",
+            "leg_baseline": 0.03170761957829882,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "ship",
+            "origin": "imported",
+            "launch": 0.21908878017347888,
+            "destination": 0.40694553491073293,
+            "required": 0.21075315086633675,
+            "trip_fraction": 0.9646095905528063,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "harbour",
+            "leg_baseline": 0.03170761957829882,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "bow",
+            "origin": "ship",
+            "launch": 0.31109334932443744,
+            "destination": 0.2222382001382357,
+            "required": 0.18055495530978422,
+            "trip_fraction": 0.7129579609148686,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "necklace",
+            "leg_baseline": 0.10360695174131251,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "necklace",
+              "origin": "bow",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.12944504469021575,
+              "trip_fraction": 0.2870420390851313,
+              "hub_surcharge": 0,
+              "launch": 0.2222382001382357,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "harbour",
+          "threshold": 0.265
+        },
+        "final_target": "necklace",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "ship",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "necklace",
+            "origin": "bow",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.12944504469021575,
+            "trip_fraction": 0.2870420390851313,
+            "hub_surcharge": 0,
+            "launch": 0.2222382001382357,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.2222382001382357,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6592779585513818,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.531675773025308,
+        "strategic_effectiveness": 0.7688356821789417,
+        "route_elegance": 0.6117173928360754
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6592779585513818,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.531675773025308,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 80,
+        "unrounded_score": 79.72893014700145,
+        "before_bonus_score": 80,
+        "before_bonus_unrounded_score": 79.72893014700145,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6286316110729374,
+        "quality": 0.7119080515292489,
+        "unbounded_quality": 0.7119080515292489,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.041178504932900394,
+          "strategy_interaction": 0.12604258946191824,
+          "elegance": 0.04468695713443016
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 79.72893014700145,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 82,
+        "unrounded": 82.13038542509383,
+        "quality": 0.7443133205175928,
+        "joint": 0.6535587410639713,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5683430677167085,
+          "strategic_effectiveness": 0.7688356821789417,
+          "route_elegance": 0.6117173928360754
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "USER-23",
+      "state": {
+        "start": "cigar",
+        "current": "necklace",
+        "target": "necklace",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.06321642954299023,
+        "progress": 1,
+        "attempts": 4,
+        "route": [
+          "cigar",
+          "box",
+          "container",
+          "bag",
+          "necklace"
+        ],
+        "history": [
+          {
+            "word": "box",
+            "origin": "cigar",
+            "launch": 0.23788149195934238,
+            "destination": 0.02689336942603404,
+            "required": 0.09747633470594924,
+            "trip_fraction": 0.020636122549577054,
+            "boundary": false,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": false,
+            "connected": true,
+            "safe": true,
+            "outcome": "recovery",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "harbour",
+            "leg_baseline": 0.03170761957829882,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "container",
+            "origin": "box",
+            "launch": 0.2790127487714926,
+            "destination": 0.30230909732745204,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "harbour",
+            "leg_baseline": 0.03170761957829882,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "bag",
+            "origin": "container",
+            "launch": 0.4169267625456996,
+            "destination": 0.27146784706565086,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 3,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "necklace",
+            "leg_baseline": 0.06321642954299023,
+            "leg_threshold": 0.27,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "necklace",
+              "origin": "bag",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 4,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.27146784706565086,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "harbour",
+          "threshold": 0.265
+        },
+        "final_target": "necklace",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "container",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "necklace",
+            "origin": "bag",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 4,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.27146784706565086,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.27146784706565086,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.5620511659729025,
+      "positions": 3,
+      "previousComponents": {
+        "semantic_ingenuity": 0.45326706933298594,
+        "strategic_effectiveness": 0.7609374999999999,
+        "route_elegance": 0.6995579932475666
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.5620511659729025,
+        "pivot_positions": 3,
+        "extra_positions": 2,
+        "factor": 0.8064516129032259,
+        "adjusted_ingenuity": 0.45326706933298594,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 76,
+        "unrounded_score": 76.44507433630248,
+        "before_bonus_score": 76,
+        "before_bonus_unrounded_score": 76.44507433630248,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.5681215822800626,
+        "quality": 0.668381254263108,
+        "unbounded_quality": 0.668381254263108,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.06075280986711828,
+          "strategy_interaction": 0.14931086683119965,
+          "elegance": 0.07982319729902665
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 76.44507433630248,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 79,
+        "unrounded": 78.79987140093995,
+        "quality": 0.6995008766395273,
+        "joint": 0.5920597533388466,
+        "L": 1,
+        "bonus": 0,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.4845268672180194,
+          "strategic_effectiveness": 0.7609374999999999,
+          "route_elegance": 0.6995579932475666
+        },
+        "opportunityFactor": 0.8620689655172414,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    },
+    {
+      "id": "CAL-D",
+      "state": {
+        "start": "hamster",
+        "current": "electricity",
+        "target": "electricity",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.5910700952786101,
+        "progress": 0.9999636754260592,
+        "attempts": 3,
+        "route": [
+          "hamster",
+          "wheel",
+          "power",
+          "electricity"
+        ],
+        "history": [
+          {
+            "word": "wheel",
+            "origin": "hamster",
+            "launch": 0.2967680922811269,
+            "destination": 0.22418513883349078,
+            "required": 0.1878594483358254,
+            "trip_fraction": 0.7738287361318783,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "exercise",
+            "leg_baseline": 0.08454002259850313,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "power",
+            "origin": "wheel",
+            "launch": 0.28575859472402954,
+            "destination": 0.28414529075325845,
+            "required": 0.12316562649344709,
+            "trip_fraction": 0.2261712638681217,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0.0010250748292724905,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "exercise",
+            "leg_baseline": 0.08454002259850313,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true,
+            "waypoint_finish": true,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "electricity",
+              "origin": "power",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.5910700952786101,
+              "destination": 0.9999636754260592
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "exercise",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "final_target": "electricity",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "power",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 4,
+          "attempt": 1,
+          "id": "association-validation"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "electricity",
+            "origin": "power",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.5910700952786101,
+            "destination": 0.9999636754260592
+          }
+        ],
+        "best_progress": 0.5910700952786101,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6424172738056092,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.5735868516121511,
+        "strategic_effectiveness": 0.9797753264258307,
+        "route_elegance": 0.7488461972285366
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6424172738056092,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.5735868516121511,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 95,
+        "unrounded_score": 95.20854749459195,
+        "before_bonus_score": 93,
+        "before_bonus_unrounded_score": 92.53799344553485,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.670554049057096,
+          "applied_amount": 2.6705540490571025,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.7235740031750902,
+        "quality": 0.890184683019032,
+        "unbounded_quality": 0.890184683019032,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.09566290709579638,
+          "strategy_interaction": 0.19498329703182093,
+          "elegance": 0.09953847889141465
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 92.53799344553485,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 1,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 96,
+        "unrounded": 95.85801778271757,
+        "quality": 0.9118625777123309,
+        "joint": 0.7402493067853202,
+        "L": 1,
+        "bonus": 1.8237251554246683,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5948308090792677,
+          "strategic_effectiveness": 0.9797753264258307,
+          "route_elegance": 0.7488461972285366
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "departure",
+            "weight": 0.3,
+            "pairConfidence": 1,
+            "pair": {
+              "from": "power",
+              "to": "electricity",
+              "cosine": 0.5910700952786101,
+              "value": 1,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAL-A",
+      "state": {
+        "start": "squid",
+        "current": "espionage",
+        "target": "espionage",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.03720248399395132,
+        "progress": 1,
+        "attempts": 3,
+        "route": [
+          "squid",
+          "ink",
+          "document",
+          "espionage"
+        ],
+        "history": [
+          {
+            "word": "ink",
+            "origin": "squid",
+            "launch": 0.2958750667144159,
+            "destination": 0.4397187797785591,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "printing",
+            "leg_baseline": 0.046718280675122514,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "document",
+            "origin": "ink",
+            "launch": 0.2306253675087646,
+            "destination": 0.1855610381958286,
+            "required": 0.17883247564047633,
+            "trip_fraction": 0.6372858127834256,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": true,
+            "attempt": 2,
+            "hub_surcharge": 0.007358178106465275,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "espionage",
+            "leg_baseline": 0.03720248399395132,
+            "leg_threshold": 0.27,
+            "finish_reason": "range",
+            "automatic_shot": {
+              "word": "espionage",
+              "origin": "document",
+              "automatic": true,
+              "outcome": "chip",
+              "attempt": 3,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "range",
+              "required": 0.14090928876806655,
+              "trip_fraction": 0.36271418721657445,
+              "hub_surcharge": 0.0023835863020776186,
+              "launch": 0.1855610381958286,
+              "destination": 1
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "printing",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "final_target": "espionage",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "ink",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "association-validation"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "espionage",
+            "origin": "document",
+            "automatic": true,
+            "outcome": "chip",
+            "attempt": 3,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "range",
+            "required": 0.14090928876806655,
+            "trip_fraction": 0.36271418721657445,
+            "hub_surcharge": 0.0023835863020776186,
+            "launch": 0.1855610381958286,
+            "destination": 1
+          }
+        ],
+        "best_progress": 0.1855610381958286,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.6072746518064477,
+      "positions": 2,
+      "previousComponents": {
+        "semantic_ingenuity": 0.5422095105414712,
+        "strategic_effectiveness": 0.7793749999999999,
+        "route_elegance": 0.6338552417297515
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.6072746518064477,
+        "pivot_positions": 2,
+        "extra_positions": 1,
+        "factor": 0.8928571428571428,
+        "adjusted_ingenuity": 0.5422095105414712,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 84,
+        "unrounded_score": 83.64173535166906,
+        "before_bonus_score": 81,
+        "before_bonus_unrounded_score": 81.43701249457175,
+        "one_stroke_bonus": {
+          "eligible": true,
+          "raw_amount": 2.2047228570973143,
+          "applied_amount": 2.204722857097309,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.6395119402619519,
+        "quality": 0.7349076190324381,
+        "unbounded_quality": 0.7349076190324381,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": 0.0548723637039125,
+          "strategy_interaction": 0.126493158636625,
+          "elegance": 0.053542096691900604
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 81.43701249457175,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 1,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 2,
+            "factor": 1
+          }
+        ],
+        "applied_factor": 1,
+        "penalty_points": 0,
+        "maximum_for_legs": 100,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 84,
+        "unrounded": 84.25867905549786,
+        "quality": 0.7527943177122167,
+        "joint": 0.653270939246397,
+        "L": 1,
+        "bonus": 1.5055886354244308,
+        "ceiling": 100,
+        "components": {
+          "semantic_ingenuity": 0.5622913442652293,
+          "strategic_effectiveness": 0.7793749999999999,
+          "route_elegance": 0.6338552417297515
+        },
+        "opportunityFactor": 0.9259259259259258,
+        "directReduction": 0,
+        "directChanges": [
+          {
+            "name": "approach",
+            "weight": 0.3,
+            "pairConfidence": 0.8698438333930198,
+            "pair": {
+              "from": "squid",
+              "to": "ink",
+              "cosine": 0.2958750667144159,
+              "value": 0.8698438333930198,
+              "attested": false,
+              "phrase": false,
+              "synonym": false,
+              "morphology": false,
+              "uncertain": false,
+              "lexical": null,
+              "interpretation": "Vector-supported confidence only; no lexical match is neutral and low cosine does not prove implausibility."
+            },
+            "from": 1,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "PLAY-H",
+      "state": {
+        "start": "snowflake",
+        "current": "surgery",
+        "target": "surgery",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": 0.05485764365130308,
+        "progress": 0.9999973058728102,
+        "attempts": 6,
+        "route": [
+          "snowflake",
+          "beautiful",
+          "diamond",
+          "quality",
+          "precision",
+          "technique",
+          "surgery"
+        ],
+        "history": [
+          {
+            "word": "beautiful",
+            "origin": "snowflake",
+            "launch": 0.17803710595308075,
+            "destination": 0.16812544057393097,
+            "required": 0.11070129332997232,
+            "trip_fraction": 0.1279958362654906,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0.0003417929781134437,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "jewellery",
+            "leg_baseline": 0.15390585222530717,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "diamond",
+            "origin": "beautiful",
+            "launch": 0.22866840142557976,
+            "destination": 0.4068598343128542,
+            "required": 0.2155043487130592,
+            "trip_fraction": 0.8720041637345094,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0.015863849064918074,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "jewellery",
+            "leg_baseline": 0.15390585222530717,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          },
+          {
+            "word": "quality",
+            "origin": "diamond",
+            "launch": 0.18555798082797992,
+            "destination": 0.1059284467537509,
+            "required": 0.1250867747291073,
+            "trip_fraction": 0.23738144347398354,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 3,
+            "hub_surcharge": 0.0016010015122292682,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "surgery",
+            "leg_baseline": 0.05485764365130308,
+            "leg_threshold": 0.27
+          },
+          {
+            "word": "precision",
+            "origin": "quality",
+            "launch": 0.31981939766319556,
+            "destination": 0.1227028506455099,
+            "required": 0.10452898216995235,
+            "trip_fraction": 0.07796885827805795,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 4,
+            "hub_surcharge": 0.00017271917658540103,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "surgery",
+            "leg_baseline": 0.05485764365130308,
+            "leg_threshold": 0.27
+          },
+          {
+            "word": "technique",
+            "origin": "precision",
+            "launch": 0.4522679445065023,
+            "destination": 0.27157108970277477,
+            "required": 0.18539317374157216,
+            "trip_fraction": 0.6846496982479585,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "attempt": 5,
+            "hub_surcharge": 0.008235209951817148,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "green",
+            "backtrack": false,
+            "stage": 1,
+            "leg_target": "surgery",
+            "leg_baseline": 0.05485764365130308,
+            "leg_threshold": 0.27,
+            "finish_reason": "green",
+            "automatic_shot": {
+              "word": "surgery",
+              "origin": "technique",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 6,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.27157108970277477,
+              "destination": 0.9999973058728102
+            }
+          }
+        ],
+        "won": true,
+        "waypoint": {
+          "word": "jewellery",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "final_target": "surgery",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "diamond",
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 4,
+          "attempt": 1,
+          "id": "connectivity-H"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [
+          {
+            "word": "surgery",
+            "origin": "technique",
+            "automatic": true,
+            "outcome": "putt",
+            "attempt": 6,
+            "success": true,
+            "inside": true,
+            "won": true,
+            "finish_reason": "green",
+            "required": 0.095,
+            "trip_fraction": 0,
+            "hub_surcharge": 0,
+            "launch": 0.27157108970277477,
+            "destination": 0.9999973058728102
+          }
+        ],
+        "best_progress": 0.27157108970277477,
+        "backward_allowance": 0.01
+      },
+      "rawIngenuity": 0.512676867478006,
+      "positions": 5,
+      "previousComponents": {
+        "semantic_ingenuity": 0.3464032888364905,
+        "strategic_effectiveness": 0.7036571457138513,
+        "route_elegance": 0.624223798650133
+      },
+      "previousOpportunity": {
+        "raw_ingenuity": 0.512676867478006,
+        "pivot_positions": 5,
+        "extra_positions": 4,
+        "factor": 0.6756756756756757,
+        "adjusted_ingenuity": 0.3464032888364905,
+        "interpretation": "Count played intermediate positions once; sequences are not extra independent opportunities. Previous failed attempts are not part of this route."
+      },
+      "previousBandFree": {
+        "version": "band-free-harmonic-v2-one-stroke",
+        "score": 42,
+        "unrounded_score": 41.75593626569576,
+        "before_bonus_score": 42,
+        "before_bonus_unrounded_score": 41.75593626569576,
+        "one_stroke_bonus": {
+          "eligible": false,
+          "raw_amount": 0,
+          "applied_amount": 0,
+          "ceiling_limited": false
+        },
+        "harmonic_joint": 0.4642573731348221,
+        "quality": 0.503224104535322,
+        "unbounded_quality": 0.503224104535322,
+        "quality_terms": {
+          "baseline": 0.5,
+          "ingenuity": -0.19967572451256232,
+          "strategy_interaction": 0.1532103095878311,
+          "elegance": 0.049689519460053205
+        },
+        "quality_power": 0.6666666666666666,
+        "before_leg_penalty": 63.26657009953903,
+        "legs": [
+          {
+            "leg": 1,
+            "strokes": 2,
+            "factor": 1
+          },
+          {
+            "leg": 2,
+            "strokes": 4,
+            "factor": 0.66
+          }
+        ],
+        "applied_factor": 0.66,
+        "penalty_points": 21.510633833843272,
+        "maximum_for_legs": 66,
+        "operator": "each actual leg factor applied once, then one quality-scaled bonus per eligible route; capped at 100 × leg factor product; no golf bands",
+        "formula": "Q = clip(0.5 + 1.3 × (2IS/(I+S) − 0.5) + 0.4 × (E − 0.5), 0, 1); L = product(leg factors); min(100 × Q^(2/3) × L + (any actual leg = 1 stroke ? 3 × Q × L : 0), 100 × L)"
+      },
+      "expected": {
+        "score": 44,
+        "unrounded": 44.324386276608934,
+        "quality": 0.550361686965188,
+        "joint": 0.5005170519270268,
+        "L": 0.66,
+        "bonus": 0,
+        "ceiling": 66,
+        "components": {
+          "semantic_ingenuity": 0.3883915662712167,
+          "strategic_effectiveness": 0.7036571457138513,
+          "route_elegance": 0.624223798650133
+        },
+        "opportunityFactor": 0.7575757575757576,
+        "directReduction": 0,
+        "directChanges": []
+      }
+    }
+  ]
+}

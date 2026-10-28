@@ -1,4 +1,4 @@
-import {golfResult} from './daily-game.mjs?v=personal-daily-v3';
+import {golfResult} from './daily-game.mjs?v=opportunity08-bonus2-v1';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const dateLabel=day=>day?.startsWith('custom-')?'Your hole':new Intl.DateTimeFormat('en',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(day+'T00:00:00Z'));
 export function mountDailyUI(game,{onNavigate,onToday}){

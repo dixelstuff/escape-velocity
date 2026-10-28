@@ -8,7 +8,7 @@ assert.deepEqual([1,2,3,4,5,6].map(legFactor),[1,1,.88,.66,.45,.2112500000000000
 const oldLegFactor=n=>n<=2?1:n===3?5/6:.5*.65**(n-4);
 for(let n=1;n<=20;n++){if(n>5)near(legFactor(n),oldLegFactor(n));if(n>1)assert.ok(legFactor(n)<=legFactor(n-1));}
 for(const legs of [[1,2],[2,1],[1,1],[2,2],[2,3],[3,2],[2,4],[2,5],[3,4],[2,6],[2,7]]){
- const x=bandFreeScore(c(),legs),oldL=legs.reduce((p,n)=>p*oldLegFactor(n),1),oldScore=Math.min((100*x.quality**(2/3)+(legs.includes(1)?3*x.quality:0))*oldL,100*oldL);
+ const x=bandFreeScore(c(),legs),oldL=legs.reduce((p,n)=>p*oldLegFactor(n),1),oldScore=Math.min((100*x.quality**(2/3)+(legs.includes(1)?2*x.quality:0))*oldL,100*oldL);
  near(x.unrounded_score,oldScore*x.applied_factor/oldL);
  if(legs.every(n=>n<=2||n>5))near(x.unrounded_score,oldScore);else assert.ok(x.unrounded_score>oldScore);
 }

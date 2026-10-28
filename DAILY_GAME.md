@@ -1,6 +1,6 @@
 # Personal daily Word Golf
 
-The default app is one daily waypoint hole, always Par 5, with an archive navigated by previous/next. New holes publish at 00:00 UTC; the next 50 scheduled dates are also available for advance playtesting. Previous/next navigation and the “Choose or create a hole” picker include these previews. There is no submission, league, score lock, practice distinction, scoring-attempt budget or stroke ceiling.
+The default app is one daily waypoint hole, always Par 5, with an archive navigated by previous/next. New holes publish at 00:00 UTC; the complete future queue is also available for advance playtesting. Previous/next navigation and the “Choose or create a hole” picker include these previews. There is no submission, league, score lock, practice distinction, scoring-attempt budget or stroke ceiling.
 
 The existing distance/contact/waypoint rules, misses ending attempts, tap-to-retry behaviour, mobile keyboard handling and animations are retained. `continuous_play` permits long successful paths; the explicit `challenge.unlimited` marker survives engine construction, restoration and prefix retries. Automatic finishing strokes still count.
 
@@ -9,7 +9,7 @@ The existing distance/contact/waypoint rules, misses ending attempts, tap-to-ret
 `word-golf.personal-daily.v1` stores selected date, visits and per-hole bests. Full attempts remain in the existing flight log, which is not reset or migrated destructively. Older course/Tour data is retained. New personal records are kept separately from those old competitions.
 
 - Fewest strokes and highest cleverness are independent records with their own route and journey ID.
-- Cleverness remains exactly `band-free-harmonic-v2-one-stroke`, including its existing one-stroke bonus. Comparison scores and historical analysis panels are absent from normal play.
+- Cleverness uses `band-free-harmonic-v3-opportunity08-bonus2` (opportunity rate 0.08; one-stroke coefficient 2). Comparison scores and historical analysis panels are absent from normal play.
 - Compare cleverness using the unrounded score; round only for display. Delayed analysis cannot switch the active hole or overwrite a newer live journey.
 - The recent-nine view contains distinct holes ordered by most recent visit/play. Returning to a hole updates that row. Older records are retained for lifetime stats.
 - Count each completed hole once in the stroke-result distribution, using its best result. Unfinished holes have no score. Best-stroke improvements update the distribution. Average best cleverness excludes pending/unavailable analysis.
@@ -17,14 +17,20 @@ The existing distance/contact/waypoint rules, misses ending attempts, tap-to-ret
 
 ## Content and maintenance
 
-`static/daily-manifest.mjs` fixes 106 distinct existing curated waypoint layouts, one per date from 20 October 2026 through 2 February 2027. All are Par 5 and curated golden shortcuts are disabled. Dates and IDs must remain immutable; append new curated holes before the queue ends. When a queue ends the most recent published puzzle remains playable, rather than repeating a hole under a new date.
+`static/daily-manifest.mjs` fixes 135 distinct waypoint layouts, one per date from 20 October 2026 through 3 March 2027, including 29 user-proposed additions (JELLYBEAN was excluded because it is outside the vocabulary). All are Par 5 and curated golden shortcuts are disabled. Dates and IDs must remain immutable; append new curated holes before the queue ends. When a queue ends the most recent published puzzle remains playable, rather than repeating a hole under a new date.
 
 Historical experimental UI and course modes are retained behind `?lab` (e.g. `?lab&mode=tour`) for development and old-data inspection. They have no normal-page links. Old analysis panels are imported only in that developer view. The three-dot menu is hidden on the results screen. During play it contains: Return to tee, Personal best routes, How to play and the chip-in range toggle (off after every refresh).
 
 ## Verification
 
-`node tests/test_personal_daily.mjs` checks publication dates/50-day preview boundaries, independent records, unrounded comparisons, delayed reports, persistence, recent-nine retention, unlimited prefix retries and strokes, exact exports and once-per-hole stats. Existing band-free/one-stroke scoring, waypoint, tap, animation, log and typing-layout regression tests remain applicable. Desktop and 390px browser checks cover completing a hole, scoring, reload, archive navigation, reopening from the recent-nine card, personal routes, menu and help. Actual iPhone keyboard behaviour requires device testing; its existing handlers are unchanged.
+`node tests/test_personal_daily.mjs` checks publication dates/future-preview access, independent records, unrounded comparisons, delayed reports, persistence, recent-nine retention, unlimited prefix retries and strokes, exact exports and once-per-hole stats. Existing band-free/one-stroke scoring, waypoint, tap, animation, log and typing-layout regression tests remain applicable. Desktop and 390px browser checks cover completing a hole, scoring, reload, archive navigation, reopening from the recent-nine card, personal routes, menu and help. Actual iPhone keyboard behaviour requires device testing; its existing handlers are unchanged.
 
 ## Custom holes
 
-“Choose or create a hole” below the playing area contains the scheduled-hole picker and a three-word hole form. Direct-leg validation is retained. Custom holes are always Par 5 with unlimited play and no golden shortcuts. Definitions and independent personal bests persist in the same local daily history; repeated creation of the same three words reopens the existing record. They appear in the picker and recent-nine card as “Your hole”. No live scoring formulas changed.
+“Choose or create a hole” below the playing area contains the scheduled-hole picker and a three-word hole form. Direct-leg validation is retained. Custom holes are always Par 5 with unlimited play and no golden shortcuts. Definitions and independent personal bests persist in the same local daily history; repeated creation of the same three words reopens the existing record. They appear in the picker and recent-nine card as “Your hole”. Custom holes use the same live scorer as daily holes.
+
+The current live scorer is `band-free-harmonic-v3-opportunity08-bonus2`: opportunity rate 0.08, one-stroke coefficient 2. Historical V6 comparison diagnostics retain their original calibration. Saved v2 vector reports with raw evidence are rescaled locally and personal cleverness bests are reranked; stroke records and routes are untouched.
+
+### Starting a fresh export batch
+
+Use **Export play data**, then **Reset play data**. Reset requires confirmation, clears personal bests, statistics and attempt history, and tees up the selected hole. Saved custom hole definitions and downloaded word files stay intact. A recovery copy is available through **Restore previous play data** until the next reset; recovery preserves any new play too. Normal exports contain only the current batch.

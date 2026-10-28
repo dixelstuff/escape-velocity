@@ -1,0 +1,1458 @@
+{
+  "modelSha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "records": [
+    {
+      "number": 1,
+      "tee": "kettle",
+      "waypoint": "ballet",
+      "flag": "quicksand",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "kettle",
+            "target": "ballet",
+            "direct": false,
+            "contact": 0.005002126332328771,
+            "required": 0.215
+          },
+          {
+            "start": "ballet",
+            "target": "quicksand",
+            "direct": false,
+            "contact": 0.04680472094332799,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "kettle",
+        "target": "quicksand",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "ballet",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 2,
+      "tee": "walrus",
+      "waypoint": "optics",
+      "flag": "sundial",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "walrus",
+            "target": "optics",
+            "direct": false,
+            "contact": 0.02042260689631803,
+            "required": 0.215
+          },
+          {
+            "start": "optics",
+            "target": "sundial",
+            "direct": false,
+            "contact": 0.11708668667051825,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "walrus",
+        "target": "sundial",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "optics",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 3,
+      "tee": "velvet",
+      "waypoint": "alchemy",
+      "flag": "tornado",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "velvet",
+            "target": "alchemy",
+            "direct": false,
+            "contact": 0.06616357127859374,
+            "required": 0.215
+          },
+          {
+            "start": "alchemy",
+            "target": "tornado",
+            "direct": false,
+            "contact": -0.09858409929984191,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "velvet",
+        "target": "tornado",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "alchemy",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 4,
+      "tee": "hiccup",
+      "waypoint": "religion",
+      "flag": "satellite",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "hiccup",
+            "target": "religion",
+            "direct": false,
+            "contact": -0.09442404134506432,
+            "required": 0.22186274509803922
+          },
+          {
+            "start": "religion",
+            "target": "satellite",
+            "direct": false,
+            "contact": 0.007605776276250253,
+            "required": 0.22186274509803922
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "hiccup",
+        "target": "satellite",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "religion",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 5,
+      "tee": "compass",
+      "waypoint": "carnival",
+      "flag": "jellybean",
+      "missing": [
+        "jellybean"
+      ],
+      "validation": null,
+      "settings": {
+        "start": "compass",
+        "target": "jellybean",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "carnival",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 6,
+      "tee": "mozzarella",
+      "waypoint": "espionage",
+      "flag": "tunnel",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mozzarella",
+            "target": "espionage",
+            "direct": false,
+            "contact": -0.12408907230019395,
+            "required": 0.215
+          },
+          {
+            "start": "espionage",
+            "target": "tunnel",
+            "direct": false,
+            "contact": 0.029075233551338897,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "mozzarella",
+        "target": "tunnel",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "espionage",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 7,
+      "tee": "hammock",
+      "waypoint": "acrobatics",
+      "flag": "carnival",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "hammock",
+            "target": "acrobatics",
+            "direct": false,
+            "contact": 0.07107661834015744,
+            "required": 0.215
+          },
+          {
+            "start": "acrobatics",
+            "target": "carnival",
+            "direct": false,
+            "contact": 0.1953940891471575,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "hammock",
+        "target": "carnival",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "acrobatics",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 8,
+      "tee": "porcupine",
+      "waypoint": "navigation",
+      "flag": "marionette",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "porcupine",
+            "target": "navigation",
+            "direct": false,
+            "contact": -0.06791711002006195,
+            "required": 0.215
+          },
+          {
+            "start": "navigation",
+            "target": "marionette",
+            "direct": false,
+            "contact": -0.11471391032887368,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "porcupine",
+        "target": "marionette",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "navigation",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 9,
+      "tee": "toaster",
+      "waypoint": "archaeology",
+      "flag": "mosquito",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "toaster",
+            "target": "archaeology",
+            "direct": false,
+            "contact": 0.0491697828906581,
+            "required": 0.215
+          },
+          {
+            "start": "archaeology",
+            "target": "mosquito",
+            "direct": false,
+            "contact": -0.05343514709602459,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "toaster",
+        "target": "mosquito",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "archaeology",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 10,
+      "tee": "jigsaw",
+      "waypoint": "celebrity",
+      "flag": "avalanche",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "jigsaw",
+            "target": "celebrity",
+            "direct": false,
+            "contact": -0.010149154296868801,
+            "required": 0.215
+          },
+          {
+            "start": "celebrity",
+            "target": "avalanche",
+            "direct": false,
+            "contact": 0.10296518309496605,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "jigsaw",
+        "target": "avalanche",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "celebrity",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 11,
+      "tee": "pigeon",
+      "waypoint": "mathematics",
+      "flag": "lipstick",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "pigeon",
+            "target": "mathematics",
+            "direct": false,
+            "contact": -0.06162719341045886,
+            "required": 0.215
+          },
+          {
+            "start": "mathematics",
+            "target": "lipstick",
+            "direct": false,
+            "contact": -0.03437166002277081,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "pigeon",
+        "target": "lipstick",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "mathematics",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 12,
+      "tee": "coconut",
+      "waypoint": "detective",
+      "flag": "submarine",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "coconut",
+            "target": "detective",
+            "direct": false,
+            "contact": -0.000533036989509128,
+            "required": 0.215
+          },
+          {
+            "start": "detective",
+            "target": "submarine",
+            "direct": false,
+            "contact": 0.10894117133102554,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "coconut",
+        "target": "submarine",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "detective",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 13,
+      "tee": "trampoline",
+      "waypoint": "photography",
+      "flag": "gravestone",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "trampoline",
+            "target": "photography",
+            "direct": false,
+            "contact": -0.06013295501338689,
+            "required": 0.215
+          },
+          {
+            "start": "photography",
+            "target": "gravestone",
+            "direct": false,
+            "contact": -0.05151880458470259,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "trampoline",
+        "target": "gravestone",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "photography",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 14,
+      "tee": "mustard",
+      "waypoint": "royalty",
+      "flag": "eclipse",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mustard",
+            "target": "royalty",
+            "direct": false,
+            "contact": 0.03429178641636099,
+            "required": 0.215
+          },
+          {
+            "start": "royalty",
+            "target": "eclipse",
+            "direct": false,
+            "contact": 0.10222161992169276,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "mustard",
+        "target": "eclipse",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "royalty",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 15,
+      "tee": "scarecrow",
+      "waypoint": "chemistry",
+      "flag": "carousel",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "scarecrow",
+            "target": "chemistry",
+            "direct": false,
+            "contact": -0.013619232769997325,
+            "required": 0.215
+          },
+          {
+            "start": "chemistry",
+            "target": "carousel",
+            "direct": false,
+            "contact": -0.07340036745517864,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "scarecrow",
+        "target": "carousel",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "chemistry",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 16,
+      "tee": "whistle",
+      "waypoint": "mythology",
+      "flag": "pancake",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "whistle",
+            "target": "mythology",
+            "direct": false,
+            "contact": -0.014854029912385158,
+            "required": 0.215
+          },
+          {
+            "start": "mythology",
+            "target": "pancake",
+            "direct": false,
+            "contact": -0.00918255775468424,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "whistle",
+        "target": "pancake",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "mythology",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 17,
+      "tee": "sandwich",
+      "waypoint": "recycling",
+      "flag": "hurricane",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sandwich",
+            "target": "recycling",
+            "direct": false,
+            "contact": 0.09911893671414873,
+            "required": 0.215
+          },
+          {
+            "start": "recycling",
+            "target": "hurricane",
+            "direct": false,
+            "contact": -0.05572470091374271,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "sandwich",
+        "target": "hurricane",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "recycling",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 18,
+      "tee": "platypus",
+      "waypoint": "gambling",
+      "flag": "telescope",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "platypus",
+            "target": "gambling",
+            "direct": false,
+            "contact": -0.013435998980639852,
+            "required": 0.215
+          },
+          {
+            "start": "gambling",
+            "target": "telescope",
+            "direct": false,
+            "contact": 0.0017872327371151187,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "platypus",
+        "target": "telescope",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "gambling",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 19,
+      "tee": "umbrella",
+      "waypoint": "psychology",
+      "flag": "treasure",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "umbrella",
+            "target": "psychology",
+            "direct": false,
+            "contact": 0.05201144532475155,
+            "required": 0.215
+          },
+          {
+            "start": "psychology",
+            "target": "treasure",
+            "direct": false,
+            "contact": -0.034362045002581,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "umbrella",
+        "target": "treasure",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "psychology",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 20,
+      "tee": "dumpling",
+      "waypoint": "jazz",
+      "flag": "vampire",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "dumpling",
+            "target": "jazz",
+            "direct": false,
+            "contact": -0.016909757221583277,
+            "required": 0.215
+          },
+          {
+            "start": "jazz",
+            "target": "vampire",
+            "direct": false,
+            "contact": 0.07054113143203722,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "dumpling",
+        "target": "vampire",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "jazz",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 21,
+      "tee": "firefly",
+      "waypoint": "economics",
+      "flag": "skyscraper",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "firefly",
+            "target": "economics",
+            "direct": false,
+            "contact": -0.13774118552100845,
+            "required": 0.215
+          },
+          {
+            "start": "economics",
+            "target": "skyscraper",
+            "direct": false,
+            "contact": -0.02562873938586563,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "firefly",
+        "target": "skyscraper",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "economics",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 22,
+      "tee": "zipper",
+      "waypoint": "folklore",
+      "flag": "karaoke",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "zipper",
+            "target": "folklore",
+            "direct": false,
+            "contact": -0.03404791414504871,
+            "required": 0.215
+          },
+          {
+            "start": "folklore",
+            "target": "karaoke",
+            "direct": false,
+            "contact": 0.09938881098878483,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "zipper",
+        "target": "karaoke",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "folklore",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 23,
+      "tee": "peacock",
+      "waypoint": "engineering",
+      "flag": "blizzard",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "peacock",
+            "target": "engineering",
+            "direct": false,
+            "contact": 0.0011329861656577123,
+            "required": 0.215
+          },
+          {
+            "start": "engineering",
+            "target": "blizzard",
+            "direct": false,
+            "contact": -0.037474641652806895,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "peacock",
+        "target": "blizzard",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "engineering",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 24,
+      "tee": "biscuit",
+      "waypoint": "diplomacy",
+      "flag": "canyon",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "biscuit",
+            "target": "diplomacy",
+            "direct": false,
+            "contact": -0.014927021327821421,
+            "required": 0.215
+          },
+          {
+            "start": "diplomacy",
+            "target": "canyon",
+            "direct": false,
+            "contact": -0.04043949907645583,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "biscuit",
+        "target": "canyon",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "diplomacy",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 25,
+      "tee": "chandelier",
+      "waypoint": "football",
+      "flag": "parachute",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "chandelier",
+            "target": "football",
+            "direct": false,
+            "contact": -0.07209659933141666,
+            "required": 0.215
+          },
+          {
+            "start": "football",
+            "target": "parachute",
+            "direct": false,
+            "contact": 0.045458003452949924,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "chandelier",
+        "target": "parachute",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "football",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 26,
+      "tee": "radish",
+      "waypoint": "superstition",
+      "flag": "helicopter",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "radish",
+            "target": "superstition",
+            "direct": false,
+            "contact": 0.061236165242917195,
+            "required": 0.215
+          },
+          {
+            "start": "superstition",
+            "target": "helicopter",
+            "direct": false,
+            "contact": -0.08876598727692908,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "radish",
+        "target": "helicopter",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "superstition",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 27,
+      "tee": "squirrel",
+      "waypoint": "literature",
+      "flag": "volleyball",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "squirrel",
+            "target": "literature",
+            "direct": false,
+            "contact": -0.08462813907863165,
+            "required": 0.215
+          },
+          {
+            "start": "literature",
+            "target": "volleyball",
+            "direct": false,
+            "contact": 0.06435475603757368,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "squirrel",
+        "target": "volleyball",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "literature",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 28,
+      "tee": "marshmallow",
+      "waypoint": "geometry",
+      "flag": "piranha",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "marshmallow",
+            "target": "geometry",
+            "direct": false,
+            "contact": -0.026332875694606628,
+            "required": 0.215
+          },
+          {
+            "start": "geometry",
+            "target": "piranha",
+            "direct": false,
+            "contact": 0.09961914704399533,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "marshmallow",
+        "target": "piranha",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "geometry",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 29,
+      "tee": "megaphone",
+      "waypoint": "ecology",
+      "flag": "pyramid",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "megaphone",
+            "target": "ecology",
+            "direct": false,
+            "contact": -0.07552711890093633,
+            "required": 0.215
+          },
+          {
+            "start": "ecology",
+            "target": "pyramid",
+            "direct": false,
+            "contact": 0.0023523142845078837,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "megaphone",
+        "target": "pyramid",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "ecology",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    },
+    {
+      "number": 30,
+      "tee": "slipper",
+      "waypoint": "cryptography",
+      "flag": "geyser",
+      "missing": [],
+      "validation": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "slipper",
+            "target": "cryptography",
+            "direct": false,
+            "contact": 0.08828117942948666,
+            "required": 0.215
+          },
+          {
+            "start": "cryptography",
+            "target": "geyser",
+            "direct": false,
+            "contact": 0.09513386214075581,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "settings": {
+        "start": "slipper",
+        "target": "geyser",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "cryptography",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": []
+      }
+    }
+  ]
+}

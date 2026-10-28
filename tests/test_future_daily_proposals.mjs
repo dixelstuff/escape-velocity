@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+import {dailyManifest} from '../static/daily-manifest.mjs';import {addDay} from '../static/daily-game.mjs';import {waypointLegAccess} from '../static/engine.mjs';import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
+const {e}=loadResearchModel(),prefix=106;
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(dailyManifest.holes.slice(0,prefix))).digest('hex'),'7676279d5a7615276646197556aa65d37626ea118de37674c7e8a0f52ca626b2');
+const added=dailyManifest.holes.slice(prefix);assert.equal(added.length,29);assert.equal(added[0].date,'2027-02-03');assert.equal(added.at(-1).date,'2027-03-03');
+for(const [i,h]of added.entries()){assert.equal(h.id,'daily-'+h.date);assert.equal(h.date,addDay('2027-02-03',i));assert.equal(h.settings.par,5);assert.equal(h.settings.continuous_play,true);assert.deepEqual(h.settings.golden_paths,[]);assert.equal(h.settings.course_set,'user-proposals-2026-10-28');assert.equal(waypointLegAccess(e,h.settings).allowed,true);for(const w of [h.settings.start,h.settings.waypoint.word,h.settings.target])assert.ok(e.index.has(w));}
+assert.equal(added.some(h=>h.settings.target==='jellybean'),false);assert.equal(added[0].settings.start,'kettle');assert.equal(added.at(-1).settings.start,'slipper');assert.equal(new Set(dailyManifest.holes.map(h=>JSON.stringify([h.settings.start,h.settings.waypoint.word,h.settings.target]))).size,dailyManifest.holes.length);
+console.log('Future proposals passed: original 106 definitions unchanged; 29 unique all-Par-5 holes appended with valid vocabulary and nontrivial legs; unsupported JELLYBEAN excluded.');

@@ -1,3 +1,4 @@
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=opportunity08-bonus2-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */
 export const DAILY_KEY='word-golf.personal-daily.v1';
 export const dayUTC=(date=new Date())=>date.toISOString().slice(0,10);
@@ -10,7 +11,7 @@ export class DailyGame{
   catch{this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today());}
- available(){return this.manifest.holes.filter(h=>h.date<=addDay(this.today(),50)).concat(this.data.customHoles??[]);}
+ available(){return this.manifest.holes.concat(this.data.customHoles??[]);}
  definition(day){return this.available().find(h=>h.date===day);}
  addCustom(settings){const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
  latest(){return this.published().at(-1);}
@@ -22,10 +23,19 @@ export class DailyGame{
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
   if(s.won){const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes)h.bestStrokes=candidate;
    const report=journey.cleverness_playtest,score=report?.band_free;
-   if(score?.version==='band-free-harmonic-v2-one-stroke'&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
+   if(score?.version===BAND_FREE_VERSION&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
   }this.save();
  }
  recordReport(journey){const selected=this.data.selected,h=this.data.holes[journey?.state?.challenge?.id],latest=h?.journeyId,at=h?.lastPlayedAt,updated=h?.updatedAt;this.record(journey);if(h){h.journeyId=latest;h.lastPlayedAt=at;h.updatedAt=updated;}this.data.selected=selected;this.save();}
+ refreshClevernessBests(journeys){
+  let changed=false;
+  for(const h of Object.values(this.data.holes)){
+   const candidates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score));
+   candidates.sort((a,b)=>b.cleverness_playtest.band_free.unrounded_score-a.cleverness_playtest.band_free.unrounded_score);
+   const j=candidates[0],score=j?.cleverness_playtest.band_free,best=j?{journeyId:j.id,strokes:j.state.attempts,route:[...j.state.route],attempt:j.state.challenge.attempt,score:score.score,unrounded:score.unrounded_score,version:score.version}:null;
+   if(JSON.stringify(h.bestCleverness??null)!==JSON.stringify(best)){if(best)h.bestCleverness=best;else delete h.bestCleverness;changed=true;}
+  }if(changed)this.save();
+ }
  current(){return this.data.holes[this.selected()?.id];}
  recent(){return Object.values(this.data.holes).sort((a,b)=>String(b.lastPlayedAt).localeCompare(String(a.lastPlayedAt))||b.date.localeCompare(a.date)).slice(0,9);}
  stats(){const completed=Object.values(this.data.holes).filter(h=>h.bestStrokes),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};for(const h of completed){const s=h.bestStrokes.strokes;counts[s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+']++;}const clever=completed.filter(h=>h.bestCleverness);return {completed:completed.length,counts,averageBestCleverness:clever.length?Math.round(clever.reduce((n,h)=>n+h.bestCleverness.score,0)/clever.length):null};}

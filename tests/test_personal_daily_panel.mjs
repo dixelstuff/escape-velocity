@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {mountDailyCleverness} from '../static/daily-cleverness-panel.mjs';
 import {playtestKey,PLAYTEST_VERSION} from '../static/cleverness-playtest-data.mjs';
-const node={innerHTML:'',hidden:false,querySelector(){return {onclick:null,title:''};}},states=['a','b'].map(word=>({won:true,start:'tee',route:['tee',word,'flag'],challenge:{id:word,par:5,unlimited:true}})),reports=states.map((state,i)=>({version:PLAYTEST_VERSION,key:playtestKey(state,'model'),band_free:{version:'band-free-harmonic-v2-one-stroke',score:70+i,legs:[{strokes:1,factor:1},{strokes:2,factor:1}],one_stroke_bonus:{applied_amount:2}},components:{semantic_ingenuity:.5,strategic_effectiveness:.7,route_elegance:.6},strongest_sequence:['tee','<unsafe>','flag']}));
+const node={innerHTML:'',hidden:false,querySelector(){return {onclick:null,title:''};}},states=['a','b'].map(word=>({won:true,start:'tee',route:['tee',word,'flag'],challenge:{id:word,par:5,unlimited:true}})),reports=states.map((state,i)=>({version:PLAYTEST_VERSION,key:playtestKey(state,'model'),band_free:{version:'band-free-harmonic-v3-opportunity08-bonus2',score:70+i,legs:[{strokes:1,factor:1},{strokes:2,factor:1}],one_stroke_bonus:{applied_amount:2}},components:{semantic_ingenuity:.5,strategic_effectiveness:.7,route_elegance:.6},strongest_sequence:['tee','<unsafe>','flag']}));
 const pending=[],saved=[],tick=()=>new Promise(r=>setTimeout(r,0));
 const panel=mountDailyCleverness(node,{request:state=>new Promise(resolve=>pending.push({state,resolve})),modelHash:()=> 'model',onReport:(s,r)=>saved.push(r)});
 panel.show(states[0]);await tick();panel.show(states[1]);await tick();assert.equal(pending.length,2);
@@ -9,4 +9,4 @@ pending[0].resolve(reports[0]);await tick();assert.equal(saved.length,1);assert.
 pending[1].resolve(reports[1]);await tick();assert.match(node.innerHTML,/<strong>71/);assert.ok(!node.innerHTML.includes('Previous harmonic'));assert.ok(node.innerHTML.includes('&lt;UNSAFE&gt;'));
 panel.show(states[0]);assert.match(node.innerHTML,/<strong>70/);assert.equal(pending.length,2,'repeat inspection reuses cached report');panel.show(states[0],{visible:false});assert.equal(node.hidden,true);
 let requests=0;const persisted=mountDailyCleverness(node,{request:()=>{requests++;},modelHash:()=> 'model',getSavedReport:()=>reports[1],onReport(){}});persisted.show(states[1]);assert.match(node.innerHTML,/<strong>71/);assert.equal(requests,0,'exact persisted scorer/route identity avoids recalculation');
-console.log('Personal cleverness panel passed: v2 only, persisted/session reuse, stale response isolation, separate report persistence, safe text and no comparison-score UI.');
+console.log('Personal cleverness panel passed: current scorer only, persisted/session reuse, stale response isolation, separate report persistence, safe text and no comparison-score UI.');
