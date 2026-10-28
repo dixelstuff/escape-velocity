@@ -18,6 +18,14 @@ The assessment worker downloads verified semantic profile shards and prepares ne
 
 ## Validation
 
-New tests cover stale tabs from current and legacy releases, reset commit failure, unchanged persisted data before explicit confirmation, completion-only recency, both top-three rankings, interactive filters, partial-route cache preparation without scoring, shard reuse and exact warm/cold score parity. Existing 15-route scorer regression, personal history/panel/reset, flight log and keyboard-layout regressions pass. Deployment runs 71 checks.
+New tests cover stale tabs from current and legacy releases, reset commit failure, unchanged persisted data before explicit confirmation, completion-only recency, both top-three rankings, interactive filters, partial-route cache preparation without scoring, shard reuse and exact warm/cold score parity. Existing 15-route scorer regression, personal history/panel/reset, flight log and keyboard-layout regressions pass. Deployment runs 72 checks.
 
 Mobile inspection at 390 px confirmed one-line navigation, no horizontal overflow, a working stroke-counter help panel and personal-best routes. No play data was reset during this task. Real iPhone keyboard transitions were not simulated; their code was not changed.
+
+## Follow-up interface repairs
+
+The header is now borderless and uses automatic horizontal margins, matching the map on desktop. Personal styling is present in the initial HTML, before module loading; legacy header text is no longer written during personal-mode updates. The mobile keyboard header has zero vertical padding and top margin, restoring the original compact height budget. The counter is 26×27 px with 16 px text. Best-route access is in completed-hole cards and inside How to play, with no extra input-area link.
+
+Quota tests reproduced the reset implementation's unnecessary source-plus-recovery duplication. Reset now holds the previous source in memory while writing its replacement, restoring the source on failure. Ordinary writes can release recovery copies and superseded legacy play records on QuotaExceededError, never the active log or saved custom definitions. Non-quota failures are not treated as space pressure. Specific save errors are retained in the warning's title; no warning was reproduced in the local browser during inspection.
+
+Per-hole artwork now varies tree cluster positions/counts/radii, path control points, shoreline coves and bunker shape/size/angle. A deterministic ±1.4° display rotation affects the complete course, markers and hit paths together. Word-label animation converts through SVG matrices to avoid rotation-induced drift. Scoring and saved routes stay in their original coordinates. Tests check 36 terrain combinations, determinism, tree/path clearance and sand/green separation.

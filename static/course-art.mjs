@@ -1,4 +1,4 @@
-import {bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=golf-v189';
+import {appearanceUnit,bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=terrain-variety-v2';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -118,7 +118,7 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   const fraction=f+.035*(noise(i)-.5),a=cart.points[Math.round(fraction*(cart.points.length-1))],side=i%2?1:-1,count=3+Math.floor(4*noise(i+10)),spread=15+17*noise(i+30);
   return Array.from({length:count},(_,j)=>{const t=noise(i*10+j+60)*6.28,rr=spread*Math.sqrt(noise(i*10+j+90));return {x:a.x+Math.cos(t)*rr,y:a.y+side*(25+8*noise(i+50))+Math.sin(t)*rr*.7,r:7+10*noise(i*10+j+120),seed:60+i*7+j};});
  }).filter(p=>p.y>par3Fairway(d).bottomY(p.x)+3):d.cartPath?[8,12,29,33,56,59,78,82].map((index,i)=>{
-  const a=d.cartPath.points[index],b=d.cartPath.points[index+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
+  const varied=Math.max(1,Math.min(d.cartPath.points.length-2,index+Math.round(10*(noise(450+i)-.5)))),a=d.cartPath.points[varied],b=d.cartPath.points[varied+1],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,r=(13+(i*7)%9)*(d.width<700?.88:1)*(d.artScale??1),sign=d.reflectY?1:-1,offset=r+5+(i%2)*3;
   return {x:a.x-sign*dy/length*offset,y:a.y+sign*dx/length*offset,r,seed:50+i};
  }):[];
  // Grow irregular groves in the broad top rough, leaving open pockets between
@@ -147,7 +147,7 @@ export function courseTrees(d,style,lake=lakeGeometry(d,style)){
   const geometry=par3Fairway(d),x=d.left+(d.zoneLeft-d.left)*(fraction+.025*(noise(i+180)-.5)),r=11+4*noise(i+190),y=geometry.topY(x);
   return [{x,y:y+3,r,seed:110+i*3},{x:x-17-7*noise(i+200),y:y-16,r:r*.85,seed:111+i*3},{x:x+13,y:y-24,r:r*.72,seed:112+i*3}];
  }):[];
- return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0),r:r*(d.width<700?.88:1)*(d.artScale??1),seed:i})).concat(pathTrees,fairwayTrees,topTrees).filter(p=>clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
+ return `<g id="course-trees" aria-hidden="true" pointer-events="none">${trees.map(([x,y,r],i)=>({x:x*d.width+(d.waypointTurn?d.width*.034*(noise(700+Math.floor(i/3))-.5)+12*(noise(900+i)-.5):0)+(i<9?5*Math.sin(i*2.7+style.phase):0)+(d.reflectY&&i>=9?d.width*.009*Math.sin(i*1.7+style.phase):0),y:(d.waypointTurn?30*(noise(800+Math.floor(i/3))-.5)+16*(noise(1000+i)-.5):0)+(d.reflectY?430-y-(i<9?shift+4*Math.sin(i+style.phase):0)+7*Math.sin(i*2.3+style.phase):y+(i<9?shift+4*Math.sin(i+style.phase):0)),r:r*(d.waypointTurn?.85+.3*noise(1100+i):1)*(d.width<700?.88:1)*(d.artScale??1),seed:i+Math.floor(12*noise(1200+i))})).filter((p,i)=>!d.waypointTurn||noise(1300+i)>.12).concat(pathTrees,fairwayTrees,topTrees).filter(p=>!(d.sandObstacles??[]).some(b=>{const angle=b.angle*Math.PI/180,dx=p.x-b.x*d.width,dy=(d.reflectY?430-p.y:p.y)-b.y,x=dx*Math.cos(angle)+dy*Math.sin(angle),y=-dx*Math.sin(angle)+dy*Math.cos(angle);return (x/(b.rx+p.r+5))**2+(y/(b.ry+p.r+5))**2<1;})&&clearOfCartPath(p,d)&&clearOfPar3Sand(p,d)&&!lakeContains(p,lake,p.r+7)&&(!(d.waypointTurn||d.par3)||!Array.from({length:12},(_,i)=>({x:p.x+Math.cos(i*Math.PI/6)*(p.r+5),y:p.y+Math.sin(i*Math.PI/6)*(p.r+5)})).some(point=>greenContains(point,d)))).map(p=>tree(p.x,p.y,p.r,p.seed)).join('')}</g>`;
 }
 
 const par3Sand=new WeakMap();
@@ -218,8 +218,9 @@ export function approachLandscape(d,style){
 }
 
 export function continuationTrees(d,style,lake=lakeGeometry(d,style)){
+ const noise=i=>appearanceUnit(style.seed??style.phase,':continuation'+i);
  const trees=[[.025,484,15],[.045,531,17],[.98,463,15],[.96,544,17],[.025,730,18],[.975,746,17],[.075,803,14],[.91,863,16],[.02,1030,16],[.97,1120,17]];
- return trees.map(([x,y,r],i)=>({x:x*d.width,y:y+8*Math.sin(style.phase+i),r,seed:i})).filter(p=>!lakeContains(p,lake,p.r+7));
+ return trees.map(([x,y,r],i)=>({x:x*d.width+(d.waypointTurn?d.width*.034*(noise(700+Math.floor(i/3))-.5)+12*(noise(900+i)-.5):0),y:y+8*Math.sin(style.phase+i),r,seed:i})).filter(p=>!lakeContains(p,lake,p.r+7));
 }
 
 /** The neighbouring hole and its road share the same boundary geometry. */

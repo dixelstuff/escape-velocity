@@ -8,7 +8,7 @@ export class DailyGame{
  constructor(storage,manifest,{today=()=>dayUTC(),now=()=>new Date().toISOString()}={}){
   this.storage=storage;this.manifest=manifest;this.today=today;this.now=now;this.warning='';this.data={version:1,selected:null,holes:{}};
   try{const raw=storage?.getItem(DAILY_KEY);if(raw){const saved=JSON.parse(raw);if(saved.version!==1||!saved.holes||typeof saved.holes!=='object'||Array.isArray(saved.holes))throw Error('Invalid daily history');this.data=saved;}}
-  catch{this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
+  catch(error){this.saveError=error.name+': '+error.message;this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today());}
  available(){return this.manifest.holes.concat(this.data.customHoles??[]);}
@@ -16,7 +16,7 @@ export class DailyGame{
  addCustom(settings){const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
  latest(){return this.published().at(-1);}
  selected(){return this.definition(this.data.selected)??this.latest();}
- save(){try{if(!this.storage||this.unreadable)throw Error();this.storage.setItem(DAILY_KEY,JSON.stringify(this.data));this.warning='';}catch{this.warning='Progress could not be saved on this device. Export your play data before closing this page.';}}
+ save(){try{if(!this.storage||this.unreadable)throw Error();this.storage.setItem(DAILY_KEY,JSON.stringify(this.data));this.warning='';this.saveError='';}catch(error){this.saveError=error.name+': '+error.message;this.warning=error.code==='STALE_PLAY_BATCH'?error.message:error.name==='QuotaExceededError'?'Device storage is full. Export your play data before closing this page.':'Progress could not be saved on this device. Export your play data before closing this page.';}}
  visit(day){const def=this.definition(day);if(!def)throw Error('That daily hole is not available.');this.data.selected=day;const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:def.settings.start,waypoint:def.settings.waypoint.word,flag:def.settings.target};h.lastPlayedAt=this.now();this.save();return def;}
  record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;

@@ -1,5 +1,5 @@
 /** Per-round appearance, independent of word vectors, rules and scores. */
-function appearanceUnit(seed,salt){let h=2166136261;for(const c of String(seed)+salt){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}h^=h>>>16;h=Math.imul(h,0x7feb352d);h^=h>>>15;return (h>>>0)/4294967295;
+export function appearanceUnit(seed,salt){let h=2166136261;for(const c of String(seed)+salt){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}h^=h>>>16;h=Math.imul(h,0x7feb352d);h^=h>>>15;return (h>>>0)/4294967295;
 }
 export const GREEN_HEIGHT=318,GREEN_CENTRE_Y=224.5;
 export function pinPlacement(seed){
@@ -51,7 +51,7 @@ export function courseStyle(seed){
  const u=salt=>appearanceUnit(seed,salt),count=u(':count')>.65?2:1;
  const greenCentreY=GREEN_CENTRE_Y+40*(u(':green-y')-.5),holeY=greenCentreY+GREEN_HEIGHT*(pinPlacement(seed).vertical-.5);
  const teeY=Math.max(191,Math.min(239,215-.25*(holeY-215)+4*(u(':tee')-.5)));
- return {teeY,par3TeeY:[168,187,210][Math.min(2,Math.floor(u(':par3-tee')*3))],greenCentreY,approach:u(':approach'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
+ return {seed:String(seed),rotation:2.8*(u(':rotation')-.5),teeY,par3TeeY:[168,187,210][Math.min(2,Math.floor(u(':par3-tee')*3))],greenCentreY,approach:u(':approach'),lakeY:388+8*u(':shore'),wave:34+12*u(':wave'),phase:u(':phase')*Math.PI*2,
   bunkers:Array.from({length:count},(_,i)=>({
    x:i?.65+.025*u(':bx1'):.38+(count===2?.06:.16)*u(':bx0'),y:46+16*u(':by'+i),
    rx:(i?23:47)+(i?11:16)*u(':br'+i),ry:17+9*u(':bh'+i),angle:-17+34*u(':ba'+i),phase:6.28*u(':bp'+i),shape:8+Math.floor(2*u(':shape'+i))

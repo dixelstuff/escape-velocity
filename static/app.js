@@ -1,8 +1,8 @@
-import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=simple-interface-v1';
+import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=interface-repair-v1';
 import {resetPersonalPlay,restorePersonalPlay} from './reset-personal-play.mjs?v=simple-interface-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=simple-interface-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=interface-repair-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=future-proposals-2026-10-28-v1';
-import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=simple-interface-v1';
+import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=interface-repair-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=simple-interface-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=opportunity08-bonus2-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -15,17 +15,17 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v189';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=golf-v189';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=terrain-variety-v2';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
 import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=golf-v189';
-import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=golf-v189';
-import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=golf-v189';
+import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
+import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
 import { createBrowserClient } from './engine.mjs?v=warm-analysis-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=opportunity08-bonus2-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=interface-repair-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v189';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
@@ -77,6 +77,7 @@ $('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;
 $('show-chip-range').addEventListener('change',()=>{showChipRange=$('show-chip-range').checked;$('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;if(state)map();});
 const personalStorage=simpleDaily&&storage?new PersonalPlayStorage(storage):storage;
 const flightLog=new FlightLog(personalStorage);
+if(simpleDaily&&personalStorage)personalStorage.onRecoveryEvicted=()=>{flightLog.backup=null;const button=$('personal-restore');if(button)button.hidden=true;};
 if(simpleDaily)window.addEventListener('storage',event=>{if(event.key===PERSONAL_BATCH_KEY)location.reload();});
 const rounds=tourMode?new TourCourse(storage,tourManifest,rollingSimulation?rollingTestDay:utcDay(Date.now())):rollingMode?new RollingCourse(storage,rollingManifest,rollingSimulation?rollingTestDay:utcDay(Date.now())):new CourseRounds(storage);
 const inCourse=()=>!simpleDaily&&rounds.belongs(state);
@@ -295,7 +296,7 @@ function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())retur
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const desktopInteraction=()=>matchMedia('(hover: hover) and (pointer: fine)').matches;
 let appearanceKey,appearanceLayout,backdropLayout;
-function dimensions(){const seed=state?.challenge?state.challenge.id:flightLog.active?.id??'opening';const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement):base),style};}return appearanceLayout;}
+function dimensions(){const seed=state?.challenge?state.challenge.id:flightLog.active?.id??'opening';const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement,style):base),style};}return appearanceLayout;}
 const COURSE_HEIGHT=430,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
 function goldenLanding(a,b,d){let lo=0,hi=1;for(let i=0;i<32;i++){const t=(lo+hi)/2;if(greenContains({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},d))hi=t;else lo=t;}const fraction=hi+(1-hi)*.22;return {fraction,x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction};}
@@ -321,10 +322,10 @@ let labelLayoutKey,labelLayout=new Map();
 function captureWordLabels(d){
  const previous=new Map();
  if(reduced||labelLayoutKey!==appearanceKey||$('map').viewBox.baseVal.width!==d.width)return previous;
- const matrix=$('map').getScreenCTM();if(!matrix?.a||!matrix?.d)return previous;
+ const matrix=($('map').querySelector('#course-world')??$('map')).getScreenCTM();if(!matrix)return previous;
  for(const label of $('map').querySelectorAll('[data-label-word]')){
   const rect=label.querySelector('rect');if(!rect)continue;
-  const box=rect.getBoundingClientRect();previous.set(label.dataset.lieKey,{x:(box.left-matrix.e)/matrix.a,y:(box.top-matrix.f)/matrix.d,path:label.querySelector('path')?.getAttribute('d')});
+  const local=rect.getScreenCTM();if(!local)continue;const point=new DOMPoint(Number(rect.getAttribute('x')),Number(rect.getAttribute('y'))).matrixTransform(local).matrixTransform(matrix.inverse());previous.set(label.dataset.lieKey,{x:point.x,y:point.y,path:label.querySelector('path')?.getAttribute('d')});
  }
  return previous;
 }
@@ -454,7 +455,8 @@ function map(preview=null){
  const retry=preview?null:retrySource(),previousEntry=(retry?.state??retryPreview?.source.state)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'));$('retry-guidance').hidden=true;
  const chipArt=chipShading(d,zone),waypointArt=state.waypoint?waypointZone(state,d,waypointDisplay.occupied):'';
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="${100*scale}" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="${100*scale}" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="${50*scale}" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="${22*scale}" height="${22*scale}" patternUnits="userSpaceOnUse"><rect width="${22*scale}" height="${22*scale}" fill="#95c87b"/><rect width="${11*scale}" height="${22*scale}" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><g class="course-scenery">${state.waypoint?waypointLandscape(state,d,d.style):courseSurrounds(d,d.style,lake)}</g>${chipArt}<g class="course-scenery">${state.waypoint?waypointGreen(d,d.style):`${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>`}${state.waypoint?'':`<path d="${par3CentreTrace(d)}" stroke="#a7bb9b" fill="none" stroke-dasharray="3 8"/>`}${state.waypoint?'':courseLake(d,d.style,lake)+approachLandscape(d,d.style)}${d.par3?par3PathArt(d,d.style):''}${courseTrees(d,d.style,lake)}</g>${waypointArt}`;
- const worldArt=svg.replace(chipArt,'').replace(waypointArt,'');
+ const worldTransform=`rotate(${state.waypoint?d.style.rotation??0:0} ${d.width/2} 215)`;
+ const worldArt=`<g transform="${worldTransform}">${svg.replace(chipArt,'').replace(waypointArt,'')}</g>`;
  for(const offset of [-teeOffset,teeOffset])svg+=`<g class="tee-marker" aria-label="Tee marker"><ellipse cx="${d.left}" cy="${d.teeY+offset+5*scale}" rx="${6*scale}" ry="${2*scale}" fill="#a9bf8d" opacity=".18"/><circle cx="${d.left}" cy="${d.teeY+offset}" r="${4.5*scale}" fill="#b8cf94" stroke="#aec58f" stroke-width="1.2"/></g>`;
 
 
@@ -486,7 +488,7 @@ function map(preview=null){
 
  const r=ballPosition(state.current);
  svg+=`<g id="golf-ball" transform="translate(${r.x},${r.y})" aria-label="Your golf ball" opacity="${state.won&&state.current===state.target?0:1}" aria-hidden="${state.won&&state.current===state.target}"><g id="ball-size" transform="scale(${scale})"><ellipse id="ball-shadow" cy="18" rx="17" ry="4" fill="#45663e" opacity=".2"/><g id="ball-body"><circle r="16" fill="url(#ball-shade)" stroke="#728363" stroke-width="1"/><g id="ball-dimples">${[[-4,-5],[3,-6],[-7,1],[0,0],[6,1],[-3,6],[4,6]].map(([cx,cy])=>`<circle cx="${cx}" cy="${cy}" r="1.2" fill="#d4ddc8"/>`).join('')}</g></g></g></g>`;
- $('map').innerHTML=svg;
+ $('map').innerHTML=`<rect class="course-scenery" x="-30" y="-30" width="${d.width+60}" height="${COURSE_HEIGHT+60}" fill="#c4d3a7"/><g id="course-world" transform="${worldTransform}">${svg}</g>`;
  if(backdropLayout!==d){document.querySelector('.map-card').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style,{foreground:worldArt,lake}))}")`;backdropLayout=d;}
  const textNodes=[...$('map').querySelectorAll('[data-word-label]')];
  const needsBallSpace=p=>p.key!==finalKey&&(p.key===currentKey||state.waypoint&&p.key===waypointKey||preview?.success&&p.key===wordLieKey(preview.word,preview));
@@ -501,10 +503,11 @@ function map(preview=null){
  for(const p of planets){const box=layout.labels.get(p.key);if(!box)continue;const endX=Math.max(box.x,Math.min(box.x+box.width,p.pos.x)),endY=Math.max(box.y,Math.min(box.y+box.height,p.pos.y));const length=Math.hypot(endX-p.pos.x,endY-p.pos.y)||1;const markerRadius=(p.key===currentKey?16:p.key===finalKey?10:6)*scale;const startX=p.pos.x+markerRadius*(endX-p.pos.x)/length,startY=p.pos.y+markerRadius*(endY-p.pos.y)/length;
  labels+=`<g class="word-label${!p.previous&&(state.won?(p.key===teeKey||p.key===finalKey||p.word===state.waypoint?.word&&state.history.some(h=>h.waypoint_reached&&h.word===p.word)):(p.key===currentKey||p.key===targetKey))?' active-word-label':''}${p.previous?' previous-word-label previous-attempt-element':''}${p.waypointReference?' waypoint-reference-label':''}" ${p.waypointReference?'data-waypoint-reference="true"':''} data-label-word="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${p.key===currentKey?'data-focus-entry="true"':''} ${p.resumeThrough!==undefined?`data-resume-through="${p.resumeThrough}" role="button" tabindex="0" aria-label="Retry from ${esc(p.word.toUpperCase())}"`: p.key===currentKey?`role="button" tabindex="0" aria-label="${state.current===state.start?'Play your first word':'Play your next word'}"`:''} opacity="${p.retryFuture?.7:p.failed?.72:1}">${p.previous||p.waypointReference?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g>`;
  }
- $('map').insertAdjacentHTML('beforeend',labels);
+ $('map').querySelector('#course-world').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);
  $('map').style.minHeight='';$('map').dataset.teeWord=state.start;
- const highest=Math.min(d.holeY-52*scale,d.teeY-teeOffset-6*scale,...[...layout.labels.values()].map(box=>box.y)),lowest=Math.max(d.teeY+teeOffset+6*scale,...[...layout.labels.values()].map(box=>box.y+box.height));
+ const rotationPad=Math.abs(Math.sin((state.waypoint?d.style.rotation??0:0)*Math.PI/180))*d.width/2;
+ const highest=Math.min(d.holeY-52*scale,d.teeY-teeOffset-6*scale,...[...layout.labels.values()].map(box=>box.y))-rotationPad,lowest=Math.max(d.teeY+teeOffset+6*scale,...[...layout.labels.values()].map(box=>box.y+box.height))+rotationPad;
  const screenScale=$('map').clientWidth/d.width,lift=completedCourseLift(state.won,highest,screenScale),card=document.querySelector('.map-card');
  card.style.setProperty('--result-course-lift',`${lift}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
@@ -569,6 +572,7 @@ function renderHoleLog(){
   if(holePanelMode==='tips')$('hole-log-rows').innerHTML='<li class="bag-tip"><h3>Make contact</h3><p>Your word must connect to the ball word to hit.</p></li><li class="bag-tip"><h3>Aim for the target</h3><p>A stronger connection to the target carries the ball further. Longer shots also need a stronger connection to the ball word. A small step can be useful as a set up shot.</p></li><li class="bag-tip"><h3>Reach the dogleg</h3><p>First land inside the shaded dogleg area. You can use its word or another word that reaches the area and sets you up for the flag. Then the flag becomes your target.</p></li><li class="bag-tip"><h3>Explore freely</h3><p>A miss ends that attempt. Continue from your last lie, or tap any landed word to try a different route. There are no attempt or stroke limits.</p></li><li class="bag-tip"><h3>Two personal bests</h3><p>Every hole is Par 5. Record your fewest strokes and highest ingenuity; they can come from different routes. An automatic finish counts as a stroke. Keep playing either route whenever you like.</p></li>';
   else{const h=daily.current();$('hole-log-rows').innerHTML=[['Fewest strokes',h?.bestStrokes],['Highest ingenuity',h?.bestCleverness]].map(([label,best])=>'<li class="bag-route"><h3>'+label+'</h3><p>'+ (best?esc(best.route.map(w=>w.toUpperCase()).join(' → ')):'Finish the hole to record a route.')+'</p>'+(best?'<p class="subtle">'+best.strokes+' strokes'+(best.score!==undefined?' · Ingenuity '+best.score+'/100':'')+'</p>':'')+'</li>').join('');}
   if(holePanelMode==='tips'){
+   if(daily.current()?.bestStrokes){const bestLink=document.createElement('li');bestLink.className='bag-tip';bestLink.innerHTML='<button type="button" class="quiet" id="help-hole-bests">Your bests on this hole</button>';$('hole-log-rows').prepend(bestLink);$('help-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});}
    const item=document.createElement('li');item.className='bag-tip';
    item.innerHTML='<label class="chip-range-toggle"><input type="checkbox" id="tips-chip-range"> Show chip-in range</label>';
    $('hole-log-rows').append(item);$('tips-chip-range').checked=showChipRange;
@@ -642,7 +646,7 @@ function update(){
  const prompt=state.current===state.start?'Play your first word':'Play your next word';$('word').placeholder=prompt;document.querySelector('label[for="word"]').textContent=prompt;
  $('word-model').value=state.word_model??'';
  $('model-info').textContent=`${modelName(state)} / ${config.vocabulary.toLocaleString()} WORDS · ${config.release}`;
- $('hole-number').textContent=rollingMode&&!inCourse()?'PRACTICE':`HOLE ${inCourse()?rounds.active.index+1:1}`;$('hole-par').textContent=`(PAR ${state.challenge?.par??3})`;renderAttemptCounter();
+ if(!simpleDaily){$('hole-number').textContent=rollingMode&&!inCourse()?'PRACTICE':`HOLE ${inCourse()?rounds.active.index+1:1}`;$('hole-par').textContent=`(PAR ${state.challenge?.par??3})`;}renderAttemptCounter();
  for(const label of document.querySelectorAll('[data-current-word]'))label.textContent=state.current.toUpperCase();
  for(const label of document.querySelectorAll('[data-target-word]'))label.textContent=state.target.toUpperCase();
  $('headwind-note').hidden=!state.headwind;
@@ -758,7 +762,7 @@ function entryScoringNotice(){
  return scoringEntryText;
 }
 function renderBag(){
- if(simpleDaily&&state){$('toggle-bag').textContent=state.attempts;$('toggle-bag').setAttribute('aria-label',`${state.attempts} ${state.attempts===1?'stroke':'strokes'}. How to play`);$('toggle-bag').title='Current strokes · How to play';$('toggle-bag').setAttribute('aria-controls','hole-attempt-log');$('personal-hole-bests').hidden=!daily.current()?.bestStrokes||!!holeResult();const best=daily.current()?.bestStrokes;$('bag-current').textContent=state.attempts+' strokes';$('bag-best').textContent=best?best.strokes+' strokes':'—';$('bag-scoring-status').hidden=true;$('bag-return-tee').disabled=busy;$('bag-best-route').disabled=busy||!best;return;}
+ if(simpleDaily&&state){$('toggle-bag').textContent=state.attempts;$('toggle-bag').setAttribute('aria-label',`${state.attempts} ${state.attempts===1?'stroke':'strokes'}. How to play`);$('toggle-bag').title='Current strokes · How to play';$('toggle-bag').setAttribute('aria-controls','hole-attempt-log');const best=daily.current()?.bestStrokes;$('bag-current').textContent=state.attempts+' strokes';$('bag-best').textContent=best?best.strokes+' strokes':'—';$('bag-scoring-status').hidden=true;$('bag-return-tee').disabled=busy;$('bag-best-route').disabled=busy||!best;return;}
  if(!state)return;
  $('bag-current').textContent=currentStrokeText(state);
  const best=lockedHoleResult(state)??{score:2,attempt:1},hasBest=practising()||!!(inCourse()?bestAttempt(rounds.hole):bestHoleResult(flightLog.data.journeys,state));
@@ -792,7 +796,6 @@ $('toggle-bag').addEventListener('pointerdown',event=>{if(event.button!==0||even
 $('toggle-bag').onclick=event=>{if(event.detail===0){if(simpleDaily)setHoleLog(true,{mode:'tips'});else setBag($('golf-bag-menu').hidden);}};
 document.addEventListener('pointerdown',event=>{if(!event.target.closest('#golf-bag-menu,#toggle-bag'))setBag(false);});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){setBag(false);if(document.querySelector('.map-card').classList.contains('hole-panel-overlay'))setHoleLog(false);}});
-$('personal-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});
 $('bag-tips').onclick=()=>setHoleLog(true,{mode:'tips'});
 function openShotHelp(){
  if(busy||!state)return;
@@ -1256,7 +1259,7 @@ if(simpleDaily){
   lock(true);$('status').textContent='Preparing the hole…';
   client=await createBrowserClient({onProgress:p=>{const note=$('word-loading-note');note.hidden=p.complete;note.textContent=p.error?'Some words are still loading.':'More words are loading in the background…';}});config=client.config;lock(false);
   $('personal-create-hole').append($('create-journey'));$('custom-waypoint').required=true;$('custom-waypoint').parentElement.firstChild.textContent='Dogleg word';$('create-journey').querySelector('p').textContent='Choose three words for a Par 5 hole. Your holes are saved on this device.';
-  dailyUI=mountDailyUI(daily,{onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
+  dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning,detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);
   $('personal-export').onclick=()=>{let exported;try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-personal-scorecards.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};

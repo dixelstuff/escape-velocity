@@ -52,9 +52,9 @@ export class FlightLog {
     try {
       if (!this.storage || this.unreadableRaw) throw Error('Storage unavailable');
       this.storage.setItem(LOG_KEY, JSON.stringify(this.data));
-      this.warning = '';
-    } catch {
-      this.warning = 'This browser could not save your scorecard. Download it before leaving this page.';
+      this.warning = '';this.saveError='';
+    } catch(error) {
+      this.saveError=error.name+': '+error.message;this.warning = error.code==='STALE_PLAY_BATCH'?error.message:'This browser could not save your scorecard. Download it before leaving this page.';
     }
   }
   makeJourney(state, model, modelSha=null) {

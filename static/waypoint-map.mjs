@@ -1,12 +1,12 @@
 import {mapFraction} from './map.mjs?v=golf-v189';
-import {greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=golf-v189';
-import {courseLake,courseBunkers} from './course-art.mjs?v=golf-v189';
+import {appearanceUnit,greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=terrain-variety-v2';
+import {courseLake,courseBunkers} from './course-art.mjs?v=terrain-variety-v2';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
-export function waypointLayout(base,state,placement={depth:.6,vertical:.5}){
+export function waypointLayout(base,state,placement={depth:.6,vertical:.5},style={}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
- const d={...base,artScale:.8,reflectY:mirror,waypointTurn:turn};
+ const d={...base,style:{phase:0,...style},artScale:.8,reflectY:mirror,waypointTurn:turn};
  const centre=mirror?138:284,height=184;
- d.teeY=mirror?168:272;d.bendY=mirror?298:128;d.bendX=d.width*(mirror?.52:.48);
+ d.teeY=mirror?168:272;d.bendY=mirror?298:128;d.bendX=d.width*((mirror?.52:.48)+(style.seed ? .036*(appearanceUnit(style.seed,':bend-x')-.5) : 0));
  d.zoneLeft=d.greenCentre-base.radius*.88;d.zoneRight=d.greenCentre+base.radius*.88;
  d.zoneLeft+=(d.zoneRight-d.zoneLeft)*.12;d.greenCentre=(d.zoneLeft+d.zoneRight)/2;
  d.greenTop=centre-height/2;d.greenBottom=centre+height/2;
@@ -80,12 +80,13 @@ export function waypointPosition(state,word,d,event=null){
 }
 /** The exact same path geometry drives drawing and tree clearance. */
 export function waypointCartPath(d){
- const w=d.width,bx=d.bendX??w*.48,start={x:-30,y:184},mid={x:bx,y:28},end={x:w+30,y:145};
- const segments=[[start,{x:w*.18,y:188},{x:w*.31,y:43},mid],[mid,{x:w*.65,y:19},{x:w*.79,y:137},end]];
- const points=segments.flatMap(([a,b,c,e],segment)=>Array.from({length:49},(_,i)=>{const t=i/48,u=1-t,x=u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y=u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y;return {x,y:d.reflectY?430-y:y};}));
- return {path:`M-30 184 C${w*.18} 188 ${w*.31} 43 ${bx} 28 C${w*.65} 19 ${w*.79} 137 ${w+30} 145`,points};
+ const w=d.width,bx=d.bendX??w*.48,u=s=>d.style?.seed?appearanceUnit(d.style.seed,s)-.5:0;
+ const start={x:-30,y:184+22*u(':path-entry')},mid={x:bx+24*u(':path-mid-x'),y:28+18*u(':path-mid')},end={x:w+30,y:145+28*u(':path-exit')};
+ const segments=[[start,{x:w*(.18+.04*u(':path-x1')),y:start.y+4},{x:w*(.31+.04*u(':path-x2')),y:mid.y+15},mid],[mid,{x:w*(.65+.04*u(':path-x3')),y:mid.y-9},{x:w*(.79+.04*u(':path-x4')),y:end.y-8},end]];
+ const points=segments.flatMap(([a,b,c,e])=>Array.from({length:49},(_,i)=>{const t=i/48,u=1-t,x=u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y=u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y;return {x,y:d.reflectY?430-y:y};}));
+ return {path:`M${start.x} ${start.y}`+segments.map(c=>' C'+c.slice(1).map(p=>`${p.x} ${p.y}`).join(' ')).join(''),points};
 }
-function lakeSettings(d,style){return {layout:{...d,zoneLeft:d.width*(d.reflectY?.64:.59)},style:{...style,lakeY:d.reflectY?384:390,wave:d.reflectY?39:35,cove:d.reflectY?38:26,coveAt:.55,coveWidth:.19}};}
+function lakeSettings(d,style){const u=s=>style.seed?appearanceUnit(style.seed,s)-.5:0;return {layout:{...d,zoneLeft:d.width*((d.reflectY?.64:.59)+.055*u(':lake-end'))},style:{...style,lakeY:(d.reflectY?384:390)+20*u(':lake-bank'),wave:(d.reflectY?39:35)+18*u(':lake-wave'),cove:(d.reflectY?38:26)+18*u(':lake-cove'),coveAt:.55+.16*u(':cove-at'),coveWidth:.19+.08*u(':cove-width')}};}
 function reflection(d){return d.reflectY?'translate(0 430) scale(1 -1)':'';}
 export function waypointLake(d,style){
  const settings=lakeSettings(d,style),canonical=lakeGeometry(settings.layout,settings.style);
@@ -106,11 +107,13 @@ const bunkerLayouts=new WeakMap();
 export function waypointBunkers(d,style={phase:0}){
  if(bunkerLayouts.has(d))return bunkerLayouts.get(d);
  const down=d.reflectY,w=d.width,top=down?430-d.greenBottom:d.greenTop,bottom=top+184;
+ const u=s=>style.seed?appearanceUnit(style.seed,s)-.5:0;
  const bunkers=[
   {x:down?.45:.425,y:down?220:211,rx:w<700?31:41,ry:26,angle:down?7:-10,shape:10},
   {x:(d.greenCentre-4)/w,y:top+5,rx:w<700?30:42,ry:19,angle:down?4:-5,shape:8},
   {x:(d.zoneLeft-8)/w,y:bottom-12,rx:w<700?29:39,ry:17,angle:59,shape:9}
  ];
+ for(const [i,b] of bunkers.entries())if(style.seed){b.x+=.016*u(':sand-x'+i);b.y+=12*u(':sand-y'+i);b.rx*=1+.25*u(':sand-size'+i);b.ry*=1+.22*u(':sand-depth'+i);b.angle+=24*u(':sand-angle'+i);b.shape=8+Math.floor(3*appearanceUnit(style.seed,':sand-shape'+i));}
  for(let index=1;index<bunkers.length;index++){
   const b=bunkers[index],angle=b.angle*Math.PI/180,cos=Math.cos(angle),sin=Math.sin(angle);
   // Keep banks clear of the putting surface, including their outline and a small turf gap.
@@ -125,7 +128,7 @@ export function waypointBunkers(d,style={phase:0}){
    if(index===1)b.y-=.75;else b.x-=.75/w;
   }
  }
- bunkerLayouts.set(d,bunkers);return bunkers;
+ d.sandObstacles=bunkers;bunkerLayouts.set(d,bunkers);return bunkers;
 }
 export function waypointGreen(d,style){
  const bunkers=waypointBunkers(d,style).slice(1),transform=reflection(d);

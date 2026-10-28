@@ -19,3 +19,12 @@ console.log('Reset batch isolation passed: legacy migration, stale current/old-r
 daily.data.customHoles=[{id:'unused-custom',settings:{start:'old'}},{id:'x',settings:{start:'rabbit'}}];daily.record(log.active);
 const exported=personalPlayExport(daily,log);assert.deepEqual(exported.daily.customHoles.map(h=>h.id),['x']);assert.equal(daily.data.customHoles.length,2);assert.deepEqual(exported.play.journeys.map(j=>j.state.route),[['rabbit']]);
 console.log('Personal export excludes unrelated saved custom definitions without deleting them.');
+
+// Exercise actual byte limits, not just an unconditional setItem exception.
+function limited(limit){const values=new Map();return {values,getItem:k=>values.get(k)??null,removeItem:k=>values.delete(k),setItem(k,v){const size=[...values].reduce((n,[key,value])=>n+(key===k?0:value.length),0)+v.length;if(size>limit)throw new DOMException('Full','QuotaExceededError');values.set(k,v);}};}
+const quota=limited(1000);quota.setItem(LOG_KEY,'old'.repeat(260));const compact=new PersonalPlayStorage(quota,()=> 'fresh');
+compact.newBatch(()=>{compact.setItem(LOG_KEY,'new');compact.setItem('escape-velocity.flight-log.reset-backup.v1','old'.repeat(260));});
+assert.equal(compact.getItem(LOG_KEY),'new');assert.equal(quota.getItem(LOG_KEY),null,'retired source is not retained beside its recovery copy');
+compact.setItem(LOG_KEY,'new'.repeat(200));assert.equal(compact.getItem(LOG_KEY),'new'.repeat(200));assert.equal(compact.getItem('escape-velocity.flight-log.reset-backup.v1'),null);assert.equal(compact.recoveryEvicted,true);
+const saved=compact.getItem(LOG_KEY);const baseSet=quota.setItem;quota.setItem=()=>{throw new DOMException('Denied','SecurityError');};assert.throws(()=>compact.setItem(LOG_KEY,'x'),/Denied/);assert.equal(compact.getItem(LOG_KEY),saved);quota.setItem=baseSet;
+console.log('Quota regression passed: reset avoids doubling the source, normal writes release only recovery/retired data, and current play survives quota/non-quota errors.');

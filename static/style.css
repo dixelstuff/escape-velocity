@@ -935,17 +935,13 @@ body.typing .personal-testing{display:none;}
 #personal-restore{margin-left:12px;}
 /* A single quiet wordmark, with navigation framing the current hole. */
 body.personal-daily .intro{display:none;}
-body.personal-daily .mission{grid-template-columns:58px minmax(0,1fr) 58px;border:1px solid #cbd3bd;border-radius:12px;padding:8px 12px;margin:20px 0 14px;gap:0;}
+body.personal-daily .mission{grid-template-columns:58px minmax(0,1fr) 58px;border:0;border-radius:0;padding:0 2px;margin:16px auto 12px;width:100%;max-width:1020px;gap:0;}
 body.personal-daily .mission h2,body.personal-daily.typing .mission h2{font:500 clamp(19px,5.2vw,28px)/1.2 'Space Grotesk',sans-serif;letter-spacing:-1px;text-transform:none;white-space:nowrap;}
 .personal-wordmark{display:none;}
 body.personal-daily .personal-wordmark{display:inline;color:#294b35;font-weight:600;}
 body.personal-daily .mission #hole-number{color:#7b8a74;font-weight:400;}
 body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole){width:56px;}
-body.personal-daily .bag-toggle{font:500 20px/1 'Space Grotesk',sans-serif;color:#6e8265;font-variant-numeric:tabular-nums;}
-.personal-hole-link{text-align:center;margin:0 auto 14px;}
-.personal-hole-link:has(button[hidden]){display:none;}
-.personal-hole-link button{background:transparent;box-shadow:none;color:#6d8066;padding:4px;text-decoration:underline;font-size:12px;}
-body.typing .personal-hole-link,body.developer-mode .personal-hole-link{display:none;}
+body.personal-daily .hole-tools .bag-toggle{width:26px;height:27px;border-radius:6px;font:500 16px/1 'Space Grotesk',sans-serif;color:#6e8265;font-variant-numeric:tabular-nums;}
 .personal-highlights{margin-top:25px;padding-top:22px;border-top:1px solid #dce2d3;}
 .personal-switch{display:flex;gap:2px;background:#eef1e7;padding:3px;border-radius:20px;}
 .personal-switch button{font-size:11px;background:transparent;color:#74826b;padding:6px 10px;border-radius:18px;font-weight:500;}
@@ -968,10 +964,16 @@ body.typing .personal-hole-link,body.developer-mode .personal-hole-link{display:
 .personal-stat-hint{font-size:11px;text-align:center;color:#87947c;}
 .personal-empty{font-size:13px;color:#7b8a74;padding:12px 0;}
 @media(max-width:650px){
- body.personal-daily .mission,body.personal-daily.typing .mission{padding:7px 9px;margin-top:16px;margin-bottom:12px;}
+ body.personal-daily .mission{padding:0 2px;margin-top:16px;margin-bottom:12px;}
+ body.personal-daily.typing .mission{padding:0 2px;margin-top:0;margin-bottom:8px;}
  .personal-card-heading{flex-wrap:wrap;gap:8px;}
  .personal-best-grid{grid-template-columns:1fr;gap:9px;}
  .personal-best-grid article{position:relative;padding:13px 14px 13px 45px;}
  .best-rank{position:absolute;left:14px;top:15px;font-size:23px;}
  .personal-distribution{gap:0;}.personal-distribution>button{padding:9px 3px;}.personal-distribution strong{font-size:27px;}.personal-distribution span{font-size:10px;}
 }
+
+.personal-card .finish-routes{margin-top:5px;}
+.personal-card .finish-routes summary{cursor:pointer;font-size:10px;color:#7b8972;}
+.personal-card .finish-routes p{font-size:11px;line-height:1.5;color:#31553a;overflow-wrap:anywhere;}
+body.personal-daily .hole-tools{width:26px;height:27px;}

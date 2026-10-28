@@ -33,7 +33,7 @@ The current live scorer is `band-free-harmonic-v3-opportunity08-bonus2`: opportu
 
 ### Starting a fresh export batch
 
-Use **Export play data**, then **Reset play data**. Reset requires confirmation, clears personal bests, statistics and attempt history, and tees up the selected hole. Saved custom hole definitions and downloaded word files stay intact. A recovery copy is available through **Restore previous play data** until the next reset; recovery preserves any new play too. Normal exports contain only the current batch.
+Use **Export play data**, then **Reset play data**. Reset requires confirmation, clears personal bests, statistics and attempt history, and tees up the selected hole. Saved custom hole definitions and downloaded word files stay intact. A recovery copy is available through **Restore previous play data** while storage has room; recovery preserves any new play too. Normal exports contain only the current batch.
 
 ### Simplified course interface
 
@@ -44,3 +44,5 @@ The recent card includes only the nine most recently completed holes. It also sh
 Resets now use isolated storage batches. Existing data is read from the legacy keys until the first reset, then the app uses a fresh namespace. Stale tabs cannot write into that namespace, and even older releases writing legacy history cannot contaminate its exports. Tabs on the current release reload when another tab resets. A single previous batch remains recoverable.
 
 Semantic profile downloads and local neighbourhood caches are prepared for known route words during play in the assessment worker. Complete-route scoring starts during the final shot animation. Partial routes are never assigned or saved a score. Final reports reuse exactly the same scorer and evidence.
+
+The header is borderless and centred with the map. Its keyboard layout uses compact spacing. Per-hole scenery is deterministically varied and displayed with a subtle rotation; all shot rules and scoring coordinates are unchanged. Recovery copies and superseded reset batches may be released under browser storage pressure to prioritise saving current play.
