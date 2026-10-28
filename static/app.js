@@ -521,7 +521,7 @@ function returnToHoleHeader(){
 }
 let holePanelMode='log';
 function setHoleLog(open,{returnToPlay=false,mode='log'}={}){
- if(open&&!simpleDaily&&(holeResult()||courseResult()))return;
+ if(open&&(holeResult()||courseResult()))return;
  if(open)holePanelMode=mode;
  const wasOpen=!$('hole-attempt-log').hidden;
  $('hole-attempt-log').hidden=!open;
@@ -543,8 +543,8 @@ function fitHoleLog(){
 function placeHoleLog(){
  const result=holeResult()||courseResult(),panel=$('hole-attempt-log'),host=document.querySelector('.hole-play-area');
  if(panel.parentElement!==host){setHoleLog(false);host.append(panel);}
- document.querySelector('.hole-tools').hidden=result&&!simpleDaily;
- if(result&&!simpleDaily){setBag(false);setHoleLog(false);}syncMapOverlay();
+ document.querySelector('.hole-tools').hidden=result;
+ if(result){setBag(false);setHoleLog(false);}syncMapOverlay();
 }
 function bestRouteState(){
  if(simpleDaily)return dailyBestState();
@@ -771,7 +771,7 @@ $('map-scrim').addEventListener('pointerdown',event=>{event.preventDefault();eve
 $('map-scrim').addEventListener('click',event=>{event.preventDefault();event.stopPropagation();setBag(false);if(document.querySelector('.map-card').classList.contains('hole-panel-overlay'))setHoleLog(false);});
 function setBag(open){
  if($('golf-bag-menu').hidden===!open)return;
- if(open&&(!state||!simpleDaily&&(holeResult()||courseResult())))return;
+ if(open&&(!state||holeResult()||courseResult()))return;
  if(open&&narrow())leaveWordEntry();
  $('golf-bag-menu').hidden=!open;$('toggle-bag').setAttribute('aria-expanded',String(open));syncMapOverlay();
  if(open)renderBag();

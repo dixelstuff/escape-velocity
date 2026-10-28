@@ -19,7 +19,7 @@ The existing distance/contact/waypoint rules, misses ending attempts, tap-to-ret
 
 `static/daily-manifest.mjs` fixes 106 distinct existing curated waypoint layouts, one per date from 20 October 2026 through 2 February 2027. All are Par 5 and curated golden shortcuts are disabled. Dates and IDs must remain immutable; append new curated holes before the queue ends. When a queue ends the most recent published puzzle remains playable, rather than repeating a hole under a new date.
 
-Historical experimental UI and course modes are retained behind `?lab` (e.g. `?lab&mode=tour`) for development and old-data inspection. They have no normal-page links. Old analysis panels are imported only in that developer view. The normal UI keeps the three-dot menu: Return to tee, Personal best routes, How to play and the chip-in range toggle (off after every refresh).
+Historical experimental UI and course modes are retained behind `?lab` (e.g. `?lab&mode=tour`) for development and old-data inspection. They have no normal-page links. Old analysis panels are imported only in that developer view. The three-dot menu is hidden on the results screen. During play it contains: Return to tee, Personal best routes, How to play and the chip-in range toggle (off after every refresh).
 
 ## Verification
 

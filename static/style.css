@@ -883,8 +883,6 @@ body.personal-daily [hidden]{display:none!important;}
 
 body.personal-daily #cleverness-playtest{border-top:0;margin-top:0;padding-top:0;}
 
-body.personal-daily .arrived .hole-tools{top:8px;bottom:auto;right:8px;}
-body.personal-daily .arrived #golf-bag-menu{top:48px;bottom:auto;}
 
 /* A centred, quiet hole number flanked by directional golf carts. */
 body.personal-daily .mission{display:grid;grid-template-columns:70px minmax(0,1fr) 70px;align-items:center;}
