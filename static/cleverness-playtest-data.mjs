@@ -1,5 +1,5 @@
 /** Shared identities, compact persisted reports and exact text exports. No game mutations. */
-export const PLAYTEST_VERSION='live-cleverness-vector-opportunity08-bonus2-v1';
+export const PLAYTEST_VERSION='live-cleverness-vector-relaxed-legs-v1';
 const canonical=x=>Array.isArray(x)?x.map(canonical):x&&typeof x==='object'?Object.fromEntries(Object.keys(x).sort().map(k=>[k,canonical(x[k])])):x;
 export const playtestKey=(state,modelSha)=>JSON.stringify([PLAYTEST_VERSION,modelSha,canonical(state)]);
 export const playtestHoleKey=s=>JSON.stringify([s.start,s.waypoint?.word??null,s.final_target??s.target,s.challenge?.par??3,s.word_model??'current',s.threshold,s.final_threshold,s.launch_min,s.launch_max,s.waypoint?.threshold,s.rules,s.mode,s.finish_mode,s.golden_routes??null,s.headwind??null,s.allow_backtracking,s.family_rescue,s.plural_rescue,s.plural_tolerance,s.waypoint_auto_finish]);

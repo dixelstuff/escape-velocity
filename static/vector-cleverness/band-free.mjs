@@ -1,12 +1,12 @@
 /** Experimental final operator only; no golf bands or gameplay dependencies. */
 import {finalQuality} from './cleverness-v6.7.mjs?v=vector-v1';
-import {BAND_FREE_VERSION,ONE_STROKE_BONUS} from '../cleverness-score-config.mjs?v=opportunity08-bonus2-v1';
+import {BAND_FREE_VERSION,ONE_STROKE_BONUS} from '../cleverness-score-config.mjs?v=relaxed-legs-v1';
 export {BAND_FREE_VERSION};
 export const QUALITY_POWER=2/3;
 export function legFactor(strokes){
  if(!Number.isInteger(strokes)||strokes<1)throw Error('Actual positive integer leg strokes required.');
- // Retain the original six-plus-stroke decay; only the 3–5 stroke entries change.
- return strokes<=2?1:strokes===3?.88:strokes===4?.66:strokes===5?.45:.5*.65**(strokes-4);
+ // Relax 3–5 stroke legs; preserve the .65 decay rate beyond five, anchored continuously at .60.
+ return strokes<=2?1:strokes===3?.92:strokes===4?.80:strokes===5?.60:.60*.65**(strokes-5);
 }
 export function bandFreeScore(components,legStrokes){
  if(!Array.isArray(legStrokes)||!legStrokes.length||legStrokes.length>2)throw Error('One actual leg or two actual dogleg legs required.');

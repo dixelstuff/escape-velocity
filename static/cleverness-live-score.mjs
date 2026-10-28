@@ -1,6 +1,6 @@
 /** Apply live-only opportunity/bonus settings; preserve historical comparison diagnostics. */
-import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=opportunity08-bonus2-v1';
-import {OPPORTUNITY_RATE} from './cleverness-score-config.mjs?v=opportunity08-bonus2-v1';
+import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=relaxed-legs-v1';
+import {OPPORTUNITY_RATE} from './cleverness-score-config.mjs?v=relaxed-legs-v1';
 export function applyLiveCleverness(report){
  const raw=report.opportunity?.raw_ingenuity,N=report.opportunity?.pivot_positions;
  if(!Number.isFinite(raw)||raw<0||raw>1||!Number.isInteger(N)||N<0)throw Error('Complete raw opportunity evidence is required.');

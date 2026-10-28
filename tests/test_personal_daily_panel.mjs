@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {mountDailyCleverness} from '../static/daily-cleverness-panel.mjs';
 import {playtestKey,PLAYTEST_VERSION} from '../static/cleverness-playtest-data.mjs';
-const node={innerHTML:'',hidden:false,querySelector(){return {onclick:null,title:''};}},states=['a','b'].map(word=>({won:true,start:'tee',route:['tee',word,'flag'],challenge:{id:word,par:5,unlimited:true}})),reports=states.map((state,i)=>({version:PLAYTEST_VERSION,key:playtestKey(state,'model'),band_free:{version:'band-free-harmonic-v3-opportunity08-bonus2',score:70+i,legs:[{strokes:1,factor:1},{strokes:2,factor:1}],one_stroke_bonus:{applied_amount:2}},components:{semantic_ingenuity:.5,strategic_effectiveness:.7,route_elegance:.6},strongest_sequence:['tee','<unsafe>','flag']}));
+const node={innerHTML:'',hidden:false,querySelector(){return {onclick:null,title:''};}},states=['a','b'].map(word=>({won:true,start:'tee',route:['tee',word,'flag'],challenge:{id:word,par:5,unlimited:true}})),reports=states.map((state,i)=>({version:PLAYTEST_VERSION,key:playtestKey(state,'model'),band_free:{version:'band-free-harmonic-v4-relaxed-legs',score:70+i,legs:[{strokes:1,factor:1},{strokes:2,factor:1}],one_stroke_bonus:{applied_amount:2}},components:{semantic_ingenuity:.5,strategic_effectiveness:.7,route_elegance:.6},strongest_sequence:['tee','<unsafe>','flag']}));
 const pending=[],saved=[],tick=()=>new Promise(r=>setTimeout(r,0));
 const panel=mountDailyCleverness(node,{request:state=>new Promise(resolve=>pending.push({state,resolve})),modelHash:()=> 'model',onReport:(s,r)=>saved.push(r)});
 panel.show(states[0]);await tick();panel.show(states[1]);await tick();assert.equal(pending.length,2);

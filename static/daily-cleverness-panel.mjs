@@ -1,5 +1,5 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=opportunity08-bonus2-v1';
-import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=opportunity08-bonus2-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=relaxed-legs-v1';
+import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=relaxed-legs-v1';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function mountDailyCleverness(node,{request,modelHash,onReport,getSavedReport}){
  let active=null;const pending=new Map(),cache=new Map();

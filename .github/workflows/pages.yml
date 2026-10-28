@@ -33,6 +33,7 @@ jobs:
           node tests/test_future_daily_proposals.mjs
           node tests/test_personal_daily_panel.mjs
           node tests/test_band_free.mjs
+          node tests/test_relaxed_leg_factors.mjs
           node tests/test_vector_cleverness.mjs
           node tests/test_progressive.mjs
           node tests/test_progressive_recovery.mjs
