@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {runInNewContext} from 'node:vm';
+import {runInNewContext as runVM} from 'node:vm';
+// These fixtures exercise the retained developer/legacy interface.
+const runInNewContext=(code,context)=>{context.simpleDaily??=false;return runVM(code,context);};
 import {completedCourseLift,completedCardOverlap} from '../static/result-presentation.mjs';
 for(const scale of [.4,.6,1,1.6])for(const top of [0,10,25,50,100]){
  const lift=completedCourseLift(true,top,scale);

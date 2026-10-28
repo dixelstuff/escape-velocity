@@ -1,12 +1,12 @@
 import {familyVariants} from './word-families.mjs?v=golf-v189';
-import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=golf-v189';
+import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=personal-daily-v1';
 import {progressiveModel} from './progressive-model.mjs?v=golf-v189';
 import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v189';
 import { chipRange } from './chip-range.mjs?v=golf-v189';
 import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
-import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=golf-v189';
+import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {

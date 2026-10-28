@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {runInNewContext} from 'node:vm';
+import {runInNewContext as runVM} from 'node:vm';
+// These fixtures exercise the retained developer/legacy interface.
+const runInNewContext=(code,context)=>{context.simpleDaily??=false;return runVM(code,context);};
 import {Game,restoreGame} from '../static/engine.mjs';
 import {STROKE_PLAY,attemptLimit,maximumStrokes,retryLieThrough,retryPrefix} from '../static/stroke-play.mjs';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from '../static/scoring-status.mjs';

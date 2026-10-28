@@ -558,8 +558,8 @@ body.typing .map-card{touch-action:pan-x pan-y;}
 body.course-hole-changing .mission,body.course-hole-changing .map-card,body.course-hole-changing .controls{pointer-events:none;}
 /* One compact bag replaces the undo and attempts controls. No invisible hit padding. */
 .hole-tools{position:absolute;inset:auto 9px 9px auto;z-index:5;width:32px;height:34px;pointer-events:auto;}
-.hole-tools .bag-toggle{display:grid;place-items:center;width:32px;height:34px;min-height:0;margin:0;padding:5px 7px;background:#f4f7eef0;color:#688063;border:1px solid #bdcdae;border-radius:8px;box-shadow:none;opacity:.87;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.hole-tools .bag-toggle svg{display:block;width:18px;height:24px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;overflow:visible;}
+.hole-tools .bag-toggle{display:grid;place-items:center;width:32px;height:34px;min-height:0;margin:0;padding:0;background:#f4f7eef0;color:#688063;border:1px solid #bdcdae;border-radius:8px;box-shadow:none;opacity:.87;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.hole-tools .bag-toggle svg{display:block;width:20px;height:20px;fill:currentColor;stroke:none;}
 .hole-tools .bag-toggle:hover,.hole-tools .bag-toggle:active{background:#f4f7eef0;opacity:1;}
 #golf-bag-menu{position:absolute;bottom:50px;right:9px;z-index:6;width:min(270px,calc(100% - 18px));max-height:calc(100% - 62px);overflow:auto;overscroll-behavior:contain;background:#fffdf4f7;color:#294b35;border:1px solid #becbad;border-radius:9px;box-shadow:0 4px 15px #233b3026;padding:14px 16px;}
 #golf-bag-menu[hidden]{display:none;}
@@ -567,10 +567,9 @@ body.course-hole-changing .mission,body.course-hole-changing .map-card,body.cour
 #bag-scoring-status{font-size:11px;color:#738568;margin:6px 0 12px;line-height:1.4;}
 .bag-actions{border-top:1px solid #d7dfcd;padding-top:6px;}.bag-actions>button{display:block;width:100%;text-align:left;background:transparent;color:#365b3e;border:0;border-radius:4px;margin:0;padding:9px 0;box-shadow:none;font-size:13px;font-weight:500;}
 .bag-actions>button:hover{color:#21462b;background:#e9efdf;}.bag-actions>button:disabled{opacity:.4;}
-@media(max-width:650px){.hole-tools{inset:auto 7px 7px auto;width:30px;height:32px;}.hole-tools .bag-toggle{width:30px;height:32px;padding:4px 6px;}#golf-bag-menu{right:7px;bottom:46px;font-size:12px;padding:10px 12px;}.bag-stats{font-size:12px;}#bag-scoring-status{margin:4px 0 8px;}.bag-actions>button{padding:5px 0;font-size:12px;line-height:16px;}}
+@media(max-width:650px){.hole-tools{inset:auto 7px 7px auto;width:30px;height:32px;}.hole-tools .bag-toggle{width:30px;height:32px;padding:0;}#golf-bag-menu{right:7px;bottom:46px;font-size:12px;padding:10px 12px;}.bag-stats{font-size:12px;}#bag-scoring-status{margin:4px 0 8px;}.bag-actions>button{padding:5px 0;font-size:12px;line-height:16px;}}
 
 /* Bag actions read as navigation; tips and routes share the scrolling hole card. */
-.hole-tools .bag-toggle svg{transform:translateX(-1px);}
 .bag-actions>button{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600;}
 .bag-action-arrow{font-size:19px;line-height:16px;font-weight:400;color:#8b9d80;}
 .bag-actions>button+button{border-top:1px solid #e6e9db;border-radius:0;}
@@ -823,3 +822,92 @@ body.word-entry-active #shot-context-help,body.typing #shot-context-help{display
 .playtest-actions{display:flex;gap:8px;flex-wrap:wrap}.playtest-actions button{padding:7px 10px;min-height:34px;font-size:12px}.playtest-copy-status{min-height:18px}
 
 #cleverness-playtest .playtest-previous{font-size:12px;color:#5e765d;margin:0 0 7px}
+
+/* One personal daily game. Earlier experiments are available only in ?lab. */
+body:not(.developer-mode) :is(.journey-picker,#flight-log,.lower,#debug,.mode-link,.course-tools,.playtest-earlier,.developer-control,#round-scorecard,#submit-course-dialog){display:none!important;}
+body:not(.developer-mode) footer span:last-child{display:none;}
+body.developer-mode :is(#personal-scorecard,#personal-stats,#personal-storage-warning,.personal-data,#header-prev-hole,#header-today){display:none!important;}
+body.personal-daily .hole-navigation{gap:9px;}
+body.personal-daily #header-prev-hole{font-size:26px;font-weight:400;line-height:1;padding:2px 5px;min-width:24px;background:transparent;color:var(--muted);border:0;box-shadow:none;}
+body.personal-daily #header-today{font-size:12px;background:transparent;color:var(--green);padding:3px;border:0;box-shadow:none;}
+body.personal-daily .hole-navigation button:disabled{opacity:.3;cursor:default;}
+.menu-chip-range{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:13px;padding:11px 0 2px;border-top:1px solid #e6e9db;color:#365d3e;cursor:pointer;}
+.menu-chip-range input{order:2;accent-color:#356b46;width:17px;height:17px;min-height:0;margin:0;}
+#golf-bag-menu #chip-range-note{font-size:11px;line-height:1.4;}
+.personal-card,.personal-data,#personal-storage-warning{max-width:1020px;margin:28px auto;}
+.personal-card{background:#fffdf4;border:1px solid #d3dbc7;border-radius:9px;padding:20px 22px;box-sizing:border-box;}
+.personal-card-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:15px;}
+.personal-card-heading h2{font-size:20px;margin:0;color:#294b35;}
+.personal-card-heading>span{font-size:12px;color:#6c7f65;}
+.personal-card table{width:100%;border-collapse:collapse;font-size:14px;text-align:left;}
+.personal-card thead th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#7b8972;padding:0 9px 10px;}
+.personal-card tbody :is(th,td){padding:13px 9px;border-top:1px solid #e0e5d8;vertical-align:middle;}
+.personal-card tbody tr.current-hole{background:#edf3e5;}
+.personal-card tbody tr{cursor:pointer;}
+.personal-card tbody button{display:block;text-align:left;border:0;background:transparent;color:#31553a;box-shadow:none;padding:0;font:inherit;line-height:1.5;}
+.personal-card tbody td:nth-child(2) span{color:#99a58e;}
+.personal-card small{display:block;color:#7c8b73;font-size:11px;font-weight:400;}
+.personal-card .out-of{display:inline;font-size:10px;margin-left:1px;}
+.personal-distribution{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:15px 0 0;}
+.personal-distribution>div{text-align:center;}
+.personal-distribution dt{font-size:12px;color:#71846a;}
+.personal-distribution dd{margin:5px 0 0;font-size:28px;color:#31553a;}
+.personal-average{border-top:1px solid #e0e5d8;margin:18px 0 0;padding-top:15px;font-size:13px;color:#71846a;}
+.personal-average strong{float:right;color:#31553a;}
+.personal-data{text-align:center;font-size:12px;}
+.personal-data button{padding:3px;background:transparent;box-shadow:none;border:0;text-decoration:underline;font-size:12px;color:#7b8972;}
+#personal-storage-warning{font-size:12px;color:#8b4d29;}
+#personal-storage-warning:empty{display:none;}
+.daily-cleverness-score{display:flex;align-items:baseline;justify-content:center;gap:10px;min-height:32px;color:#31553a;font-size:15px;}
+.daily-cleverness-score strong{font-size:26px;}
+.daily-cleverness-score strong span{font-size:13px;font-weight:400;color:#7b8972;}
+#cleverness-playtest>details{font-size:12px;line-height:1.65;}
+#cleverness-playtest>details>summary{cursor:pointer;color:#75866c;text-align:center;}
+.daily-score-details{margin:10px 0;}
+.daily-score-details>div{display:flex;justify-content:space-between;gap:10px;}
+body.personal-daily #result-attempts-remaining{display:none;}
+body.typing :is(#personal-scorecard,#personal-stats,#personal-storage-warning,.personal-data){display:none!important;}
+@media(max-width:650px){
+ .personal-card{margin:22px auto;padding:17px 12px;}
+ .personal-card-heading h2{font-size:18px;}.personal-card-heading>span{font-size:10px;}
+ .personal-card table{font-size:12px;}.personal-card thead th{font-size:9px;letter-spacing:.03em;padding:0 5px 9px;}
+ .personal-card tbody :is(th,td){padding:11px 5px;}.personal-card tbody th{white-space:nowrap;font-size:11px;font-weight:500;}
+ .personal-card td:nth-child(2){overflow-wrap:anywhere;}.personal-card small{font-size:10px;}
+ .personal-distribution{gap:3px;}.personal-distribution dt{font-size:10px;}.personal-distribution dd{font-size:23px;}
+ body.personal-daily .hole-navigation{gap:6px;}body.personal-daily .mission h2{white-space:nowrap;}
+ body.personal-daily #header-next-hole{font-size:12px;}body.personal-daily #header-next-hole span{font-size:17px;}
+ .menu-chip-range{font-size:12px;}
+}
+
+body.personal-daily [hidden]{display:none!important;}
+
+body.personal-daily #cleverness-playtest{border-top:0;margin-top:0;padding-top:0;}
+
+body.personal-daily .arrived .hole-tools{top:8px;bottom:auto;right:8px;}
+body.personal-daily .arrived #golf-bag-menu{top:48px;bottom:auto;}
+
+/* A centred, quiet hole number flanked by directional golf carts. */
+body.personal-daily .mission{display:grid;grid-template-columns:70px minmax(0,1fr) 70px;align-items:center;}
+body.personal-daily .mission .hole-navigation{display:contents;}
+body.personal-daily .mission h2{grid-column:2;grid-row:1;text-align:center;font-size:17px;font-weight:400;letter-spacing:.035em;color:#7b8a74;margin:0;}
+body.personal-daily #hole-par,body.personal-daily #header-today{display:none!important;}
+body.personal-daily #header-prev-hole,body.personal-daily #header-next-hole{display:flex;align-items:center;justify-content:center;gap:4px;grid-row:1;background:transparent;border:0;box-shadow:none;color:#7b8a74;padding:4px 0;margin:0;min-height:32px;}
+body.personal-daily #header-prev-hole{grid-column:1;justify-self:start;}
+body.personal-daily #header-next-hole{grid-column:3;justify-self:end;}
+body.personal-daily .hole-navigation .hole-cart{display:block;width:31px;height:25px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+body.personal-daily #header-prev-hole .hole-cart{transform:scaleX(-1);}
+body.personal-daily .hole-navigation .hole-nav-chevron{position:static;transform:none;font-size:21px;line-height:1;margin:0;}
+body.developer-mode .hole-cart{display:none;}
+@media(max-width:650px){body.personal-daily .mission h2{font-size:15px;}body.personal-daily .hole-navigation .hole-cart{width:28px;height:23px;}}
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole){display:flex;flex-direction:row;align-items:center;justify-content:center;width:52px;height:32px;min-height:32px;padding:0;margin:0;transform:none;}
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{flex:none;width:31px;height:25px;}
+body.personal-daily .mission #hole-number{font-weight:400;color:#7b8a74;}
+@media(max-width:650px){body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{width:28px;height:23px;}}
+
+/* User-supplied outline cart: filled paths encode the fine strokes. */
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{width:36px;height:30px;fill:currentColor;stroke:none;}
+@media(max-width:650px){body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-cart{width:32px;height:27px;}}
+
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole){width:64px;gap:5px;}
+body.personal-daily .mission .hole-navigation :is(#header-prev-hole,#header-next-hole) .hole-nav-arrow{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+body.personal-daily #header-next-hole .hole-nav-arrow{transform:scaleX(-1);}
