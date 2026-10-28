@@ -68,10 +68,10 @@ export class FlightLog {
     this.save();
     return journey;
   }
-  reset(state,model,modelSha=null) {
+  reset(state,model,modelSha=null,{persistBackup=true}={}) {
     const journey=this.makeJourney(state,model,modelSha);
     const next={version:1,activeId:journey.id,batchStartedAt:journey.startedAt,journeys:[journey],bridgeFeedback:[],bridgeViews:[]};
-    const backup=JSON.parse(this.exportJSON());delete backup.bridge_comparison;
+    const backup=persistBackup?{...structuredClone(this.data),...(this.unreadableRaw?{unreadableOriginal:this.unreadableRaw}:{})}:this.data;if(persistBackup)delete backup.bridge_comparison;
     let previousRaw,wroteNext=false;
     try {
       if(!this.storage)throw Error('Storage unavailable');
@@ -80,7 +80,7 @@ export class FlightLog {
       // quota. These synchronous writes either finish with a recovery copy or
       // restore the original log; setItem itself is atomic on quota failure.
       this.storage.setItem(LOG_KEY,JSON.stringify(next));wroteNext=true;
-      this.storage.setItem(RESET_BACKUP_KEY,JSON.stringify(backup));
+      if(persistBackup)this.storage.setItem(RESET_BACKUP_KEY,JSON.stringify(backup));else this.storage.removeItem(RESET_BACKUP_KEY);
     }catch{
       try{if(wroteNext)this.storage.setItem(LOG_KEY,previousRaw??'null');}catch{}
       throw Error('Could not safely reset scorecards. Your current scorecards are unchanged. Download them first or check browser storage.');

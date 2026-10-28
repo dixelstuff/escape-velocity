@@ -41,3 +41,14 @@ The primary best route minimises strokes, then maximises unrounded Cleverness wi
 The result distribution now uses horizontal bar rows. Selecting a result toggles it; an explicit All holes control always clears the filter. Mobile hover feedback no longer resembles a retained selection. Deployment includes 73 checks.
 
 Stats now label the summary Overall Cleverness, with a mean beside each result bar. Result means use the selected lowest-stroke routes, so a longer high-Cleverness route cannot inflate an eagle/birdie row. Missing analysis is excluded from the mean.
+
+
+## Research archive / player stats separation (29 October)
+
+Detailed FlightLog data and legacy recovery records migrate into an IndexedDB archive before their localStorage source is removed. Player summaries, best route strings and custom definitions stay compact in localStorage. Cached synchronous game writes are queued into atomic database transactions; failures keep the in-memory export available and are reported. Export works even when saving has failed. It serialises the in-memory batch synchronously in the tap handler to retain iPhone download activation, uses a timestamped filename, attaches the download link, and keeps its Blob URL alive for 60 seconds.
+
+Clear play history now starts a new research/export batch and retains player stats/bests/custom holes. The reset commits database changes before publishing its generation marker, restores both archive and metadata on a commit error, and can run even when a preceding oversized save failed. It no longer writes a full old-log recovery copy to disk; undo is available during the current visit from memory. Research exports are version 2: daily definitions/metadata and current-batch raw play, with an explicit aggregate playerStats snapshot rather than old best routes mixed back into the research batch. Startup reconstruction only improves retained bests; a cleared archive cannot erase them.
+
+Ghosts and live word positions import the same versioned waypoint mapper. Dogleg membership derives from leg destination/threshold independently of contact success, with legacy-stage inference. Decorative lateral placement is keyed by word rather than shot number. Retry branch changes and changed ground anchors do not animate from old label boxes; temporary text used for measurement is invisible.
+
+Regression coverage includes actual byte-limited local storage, atomic async archive failures and metadata rollback, failed-save/reset recovery, retained bests across restart, current-only export, stale tabs, and identical intended positions for missed/successful PATHOLOGY approaches in both map directions and viewport widths. Real user history is not reset by browser verification.

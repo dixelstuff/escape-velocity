@@ -38,11 +38,11 @@ export class DailyGame{
    const quality=j=>j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score)?j.cleverness_playtest.band_free.unrounded_score:-1;
    const strokeRoutes=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id).sort((a,b)=>a.state.attempts-b.state.attempts||quality(b)-quality(a)||String(a.updatedAt).localeCompare(String(b.updatedAt)));
    const stroke=strokeRoutes[0];
-   if(stroke){const best={journeyId:stroke.id,strokes:stroke.state.attempts,route:[...stroke.state.route],attempt:stroke.state.challenge.attempt,completedAt:stroke.updatedAt,...(quality(stroke)>=0?{cleverness:quality(stroke)}:{})};if(JSON.stringify(h.bestStrokes)!==JSON.stringify(best)){h.bestStrokes=best;changed=true;}}
+   if(stroke&&(!h.bestStrokes||stroke.state.attempts<h.bestStrokes.strokes||stroke.state.attempts===h.bestStrokes.strokes&&quality(stroke)>=(h.bestStrokes.cleverness??-1))){const best={journeyId:stroke.id,strokes:stroke.state.attempts,route:[...stroke.state.route],attempt:stroke.state.challenge.attempt,completedAt:stroke.updatedAt,...(quality(stroke)>=0?{cleverness:quality(stroke)}:{})};if(JSON.stringify(h.bestStrokes)!==JSON.stringify(best)){h.bestStrokes=best;changed=true;}}
    const candidates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score));
    candidates.sort((a,b)=>b.cleverness_playtest.band_free.unrounded_score-a.cleverness_playtest.band_free.unrounded_score);
    const j=candidates[0],score=j?.cleverness_playtest.band_free,best=j?{journeyId:j.id,strokes:j.state.attempts,route:[...j.state.route],attempt:j.state.challenge.attempt,score:score.score,unrounded:score.unrounded_score,version:score.version}:null;
-   if(JSON.stringify(h.bestCleverness??null)!==JSON.stringify(best)){if(best)h.bestCleverness=best;else delete h.bestCleverness;changed=true;}
+   if(best&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||best.unrounded>=h.bestCleverness.unrounded)&&JSON.stringify(h.bestCleverness)!==JSON.stringify(best)){h.bestCleverness=best;changed=true;}
   }if(changed)this.save();
  }
  current(){return this.data.holes[this.selected()?.id];}

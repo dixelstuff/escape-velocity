@@ -1,7 +1,8 @@
+import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
-import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=interface-repair-v1';
-import {resetPersonalPlay,restorePersonalPlay} from './reset-personal-play.mjs?v=simple-interface-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=best-route-v1';
+import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=archive-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=future-proposals-2026-10-28-v1';
 import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=header-spacing-v1';
@@ -16,7 +17,7 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v189';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=terrain-variety-v2';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=stable-lies-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
 import {typingCourseWidth,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=golf-v189';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
@@ -26,9 +27,9 @@ import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
 import { createBrowserClient } from './engine.mjs?v=warm-analysis-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=interface-repair-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=archive-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=golf-v189';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=stable-lies-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
@@ -76,8 +77,12 @@ let showChipRange=false;
 $('show-chip-range').checked=showChipRange;
 $('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;
 $('show-chip-range').addEventListener('change',()=>{showChipRange=$('show-chip-range').checked;$('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;if(state)map();});
-const personalStorage=simpleDaily&&storage?new PersonalPlayStorage(storage):storage;
+const personalStorage=simpleDaily&&storage?new PersonalPlayStorage(await openPlayArchive(storage)):storage;
 const flightLog=new FlightLog(personalStorage);
+if(simpleDaily&&personalStorage?.root?.backend){
+ personalStorage.root.onError=error=>{flightLog.saveError=error.name+': '+error.message;flightLog.warning='Play data could not be saved. Export it before leaving.';dailyUI?.render();};
+ personalStorage.root.onSaved=()=>{flightLog.warning='';flightLog.saveError='';dailyUI?.render();};
+}
 if(simpleDaily&&personalStorage)personalStorage.onRecoveryEvicted=()=>{flightLog.backup=null;const button=$('personal-restore');if(button)button.hidden=true;};
 if(simpleDaily)window.addEventListener('storage',event=>{if(event.key===PERSONAL_BATCH_KEY)location.reload();});
 const rounds=tourMode?new TourCourse(storage,tourManifest,rollingSimulation?rollingTestDay:utcDay(Date.now())):rollingMode?new RollingCourse(storage,rollingManifest,rollingSimulation?rollingTestDay:utcDay(Date.now())):new CourseRounds(storage);
@@ -319,14 +324,15 @@ function chipShading(d,zone){
  return `<defs><clipPath id="chip-range-clip"><rect x="20" y="54" width="${d.edge-20}" height="324"/></clipPath></defs><g id="chip-range-shading" clip-path="url(#chip-range-clip)" pointer-events="none" aria-hidden="true">${bands.map(b=>`<path d="${b.path}" fill="${b.stroke?'none':'#b94b46'}" stroke="${b.stroke?'#b94b46':'none'}" stroke-width="${b.stroke?1:0}" opacity="${b.opacity}"/>`).join('')}</g>`;
 }
 
-let labelLayoutKey,labelLayout=new Map();
+let labelLayoutKey,labelLayout=new Map(),labelSceneKey;
+const currentLabelScene=()=>JSON.stringify([state?.challenge?.id,flightLog.active?.id,retryPreview?.source?.id,retryPreview?.through]);
 function captureWordLabels(d){
  const previous=new Map();
- if(reduced||labelLayoutKey!==appearanceKey||$('map').viewBox.baseVal.width!==d.width)return previous;
+ if(reduced||labelSceneKey!==currentLabelScene()||labelLayoutKey!==appearanceKey||$('map').viewBox.baseVal.width!==d.width)return previous;
  const matrix=($('map').querySelector('#course-world')??$('map')).getScreenCTM();if(!matrix)return previous;
  for(const label of $('map').querySelectorAll('[data-label-word]')){
   const rect=label.querySelector('rect');if(!rect)continue;
-  const local=rect.getScreenCTM();if(!local)continue;const point=new DOMPoint(Number(rect.getAttribute('x')),Number(rect.getAttribute('y'))).matrixTransform(local).matrixTransform(matrix.inverse());previous.set(label.dataset.lieKey,{x:point.x,y:point.y,path:label.querySelector('path')?.getAttribute('d')});
+  const local=rect.getScreenCTM();if(!local)continue;const point=new DOMPoint(Number(rect.getAttribute('x')),Number(rect.getAttribute('y'))).matrixTransform(local).matrixTransform(matrix.inverse());previous.set(label.dataset.lieKey,{anchor:labelLayout.get(label.dataset.lieKey),x:point.x,y:point.y,path:label.querySelector('path')?.getAttribute('d')});
  }
  return previous;
 }
@@ -334,6 +340,7 @@ function moveWordLabels(previous){
  for(const label of $('map').querySelectorAll('[data-label-word]')){
   const old=previous.get(label.dataset.lieKey),rect=label.querySelector('rect'),body=label.querySelector('.label-body');
   if(!old||!rect||!body)continue;
+  const next=labelLayout.get(label.dataset.lieKey);if(old.anchor&&next&&(Math.abs(old.anchor.anchorX-next.anchorX)>.25||Math.abs(old.anchor.anchorY-next.anchorY)>.25))continue;
   const dx=old.x-Number(rect.getAttribute('x')),dy=old.y-Number(rect.getAttribute('y'));
   if(Math.hypot(dx,dy)<.25)continue;
   body.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0px,0px)'}],{duration:360,easing:'cubic-bezier(.2,.8,.2,1)'});
@@ -485,7 +492,7 @@ function map(preview=null){
  svg+=`<g data-lie-dot="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${active&&p.key===teeKey?'visibility="hidden"':''} ${p.previous?`class="previous-word-dot previous-attempt-element" data-previous-word="${esc(p.word)}"`:''} opacity="${p.retryFuture?.65:p.failed?.4:1}">${ball}</g>`;
  }
  // Measure the actual font before packing labels; semantic ball positions never move.
- for(const p of planets)svg+=`<text data-word-label="${esc(p.word)}" x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text>`;
+ for(const p of planets)svg+=`<text data-word-label="${esc(p.word)}" visibility="hidden" x="${p.pos.x}" y="${p.pos.y+35}" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text>`;
 
  const r=ballPosition(state.current);
  svg+=`<g id="golf-ball" transform="translate(${r.x},${r.y})" aria-label="Your golf ball" opacity="${state.won&&state.current===state.target?0:1}" aria-hidden="${state.won&&state.current===state.target}"><g id="ball-size" transform="scale(${scale})"><ellipse id="ball-shadow" cy="18" rx="17" ry="4" fill="#45663e" opacity=".2"/><g id="ball-body"><circle r="16" fill="url(#ball-shade)" stroke="#728363" stroke-width="1"/><g id="ball-dimples">${[[-4,-5],[3,-6],[-7,1],[0,0],[6,1],[-3,6],[4,6]].map(([cx,cy])=>`<circle cx="${cx}" cy="${cy}" r="1.2" fill="#d4ddc8"/>`).join('')}</g></g></g></g>`;
@@ -512,7 +519,7 @@ function map(preview=null){
  const screenScale=$('map').clientWidth/d.width,lift=completedCourseLift(state.won,highest,screenScale),card=document.querySelector('.map-card');
  card.style.setProperty('--result-course-lift',`${lift}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
- moveWordLabels(previousLabels);renderRetryTip(planets,layout,d,currentKey,preview);syncControlTrees();syncMapOverlay();
+ moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();renderRetryTip(planets,layout,d,currentKey,preview);syncControlTrees();syncMapOverlay();
 }
 function telemetry(){
  if(simpleDaily)return;
@@ -1263,7 +1270,7 @@ if(simpleDaily){
   dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning,detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);
-  $('personal-export').onclick=()=>{let exported;try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-personal-scorecards.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+  $('personal-export').onclick=()=>{let exported;try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-play-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('personal-data-status').textContent='Play data download requested. Clear play history when you have saved the file.';};
   $('personal-restore').hidden=!flightLog.backup;
   $('personal-restore').onclick=async()=>{
    if(busy)return;
@@ -1285,12 +1292,12 @@ if(simpleDaily){
     try{
      const def=daily.selected();
      candidate=(await api('new',{...def.settings,word_model:'',finish_mode:'range',continuous_play:true,challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})).state;
-     const journey=resetPersonalPlay(daily,flightLog,candidate,modelName(candidate),modelHash(candidate));
+     const journey=await clearResearchPlay(daily,flightLog,candidate,modelName(candidate),modelHash(candidate));
      clearTimeout(retryTimer);retryPreview=null;setBag(false);setHoleLog(false);
      state=candidate;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
      $('word').value='';$('copy-fallback').hidden=true;$('log-feedback').textContent='';update();
      $('personal-restore').hidden=false;
-     $('personal-data-status').textContent='Play data reset. Future exports will contain only new play.';
+     $('personal-data-status').textContent='Play data cleared. Player stats and best routes kept. Future exports contain only new play.';
      $('status').textContent='';
     }catch(error){
      if(candidate)try{await api('restore',{state:previous});}catch{}

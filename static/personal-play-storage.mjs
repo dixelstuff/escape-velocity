@@ -47,8 +47,10 @@ export class PersonalPlayStorage{
 /** Export play in this batch, not the library of unplayed custom definitions. */
 export function personalPlayExport(daily,log){
  daily.storage?.assertCurrent?.();log.storage?.assertCurrent?.();
- const played=new Set([...Object.keys(daily.data.holes),...log.data.journeys.map(j=>j.state.challenge?.id)]);
+ const played=new Set(log.data.journeys.map(j=>j.state.challenge?.id));
  const data=structuredClone(daily.data);
+ // Player stats outlive research batches. Do not leak old routes back into exports.
+ data.holes=Object.fromEntries(Object.entries(data.holes).filter(([id])=>played.has(id)).map(([id,h])=>[id,Object.fromEntries(['id','date','tee','waypoint','flag','journeyId'].filter(key=>h[key]!==undefined).map(key=>[key,h[key]]))]));
  if(data.customHoles)data.customHoles=data.customHoles.filter(h=>played.has(h.id));
- return {version:1,daily:data,play:structuredClone(log.data)};
+ return {version:2,exportedAt:new Date().toISOString(),batch:daily.storage?.batch??'legacy',playerStats:daily.stats(),daily:data,play:structuredClone(log.data)};
 }

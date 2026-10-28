@@ -1,5 +1,5 @@
 import {wordLieKey} from './word-lies.mjs?v=golf-v189';
-import {waypointPosition} from './waypoint-map.mjs?v=golf-v189';
+import {waypointPosition} from './waypoint-map.mjs?v=stable-lies-v1';
 import {projectPoint} from './map.mjs?v=golf-v189';
 import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v189';
 /** Compare only retries in this challenge, including a completed attempt replayed within the same challenge. */

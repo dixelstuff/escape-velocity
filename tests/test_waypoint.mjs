@@ -338,3 +338,16 @@ for(const narrow of [true,false]){
 }
 assert.match(appSource,/state\.waypoint&&p\.key===waypointKey/,'reserve future ball clearance at the waypoint label before it is played');
 console.log('Sponge regression passed: fixed destination membership, honest weak-hit ghosts, stable named dogleg, and no obstacle teleport on hidden backward shots.');
+
+// Same destination word: intended zone and coordinates are independent of shot number/contact.
+for(const narrow of [true,false])for(const turn of ['up','down']){
+ const scene={...spongeHole,waypoint:{...spongeHole.waypoint,turn}},d=waypointLayout(mapLayout(narrow),scene);
+ const a=waypointPosition(directPathology.state(),'pathology',d,weakPathology),b=waypointPosition(viaPathogen.state(),'pathology',d,reachedPathology);
+ assert.deepEqual(a,b,'a missed swing and a later successful swing to the same word have the same intended waypoint lie');
+ const legacy={...weakPathology};delete legacy.stage;delete legacy.inside;
+ assert.deepEqual(waypointPosition(directPathology.state(),'pathology',d,legacy),a,'old events infer stage and membership from leg target/destination, never contact success');
+}
+assert.match(appSource,/labelSceneKey!==currentLabelScene\(\)/,'retry branches do not animate from unrelated old label positions');
+assert.match(appSource,/data-word-label=.*visibility="hidden"/,'measurement-only labels cannot flash on screen');
+assert.match(readFileSync(new URL('../static/attempt-ghosts.mjs',import.meta.url),'utf8'),/waypoint-map.mjs\?v=stable-lies-v1/,'faded misses use the same versioned mapper as current lies');
+console.log('Stable lies passed: identical weak/successful intended waypoint positions, legacy event inference, hidden measurements, retry-scene motion guard and unified ghost cache version.');

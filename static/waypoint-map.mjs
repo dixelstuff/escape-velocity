@@ -58,25 +58,28 @@ export function waypointBoundaryPosition(point,d,inside){
 export function waypointPosition(state,word,d,event=null){
  const a=waypointAnchors(d);
  const h=event??state.history.findLast(h=>h.word===word&&h.success)??state.history.findLast(h=>h.word===word);
- if(word===state.start&&h?.stage!==1)return a.tee;
+ const stage=h?.stage??(h?.leg_target===state.final_target?1:0);
+ const legThreshold=h?.leg_threshold??(stage===0?state.waypoint.threshold:state.threshold)??state.threshold;
+ const inside=!!h&&(!!h.waypoint_reached||h.destination+1e-7>=legThreshold);
+ if(word===state.start&&stage!==1)return a.tee;
  if(word===state.final_target)return a.flag;
  // The named dogleg is a fixed landmark; playing it must not move its marker.
- if(word===state.waypoint.word&&(!h||h.stage===0))return a.bend;
+ if(word===state.waypoint.word&&(!h||stage===0))return a.bend;
  if(!h)return a.bend;
  // A weak swing can aim inside the zone. Keep its faded intended lie honest,
  // without treating it as a successful arrival or advancing the game stage.
- if(h.stage===0&&(h.waypoint_reached||h.inside)){
+ if(stage===0&&inside){
   const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
-  const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-(h.leg_threshold??.27))/(1-(h.leg_threshold??.27))))),forward=.62*(2*depth-1),side=.18*Math.sin(h.attempt*2.4+h.destination*5);
+  const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-legThreshold)/(1-legThreshold)))),forward=.62*(2*depth-1),side=.18*Math.sin(appearanceUnit(word,':waypoint-lie')*Math.PI*2+h.destination*5);
   return waypointBoundaryPosition({x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)},d,true);
  }
  const entry=state.history.find(h=>h.waypoint_reached);
- const start=h.stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
- const goal=h.stage===1?a.flag:a.bend;
+ const start=stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
+ const goal=stage===1?a.flag:a.bend;
  const threshold=h.leg_threshold??state.threshold,baseline=h.leg_baseline??state.baseline;
- const fraction=mapFraction(h.destination,h.stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
- const offset=[-24,26,-36,34,-12,14][(h.attempt-1)%6];
- return h.stage===1?finalLie(d,start,fraction,offset):waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
+ const fraction=mapFraction(h.destination,stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
+ const offset=[-24,26,-36,34,-12,14][Math.floor(appearanceUnit(word,':word-lie')*6)];
+ return stage===1?finalLie(d,start,fraction,offset):waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
 }
 /** The exact same path geometry drives drawing and tree clearance. */
 export function waypointCartPath(d){
