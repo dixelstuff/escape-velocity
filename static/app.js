@@ -1,8 +1,9 @@
+import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=interface-repair-v1';
 import {resetPersonalPlay,restorePersonalPlay} from './reset-personal-play.mjs?v=simple-interface-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=interface-repair-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=best-route-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=future-proposals-2026-10-28-v1';
-import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=header-spacing-v1';
+import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=header-spacing-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=opportunity08-bonus2-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -567,10 +568,10 @@ function bestRouteState(){
 }
 function renderHoleLog(){
  if(simpleDaily){
-  $('hole-log-title').textContent=holePanelMode==='tips'?'How to play':'Personal best routes';$('hole-log-remaining').hidden=true;
+  $('hole-log-title').textContent=holePanelMode==='tips'?'How to play':featuredRoutes(daily.current()).length>1?'Personal best routes':'Your best route';$('hole-log-remaining').hidden=true;
   $('close-attempt-log').setAttribute('aria-label','Close '+$('hole-log-title').textContent.toLowerCase());
   if(holePanelMode==='tips')$('hole-log-rows').innerHTML='<li class="bag-tip"><h3>Make contact</h3><p>Your word must connect to the ball word to hit.</p></li><li class="bag-tip"><h3>Aim for the target</h3><p>A stronger connection to the target carries the ball further. Longer shots also need a stronger connection to the ball word. A small step can be useful as a set up shot.</p></li><li class="bag-tip"><h3>Reach the dogleg</h3><p>First land inside the shaded dogleg area. You can use its word or another word that reaches the area and sets you up for the flag. Then the flag becomes your target.</p></li><li class="bag-tip"><h3>Explore freely</h3><p>A miss ends that attempt. Continue from your last lie, or tap any landed word to try a different route. There are no attempt or stroke limits.</p></li><li class="bag-tip"><h3>Two personal bests</h3><p>Every hole is Par 5. Record your fewest strokes and highest cleverness; they can come from different routes. An automatic finish counts as a stroke. Keep playing either route whenever you like.</p></li>';
-  else{const h=daily.current();$('hole-log-rows').innerHTML=[['Fewest strokes',h?.bestStrokes],['Highest cleverness',h?.bestCleverness]].map(([label,best])=>'<li class="bag-route"><h3>'+label+'</h3><p>'+ (best?esc(best.route.map(w=>w.toUpperCase()).join(' → ')):'Finish the hole to record a route.')+'</p>'+(best?'<p class="subtle">'+best.strokes+' strokes'+(best.score!==undefined?' · Cleverness '+best.score+'/100':'')+'</p>':'')+'</li>').join('');}
+  else{const h=daily.current();$('hole-log-rows').innerHTML=featuredRoutes(h).map(({label,best})=>'<li class="bag-route"><h3>'+label+'</h3><p>'+ (best?esc(best.route.map(w=>w.toUpperCase()).join(' → ')):'Finish the hole to record a route.')+'</p>'+(best?'<p class="subtle">'+best.strokes+' strokes'+(best.score!==undefined?' · Cleverness '+best.score+'/100':'')+'</p>':'')+'</li>').join('');}
   if(holePanelMode==='tips'){
    if(daily.current()?.bestStrokes){const bestLink=document.createElement('li');bestLink.className='bag-tip';bestLink.innerHTML='<button type="button" class="quiet" id="help-hole-bests">Your bests on this hole</button>';$('hole-log-rows').prepend(bestLink);$('help-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});}
    const item=document.createElement('li');item.className='bag-tip';

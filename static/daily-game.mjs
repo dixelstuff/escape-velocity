@@ -21,7 +21,7 @@ export class DailyGame{
  record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
-  if(s.won){h.completedAt=journey.updatedAt;const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes)h.bestStrokes=candidate;
+  if(s.won){h.completedAt=journey.updatedAt;const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt,...(journey.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(journey.cleverness_playtest.band_free.unrounded_score)?{cleverness:journey.cleverness_playtest.band_free.unrounded_score}:{})};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes||candidate.strokes===h.bestStrokes.strokes&&(candidate.cleverness??-1)>(h.bestStrokes.cleverness??-1))h.bestStrokes=candidate;
    const report=journey.cleverness_playtest,score=report?.band_free;
    if(score?.version===BAND_FREE_VERSION&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
   }this.save();
@@ -35,6 +35,10 @@ export class DailyGame{
  refreshClevernessBests(journeys){
   let changed=false;
   for(const h of Object.values(this.data.holes)){
+   const quality=j=>j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score)?j.cleverness_playtest.band_free.unrounded_score:-1;
+   const strokeRoutes=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id).sort((a,b)=>a.state.attempts-b.state.attempts||quality(b)-quality(a)||String(a.updatedAt).localeCompare(String(b.updatedAt)));
+   const stroke=strokeRoutes[0];
+   if(stroke){const best={journeyId:stroke.id,strokes:stroke.state.attempts,route:[...stroke.state.route],attempt:stroke.state.challenge.attempt,completedAt:stroke.updatedAt,...(quality(stroke)>=0?{cleverness:quality(stroke)}:{})};if(JSON.stringify(h.bestStrokes)!==JSON.stringify(best)){h.bestStrokes=best;changed=true;}}
    const candidates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score));
    candidates.sort((a,b)=>b.cleverness_playtest.band_free.unrounded_score-a.cleverness_playtest.band_free.unrounded_score);
    const j=candidates[0],score=j?.cleverness_playtest.band_free,best=j?{journeyId:j.id,strokes:j.state.attempts,route:[...j.state.route],attempt:j.state.challenge.attempt,score:score.score,unrounded:score.unrounded_score,version:score.version}:null;
@@ -43,5 +47,14 @@ export class DailyGame{
  }
  current(){return this.data.holes[this.selected()?.id];}
  recent(){return Object.values(this.data.holes).sort((a,b)=>String(b.lastPlayedAt).localeCompare(String(a.lastPlayedAt))||b.date.localeCompare(a.date)).slice(0,9);}
- stats(){const completed=Object.values(this.data.holes).filter(h=>h.bestStrokes),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};for(const h of completed){const s=h.bestStrokes.strokes;counts[s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+']++;}const clever=completed.filter(h=>h.bestCleverness);return {completed:completed.length,counts,averageBestCleverness:clever.length?Math.round(clever.reduce((n,h)=>n+h.bestCleverness.score,0)/clever.length):null};}
+ stats(){
+  const completed=Object.values(this.data.holes).filter(h=>h.bestStrokes),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};
+  const group=h=>{const s=h.bestStrokes.strokes;return s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+';};
+  for(const h of completed)counts[group(h)]++;
+  const clever=completed.filter(h=>h.bestCleverness);
+  // Result averages use the route that earned that stroke result, not a longer route's score.
+  const routeScore=h=>Number.isFinite(h.bestStrokes.cleverness)?h.bestStrokes.cleverness:h.bestCleverness?.journeyId===h.bestStrokes.journeyId?h.bestCleverness?.unrounded??h.bestCleverness?.score:null;
+  const clevernessByResult=Object.fromEntries(Object.keys(counts).map(name=>{const scores=completed.filter(h=>group(h)===name).map(routeScore).filter(Number.isFinite);return [name,scores.length?Math.round(scores.reduce((sum,n)=>sum+n,0)/scores.length):null];}));
+  return {completed:completed.length,counts,clevernessByResult,averageBestCleverness:clever.length?Math.round(clever.reduce((n,h)=>n+h.bestCleverness.score,0)/clever.length):null};
+ }
 }

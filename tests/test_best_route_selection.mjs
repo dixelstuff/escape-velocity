@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';import {featuredRoutes} from '../static/best-route-selection.mjs';import {DailyGame} from '../static/daily-game.mjs';import {BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
+const primary={journeyId:'a',strokes:3,route:['tee','a','flag'],cleverness:80.2};
+assert.equal(featuredRoutes({bestStrokes:primary,bestCleverness:{...primary,score:80,unrounded:80.2}}).length,1);
+const longer={journeyId:'b',strokes:4,route:['tee','b','c','flag'],score:90,unrounded:90};
+assert.equal(featuredRoutes({bestStrokes:primary,bestCleverness:longer}).length,2);
+for(const hi of [{...longer,score:79},{...longer,score:80,unrounded:80.4},{...longer,strokes:3},{...longer,route:primary.route}])assert.equal(featuredRoutes({bestStrokes:primary,bestCleverness:hi}).length,1);
+assert.equal(featuredRoutes({bestStrokes:{...primary,cleverness:undefined},bestCleverness:longer}).length,1,'do not claim superiority while the primary score is unknown');
+const store=new Map(),storage={getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)},manifest={holes:[{id:'h',date:'2026-10-28',settings:{start:'tee',waypoint:{word:'bend'},target:'flag'}}]},game=new DailyGame(storage,manifest);game.visit('2026-10-28');
+const journey=(id,strokes,score)=>({id,updatedAt:'2026-10-28T12:00:00Z',state:{won:true,attempts:strokes,start:'tee',waypoint:{word:'bend'},final_target:'flag',route:['tee',id,'flag'],challenge:{id:'h',unlimited:true,attempt:1}},...(score===null?{}:{cleverness_playtest:{band_free:{version:BAND_FREE_VERSION,score:Math.round(score),unrounded_score:score}}})});
+const a=journey('a',3,80.2),b=journey('b',3,null),c=journey('c',4,95);game.record(a);game.record(b);game.record(c);assert.equal(game.current().bestStrokes.journeyId,'a');
+const recency=game.current().lastPlayedAt,active=game.current().journeyId;const analysed=journey('b',3,80.4);game.recordReport(analysed);assert.equal(game.current().bestStrokes.journeyId,'b');assert.equal(game.current().lastPlayedAt,recency);assert.equal(game.current().journeyId,active);assert.equal(featuredRoutes(game.current()).length,2);
+game.current().bestStrokes={...primary,journeyId:'a'};game.refreshClevernessBests([a,analysed,c]);assert.equal(game.current().bestStrokes.journeyId,'b');assert.equal(game.current().bestCleverness.journeyId,'c');
+assert.equal(new DailyGame(storage,manifest).current().bestStrokes.journeyId,'b');
+console.log('Best routes passed: strokes first, unrounded Cleverness tie-break, late analysis and migration, no duplicates, optional genuinely higher-scoring longer route.');

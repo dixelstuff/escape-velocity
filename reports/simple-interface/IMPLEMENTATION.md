@@ -33,3 +33,11 @@ Per-hole artwork now varies tree cluster positions/counts/radii, path control po
 ## Header spacing and terminology follow-up
 
 Mobile now uses the same 10 px main top padding and 0/8 px header top/bottom margins in both input states. This keeps the compact keyboard height budget; it brings the resting view into alignment rather than adding height above the keyboard. The within-hole scroll anchor retains that same 10 px top gutter through CSS scroll-margin. Desktop header top margin grows from 32 to 52 px with viewport width. The personal display name is Cleverness again, including results, rankings, stats and help; formulas and internal ranking keys are unchanged.
+
+## Best routes and result filters
+
+The primary best route minimises strokes, then maximises unrounded Cleverness within that stroke count. Saved bests are rebuilt from completed reports, including late-arriving analysis. Route panels show that route once. A second route is shown only if it uses more strokes, has a higher displayed Cleverness score, and is a different word sequence. Independent stroke/Cleverness headline records remain intact.
+
+The result distribution now uses horizontal bar rows. Selecting a result toggles it; an explicit All holes control always clears the filter. Mobile hover feedback no longer resembles a retained selection. Deployment includes 73 checks.
+
+Stats now label the summary Overall Cleverness, with a mean beside each result bar. Result means use the selected lowest-stroke routes, so a longer high-Cleverness route cannot inflate an eagle/birdie row. Missing analysis is excluded from the mean.
