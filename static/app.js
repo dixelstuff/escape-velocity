@@ -1,3 +1,4 @@
+import {howToPlay} from './how-to-play.mjs?v=clear-help-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -351,20 +352,6 @@ function moveWordLabels(previous){
   connector.append(motion);motion.beginElement?.();
  }
 }
-let retryTipUsed=false;
-try{retryTipUsed=sessionStorage.getItem('word-golf-retry-tip-used')==='true';}catch{}
-function renderRetryTip(planets,layout,d,currentKey,preview){
- const tip=$('retry-guidance');tip.hidden=true;
- if(preview||retryTipUsed||state.won||holeResult()||document.activeElement===$('word'))return;
- const earlier=planets.find(p=>p.resumeThrough>0&&p.key!==currentKey&&!p.waypointReference&&layout.labels.has(p.key));
- if(!earlier)return;
- const box=layout.labels.get(earlier.key),below=box.y<75;
- tip.replaceChildren(document.createTextNode(`Tap ${earlier.word.toUpperCase()} to retry`),document.createElement('br'),document.createTextNode('from here.'));
- tip.style.left=`clamp(88px,${box.textX/d.width*100}%,calc(100% - 88px))`;
- tip.style.top=`calc(${(below?box.y+box.height:box.y)/layout.height*100}% ${below?'+':'-'} 8px)`;
- tip.classList.toggle('below-label',below);tip.hidden=false;
-}
-function learnWordRetry(){retryTipUsed=true;try{sessionStorage.setItem('word-golf-retry-tip-used','true');}catch{}$('retry-guidance').hidden=true;}
 function retrySource(){
  if(practising())return null;
  if(!state?.challenge||retryPreview||state.won||state.challenge_failed||state.history.some(h=>!h.assumed)||(flightLog.active?.previous_labels_dismissed&&!flightLog.active?.auto_retry))return null;
@@ -388,7 +375,6 @@ function retryFromWord(through,{focusEntry=true}={}){
  changingRetry=true;
  try{
   const data=client.retryNow(sourceState,through,attempt);
-  if(through>0)learnWordRetry();
   retryPreview={source,through,attempt,original};state=data.state;$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);shownEvent=state.history.at(-1)??null;activeNotice='';noticeDismissed=true;$('word').value='';update();
   $('status').textContent=`Retry from ${state.current.toUpperCase()}. Play your next word.`;
  }catch(error){$('status').textContent=error.message;}finally{changingRetry=false;if(focusEntry&&retryPreview&&document.activeElement!==$('word'))$('word').focus({preventScroll:true});}
@@ -521,7 +507,7 @@ function map(preview=null){
  card.style.setProperty('--result-course-lift',`${lift}px`);
  card.style.setProperty('--completed-map-height',`${completedMapHeight($('map').clientHeight,lowest,screenScale,lift)}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
- moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();renderRetryTip(planets,layout,d,currentKey,preview);syncControlTrees();syncMapOverlay();
+ moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
 }
 function telemetry(){
  if(simpleDaily)return;
@@ -579,7 +565,7 @@ function renderHoleLog(){
  if(simpleDaily){
   $('hole-log-title').textContent=holePanelMode==='tips'?'How to play':featuredRoutes(daily.current()).length>1?'Personal best routes':'Your best route';$('hole-log-remaining').hidden=true;
   $('close-attempt-log').setAttribute('aria-label','Close '+$('hole-log-title').textContent.toLowerCase());
-  if(holePanelMode==='tips')$('hole-log-rows').innerHTML='<li class="bag-tip"><h3>Make contact</h3><p>Your word must connect to the ball word to hit.</p></li><li class="bag-tip"><h3>Aim for the target</h3><p>A stronger connection to the target carries the ball further. Longer shots also need a stronger connection to the ball word. A small step can be useful as a set up shot.</p></li><li class="bag-tip"><h3>Reach the dogleg</h3><p>First land inside the shaded dogleg area. You can use its word or another word that reaches the area and sets you up for the flag. Then the flag becomes your target.</p></li><li class="bag-tip"><h3>Explore freely</h3><p>A miss ends that attempt. Continue from your last lie, or tap any landed word to try a different route. There are no attempt or stroke limits.</p></li><li class="bag-tip"><h3>Two personal bests</h3><p>Every hole is Par 5. Record your fewest strokes and highest cleverness; they can come from different routes. An automatic finish counts as a stroke. Keep playing either route whenever you like.</p></li>';
+  if(holePanelMode==='tips')$('hole-log-rows').innerHTML=howToPlay();
   else{const h=daily.current();$('hole-log-rows').innerHTML=featuredRoutes(h).map(({label,best})=>'<li class="bag-route"><h3>'+label+'</h3><p>'+ (best?esc(best.route.map(w=>w.toUpperCase()).join(' → ')):'Finish the hole to record a route.')+'</p>'+(best?'<p class="subtle">'+best.strokes+' strokes'+(best.score!==undefined?' · Cleverness '+best.score+'/100':'')+'</p>':'')+'</li>').join('');}
   if(holePanelMode==='tips'){
    if(daily.current()?.bestStrokes){const bestLink=document.createElement('li');bestLink.className='bag-tip';bestLink.innerHTML='<button type="button" class="quiet" id="help-hole-bests">Your bests on this hole</button>';$('hole-log-rows').prepend(bestLink);$('help-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});}

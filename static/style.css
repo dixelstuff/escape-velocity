@@ -1027,3 +1027,16 @@ body.personal-daily .hole-tools{display:none;}
 #how-to-play-content .bag-tip p{font-size:14px;line-height:1.55;margin:0;}
 body.help-open :is(.course-feedback,.retry-guidance){opacity:0;}
 #how-to-play-title:focus{outline:none;}
+/* Word diagrams teach the two connections without a miniature course. */
+#how-to-play-content .help-intro{border-top:0;padding-top:0;}
+#how-to-play-content .bag-tip p+p{margin-top:9px;}
+.help-example{margin:18px 0 0;}
+.help-diagram{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);gap:5px;align-items:end;}
+.help-word{display:grid;gap:5px;text-align:center;min-width:0;}
+.help-word>span{font:600 9px/1.2 'DM Sans',sans-serif;letter-spacing:.025em;color:#718369;white-space:nowrap;}
+.help-word>strong{padding:6px 3px;border:1px solid #7f9a73;border-radius:5px;background:#fffdf2;font:600 13px/1.2 'DM Sans',sans-serif;color:#34543b;}
+.help-word:first-child>strong,.help-word:last-child>strong{background:#356b43;border-color:#356b43;color:white;}
+.help-diagram .help-link{width:22px;height:24px;margin-bottom:2px;fill:none;stroke:#79956d;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.help-diagram .help-link-miss{stroke:#a45b49;}
+.help-example figcaption{margin-top:8px;color:#53694b;font:400 13px/1.5 'DM Sans',sans-serif;}
+.help-example figcaption>strong{font-weight:700;color:#34543b;}
