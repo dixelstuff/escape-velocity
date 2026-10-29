@@ -1,7 +1,7 @@
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=help-headings-v1';
+import {howToPlay} from './how-to-play.mjs?v=numbered-holes-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -9,8 +9,8 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
-import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=cubic-results-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=numbered-holes-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=numbered-holes-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
@@ -446,6 +446,7 @@ let pendingWordTap=null;
 $('map').addEventListener('pointerdown',event=>{
  if(event.isPrimary===false){pendingWordTap=null;return;}
  if(event.button!==0||busy)return;
+ if(simpleDaily&&holeResult()){pendingWordTap={result:true,id:event.pointerId,x:event.clientX,y:event.clientY};return;}
  const label=tappedWord(event);if(!label)return;
  event.preventDefault();event.stopPropagation();
  pendingWordTap={label,id:event.pointerId,x:event.clientX,y:event.clientY};
@@ -458,11 +459,16 @@ $('map').addEventListener('pointerup',event=>{
 });
 $('map').addEventListener('pointercancel',()=>{pendingWordTap=null;});
 $('map').addEventListener('click',event=>{
+ if(simpleDaily&&holeResult()){
+  const tap=pendingWordTap;pendingWordTap=null;
+  if(!busy&&(event.detail===0||tap?.result)){event.preventDefault();event.stopPropagation();void resultControlNavigation(retryResultHole);}
+  return;
+ }
  const label=event.detail===0?event.target.closest('[data-resume-through],[data-focus-entry]'):pendingWordTap?.label??tappedWord(event);
  pendingWordTap=null;if(!label||busy)return;
  event.preventDefault();event.stopPropagation();activateWord(label);
 });
-$('map').addEventListener('keydown',event=>{if(!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;if(!['Enter',' '].includes(event.key))return;const label=event.target.closest('[data-resume-through]');if(label){event.preventDefault();void retryFromWord(Number(label.dataset.resumeThrough));}else if(event.target.closest('[data-focus-entry]')&&!busy){event.preventDefault();$('word').focus({preventScroll:true});}});
+$('map').addEventListener('keydown',event=>{if(!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;if(!['Enter',' '].includes(event.key))return;if(simpleDaily&&holeResult()){event.preventDefault();void resultControlNavigation(retryResultHole);return;}const label=event.target.closest('[data-resume-through]');if(label){event.preventDefault();void retryFromWord(Number(label.dataset.resumeThrough));}else if(event.target.closest('[data-focus-entry]')&&!busy){event.preventDefault();$('word').focus({preventScroll:true});}});
 function syncControlTrees(){
  const buttons=[...document.querySelectorAll('#toggle-bag,#show-best-route')].filter(button=>getComputedStyle(button).visibility!=='hidden').map(button=>button.getBoundingClientRect()).filter(b=>b.width>0&&b.height>0);
  for(const tree of $('map').querySelectorAll('[data-course-tree]'))tree.toggleAttribute('data-hidden-for-control',treeOverlapsControls(tree.getBoundingClientRect(),buttons));
@@ -716,7 +722,7 @@ function update(){
 
 }
 function renderResultContext(){
- if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent=dateLabel(daily.selected().date);if(!justHoled)$('arrival-title').textContent='Your best';return;}
+ if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent='PAR 5';if(!justHoled)$('arrival-title').textContent='Your best';return;}
  const context=resultContext(justHoled,state?.won,roundSummary()),moment=context==='just-now',review=context==='review';
  $('arrival-context').textContent=moment?'JUST NOW':'SCORECARD';
  $('arrival-context').hidden=review;

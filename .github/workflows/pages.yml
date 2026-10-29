@@ -82,6 +82,7 @@ jobs:
           node tests/test_semantic_panel.mjs
           node tests/test_rolling_course.mjs
           node tests/test_result_actions.mjs
+          node tests/test_result_map_retry.mjs
           node tests/test_cubic_stretch.mjs
           node tests/test_durable_results.mjs
           node tests/test_completed_map_frame.mjs

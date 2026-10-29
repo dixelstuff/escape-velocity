@@ -6,7 +6,7 @@ const pending=[],saved=[],tick=()=>new Promise(r=>setTimeout(r,0));
 const panel=mountDailyCleverness(node,{request:state=>new Promise(resolve=>pending.push({state,resolve})),modelHash:()=> 'model',onReport:(s,r)=>saved.push(r)});
 panel.show(states[0]);await tick();panel.show(states[1]);await tick();assert.equal(pending.length,2);
 pending[0].resolve(reports[0]);await tick();assert.equal(saved.length,1);assert.ok(!node.innerHTML.includes('<strong>70'),'stale route must not replace active route');
-pending[1].resolve(reports[1]);await tick();assert.match(node.innerHTML,/<strong>71/);assert.ok(!node.innerHTML.includes('Previous harmonic'));assert.ok(node.innerHTML.includes('&lt;UNSAFE&gt;'));
+pending[1].resolve(reports[1]);await tick();assert.match(node.innerHTML,/<strong>71/);assert.ok(!node.innerHTML.includes('Previous harmonic'));assert.ok(!node.innerHTML.includes('<details'));assert.ok(!node.innerHTML.includes('Score details'));assert.equal(node.hidden,true);
 panel.show(states[0]);assert.match(node.innerHTML,/<strong>70/);assert.equal(pending.length,2,'repeat inspection reuses cached report');panel.show(states[0],{visible:false});assert.equal(node.hidden,true);
 let requests=0;const persisted=mountDailyCleverness(node,{request:()=>{requests++;},modelHash:()=> 'model',getSavedReport:()=>reports[1],onReport(){}});persisted.show(states[1]);assert.match(node.innerHTML,/<strong>71/);assert.equal(requests,0,'exact persisted scorer/route identity avoids recalculation');
 console.log('Personal cleverness panel passed: current scorer only, persisted/session reuse, stale response isolation, separate report persistence, safe text and no comparison-score UI.');
