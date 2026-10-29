@@ -1,3 +1,4 @@
+import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
 import {howToPlay} from './how-to-play.mjs?v=cubic-results-v1';
@@ -12,7 +13,7 @@ import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=cubic-results-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
-import {completedCourseLift,completedCardOverlap,completedMapHeight,holePanelHeight,resultContext} from './result-presentation.mjs?v=cubic-results-v1';
+import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
 import {createViewportDiagnostics} from './viewport-diagnostics.mjs?v=golf-v189';
 import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v189';
@@ -463,12 +464,12 @@ $('map').addEventListener('click',event=>{
 });
 $('map').addEventListener('keydown',event=>{if(!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;if(!['Enter',' '].includes(event.key))return;const label=event.target.closest('[data-resume-through]');if(label){event.preventDefault();void retryFromWord(Number(label.dataset.resumeThrough));}else if(event.target.closest('[data-focus-entry]')&&!busy){event.preventDefault();$('word').focus({preventScroll:true});}});
 function syncControlTrees(){
- const buttons=[...document.querySelectorAll('#toggle-bag')].filter(button=>getComputedStyle(button).visibility!=='hidden').map(button=>button.getBoundingClientRect()).filter(b=>b.width>0&&b.height>0);
+ const buttons=[...document.querySelectorAll('#toggle-bag,#show-best-route')].filter(button=>getComputedStyle(button).visibility!=='hidden').map(button=>button.getBoundingClientRect()).filter(b=>b.width>0&&b.height>0);
  for(const tree of $('map').querySelectorAll('[data-course-tree]'))tree.toggleAttribute('data-hidden-for-control',treeOverlapsControls(tree.getBoundingClientRect(),buttons));
 }
 if(typeof ResizeObserver!=='undefined'){
  const observer=new ResizeObserver(syncControlTrees);
- for(const node of document.querySelectorAll('#map,#toggle-bag'))observer.observe(node);
+ for(const node of document.querySelectorAll('#map,#toggle-bag,#show-best-route'))observer.observe(node);
 }
 function map(preview=null){
  const d=dimensions(),previousLabels=captureWordLabels(d);$('map').setAttribute('viewBox',`0 0 ${d.width} ${COURSE_HEIGHT}`);
@@ -509,7 +510,7 @@ function map(preview=null){
 
  const r=ballPosition(state.current);
  svg+=`<g id="golf-ball" transform="translate(${r.x},${r.y})" aria-label="Your golf ball" opacity="${state.won&&state.current===state.target?0:1}" aria-hidden="${state.won&&state.current===state.target}"><g id="ball-size" transform="scale(${scale})"><ellipse id="ball-shadow" cy="18" rx="17" ry="4" fill="#45663e" opacity=".2"/><g id="ball-body"><circle r="16" fill="url(#ball-shade)" stroke="#728363" stroke-width="1"/><g id="ball-dimples">${[[-4,-5],[3,-6],[-7,1],[0,0],[6,1],[-3,6],[4,6]].map(([cx,cy])=>`<circle cx="${cx}" cy="${cy}" r="1.2" fill="#d4ddc8"/>`).join('')}</g></g></g></g>`;
- $('map').innerHTML=`<rect class="course-scenery" x="-30" y="-30" width="${d.width+60}" height="${COURSE_HEIGHT+60}" fill="#c4d3a7"/><g id="course-world" transform="${worldTransform}">${svg}</g>`;
+ $('map').innerHTML=`<rect class="course-scenery" x="${-d.width}" y="${-COURSE_HEIGHT*2}" width="${d.width*3}" height="${COURSE_HEIGHT*5}" fill="#c4d3a7"/><g id="course-world" transform="${worldTransform}">${svg}</g>`;
  if(backdropLayout!==d){document.querySelector('.map-card').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style,{foreground:worldArt,lake}))}")`;backdropLayout=d;}
  const textNodes=[...$('map').querySelectorAll('[data-word-label]')];
  const needsBallSpace=p=>p.key!==finalKey&&(p.key===currentKey||state.waypoint&&p.key===waypointKey||preview?.success&&p.key===wordLieKey(preview.word,preview));
@@ -527,12 +528,19 @@ function map(preview=null){
  $('map').querySelector('#course-world').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);
  $('map').style.minHeight='';$('map').dataset.teeWord=state.start;
+ const routeBounds=[...$('map').querySelectorAll('[data-shot-path]')].map(node=>node.getBBox());
  const rotationPad=Math.abs(Math.sin((state.waypoint?d.style.rotation??0:0)*Math.PI/180))*d.width/2;
- const highest=Math.min(d.holeY-52*scale,d.teeY-teeOffset-6*scale,...[...layout.labels.values()].map(box=>box.y))-rotationPad,lowest=Math.max(d.teeY+teeOffset+6*scale,...[...layout.labels.values()].map(box=>box.y+box.height))+rotationPad;
+ const highest=Math.min(d.holeY-52*scale,d.teeY-teeOffset-6*scale,...[...layout.labels.values()].map(box=>box.y),...routeBounds.map(box=>box.y))-rotationPad,lowest=Math.max(d.teeY+teeOffset+6*scale,...[...layout.labels.values()].map(box=>box.y+box.height),...routeBounds.map(box=>box.y+box.height))+rotationPad;
  const screenScale=$('map').clientWidth/d.width,lift=completedCourseLift(state.won,highest,screenScale),card=document.querySelector('.map-card');
  card.style.setProperty('--result-course-lift',`${lift}px`);
  card.style.setProperty('--completed-map-height',`${completedMapHeight($('map').clientHeight,lowest,screenScale,lift)}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
+ if(simpleDaily&&holeResult()){
+  const view=completedMapView(d.width,$('map').clientWidth,highest,lowest,narrow());
+  card.style.setProperty('--completed-map-height',`${view.height}px`);card.style.setProperty('--result-course-lift','0px');
+  $('map').setAttribute('viewBox',`${view.x} ${view.y} ${view.width} ${view.viewHeight}`);
+ }
+
  moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
 }
 function telemetry(){
@@ -554,7 +562,7 @@ function setHoleLog(open,{returnToPlay=false,mode='log'}={}){
  if(open)holePanelMode=mode;
  const wasOpen=!$('hole-attempt-log').hidden;
  $('hole-attempt-log').hidden=!open;if(simpleDaily)$('toggle-bag').setAttribute('aria-expanded',String(open));
- setBag(false);
+ setBag(false);renderBestRouteButton();
  document.querySelector('.map-card').classList.toggle('attempt-log-open',open);syncMapOverlay();
  requestAnimationFrame(syncControlTrees);
  if(open){if(narrow())leaveWordEntry();renderHoleLog();requestAnimationFrame(()=>requestAnimationFrame(fitHoleLog));}
@@ -573,8 +581,19 @@ function placeHoleLog(){
  const result=holeResult()||courseResult(),panel=$('hole-attempt-log'),host=document.querySelector('.hole-play-area');
  if(panel.parentElement!==host){setHoleLog(false);host.append(panel);}
  document.querySelector('.hole-tools').hidden=simpleDaily||result;
- if(result){setBag(false);setHoleLog(false);}syncMapOverlay();
+ if(result){setBag(false);setHoleLog(false);}renderBestRouteButton();syncMapOverlay();
 }
+function renderBestRouteButton(){
+ const button=$('show-best-route');
+ button.hidden=!simpleDaily||!daily.current()?.bestStrokes||holeResult()||courseResult()||!$('hole-attempt-log').hidden;
+ button.setAttribute('aria-expanded',String(!$('hole-attempt-log').hidden&&holePanelMode==='route'));
+}
+function openBestRoute(){if(simpleDaily&&!busy&&state&&daily.current()?.bestStrokes)setHoleLog(true,{mode:'route'});}
+$('show-best-route').addEventListener('pointerdown',event=>{
+ if(event.button!==0||event.isPrimary===false)return;
+ event.preventDefault();event.stopPropagation();
+});
+$('show-best-route').onclick=event=>{event.preventDefault();event.stopPropagation();openBestRoute();};
 function bestRouteState(){
  if(simpleDaily)return dailyBestState();
  let recorded;
@@ -592,7 +611,7 @@ function renderHoleLog(){
   $('hole-log-title').textContent=holePanelMode==='tips'?'How to play':featuredRoutes(daily.current()).length>1?'Personal best routes':'Your best route';$('hole-log-remaining').hidden=true;
   $('close-attempt-log').setAttribute('aria-label','Close '+$('hole-log-title').textContent.toLowerCase());
   if(holePanelMode==='tips')$('hole-log-rows').innerHTML=howToPlay();
-  else{const h=daily.current();$('hole-log-rows').innerHTML=featuredRoutes(h).map(({label,best})=>'<li class="bag-route"><h3>'+label+'</h3><p>'+ (best?esc(best.route.map(w=>w.toUpperCase()).join(' → ')):'Finish the hole to record a route.')+'</p>'+(best?'<p class="subtle">'+best.strokes+' strokes'+(best.score!==undefined?' · Cleverness '+best.score+'/100':'')+'</p>':'')+'</li>').join('');}
+  else{const card=bestRouteCard(daily.current());$('hole-log-title').textContent=card.title;$('hole-log-rows').innerHTML=card.html;}
   if(holePanelMode==='tips'){
    if(daily.current()?.bestStrokes){const bestLink=document.createElement('li');bestLink.className='bag-tip';bestLink.innerHTML='<button type="button" class="quiet" id="help-hole-bests">Your bests on this hole</button>';$('hole-log-rows').prepend(bestLink);$('help-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});}
    const item=document.createElement('li');item.className='bag-tip';

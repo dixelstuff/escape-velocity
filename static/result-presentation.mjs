@@ -20,3 +20,11 @@ export function resultContext(fresh,won,round=false){return round?'round':fresh&
 export function completedMapHeight(height,bottom,scale,lift){
  return Math.min(height,Math.max(120,bottom*scale-lift+28));
 }
+
+/** Fixed result frame; fit the route with equal vertical clearance at both ends. */
+export function completedMapView(width,screenWidth,top,bottom,narrow=false){
+ const height=narrow?200:320,padding=16;
+ const scale=Math.min(screenWidth/width,(height-2*padding)/Math.max(1,bottom-top));
+ const viewWidth=screenWidth/scale,viewHeight=height/scale;
+ return {height,x:(width-viewWidth)/2,y:(top+bottom-viewHeight)/2,width:viewWidth,viewHeight,scale};
+}

@@ -1043,3 +1043,13 @@ body.help-open :is(.course-feedback,.retry-guidance){opacity:0;}
 body.personal-daily #arrival-detail{font-size:14px;margin:0 0 16px;}
 body.personal-daily #cleverness-playtest .daily-cleverness-score{display:none;}
 #result-best-route>small{font-weight:600;}
+/* Each results frame has one height; its SVG view centres the visible route. */
+body.personal-daily .map-card.arrived .hole-play-area,body.personal-daily .map-card.arrived #map{height:var(--completed-map-height,320px);}
+body.personal-daily .map-card.arrived #map{transform:none;}
+.best-route-toggle{position:absolute;right:8px;bottom:8px;z-index:5;display:grid;place-items:center;width:30px;height:30px;min-height:0;padding:6px;background:#f4f7eed9;color:#718369;border:1px solid #bdcdae99;border-radius:7px;box-shadow:none;opacity:.85;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.best-route-toggle[hidden]{display:none;}
+.best-route-toggle svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.best-route-toggle:hover{filter:none;opacity:1;}
+.best-route-toggle:focus:not(:focus-visible){outline:none;}
+#hole-log-rows .best-route-words{font-size:14px;font-weight:500;line-height:1.65;overflow-wrap:anywhere;}
+@media(max-width:650px){.best-route-toggle{right:7px;bottom:7px;width:28px;height:28px;padding:5px;}}
