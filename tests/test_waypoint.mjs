@@ -14,7 +14,8 @@ const holes=JSON.parse(readFileSync(new URL('../data/waypoint-holes.json',import
 const options=(h,attempt=1)=>({...h,finish_mode:'range',challenge:{version:'waypoint-trial-v1',par:h.par,attempt,id:'waypoint-test'}});
 const fresh=(i=0,attempt=1)=>new Game(e,holes[i].start,holes[i].target,holes[i].threshold,options(holes[i],attempt));
 let g=fresh();assert.equal(g.target,'library');assert.equal(g.stage,0);
-assert.throws(()=>g.submit('galaxy'),/Reach LIBRARY/);assert.equal(g.history.length,0);
+const flagFirst=g.submit('galaxy');assert.equal(flagFirst.won,false);assert.equal(g.stage,0);assert.equal(g.target,'library');assert.equal(g.history.length,1,'the flag is an ordinary first-leg shot, not a shortcut past the dogleg');
+g=fresh();
 const reached=g.submit('books');assert.equal(reached.waypoint_reached,true);assert.equal(reached.won,false);assert.equal(reached.automatic_shot,undefined);
 assert.equal(g.target,'galaxy');assert.equal(g.current,'books');assert.equal(g.stage,1);assert.equal(g.history.length,1);assert.equal(g.baseline,e.cosine('books','galaxy'));assert.equal(g.best_progress,g.baseline);
 const saved=g.state();assert.deepEqual(restoreGame(e,saved).state(),saved);assert.equal(startupAction({state:saved},{}),'restore');
@@ -349,5 +350,14 @@ for(const narrow of [true,false])for(const turn of ['up','down']){
 }
 assert.match(appSource,/labelSceneKey!==currentLabelScene\(\)/,'retry branches do not animate from unrelated old label positions');
 assert.match(appSource,/data-word-label=.*visibility="hidden"/,'measurement-only labels cannot flash on screen');
-assert.match(readFileSync(new URL('../static/attempt-ghosts.mjs',import.meta.url),'utf8'),/waypoint-map.mjs\?v=stable-lies-v1/,'faded misses use the same versioned mapper as current lies');
+assert.match(readFileSync(new URL('../static/attempt-ghosts.mjs',import.meta.url),'utf8'),/waypoint-map.mjs\?v=page-cards-v1/,'faded misses use the same versioned mapper as current lies');
 console.log('Stable lies passed: identical weak/successful intended waypoint positions, legacy event inference, hidden measurements, retry-scene motion guard and unified ghost cache version.');
+
+// The flag is a normal first-leg word, with a separate lie and label from the cup.
+const flagPairs=new Map([['tee/waypoint',0],['hole/waypoint',.10],['hole/tee',.5]]);
+const flagModel={index:new Map(['tee','waypoint','hole','bridge'].map((w,i)=>[w,i])),hub:()=>0,cosine(a,b){return a===b?1:flagPairs.get([a,b].sort().join('/'))??.4;}};
+const flagGame=new Game(flagModel,'tee','hole',.27,{mode:'distance',waypoint:{word:'waypoint',threshold:.27},finish_mode:'range',waypoint_auto_finish:false});
+const firstFlag=flagGame.submit('hole');assert.equal(firstFlag.success,true);assert.equal(firstFlag.waypoint_reached,undefined);assert.equal(flagGame.stage,0);assert.equal(flagGame.won,false);
+for(const narrow of [true,false]){const d=waypointLayout(mapLayout(narrow),flagGame.state());assert.notDeepEqual(waypointPosition(flagGame.state(),'hole',d,firstFlag),waypointAnchors(d).flag);assert.deepEqual(waypointPosition(flagGame.state(),'hole',d,{stage:1}),waypointAnchors(d).flag);}
+flagGame.submit('bridge');assert.equal(flagGame.stage,1);flagGame.submit('hole');assert.equal(flagGame.won,true);assert.equal(flagGame.state().attempts,3);assert.notEqual(wordLieKey('hole',firstFlag),currentLieKey(flagGame.state()));assert.deepEqual(restoreGame(flagModel,flagGame.state()).state(),flagGame.state());
+console.log('First-leg flag passed: ordinary legal setup, mandatory dogleg, distinct first/second-leg lies, fixed flag landmark, reuse and saved replay.');

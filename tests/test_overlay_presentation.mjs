@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext as runVM} from 'node:vm';
 // These fixtures exercise the retained developer/legacy interface.
 const runInNewContext=(code,context)=>{context.simpleDaily??=false;return runVM(code,context);};
-import {completedCourseLift,completedCardOverlap} from '../static/result-presentation.mjs';
+import {completedCourseLift,completedCardOverlap,completedMapHeight} from '../static/result-presentation.mjs';
 for(const scale of [.4,.6,1,1.6])for(const top of [0,10,25,50,100]){
  const lift=completedCourseLift(true,top,scale);
  assert.ok(lift>=0&&lift<=24);assert.ok(lift<=Math.max(0,top*scale-10),'high labels retain ten pixels of clearance');assert.equal(completedCourseLift(false,top,scale),0);
@@ -36,10 +36,11 @@ console.log('Backdrop dismissal passed: no pointer or click bubbles through to a
 
 // Help consumes the pointer before native form/input focus; keyboard activation stays available.
 const helpEvents={},helpButton={addEventListener:(type,handler)=>helpEvents[type]=handler},helpCalls=[];
-const helpCtx={busy:false,state:{},$:()=>helpButton,leaveWordEntry:()=>helpCalls.push('leave-entry'),setHoleLog:(open,options)=>helpCalls.push([open,options.mode])};
+const helpDialog={addEventListener(){},close(){}},helpContent={replaceChildren(){},append(){}};
+const helpCtx={busy:false,state:{},$:id=>id==='shot-context-help'?helpButton:id==='how-to-play-dialog'?helpDialog:id==='how-to-play-content'?helpContent:id==='hole-log-rows'?{children:[]}:id==='help-hole-bests'?null:{},document:{body:{classList:{add(){},remove(){}}}},leaveWordEntry:()=>helpCalls.push('leave-entry'),setBag(){},setHoleLog(){},renderHoleLog(){},openCourseDialog:()=>helpCalls.push('page-dialog')};
 runInNewContext(app.slice(app.indexOf('function openShotHelp(){'),app.indexOf("$('bag-best-route').onclick=")),helpCtx);
 let helpPrevented=0,helpStopped=0;const helpGesture={button:0,isPrimary:true,preventDefault(){helpPrevented++;},stopPropagation(){helpStopped++;}};
-helpEvents.pointerdown(helpGesture);assert.equal(helpPrevented,1);assert.equal(helpStopped,1);assert.deepEqual(helpCalls,['leave-entry',[true,'tips']]);
+helpEvents.pointerdown(helpGesture);assert.equal(helpPrevented,1);assert.equal(helpStopped,1);assert.deepEqual(helpCalls,['leave-entry','page-dialog']);
 helpButton.onclick({...helpGesture,detail:1});assert.equal(helpCalls.length,2,'a generated click must not open the card a second time');
 helpButton.onclick({...helpGesture,detail:0});assert.equal(helpCalls.length,4,'keyboard activation opens the same overlay');
 helpCtx.busy=true;helpEvents.pointerdown(helpGesture);assert.equal(helpCalls.length,4,'help cannot interrupt an in-flight shot');
@@ -64,3 +65,5 @@ runInNewContext(app.slice(app.indexOf('function renderResultContext(){'),app.ind
 resultView.renderResultContext();assert.equal(resultNodes['arrival-title'].textContent,'HOLE 4 (PAR 5)');assert.equal(resultNodes['arrival-title'].hidden,false);assert.equal(resultNodes['arrival-context'].hidden,true);
 resultView.justHoled=true;resultNodes['arrival-title'].textContent='Holed in 4 strokes!';resultView.renderResultContext();assert.equal(resultNodes['arrival-context'].textContent,'JUST NOW');assert.equal(resultNodes['arrival-title'].textContent,'Holed in 4 strokes!');
 console.log('Result review title passed: centred hole/par title on return, fresh latest-stroke heading preserved.');
+
+for(const height of [200,300,600])for(const bottom of [100,300,430]){const cropped=completedMapHeight(height,bottom,.5,10);assert.ok(cropped<=height);assert.ok(cropped>=Math.min(height,bottom*.5-10+28));}

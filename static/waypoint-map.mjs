@@ -62,7 +62,7 @@ export function waypointPosition(state,word,d,event=null){
  const legThreshold=h?.leg_threshold??(stage===0?state.waypoint.threshold:state.threshold)??state.threshold;
  const inside=!!h&&(!!h.waypoint_reached||h.destination+1e-7>=legThreshold);
  if(word===state.start&&stage!==1)return a.tee;
- if(word===state.final_target)return a.flag;
+ if(word===state.final_target&&(!h||stage===1||h.won))return a.flag;
  // The named dogleg is a fixed landmark; playing it must not move its marker.
  if(word===state.waypoint.word&&(!h||stage===0))return a.bend;
  if(!h)return a.bend;

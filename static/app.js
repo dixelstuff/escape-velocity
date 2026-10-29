@@ -9,7 +9,7 @@ import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=relaxed-legs-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=relaxed-legs-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
-import {completedCourseLift,completedCardOverlap,holePanelHeight,resultContext} from './result-presentation.mjs?v=golf-v189';
+import {completedCourseLift,completedCardOverlap,completedMapHeight,holePanelHeight,resultContext} from './result-presentation.mjs?v=page-cards-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
 import {createViewportDiagnostics} from './viewport-diagnostics.mjs?v=golf-v189';
 import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v189';
@@ -18,19 +18,19 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v189';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=stable-lies-v1';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=page-cards-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
 import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=stable-frame-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=short-second-leg-v1';
+import { createBrowserClient } from './engine.mjs?v=page-cards-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
 import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=relaxed-legs-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=stable-lies-v1';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=page-cards-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
@@ -483,8 +483,8 @@ function map(preview=null){
   const source=retryPreview.source.state,pos=source.waypoint?waypointPosition(source,h.word,d,h):projectPoint(h.destination,source.baseline,source.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);
   nodes.set(key,{key,word:h.word,pos,...(!h.won?{resumeThrough:h.attempt}:{}),retryFuture:true});
  }
- if(!state.waypoint||state.stage!==0||waypointDisplay.showTarget)nodes.set(targetKey,{key:targetKey,word:state.target,pos:position(state.target),...(waypointDisplay.reference?{waypointReference:true}:{})});
- if(state.waypoint){nodes.set(finalKey,{key:finalKey,word:state.final_target,pos:position(state.final_target)});if(!nodes.has(waypointKey)&&((state.stage===0&&!previousEntry)||state.won))nodes.set(waypointKey,{key:waypointKey,word:state.waypoint.word,pos:waypointAnchors(d).bend,...(state.won?{waypointReference:true}:{})});}
+ if(!state.waypoint||state.stage!==0||waypointDisplay.showTarget)nodes.set(targetKey,{key:targetKey,word:state.target,pos:position(state.target,state.waypoint&&state.stage===1?{stage:1}:null),...(waypointDisplay.reference?{waypointReference:true}:{})});
+ if(state.waypoint){nodes.set(finalKey,{key:finalKey,word:state.final_target,pos:position(state.final_target,{stage:1})});if(!nodes.has(waypointKey)&&((state.stage===0&&!previousEntry)||state.won))nodes.set(waypointKey,{key:waypointKey,word:state.waypoint.word,pos:waypointAnchors(d).bend,...(state.won?{waypointReference:true}:{})});}
  if(preview&&(preview.success||usefulForwardMiss(preview,state))){const key=wordLieKey(preview.word,preview),old=nodes.get(key);if(old)old.preview=true;else nodes.set(key,{key,word:preview.word,pos:position(preview.word,preview),preview:true});}
  for(const [key,node] of previousNodes){if(!nodes.has(key))nodes.set(key,node);else if(retry&&node.resumeThrough!==undefined)nodes.get(key).resumeThrough=node.resumeThrough;}
  const planets=[...nodes.values()];
@@ -519,6 +519,7 @@ function map(preview=null){
  const highest=Math.min(d.holeY-52*scale,d.teeY-teeOffset-6*scale,...[...layout.labels.values()].map(box=>box.y))-rotationPad,lowest=Math.max(d.teeY+teeOffset+6*scale,...[...layout.labels.values()].map(box=>box.y+box.height))+rotationPad;
  const screenScale=$('map').clientWidth/d.width,lift=completedCourseLift(state.won,highest,screenScale),card=document.querySelector('.map-card');
  card.style.setProperty('--result-course-lift',`${lift}px`);
+ card.style.setProperty('--completed-map-height',`${completedMapHeight($('map').clientHeight,lowest,screenScale,lift)}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
  moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();renderRetryTip(planets,layout,d,currentKey,preview);syncControlTrees();syncMapOverlay();
 }
@@ -559,7 +560,7 @@ function fitHoleLog(){
 function placeHoleLog(){
  const result=holeResult()||courseResult(),panel=$('hole-attempt-log'),host=document.querySelector('.hole-play-area');
  if(panel.parentElement!==host){setHoleLog(false);host.append(panel);}
- document.querySelector('.hole-tools').hidden=result;
+ document.querySelector('.hole-tools').hidden=simpleDaily||result;
  if(result){setBag(false);setHoleLog(false);}syncMapOverlay();
 }
 function bestRouteState(){
@@ -771,7 +772,7 @@ function entryScoringNotice(){
  return scoringEntryText;
 }
 function renderBag(){
- if(simpleDaily&&state){$('toggle-bag').textContent=state.attempts;$('toggle-bag').setAttribute('aria-label',`${state.attempts} ${state.attempts===1?'stroke':'strokes'}. How to play`);$('toggle-bag').title='Current strokes · How to play';$('toggle-bag').setAttribute('aria-controls','hole-attempt-log');const best=daily.current()?.bestStrokes;$('bag-current').textContent=state.attempts+' strokes';$('bag-best').textContent=best?best.strokes+' strokes':'—';$('bag-scoring-status').hidden=true;$('bag-return-tee').disabled=busy;$('bag-best-route').disabled=busy||!best;return;}
+ if(simpleDaily)return;
  if(!state)return;
  $('bag-current').textContent=currentStrokeText(state);
  const best=lockedHoleResult(state)??{score:2,attempt:1},hasBest=practising()||!!(inCourse()?bestAttempt(rounds.hole):bestHoleResult(flightLog.data.journeys,state));
@@ -808,8 +809,19 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape'){setBag(fals
 $('bag-tips').onclick=()=>setHoleLog(true,{mode:'tips'});
 function openShotHelp(){
  if(busy||!state)return;
- leaveWordEntry();setHoleLog(true,{mode:'tips'});
+ leaveWordEntry();setBag(false);setHoleLog(false);
+ const dialog=$('how-to-play-dialog');$('how-to-play-content').replaceChildren();
+ holePanelMode='tips';renderHoleLog();
+ $('how-to-play-content').append(...$('hole-log-rows').children);
+ if($('help-hole-bests'))$('help-hole-bests').onclick=()=>{dialog.close();setHoleLog(true,{mode:'route'});};
+ document.body.classList.add('help-open');openCourseDialog(dialog);
 }
+$('close-how-to-play').onclick=()=>$('how-to-play-dialog').close();
+$('how-to-play-dialog').addEventListener('close',()=>document.body.classList.remove('help-open'));
+$('how-to-play-dialog').addEventListener('click',event=>{
+ const box=event.currentTarget.getBoundingClientRect();
+ if(event.target===event.currentTarget&&(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom))event.currentTarget.close();
+});
 $('shot-context-help').addEventListener('pointerdown',event=>{
  if(event.button!==0||event.isPrimary===false)return;
  event.preventDefault();event.stopPropagation();openShotHelp();
@@ -868,10 +880,10 @@ async function newGame(puzzle,{notice=''}={}){
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
 async function animate(event){
- const a=ballPosition(state.current),b=event.golden_holed?position(state.final_target??state.target):ballPosition(event.word,event),ball=$('golf-ball');
+ const a=ballPosition(state.current),b=event.golden_holed?position(state.final_target??state.target,state.waypoint?{stage:1}:null):ballPosition(event.word,event),ball=$('golf-ball');
  if(event.success){const originDot=[...$('map').querySelectorAll('[data-lie-dot]')].find(node=>node.dataset.lieKey===currentLieKey(state));originDot?.removeAttribute('visibility');}
  if(reduced)return;
- const kind=event.golden_holed?'golden':event.automatic?automaticFinishMotion(position(event.origin),dimensions()):event.success&&event.word===(state.final_target??state.target)?'chip':'flight';
+ const kind=event.golden_holed?'golden':event.automatic?automaticFinishMotion(position(event.origin),dimensions()):event.success&&event.word===(state.final_target??state.target)&&(!state.waypoint||event.stage===1||event.won)?'chip':'flight';
  ball.setAttribute('data-motion',kind);
  const duration=event.outcome==='miss'?450:kind==='golden'?1850:kind==='putt'?850:kind==='chip'?1350:1000;
  await new Promise(resolve=>{const start=performance.now();function frame(now){const t=Math.min(1,(now-start)/duration);let point=a;

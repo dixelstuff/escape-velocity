@@ -15,3 +15,8 @@ export function holePanelHeight(mapHeight,contentHeight,viewportHeight,inset=18)
 }
 /** The latest result is a moment; later visits are a review of the recorded best. */
 export function resultContext(fresh,won,round=false){return round?'round':fresh&&won?'just-now':'review';}
+
+/** Crop only empty lower map space, retaining clearance below every route label. */
+export function completedMapHeight(height,bottom,scale,lift){
+ return Math.min(height,Math.max(120,bottom*scale-lift+28));
+}

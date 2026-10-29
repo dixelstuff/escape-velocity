@@ -16,7 +16,7 @@ function load(p){const raw=readFileSync(new URL(p.vector_fallback,dir));assert.e
 const e=load(config),trial=load(profile),models=new Map([['',e],[id,trial]]);e.wordModels=models;trial.wordModels=models;trial.word_model=id;
 // Preserve the pre-rescue model comparison baseline.
 const normal={family_rescue:false,...config.puzzles.find(p=>p.start==='gold'&&p.target==='hover'&&!p.headwind),plural_rescue:false},settings={...normal,...profile.defaults,word_model:id};
-for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};if(q.waypoint)assert.throws(()=>new Game(e,q.start,q.target,q.threshold,q).submit(q.target),/Reach/);else assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
+for(const p of config.puzzles.filter(p=>!p.headwind)){const q={...p,...profile.defaults,word_model:id};if(q.waypoint){const g=new Game(e,q.start,q.target,q.threshold,q),shot=g.submit(q.target);assert.equal(shot.stage,0);assert.equal(g.history.length,1);if(!shot.waypoint_reached)assert.equal(g.won,false,'playing the flag cannot bypass the dogleg');}else assert.equal(new Game(e,q.start,q.target,q.threshold,q).submit(q.target).won,false,`No opening hole in one: ${p.start} → ${p.target}`);}
 const preview=assessHole(e,settings),plain=assessHole(e,normal);
 assert.equal(preview.settings.word_model,id);assert.equal(frozenCount(plain),67);
 assert.ok(frozenCount(preview)>=50&&frozenCount(preview)<=55,`ABTT bridge count: ${preview.green_bridges}`);

@@ -249871,7 +249871,7 @@
             },
             "strategic_functions": {
               "satisfies_dogleg": true,
-              "necessary_for_observed_next": false,
+              "necessary_for_observed_next": true,
               "required_objective_switch": true,
               "removable_while_completing": false,
               "observed_next": {
