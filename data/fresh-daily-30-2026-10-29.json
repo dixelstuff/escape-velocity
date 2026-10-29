@@ -1,0 +1,346 @@
+[
+  {
+    "start": "button",
+    "waypoint": "software",
+    "target": "seahorse",
+    "verificationWords": [
+      "click",
+      "mouse",
+      "tail"
+    ],
+    "reason": "Software mouse becomes an animal with a tail."
+  },
+  {
+    "start": "bagpipe",
+    "waypoint": "funeral",
+    "target": "silk",
+    "verificationWords": [
+      "music",
+      "funeral",
+      "mourning",
+      "shroud"
+    ],
+    "reason": "Ceremonial music leads through a funeral to silk-lined coffins or shrouds."
+  },
+  {
+    "start": "peppermint",
+    "waypoint": "finance",
+    "target": "aquarium",
+    "verificationWords": [
+      "mint",
+      "currency",
+      "bank",
+      "river"
+    ],
+    "reason": "Mint changes from flavour to money, then a bank leads back to water."
+  },
+  {
+    "start": "turnstile",
+    "waypoint": "irrigation",
+    "target": "bassoon",
+    "verificationWords": [
+      "gate",
+      "pipe",
+      "pipes",
+      "woodwind"
+    ],
+    "reason": "A gate becomes a water gate; pipes and reeds lead to a woodwind instrument."
+  },
+  {
+    "start": "cushion",
+    "waypoint": "monarchy",
+    "target": "apiary",
+    "verificationWords": [
+      "seat",
+      "king",
+      "queen",
+      "hive"
+    ],
+    "reason": "A seat becomes a throne; a queen changes from monarch to bee."
+  },
+  {
+    "start": "cassette",
+    "waypoint": "genetics",
+    "target": "corkscrew",
+    "verificationWords": [
+      "encoding",
+      "chromosome",
+      "helix"
+    ],
+    "reason": "Encoded information becomes genetic information; the helix becomes a corkscrew."
+  },
+  {
+    "start": "suitcase",
+    "waypoint": "forestry",
+    "target": "xylophone",
+    "verificationWords": [
+      "trunks",
+      "trees",
+      "wooden"
+    ],
+    "reason": "A luggage trunk becomes a tree trunk and then wooden percussion."
+  },
+  {
+    "start": "cucumber",
+    "waypoint": "cosmetics",
+    "target": "iceberg",
+    "verificationWords": [
+      "cream",
+      "ice"
+    ],
+    "reason": "Facial cream becomes ice cream, then ice."
+  },
+  {
+    "start": "gondola",
+    "waypoint": "mechanism",
+    "target": "concerto",
+    "verificationWords": [
+      "canal",
+      "lock",
+      "keys"
+    ],
+    "reason": "A canal lock becomes a mechanism with keys, then musical keys."
+  },
+  {
+    "start": "salmon",
+    "waypoint": "trade",
+    "target": "rook",
+    "verificationWords": [
+      "fish",
+      "trade",
+      "exchanges",
+      "chess"
+    ],
+    "reason": "Fish markets lead to exchanges, then exchanging chess pieces."
+  },
+  {
+    "start": "daffodil",
+    "waypoint": "electronics",
+    "target": "garlic",
+    "verificationWords": [
+      "bulbs",
+      "circuits",
+      "bulb"
+    ],
+    "reason": "Plant bulbs become electrical bulbs and then garlic bulbs."
+  },
+  {
+    "start": "manatee",
+    "waypoint": "buoyancy",
+    "target": "champagne",
+    "verificationWords": [
+      "sea",
+      "water",
+      "buoyancy",
+      "bubbles"
+    ],
+    "reason": "Aquatic buoyancy leads to floating bubbles and sparkling wine."
+  },
+  {
+    "start": "caribou",
+    "waypoint": "knitting",
+    "target": "catapult",
+    "verificationWords": [
+      "fleece",
+      "wool",
+      "rope"
+    ],
+    "reason": "Animal fleece becomes yarn, then the cord or rope of a catapult."
+  },
+  {
+    "start": "spatula",
+    "waypoint": "masonry",
+    "target": "pianist",
+    "verificationWords": [
+      "trowel",
+      "hammer",
+      "keys",
+      "piano"
+    ],
+    "reason": "A spreading utensil becomes a trowel; a hammer changes to a piano hammer."
+  },
+  {
+    "start": "chestnut",
+    "waypoint": "equestrian",
+    "target": "cabinet",
+    "verificationWords": [
+      "horse",
+      "wood",
+      "furniture"
+    ],
+    "reason": "Chestnut changes from a tree or nut to a horse, then wood and furniture."
+  },
+  {
+    "start": "straw",
+    "waypoint": "housing",
+    "target": "aviary",
+    "verificationWords": [
+      "nest",
+      "home",
+      "nest"
+    ],
+    "reason": "Straw makes a nest or home; housing returns to bird accommodation."
+  },
+  {
+    "start": "urchin",
+    "waypoint": "jeweler",
+    "target": "lute",
+    "verificationWords": [
+      "pearls",
+      "gems",
+      "pearls",
+      "string"
+    ],
+    "reason": "Sea pearls become jewellery; strings of pearls become musical strings."
+  },
+  {
+    "start": "turmeric",
+    "waypoint": "cinematography",
+    "target": "popcorn",
+    "verificationWords": [
+      "colour",
+      "films"
+    ],
+    "reason": "Spice colouring becomes colour film, then a cinema snack."
+  },
+  {
+    "start": "doughnut",
+    "waypoint": "cosmology",
+    "target": "bathtub",
+    "verificationWords": [
+      "hole",
+      "cosmic",
+      "hole"
+    ],
+    "reason": "An edible hole becomes a cosmic hole; a ring returns to the bathtub."
+  },
+  {
+    "start": "acacia",
+    "waypoint": "shipbuilding",
+    "target": "recliner",
+    "verificationWords": [
+      "wood",
+      "timber",
+      "furniture"
+    ],
+    "reason": "Tree wood becomes shipbuilding timber, then furniture."
+  },
+  {
+    "start": "mole",
+    "waypoint": "excavation",
+    "target": "molar",
+    "verificationWords": [
+      "burrow",
+      "digging",
+      "teeth"
+    ],
+    "reason": "A burrowing animal leads to excavation, then digging and teeth."
+  },
+  {
+    "start": "walnut",
+    "waypoint": "neuroscience",
+    "target": "headphones",
+    "verificationWords": [
+      "nuts",
+      "brains",
+      "brain",
+      "auditory"
+    ],
+    "reason": "The familiar walnut/brain resemblance leads to brains and auditory perception."
+  },
+  {
+    "start": "sardine",
+    "waypoint": "compression",
+    "target": "mattress",
+    "verificationWords": [
+      "fish",
+      "can",
+      "pressure",
+      "compression"
+    ],
+    "reason": "Canned and packed fish lead to pressure and compression, then mattress compression."
+  },
+  {
+    "start": "compost",
+    "waypoint": "journalism",
+    "target": "concertina",
+    "verificationWords": [
+      "recycling",
+      "paper",
+      "music",
+      "accordion"
+    ],
+    "reason": "Recycled paper connects to journalism and sheet music or folded concertinas."
+  },
+  {
+    "start": "tangerine",
+    "waypoint": "leather",
+    "target": "basketball",
+    "verificationWords": [
+      "orange",
+      "skin",
+      "orange"
+    ],
+    "reason": "Fruit peel becomes skin and leather; orange also describes a basketball."
+  },
+  {
+    "start": "pistachio",
+    "waypoint": "ammunition",
+    "target": "viola",
+    "verificationWords": [
+      "nut",
+      "shells",
+      "bows"
+    ],
+    "reason": "Nut shells become ammunition; bows change from weapons to musical bows."
+  },
+  {
+    "start": "albatross",
+    "waypoint": "banking",
+    "target": "shoelace",
+    "verificationWords": [
+      "flying",
+      "turn",
+      "bonds",
+      "ties",
+      "tie"
+    ],
+    "reason": "Banking changes from an aircraft manoeuvre to finance; bonds become ties."
+  },
+  {
+    "start": "thimble",
+    "waypoint": "immunology",
+    "target": "rampart",
+    "verificationWords": [
+      "needle",
+      "vaccination",
+      "vaccine",
+      "protection",
+      "walls"
+    ],
+    "reason": "A needle changes from sewing to vaccination; protection becomes a defensive wall."
+  },
+  {
+    "start": "doorknob",
+    "waypoint": "rhythm",
+    "target": "stethoscope",
+    "verificationWords": [
+      "chime",
+      "sound"
+    ],
+    "reason": "Door hardware leads to chimes, rhythm and listening to the heart."
+  },
+  {
+    "start": "terrapin",
+    "waypoint": "defence",
+    "target": "omelette",
+    "verificationWords": [
+      "turtle",
+      "shell",
+      "shield",
+      "shell",
+      "egg"
+    ],
+    "reason": "A turtle shell provides protection; an egg shell connects to an omelette."
+  }
+]
