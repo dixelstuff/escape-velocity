@@ -1,7 +1,7 @@
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=cubic-results-v1';
+import {howToPlay} from './how-to-play.mjs?v=help-headings-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -613,7 +613,6 @@ function renderHoleLog(){
   if(holePanelMode==='tips')$('hole-log-rows').innerHTML=howToPlay();
   else{const card=bestRouteCard(daily.current());$('hole-log-title').textContent=card.title;$('hole-log-rows').innerHTML=card.html;}
   if(holePanelMode==='tips'){
-   if(daily.current()?.bestStrokes){const bestLink=document.createElement('li');bestLink.className='bag-tip';bestLink.innerHTML='<button type="button" class="quiet" id="help-hole-bests">Your bests on this hole</button>';$('hole-log-rows').prepend(bestLink);$('help-hole-bests').onclick=()=>setHoleLog(true,{mode:'route'});}
    const item=document.createElement('li');item.className='bag-tip';
    item.innerHTML='<label class="chip-range-toggle"><input type="checkbox" id="tips-chip-range"> Show chip-in range</label>';
    $('hole-log-rows').append(item);$('tips-chip-range').checked=showChipRange;
@@ -844,7 +843,6 @@ function openShotHelp(){
  const dialog=$('how-to-play-dialog');$('how-to-play-content').replaceChildren();
  holePanelMode='tips';renderHoleLog();
  $('how-to-play-content').append(...$('hole-log-rows').children);
- if($('help-hole-bests'))$('help-hole-bests').onclick=()=>{dialog.close();setHoleLog(true,{mode:'route'});};
  document.body.classList.add('help-open');openCourseDialog(dialog);
 }
 $('close-how-to-play').onclick=()=>$('how-to-play-dialog').close();

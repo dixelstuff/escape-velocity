@@ -10,9 +10,10 @@ function example({ball,played,target,hit}){
 }
 export function howToPlay(){
  return `<li class="bag-tip help-intro"><p>Find a word path from the tee to the flag, via the dogleg.</p></li>
-<li class="bag-tip"><h3>Connect to hit</h3><p>The <strong>ball word</strong> is where you are. Your next word must connect strongly enough to it for the shot to hit.</p>${SHOT_EXAMPLES.map(example).join('')}</li>
-<li class="bag-tip"><h3>Connect to advance</h3><p>The more your word relates to the <strong>target word</strong>, the further the ball advances.</p><p><strong>The further you want to travel, the stronger your connection to the ball word must be.</strong> A smaller step can work with a weaker link and be useful as a set up shot.</p></li>
-<li class="bag-tip"><h3>Reach the dogleg, then the flag</h3><p>The dogleg word is your first target. Land inside its shaded area to switch your target to the flag.</p><p>You can play the dogleg word itself, or another word that lands in the area and sets you up for the flag.</p></li>
-<li class="bag-tip"><h3>Tap a word to restart from there</h3><p><strong>Tap any earlier word you’ve landed on to try a different route from that lie.</strong> Tap the tee word to start over.</p><p>A miss ends that attempt. You can try another word from your last lie.</p><p>There are no attempt or stroke limits. Keep exploring, even after you’ve holed out.</p></li>
-<li class="bag-tip"><h3>Your scores</h3><p>All holes are Par 5. An automatic finish adds one stroke.</p><p>Your fewest strokes and highest <strong>Cleverness</strong> are saved. They can come from different routes.</p></li>`;
+<li class="bag-tip"><h3>Hitting the ball</h3><p>The <strong>ball word</strong> is where you are. Your next word must connect strongly enough to it for the shot to hit.</p>${SHOT_EXAMPLES.map(example).join('')}</li>
+<li class="bag-tip"><h3>Gaining distance</h3><p>The more your word relates to the <strong>target word</strong>, the further the ball advances.</p></li>
+<li class="bag-tip"><h3>Here’s the key</h3><p><strong>The further you want to travel, the stronger your connection to the ball word must be.</strong> A smaller step can work with a weaker link and be useful as a set up shot.</p></li>
+<li class="bag-tip"><h3>Negotiate the dogleg</h3><p>The dogleg word is your first target. Land inside its shaded area to switch your target to the flag.</p><p>You can play the dogleg word itself, or another word that lands in the area and sets you up for the flag.</p></li>
+<li class="bag-tip"><h3>Tap a word to restart from there</h3><p><strong>Tap any earlier word you’ve landed on to try a different route from that lie.</strong> Tap the tee word to start over.</p><p>There are no attempt or stroke limits. Keep exploring, even after you’ve holed out.</p></li>
+<li class="bag-tip"><h3>Your scores</h3><p>All holes are Par 5.</p><p>Your fewest strokes and highest <strong>Cleverness</strong> are saved.</p><p>Cleverness rewards interesting word connections and efficient routes.</p></li>`;
 }
