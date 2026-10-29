@@ -2,7 +2,7 @@ import {familyVariants} from './word-families.mjs?v=golf-v189';
 import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=personal-daily-v1';
 import {progressiveModel} from './progressive-model.mjs?v=golf-v189';
 import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v189';
-import { chipRange } from './chip-range.mjs?v=golf-v189';
+import { chipRange } from './chip-range.mjs?v=short-second-leg-v1';
 import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
@@ -36,6 +36,7 @@ export function launchRequirement(current, destination, baseline, arrival, minim
   const fraction=Math.min(1,trip/Math.max(1e-6,arrival-baseline));
   return {required:minimum+(maximum-minimum)*fraction,trip_fraction:fraction};
 }
+export const SECOND_LEG_FINISH_SPAN=.12;
 export class Game {
   constructor(embeddings,start,target,threshold=undefined,options={}) {
     const waypoint=options.waypoint;
@@ -70,6 +71,11 @@ export class Game {
       this.final_target=finalTarget;this.final_threshold=threshold;this.threshold=this.waypoint.threshold;
       this.stage=0;this.leg_start=start;
       this.waypoint_auto_finish=options.waypoint_auto_finish??!Array.isArray(options.history);
+      // Record this rule on new games; old saved histories retain their original finish.
+      this.second_leg_finish_span=options.second_leg_finish_span??(Array.isArray(options.history)?0:SECOND_LEG_FINISH_SPAN);
+      if(![0,SECOND_LEG_FINISH_SPAN].includes(this.second_leg_finish_span))throw Error('Unknown second-leg finish rule.');
+      this.second_leg_finish_after=options.second_leg_finish_after??0;
+      if(!Number.isInteger(this.second_leg_finish_after)||this.second_leg_finish_after<0)throw Error('Invalid second-leg finish activation.');
     }
     this.allow_backtracking=options.allow_backtracking??Array.isArray(options.history);
     this.golden_paths=Array.isArray(options.golden_paths)?options.golden_paths.map(path=>path.map(w=>String(w).trim().toLowerCase())):[];
@@ -94,17 +100,29 @@ export class Game {
     }
     return launch;
   }
-  finishesFrom(word,destination=this.e.cosine(word,this.target)) {
+  finishRequirement(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
+    const entry=this.history?.at(-1);
+    atDoglegEntry??=!!entry?.waypoint_reached&&(word===this.current||word===entry.scoring_word);
+    const span=this.second_leg_finish_span??0;
+    const target=this.e.cosine(this.target,this.target);
+    if(!(span>0&&this.waypoint&&this.stage===1&&this.history.length>=(this.second_leg_finish_after??0)&&this.rules==='golf-distance-v3'&&this.mode==='distance'&&this.finish_mode==='range'&&!atDoglegEntry&&this.threshold-this.baseline<span))
+      return this.requirement(word,this.target,destination,target);
+    // Only the automatic finishing association uses the floor. Ordinary swings
+    // retain the exact leg baseline, including shots played directly at the flag.
+    const probe=Object.create(this);probe.baseline=this.threshold-span;
+    return probe.requirement(word,this.target,destination,target);
+  }
+  finishesFrom(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
     if(destination+1e-7>=this.threshold)return true;
     if(this.waypoint&&this.stage===0)return false;
     if(!this.modern||this.finish_mode!=='range'||word===this.start)return false;
-    return destination+1e-7>=this.requirement(word,this.target,destination,this.e.cosine(this.target,this.target)).required;
+    return destination+1e-7>=this.finishRequirement(word,destination,atDoglegEntry).required;
   }
-  finishShortfall(word,destination) {
-    if(this.finishesFrom(word,destination))return 0;
+  finishShortfall(word,destination,atDoglegEntry=undefined) {
+    if(this.finishesFrom(word,destination,atDoglegEntry))return 0;
     let required=this.threshold;
     if(!(this.waypoint&&this.stage===0)&&this.modern&&this.finish_mode==='range'&&word!==this.start)
-      required=Math.min(required,this.requirement(word,this.target,destination,this.e.cosine(this.target,this.target)).required);
+      required=Math.min(required,this.finishRequirement(word,destination,atDoglegEntry).required);
     return required-destination;
   }
   shotResult(word,displayWord=word) {
@@ -117,7 +135,7 @@ export class Game {
     const backtrack=this.modern&&this.allow_backtracking!==false&&!forward&&this.route.includes(displayWord);
     const safe=backtrack||destination+1e-7>=this.best_progress-this.backward_allowance;
     const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
-    const result={word:displayWord,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&this.finishesFrom(word,destination),attempt:this.history.length+1};
+    const result={word:displayWord,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&this.finishesFrom(word,destination,false),attempt:this.history.length+1};
     if(hub_surcharge!==undefined)result.hub_surcharge=hub_surcharge;
     if(forwardOnly||isGolf)result.forward=forward;
     if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':backtrack?'backtrack':!forward?'recovery':'landed'});
@@ -130,7 +148,7 @@ export class Game {
     const original=this.shotResult(word);
     if(!this.plural_rescue||word===this.target||original.won)return original;
     const hitNear=!original.connected&&original.required-original.launch<=this.plural_tolerance+1e-7;
-    const finishNear=original.success&&this.finishShortfall(word,original.destination)<=this.plural_tolerance+1e-7;
+    const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=this.plural_tolerance+1e-7;
     if(!hitNear&&!finishNear)return original;
     const variants=new Set([word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])]);
     const choices=[];
@@ -149,7 +167,7 @@ export class Game {
     const original=this.pluralResult(word);
     if(!this.family_rescue||original.won||original.scoring_word||word===this.target||!original.safe)return original;
     const hitNear=!original.connected&&original.required-original.launch<=.025+1e-7;
-    const finishNear=original.success&&this.finishShortfall(word,original.destination)<=.025+1e-7;
+    const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=.025+1e-7;
     if(!hitNear&&!finishNear)return original;
     const choices=[];
     for(const candidate of familyVariants(word)){
@@ -183,7 +201,7 @@ export class Game {
       this.baseline=this.e.cosine(word,this.target);this.best_progress=this.baseline;
       if(this.waypoint_auto_finish){
         finishDestination=this.e.cosine(scoringWord,this.target);finishInside=finishDestination+1e-7>=this.threshold;
-        result.won=this.finishesFrom(scoringWord,finishDestination);
+        result.won=this.finishesFrom(scoringWord,finishDestination,true);
         if(result.won)result.waypoint_finish=true;
       }
     }
@@ -191,7 +209,7 @@ export class Game {
     if(result.won&&this.isGolden(word)){result.golden_holed=true;result.finish_reason='golden';this.current=this.target;this.route.push(this.target);}
     if(this.modern&&result.won&&word!==this.target&&!result.golden_holed){
       const automatic={word:this.target,origin:word,automatic:true,outcome:result.waypoint_reached?'chip':finishInside?'putt':'chip',attempt:this.history.length+1,success:true,inside:true,won:true};
-      if(this.finish_mode==='range'){result.finish_reason=finishInside?'green':'range';automatic.finish_reason=result.finish_reason;Object.assign(automatic,this.requirement(scoringWord,this.target,finishDestination,this.e.cosine(this.target,this.target)),{launch:finishDestination,destination:this.e.cosine(this.target,this.target)});}
+      if(this.finish_mode==='range'){result.finish_reason=finishInside?'green':'range';automatic.finish_reason=result.finish_reason;Object.assign(automatic,this.finishRequirement(scoringWord,finishDestination,!!result.waypoint_reached),{launch:finishDestination,destination:this.e.cosine(this.target,this.target)});}
       this.automatic_shots.push(automatic);result.automatic_shot=automatic;this.current=this.target;this.route.push(this.target);
     }
     this.won=result.won;
@@ -205,7 +223,7 @@ export class Game {
       ...(this.abandoned?{abandoned:true}:{}),
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
-      ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start,...(this.waypoint_auto_finish?{waypoint_auto_finish:true}:{})}:{}),
+      ...(this.waypoint?{waypoint:this.waypoint,final_target:this.final_target,final_threshold:this.final_threshold,stage:this.stage,leg_start:this.leg_start,second_leg_finish_span:this.second_leg_finish_span,second_leg_finish_after:this.second_leg_finish_after,...(this.waypoint_auto_finish?{waypoint_auto_finish:true}:{})}:{}),
       ...(this.modern?{plural_rescue:this.plural_rescue,family_rescue:this.family_rescue,continuous_play:this.continuous_play,plural_tolerance:this.plural_tolerance,...(this.allow_backtracking===false?{allow_backtracking:false}:{})}:{}),
       ...(this.word_model?{word_model:this.word_model}:{}),...(this.finish_mode==='range'?{finish_mode:this.finish_mode}:{}),...(this.headwind?{headwind:this.headwind}:{}),
       ...(this.challenge?{challenge:this.challenge,challenge_failed:this.challenge_failed}:{}),
@@ -329,6 +347,11 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
   // selection synchronous so mobile focus stays in the native tap gesture.
   function retryNow(saved,through,attempt){
     const settings=retryPrefix(saved,through,attempt);
+    if(saved.waypoint&&saved.rules==='golf-distance-v3'){
+      settings.second_leg_finish_span=SECOND_LEG_FINISH_SPAN;
+      // Adopt the rule for new exploration without reinterpreting assumed shots.
+      settings.second_leg_finish_after=saved.second_leg_finish_span?Math.min(saved.second_leg_finish_after??0,through):through;
+    }
     const candidate=new Game(embeddings,saved.start,saved.final_target??saved.target,saved.final_threshold??saved.threshold,settings);
     for(const event of saved.history.slice(0,through))candidate.submit(event.word);
     game=candidate;return {state:game.state()};
@@ -340,16 +363,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=golf-v189')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v189')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=golf-v189')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=golf-v189')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=golf-v189')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v189')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=golf-v189')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=golf-v189')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v189')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=golf-v189')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=golf-v189')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=golf-v189')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=golf-v189')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=short-second-leg-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=short-second-leg-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=short-second-leg-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=golf-v189')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=golf-v189')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=short-second-leg-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=short-second-leg-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=golf-v189')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=short-second-leg-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=short-second-leg-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=short-second-leg-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=short-second-leg-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=short-second-leg-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=relaxed-legs-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=short-second-leg-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 

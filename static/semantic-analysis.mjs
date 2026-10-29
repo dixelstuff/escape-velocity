@@ -1,5 +1,5 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=golf-v189';
+import {Game} from './engine.mjs?v=short-second-leg-v1';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {withHeadwind} from './headwind.mjs?v=golf-v189';
 import {analyseJourney} from './semantic-journey.mjs?v=golf-v189';
@@ -35,7 +35,10 @@ export function completedBridgeRoute(saved){
 }
 export function semanticRouteKey(saved){
  if(!saved?.won)return null;
- return JSON.stringify([SEMANTIC_VERSION,saved.start,saved.final_target??saved.target,saved.waypoint??null,saved.final_threshold??saved.threshold,saved.mode,saved.rules,saved.launch_min,saved.launch_max,saved.word_model??'',saved.headwind??null,saved.plural_rescue,saved.plural_tolerance,saved.family_rescue,saved.allow_backtracking,saved.finish_mode,saved.waypoint_auto_finish,(saved.history??[]).map(h=>[h.word,!!h.success,!!h.automatic,!!h.waypoint_reached,h.scoring_word??null,h.stage??null,h.destination??null,h.leg_baseline??null,h.leg_threshold??null])]);
+ const key=[SEMANTIC_VERSION,saved.start,saved.final_target??saved.target,saved.waypoint??null,saved.final_threshold??saved.threshold,saved.mode,saved.rules,saved.launch_min,saved.launch_max,saved.word_model??'',saved.headwind??null,saved.plural_rescue,saved.plural_tolerance,saved.family_rescue,saved.allow_backtracking,saved.finish_mode,saved.waypoint_auto_finish,(saved.history??[]).map(h=>[h.word,!!h.success,!!h.automatic,!!h.waypoint_reached,h.scoring_word??null,h.stage??null,h.destination??null,h.leg_baseline??null,h.leg_threshold??null])];
+ // Preserve identities of archived reports; only the new rule needs extra metadata.
+ if(saved.second_leg_finish_span>0)key.push({second_leg_finish_span:saved.second_leg_finish_span,second_leg_finish_after:saved.second_leg_finish_after??0});
+ return JSON.stringify(key);
 }
 const highest=(bridges,key)=>bridges.reduce((best,b)=>b[key].value!==null&&(!best||b[key].value>best.value+EPS)?{word:b.word,position:b.position,value:b[key].value}:best,null);
 export class SemanticAnalyser{

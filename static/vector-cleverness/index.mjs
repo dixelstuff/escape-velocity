@@ -1,17 +1,17 @@
 import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=relaxed-legs-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=vector-v1';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=vector-v1';
-import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=vector-v1';
-import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=vector-v1';
-import {aggregateStages} from './cleverness-v6.6.mjs?v=vector-v1';
-import {rescoreV66} from './cleverness-v6.7.mjs?v=vector-v1';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=short-second-leg-v1';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=short-second-leg-v1';
+import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=short-second-leg-v1';
+import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=short-second-leg-v1';
+import {aggregateStages} from './cleverness-v6.6.mjs?v=short-second-leg-v1';
+import {rescoreV66} from './cleverness-v6.7.mjs?v=short-second-leg-v1';
 import {makePlaytestReport,playtestKey} from '../cleverness-playtest-data.mjs?v=relaxed-legs-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
  const clean=vectorInput(input),baseline=scoreV6(clean);let score;
- if(clean.state.waypoint){const {scoreV66}=await import('./cleverness-v6.6.mjs?v=vector-v1');score=rescoreV66(scoreV66(clean,vectorEvidence(evidence)),'harmonic');}
+ if(clean.state.waypoint){const {scoreV66}=await import('./cleverness-v6.6.mjs?v=short-second-leg-v1');score=rescoreV66(scoreV66(clean,vectorEvidence(evidence)),'harmonic');}
  else{
   // A straight hole has one actual departure stage; no invented dogleg or approach credit.
   const c=baseline.config,words=baseline.word_breakdown.map(w=>{const r=relevance(w,null,P);return {...w,stage:'departure',raw_semantic_ingenuity:w.ingenuity,relevance:r,ingenuity:w.ingenuity*r.value};}),candidates=words.filter(w=>w.semantic_available&&w.relevance.eligible).map(w=>({...w,id:'strategic-'+w.id,type:'pivot'}));

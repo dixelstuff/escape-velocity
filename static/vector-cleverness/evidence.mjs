@@ -1,17 +1,17 @@
 /** Maintained browser-only vector evidence adapter. No server or lexical queries. */
 /** Arbitrary completed-route evidence. Same operations as V6.4/V6.5 builders. */
-import {Game} from '../engine.mjs?v=vector-v1';
+import {Game} from '../engine.mjs?v=short-second-leg-v1';
 const wordnetPairEvidence=()=>({matches:[],phrase_matches:[],dictionary_semantic:[],morphology:null,source_scope:'Vectors only'}),wordnetCoverage={source:'Vectors only; lexical evidence excluded'};
-import {strategyStateKey} from './cleverness-v6.5.mjs?v=vector-v1';
+import {strategyStateKey} from './cleverness-v6.5.mjs?v=short-second-leg-v1';
 function evidenceFor(state,diagnostics,e){const pairs=[];for(let i=0;i<diagnostics.route.length;i++)for(let j=i+1;j<Math.min(diagnostics.route.length,i+4);j++)pairs.push({from_position:i,to_position:j,from:diagnostics.route[i],to:diagnostics.route[j],cosine:e.cosine(diagnostics.route[i],diagnostics.route[j])});const d=diagnostics.dogleg_strategy;return {state,diagnostics,pairs,waypoint_pair:d?{from:diagnostics.route[d.position],to:d.waypoint,cosine:e.cosine(diagnostics.route[d.position],d.waypoint)}:null};}
-import {scoreV6} from './cleverness-v6.mjs?v=vector-v1';
-import {scoreV67} from './cleverness-v6.7.mjs?v=vector-v1';
-import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=vector-v1';
+import {scoreV6} from './cleverness-v6.mjs?v=short-second-leg-v1';
+import {scoreV67} from './cleverness-v6.7.mjs?v=short-second-leg-v1';
+import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=short-second-leg-v1';
 const clone=g=>Object.assign(Object.create(Object.getPrototypeOf(g)),g,{history:structuredClone(g.history),route:[...g.route],automatic_shots:structuredClone(g.automatic_shots)}),angular=c=>Math.acos(Math.max(-1,Math.min(1,c)));
 export function replayCompleted(e,s){
  if(!s?.won||!Array.isArray(s.history)||!s.history.length)throw Error('A successfully completed attempt is required.');
  if((s.word_model??'current')!=='current'||s.headwind)throw Error('Full V6.7 evidence currently supports the unmodified Current word model only.');
- const {history,...options}=s,g=new Game(e,s.start,s.final_target??s.target,s.final_threshold??s.threshold,options);let post=null,landing=null;
+ const {history,...options}=s,g=new Game(e,s.start,s.final_target??s.target,s.final_threshold??s.threshold,{...options,second_leg_finish_span:s.second_leg_finish_span??0});let post=null,landing=null;
  for(const h of history){if(g.won)throw Error('Completed history contains a discarded branch after the finish.');const event=g.submit(h.word);if(!event.success)throw Error('Completed history contains an unsuccessful or discarded shot: '+h.word);if(event.waypoint_reached){landing=event;post=clone(g);}}
  if(!g.won||JSON.stringify(g.route)!==JSON.stringify(s.route)||g.history.length+g.automatic_shots.length!==history.length+(s.automatic_shots?.length??0))throw Error('Completed attempt does not match authoritative engine replay.');
  return {game:g,post,landing};

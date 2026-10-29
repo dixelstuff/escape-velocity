@@ -6,11 +6,13 @@ export function chipRange(game) {
  const targetHub=game.e.hub?.(game.target)??0;
  function boundary(hub){
   const probe=Object.create(game);
-  probe.e={hub:word=>word===game.target?targetHub:hub};
+  probe.e=Object.create(game.e);probe.e.hub=word=>word===game.target?targetHub:hub;
   let lo=-1,hi=1;
   for(let i=0;i<42;i++){
    const p=(lo+hi)/2;
-   if(p+1e-7>=probe.requirement(game.start,game.target,p,1).required)hi=p;else lo=p;
+   // The guide previews a subsequent shot, never an immediate dogleg-entry finish.
+   const required=probe.finishRequirement?probe.finishRequirement(game.start,p,false).required:probe.requirement(game.start,game.target,p,1).required;
+   if(p+1e-7>=required)hi=p;else lo=p;
   }
   return (lo+hi)/2;
  }

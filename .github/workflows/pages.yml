@@ -52,6 +52,7 @@ jobs:
           node tests/test_new_discoveries.mjs
           node tests/test_course.mjs
           node tests/test_auto_finish.mjs
+          node tests/test_short_second_leg_finish.mjs
           node tests/test_plural_rescue.mjs
           node tests/test_word_families.mjs
           node tests/test_waypoint.mjs

@@ -25,7 +25,7 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=relaxed-legs-v1';
+import { createBrowserClient } from './engine.mjs?v=short-second-leg-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
 import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=relaxed-legs-v1';
