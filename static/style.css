@@ -1040,3 +1040,6 @@ body.help-open :is(.course-feedback,.retry-guidance){opacity:0;}
 .help-diagram .help-link-miss{stroke:#a45b49;}
 .help-example figcaption{margin-top:8px;color:#53694b;font:400 13px/1.5 'DM Sans',sans-serif;}
 .help-example figcaption>strong{font-weight:700;color:#34543b;}
+body.personal-daily #arrival-detail{font-size:14px;margin:0 0 16px;}
+body.personal-daily #cleverness-playtest .daily-cleverness-score{display:none;}
+#result-best-route>small{font-weight:600;}

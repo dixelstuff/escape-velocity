@@ -1,4 +1,5 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=relaxed-legs-v1';
+import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */
 export const DAILY_KEY='word-golf.personal-daily.v1';
 export const dayUTC=(date=new Date())=>date.toISOString().slice(0,10);
@@ -9,6 +10,26 @@ export class DailyGame{
   this.storage=storage;this.manifest=manifest;this.today=today;this.now=now;this.warning='';this.data={version:1,selected:null,holes:{}};
   try{const raw=storage?.getItem(DAILY_KEY);if(raw){const saved=JSON.parse(raw);if(saved.version!==1||!saved.holes||typeof saved.holes!=='object'||Array.isArray(saved.holes))throw Error('Invalid daily history');this.data=saved;}}
   catch(error){this.saveError=error.name+': '+error.message;this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
+  this.migrateDisplayScores();
+ }
+ migrateDisplayScores(){
+  let changed=false;
+  for(const h of Object.values(this.data.holes)){
+   const old=h.bestCleverness?.version==='band-free-harmonic-v4-relaxed-legs';
+   if(Number.isFinite(h.bestStrokes?.cleverness)&&(h.bestStrokes.scoreVersion==='band-free-harmonic-v4-relaxed-legs'||!h.bestStrokes.scoreVersion&&old)){
+    h.bestStrokes.rawCleverness=h.bestStrokes.cleverness;h.bestStrokes.cleverness=stretchScore(h.bestStrokes.cleverness);h.bestStrokes.scoreVersion=BAND_FREE_VERSION;changed=true;
+   }
+   if(old){const b=h.bestCleverness;b.rawUnrounded=b.unrounded??b.score;b.unrounded=stretchScore(b.rawUnrounded);b.score=Math.round(b.unrounded);b.version=BAND_FREE_VERSION;changed=true;}
+  }
+  if(changed)this.save();
+ }
+ keepBestStates(journeys){
+  let changed=false;
+  for(const h of Object.values(this.data.holes))for(const field of ['bestStrokes','bestCleverness']){
+   const best=h[field],journey=best&&!best.state&&journeys.find(j=>j.id===best.journeyId&&j.state?.won);
+   if(journey){best.state=structuredClone(journey.state);changed=true;}
+  }
+  if(changed)this.save();
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today());}
  available(){return this.manifest.holes.concat(this.data.customHoles??[]);}
@@ -21,7 +42,7 @@ export class DailyGame{
  record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
-  if(s.won){h.completedAt=journey.updatedAt;const candidate={journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt,...(journey.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(journey.cleverness_playtest.band_free.unrounded_score)?{cleverness:journey.cleverness_playtest.band_free.unrounded_score}:{})};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes||candidate.strokes===h.bestStrokes.strokes&&(candidate.cleverness??-1)>(h.bestStrokes.cleverness??-1))h.bestStrokes=candidate;
+  if(s.won){h.completedAt=journey.updatedAt;const candidate={state:structuredClone(s),journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt,...(journey.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(journey.cleverness_playtest.band_free.unrounded_score)?{cleverness:journey.cleverness_playtest.band_free.unrounded_score,scoreVersion:BAND_FREE_VERSION}:{})};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes||candidate.strokes===h.bestStrokes.strokes&&(candidate.cleverness??-1)>(h.bestStrokes.cleverness??-1))h.bestStrokes=candidate;
    const report=journey.cleverness_playtest,score=report?.band_free;
    if(score?.version===BAND_FREE_VERSION&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
   }this.save();
@@ -33,15 +54,16 @@ export class DailyGame{
   if(changed)this.save();
  }
  refreshClevernessBests(journeys){
+  this.keepBestStates(journeys);
   let changed=false;
   for(const h of Object.values(this.data.holes)){
    const quality=j=>j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score)?j.cleverness_playtest.band_free.unrounded_score:-1;
    const strokeRoutes=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id).sort((a,b)=>a.state.attempts-b.state.attempts||quality(b)-quality(a)||String(a.updatedAt).localeCompare(String(b.updatedAt)));
    const stroke=strokeRoutes[0];
-   if(stroke&&(!h.bestStrokes||stroke.state.attempts<h.bestStrokes.strokes||stroke.state.attempts===h.bestStrokes.strokes&&quality(stroke)>=(h.bestStrokes.cleverness??-1))){const best={journeyId:stroke.id,strokes:stroke.state.attempts,route:[...stroke.state.route],attempt:stroke.state.challenge.attempt,completedAt:stroke.updatedAt,...(quality(stroke)>=0?{cleverness:quality(stroke)}:{})};if(JSON.stringify(h.bestStrokes)!==JSON.stringify(best)){h.bestStrokes=best;changed=true;}}
+   if(stroke&&(!h.bestStrokes||stroke.state.attempts<h.bestStrokes.strokes||stroke.state.attempts===h.bestStrokes.strokes&&quality(stroke)>=(h.bestStrokes.cleverness??-1))){const best={state:structuredClone(stroke.state),journeyId:stroke.id,strokes:stroke.state.attempts,route:[...stroke.state.route],attempt:stroke.state.challenge.attempt,completedAt:stroke.updatedAt,...(quality(stroke)>=0?{cleverness:quality(stroke),scoreVersion:BAND_FREE_VERSION}:{})};if(JSON.stringify(h.bestStrokes)!==JSON.stringify(best)){h.bestStrokes=best;changed=true;}}
    const candidates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(j.cleverness_playtest.band_free.unrounded_score));
    candidates.sort((a,b)=>b.cleverness_playtest.band_free.unrounded_score-a.cleverness_playtest.band_free.unrounded_score);
-   const j=candidates[0],score=j?.cleverness_playtest.band_free,best=j?{journeyId:j.id,strokes:j.state.attempts,route:[...j.state.route],attempt:j.state.challenge.attempt,score:score.score,unrounded:score.unrounded_score,version:score.version}:null;
+   const j=candidates[0],score=j?.cleverness_playtest.band_free,best=j?{state:structuredClone(j.state),journeyId:j.id,strokes:j.state.attempts,route:[...j.state.route],attempt:j.state.challenge.attempt,score:score.score,unrounded:score.unrounded_score,version:score.version}:null;
    if(best&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||best.unrounded>=h.bestCleverness.unrounded)&&JSON.stringify(h.bestCleverness)!==JSON.stringify(best)){h.bestCleverness=best;changed=true;}
   }if(changed)this.save();
  }

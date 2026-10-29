@@ -350,7 +350,7 @@ for(const narrow of [true,false])for(const turn of ['up','down']){
 }
 assert.match(appSource,/labelSceneKey!==currentLabelScene\(\)/,'retry branches do not animate from unrelated old label positions');
 assert.match(appSource,/data-word-label=.*visibility="hidden"/,'measurement-only labels cannot flash on screen');
-assert.match(readFileSync(new URL('../static/attempt-ghosts.mjs',import.meta.url),'utf8'),/waypoint-map.mjs\?v=page-cards-v1/,'faded misses use the same versioned mapper as current lies');
+assert.match(readFileSync(new URL('../static/attempt-ghosts.mjs',import.meta.url),'utf8'),/waypoint-map.mjs\?v=cubic-results-v1/,'faded misses use the same versioned mapper as current lies');
 console.log('Stable lies passed: identical weak/successful intended waypoint positions, legacy event inference, hidden measurements, retry-scene motion guard and unified ghost cache version.');
 
 // The flag is a normal first-leg word, with a separate lie and label from the cup.

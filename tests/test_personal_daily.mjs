@@ -13,7 +13,7 @@ const def=game.visit(today),challenge=successSettings({version:STROKE_PLAY,par:5
 assert.equal(exhausted({challenge,won:true}),false);assert.equal(retryPrefix({challenge,history:[]},0,1001).challenge.attempt,1001);
 assert.equal(parUnreachable({challenge,won:false,continuous_play:true,history:Array.from({length:50},()=>({outcome:'landed'}))}),false);
 assert.equal(parUnreachable({challenge,won:false,continuous_play:true,history:[{outcome:'miss'}]}),true);
-function journey(id,strokes,score,at='2026-10-28T12:01:00Z'){return {id,updatedAt:at,state:{challenge,won:true,start:def.settings.start,waypoint:def.settings.waypoint,final_target:def.settings.target,attempts:strokes,route:['tee',id,'flag']},cleverness_playtest:score===null?null:{band_free:{version:'band-free-harmonic-v4-relaxed-legs',score:Math.round(score),unrounded_score:score}}};}
+function journey(id,strokes,score,at='2026-10-28T12:01:00Z'){return {id,updatedAt:at,state:{challenge,won:true,start:def.settings.start,waypoint:def.settings.waypoint,final_target:def.settings.target,attempts:strokes,route:['tee',id,'flag']},cleverness_playtest:score===null?null:{band_free:{version:'band-free-harmonic-v5-cubic70-slope2',score:Math.round(score),unrounded_score:score}}};}
 game.record(journey('quick',3,76));game.record(journey('clever',4,91.1));game.record(journey('later-tie',3,91.2));
 assert.equal(game.current().bestStrokes.journeyId,'later-tie');assert.equal(game.current().bestCleverness.journeyId,'later-tie');assert.equal(game.current().bestCleverness.unrounded,91.2);
 game.record(journey('meander',12,30));assert.equal(game.current().bestStrokes.strokes,3);assert.equal(game.stats().completed,1);assert.equal(game.stats().counts.Eagle,1);

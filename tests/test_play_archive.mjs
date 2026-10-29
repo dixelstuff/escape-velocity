@@ -17,7 +17,7 @@ const daily=new DailyGame(store,{holes:[def]},{today:()=>def.date});daily.visit(
 const log=new FlightLog(store,()=> '2026-10-29T01:00:00Z',(()=>{let i=0;return ()=>String(++i);})());
 const state={start:'rabbit',current:'rabbit',waypoint:{word:'computing'},target:'computing',final_target:'bakery',challenge:{id:'test',unlimited:true,par:5},history:[],route:['rabbit'],attempts:0};
 const old=log.begin({...state,won:true,attempts:4,route:['rabbit','mouse','chips','pie','bakery']},'Current');daily.record(old);
-daily.current().bestStrokes.cleverness=80;daily.current().bestCleverness={...daily.current().bestStrokes,score:80,unrounded:80,version:'band-free-harmonic-v4-relaxed-legs'};daily.save();
+daily.current().bestStrokes.cleverness=80;daily.current().bestCleverness={...daily.current().bestStrokes,score:80,unrounded:80,version:'band-free-harmonic-v5-cubic70-slope2'};daily.save();
 await archive.flush();const stats=daily.stats();
 await clearResearchPlay(daily,log,state,'Current');assert.deepEqual(daily.stats(),stats);assert.equal(log.data.journeys.length,1);assert.equal(archive.getItem(store.key(RESET_BACKUP_KEY)),null);assert.ok(log.backup,'in-session recovery costs no disk space');
 assert.equal(disk.get(LOG_KEY),undefined);assert.equal(root.getItem(PERSONAL_BATCH_KEY),'cleared');assert.throws(()=>stale.setItem(LOG_KEY,'old'),/another tab/);

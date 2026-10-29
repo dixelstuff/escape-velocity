@@ -2,7 +2,7 @@ import {familyVariants} from './word-families.mjs?v=golf-v189';
 import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=personal-daily-v1';
 import {progressiveModel} from './progressive-model.mjs?v=golf-v189';
 import {withHeadwind,headwindSettings} from './headwind.mjs?v=golf-v189';
-import { chipRange } from './chip-range.mjs?v=page-cards-v1';
+import { chipRange } from './chip-range.mjs?v=cubic-results-v1';
 import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
@@ -362,16 +362,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=page-cards-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=page-cards-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=page-cards-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=golf-v189')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=golf-v189')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=page-cards-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=page-cards-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=golf-v189')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=page-cards-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=page-cards-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=page-cards-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=page-cards-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=page-cards-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=cubic-results-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=golf-v189')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=golf-v189')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=golf-v189')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=cubic-results-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=cubic-results-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=page-cards-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=cubic-results-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 

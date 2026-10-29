@@ -1,6 +1,6 @@
 import {withHeadwind,headwindKey} from './headwind.mjs?v=golf-v189';
 /** Experimental vector choice efficiency. No map pixels or stroke-count benchmark. */
-import { Game } from './engine.mjs?v=page-cards-v1';
+import { Game } from './engine.mjs?v=cubic-results-v1';
 export const SKILL_VERSION='vector-skill-v4';
 const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
 const TOP=8,DISCOUNT=.75;

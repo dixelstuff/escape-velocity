@@ -12,6 +12,7 @@ export function resetPersonalPlay(daily,log,state,model,modelSha,{preserveStats=
  return resetBatch(daily,log,state,model,modelSha,preserveStats);
 }
 function resetBatch(daily,log,state,model,modelSha,preserveStats){
+ if(preserveStats)daily.keepBestStates(log.data.journeys);
  const next={...daily.data,holes:preserveStats?structuredClone(daily.data.holes):{}};
  if(preserveStats)for(const hole of Object.values(next.holes))delete hole.journeyId;
  const previousRaw=daily.storage?.getItem(DAILY_KEY),previousBackup=daily.storage?.getItem(DAILY_RESET_BACKUP_KEY);
@@ -37,7 +38,7 @@ export function restorePersonalPlay(daily,log){
  if(saved?.version===1&&saved.holes)daily.data={...saved,customHoles:daily.data.customHoles??saved.customHoles};
  // Compatibility with earlier resets that backed up routes alone.
  else for(const journey of log.data.journeys)daily.record(journey);
- daily.save();return true;
+ daily.migrateDisplayScores();daily.save();return true;
 }
 
 /** Commit the archive reset before reporting success; restore live objects on failure. */

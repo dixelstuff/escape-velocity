@@ -5,5 +5,5 @@ const make=()=>new VectorClevernessAnalyser(e,{modelSha:config.vector_sha256,sto
 const a=make(),b=make(),f=JSON.parse(fs.readFileSync('tests/opportunity08-bonus2-fixtures.json')).fixtures.find(f=>f.id==='PLAY-C'),partial={...structuredClone(f.state),won:false,route:f.state.route.slice(0,-1)};
 const before=JSON.stringify(partial);await a.warm(partial);assert.equal(JSON.stringify(partial),before);assert.equal(a.cache.size,0,'warming must not score/save an incomplete route');for(const word of partial.route)assert.ok(a.v5.v4.neighbours.has(word));
 const transferred=a.v5.v4.store.loaded_bytes;await a.warm(partial);assert.equal(a.v5.v4.store.loaded_bytes,transferred);
-const warmed=await a.analyse(f.state),cold=await b.analyse(f.state);assert.deepEqual(warmed.band_free,cold.band_free);assert.deepEqual(warmed.components,cold.components);assert.equal(warmed.primary_score,92);
+const warmed=await a.analyse(f.state),cold=await b.analyse(f.state);assert.deepEqual(warmed.band_free,cold.band_free);assert.deepEqual(warmed.components,cold.components);assert.equal(warmed.primary_score,94);
 console.log('Semantic warm passed: partial-route caches, no partial score or state changes, shard reuse, identical warm/cold live score.');

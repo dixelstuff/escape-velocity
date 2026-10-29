@@ -1,16 +1,18 @@
-import {howToPlay} from './how-to-play.mjs?v=clear-help-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
+import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
+import {howToPlay} from './how-to-play.mjs?v=cubic-results-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=relaxed-legs-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
 import {mountDailyUI,dateLabel} from './daily-ui.mjs?v=best-route-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=relaxed-legs-v1';
-import {completedPlaytests} from './cleverness-playtest-data.mjs?v=relaxed-legs-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=cubic-results-v1';
+import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
-import {completedCourseLift,completedCardOverlap,completedMapHeight,holePanelHeight,resultContext} from './result-presentation.mjs?v=page-cards-v1';
+import {completedCourseLift,completedCardOverlap,completedMapHeight,holePanelHeight,resultContext} from './result-presentation.mjs?v=cubic-results-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
 import {createViewportDiagnostics} from './viewport-diagnostics.mjs?v=golf-v189';
 import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v189';
@@ -19,19 +21,19 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v189';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=page-cards-v1';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=cubic-results-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
 import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=stable-frame-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=page-cards-v1';
+import { createBrowserClient } from './engine.mjs?v=cubic-results-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=relaxed-legs-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=cubic-results-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=page-cards-v1';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=cubic-results-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
@@ -45,7 +47,7 @@ function attemptLimit(par){if(simpleDaily)return Infinity;if(tourMode)return Inf
 const windKey=p=>JSON.stringify(p.headwind??null);
 const holeLabel=p=>`${p.start} → ${p.waypoint?p.waypoint.word+' → ':''}${p.final_target??p.target}${p.word_model==='ls15-v1'?' · LS 15%':p.word_model?' · ABTT 1':''}${p.headwind?` · ${p.headwind.word.toUpperCase()} headwind`:''}`;
 let config,state,client,busy=false,shownEvent=null,noticeDismissed=false,bridgeViewVersion=0;
-let reviewingSubmittedHole=false,justHoled=false;
+let reviewingSubmittedHole=false,justHoled=false,reviewingDailyBest=false;
 const viewportDiagnostics=createViewportDiagnostics();
 let entryDiagnosticUntil=0;
 function recordEntryDiagnostic(type){
@@ -91,7 +93,7 @@ const rounds=tourMode?new TourCourse(storage,tourManifest,rollingSimulation?roll
 const inCourse=()=>!simpleDaily&&rounds.belongs(state);
 const courseExhausted=()=>exhausted(state);
 const practising=()=>!!state?.challenge?.practice;
-const holeResult=()=>state?.won||rollingMode&&inCourse()&&!rounds.playable(state)||inCourse()&&rounds.hole.locked&&!practising()&&!retryPreview;
+const holeResult=()=>reviewingDailyBest||state?.won||rollingMode&&inCourse()&&!rounds.playable(state)||inCourse()&&rounds.hole.locked&&!practising()&&!retryPreview;
 const courseResult=()=>inCourse()&&(holeResult()||rounds.active.finished&&!practising());
 const roundSummary=()=>inCourse()&&rounds.active.finished&&!reviewingSubmittedHole;
 function leaveCourse(){rounds.data.activeId=null;rounds.save();$('round-scorecard').hidden=true;}
@@ -258,7 +260,7 @@ async function initialiseRolling(){
 }
 const daily=simpleDaily?new DailyGame(personalStorage,dailyManifest):null;
 let dailyUI;
-function dailyBestState(kind='bestStrokes'){const id=daily?.current()?.[kind]?.journeyId;return flightLog.data.journeys.find(j=>j.id===id)?.state;}
+function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
 function renderDailyBests(){
  if(!simpleDaily||!state)return;
  const best=daily.current(),labels=document.querySelectorAll('#arrival-banner .scorecard-grid .scorecard-label');
@@ -266,15 +268,38 @@ function renderDailyBests(){
  $('arrival-skill').hidden=!holeResult();$('arrival-attempt-cell').hidden=false;
  renderStrokeScore($('arrival-skill-value'),5,best?.bestStrokes?best.bestStrokes.strokes-5:null);
  $('arrival-attempt').textContent=best?.bestCleverness?best.bestCleverness.score+'/100':'—/100';
- dailyUI?.render();
+ dailyUI?.render();renderDailyResult();
+}
+function renderDailyResult(){
+ const best=daily.current(),routes=featuredRoutes(best);
+ $('result-route-section').hidden=!routes.length;
+ $('result-route-heading').textContent=routes.length>1?'YOUR BEST ROUTES':'YOUR BEST ROUTE';
+ $('result-best-route').innerHTML=routes.map(({label,best},i)=>(i?'<br><small>'+esc(label)+'</small><br>':'')+esc(best.route.map(w=>w.toUpperCase()).join(' → '))).join('');
+ const current=flightLog.active?.cleverness_playtest;
+ $('arrival-detail').hidden=!justHoled;
+ $('arrival-detail').textContent=justHoled?(current?.band_free?.version===BAND_FREE_VERSION?'Cleverness '+current.band_free.score+'/100':'Cleverness calculating…'):'';
 }
 async function openDaily(day){
  if(!simpleDaily||busy)return;
  const def=daily.definition(day);if(!def)return;
  clearTimeout(retryTimer);if(retryPreview)cancelRetry();
- if(state?.challenge?.unlimited)daily.record(flightLog.active);
+ if(state?.challenge?.unlimited&&!reviewingDailyBest)daily.record(flightLog.active);
+ reviewingDailyBest=false;
  setBag(false);setHoleLog(false);const previousDay=daily.data.selected;daily.visit(day);
  const record=daily.current(),journey=flightLog.data.journeys.find(j=>j.id===record?.journeyId);
+ if(record?.bestStrokes){
+  lock(true);try{
+   const saved=bestResultState(record,flightLog.data.journeys);let restored=null;
+   if(saved)try{restored=(await api('restore',{state:saved})).state;}catch{}
+   restored??=await recoverBestState(client,def,record.bestStrokes);
+   state=restored??(await api('new',{...def.settings,finish_mode:'range',challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})).state;
+   if(restored&&!record.bestStrokes.state){record.bestStrokes.state=structuredClone(restored);daily.save();}
+   reviewingDailyBest=true;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=true;retryPreview=null;selectedLogId=null;flightLog.data.activeId=null;flightLog.save();$('word').value='';update();
+  }catch(error){daily.data.selected=previousDay;daily.save();$('status').textContent='Could not reopen that hole: '+error.message;}
+  finally{lock(false);$('launch').disabled=true;}
+  return;
+ }
+
  if(journey){
   lock(true);try{state=(await api('restore',{state:journey.state})).state;journey.state=structuredClone(state);flightLog.data.activeId=journey.id;selectedLogId=journey.id;flightLog.save();justHoled=false;shownEvent=state.history.at(-1)||null;activeNotice=state.challenge_failed?noticeForAttempt(shownEvent,state):'';noticeDismissed=false;$('word').value='';update();if(state.challenge_failed)scheduleRetry();}
   catch(error){daily.data.selected=previousDay;daily.save();dailyUI?.render();$('status').textContent='Could not reopen that hole: '+error.message;}
@@ -285,14 +310,14 @@ function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
-const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=relaxed-legs-v1')).mountPlaytestPanel;
+const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=cubic-results-v1')).mountPlaytestPanel;
 const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(journey)daily.recordReport(journey);renderDailyBests();}}});
 const oldPanels=[];
 if(!simpleDaily){
  for(const [file,name,id,action] of [['cleverness-v5-panel','mountClevernessV5Panel','cleverness-v5','cleverness-v5'],['cleverness-v4-panel','mountClevernessV4Panel','cleverness-v4','cleverness-v4'],['association-panel','mountAssociationPanel','association-analysis','association-analysis'],['cleverness-panel','mountClevernessPanel','cleverness-analysis','cleverness-analysis'],['semantic-panel','mountSemanticPanel','semantic-analysis','semantic-analysis']]){const module=await import('./'+file+'.mjs');oldPanels.push(module[name]($(id),{request:saved=>api(action,{state:saved}),modelHash}));}
 }
 function showLegacyAnalyses(source,options){const visible=options.visible&&document.querySelector('.playtest-earlier').open;for(const panel of oldPanels)panel.show(source,{...options,visible});}
-document.querySelector('.playtest-earlier').addEventListener('toggle',()=>showLegacyAnalyses(state?.won?state:bestRouteState(),{visible:!!holeResult()&&!roundSummary(),caption:state?.won?'This completed route':'Recorded best route'}));
+document.querySelector('.playtest-earlier').addEventListener('toggle',()=>showLegacyAnalyses(state?.won?state:bestRouteState(),{visible:!!holeResult()&&!roundSummary()&&(!simpleDaily||justHoled),caption:state?.won?'This completed route':'Recorded best route'}));
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -362,6 +387,7 @@ function retrySource(){
 function retryFromWord(through,{focusEntry=true}={}){
  if(rollingMode&&!rollingCanPlay())return;
  if(busy||restoring)return;
+ if(reviewingDailyBest&&!state.won)return retryResultHole();
  if(inCourse()&&!practising()&&rounds.hole.locked&&(rounds.active.finished||Math.max(0,...rounds.hole.attempts.map(a=>a.number))>=attemptLimit(state.challenge.par)))return void keepPractising({focusEntry});
  const switching=retryPreview,previous=switching?null:retrySource(),source=switching?.source??previous??{state,id:flightLog.active?.id};
  if(returnsToOriginalLie(switching,through)){cancelRetry();if(focusEntry)$('word').focus({preventScroll:true});return;}
@@ -371,10 +397,10 @@ function retryFromWord(through,{focusEntry=true}={}){
  if(rollingMode&&inCourse()&&attempt>rounds.hole.allowance){rollingUI.lockMessage();return;}
  const practicePreview=!practising()&&attempt>attemptLimit(state.challenge.par);
  const sourceState={...source.state,continuous_play:true,...(rollingMode&&inCourse()?{challenge:{...source.state.challenge,attempt_limit:rounds.hole.allowance}}:{}),...(practicePreview?{challenge:{...source.state.challenge,practice:true,locked_result:lockedHoleResult(source.state)}}:{})};
- const original=switching?.original??{state:structuredClone(state),id:flightLog.active?.id,shownEvent,activeNotice,noticeDismissed,entry:$('word').value};
+ const original=switching?.original??{state:structuredClone(state),id:flightLog.active?.id,shownEvent,activeNotice,noticeDismissed,reviewingDailyBest,entry:$('word').value};
  changingRetry=true;
  try{
-  const data=client.retryNow(sourceState,through,attempt);
+  const data=client.retryNow(sourceState,through,attempt);reviewingDailyBest=false;
   retryPreview={source,through,attempt,original};state=data.state;$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);shownEvent=state.history.at(-1)??null;activeNotice='';noticeDismissed=true;$('word').value='';update();
   $('status').textContent=`Retry from ${state.current.toUpperCase()}. Play your next word.`;
  }catch(error){$('status').textContent=error.message;}finally{changingRetry=false;if(focusEntry&&retryPreview&&document.activeElement!==$('word'))$('word').focus({preventScroll:true});}
@@ -382,7 +408,7 @@ function retryFromWord(through,{focusEntry=true}={}){
 function cancelRetry(){
  if(!retryPreview||committingRetry||changingRetry||busy)return;
  const original=retryPreview.original;retryPreview=null;
- try{state=client.restoreRetry(original.state).state;shownEvent=original.shownEvent;activeNotice=original.activeNotice;noticeDismissed=original.noticeDismissed;$('word').value=original.entry??'';update();$('status').textContent='';}finally{$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);}
+ try{reviewingDailyBest=!!original.reviewingDailyBest;state=client.restoreRetry(original.state).state;shownEvent=original.shownEvent;activeNotice=original.activeNotice;noticeDismissed=original.noticeDismissed;$('word').value=original.entry??'';update();$('status').textContent='';}finally{$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);}
 }
 function commitRetry(){
  if(!retryPreview)return false;
@@ -636,7 +662,7 @@ function syncPuzzleSelection(){
 function renderAttemptCounter(){renderBag();}
 function update(){
  if(!busy&&state&&!state.won)prepareRouteAnalysis(state);
- if(simpleDaily&&state&&!retryPreview)daily.record(flightLog.active);
+ if(simpleDaily&&state&&!retryPreview&&!reviewingDailyBest)daily.record(flightLog.active);
  $('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;
  renderBag();
  const prompt=state.current===state.start?'Play your first word':'Play your next word';$('word').placeholder=prompt;document.querySelector('label[for="word"]').textContent=prompt;
@@ -663,16 +689,16 @@ function update(){
  styleResultButtonLabels();
  if(rollingMode&&rollingUI){rollingUI.render(!inCourse());renderRollingResult();rollingUI.renderSubmissionResult?.(roundSummary());}
  renderResultContext();
- const semanticSource=state?.won?state:bestRouteState(),analysisOptions={visible:!!holeResult()&&!roundSummary(),caption:state?.won?'This completed route':'Recorded best route'};playtestPanel.show(semanticSource,{...analysisOptions,completed:!simpleDaily&&semanticSource?completedPlaytests(flightLog.data.journeys,semanticSource):[]});showLegacyAnalyses(semanticSource,analysisOptions);$('semantic-comparison').hidden=!analysisOptions.visible||!semanticSource?.won;
+ const semanticSource=state?.won?state:bestRouteState(),analysisOptions={visible:!!holeResult()&&!roundSummary()&&(!simpleDaily||justHoled),caption:state?.won?'This completed route':'Recorded best route'};playtestPanel.show(semanticSource,{...analysisOptions,completed:!simpleDaily&&semanticSource?completedPlaytests(flightLog.data.journeys,semanticSource):[]});showLegacyAnalyses(semanticSource,analysisOptions);$('semantic-comparison').hidden=!analysisOptions.visible||!semanticSource?.won;
  if(simpleDaily){
   dailyUI?.render();renderDailyBests();
-  $('result-route-section').hidden=!state.won;$('result-route-heading').textContent=justHoled?'YOUR ROUTE':'LAST COMPLETED ROUTE';$('result-best-route').textContent=state.route.map(w=>w.toUpperCase()).join(' → ');
+  renderDailyResult();
   const next=adjacentDaily(1);$('next-hole').textContent=next?'NEXT HOLE':'EARLIER HOLE';$('next-hole').disabled=!next&&!adjacentDaily(-1);
  }
 
 }
 function renderResultContext(){
- if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent=dateLabel(daily.selected().date);if(!justHoled)$('arrival-title').textContent='Keep exploring';return;}
+ if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent=dateLabel(daily.selected().date);if(!justHoled)$('arrival-title').textContent='Your best';return;}
  const context=resultContext(justHoled,state?.won,roundSummary()),moment=context==='just-now',review=context==='review';
  $('arrival-context').textContent=moment?'JUST NOW':'SCORECARD';
  $('arrival-context').hidden=review;
@@ -861,7 +887,7 @@ async function newGame(puzzle,{notice=''}={}){
  if(simpleDaily)puzzle={...puzzle,continuous_play:true,challenge:{...puzzle.challenge,id:puzzle.challenge?.id??daily.selected().id,version:STROKE_PLAY,par:5,attempt:puzzle.challenge?.attempt??1,unlimited:true}};
  puzzle.challenge??={version:STROKE_PLAY,par:puzzle.par??state?.challenge?.par??3,attempt:1,id:crypto.randomUUID()};
  lock(true);$('status').textContent=puzzle.word_model==='ls15-v1'?'Preparing 15% LS trial…':puzzle.word_model?'Preparing ABTT trial (about 14 MB on first use)…':'';
- try{const data=await api('new',{...puzzle,finish_mode:'range'});state=data.state;justHoled=false;shownEvent=null;activeNotice=notice;noticeDismissed=false;resetBridgeView();selectedLogId=flightLog.begin(state,modelName(state),modelHash(state)).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';refreshSavedHoles();syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
+ try{const data=await api('new',{...puzzle,finish_mode:'range'});state=data.state;reviewingDailyBest=false;justHoled=false;shownEvent=null;activeNotice=notice;noticeDismissed=false;resetBridgeView();selectedLogId=flightLog.begin(state,modelName(state),modelHash(state)).id;$('copy-fallback').hidden=true;$('log-feedback').textContent='';refreshSavedHoles();syncPuzzleSelection();update();$('word').value='';$('status').textContent='';return true;}
  catch(error){$('word-model').value=state?.word_model??'';$('status').textContent=error.message;return false;}finally{lock(false);if(state?.won||state?.challenge_failed)$('launch').disabled=true;}
 }
 function bezier(a,b,t){return {x:(1-t)**2*a.x+2*(1-t)*t*(a.x+b.x)/2+t*t*b.x,y:(1-t)**2*a.y+2*(1-t)*t*(Math.min(a.y,b.y)-65)+t*t*b.y};}
@@ -952,7 +978,7 @@ function retryCourseHole(){
  return playFromResult(rounds.settings(),{sameHole:true});
 }
 async function retryResultHole(){
- if(simpleDaily)return retryFromWord(0,{focusEntry:false});
+ if(simpleDaily){if(reviewingDailyBest&&!state.won)return newGame({...daily.selected().settings,challenge:{id:daily.selected().id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}});return retryFromWord(0,{focusEntry:false});}
  if(rollingMode&&!rollingCanPlay())return;
  if(inCourse()&&rounds.active.finished)reviewingSubmittedHole=true;
  if(practising())return retryFromWord(0,{focusEntry:false});
@@ -1293,7 +1319,7 @@ if(simpleDaily){
      candidate=(await api('new',{...def.settings,word_model:'',finish_mode:'range',continuous_play:true,challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})).state;
      const journey=await clearResearchPlay(daily,flightLog,candidate,modelName(candidate),modelHash(candidate));
      clearTimeout(retryTimer);retryPreview=null;setBag(false);setHoleLog(false);
-     state=candidate;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
+     state=candidate;reviewingDailyBest=false;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=false;resetBridgeView();selectedLogId=journey.id;
      $('word').value='';$('copy-fallback').hidden=true;$('log-feedback').textContent='';update();
      $('personal-restore').hidden=false;
      $('personal-data-status').textContent='Play data cleared. Player stats and best routes kept. Future exports contain only new play.';

@@ -1,6 +1,6 @@
 /** Experimental final operator only; no golf bands or gameplay dependencies. */
 import {finalQuality} from './cleverness-v6.7.mjs?v=vector-v1';
-import {BAND_FREE_VERSION,ONE_STROKE_BONUS} from '../cleverness-score-config.mjs?v=relaxed-legs-v1';
+import {RAW_BAND_FREE_VERSION as BAND_FREE_VERSION,ONE_STROKE_BONUS} from '../cleverness-score-config.mjs?v=cubic-results-v1';
 export {BAND_FREE_VERSION};
 export const QUALITY_POWER=2/3;
 export function legFactor(strokes){
