@@ -14,5 +14,6 @@ ${distanceExamples()}
 <li class="bag-tip"><h3>Negotiating the dogleg</h3><p>The <strong>dogleg word</strong> is your first target. Land within its shaded area to turn towards the flag.</p><p>You can play the dogleg word itself or any other word that lands within the shaded area. Some words will leave you better positioned for the flag.</p></li>
 <li class="bag-tip"><h3>Trying another route</h3><p>Tap any earlier word you've landed on to play again from that point. Tap the tee word to start over.</p>
 ${retryExample()}</li>
-<li class="bag-tip"><h3>Your scores</h3><p>Every hole is Par 5. Your <strong>fewest strokes</strong> and <strong>highest Cleverness</strong> are recorded separately.</p><p>Cleverness rewards interesting word connections and efficient routes. The shortest route isn't necessarily the cleverest!</p><p>There are no attempt or stroke limits. Keep exploring, even after holing out.</p></li>`;
+<li class="bag-tip"><h3>Your scores <svg class="help-score-trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Zm0 1H5v3a3 3 0 0 0 3 3m8-6h3v3a3 3 0 0 1-3 3m-4 2v5m-4 2h8m-6-2h4"/></svg></h3><p>The aim is to get the ball in the hole with the <strong>fewest strokes</strong> and the <strong>highest cleverness</strong>.</p><p>Cleverness rewards interesting word connections and efficient routes. The shortest route isn't necessarily the cleverest!</p></li>
+<li class="help-closing"><p><strong><em>There are no attempt or stroke limits. Keep exploring, even after holing out</em></strong></p></li>`;
 }
