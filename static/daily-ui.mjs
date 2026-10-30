@@ -1,10 +1,11 @@
+import {isRetiredHole} from './hole-retirement.mjs?v=retired-holes-2026-10-30-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {golfResult} from './daily-game.mjs?v=opportunity08-bonus2-v1';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const dateLabel=day=>day?.startsWith('custom-')?'Your hole':new Intl.DateTimeFormat('en',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(day+'T00:00:00Z'));
 export function holeNumber(game,hole){const i=game.available().findIndex(h=>h.id===hole?.id);return i<0?'#—':'#'+(i+1);}
 export function resultGroup(h){const s=h.bestStrokes?.strokes;return s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+';}
-export function completedHoles(game){return Object.values(game.data.holes).filter(h=>h.bestStrokes).sort((a,b)=>String(b.completedAt??b.bestStrokes.completedAt??b.updatedAt).localeCompare(String(a.completedAt??a.bestStrokes.completedAt??a.updatedAt)));}
+export function completedHoles(game){return Object.values(game.data.holes).filter(h=>h.bestStrokes&&!isRetiredHole(h)).sort((a,b)=>String(b.completedAt??b.bestStrokes.completedAt??b.updatedAt).localeCompare(String(a.completedAt??a.bestStrokes.completedAt??a.updatedAt)));}
 export function topHoles(game,by='ingenuity'){return completedHoles(game).sort((a,b)=>by==='strokes'?a.bestStrokes.strokes-b.bestStrokes.strokes||(b.bestCleverness?.unrounded??-1)-(a.bestCleverness?.unrounded??-1):(b.bestCleverness?.unrounded??-1)-(a.bestCleverness?.unrounded??-1)||a.bestStrokes.strokes-b.bestStrokes.strokes).slice(0,3);}
 export function mountDailyUI(game,{onNavigate,onToday,storageWarning=()=>({})}){
  const root=document.getElementById('personal-scorecard'),statsRoot=document.getElementById('personal-stats');let filter=null,ranking='ingenuity';
