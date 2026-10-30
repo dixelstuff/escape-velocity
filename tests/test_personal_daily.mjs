@@ -2,13 +2,14 @@ import assert from 'node:assert/strict';
 import {FlightLog} from '../static/flight-log.mjs';
 import {DailyGame,DAILY_KEY,dayUTC,addDay} from '../static/daily-game.mjs';
 import {dailyManifest} from '../static/daily-manifest.mjs';
+import {isRetiredHole} from '../static/hole-retirement.mjs';
 import {successSettings,parUnreachable} from '../static/success-mode.mjs';
 import {challengeAttemptLimit,retryPrefix,exhausted,STROKE_PLAY} from '../static/stroke-play.mjs';
 const data=new Map([['escape-velocity.flight-log.v1','untouched legacy data']]),storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)},now=()=> '2026-10-28T12:00:00Z';
 let today='2026-10-28';const game=new DailyGame(storage,dailyManifest,{today:()=>today,now});
 assert.ok(dailyManifest.holes.length>=100);assert.equal(new Set(dailyManifest.holes.map(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target].join('|'))).size,dailyManifest.holes.length);
 for(const [i,h]of dailyManifest.holes.entries()){assert.equal(h.date,addDay(dailyManifest.epoch,i));assert.equal(h.settings.par,5);assert.ok(h.settings.waypoint);assert.deepEqual(h.settings.golden_paths,[]);assert.equal(h.settings.continuous_play,true);}
-assert.equal(game.latest().date,today);assert.equal(dayUTC(new Date('2026-10-29T00:30:00+11:00')),'2026-10-28');assert.ok(game.available().filter(h=>h.date>today).length>=50);assert.equal(game.definition(addDay(today,50)).date,addDay(today,50));assert.equal(game.definition(dailyManifest.holes.at(-1).date).id,dailyManifest.holes.at(-1).id);
+assert.equal(game.latest().date,today);assert.equal(dayUTC(new Date('2026-10-29T00:30:00+11:00')),'2026-10-28');assert.ok(game.available().filter(h=>h.date>today).length>=50);assert.equal(game.definition(addDay(today,50)).date,addDay(today,50));const lastPlayable=dailyManifest.holes.findLast(h=>!isRetiredHole(h));assert.equal(game.definition(lastPlayable.date).id,lastPlayable.id);for(const h of dailyManifest.holes.filter(isRetiredHole))assert.equal(game.definition(h.date),undefined,'Retired archive entries are not selectable, including a retired final entry');
 const def=game.visit(today),challenge=successSettings({version:STROKE_PLAY,par:5,attempt:1000,id:def.id,unlimited:true});assert.equal(challenge.unlimited,true);assert.equal(challengeAttemptLimit(challenge),Infinity);
 assert.equal(exhausted({challenge,won:true}),false);assert.equal(retryPrefix({challenge,history:[]},0,1001).challenge.attempt,1001);
 assert.equal(parUnreachable({challenge,won:false,continuous_play:true,history:Array.from({length:50},()=>({outcome:'landed'}))}),false);

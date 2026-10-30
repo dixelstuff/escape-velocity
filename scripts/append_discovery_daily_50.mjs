@@ -1,4 +1,5 @@
-/** Curated schedule append. This script validates every authored route before writing. */
+/** Historical October 30 batch replay/append tool, not a future selection template.
+ * Word-first editorial policy lives in LEVEL_DESIGN.md; example routes only check playability. */
 import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
 import {dailyManifest} from '../static/daily-manifest.mjs';
 import {addDay} from '../static/daily-game.mjs';
@@ -21,7 +22,6 @@ for(const [i,p]of proposals.entries()){
  console.log(`${oldCount+i+1} ${date}: ${p.start} > ${p.waypoint} > ${p.target} (${played.state.attempts} strokes verified)`);
 }
 assert.equal(new Set(checks.map(r=>[r.start,r.waypoint,r.target].join('|'))).size,50);
-const approachCounts=checks.map(r=>r.legStrokes[0]);assert.ok(approachCounts.filter(n=>n>=2).length>=40,'Most holes should support a verified setup approach');
 const next={...dailyManifest,holes:[...dailyManifest.holes,...checks.map(r=>({id:r.id,date:r.date,settings:r.settings}))]};
 assert.equal(crypto.createHash('sha256').update(JSON.stringify(next.holes.slice(0,oldCount))).digest('hex'),oldSha);
 fs.writeFileSync('reports/discovery-daily-50/validation.json',JSON.stringify({batch,oldCount,oldSha,firstDate,lastDate:checks.at(-1).date,priorEndpoints:[...used].sort(),checks},null,2)+'\n');

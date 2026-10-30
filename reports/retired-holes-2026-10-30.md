@@ -31,3 +31,7 @@ Three more holes retired as too easy, using the same non-destructive filtering. 
 | GUAVA → HORTICULTURE → ROBIN | daily-2027-04-23 |
 | OKRA → CONSERVATION → SWALLOW | daily-2027-04-26 |
 | BELLOWS → FORGE → CLOVER | daily-2027-05-03 |
+
+## Word-first review — 31 October 2026
+
+Seven additional explicit removals: SCALLOP → ROCKET → BARRACUDA, TUNA → TRADING → HARMONICA, HOLLY → PRESERVES → SCONE, MINNOW → WICKET → BASKET, TOOTHPICK → THRONE → GALLEON, KEYHOLE → CRYSTALS → NECKTIE and WREN → ARCHITECTURAL → PAGODA. The archive remains 265 definitions; 243 are playable. All other concerns in the [complete word-first review](hole-word-review-2026-10-31/README.md) remain recommendations only and were not retired.

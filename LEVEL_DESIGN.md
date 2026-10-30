@@ -1,14 +1,35 @@
 # Choosing Word Golf holes
 
-A good hole offers a satisfying semantic journey. A short route found by the vector search only establishes that the hole is playable; it does not establish that its opening is enjoyable.
+## Current editorial direction — 31 October 2026
 
-For each proposed hole:
+**Choose interesting words first. Players discover the route.** The aim is an accessible landscape of associations, not an authored sequence of clever bridges. This supersedes the old route-first recipe and the October 30 emphasis on requiring setup shots.
 
-- Check the actual scoring for plausible, recognisable opening connections. Both direct endpoint shots must still be rejected by the direct-leg check.
-- When the waypoint needs a setup, look for a clever, explainable connection or shift of meaning. Hunting for vague verbs, adjectives or incidental associations must not be necessary to make progress.
-- Prefer several credible opening options, including useful small setup shots. Inspect the intended routes in human terms, then verify them with the exact game model.
-- Review the first leg and the final leg separately. An interesting finish does not compensate for an arbitrary first move.
-- Use play data to identify openings where natural guesses repeatedly fail or go backwards. Reconsider the tee, waypoint or hole word before changing global thresholds or adding more attempts.
+FAME is the reference example: familiar, evocative, and open to different contexts without suggesting one compulsory category. It is a noun, so this is not a ban on nouns. Familiar verbs, adjectives and words with several grammatical uses can help vary the bank, but grammatical patterns are not a quality test either.
+
+### Select the words
+
+- Consider tee, dogleg and flag individually before looking for a route. Each should be familiar and worth thinking about. The dogleg and flag matter as much as the tee.
+- Prefer words that suggest several meaningfully different directions: actions, experiences, emotions, social situations, physical qualities, functions or different senses. Three near-synonyms within one category do not establish versatility.
+- Avoid repeatedly choosing tees whose main appeal is their species, ingredient or object category. MINNOW → FISH, SCALLOP → SHELL, TUNA → FISH and HOLLY → BERRY illustrate the problem. Animals and foods can still work; evaluate the actual possibilities rather than banning whole word classes.
+- Avoid a procession of concrete nouns and named academic disciplines. A specialised -ology dogleg often makes SCIENCE or RESEARCH the predictable doorway, while adding vocabulary burden. This is an editorial warning, not a suffix ban; some discipline names are familiar and useful.
+- Familiar does not mean generic, and unusual does not mean interesting. Do not use obscure species, technical terms or esoteric secondary meanings just to make a hole seem fresh. Reusing a strong accessible word in a different combination is better than reaching for rarer vocabulary to satisfy novelty quotas.
+- Choose three seemingly distant words whose contexts leave room for exploration. Do not maximise vector distance. Reject triples that merely look quirky together but need strained associations to play.
+
+### Check the opportunities, without designing the answer
+
+1. List several natural starting directions for each word **before** searching for a complete route. Ask whether the opening is dominated by one obvious parent category, stock phrase or intermediate. This is qualitative judgement, not a numeric diversity quota.
+2. Combine independently worthwhile words. Vary contexts and parts of speech across the bank without enforcing a noun/verb/adjective template.
+3. Use the actual engine to check the existing direct-leg rule, vocabulary support, natural opening hits and plausible progress towards the dogleg and flag. Do not change thresholds to rescue editorial choices.
+4. Probe more than one plausible opening and, where practical, different dogleg landings. This is a check for room to explore, not an exhaustive route search or proof of strategic diversity. Record what was tested and what was not.
+5. A verified complete route is a safety check against a broken or frustrating hole. It is **not** the creative brief, an intended solution, evidence that a hole is fun, or a reason to route-first-search for another dogleg to fit that sequence. If only obscure or contrived paths work, revisit the words.
+6. Do not require two shots to the dogleg, a minimum example stroke count, a particular polysemy switch, a high Cleverness score, or a surprising vector association as quality gates. These can all occur in a poor hole. Short and long solutions may both be enjoyable.
+7. Review both legs and the complete triple. Several familiar words do not guarantee a familiar or natural relationship between them. A clever-looking finish cannot compensate for a narrow or awkward opening.
+8. Keep optional diagnostic routes and evidence outside player-facing hints. Describe them as examples, never the route the player should find. Keep known historical audits, with their original rules, for reproducibility.
+9. Let human play feedback decide. Editorial concerns are hypotheses unless supported by play data. Recommend questionable existing holes for review; retire additional ones only when the user authorises it.
+
+### Publish safely
+
+Append new holes after the existing schedule, preserving definitions, stable IDs, dates and saved progress. Alternate dogleg direction and keep seeded visual variation. Retire authorised combinations using the retirement list rather than deleting records or changing surviving IDs. Check novelty when requested, but never trade word quality for an unused-word quota. Do not add or replace holes merely because a review flagged them.
 
 ## Current format
 
@@ -17,21 +38,6 @@ New daily holes are all **Par 5 with a mandatory dogleg**. Players may reach the
 New distance-mode games also record `second_leg_finish_span: 0.12`: only automatic finishes after playing a subsequent second-leg word use a minimum semantic span of 0.12. The immediate dogleg-entry finish, normal shot contact and backward-shot rules stay unchanged. In particular, CREAM must not gain a new immediate finish to ICEBERG. Old saved histories without the setting retain their original finishing rule (span 0); do not reinterpret old results using the new allowance. A new retry from an old lie adopts the allowance only after its assumed prefix (`second_leg_finish_after`), so already-played shots are preserved.
 
 New personal-game attempts also use `spelling_equivalence: "uk-us-v1"`. Use this explicit setting when validating newly authored routes: curated UK/US forms share one semantic row, while historic route audits without it retain original rules. See [the spelling audit](reports/spelling-equivalence/README.md) for coverage and examples of setup changes.
-
-## Recipe that worked for the fresh 30
-
-On 29 October 2026 the player described the new batch (#136–#165) as quite good. Preserve the approach, rather than copying its words or exact routes:
-
-1. **Start with an understandable conceptual journey.** Find a familiar phrase, physical relationship, material, function or change of word sense that connects two domains. Then choose a dogleg that gives this journey a useful middle objective. Do not start with random distant words and accept whatever vector search can connect.
-2. **Make the opening inviting.** A concrete tee should suggest several natural things to try. A short setup shot is welcome; a hunt for an obscure association merely to leave the tee is not. Technical doglegs can work when familiar intermediate words provide a recognisable approach.
-3. **Look for a satisfying turn.** A mouse can change from hardware to an animal; a trunk from luggage to timber; a lock from canal infrastructure to keys and then musical keys. Familiar words with different meanings can be more satisfying than rare vocabulary. Include other kinds of connection too, so every hole is not the same polysemy puzzle.
-4. **Review both legs and the whole route.** Ask whether a player could explain every association simply, without inventing an incidental scenario. A brilliant final bridge does not excuse an arbitrary opening. Avoid relying on broadly applicable descriptions or category hopping as the only viable route.
-5. **Vary the experience across the batch.** Mix accessible discoveries with deeper setups and different domains, tee types and routes. All being Par 5 does not mean all should require exactly five strokes. An engine-found short route is a playability check, not a reason by itself to reject a hole or call it excellent.
-6. **Use fresh endpoint words.** When requested, check tees, doglegs and flags against the existing daily schedule and banked definitions; avoid repeats within the new batch too. Intermediary route words may recur. Distinguish this check from knowing every word ever played on a private device. Check exact vocabulary support before committing to a proposal.
-7. **Replay a credible complete route in the authoritative engine.** Validate ordinary contact, direction, dogleg transitions, family/plural rescue and actual automatic finishes. Both tee→named-dogleg and named-dogleg→flag direct shots must fail the existing direct-leg check. Record the actual completed route and counted strokes, including the automatic finishing stroke. If natural ideas repeatedly fail, revise the hole rather than certifying it with an obscure but mechanically valid path.
-8. **Keep a spoiler audit, then publish safely.** Save example routes and short semantic rationales outside the player-facing hints. They are examples, not exhaustive solutions or claims of optimality. Append after the last scheduled date; preserve every existing definition, ID and date. Alternate dogleg direction and retain the app's normal seeded visual variation. Verify the appended schedule and completed routes before publishing.
-
-Try additional plausible openings where practical. One verified route does not establish that every natural guess will work, that a hole has only one solution, or that its difficulty is known.
 
 ## Human judgement and play feedback
 
@@ -43,6 +49,10 @@ Use subsequent play data to retain enjoyable holes, revise frustrating openings,
 
 Reference batch, including spoilers and engine validation: [fresh daily 30](reports/fresh-daily-30/README.md). Source proposals: [fresh-daily-30-2026-10-29.json](data/fresh-daily-30-2026-10-29.json). Validation/publishing script: [append_fresh_daily_30.mjs](scripts/append_fresh_daily_30.mjs).
 
-## Opening difficulty feedback — next fifty
+## What changed after play feedback
 
-The player retired GUAVA → HORTICULTURE → ROBIN, OKRA → CONSERVATION → SWALLOW and BELLOWS → FORGE → CLOVER as too easy. Avoid leaning on the tee's obvious category as the complete first-leg puzzle. Prefer a small, recognisable discovery before the dogleg, while retaining several natural things to try. A familiar secondary meaning or material/function connection is preferable to harder vocabulary or arbitrary intermediates. Do not force every hole to be difficult: include quicker discoveries and quirky turns among the moderate setups. Verified routes are examples, not shortest-solution or difficulty guarantees. See the spoiler audit for the [fifty discovery holes](reports/discovery-daily-50/README.md).
+The old recipe began with a conceptual journey and selected a dogleg to support it. The next revision rewarded setup shots and familiar changes of meaning. Both still overvalued the author's explanation of a route and encouraged species/food tees followed by category hops. They are superseded by the word-first process above.
+
+The player explicitly retired GUAVA → HORTICULTURE → ROBIN, OKRA → CONSERVATION → SWALLOW, BELLOWS → FORGE → CLOVER, and then seven further holes on October 31. Other questionable holes are recommendations only. See [the complete bank review and shortlist](reports/hole-word-review-2026-10-31/README.md).
+
+Historical batch reports remain as records of what was published and validated at the time, not current generation instructions. No automatic word-quality filter or gameplay rule is introduced by this guide.

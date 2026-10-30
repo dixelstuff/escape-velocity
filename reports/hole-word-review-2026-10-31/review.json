@@ -1,0 +1,4541 @@
+{
+  "date": "2026-10-31",
+  "method": "Qualitative word-first editorial review of every scheduled triple, checked against available historical authored-route rationales. No exhaustive route search, difficulty estimate, new semantic metric or private-device analysis.",
+  "manifestSha256": "206e902034950d777ee0b163856fdc01d479201c19f0866e6ca89d08834d3930",
+  "priorRetired": [
+    "avocado|bravado|embargo",
+    "gondola|mechanism|concerto",
+    "suitcase|forestry|xylophone",
+    "daffodil|electronics|garlic",
+    "cassette|genetics|corkscrew",
+    "urchin|jeweler|lute",
+    "avocado|goal|embargo",
+    "dive|camp|trivia",
+    "straw|housing|aviary",
+    "turnstile|irrigation|bassoon",
+    "manatee|buoyancy|champagne",
+    "doughnut|cosmology|bathtub",
+    "jigsaw|celebrity|avalanche",
+    "spatula|masonry|pianist",
+    "caribou|knitting|catapult",
+    "guava|horticulture|robin",
+    "okra|conservation|swallow",
+    "bellows|forge|clover"
+  ],
+  "newlyRetired": [
+    "scallop|rocket|barracuda",
+    "tuna|trading|harmonica",
+    "holly|preserves|scone",
+    "minnow|wicket|basket",
+    "toothpick|throne|galleon",
+    "keyhole|crystals|necktie",
+    "wren|architectural|pagoda"
+  ],
+  "inventory": [
+    {
+      "archivePosition": 1,
+      "id": "daily-2026-10-20",
+      "numberBeforeReview": 1,
+      "currentNumber": 1,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "peacock",
+        "fashion",
+        "theatre"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "PEACOCK has display/pride/colour/behaviour beyond bird; no immediate replacement recommendation."
+    },
+    {
+      "archivePosition": 2,
+      "id": "daily-2026-10-21",
+      "numberBeforeReview": 2,
+      "currentNumber": 2,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "snail",
+        "building",
+        "orchestra"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SNAIL has slow/spiral/shell possibilities, but BUILDING encourages the familiar shell/home route; compare real play before culling."
+    },
+    {
+      "archivePosition": 3,
+      "id": "daily-2026-10-22",
+      "numberBeforeReview": 3,
+      "currentNumber": 3,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "giraffe",
+        "clothing",
+        "telephone"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "GIRAFFE is dominated by neck/tall; CLOTHING may funnel into a tie. TELEPHONE does offer a different setting."
+    },
+    {
+      "archivePosition": 4,
+      "id": "daily-2026-10-23",
+      "numberBeforeReview": 4,
+      "currentNumber": 4,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "snowflake",
+        "jewellery",
+        "surgery"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SNOWFLAKE offers weather, delicacy, geometry and figurative uses; the triple spans different familiar contexts."
+    },
+    {
+      "archivePosition": 5,
+      "id": "daily-2026-10-24",
+      "numberBeforeReview": 5,
+      "currentNumber": 5,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "kangaroo",
+        "clothing",
+        "court"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Established player route and the versatile COURT flag warrant provisional retention despite an animal tee."
+    },
+    {
+      "archivePosition": 6,
+      "id": "daily-2026-10-25",
+      "numberBeforeReview": 6,
+      "currentNumber": 6,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "feather",
+        "writing",
+        "ocean"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FEATHER has weight, writing, decoration and flight contexts; keep provisionally rather than treating it as only BIRD."
+    },
+    {
+      "archivePosition": 7,
+      "id": "daily-2026-10-26",
+      "numberBeforeReview": 7,
+      "currentNumber": 7,
+      "origin": "generated",
+      "batch": "24-october",
+      "words": [
+        "spider",
+        "fashion",
+        "stadium"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SPIDER/FASHION risks the silk/web category corridor, though web, fear and construction offer alternatives."
+    },
+    {
+      "archivePosition": 8,
+      "id": "daily-2026-10-27",
+      "numberBeforeReview": 8,
+      "currentNumber": 8,
+      "origin": "generated",
+      "batch": "waypoint-trial-v1",
+      "words": [
+        "penguin",
+        "library",
+        "galaxy"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Earlier player enjoyment favours retention; PENGUIN remains a concrete tee, so this is not a model of all future word choices."
+    },
+    {
+      "archivePosition": 9,
+      "id": "daily-2026-10-28",
+      "numberBeforeReview": 9,
+      "currentNumber": 9,
+      "origin": "generated",
+      "batch": "waypoint-trial-v1",
+      "words": [
+        "pencil",
+        "forest",
+        "orchestra"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "PENCIL has writing, drawing, construction and material contexts; keep provisionally."
+    },
+    {
+      "archivePosition": 10,
+      "id": "daily-2026-10-29",
+      "numberBeforeReview": 10,
+      "currentNumber": 10,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "piano",
+        "lock",
+        "river"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "PIANO/LOCK/RIVER each allow several functional or word-sense associations."
+    },
+    {
+      "archivePosition": 11,
+      "id": "daily-2026-10-30",
+      "numberBeforeReview": 11,
+      "currentNumber": 11,
+      "origin": "generated",
+      "batch": "waypoint-trial-v1",
+      "words": [
+        "coal",
+        "wedding",
+        "telescope"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No obvious whole-triple category corridor; retain provisionally, without claiming measured difficulty."
+    },
+    {
+      "archivePosition": 12,
+      "id": "daily-2026-10-31",
+      "numberBeforeReview": 12,
+      "currentNumber": 12,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "cactus",
+        "sewing",
+        "violence"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CACTUS has protection, environment and appearance contexts, while SEWING/VIOLENCE point into different settings."
+    },
+    {
+      "archivePosition": 13,
+      "id": "daily-2026-11-01",
+      "numberBeforeReview": 13,
+      "currentNumber": 13,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "comet",
+        "jewellery",
+        "football"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 14,
+      "id": "daily-2026-11-02",
+      "numberBeforeReview": 14,
+      "currentNumber": 14,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "squid",
+        "painting",
+        "courtroom"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SQUID is specific, but PAINTING/COURTROOM allow different contexts; no priority recommendation without contrary play feedback."
+    },
+    {
+      "archivePosition": 15,
+      "id": "daily-2026-11-03",
+      "numberBeforeReview": 15,
+      "currentNumber": 15,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "candy",
+        "dentistry",
+        "mining"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CANDY → DENTISTRY risks sugar/tooth as the compulsory doorway. Review opening variety rather than infer actual difficulty."
+    },
+    {
+      "archivePosition": 16,
+      "id": "daily-2026-11-04",
+      "numberBeforeReview": 16,
+      "currentNumber": 16,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "dolphin",
+        "radio",
+        "submarine"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "The dolphin/radio/submarine sonar association is conspicuous; established player enjoyment is a reason to test before replacing it."
+    },
+    {
+      "archivePosition": 17,
+      "id": "daily-2026-11-05",
+      "numberBeforeReview": 17,
+      "currentNumber": 17,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "sponge",
+        "chemistry",
+        "detective"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SPONGE has absorption, cleaning, figurative and living-organism senses; retain provisionally."
+    },
+    {
+      "archivePosition": 18,
+      "id": "daily-2026-11-06",
+      "numberBeforeReview": 18,
+      "currentNumber": 18,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "stool",
+        "furniture",
+        "arithmetic"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Overt category",
+      "reason": "STOOL points straight at FURNITURE; the middle word announces the category rather than opening an exploratory target."
+    },
+    {
+      "archivePosition": 19,
+      "id": "daily-2026-11-07",
+      "numberBeforeReview": 19,
+      "currentNumber": 19,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "squirrel",
+        "carpentry",
+        "electricity"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SQUIRREL/CARPENTRY risks animal → tree → wood, but ELECTRICITY may allow other contexts."
+    },
+    {
+      "archivePosition": 20,
+      "id": "daily-2026-11-08",
+      "numberBeforeReview": 20,
+      "currentNumber": 20,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "chocolate",
+        "volcano",
+        "glass"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CHOCOLATE/VOLCANO/GLASS connect different everyday contexts; no immediate replacement recommendation."
+    },
+    {
+      "archivePosition": 21,
+      "id": "daily-2026-11-09",
+      "numberBeforeReview": 21,
+      "currentNumber": 21,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "accordion",
+        "bakery",
+        "geology"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No single human category spans all three words; retain provisionally rather than certify quality by distance."
+    },
+    {
+      "archivePosition": 22,
+      "id": "daily-2026-11-10",
+      "numberBeforeReview": 22,
+      "currentNumber": 22,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v1",
+      "words": [
+        "fossil",
+        "calendar",
+        "bicycle"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FOSSIL, CALENDAR and BICYCLE offer time, record, cycles and material associations; retain provisionally."
+    },
+    {
+      "archivePosition": 23,
+      "id": "daily-2026-11-11",
+      "numberBeforeReview": 23,
+      "currentNumber": 23,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "ignite",
+        "range",
+        "sailor"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored; IGNITE and RANGE offer varied action and contextual uses."
+    },
+    {
+      "archivePosition": 24,
+      "id": "daily-2026-11-12",
+      "numberBeforeReview": 24,
+      "currentNumber": 24,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "alert",
+        "crane",
+        "spooky"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored; ALERT/SPOOKY vary the grammatical feel, and CRANE has several familiar senses."
+    },
+    {
+      "archivePosition": 25,
+      "id": "daily-2026-11-13",
+      "numberBeforeReview": 25,
+      "currentNumber": 25,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "calm",
+        "glove",
+        "haircut"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored; CALM supports emotional, weather and behavioural openings."
+    },
+    {
+      "archivePosition": 26,
+      "id": "daily-2026-11-14",
+      "numberBeforeReview": 26,
+      "currentNumber": 26,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "lake",
+        "pole",
+        "ladle"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored; POLE has several familiar senses and LAKE is not an unusually narrow species name."
+    },
+    {
+      "archivePosition": 27,
+      "id": "daily-2026-11-15",
+      "numberBeforeReview": 27,
+      "currentNumber": 27,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "laps",
+        "health",
+        "spin"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored and played; LAPS and SPIN have several action and contextual interpretations."
+    },
+    {
+      "archivePosition": 28,
+      "id": "daily-2026-11-16",
+      "numberBeforeReview": 28,
+      "currentNumber": 28,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "roses",
+        "noses",
+        "notes"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 29,
+      "id": "daily-2026-11-17",
+      "numberBeforeReview": 29,
+      "currentNumber": 29,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "roses",
+        "notes",
+        "noses"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 30,
+      "id": "daily-2026-11-18",
+      "numberBeforeReview": 30,
+      "currentNumber": 30,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "rain",
+        "carry",
+        "playwright"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 31,
+      "id": "daily-2026-11-19",
+      "numberBeforeReview": 31,
+      "currentNumber": 31,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "nacho",
+        "clip",
+        "tight"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 32,
+      "id": "daily-2026-11-20",
+      "numberBeforeReview": 32,
+      "currentNumber": 32,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "lungs",
+        "short",
+        "perfection"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 33,
+      "id": "daily-2026-11-21",
+      "numberBeforeReview": 33,
+      "currentNumber": 33,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "pimple",
+        "sunscreen",
+        "mentioned"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 34,
+      "id": "daily-2026-11-22",
+      "numberBeforeReview": 34,
+      "currentNumber": 34,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "ran",
+        "rage",
+        "regal"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 35,
+      "id": "daily-2026-11-23",
+      "numberBeforeReview": 35,
+      "currentNumber": 35,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "nest",
+        "best",
+        "crest"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 36,
+      "id": "daily-2026-11-24",
+      "numberBeforeReview": 36,
+      "currentNumber": 36,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "makeup",
+        "gossip",
+        "sport"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-authored; MAKEUP and SPORT have multiple social, activity and compositional senses."
+    },
+    {
+      "archivePosition": 37,
+      "id": "daily-2026-11-25",
+      "numberBeforeReview": 37,
+      "currentNumber": 37,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "map",
+        "nap",
+        "gap"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 38,
+      "id": "daily-2026-11-26",
+      "numberBeforeReview": 38,
+      "currentNumber": 38,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "lace",
+        "witch",
+        "plaid"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 39,
+      "id": "daily-2026-11-27",
+      "numberBeforeReview": 39,
+      "currentNumber": 39,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "shuttle",
+        "butler",
+        "rut"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 40,
+      "id": "daily-2026-11-28",
+      "numberBeforeReview": 40,
+      "currentNumber": 40,
+      "origin": "player-authored",
+      "batch": "player-waypoints-v1",
+      "words": [
+        "salt",
+        "festive",
+        "caramel"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 41,
+      "id": "daily-2026-11-29",
+      "numberBeforeReview": 41,
+      "currentNumber": 41,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "anchor",
+        "dentist",
+        "orchard"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ANCHOR has several senses; check that DENTIST/ORCHARD can be approached without an awkward author-only connection."
+    },
+    {
+      "archivePosition": 42,
+      "id": "daily-2026-11-30",
+      "numberBeforeReview": 42,
+      "currentNumber": 42,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "compass",
+        "hospital",
+        "diamond"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "COMPASS has directional, range and moral senses; the other words open different contexts."
+    },
+    {
+      "archivePosition": 43,
+      "id": "daily-2026-12-01",
+      "numberBeforeReview": 43,
+      "currentNumber": 43,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "hammock",
+        "parliament",
+        "trumpet"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "PARLIAMENT is accessible and social rather than a science umbrella; no immediate replacement recommendation."
+    },
+    {
+      "archivePosition": 44,
+      "id": "daily-2026-12-02",
+      "numberBeforeReview": 44,
+      "currentNumber": 44,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "teaspoon",
+        "laboratory",
+        "forest"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 45,
+      "id": "daily-2026-12-03",
+      "numberBeforeReview": 45,
+      "currentNumber": 45,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "giraffe",
+        "kitchen",
+        "satellite"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 46,
+      "id": "daily-2026-12-04",
+      "numberBeforeReview": 46,
+      "currentNumber": 46,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "pumpkin",
+        "railway",
+        "festival"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No simple category dominates the whole triple; preserve pending actual play feedback."
+    },
+    {
+      "archivePosition": 47,
+      "id": "daily-2026-12-05",
+      "numberBeforeReview": 47,
+      "currentNumber": 47,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "daisy",
+        "shipyard",
+        "violin"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "DAISY is a narrow flower tee; the other two words are familiar but do not by themselves show natural approach variety."
+    },
+    {
+      "archivePosition": 48,
+      "id": "daily-2026-12-06",
+      "numberBeforeReview": 48,
+      "currentNumber": 48,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "magnet",
+        "hospital",
+        "orchestra"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "MAGNET has literal and figurative contexts; retain provisionally without assuming one magnetic connection."
+    },
+    {
+      "archivePosition": 49,
+      "id": "daily-2026-12-07",
+      "numberBeforeReview": 49,
+      "currentNumber": 49,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "coral",
+        "stadium",
+        "engine"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 50,
+      "id": "daily-2026-12-08",
+      "numberBeforeReview": 50,
+      "currentNumber": 50,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "ferry",
+        "classroom",
+        "beehive"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 51,
+      "id": "daily-2026-12-09",
+      "numberBeforeReview": 51,
+      "currentNumber": 51,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "tulip",
+        "concert",
+        "mountain"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CONCERT and MOUNTAIN are familiar; no first-priority concern despite a flower tee."
+    },
+    {
+      "archivePosition": 52,
+      "id": "daily-2026-12-10",
+      "numberBeforeReview": 52,
+      "currentNumber": 52,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "flower",
+        "computing",
+        "harbour"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FLOWER can be noun or verb, and COMPUTING/HARBOUR have distinct contexts; retain provisionally."
+    },
+    {
+      "archivePosition": 53,
+      "id": "daily-2026-12-11",
+      "numberBeforeReview": 53,
+      "currentNumber": 53,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "oyster",
+        "wardrobe",
+        "astronomy"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "OYSTER → WARDROBE → ASTRONOMY risks a pearl/jewellery wardrobe hinge and a science catch-all."
+    },
+    {
+      "archivePosition": 54,
+      "id": "daily-2026-12-12",
+      "numberBeforeReview": 54,
+      "currentNumber": 54,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "crocodile",
+        "fashion",
+        "space"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FASHION and SPACE are versatile enough to warrant retention despite an animal tee."
+    },
+    {
+      "archivePosition": 55,
+      "id": "daily-2026-12-13",
+      "numberBeforeReview": 55,
+      "currentNumber": 55,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "acorn",
+        "nursery",
+        "galaxy"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ACORN → NURSERY is a prominent tree/seed association; GALAXY needs testing beyond the illustrated route."
+    },
+    {
+      "archivePosition": 56,
+      "id": "daily-2026-12-14",
+      "numberBeforeReview": 56,
+      "currentNumber": 56,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "bottle",
+        "music",
+        "harbour"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BOTTLE and HARBOUR have noun/verb uses, with MUSIC opening another setting."
+    },
+    {
+      "archivePosition": 57,
+      "id": "daily-2026-12-15",
+      "numberBeforeReview": 57,
+      "currentNumber": 57,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "cigar",
+        "harbour",
+        "necklace"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No one obvious taxonomic path unites the words; retain provisionally."
+    },
+    {
+      "archivePosition": 58,
+      "id": "daily-2026-12-16",
+      "numberBeforeReview": 58,
+      "currentNumber": 58,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "almond",
+        "confectionery",
+        "statue"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ALMOND → CONFECTIONERY is an immediate food category and a relatively specialised dogleg."
+    },
+    {
+      "archivePosition": 59,
+      "id": "daily-2026-12-17",
+      "numberBeforeReview": 59,
+      "currentNumber": 59,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "octopus",
+        "office",
+        "riverbank"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 60,
+      "id": "daily-2026-12-18",
+      "numberBeforeReview": 60,
+      "currentNumber": 60,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "falcon",
+        "aviation",
+        "binoculars"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Overt category",
+      "reason": "FALCON → AVIATION privileges bird/flight immediately; BINOCULARS keeps the triple close to familiar birdwatching equipment."
+    },
+    {
+      "archivePosition": 61,
+      "id": "daily-2026-12-19",
+      "numberBeforeReview": 61,
+      "currentNumber": 61,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "broom",
+        "airport",
+        "microscope"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BROOM offers cleaning, material and figurative contexts; keep provisionally."
+    },
+    {
+      "archivePosition": 62,
+      "id": "daily-2026-12-20",
+      "numberBeforeReview": 62,
+      "currentNumber": 62,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "backpack",
+        "mountaineering",
+        "clinic"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MOUNTAINEERING is long but familiar; check that BACKPACK has options beyond hiking/climbing."
+    },
+    {
+      "archivePosition": 63,
+      "id": "daily-2026-12-21",
+      "numberBeforeReview": 63,
+      "currentNumber": 63,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "fountain",
+        "newsroom",
+        "camera"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FOUNTAIN and NEWSROOM invite material, information and social contexts; retain provisionally."
+    },
+    {
+      "archivePosition": 64,
+      "id": "daily-2026-12-22",
+      "numberBeforeReview": 64,
+      "currentNumber": 64,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "saffron",
+        "cuisine",
+        "alchemy"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SAFFRON/CUISINE is a spice-to-cooking corridor, while ALCHEMY is more niche. Review rather than blanket-ban cooking words."
+    },
+    {
+      "archivePosition": 65,
+      "id": "daily-2026-12-23",
+      "numberBeforeReview": 65,
+      "currentNumber": 65,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "beetle",
+        "armour",
+        "castle"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BEETLE → ARMOUR → CASTLE risks a prescribed shell/protection chain."
+    },
+    {
+      "archivePosition": 66,
+      "id": "daily-2026-12-24",
+      "numberBeforeReview": 66,
+      "currentNumber": 66,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "sponge",
+        "microbiology",
+        "cheddar"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MICROBIOLOGY is a technical science doorway; the player has also documented frustrating natural approaches here."
+    },
+    {
+      "archivePosition": 67,
+      "id": "daily-2026-12-25",
+      "numberBeforeReview": 67,
+      "currentNumber": 67,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "snail",
+        "jewellery",
+        "clock"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CLOCK gives time, movement and verbal contexts; not a priority cull merely because SNAIL is concrete."
+    },
+    {
+      "archivePosition": 68,
+      "id": "daily-2026-12-26",
+      "numberBeforeReview": 68,
+      "currentNumber": 68,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "igloo",
+        "insulation",
+        "pastry"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "INSULATION offers heat, protection and isolation; no priority replacement without play evidence."
+    },
+    {
+      "archivePosition": 69,
+      "id": "daily-2026-12-27",
+      "numberBeforeReview": 69,
+      "currentNumber": 69,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v2",
+      "words": [
+        "peacock",
+        "stationery",
+        "theatre"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "This is close to PEACOCK → FASHION → THEATRE, adding duplication of experience to a feather/pen hinge."
+    },
+    {
+      "archivePosition": 70,
+      "id": "daily-2026-12-28",
+      "numberBeforeReview": 70,
+      "currentNumber": 70,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "pigeon",
+        "postage",
+        "castle"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PIGEON → POSTAGE strongly invokes carrier pigeon; check whether exploration goes beyond the stock association."
+    },
+    {
+      "archivePosition": 71,
+      "id": "daily-2026-12-29",
+      "numberBeforeReview": 71,
+      "currentNumber": 71,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "candle",
+        "optics",
+        "rainbow"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CANDLE has light, wax, ritual and measurement associations; OPTICS is familiar enough not to reject solely as technical."
+    },
+    {
+      "archivePosition": 72,
+      "id": "daily-2026-12-30",
+      "numberBeforeReview": 72,
+      "currentNumber": 72,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "bee",
+        "politics",
+        "radio"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "POLITICS/RADIO give social and communication contexts; preserve the player-tested hole pending stronger evidence."
+    },
+    {
+      "archivePosition": 73,
+      "id": "daily-2026-12-31",
+      "numberBeforeReview": 73,
+      "currentNumber": 73,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "sandwich",
+        "construction",
+        "mountain"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SANDWICH → CONSTRUCTION may work through layers, but could depend on generic structure/building descriptions."
+    },
+    {
+      "archivePosition": 74,
+      "id": "daily-2027-01-01",
+      "numberBeforeReview": 74,
+      "currentNumber": 74,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "bell",
+        "shipyard",
+        "dentist"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BELL has sound, shape, surname and signalling possibilities; retain provisionally."
+    },
+    {
+      "archivePosition": 75,
+      "id": "daily-2027-01-02",
+      "numberBeforeReview": 75,
+      "currentNumber": 75,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "snowman",
+        "bakery",
+        "electricity"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Three familiar words in different contexts; retain provisionally without equating distance with quality."
+    },
+    {
+      "archivePosition": 76,
+      "id": "daily-2027-01-03",
+      "numberBeforeReview": 76,
+      "currentNumber": 76,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "mushroom",
+        "architecture",
+        "trumpet"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MUSHROOM → ARCHITECTURE risks cap/dome resemblance as the author-selected explanation."
+    },
+    {
+      "archivePosition": 77,
+      "id": "daily-2027-01-04",
+      "numberBeforeReview": 77,
+      "currentNumber": 77,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "lemon",
+        "photography",
+        "castle"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "LEMON → PHOTOGRAPHY was previously reported frustrating to approach. Do not treat arbitrary distance as challenge."
+    },
+    {
+      "archivePosition": 78,
+      "id": "daily-2027-01-05",
+      "numberBeforeReview": 78,
+      "currentNumber": 78,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "lobster",
+        "armour",
+        "chapel"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "LOBSTER → ARMOUR again encourages shell/protection as a mandatory category move."
+    },
+    {
+      "archivePosition": 79,
+      "id": "daily-2027-01-06",
+      "numberBeforeReview": 79,
+      "currentNumber": 79,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "spider",
+        "textiles",
+        "fishing"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SPIDER → TEXTILES strongly suggests silk/web; FISHING repeats net/weaving rather than strongly distinct contexts."
+    },
+    {
+      "archivePosition": 80,
+      "id": "daily-2027-01-07",
+      "numberBeforeReview": 80,
+      "currentNumber": 80,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "anchor",
+        "construction",
+        "music"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "ANCHOR has physical and figurative uses and MUSIC is open-ended; no priority concern."
+    },
+    {
+      "archivePosition": 81,
+      "id": "daily-2027-01-08",
+      "numberBeforeReview": 81,
+      "currentNumber": 81,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "jellyfish",
+        "lighting",
+        "classroom"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "JELLYFISH/LIGHTING cues glow; the concrete category and light/science path may dominate."
+    },
+    {
+      "archivePosition": 82,
+      "id": "daily-2027-01-09",
+      "numberBeforeReview": 82,
+      "currentNumber": 82,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "scissors",
+        "surgery",
+        "waterfall"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SCISSORS has cut, tool, game and action associations; check future play rather than auto-cull concrete nouns."
+    },
+    {
+      "archivePosition": 83,
+      "id": "daily-2027-01-10",
+      "numberBeforeReview": 83,
+      "currentNumber": 83,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "kangaroo",
+        "athletics",
+        "painting"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "ATHLETICS/PAINTING are familiar activities, not rare vocabulary; no priority cull yet."
+    },
+    {
+      "archivePosition": 84,
+      "id": "daily-2027-01-11",
+      "numberBeforeReview": 84,
+      "currentNumber": 84,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "teapot",
+        "politics",
+        "waterfall"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "POLITICS and WATERFALL offer different settings; no sufficiently strong first-pass replacement recommendation."
+    },
+    {
+      "archivePosition": 85,
+      "id": "daily-2027-01-12",
+      "numberBeforeReview": 85,
+      "currentNumber": 85,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "zebra",
+        "transport",
+        "archaeology"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ZEBRA → TRANSPORT may centre on crossing; a familiar turn is acceptable occasionally, not sufficient editorial evidence."
+    },
+    {
+      "archivePosition": 86,
+      "id": "daily-2027-01-13",
+      "numberBeforeReview": 86,
+      "currentNumber": 86,
+      "origin": "generated",
+      "batch": "waypoint-discovery-v3",
+      "words": [
+        "cannon",
+        "photography",
+        "cathedral"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CANNON can move through sound, action, photography and warfare; keep provisionally."
+    },
+    {
+      "archivePosition": 87,
+      "id": "daily-2027-01-14",
+      "numberBeforeReview": 87,
+      "currentNumber": 87,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "biscuit",
+        "geology",
+        "porcelain"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BISCUIT/GEOLOGY/PORCELAIN relies heavily on material/category changes and a science umbrella."
+    },
+    {
+      "archivePosition": 88,
+      "id": "daily-2027-01-15",
+      "numberBeforeReview": 88,
+      "currentNumber": 88,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "squid",
+        "printing",
+        "espionage"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SQUID is specific but PRINTING/ESPIONAGE offer information, secrecy and material contexts; keep provisional."
+    },
+    {
+      "archivePosition": 89,
+      "id": "daily-2027-01-16",
+      "numberBeforeReview": 89,
+      "currentNumber": 89,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "jigsaw",
+        "timber",
+        "passport"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "JIGSAW has both puzzle and tool contexts; keep without prescribing its timber route."
+    },
+    {
+      "archivePosition": 90,
+      "id": "daily-2027-01-17",
+      "numberBeforeReview": 90,
+      "currentNumber": 90,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "anvil",
+        "metallurgy",
+        "portrait"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Overt category + technical word",
+      "reason": "ANVIL → METALLURGY funnels the opening into metal/forge/science; the technical dogleg adds burden rather than breadth."
+    },
+    {
+      "archivePosition": 91,
+      "id": "daily-2027-01-18",
+      "numberBeforeReview": 91,
+      "currentNumber": 91,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "balloon",
+        "meteorology",
+        "keyboard"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BALLOON → METEOROLOGY has an obvious weather-balloon route and a technical label."
+    },
+    {
+      "archivePosition": 92,
+      "id": "daily-2027-01-19",
+      "numberBeforeReview": 92,
+      "currentNumber": 92,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "swan",
+        "choreography",
+        "revolution"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CHOREOGRAPHY is moderately specialist but familiar; retain provisionally, not on the basis of a swan-ballet trick."
+    },
+    {
+      "archivePosition": 93,
+      "id": "daily-2027-01-20",
+      "numberBeforeReview": 93,
+      "currentNumber": 93,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "skeleton",
+        "paleontology",
+        "screenplay"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Overt category + technical word",
+      "reason": "SKELETON → PALEONTOLOGY is a predictable bone/fossil doorway into a specialist discipline."
+    },
+    {
+      "archivePosition": 94,
+      "id": "daily-2027-01-21",
+      "numberBeforeReview": 94,
+      "currentNumber": 94,
+      "origin": "generated",
+      "batch": "new-discoveries-v1",
+      "words": [
+        "raven",
+        "literature",
+        "chimney"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "RAVEN → LITERATURE may over-rely on Poe. Keep only if ordinary alternative openings are enjoyable."
+    },
+    {
+      "archivePosition": 95,
+      "id": "daily-2027-01-22",
+      "numberBeforeReview": 95,
+      "currentNumber": 95,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "honeycomb",
+        "architecture",
+        "orchestra"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "HONEYCOMB/ARCHITECTURE/ORCHESTRA may be dominated by shape/geometry/acoustics rather than accessible breadth."
+    },
+    {
+      "archivePosition": 96,
+      "id": "daily-2027-01-23",
+      "numberBeforeReview": 96,
+      "currentNumber": 96,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "rabbit",
+        "computing",
+        "bakery"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "RABBIT has animal, hole, speed and figurative contexts; preserve the player-tested hole rather than force a mouse-cookie solution."
+    },
+    {
+      "archivePosition": 97,
+      "id": "daily-2027-01-24",
+      "numberBeforeReview": 97,
+      "currentNumber": 97,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "hamster",
+        "exercise",
+        "electricity"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Exercise and electricity allow material, motion and action possibilities; keep provisional."
+    },
+    {
+      "archivePosition": 98,
+      "id": "daily-2027-01-25",
+      "numberBeforeReview": 98,
+      "currentNumber": 98,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "flute",
+        "plumbing",
+        "botany"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "FLUTE → PLUMBING uses the familiar pipe hinge; BOTANY invites another broad discipline category."
+    },
+    {
+      "archivePosition": 99,
+      "id": "daily-2027-01-26",
+      "numberBeforeReview": 99,
+      "currentNumber": 99,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "apricot",
+        "perfumery",
+        "chemistry"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "APRICOT → PERFUMERY → CHEMISTRY risks fruit/scent/organic science category hopping."
+    },
+    {
+      "archivePosition": 100,
+      "id": "daily-2027-01-27",
+      "numberBeforeReview": 100,
+      "currentNumber": 100,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "tortoise",
+        "navigation",
+        "wedding"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 101,
+      "id": "daily-2027-01-28",
+      "numberBeforeReview": 101,
+      "currentNumber": 101,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "hammock",
+        "textiles",
+        "navigation"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "HAMMOCK → TEXTILES is a familiar material corridor; NAVIGATION may depend on a rope/sail author route."
+    },
+    {
+      "archivePosition": 102,
+      "id": "daily-2027-01-29",
+      "numberBeforeReview": 102,
+      "currentNumber": 102,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "hourglass",
+        "geology",
+        "computer"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "HOURGLASS → GEOLOGY → COMPUTER relies on sand/quartz/crystal; a specialist material chain could dominate."
+    },
+    {
+      "archivePosition": 103,
+      "id": "daily-2027-01-30",
+      "numberBeforeReview": 103,
+      "currentNumber": 103,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "marble",
+        "geology",
+        "music"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MARBLE → GEOLOGY → MUSIC practically advertises the rock hinge. MARBLE itself has useful other senses."
+    },
+    {
+      "archivePosition": 104,
+      "id": "daily-2027-01-31",
+      "numberBeforeReview": 104,
+      "currentNumber": 104,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "chameleon",
+        "theatre",
+        "medicine"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CHAMELEON has literal and figurative behaviour/disguise contexts; keep provisionally."
+    },
+    {
+      "archivePosition": 105,
+      "id": "daily-2027-02-01",
+      "numberBeforeReview": 105,
+      "currentNumber": 105,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "teapot",
+        "ceramics",
+        "astronaut"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No immediate replacement recommendation; the published ceramic-shuttle route is not treated as the intended answer."
+    },
+    {
+      "archivePosition": 106,
+      "id": "daily-2027-02-02",
+      "numberBeforeReview": 106,
+      "currentNumber": 106,
+      "origin": "generated",
+      "batch": "daily-discoveries-2026-10-25",
+      "words": [
+        "anemone",
+        "photography",
+        "medicine"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Photography and medicine allow varied imaging, observation and documentation contexts; retain provisionally."
+    },
+    {
+      "archivePosition": 107,
+      "id": "daily-2027-02-03",
+      "numberBeforeReview": 107,
+      "currentNumber": 107,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "kettle",
+        "ballet",
+        "quicksand"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 108,
+      "id": "daily-2027-02-04",
+      "numberBeforeReview": 108,
+      "currentNumber": 108,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "walrus",
+        "optics",
+        "sundial"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 109,
+      "id": "daily-2027-02-05",
+      "numberBeforeReview": 109,
+      "currentNumber": 109,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "velvet",
+        "alchemy",
+        "tornado"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 110,
+      "id": "daily-2027-02-06",
+      "numberBeforeReview": 110,
+      "currentNumber": 110,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "hiccup",
+        "religion",
+        "satellite"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 111,
+      "id": "daily-2027-02-07",
+      "numberBeforeReview": 111,
+      "currentNumber": 111,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "mozzarella",
+        "espionage",
+        "tunnel"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "User-proposed: MOZZARELLA is a narrow food tee. Review independently; do not silently rewrite the user’s triple."
+    },
+    {
+      "archivePosition": 112,
+      "id": "daily-2027-02-08",
+      "numberBeforeReview": 112,
+      "currentNumber": 112,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "hammock",
+        "acrobatics",
+        "carnival"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 113,
+      "id": "daily-2027-02-09",
+      "numberBeforeReview": 113,
+      "currentNumber": 113,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "porcupine",
+        "navigation",
+        "marionette"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "User-proposed: PORCUPINE may be dominated by quill/spine; MARIONETTE is another relatively specific noun."
+    },
+    {
+      "archivePosition": 114,
+      "id": "daily-2027-02-10",
+      "numberBeforeReview": 114,
+      "currentNumber": 114,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "toaster",
+        "archaeology",
+        "mosquito"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 115,
+      "id": "daily-2027-02-11",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "jigsaw",
+        "celebrity",
+        "avalanche"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 116,
+      "id": "daily-2027-02-12",
+      "numberBeforeReview": 115,
+      "currentNumber": 115,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "pigeon",
+        "mathematics",
+        "lipstick"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 117,
+      "id": "daily-2027-02-13",
+      "numberBeforeReview": 116,
+      "currentNumber": 116,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "coconut",
+        "detective",
+        "submarine"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 118,
+      "id": "daily-2027-02-14",
+      "numberBeforeReview": 117,
+      "currentNumber": 117,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "trampoline",
+        "photography",
+        "gravestone"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 119,
+      "id": "daily-2027-02-15",
+      "numberBeforeReview": 118,
+      "currentNumber": 118,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "mustard",
+        "royalty",
+        "eclipse"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 120,
+      "id": "daily-2027-02-16",
+      "numberBeforeReview": 119,
+      "currentNumber": 119,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "scarecrow",
+        "chemistry",
+        "carousel"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 121,
+      "id": "daily-2027-02-17",
+      "numberBeforeReview": 120,
+      "currentNumber": 120,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "whistle",
+        "mythology",
+        "pancake"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 122,
+      "id": "daily-2027-02-18",
+      "numberBeforeReview": 121,
+      "currentNumber": 121,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "sandwich",
+        "recycling",
+        "hurricane"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 123,
+      "id": "daily-2027-02-19",
+      "numberBeforeReview": 122,
+      "currentNumber": 122,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "platypus",
+        "gambling",
+        "telescope"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "User-proposed: PLATYPUS is a specific species; check whether the word offers familiar approaches beyond duck/bill/mammal."
+    },
+    {
+      "archivePosition": 124,
+      "id": "daily-2027-02-20",
+      "numberBeforeReview": 123,
+      "currentNumber": 123,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "umbrella",
+        "psychology",
+        "treasure"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 125,
+      "id": "daily-2027-02-21",
+      "numberBeforeReview": 124,
+      "currentNumber": 124,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "dumpling",
+        "jazz",
+        "vampire"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 126,
+      "id": "daily-2027-02-22",
+      "numberBeforeReview": 125,
+      "currentNumber": 125,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "firefly",
+        "economics",
+        "skyscraper"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 127,
+      "id": "daily-2027-02-23",
+      "numberBeforeReview": 126,
+      "currentNumber": 126,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "zipper",
+        "folklore",
+        "karaoke"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 128,
+      "id": "daily-2027-02-24",
+      "numberBeforeReview": 127,
+      "currentNumber": 127,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "peacock",
+        "engineering",
+        "blizzard"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 129,
+      "id": "daily-2027-02-25",
+      "numberBeforeReview": 128,
+      "currentNumber": 128,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "biscuit",
+        "diplomacy",
+        "canyon"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 130,
+      "id": "daily-2027-02-26",
+      "numberBeforeReview": 129,
+      "currentNumber": 129,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "chandelier",
+        "football",
+        "parachute"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 131,
+      "id": "daily-2027-02-27",
+      "numberBeforeReview": 130,
+      "currentNumber": 130,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "radish",
+        "superstition",
+        "helicopter"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 132,
+      "id": "daily-2027-02-28",
+      "numberBeforeReview": 131,
+      "currentNumber": 131,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "squirrel",
+        "literature",
+        "volleyball"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 133,
+      "id": "daily-2027-03-01",
+      "numberBeforeReview": 132,
+      "currentNumber": 132,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "marshmallow",
+        "geometry",
+        "piranha"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Player-supplied triple; no first-pass concern strong enough to recommend changing it. Retain pending actual play feedback."
+    },
+    {
+      "archivePosition": 134,
+      "id": "daily-2027-03-02",
+      "numberBeforeReview": 133,
+      "currentNumber": 133,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "megaphone",
+        "ecology",
+        "pyramid"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "User-proposed: ECOLOGY invites science/nature as a broad shortcut; MEGAPHONE is otherwise an accessible functional word."
+    },
+    {
+      "archivePosition": 135,
+      "id": "daily-2027-03-03",
+      "numberBeforeReview": 134,
+      "currentNumber": 134,
+      "origin": "user-proposed",
+      "batch": "user-proposals-2026-10-28",
+      "words": [
+        "slipper",
+        "cryptography",
+        "geyser"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "User-proposed: CRYPTOGRAPHY is relatively specialist. Do not infer enjoyment from its distance to GEYSER."
+    },
+    {
+      "archivePosition": 136,
+      "id": "daily-2027-03-04",
+      "numberBeforeReview": 135,
+      "currentNumber": 135,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "button",
+        "software",
+        "seahorse"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BUTTON has several familiar physical and computing contexts; retain without requiring the mouse/tail route."
+    },
+    {
+      "archivePosition": 137,
+      "id": "daily-2027-03-05",
+      "numberBeforeReview": 136,
+      "currentNumber": 136,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "bagpipe",
+        "funeral",
+        "silk"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BAGPIPE/FUNERAL risks one ceremonial context, but SILK broadens the destinations enough to keep pending feedback."
+    },
+    {
+      "archivePosition": 138,
+      "id": "daily-2027-03-06",
+      "numberBeforeReview": 137,
+      "currentNumber": 137,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "peppermint",
+        "finance",
+        "aquarium"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "PEPPERMINT is concrete, but FINANCE/AQUARIUM open multiple material and social settings; keep provisional."
+    },
+    {
+      "archivePosition": 139,
+      "id": "daily-2027-03-07",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "turnstile",
+        "irrigation",
+        "bassoon"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 140,
+      "id": "daily-2027-03-08",
+      "numberBeforeReview": 138,
+      "currentNumber": 138,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "cushion",
+        "monarchy",
+        "apiary"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specialised flag + intended trick",
+      "reason": "APIARY is less accessible than the other words; the archived seat/king/queen/bee rationale overvalues a particular constructed chain."
+    },
+    {
+      "archivePosition": 141,
+      "id": "daily-2027-03-09",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "cassette",
+        "genetics",
+        "corkscrew"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 142,
+      "id": "daily-2027-03-10",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "suitcase",
+        "forestry",
+        "xylophone"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 143,
+      "id": "daily-2027-03-11",
+      "numberBeforeReview": 139,
+      "currentNumber": 139,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "cucumber",
+        "cosmetics",
+        "iceberg"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CUCUMBER is narrow but the player specifically enjoyed exploring it. Do not override that feedback with a blanket food ban."
+    },
+    {
+      "archivePosition": 144,
+      "id": "daily-2027-03-12",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "gondola",
+        "mechanism",
+        "concerto"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 145,
+      "id": "daily-2027-03-13",
+      "numberBeforeReview": 140,
+      "currentNumber": 140,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "salmon",
+        "trade",
+        "rook"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SALMON → TRADE can default to fish/market. The authored chess-exchange ending is not evidence of opening quality."
+    },
+    {
+      "archivePosition": 146,
+      "id": "daily-2027-03-14",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "daffodil",
+        "electronics",
+        "garlic"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 147,
+      "id": "daily-2027-03-15",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "manatee",
+        "buoyancy",
+        "champagne"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 148,
+      "id": "daily-2027-03-16",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "caribou",
+        "knitting",
+        "catapult"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 149,
+      "id": "daily-2027-03-17",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "spatula",
+        "masonry",
+        "pianist"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 150,
+      "id": "daily-2027-03-18",
+      "numberBeforeReview": 141,
+      "currentNumber": 141,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "chestnut",
+        "equestrian",
+        "cabinet"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CHESTNUT has several senses, but EQUESTRIAN may over-direct players toward the horse meaning."
+    },
+    {
+      "archivePosition": 151,
+      "id": "daily-2027-03-19",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "straw",
+        "housing",
+        "aviary"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 152,
+      "id": "daily-2027-03-20",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "urchin",
+        "jeweler",
+        "lute"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 153,
+      "id": "daily-2027-03-21",
+      "numberBeforeReview": 142,
+      "currentNumber": 142,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "turmeric",
+        "cinematography",
+        "popcorn"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "TURMERIC/CINEMATOGRAPHY/POPCORN combines a specific ingredient, technical discipline and obvious cinema snack."
+    },
+    {
+      "archivePosition": 154,
+      "id": "daily-2027-03-22",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "doughnut",
+        "cosmology",
+        "bathtub"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 155,
+      "id": "daily-2027-03-23",
+      "numberBeforeReview": 143,
+      "currentNumber": 143,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "acacia",
+        "shipbuilding",
+        "recliner"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Narrow tee + category corridor",
+      "reason": "ACACIA mainly invites tree/wood; SHIPBUILDING and RECLINER make the rest feel like applications of timber."
+    },
+    {
+      "archivePosition": 156,
+      "id": "daily-2027-03-24",
+      "numberBeforeReview": 144,
+      "currentNumber": 144,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "mole",
+        "excavation",
+        "molar"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 157,
+      "id": "daily-2027-03-25",
+      "numberBeforeReview": 145,
+      "currentNumber": 145,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "walnut",
+        "neuroscience",
+        "headphones"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "WALNUT → NEUROSCIENCE advertises the brain-shape analogy and a science category."
+    },
+    {
+      "archivePosition": 158,
+      "id": "daily-2027-03-26",
+      "numberBeforeReview": 146,
+      "currentNumber": 146,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "sardine",
+        "compression",
+        "mattress"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SARDINE risks fish/tin first; the compression idiom adds breadth but needs evidence beyond the chosen route."
+    },
+    {
+      "archivePosition": 159,
+      "id": "daily-2027-03-27",
+      "numberBeforeReview": 147,
+      "currentNumber": 147,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "compost",
+        "journalism",
+        "concertina"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 160,
+      "id": "daily-2027-03-28",
+      "numberBeforeReview": 148,
+      "currentNumber": 148,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "tangerine",
+        "leather",
+        "basketball"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "TANGERINE → LEATHER → BASKETBALL is strongly justified by the authored orange/skin/orange chain."
+    },
+    {
+      "archivePosition": 161,
+      "id": "daily-2027-03-29",
+      "numberBeforeReview": 149,
+      "currentNumber": 149,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "pistachio",
+        "ammunition",
+        "viola"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "Familiar common words; no strong first-pass replacement recommendation, despite a narrow food tee."
+    },
+    {
+      "archivePosition": 162,
+      "id": "daily-2027-03-30",
+      "numberBeforeReview": 150,
+      "currentNumber": 150,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "albatross",
+        "banking",
+        "shoelace"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ALBATROSS is a specific bird; BANKING may depend on the bank/river hinge rather than interesting independent contexts."
+    },
+    {
+      "archivePosition": 163,
+      "id": "daily-2027-03-31",
+      "numberBeforeReview": 151,
+      "currentNumber": 151,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "thimble",
+        "immunology",
+        "rampart"
+      ],
+      "disposition": "shortlist",
+      "action": "remove",
+      "concern": "Specialist target + constructed corridor",
+      "reason": "IMMUNOLOGY and RAMPART add vocabulary burden; the authored sewing-needle/vaccination/protection chain is too strongly the justification."
+    },
+    {
+      "archivePosition": 164,
+      "id": "daily-2027-04-01",
+      "numberBeforeReview": 152,
+      "currentNumber": 152,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "doorknob",
+        "rhythm",
+        "stethoscope"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "RHYTHM is evocative; check that THIMBLE and STETHOSCOPE permit approaches beyond the chosen bodily/physical sequence."
+    },
+    {
+      "archivePosition": 165,
+      "id": "daily-2027-04-02",
+      "numberBeforeReview": 153,
+      "currentNumber": 153,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-29",
+      "words": [
+        "terrapin",
+        "defence",
+        "omelette"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 166,
+      "id": "daily-2027-04-03",
+      "numberBeforeReview": 154,
+      "currentNumber": 154,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "apron",
+        "tailoring",
+        "frog"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Obvious first category + esoteric sense",
+      "reason": "APRON → TAILORING is immediate clothing/sewing; the authored FROG coat-fastening explanation requires niche knowledge."
+    },
+    {
+      "archivePosition": 167,
+      "id": "daily-2027-04-04",
+      "numberBeforeReview": 155,
+      "currentNumber": 155,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "eel",
+        "conductivity",
+        "fiddle"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Stock phrase + technical dogleg",
+      "reason": "EEL strongly cues electric eel, making CONDUCTIVITY a predictable technical objective. FIDDLE does not broaden that opening."
+    },
+    {
+      "archivePosition": 168,
+      "id": "daily-2027-04-05",
+      "numberBeforeReview": 156,
+      "currentNumber": 156,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cabin",
+        "hospitality",
+        "crayon"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CABIN → HOSPITALITY is a prominent lodging category; the sheet-to-drawing route should not be its main justification."
+    },
+    {
+      "archivePosition": 169,
+      "id": "daily-2027-04-06",
+      "numberBeforeReview": 157,
+      "currentNumber": 157,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "ivy",
+        "fortification",
+        "viaduct"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 170,
+      "id": "daily-2027-04-07",
+      "numberBeforeReview": 158,
+      "currentNumber": 158,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cherry",
+        "winemaking",
+        "bagel"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CHERRY → WINEMAKING → BAGEL encourages fruit/wine/yeast/bread; a narrow fermentation corridor."
+    },
+    {
+      "archivePosition": 171,
+      "id": "daily-2027-04-08",
+      "numberBeforeReview": 159,
+      "currentNumber": 159,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "lime",
+        "stonework",
+        "blackboard"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "LIME is versatile, but STONEWORK → BLACKBOARD practically specifies the chalk/mineral interpretation."
+    },
+    {
+      "archivePosition": 172,
+      "id": "daily-2027-04-09",
+      "numberBeforeReview": 160,
+      "currentNumber": 160,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "bonsai",
+        "protection",
+        "tribunal"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BONSAI is specific, but PROTECTION/TRIBUNAL have physical, social and legal contexts; keep provisional."
+    },
+    {
+      "archivePosition": 173,
+      "id": "daily-2027-04-10",
+      "numberBeforeReview": 161,
+      "currentNumber": 161,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "fern",
+        "reproduction",
+        "waffle"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specialist middle + narrow tee",
+      "reason": "FERN → REPRODUCTION encourages plant/spore/biology category steps rather than varied everyday contexts."
+    },
+    {
+      "archivePosition": 174,
+      "id": "daily-2027-04-11",
+      "numberBeforeReview": 162,
+      "currentNumber": 162,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "jaguar",
+        "aerodynamics",
+        "jar"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "JAGUAR is promisingly versatile; avoid making the car brand/aerodynamics interpretation the sole test."
+    },
+    {
+      "archivePosition": 175,
+      "id": "daily-2027-04-12",
+      "numberBeforeReview": 163,
+      "currentNumber": 163,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "hornet",
+        "military",
+        "linen"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "HORNET is dominated by sting/swarm; MILITARY may make the swarm/soldier interpretation too prescribed."
+    },
+    {
+      "archivePosition": 176,
+      "id": "daily-2027-04-13",
+      "numberBeforeReview": 164,
+      "currentNumber": 164,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "carrot",
+        "light",
+        "prism"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Dominant obvious association",
+      "reason": "CARROT → ORANGE → colour/light is already the documented short example. Useful as a scoring test, but the tee is dominated by one familiar property."
+    },
+    {
+      "archivePosition": 177,
+      "id": "daily-2027-04-14",
+      "numberBeforeReview": 165,
+      "currentNumber": 165,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "lemur",
+        "fur",
+        "tassel"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Narrow animal category",
+      "reason": "LEMUR → FUR → TASSEL keeps the journey in animal covering and decorative material; little independent context in the chosen words."
+    },
+    {
+      "archivePosition": 178,
+      "id": "daily-2027-04-15",
+      "numberBeforeReview": 166,
+      "currentNumber": 166,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "flea",
+        "retail",
+        "stallion"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FLEA has creature, itch, market and figurative directions; no first-priority cull."
+    },
+    {
+      "archivePosition": 179,
+      "id": "daily-2027-04-16",
+      "numberBeforeReview": 167,
+      "currentNumber": 167,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "nettle",
+        "reflex",
+        "semaphore"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "REFLEX is an everyday concept with action, reaction and camera contexts; retain provisional."
+    },
+    {
+      "archivePosition": 180,
+      "id": "daily-2027-04-17",
+      "numberBeforeReview": 168,
+      "currentNumber": 168,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "celery",
+        "craft",
+        "kayak"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CELERY is a narrow vegetable and CRAFT is a generic umbrella. A verified boat route alone does not resolve that."
+    },
+    {
+      "archivePosition": 181,
+      "id": "daily-2027-04-18",
+      "numberBeforeReview": 169,
+      "currentNumber": 169,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "juniper",
+        "alcohol",
+        "phantom"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 182,
+      "id": "daily-2027-04-19",
+      "numberBeforeReview": 170,
+      "currentNumber": 170,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "canoe",
+        "monetary",
+        "pepper"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 183,
+      "id": "daily-2027-04-20",
+      "numberBeforeReview": 171,
+      "currentNumber": 171,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "funnel",
+        "wheel",
+        "wheat"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "WHEEL and WHEAT allow physical, movement and food contexts; no first-priority concern."
+    },
+    {
+      "archivePosition": 184,
+      "id": "daily-2027-04-21",
+      "numberBeforeReview": 172,
+      "currentNumber": 172,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "peach",
+        "dressmaking",
+        "satin"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PEACH/DRESSMAKING/SATIN risks fruit/colour/fabric category hopping with limited independent contexts."
+    },
+    {
+      "archivePosition": 185,
+      "id": "daily-2027-04-22",
+      "numberBeforeReview": 173,
+      "currentNumber": 173,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cinnamon",
+        "weaponry",
+        "musket"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CINNAMON is a narrow ingredient while WEAPONRY/MUSKET are closely aligned; inspect whether the first leg is natural."
+    },
+    {
+      "archivePosition": 186,
+      "id": "daily-2027-04-23",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "guava",
+        "horticulture",
+        "robin"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 187,
+      "id": "daily-2027-04-24",
+      "numberBeforeReview": 174,
+      "currentNumber": 174,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "leek",
+        "stock",
+        "buoy"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "LEEK → STOCK is a clever familiar switch but the tee still strongly channels food/soup."
+    },
+    {
+      "archivePosition": 188,
+      "id": "daily-2027-04-25",
+      "numberBeforeReview": 175,
+      "currentNumber": 175,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "hyena",
+        "comedy",
+        "clarinet"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 189,
+      "id": "daily-2027-04-26",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "okra",
+        "conservation",
+        "swallow"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 190,
+      "id": "daily-2027-04-27",
+      "numberBeforeReview": 176,
+      "currentNumber": 176,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "ceramic",
+        "coronation",
+        "taxation"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CERAMIC is a common material with household, dental and engineering uses; keep provisional."
+    },
+    {
+      "archivePosition": 191,
+      "id": "daily-2027-04-28",
+      "numberBeforeReview": 177,
+      "currentNumber": 177,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "latch",
+        "percussion",
+        "typewriter"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "LATCH and TYPEWRITER have functional/action/sound contexts; keep without prescribing a percussion route."
+    },
+    {
+      "archivePosition": 192,
+      "id": "daily-2027-04-29",
+      "numberBeforeReview": 178,
+      "currentNumber": 178,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "bull",
+        "insurance",
+        "parsnip"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BULL and INSURANCE have financial and risk contexts beyond the animal meaning; no first-priority cull."
+    },
+    {
+      "archivePosition": 193,
+      "id": "daily-2027-04-30",
+      "numberBeforeReview": 179,
+      "currentNumber": 179,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "pretzel",
+        "twine",
+        "pigtail"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "TWINE has noun/verb uses and PIGTAIL several familiar senses; preserve without assuming a braid solution."
+    },
+    {
+      "archivePosition": 194,
+      "id": "daily-2027-05-01",
+      "numberBeforeReview": 180,
+      "currentNumber": 180,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "crow",
+        "printer",
+        "palette"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CROW can be bird or verb, PRINTER has production and information contexts; keep provisional."
+    },
+    {
+      "archivePosition": 195,
+      "id": "daily-2027-05-02",
+      "numberBeforeReview": 181,
+      "currentNumber": 181,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "parsley",
+        "plate",
+        "gazpacho"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Category corridor + specific flag",
+      "reason": "PARSLEY → PLATE → GAZPACHO sits almost entirely in garnish/food/soup. The specific soup name narrows the destination further."
+    },
+    {
+      "archivePosition": 196,
+      "id": "daily-2027-05-03",
+      "numberBeforeReview": null,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "bellows",
+        "forge",
+        "clover"
+      ],
+      "disposition": "previously-retired",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 197,
+      "id": "daily-2027-05-04",
+      "numberBeforeReview": 182,
+      "currentNumber": 182,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "geranium",
+        "perfumer",
+        "sandal"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "GERANIUM → PERFUMER is a specialised scented-plant route; SANDAL relies on the sandalwood hinge."
+    },
+    {
+      "archivePosition": 198,
+      "id": "daily-2027-05-05",
+      "numberBeforeReview": 183,
+      "currentNumber": 183,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "pickle",
+        "saltwater",
+        "cargo"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PICKLE → SALTWATER is an immediate brine/salt association, potentially too close in practical human terms."
+    },
+    {
+      "archivePosition": 199,
+      "id": "daily-2027-05-06",
+      "numberBeforeReview": 184,
+      "currentNumber": 184,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "fox",
+        "coat",
+        "gull"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 200,
+      "id": "daily-2027-05-07",
+      "numberBeforeReview": 185,
+      "currentNumber": 185,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "nutmeg",
+        "sailing",
+        "rosewood"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 201,
+      "id": "daily-2027-05-08",
+      "numberBeforeReview": 186,
+      "currentNumber": 186,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cobbler",
+        "baking",
+        "nectar"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "COBBLER is versatile, but BAKING strongly selects the dessert meaning and may narrow exploration unnecessarily."
+    },
+    {
+      "archivePosition": 202,
+      "id": "daily-2027-05-09",
+      "numberBeforeReview": 187,
+      "currentNumber": 187,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "petunia",
+        "mould",
+        "candelabra"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PETUNIA is a specific flower; the authored pot/clay/mould chain may be carrying the whole justification."
+    },
+    {
+      "archivePosition": 203,
+      "id": "daily-2027-05-10",
+      "numberBeforeReview": 188,
+      "currentNumber": 188,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "banjo",
+        "bow",
+        "elk"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "BANJO/BOW/ELK is concrete, but BOW has several familiar senses; no priority recommendation without play evidence."
+    },
+    {
+      "archivePosition": 204,
+      "id": "daily-2027-05-11",
+      "numberBeforeReview": 189,
+      "currentNumber": 189,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "dandelion",
+        "reservoir",
+        "oar"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "DANDELION is familiar but dominated by flower/seed/weed; check natural approaches to RESERVOIR."
+    },
+    {
+      "archivePosition": 205,
+      "id": "daily-2027-05-12",
+      "numberBeforeReview": 190,
+      "currentNumber": 190,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "grape",
+        "distillation",
+        "baguette"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "GRAPE → DISTILLATION is an obvious drink/wine corridor with specialist process vocabulary."
+    },
+    {
+      "archivePosition": 206,
+      "id": "daily-2027-05-13",
+      "numberBeforeReview": 191,
+      "currentNumber": 191,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "caper",
+        "anthropology",
+        "chisel"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CAPER is versatile, but ANTHROPOLOGY is a science umbrella rather than a particularly inviting objective."
+    },
+    {
+      "archivePosition": 207,
+      "id": "daily-2027-05-14",
+      "numberBeforeReview": 192,
+      "currentNumber": 192,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "quince",
+        "heating",
+        "kiln"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "QUINCE is less widely familiar and points directly to fruit/cooking; HEATING/KILN are also closely aligned."
+    },
+    {
+      "archivePosition": 208,
+      "id": "daily-2027-05-15",
+      "numberBeforeReview": 193,
+      "currentNumber": 193,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cricket",
+        "orchestral",
+        "palace"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "CRICKET can be sport, creature, sound or cultural association; retain provisionally."
+    },
+    {
+      "archivePosition": 209,
+      "id": "daily-2027-05-16",
+      "numberBeforeReview": 194,
+      "currentNumber": 194,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "lilac",
+        "gardening",
+        "tiara"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Obvious parent category",
+      "reason": "LILAC → GARDENING makes flower/plant/garden the natural default opening. The existing source primarily explains an authored flower-to-tiara journey."
+    },
+    {
+      "archivePosition": 210,
+      "id": "daily-2027-05-17",
+      "numberBeforeReview": 195,
+      "currentNumber": 195,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "bullet",
+        "force",
+        "firework"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "FORCE and FIREWORK offer action, physical and figurative contexts; no first-priority cull."
+    },
+    {
+      "archivePosition": 211,
+      "id": "daily-2027-05-18",
+      "numberBeforeReview": 196,
+      "currentNumber": 196,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "dragonfly",
+        "icy",
+        "marzipan"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "DRAGONFLY/ICY/MARZIPAN was selected around the wing/plane/icing trick; the endpoints are both rather specific."
+    },
+    {
+      "archivePosition": 212,
+      "id": "daily-2027-05-19",
+      "numberBeforeReview": 197,
+      "currentNumber": 197,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cockatoo",
+        "voice",
+        "doorbell"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "COCKATOO → VOICE → DOORBELL risks a bird/noise/sound corridor."
+    },
+    {
+      "archivePosition": 213,
+      "id": "daily-2027-05-20",
+      "numberBeforeReview": 198,
+      "currentNumber": 198,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "mussel",
+        "ornaments",
+        "trombone"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MUSSEL/ORNAMENTS/TROMBONE invites shell/decorative-material category hops."
+    },
+    {
+      "archivePosition": 214,
+      "id": "daily-2027-05-21",
+      "numberBeforeReview": 199,
+      "currentNumber": 199,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "cod",
+        "freezing",
+        "lava"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "COD → FREEZING strongly suggests frozen fish; the cold-to-hot finish may not compensate for the opening."
+    },
+    {
+      "archivePosition": 215,
+      "id": "daily-2027-05-22",
+      "numberBeforeReview": 200,
+      "currentNumber": 200,
+      "origin": "generated",
+      "batch": "fresh-daily-2026-10-30",
+      "words": [
+        "spool",
+        "point",
+        "discus"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "POINT and DISCUS offer geometric, argument, sport and action contexts; keep provisional."
+    },
+    {
+      "archivePosition": 216,
+      "id": "daily-2027-05-23",
+      "numberBeforeReview": 201,
+      "currentNumber": 201,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "blacksmith",
+        "hearing",
+        "tenor"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BLACKSMITH is familiar but dominated by tools/metal/fire. The hammer-ear-bone route must not be the sole reason to retain it."
+    },
+    {
+      "archivePosition": 217,
+      "id": "daily-2027-05-24",
+      "numberBeforeReview": 202,
+      "currentNumber": 202,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "caravan",
+        "cinematographer",
+        "curtain"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specialised middle + authored hinge",
+      "reason": "CINEMATOGRAPHER is a cumbersome dogleg and the archived justification is specifically caravan trailer → film trailer → screen. CARAVAN itself could be kept in a different triple."
+    },
+    {
+      "archivePosition": 218,
+      "id": "daily-2027-05-25",
+      "numberBeforeReview": 203,
+      "currentNumber": 203,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "duck",
+        "accounting",
+        "chord"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "DUCK and BILL-related possibilities are familiar multiple senses; the finance route must remain one option, not the intended solution."
+    },
+    {
+      "archivePosition": 219,
+      "id": "daily-2027-05-26",
+      "numberBeforeReview": 204,
+      "currentNumber": 204,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "grapefruit",
+        "pigment",
+        "yacht"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "GRAPEFRUIT is concrete, but PIGMENT/YACHT open different settings; keep provisionally rather than assume the colour route."
+    },
+    {
+      "archivePosition": 220,
+      "id": "daily-2027-05-27",
+      "numberBeforeReview": 205,
+      "currentNumber": 205,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "skate",
+        "paper",
+        "canteen"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SKATE is an activity, object and animal; the versatile word itself earns provisional retention."
+    },
+    {
+      "archivePosition": 221,
+      "id": "daily-2027-05-28",
+      "numberBeforeReview": 206,
+      "currentNumber": 206,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "puffin",
+        "engraving",
+        "cuttlefish"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PUFFIN may require publisher-brand recognition to reproduce the authored ink switch; CUTTLEFISH is another specific species."
+    },
+    {
+      "archivePosition": 222,
+      "id": "daily-2027-05-29",
+      "numberBeforeReview": 207,
+      "currentNumber": 207,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "salami",
+        "electronics",
+        "marionette"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 223,
+      "id": "daily-2027-05-30",
+      "numberBeforeReview": 208,
+      "currentNumber": 208,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "coin",
+        "herbaceous",
+        "stoic"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specialised middle + authored double hinge",
+      "reason": "HERBACEOUS is less conversational; the rationale builds the hole around mint → herb → sage → philosopher. COIN itself is versatile enough to reuse elsewhere."
+    },
+    {
+      "archivePosition": 224,
+      "id": "daily-2027-05-31",
+      "numberBeforeReview": 209,
+      "currentNumber": 209,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "nightingale",
+        "theatre",
+        "saxophone"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "NIGHTINGALE can use the Florence association, but that proper-name switch should be an option, not the eligibility test."
+    },
+    {
+      "archivePosition": 225,
+      "id": "daily-2027-06-01",
+      "numberBeforeReview": 210,
+      "currentNumber": 210,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "barnacle",
+        "jewelry",
+        "ruby"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BARNACLE → JEWELRY risks the shell/pearl shortcut and a narrowly biological tee."
+    },
+    {
+      "archivePosition": 226,
+      "id": "daily-2027-06-02",
+      "numberBeforeReview": 211,
+      "currentNumber": 211,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "trombone",
+        "archaeological",
+        "pike"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "ARCHAEOLOGICAL is a cumbersome discipline-style dogleg; the trombone slide/drawer/treasure route was authored in advance."
+    },
+    {
+      "archivePosition": 227,
+      "id": "daily-2027-06-03",
+      "numberBeforeReview": 212,
+      "currentNumber": 212,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "butter",
+        "livestock",
+        "bugle"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BUTTER → LIVESTOCK encourages milk/cow; BUGLE then follows the horn hinge. Check broader alternatives."
+    },
+    {
+      "archivePosition": 228,
+      "id": "daily-2027-06-04",
+      "numberBeforeReview": 213,
+      "currentNumber": 213,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "mango",
+        "jars",
+        "dirigible"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Rare flag + narrow word choices",
+      "reason": "DIRIGIBLE is uncommon and MANGO → JARS leans into fruit/chutney/container. The jar-vessel-airship explanation is more persuasive as an authored trick than as word choice."
+    },
+    {
+      "archivePosition": 229,
+      "id": "daily-2027-06-05",
+      "numberBeforeReview": 214,
+      "currentNumber": 214,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "hacksaw",
+        "skeletal",
+        "macaroni"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SKELETAL is an adjective with figurative as well as anatomical uses; keep provisionally, not solely for elbow pasta."
+    },
+    {
+      "archivePosition": 230,
+      "id": "daily-2027-06-06",
+      "numberBeforeReview": 215,
+      "currentNumber": 215,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "sage",
+        "government",
+        "senator"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "SAGE has herb/wise-person senses and GOVERNMENT/SENATOR provide social contexts; keep, but do not expect an authored route."
+    },
+    {
+      "archivePosition": 231,
+      "id": "daily-2027-06-07",
+      "numberBeforeReview": 216,
+      "currentNumber": 216,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "onion",
+        "topography",
+        "harmonium"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specialised middle and flag",
+      "reason": "TOPOGRAPHY and HARMONIUM are unnecessarily specialised; the layer/map/scale/music chain should not be the reason to keep the triple."
+    },
+    {
+      "archivePosition": 232,
+      "id": "daily-2027-06-08",
+      "numberBeforeReview": 217,
+      "currentNumber": 217,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "fennel",
+        "navigation",
+        "marina"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 233,
+      "id": "daily-2027-06-09",
+      "numberBeforeReview": 218,
+      "currentNumber": 218,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "gavel",
+        "badminton",
+        "dulcimer"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BADMINTON and DULCIMER are specific destinations, and the rationale is the court/racket/string chain. GAVEL itself has legal, authority and sound contexts."
+    },
+    {
+      "archivePosition": 234,
+      "id": "daily-2027-06-10",
+      "numberBeforeReview": 219,
+      "currentNumber": 219,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "sugar",
+        "fairytale",
+        "sparrow"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SUGAR → FAIRYTALE may lean too heavily on the Sugar Plum Fairy reference; treat cultural knowledge as optional."
+    },
+    {
+      "archivePosition": 235,
+      "id": "daily-2027-06-11",
+      "numberBeforeReview": 220,
+      "currentNumber": 220,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "caraway",
+        "battery",
+        "lantern"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CARAWAY is less widely familiar and predominantly a spice/seed; the garlic-bulb trick is doing the design work."
+    },
+    {
+      "archivePosition": 236,
+      "id": "daily-2027-06-12",
+      "numberBeforeReview": 221,
+      "currentNumber": 221,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "tapir",
+        "grip",
+        "squeegee"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specific animal + predetermined hinge",
+      "reason": "TAPIR is less widely familiar and the published snout → trunk → grip rationale depends on the animal anatomy chosen by the author."
+    },
+    {
+      "archivePosition": 237,
+      "id": "daily-2027-06-13",
+      "numberBeforeReview": 222,
+      "currentNumber": 222,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "collar",
+        "instrumental",
+        "piccolo"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 238,
+      "id": "daily-2027-06-14",
+      "numberBeforeReview": 223,
+      "currentNumber": 223,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "sardine",
+        "decorating",
+        "easel"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SARDINE has a narrow fish/tin/can entry. Decorating offers potential but the paint-tin trick alone is not enough."
+    },
+    {
+      "archivePosition": 239,
+      "id": "daily-2027-06-15",
+      "numberBeforeReview": 224,
+      "currentNumber": 224,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "lotus",
+        "automotive",
+        "soprano"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "LOTUS has flower, car and cultural contexts; retain only if the brand-to-engine pitch route is one option among several."
+    },
+    {
+      "archivePosition": 240,
+      "id": "daily-2027-06-16",
+      "numberBeforeReview": 225,
+      "currentNumber": 225,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "shrimp",
+        "modelling",
+        "toboggan"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SHRIMP cues small/seafood and the scale-model-to-slope chain was reverse-engineered; check word appeal without that narrative."
+    },
+    {
+      "archivePosition": 241,
+      "id": "daily-2027-06-17",
+      "numberBeforeReview": 226,
+      "currentNumber": 226,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "petal",
+        "travel",
+        "cymbal"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PETAL has flower/colour/flutter but is still narrow; TRAVEL is broad enough to permit vague rather than purposeful steps."
+    },
+    {
+      "archivePosition": 242,
+      "id": "daily-2027-06-18",
+      "numberBeforeReview": 227,
+      "currentNumber": 227,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "beret",
+        "scrub",
+        "ponytail"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BERET may funnel into hat/artist; SCRUB has useful varied senses, so assess natural openings before replacing."
+    },
+    {
+      "archivePosition": 243,
+      "id": "daily-2027-06-19",
+      "numberBeforeReview": 228,
+      "currentNumber": 228,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "suit",
+        "kiln",
+        "terrace"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "No priority replacement concern from this first editorial pass; this is not proof of enjoyable play or difficulty."
+    },
+    {
+      "archivePosition": 244,
+      "id": "daily-2027-06-20",
+      "numberBeforeReview": 229,
+      "currentNumber": 229,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "reed",
+        "measuring",
+        "jackhammer"
+      ],
+      "disposition": "shortlist",
+      "action": "remove",
+      "concern": "Unnatural authored justification",
+      "reason": "REED → MEASURING does not suggest an inviting range of contexts. The verified wicker/cane/stick/drill chain needs explanation more than it invites discovery."
+    },
+    {
+      "archivePosition": 245,
+      "id": "daily-2027-06-21",
+      "numberBeforeReview": 230,
+      "currentNumber": 230,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "lychee",
+        "singer",
+        "mandolin"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Narrow fruit + manufactured chain",
+      "reason": "LYCHEE points at fruit/sugar; the long published sugar/crystal/rock/music route supplies the apparent cleverness rather than the three words."
+    },
+    {
+      "archivePosition": 246,
+      "id": "daily-2027-06-22",
+      "numberBeforeReview": 231,
+      "currentNumber": 231,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "larch",
+        "bows",
+        "mongoose"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Specific plant and animal + authored route",
+      "reason": "LARCH and MONGOOSE add taxonomic specificity. The wood/bow/poisoned-arrow/snake justification is too prescribed."
+    },
+    {
+      "archivePosition": 247,
+      "id": "daily-2027-06-23",
+      "numberBeforeReview": 232,
+      "currentNumber": 232,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "scales",
+        "singing",
+        "teapot"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SCALES is a promising multi-context word; do not decide quality solely from the musical-whistle example."
+    },
+    {
+      "archivePosition": 248,
+      "id": "daily-2027-06-24",
+      "numberBeforeReview": 233,
+      "currentNumber": 233,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "mink",
+        "weaving",
+        "jackfruit"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Animal covering + specific fruit",
+      "reason": "MINK → WEAVING repeats the fur/textile category corridor, while JACKFRUIT adds a specific fruit rather than an evocative destination."
+    },
+    {
+      "archivePosition": 249,
+      "id": "daily-2027-06-25",
+      "numberBeforeReview": 234,
+      "currentNumber": 234,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "wrench",
+        "combustion",
+        "dumpling"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "WRENCH is versatile; COMBUSTION is technical and DUMPLING specific, so assess the latter two independently."
+    },
+    {
+      "archivePosition": 250,
+      "id": "daily-2027-06-26",
+      "numberBeforeReview": 235,
+      "currentNumber": 235,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "deer",
+        "woodwind",
+        "mortar"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "DEER → WOODWIND is likely horn-led; MORTAR is versatile but the brass-cannon route was authored in advance."
+    },
+    {
+      "archivePosition": 251,
+      "id": "daily-2027-06-27",
+      "numberBeforeReview": 236,
+      "currentNumber": 236,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "paddle",
+        "arrow",
+        "cello"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "PADDLE is accessible with action/tool/water contexts; the bow/arrow/music hinge should be optional, not the reason for acceptance."
+    },
+    {
+      "archivePosition": 252,
+      "id": "daily-2027-06-28",
+      "numberBeforeReview": 237,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "scallop",
+        "rocket",
+        "barracuda"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 253,
+      "id": "daily-2027-06-29",
+      "numberBeforeReview": 238,
+      "currentNumber": 237,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "gingerbread",
+        "sunlight",
+        "cockpit"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "GINGERBREAD immediately suggests house/cookie. A house/window/cockpit chain does not establish richer exploration."
+    },
+    {
+      "archivePosition": 254,
+      "id": "daily-2027-06-30",
+      "numberBeforeReview": 239,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "tuna",
+        "trading",
+        "harmonica"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 255,
+      "id": "daily-2027-07-01",
+      "numberBeforeReview": 240,
+      "currentNumber": 238,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "moose",
+        "arms",
+        "grappling"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "MOOSE is narrow; the crest/coat-of-arms/grappling route makes the authored heraldic hinge conspicuous."
+    },
+    {
+      "archivePosition": 256,
+      "id": "daily-2027-07-02",
+      "numberBeforeReview": 241,
+      "currentNumber": 239,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "chickpea",
+        "heating",
+        "locomotive"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "CHICKPEA → HEATING invites cooking/pea/pot/steam before the words have any personal appeal."
+    },
+    {
+      "archivePosition": 257,
+      "id": "daily-2027-07-03",
+      "numberBeforeReview": 242,
+      "currentNumber": 240,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "dice",
+        "crystals",
+        "beehive"
+      ],
+      "disposition": "provisional-keep",
+      "action": null,
+      "concern": null,
+      "reason": "DICE offers chance, risk, action and shape contexts; do not evaluate solely through a cube/sugar example."
+    },
+    {
+      "archivePosition": 258,
+      "id": "daily-2027-07-04",
+      "numberBeforeReview": 243,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "minnow",
+        "wicket",
+        "basket"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 259,
+      "id": "daily-2027-07-05",
+      "numberBeforeReview": 244,
+      "currentNumber": 241,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "pistachio",
+        "equestrian",
+        "paddock"
+      ],
+      "disposition": "shortlist",
+      "action": "replace",
+      "concern": "Narrow food + technical category",
+      "reason": "PISTACHIO strongly cues nut; EQUESTRIAN/PADDOCK follow the authored nut/bolt/running-horse trick and add horse-specific vocabulary."
+    },
+    {
+      "archivePosition": 260,
+      "id": "daily-2027-07-06",
+      "numberBeforeReview": 245,
+      "currentNumber": 242,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "seaweed",
+        "paper",
+        "cornet"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "SEAWEED → PAPER may depend on rice/wrap/rolled-cone associations; the tee may funnel into sushi/sea."
+    },
+    {
+      "archivePosition": 261,
+      "id": "daily-2027-07-07",
+      "numberBeforeReview": 246,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "wren",
+        "architectural",
+        "pagoda"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 262,
+      "id": "daily-2027-07-08",
+      "numberBeforeReview": 247,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "toothpick",
+        "throne",
+        "galleon"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 263,
+      "id": "daily-2027-07-09",
+      "numberBeforeReview": 248,
+      "currentNumber": 243,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "bracelet",
+        "fantasy",
+        "witchcraft"
+      ],
+      "disposition": "watch",
+      "action": null,
+      "concern": null,
+      "reason": "BRACELET has several contexts, but FANTASY/WITCHCRAFT are conceptually close and the charm/magic route is conspicuous."
+    },
+    {
+      "archivePosition": 264,
+      "id": "daily-2027-07-10",
+      "numberBeforeReview": 249,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "holly",
+        "preserves",
+        "scone"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    },
+    {
+      "archivePosition": 265,
+      "id": "daily-2027-07-11",
+      "numberBeforeReview": 250,
+      "currentNumber": null,
+      "origin": "generated",
+      "batch": "discovery-daily-50-2026-10-30",
+      "words": [
+        "keyhole",
+        "crystals",
+        "necktie"
+      ],
+      "disposition": "removed-as-requested",
+      "action": null,
+      "concern": null,
+      "reason": "Explicit user retirement; definition and stored history retained."
+    }
+  ]
+}
