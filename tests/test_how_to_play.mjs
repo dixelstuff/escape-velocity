@@ -18,3 +18,5 @@ assert.ok(!distanceShots[0].inside&&distanceShots[0].forward,'PAPER hits but sto
 assert.ok(!html.includes('<h3>Here’s the key</h3>'));assert.ok(!html.includes('<strong>Tap any earlier'));assert.ok(!html.includes('<strong>The longer'));
 assert.ok(!html.includes('data-help-lie'));assert.ok(!html.includes('<button'));assert.match(html,/class="help-hand"/);assert.equal((html.match(/class="help-ball"/g)||[]).length,2);assert.match(html,/Continue from PAPER/);assert.match(html,/help-lie-ahead/);
 console.log('Worked distance comparison and static before/after retry illustrations passed.');
+
+assert.ok(!html.includes('Find a word path'));assert.match(html,/^<li class="bag-tip"><h3>Hitting the ball/);

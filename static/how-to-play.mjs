@@ -18,8 +18,7 @@ function example({ball,played,target,hit}){
  return `<figure class="help-example"><div class="help-diagram">${word('BALL WORD',ball)}${line(!hit)}${word('YOUR WORD',played)}${line(false)}${word('TARGET WORD',target)}</div><figcaption>${hit?'<strong>Hit.</strong> FUR connects to CAT and COAT, so the ball advances.':'<strong>Miss.</strong> JACKET connects to COAT, but its link to CAT is too weak for this shot.'}</figcaption></figure>`;
 }
 export function howToPlay(){
- return `<li class="bag-tip help-intro"><p>Find a word path from tee to flag!</p></li>
-<li class="bag-tip"><h3>Hitting the ball</h3><p>The <strong>ball word</strong> is where you are. The word you play must connect with it strongly enough to hit.</p>${SHOT_EXAMPLES.map(example).join('')}</li>
+ return `<li class="bag-tip"><h3>Hitting the ball</h3><p>The <strong>ball word</strong> is where you are. The word you play must connect with it strongly enough to hit.</p>${SHOT_EXAMPLES.map(example).join('')}</li>
 <li class="bag-tip"><h3>Gaining distance</h3><p>The more strongly your played word relates to the <strong>target word</strong>, the further your ball will travel when it hits.</p>
 ${distanceExamples()}
 <p>The longer the shot you are trying to hit, the stronger the connection to the ball word needs to be — otherwise it will be a miss! A smaller step can work with a weaker link and be useful as a set up shot.</p></li>
