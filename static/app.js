@@ -370,7 +370,8 @@ function captureWordLabels(d){
  const matrix=($('map').querySelector('#course-world')??$('map')).getScreenCTM();if(!matrix)return previous;
  for(const label of $('map').querySelectorAll('[data-label-word]')){
   const rect=label.querySelector('rect');if(!rect)continue;
-  const local=rect.getScreenCTM();if(!local)continue;const point=new DOMPoint(Number(rect.getAttribute('x')),Number(rect.getAttribute('y'))).matrixTransform(local).matrixTransform(matrix.inverse());previous.set(label.dataset.lieKey,{anchor:labelLayout.get(label.dataset.lieKey),x:point.x,y:point.y,path:label.querySelector('path')?.getAttribute('d')});
+  // The centre stays invariant under the label's counter-rotation; a corner would create false movement.
+  const local=rect.getScreenCTM();if(!local)continue;const point=new DOMPoint(Number(rect.getAttribute('x'))+Number(rect.getAttribute('width'))/2,Number(rect.getAttribute('y'))+Number(rect.getAttribute('height'))/2).matrixTransform(local).matrixTransform(matrix.inverse());previous.set(label.dataset.lieKey,{anchor:labelLayout.get(label.dataset.lieKey),x:point.x,y:point.y,path:label.querySelector('path')?.getAttribute('d')});
  }
  return previous;
 }
@@ -379,7 +380,7 @@ function moveWordLabels(previous){
   const old=previous.get(label.dataset.lieKey),rect=label.querySelector('rect'),body=label.querySelector('.label-body');
   if(!old||!rect||!body)continue;
   const next=labelLayout.get(label.dataset.lieKey);if(old.anchor&&next&&(Math.abs(old.anchor.anchorX-next.anchorX)>.25||Math.abs(old.anchor.anchorY-next.anchorY)>.25))continue;
-  const dx=old.x-Number(rect.getAttribute('x')),dy=old.y-Number(rect.getAttribute('y'));
+  const dx=old.x-(Number(rect.getAttribute('x'))+Number(rect.getAttribute('width'))/2),dy=old.y-(Number(rect.getAttribute('y'))+Number(rect.getAttribute('height'))/2);
   if(Math.hypot(dx,dy)<.25)continue;
   void animateLabelBody(body,dx,dy);
   const connector=label.querySelector('path');if(!connector||!old.path)continue;
@@ -544,7 +545,7 @@ function map(preview=null){
  for(const node of textNodes)node.remove();
  let labels='';
  for(const p of planets){const box=layout.labels.get(p.key);if(!box)continue;const endX=Math.max(box.x,Math.min(box.x+box.width,p.pos.x)),endY=Math.max(box.y,Math.min(box.y+box.height,p.pos.y));const length=Math.hypot(endX-p.pos.x,endY-p.pos.y)||1;const markerRadius=(p.key===currentKey?16:p.key===finalKey?10:6)*scale;const startX=p.pos.x+markerRadius*(endX-p.pos.x)/length,startY=p.pos.y+markerRadius*(endY-p.pos.y)/length;
- labels+=`<g class="word-label${!p.previous&&(state.won?(p.key===teeKey||p.key===finalKey||p.word===state.waypoint?.word&&state.history.some(h=>h.waypoint_reached&&h.word===p.word)):(p.key===currentKey||p.key===targetKey))?' active-word-label':''}${p.previous?' previous-word-label previous-attempt-element':''}${p.waypointReference?' waypoint-reference-label':''}" ${p.waypointReference?'data-waypoint-reference="true"':''} data-label-word="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${p.key===currentKey?'data-focus-entry="true"':''} ${p.resumeThrough!==undefined?`data-resume-through="${p.resumeThrough}" role="button" tabindex="0" aria-label="Retry from ${esc(p.word.toUpperCase())}"`: p.key===currentKey?`role="button" tabindex="0" aria-label="${state.current===state.start?'Play your first word':'Play your next word'}"`:''} opacity="${p.retryFuture?.7:p.failed?.72:1}">${p.previous||p.waypointReference?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g>`;
+ labels+=`<g class="word-label${!p.previous&&(state.won?(p.key===teeKey||p.key===finalKey||p.word===state.waypoint?.word&&state.history.some(h=>h.waypoint_reached&&h.word===p.word)):(p.key===currentKey||p.key===targetKey))?' active-word-label':''}${p.previous?' previous-word-label previous-attempt-element':''}${p.waypointReference?' waypoint-reference-label':''}" ${p.waypointReference?'data-waypoint-reference="true"':''} data-label-word="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${p.key===currentKey?'data-focus-entry="true"':''} ${p.resumeThrough!==undefined?`data-resume-through="${p.resumeThrough}" role="button" tabindex="0" aria-label="Retry from ${esc(p.word.toUpperCase())}"`: p.key===currentKey?`role="button" tabindex="0" aria-label="${state.current===state.start?'Play your first word':'Play your next word'}"`:''} opacity="${p.retryFuture?.7:p.failed?.72:1}">${p.previous||p.waypointReference?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><g class="label-upright" transform="rotate(${state.waypoint?-(d.style.rotation??0):0} ${box.x+box.width/2} ${box.y+box.height/2})"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g></g>`;
  }
  $('map').querySelector('#course-world').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);

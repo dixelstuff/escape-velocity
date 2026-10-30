@@ -964,8 +964,8 @@ body.personal-daily .hole-tools .bag-toggle{width:26px;height:27px;border-radius
 .personal-stat-hint{font-size:11px;text-align:center;color:#87947c;}
 .personal-empty{font-size:13px;color:#7b8a74;padding:12px 0;}
 @media(max-width:650px){
- body.personal-daily main{padding-top:10px;}
- body.personal-daily .mission,body.personal-daily.typing .mission{padding:0 2px;margin:0 auto 8px;scroll-margin-top:10px;}
+ body.personal-daily main{padding-top:11px;}
+ body.personal-daily .mission,body.personal-daily.typing .mission{padding:0 2px;margin:0 auto 8px;scroll-margin-top:11px;}
  .personal-card-heading{flex-wrap:wrap;gap:8px;}
  .personal-best-grid{grid-template-columns:1fr;gap:9px;}
  .personal-best-grid article{position:relative;padding:13px 14px 13px 45px;}
@@ -1092,8 +1092,8 @@ body.personal-daily .map-card.arrived #map{cursor:pointer;}
 .map-card>.hole-results{position:relative;z-index:2;margin:7px auto 0;padding:0 14px 16px;}
 .controls{margin-top:28px;}
 @media(max-width:650px){
- .controls{margin-top:17px;}
- body.typing .controls{--typing-controls-gap-base:17px;margin-top:var(--typing-controls-gap,17px);}
+ .controls{margin-top:15px;}
+ body.typing .controls{--typing-controls-gap-base:15px;margin-top:var(--typing-controls-gap,15px);}
 }
 
 /* The shared camera animates the SVG and background in the same frame. */
