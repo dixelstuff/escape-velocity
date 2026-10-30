@@ -1060,6 +1060,7 @@ body.personal-daily .map-card.arrived #map{cursor:pointer;}
 .best-route-toggle{box-sizing:border-box;}
 .best-route-toggle svg{width:100%;height:100%;}
 
+.help-shot-comparison{margin-bottom:16px;}
 .help-distance-roles{display:flex;justify-content:space-between;color:#718369;font:600 9px/1.2 'DM Sans',sans-serif;margin-bottom:12px;}
 .help-distance-option+.help-distance-option{margin-top:20px;}
 .help-distance-row{display:grid;grid-template-columns:36px minmax(0,1fr) 69px;gap:8px;align-items:center;}
