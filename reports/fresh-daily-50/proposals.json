@@ -1,0 +1,556 @@
+[
+  {
+    "start": "apron",
+    "waypoint": "tailoring",
+    "target": "frog",
+    "verificationWords": [
+      "trousers",
+      "coat"
+    ],
+    "reason": "An apron leads to trousers and coats; frog also names a traditional coat fastening."
+  },
+  {
+    "start": "eel",
+    "waypoint": "conductivity",
+    "target": "fiddle",
+    "verificationWords": [
+      "electric",
+      "voltage",
+      "conductor"
+    ],
+    "reason": "An electric eel leads to electrical conduction; a conductor switches into orchestral music."
+  },
+  {
+    "start": "cabin",
+    "waypoint": "hospitality",
+    "target": "crayon",
+    "verificationWords": [
+      "hotel",
+      "bed",
+      "sheet"
+    ],
+    "reason": "A cabin becomes hotel accommodation; a bedsheet becomes drawing paper."
+  },
+  {
+    "start": "ivy",
+    "waypoint": "fortification",
+    "target": "viaduct",
+    "verificationWords": [
+      "climb",
+      "wall",
+      "moat"
+    ],
+    "reason": "Climbing ivy leads to castle walls and moats, then a spanning bridge."
+  },
+  {
+    "start": "cherry",
+    "waypoint": "winemaking",
+    "target": "bagel",
+    "verificationWords": [
+      "wine",
+      "yeast"
+    ],
+    "reason": "Cherries become wine; yeast changes from winemaking to bread and bagels."
+  },
+  {
+    "start": "lime",
+    "waypoint": "stonework",
+    "target": "blackboard",
+    "verificationWords": [
+      "limestone",
+      "chalk"
+    ],
+    "reason": "Lime changes from citrus to a building material, then limestone becomes classroom chalk."
+  },
+  {
+    "start": "bonsai",
+    "waypoint": "protection",
+    "target": "tribunal",
+    "verificationWords": [
+      "tree",
+      "protected",
+      "law"
+    ],
+    "reason": "A bonsai tree leads to environmental protection, then legal protection and a tribunal."
+  },
+  {
+    "start": "fern",
+    "waypoint": "reproduction",
+    "target": "waffle",
+    "verificationWords": [
+      "spore",
+      "egg"
+    ],
+    "reason": "Fern spores lead to reproduction and eggs, then eggs used in waffles."
+  },
+  {
+    "start": "jaguar",
+    "waypoint": "aerodynamics",
+    "target": "jar",
+    "verificationWords": [
+      "car",
+      "engine",
+      "cylinder"
+    ],
+    "reason": "Jaguar changes from animal to car; an engine cylinder becomes a cylindrical jar."
+  },
+  {
+    "start": "hornet",
+    "waypoint": "military",
+    "target": "linen",
+    "verificationWords": [
+      "fighter",
+      "pilot",
+      "parachute",
+      "fabric"
+    ],
+    "reason": "Hornet changes from insect to fighter aircraft, then parachute fabric."
+  },
+  {
+    "start": "carrot",
+    "waypoint": "light",
+    "target": "prism",
+    "verificationWords": [
+      "orange",
+      "colour"
+    ],
+    "reason": "A carrot suggests orange; orange changes from food to colour and then light."
+  },
+  {
+    "start": "lemur",
+    "waypoint": "fur",
+    "target": "tassel",
+    "verificationWords": [
+      "mammal",
+      "tail",
+      "tuft"
+    ],
+    "reason": "A lemur\u2019s tail leads to fur tufts and a decorative tassel."
+  },
+  {
+    "start": "flea",
+    "waypoint": "retail",
+    "target": "stallion",
+    "verificationWords": [
+      "market",
+      "stall",
+      "horse"
+    ],
+    "reason": "A flea market stall changes into a horse\u2019s stall."
+  },
+  {
+    "start": "nettle",
+    "waypoint": "reflex",
+    "target": "semaphore",
+    "verificationWords": [
+      "sting",
+      "pain",
+      "nerve",
+      "signal"
+    ],
+    "reason": "A nettle sting causes pain and nerve signals; a signal changes into flag signalling."
+  },
+  {
+    "start": "celery",
+    "waypoint": "craft",
+    "target": "kayak",
+    "verificationWords": [
+      "fibre",
+      "thread",
+      "canvas",
+      "boat"
+    ],
+    "reason": "Celery fibres lead to thread, woven canvas and a canvas-covered kayak."
+  },
+  {
+    "start": "juniper",
+    "waypoint": "alcohol",
+    "target": "phantom",
+    "verificationWords": [
+      "berry",
+      "gin",
+      "alcohol",
+      "spirit",
+      "ghost"
+    ],
+    "reason": "Juniper berries become gin; spirits change from alcohol to ghosts."
+  },
+  {
+    "start": "canoe",
+    "waypoint": "monetary",
+    "target": "pepper",
+    "verificationWords": [
+      "river",
+      "bank",
+      "robbery",
+      "police"
+    ],
+    "reason": "A riverbank changes into a financial bank; a robbery leads to police and pepper spray."
+  },
+  {
+    "start": "funnel",
+    "waypoint": "wheel",
+    "target": "wheat",
+    "verificationWords": [
+      "pipe",
+      "wheel",
+      "mill"
+    ],
+    "reason": "Water pipes become a waterwheel and then a flour mill."
+  },
+  {
+    "start": "peach",
+    "waypoint": "dressmaking",
+    "target": "satin",
+    "verificationWords": [
+      "cobbler",
+      "shoe"
+    ],
+    "reason": "Peach cobbler changes into a shoemaker and then satin footwear."
+  },
+  {
+    "start": "cinnamon",
+    "waypoint": "weaponry",
+    "target": "musket",
+    "verificationWords": [
+      "spice",
+      "trade",
+      "market",
+      "arms",
+      "gun"
+    ],
+    "reason": "Cinnamon leads through the spice trade to an arms market and a musket."
+  },
+  {
+    "start": "guava",
+    "waypoint": "horticulture",
+    "target": "robin",
+    "verificationWords": [
+      "fruit",
+      "tree",
+      "nest"
+    ],
+    "reason": "Fruit growing leads through a tree to a robin\u2019s nest."
+  },
+  {
+    "start": "leek",
+    "waypoint": "stock",
+    "target": "buoy",
+    "verificationWords": [
+      "soup",
+      "stock",
+      "market"
+    ],
+    "reason": "Soup stock changes into market stock; a financial float becomes something floating on water."
+  },
+  {
+    "start": "hyena",
+    "waypoint": "comedy",
+    "target": "clarinet",
+    "verificationWords": [
+      "laughing",
+      "humour",
+      "improvisation"
+    ],
+    "reason": "A laughing hyena leads to improvised comedy and then improvised music."
+  },
+  {
+    "start": "okra",
+    "waypoint": "conservation",
+    "target": "swallow",
+    "verificationWords": [
+      "seed",
+      "field",
+      "bird"
+    ],
+    "reason": "An okra crop leads to seeds, fields and the birds that feed there."
+  },
+  {
+    "start": "ceramic",
+    "waypoint": "coronation",
+    "target": "taxation",
+    "verificationWords": [
+      "tooth",
+      "crown",
+      "kingdom"
+    ],
+    "reason": "A ceramic dental crown changes into a royal crown and a kingdom collecting taxes."
+  },
+  {
+    "start": "latch",
+    "waypoint": "percussion",
+    "target": "typewriter",
+    "verificationWords": [
+      "lock",
+      "keys",
+      "keyboard"
+    ],
+    "reason": "A latch\u2019s lock leads to keys; musical keys and struck keys lead to a typewriter."
+  },
+  {
+    "start": "bull",
+    "waypoint": "insurance",
+    "target": "parsnip",
+    "verificationWords": [
+      "cattle",
+      "farm",
+      "crop",
+      "root"
+    ],
+    "reason": "A bull leads to cattle farming, crop insurance and root vegetables."
+  },
+  {
+    "start": "pretzel",
+    "waypoint": "twine",
+    "target": "pigtail",
+    "verificationWords": [
+      "knot",
+      "braid"
+    ],
+    "reason": "A pretzel knot becomes braided twine and a braided pigtail."
+  },
+  {
+    "start": "crow",
+    "waypoint": "printer",
+    "target": "palette",
+    "verificationWords": [
+      "black",
+      "print",
+      "colour"
+    ],
+    "reason": "A crow suggests black; black becomes printing ink and an artist\u2019s palette."
+  },
+  {
+    "start": "parsley",
+    "waypoint": "plate",
+    "target": "gazpacho",
+    "verificationWords": [
+      "garnish",
+      "plate",
+      "soup"
+    ],
+    "reason": "Parsley garnishes a plate; a plated soup leads to gazpacho."
+  },
+  {
+    "start": "bellows",
+    "waypoint": "forge",
+    "target": "clover",
+    "verificationWords": [
+      "furnace",
+      "forge",
+      "iron",
+      "horseshoes"
+    ],
+    "reason": "Bellows feed a forge; iron becomes a horseshoe, then a lucky clover."
+  },
+  {
+    "start": "geranium",
+    "waypoint": "perfumer",
+    "target": "sandal",
+    "verificationWords": [
+      "scent",
+      "perfume",
+      "sandalwood"
+    ],
+    "reason": "A scented flower leads to sandalwood perfume and wooden sandals."
+  },
+  {
+    "start": "pickle",
+    "waypoint": "saltwater",
+    "target": "cargo",
+    "verificationWords": [
+      "brine",
+      "salt",
+      "sea"
+    ],
+    "reason": "Pickling brine becomes salt water, then sea transport and cargo."
+  },
+  {
+    "start": "fox",
+    "waypoint": "coat",
+    "target": "gull",
+    "verificationWords": [
+      "fur",
+      "feather"
+    ],
+    "reason": "A fox\u2019s fur coat becomes a bird\u2019s feather coat."
+  },
+  {
+    "start": "nutmeg",
+    "waypoint": "sailing",
+    "target": "rosewood",
+    "verificationWords": [
+      "spice",
+      "trade",
+      "ship",
+      "timber"
+    ],
+    "reason": "The nutmeg spice trade leads to wooden sailing ships and timber."
+  },
+  {
+    "start": "cobbler",
+    "waypoint": "baking",
+    "target": "nectar",
+    "verificationWords": [
+      "pastry",
+      "fruit"
+    ],
+    "reason": "Cobbler changes from a shoemaker to a fruit dessert, then fruit nectar."
+  },
+  {
+    "start": "petunia",
+    "waypoint": "mould",
+    "target": "candelabra",
+    "verificationWords": [
+      "pot",
+      "clay",
+      "mould",
+      "wax",
+      "candle"
+    ],
+    "reason": "A flower pot becomes clay moulding, then a mould for wax candles."
+  },
+  {
+    "start": "banjo",
+    "waypoint": "bow",
+    "target": "elk",
+    "verificationWords": [
+      "string",
+      "bow",
+      "arrow"
+    ],
+    "reason": "A banjo string becomes an archery bow, then an arrow and a deer."
+  },
+  {
+    "start": "dandelion",
+    "waypoint": "reservoir",
+    "target": "oar",
+    "verificationWords": [
+      "seed",
+      "wind",
+      "turbine",
+      "blade"
+    ],
+    "reason": "A seed moves on the wind; a wind turbine becomes a water turbine, then a paddle blade."
+  },
+  {
+    "start": "grape",
+    "waypoint": "distillation",
+    "target": "baguette",
+    "verificationWords": [
+      "wine",
+      "yeast",
+      "bread"
+    ],
+    "reason": "Grapes become wine; yeast then changes into bread-making."
+  },
+  {
+    "start": "caper",
+    "waypoint": "anthropology",
+    "target": "chisel",
+    "verificationWords": [
+      "theft",
+      "artifact",
+      "stone"
+    ],
+    "reason": "A caper becomes artifact theft, then carved stone and a chisel."
+  },
+  {
+    "start": "quince",
+    "waypoint": "heating",
+    "target": "kiln",
+    "verificationWords": [
+      "fruit",
+      "oven"
+    ],
+    "reason": "A quince leads to fruit cooking; an oven becomes a pottery kiln."
+  },
+  {
+    "start": "cricket",
+    "waypoint": "orchestral",
+    "target": "palace",
+    "verificationWords": [
+      "playing",
+      "music",
+      "orchestra"
+    ],
+    "reason": "Playing changes from cricket to music, then an orchestra at a palace."
+  },
+  {
+    "start": "lilac",
+    "waypoint": "gardening",
+    "target": "tiara",
+    "verificationWords": [
+      "flower",
+      "wreath"
+    ],
+    "reason": "Garden flowers become a head wreath, then a jeweled crown or tiara."
+  },
+  {
+    "start": "bullet",
+    "waypoint": "force",
+    "target": "firework",
+    "verificationWords": [
+      "speed",
+      "force",
+      "explosive"
+    ],
+    "reason": "A bullet leads to speed and force, then explosive fireworks."
+  },
+  {
+    "start": "dragonfly",
+    "waypoint": "icy",
+    "target": "marzipan",
+    "verificationWords": [
+      "wing",
+      "plane",
+      "icing"
+    ],
+    "reason": "A dragonfly wing becomes an aircraft wing; aircraft icing changes into cake icing."
+  },
+  {
+    "start": "cockatoo",
+    "waypoint": "voice",
+    "target": "doorbell",
+    "verificationWords": [
+      "parrot",
+      "mimic",
+      "voice",
+      "bell"
+    ],
+    "reason": "A cockatoo mimics a voice or a bell; the sound becomes a doorbell."
+  },
+  {
+    "start": "mussel",
+    "waypoint": "ornaments",
+    "target": "trombone",
+    "verificationWords": [
+      "shell",
+      "brass"
+    ],
+    "reason": "A mussel\u2019s shell becomes decorative material, then ornamental brass becomes a brass instrument."
+  },
+  {
+    "start": "cod",
+    "waypoint": "freezing",
+    "target": "lava",
+    "verificationWords": [
+      "frozen",
+      "cold",
+      "heat"
+    ],
+    "reason": "Frozen fish leads to cold and ice, then the contrast with hot lava."
+  },
+  {
+    "start": "spool",
+    "waypoint": "point",
+    "target": "discus",
+    "verificationWords": [
+      "thread",
+      "needle",
+      "point",
+      "throw"
+    ],
+    "reason": "A spool leads to thread and a needle point, then aiming a discus throw."
+  }
+]
