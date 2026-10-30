@@ -1,7 +1,8 @@
+import {createResultMapCamera} from './result-map-camera.mjs?v=shared-result-camera-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=in-hole-results-v1';
+import {howToPlay} from './how-to-play.mjs?v=shared-result-camera-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -9,8 +10,8 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=in-hole-results-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=in-hole-results-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=shared-result-camera-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=shared-result-camera-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
@@ -24,7 +25,7 @@ import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
 import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=cubic-results-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
-import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=in-hole-results-v1';
+import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=shared-result-camera-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
@@ -328,6 +329,7 @@ if(!simpleDaily){
 function showLegacyAnalyses(source,options){const visible=options.visible&&document.querySelector('.playtest-earlier').open;for(const panel of oldPanels)panel.show(source,{...options,visible});}
 document.querySelector('.playtest-earlier').addEventListener('toggle',()=>showLegacyAnalyses(state?.won?state:bestRouteState(),{visible:!!holeResult()&&!roundSummary()&&(!simpleDaily||justHoled),caption:state?.won?'This completed route':'Recorded best route'}));
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const resultMapCamera=createResultMapCamera($('map'),document.querySelector('.map-card'),{reduced});
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function api(path,body){
@@ -559,8 +561,9 @@ function map(preview=null){
   const view=completedMapView(d.width,$('map').clientWidth,highest,lowest,narrow());
   card.style.setProperty('--completed-map-height',`${view.height}px`);card.style.setProperty('--result-course-lift','0px');
   $('map').setAttribute('viewBox',`${view.x} ${view.y} ${view.width} ${view.viewHeight}`);
-  card.style.backgroundSize=`${d.width*view.scale}px auto`;card.style.backgroundPosition=`${-view.x*view.scale}px ${-view.y*view.scale}px`;
+  resultMapCamera.show({x:view.x,y:view.y,width:view.width},{worldWidth:d.width,frameWidth:$('map').clientWidth,frameHeight:view.height});
  }
+ else if(simpleDaily)resultMapCamera.remember({x:0,y:0,width:d.width});
 
  moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
 }
@@ -749,7 +752,7 @@ function update(){
 
 }
 function renderResultContext(){
- if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent='PAR 5';if(!justHoled){const strokes=daily.current()?.bestStrokes?.strokes,result=golfResult(strokes);$('arrival-title').textContent=Number.isFinite(strokes)?strokes>7?`You finished ${result}!`:`You got ${/^[aeiou]/i.test(result)?'an':'a'} ${result}!`:'Your result';}return;}
+ if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').innerHTML=$('show-best-route').innerHTML;$('arrival-par').setAttribute('aria-label','Your results');if(!justHoled){const strokes=daily.current()?.bestStrokes?.strokes,result=golfResult(strokes);$('arrival-title').textContent=Number.isFinite(strokes)?strokes>7?`You finished ${result}!`:`You got ${/^[aeiou]/i.test(result)?'an':'a'} ${result}!`:'Your result';}return;}
  const context=resultContext(justHoled,state?.won,roundSummary()),moment=context==='just-now',review=context==='review';
  $('arrival-context').textContent=moment?'JUST NOW':'SCORECARD';
  $('arrival-context').hidden=review;
