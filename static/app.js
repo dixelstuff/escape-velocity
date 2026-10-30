@@ -2,7 +2,7 @@ import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-came
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=how-to-play-four-steps-v1';
+import {howToPlay} from './how-to-play.mjs?v=help-refinements-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -650,7 +650,7 @@ function renderHoleLog(){
   if(holePanelMode==='tips')$('hole-log-rows').innerHTML=howToPlay();
   else{const card=bestRouteCard(daily.current());$('hole-log-title').textContent=card.title;$('hole-log-rows').innerHTML=card.html;}
   if(holePanelMode==='tips'){
-   const item=document.createElement('li');item.className='bag-tip';
+   const item=document.createElement('li');item.className='bag-tip';item.hidden=true; // Keep the chip-in control available in code, hidden during this playtest.
    item.innerHTML='<label class="chip-range-toggle"><input type="checkbox" id="tips-chip-range"> Show chip-in range</label>';
    $('hole-log-rows').append(item);$('tips-chip-range').checked=showChipRange;
    $('tips-chip-range').onchange=()=>{showChipRange=$('tips-chip-range').checked;$('show-chip-range').checked=showChipRange;map();};

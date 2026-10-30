@@ -4,9 +4,9 @@ import {howToPlay,DISTANCE_EXAMPLES} from '../static/how-to-play.mjs';
 import {Embeddings,decodeHalf,Game} from '../static/engine.mjs';
 const root=new URL('../static/model/',import.meta.url),read=name=>readFileSync(new URL(name,root)),config=JSON.parse(read('config.json')),raw=read(config.vector_fallback),e=new Embeddings(JSON.parse(read(config.words_file)),decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),config.dimensions,new Uint8Array(read(config.hub_file)));
 const html=howToPlay();assert.equal((html.match(/<figure /g)||[]).length,2);assert.match(html,/shaded area/);assert.match(html,/no attempt or stroke limits/);assert.ok(!html.includes('background-image'));
-assert.deepEqual([...html.matchAll(/<h3>(.*?)<\/h3>/g)].map(m=>m[1]),['1. Making a shot','2. Negotiating the dogleg','3. Trying another route','4. Your scores']);
+assert.deepEqual([...html.matchAll(/<h3>(.*?)<\/h3>/g)].map(m=>m[1]),['Making a shot','Negotiating the dogleg','Trying another route','Your scores']);
 assert.match(html,/<strong>Longer shots need stronger connections to the ball word\.<\/strong>/);
-assert.match(html,/recorded separately/);assert.match(html,/The shortest route isn't necessarily the cleverest!/);
+assert.match(html,/<strong>must connect to both<\/strong>/);assert.ok(!html.includes('<strong>Par 5</strong>'));assert.ok(html.indexOf('no attempt or stroke limits')>html.indexOf('<h3>Your scores</h3>'));assert.match(html,/recorded separately/);assert.match(html,/The shortest route isn't necessarily the cleverest!/);
 const app=readFileSync(new URL('../static/app.js',import.meta.url),'utf8');assert.doesNotMatch(app,/renderRetryTip|learnWordRetry|word-golf-retry-tip-used/,'the recurring retry bubble has no remaining trigger');
 console.log('How to play passed: production-engine hit/miss examples, target connection controlled, labelled diagrams, current rules and removed retry bubble.');
 
