@@ -42,3 +42,7 @@ The player's CUCUMBER route was **CUCUMBER → CREAM → LETTUCE → ICEBERG**. 
 Use subsequent play data to retain enjoyable holes, revise frustrating openings, and learn which natural alternatives the model misses. Prefer changing hole choices over global mechanics to rescue a single bad level. Keep experimental rules separate from the settings used to validate a published batch.
 
 Reference batch, including spoilers and engine validation: [fresh daily 30](reports/fresh-daily-30/README.md). Source proposals: [fresh-daily-30-2026-10-29.json](data/fresh-daily-30-2026-10-29.json). Validation/publishing script: [append_fresh_daily_30.mjs](scripts/append_fresh_daily_30.mjs).
+
+## Opening difficulty feedback — next fifty
+
+The player retired GUAVA → HORTICULTURE → ROBIN, OKRA → CONSERVATION → SWALLOW and BELLOWS → FORGE → CLOVER as too easy. Avoid leaning on the tee's obvious category as the complete first-leg puzzle. Prefer a small, recognisable discovery before the dogleg, while retaining several natural things to try. A familiar secondary meaning or material/function connection is preferable to harder vocabulary or arbitrary intermediates. Do not force every hole to be difficult: include quicker discoveries and quirky turns among the moderate setups. Verified routes are examples, not shortest-solution or difficulty guarantees. See the spoiler audit for the [fifty discovery holes](reports/discovery-daily-50/README.md).

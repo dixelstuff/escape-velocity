@@ -21,3 +21,13 @@ The 215-definition archive contains 12 matching holes, leaving 203 playable sche
 | JIGSAW → CELEBRITY → AVALANCHE | daily-2027-02-11 | 115 |
 | SPATULA → MASONRY → PIANIST | daily-2027-03-17 | 149 |
 | CARIBOU → KNITTING → CATAPULT | daily-2027-03-16 | 148 |
+
+## Further play feedback
+
+Three more holes retired as too easy, using the same non-destructive filtering. Together with the fifty discovery holes appended afterwards, the archive now has 265 definitions and 250 playable holes. Original IDs and stored results remain intact.
+
+| Combination | Stable archive ID |
+|---|---|
+| GUAVA → HORTICULTURE → ROBIN | daily-2027-04-23 |
+| OKRA → CONSERVATION → SWALLOW | daily-2027-04-26 |
+| BELLOWS → FORGE → CLOVER | daily-2027-05-03 |

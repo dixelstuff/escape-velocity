@@ -1,0 +1,571 @@
+[
+  {
+    "start": "blacksmith",
+    "waypoint": "hearing",
+    "target": "tenor",
+    "verificationWords": [
+      "hammer",
+      "ear",
+      "drum"
+    ],
+    "reason": "A blacksmith's hammer changes into the ear's hammer bone; the eardrum turns into musical sound."
+  },
+  {
+    "start": "caravan",
+    "waypoint": "cinematographer",
+    "target": "curtain",
+    "verificationWords": [
+      "trailer",
+      "film",
+      "screen"
+    ],
+    "reason": "A caravan trailer becomes a film trailer; a cinema screen becomes a window screen."
+  },
+  {
+    "start": "duck",
+    "waypoint": "accounting",
+    "target": "chord",
+    "verificationWords": [
+      "bill",
+      "bank",
+      "note"
+    ],
+    "reason": "A duck's bill becomes a financial bill, and a banknote becomes a musical note."
+  },
+  {
+    "start": "grapefruit",
+    "waypoint": "pigment",
+    "target": "yacht",
+    "verificationWords": [
+      "orange",
+      "colour",
+      "canvas",
+      "sail"
+    ],
+    "reason": "Orange changes from fruit to paint colour; canvas changes from painting surface to a sail."
+  },
+  {
+    "start": "skate",
+    "waypoint": "paper",
+    "target": "canteen",
+    "verificationWords": [
+      "blade",
+      "saw",
+      "wood",
+      "table"
+    ],
+    "reason": "A skate blade becomes a saw blade; wood becomes paper and then a dining table."
+  },
+  {
+    "start": "puffin",
+    "waypoint": "engraving",
+    "target": "cuttlefish",
+    "verificationWords": [
+      "book",
+      "ink"
+    ],
+    "reason": "Puffin changes from a bird to a publisher; printing ink becomes cuttlefish ink."
+  },
+  {
+    "start": "salami",
+    "waypoint": "electronics",
+    "target": "marionette",
+    "verificationWords": [
+      "slice",
+      "chip",
+      "computer",
+      "string"
+    ],
+    "reason": "A slice becomes a chip, then a computer string becomes a puppet's string."
+  },
+  {
+    "start": "coin",
+    "waypoint": "herbaceous",
+    "target": "stoic",
+    "verificationWords": [
+      "mint",
+      "herb",
+      "sage",
+      "philosopher"
+    ],
+    "reason": "Mint changes from making coins to a herb; sage then changes from herb to philosopher."
+  },
+  {
+    "start": "nightingale",
+    "waypoint": "theatre",
+    "target": "saxophone",
+    "verificationWords": [
+      "nurse",
+      "hospital",
+      "theatre",
+      "music"
+    ],
+    "reason": "Nightingale changes from bird to nurse; an operating theatre becomes a musical theatre."
+  },
+  {
+    "start": "barnacle",
+    "waypoint": "jewelry",
+    "target": "ruby",
+    "verificationWords": [
+      "oyster",
+      "pearl"
+    ],
+    "reason": "A barnacle's shell opens a route to pearls, then a pearl changes from shellfish treasure to jewellery."
+  },
+  {
+    "start": "trombone",
+    "waypoint": "archaeological",
+    "target": "pike",
+    "verificationWords": [
+      "slide",
+      "chest",
+      "treasure",
+      "sea",
+      "fish"
+    ],
+    "reason": "A trombone slide becomes a sliding drawer in a chest; treasure leads into the sea."
+  },
+  {
+    "start": "butter",
+    "waypoint": "livestock",
+    "target": "bugle",
+    "verificationWords": [
+      "milk",
+      "cow",
+      "horn"
+    ],
+    "reason": "Butter leads back to milk and cattle; a cow's horn becomes a musical horn."
+  },
+  {
+    "start": "mango",
+    "waypoint": "jars",
+    "target": "dirigible",
+    "verificationWords": [
+      "chutney",
+      "jar",
+      "vessel",
+      "airship"
+    ],
+    "reason": "Mango chutney fills a jar; vessel changes from a container to an airship."
+  },
+  {
+    "start": "hacksaw",
+    "waypoint": "skeletal",
+    "target": "macaroni",
+    "verificationWords": [
+      "blade",
+      "bone",
+      "elbow"
+    ],
+    "reason": "A saw blade reaches a bone and elbow; elbow changes from joint to pasta shape."
+  },
+  {
+    "start": "sage",
+    "waypoint": "government",
+    "target": "senator",
+    "verificationWords": [
+      "wise",
+      "thought",
+      "politics"
+    ],
+    "reason": "Sage changes from herb to wise thinker; political thought leads into government."
+  },
+  {
+    "start": "onion",
+    "waypoint": "topography",
+    "target": "harmonium",
+    "verificationWords": [
+      "layer",
+      "map",
+      "scale",
+      "music"
+    ],
+    "reason": "Onion layers become map layers; a map's scale changes into a musical scale."
+  },
+  {
+    "start": "fennel",
+    "waypoint": "navigation",
+    "target": "marina",
+    "verificationWords": [
+      "bulb",
+      "light",
+      "harbour"
+    ],
+    "reason": "A fennel bulb becomes a light bulb, then a harbour light guides boats into a marina."
+  },
+  {
+    "start": "gavel",
+    "waypoint": "badminton",
+    "target": "dulcimer",
+    "verificationWords": [
+      "judge",
+      "court",
+      "tennis",
+      "racket",
+      "string"
+    ],
+    "reason": "Court changes from law to racket sports; racket strings turn into musical strings."
+  },
+  {
+    "start": "sugar",
+    "waypoint": "fairytale",
+    "target": "sparrow",
+    "verificationWords": [
+      "plum",
+      "fairy",
+      "swan"
+    ],
+    "reason": "Sugar plum changes from sweets to the Sugar Plum Fairy; a fairy-tale swan returns the route to birds."
+  },
+  {
+    "start": "caraway",
+    "waypoint": "battery",
+    "target": "lantern",
+    "verificationWords": [
+      "garlic",
+      "bulb"
+    ],
+    "reason": "Caraway leads to another cooking ingredient, garlic; a plant bulb becomes an electric bulb."
+  },
+  {
+    "start": "tapir",
+    "waypoint": "grip",
+    "target": "squeegee",
+    "verificationWords": [
+      "snout",
+      "trunk",
+      "grip",
+      "rubber",
+      "blade"
+    ],
+    "reason": "A tapir's flexible snout becomes a gripping trunk; a rubber grip leads to a window-cleaning blade."
+  },
+  {
+    "start": "collar",
+    "waypoint": "instrumental",
+    "target": "piccolo",
+    "verificationWords": [
+      "priest",
+      "organ",
+      "flute"
+    ],
+    "reason": "A clerical collar leads to a church organ; an organ becomes another musical instrument."
+  },
+  {
+    "start": "sardine",
+    "waypoint": "decorating",
+    "target": "easel",
+    "verificationWords": [
+      "tin",
+      "paint"
+    ],
+    "reason": "A sardine tin becomes a paint tin, then paint moves to an artist's easel."
+  },
+  {
+    "start": "lotus",
+    "waypoint": "automotive",
+    "target": "soprano",
+    "verificationWords": [
+      "car",
+      "pitch",
+      "tune"
+    ],
+    "reason": "Lotus changes from flower to car; an engine's pitch becomes a sung musical pitch."
+  },
+  {
+    "start": "shrimp",
+    "waypoint": "modelling",
+    "target": "toboggan",
+    "verificationWords": [
+      "small",
+      "model",
+      "scale",
+      "slope"
+    ],
+    "reason": "Shrimp changes into something small; a scale model becomes a measured slope for a toboggan."
+  },
+  {
+    "start": "petal",
+    "waypoint": "travel",
+    "target": "cymbal",
+    "verificationWords": [
+      "flutter",
+      "wing",
+      "plane",
+      "crash"
+    ],
+    "reason": "A fluttering petal suggests wings and flight; an aircraft crash turns into a cymbal crash."
+  },
+  {
+    "start": "beret",
+    "waypoint": "scrub",
+    "target": "ponytail",
+    "verificationWords": [
+      "paint",
+      "brush",
+      "hair"
+    ],
+    "reason": "An artist's beret suggests a paintbrush; brush changes from painting and scrubbing to hair."
+  },
+  {
+    "start": "suit",
+    "waypoint": "kiln",
+    "target": "terrace",
+    "verificationWords": [
+      "court",
+      "clay",
+      "brick"
+    ],
+    "reason": "A suit becomes a legal court; court changes to a clay tennis court, then fired clay becomes a brick terrace."
+  },
+  {
+    "start": "reed",
+    "waypoint": "measuring",
+    "target": "jackhammer",
+    "verificationWords": [
+      "wicker",
+      "cane",
+      "stick",
+      "drill"
+    ],
+    "reason": "Reeds become wicker and a cane, then a measuring stick becomes a construction tool."
+  },
+  {
+    "start": "lychee",
+    "waypoint": "singer",
+    "target": "mandolin",
+    "verificationWords": [
+      "fruit",
+      "sugar",
+      "crystal",
+      "rock",
+      "music"
+    ],
+    "reason": "Fruit sugar forms crystals; rock changes from mineral to music and a stringed instrument."
+  },
+  {
+    "start": "larch",
+    "waypoint": "bows",
+    "target": "mongoose",
+    "verificationWords": [
+      "wood",
+      "bow",
+      "arrow",
+      "poison",
+      "snake"
+    ],
+    "reason": "Larch timber becomes a bow, then a poisoned arrow suggests venom and a mongoose's adversary."
+  },
+  {
+    "start": "scales",
+    "waypoint": "singing",
+    "target": "teapot",
+    "verificationWords": [
+      "note",
+      "tune",
+      "whistle"
+    ],
+    "reason": "Scales become a musical tune, then a whistle changes from singing to a steaming teapot."
+  },
+  {
+    "start": "mink",
+    "waypoint": "weaving",
+    "target": "jackfruit",
+    "verificationWords": [
+      "fur",
+      "thread",
+      "fibre",
+      "fruit"
+    ],
+    "reason": "Mink fur leads to woven thread and fibre; fibre changes from textile material to fruit fibre."
+  },
+  {
+    "start": "wrench",
+    "waypoint": "combustion",
+    "target": "dumpling",
+    "verificationWords": [
+      "pipe",
+      "steam",
+      "pot"
+    ],
+    "reason": "A wrench leads to a steam pipe; steam changes from a power source to a way to cook dumplings."
+  },
+  {
+    "start": "deer",
+    "waypoint": "woodwind",
+    "target": "mortar",
+    "verificationWords": [
+      "horn",
+      "brass",
+      "cannon"
+    ],
+    "reason": "A deer's horn becomes a musical horn, then brass changes from an instrument material to a cannon."
+  },
+  {
+    "start": "paddle",
+    "waypoint": "arrow",
+    "target": "cello",
+    "verificationWords": [
+      "boat",
+      "bow",
+      "string"
+    ],
+    "reason": "A boat's bow becomes an archer's bow, then a cello bow and string."
+  },
+  {
+    "start": "scallop",
+    "waypoint": "rocket",
+    "target": "barracuda",
+    "verificationWords": [
+      "shell",
+      "fish"
+    ],
+    "reason": "A shell changes from a scallop's covering to an explosive projectile before the route returns to fish."
+  },
+  {
+    "start": "gingerbread",
+    "waypoint": "sunlight",
+    "target": "cockpit",
+    "verificationWords": [
+      "house",
+      "window"
+    ],
+    "reason": "A gingerbread house has windows; a window changes from a house window to a cockpit window."
+  },
+  {
+    "start": "tuna",
+    "waypoint": "trading",
+    "target": "harmonica",
+    "verificationWords": [
+      "fish",
+      "market",
+      "stock",
+      "note",
+      "music"
+    ],
+    "reason": "A fish market becomes a stock market, then a financial note becomes a musical note."
+  },
+  {
+    "start": "moose",
+    "waypoint": "arms",
+    "target": "grappling",
+    "verificationWords": [
+      "crest",
+      "coat",
+      "arms",
+      "hold"
+    ],
+    "reason": "An animal crest becomes a coat of arms; arms change from heraldry to limbs used for grappling."
+  },
+  {
+    "start": "chickpea",
+    "waypoint": "heating",
+    "target": "locomotive",
+    "verificationWords": [
+      "pea",
+      "pot",
+      "steam"
+    ],
+    "reason": "Chickpeas cook in a steaming pot; steam changes from cooking to powering a locomotive."
+  },
+  {
+    "start": "dice",
+    "waypoint": "crystals",
+    "target": "beehive",
+    "verificationWords": [
+      "cube",
+      "sugar",
+      "honey"
+    ],
+    "reason": "A die's cube becomes a sugar cube and sugar crystals, then honey leads to a beehive."
+  },
+  {
+    "start": "minnow",
+    "waypoint": "wicket",
+    "target": "basket",
+    "verificationWords": [
+      "fish",
+      "catch"
+    ],
+    "reason": "A minnow is a catch; catch changes from fishing to cricket, then a fishing basket returns the journey to the catch."
+  },
+  {
+    "start": "pistachio",
+    "waypoint": "equestrian",
+    "target": "paddock",
+    "verificationWords": [
+      "nut",
+      "bolt",
+      "horse"
+    ],
+    "reason": "A pistachio nut becomes a metal nut and bolt; bolt changes into a running horse."
+  },
+  {
+    "start": "seaweed",
+    "waypoint": "paper",
+    "target": "cornet",
+    "verificationWords": [
+      "rice",
+      "wrap",
+      "cone",
+      "horn"
+    ],
+    "reason": "A seaweed wrap becomes wrapping paper and a rolled cone, then a cone becomes a brass horn."
+  },
+  {
+    "start": "wren",
+    "waypoint": "architectural",
+    "target": "pagoda",
+    "verificationWords": [
+      "architect",
+      "building"
+    ],
+    "reason": "Wren changes from bird to architect, then a building changes from church to pagoda."
+  },
+  {
+    "start": "toothpick",
+    "waypoint": "throne",
+    "target": "galleon",
+    "verificationWords": [
+      "tooth",
+      "crown",
+      "navy",
+      "ship"
+    ],
+    "reason": "A tooth crown becomes a royal crown; a monarch's navy supplies a galleon."
+  },
+  {
+    "start": "bracelet",
+    "waypoint": "fantasy",
+    "target": "witchcraft",
+    "verificationWords": [
+      "charm",
+      "magic"
+    ],
+    "reason": "A bracelet charm changes from ornament to a magical charm."
+  },
+  {
+    "start": "holly",
+    "waypoint": "preserves",
+    "target": "scone",
+    "verificationWords": [
+      "berry",
+      "jam",
+      "cream"
+    ],
+    "reason": "The berries on holly suggest berry preserves; jam and cream lead to a scone."
+  },
+  {
+    "start": "keyhole",
+    "waypoint": "crystals",
+    "target": "necktie",
+    "verificationWords": [
+      "eye",
+      "lens",
+      "glass",
+      "bottle",
+      "neck"
+    ],
+    "reason": "Peering through a keyhole reaches a lens and glass; a bottle neck becomes a shirt necktie."
+  }
+]
