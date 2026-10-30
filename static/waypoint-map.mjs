@@ -1,6 +1,6 @@
 import {mapFraction} from './map.mjs?v=golf-v189';
-import {appearanceUnit,greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=terrain-variety-v2';
-import {courseLake,courseBunkers} from './course-art.mjs?v=terrain-variety-v2';
+import {appearanceUnit,greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=quick-result-camera-v1';
+import {courseLake,courseBunkers} from './course-art.mjs?v=quick-result-camera-v1';
 /** Longer holes use a smaller visual scale; semantic distances and text sizes stay unchanged. */
 export function waypointLayout(base,state,placement={depth:.6,vertical:.5},style={}){
  const turn=state.waypoint.turn??'up',mirror=turn==='down';
@@ -87,7 +87,7 @@ export function waypointCartPath(d){
  const start={x:-30,y:184+22*u(':path-entry')},mid={x:bx+24*u(':path-mid-x'),y:28+18*u(':path-mid')},end={x:w+30,y:145+28*u(':path-exit')};
  const segments=[[start,{x:w*(.18+.04*u(':path-x1')),y:start.y+4},{x:w*(.31+.04*u(':path-x2')),y:mid.y+15},mid],[mid,{x:w*(.65+.04*u(':path-x3')),y:mid.y-9},{x:w*(.79+.04*u(':path-x4')),y:end.y-8},end]];
  const points=segments.flatMap(([a,b,c,e])=>Array.from({length:49},(_,i)=>{const t=i/48,u=1-t,x=u**3*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t**3*e.x,y=u**3*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t**3*e.y;return {x,y:d.reflectY?430-y:y};}));
- return {path:`M${start.x} ${start.y}`+segments.map(c=>' C'+c.slice(1).map(p=>`${p.x} ${p.y}`).join(' ')).join(''),points};
+ const pad=d.sceneryPadding??0;return {path:(pad?`M${-pad} ${start.y} L${start.x} ${start.y}`:`M${start.x} ${start.y}`)+segments.map(c=>' C'+c.slice(1).map(p=>`${p.x} ${p.y}`).join(' ')).join('')+(pad?` L${w+pad} ${end.y}`:''),points};
 }
 function lakeSettings(d,style){const u=s=>style.seed?appearanceUnit(style.seed,s)-.5:0;return {layout:{...d,zoneLeft:d.width*((d.reflectY?.64:.59)+.055*u(':lake-end'))},style:{...style,lakeY:(d.reflectY?384:390)+20*u(':lake-bank'),wave:(d.reflectY?39:35)+18*u(':lake-wave'),cove:(d.reflectY?38:26)+18*u(':lake-cove'),coveAt:.55+.16*u(':cove-at'),coveWidth:.19+.08*u(':cove-width')}};}
 function reflection(d){return d.reflectY?'translate(0 430) scale(1 -1)':'';}
@@ -139,23 +139,23 @@ export function waypointGreen(d,style){
  return `<defs><filter id="shared-collar-join" x="-10%" y="-10%" width="120%" height="120%"><feMorphology operator="dilate" radius="2"/><feMorphology operator="erode" radius="2"/></filter></defs><g id="green-fringe" fill="#b8cf94" filter="url(#shared-collar-join)"><path d="${greenPath(d,8)}"/><g transform="${transform}">${outer}</g></g><g class="greenside-sand" transform="${transform}">${courseBunkers(d,{...style,bunkers},{fringe:false})}</g><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="1.6"/>`;
 }
 export function waypointLandscape(state,d,style={phase:0}){
- const w=d.width,a=waypointAnchors(d),bx=a.bend.x,transform=reflection(d);
+ const w=d.width,a=waypointAnchors(d),bx=a.bend.x,transform=reflection(d),pad=d.sceneryPadding??0;
  const down=d.reflectY,top=down?80:70,greenTop=down?430-d.greenBottom:d.greenTop,greenBottom=greenTop+184,front=d.zoneLeft+24;
  const bank=x=>waypointBankY(d,style,x),slope=x=>(bank(x+.15)-bank(x-.15))/.3;
  const points=Array.from({length:33},(_,i)=>({x:bx-(bx+30)*i/32,y:bank(bx-(bx+30)*i/32)}));
  let lower='';for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3;lower+=` C${a.x+step} ${a.y+step*slope(a.x)} ${b.x-step} ${b.y-step*slope(b.x)} ${b.x} ${b.y}`;}
  // Broad, authored curves with matching tangent handles; no interpolated anchor bumps.
  const frontStart=d.zoneLeft-20,frontNear=greenTop+38,frontFar=greenBottom-38,frontMiddle=(greenTop+greenBottom)/2;
- const outline=`M-30 222 C${w*.18} 222 ${w*.29} ${top} ${bx} ${top} C${bx+w*.10} ${top} ${w*.68} ${frontNear} ${frontStart} ${frontNear} C${d.zoneLeft+10} ${frontNear} ${front} ${frontNear} ${front} ${frontMiddle} C${front} ${frontFar} ${d.zoneLeft+10} ${frontFar} ${frontStart} ${frontFar} C${w*.68} ${frontFar} ${bx+70} ${bank(bx)+70*slope(bx)} ${bx} ${bank(bx)}${lower} Z`;
+ const outline=`M-30 222 C${w*.18} 222 ${w*.29} ${top} ${bx} ${top} C${bx+w*.10} ${top} ${w*.68} ${frontNear} ${frontStart} ${frontNear} C${d.zoneLeft+10} ${frontNear} ${front} ${frontNear} ${front} ${frontMiddle} C${front} ${frontFar} ${d.zoneLeft+10} ${frontFar} ${frontStart} ${frontFar} C${w*.68} ${frontFar} ${bx+70} ${bank(bx)+70*slope(bx)} ${bx} ${bank(bx)}${lower}${pad?` L${-pad} ${bank(-30)} L${-pad} 222`:""} Z`;
  const sandStyle={...style,bunkers:waypointBunkers(d,style).slice(0,1)};
  const settings=lakeSettings(d,style),lakeD=settings.layout,lakeStyle=settings.style,lake=lakeGeometry(lakeD,lakeStyle);
  const bend=a.bend;
  // The final approach follows the fairway midpoint, then blends into the cup.
  const guide=`M${a.tee.x} ${a.tee.y} C${w*.20} ${a.tee.y} ${w*.29} ${bend.y} ${bend.x} ${bend.y}`+waypointFinalCentre(d).map(c=>' C'+c.slice(1).map(p=>`${p.x} ${p.y}`).join(' ')).join('');
  // A through path follows the outside cut, rather than returning in a hairpin.
- const outerPath=(d.cartPath??waypointCartPath(d)).path;
+ const outerPath=(pad?waypointCartPath(d):d.cartPath??waypointCartPath(d)).path;
 
- return `<rect width="${w}" height="430" fill="#c4d3a7"/><defs><mask id="waypoint-dry-rough"><rect width="${w}" height="430" fill="white"/><path d="${outline}" transform="${transform}" fill="black"/><path d="${lake.path}" transform="${transform}" fill="black" stroke="black" stroke-width="22"/></mask><clipPath id="waypoint-fairway"><path d="${outline}" transform="${transform}"/></clipPath></defs><rect width="${w}" height="430" fill="url(#fairway-mown)" clip-path="url(#waypoint-fairway)"/><g mask="url(#waypoint-dry-rough)" aria-hidden="true"><path d="${outerPath}" transform="${transform}" fill="none" stroke="#b3bd96" stroke-width="13"/><path d="${outerPath}" transform="${transform}" fill="none" stroke="#ddd8bb" stroke-width="8"/></g><g transform="${transform}"><path d="${lake.path}" fill="#c4d3a7" stroke="#c4d3a7" stroke-width="30"/>${courseLake(lakeD,lakeStyle,lake)}${courseBunkers(d,sandStyle)}</g><path id="dogleg-centreline" d="${guide}" fill="none" stroke="#a1b78e" stroke-width="1.2" stroke-dasharray="3 8"/>`;
+ return `<rect x="${-pad}" width="${w+2*pad}" height="430" fill="#c4d3a7"/><defs><mask id="waypoint-dry-rough"><rect x="${-pad}" width="${w+2*pad}" height="430" fill="white"/><path d="${outline}" transform="${transform}" fill="black"/><path d="${lake.path}" transform="${transform}" fill="black" stroke="black" stroke-width="22"/></mask><clipPath id="waypoint-fairway"><path d="${outline}" transform="${transform}"/></clipPath></defs><rect x="${-pad}" width="${w+2*pad}" height="430" fill="url(#fairway-mown)" clip-path="url(#waypoint-fairway)"/><g mask="url(#waypoint-dry-rough)" aria-hidden="true"><path d="${outerPath}" transform="${transform}" fill="none" stroke="#b3bd96" stroke-width="13"/><path d="${outerPath}" transform="${transform}" fill="none" stroke="#ddd8bb" stroke-width="8"/></g><g transform="${transform}"><path d="${lake.path}" fill="#c4d3a7" stroke="#c4d3a7" stroke-width="30"/>${courseLake(lakeD,lakeStyle,lake)}${courseBunkers(d,sandStyle)}</g><path id="dogleg-centreline" d="${guide}" fill="none" stroke="#a1b78e" stroke-width="1.2" stroke-dasharray="3 8"/>`;
 }
 export function waypointZone(state,d,occupied=false){
  if(state.stage!==0||occupied)return '';

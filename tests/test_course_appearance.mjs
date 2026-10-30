@@ -62,6 +62,10 @@ console.log('Terrain passed: stable tee/bunker/shore variation, one or two bunke
  for(const narrow of [false,true]){
   const d=mapLayout(narrow),style=courseStyle('background-xml');
   const svg=courseContinuation(d,style);
+  const normalLake=lakeGeometry(d,style),extendedLake=lakeGeometry({...d,sceneryPadding:d.width},style);
+  for(let x=0;x<=d.width;x+=d.width/8)for(let y=0;y<=700;y+=35)assert.equal(lakeContains({x,y},normalLake),lakeContains({x,y},extendedLake),'extending outside scenery must preserve the original lake inside the hole');
+  assert.ok(extendedLake.path.includes(`L${-d.width},`));
+  const wide=courseContinuation(d,style,{sidePadding:d.width});assert.match(wide,new RegExp(`viewBox="${-d.width} 0 ${3*d.width} 2600"`));assert.ok(wide.includes(`<rect x="${-d.width}" width="${3*d.width}" height="2600" fill="#c4d3a7"/>`));
   const parsed=spawnSync('python3',['-c','import sys,xml.etree.ElementTree as ET; ET.fromstring(sys.stdin.read())'],{input:svg,encoding:'utf8'});
   assert.equal(parsed.status,0,parsed.stderr);
  }

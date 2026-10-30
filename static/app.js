@@ -1,8 +1,8 @@
-import {createResultMapCamera} from './result-map-camera.mjs?v=shared-result-camera-v1';
+import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=shared-result-camera-v1';
+import {howToPlay} from './how-to-play.mjs?v=quick-result-camera-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -10,8 +10,8 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=shared-result-camera-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=shared-result-camera-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=quick-result-camera-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=quick-result-camera-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
@@ -23,11 +23,11 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=golf-v189';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=cubic-results-v1';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=quick-result-camera-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
-import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=shared-result-camera-v1';
-import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
-import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
+import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=quick-result-camera-v1';
+import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=quick-result-camera-v1';
+import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
 import { createBrowserClient } from './engine.mjs?v=cubic-results-v1';
@@ -340,7 +340,7 @@ function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())retur
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const desktopInteraction=()=>matchMedia('(hover: hover) and (pointer: fine)').matches;
 let appearanceKey,appearanceLayout,backdropLayout;
-function dimensions(){const seed=state?.challenge?state.challenge.id:flightLog.active?.id??'opening';const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement,style):base),style};}return appearanceLayout;}
+function dimensions(){const seed=state?.challenge?state.challenge.id:flightLog.active?.id??'opening';const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement,style):base),style,sceneryPadding:simpleDaily?base.width:0};}return appearanceLayout;}
 const COURSE_HEIGHT=430,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
 function goldenLanding(a,b,d){let lo=0,hi=1;for(let i=0;i<32;i++){const t=(lo+hi)/2;if(greenContains({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},d))hi=t;else lo=t;}const fraction=hi+(1-hi)*.22;return {fraction,x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction};}
@@ -532,7 +532,7 @@ function map(preview=null){
  const r=ballPosition(state.current);
  svg+=`<g id="golf-ball" transform="translate(${r.x},${r.y})" aria-label="Your golf ball" opacity="${state.won&&state.current===state.target?0:1}" aria-hidden="${state.won&&state.current===state.target}"><g id="ball-size" transform="scale(${scale})"><ellipse id="ball-shadow" cy="18" rx="17" ry="4" fill="#45663e" opacity=".2"/><g id="ball-body"><circle r="16" fill="url(#ball-shade)" stroke="#728363" stroke-width="1"/><g id="ball-dimples">${[[-4,-5],[3,-6],[-7,1],[0,0],[6,1],[-3,6],[4,6]].map(([cx,cy])=>`<circle cx="${cx}" cy="${cy}" r="1.2" fill="#d4ddc8"/>`).join('')}</g></g></g></g>`;
  $('map').innerHTML=`<rect class="course-scenery" x="${-d.width}" y="${-COURSE_HEIGHT*2}" width="${d.width*3}" height="${COURSE_HEIGHT*5}" fill="#c4d3a7"/><g id="course-world" transform="${worldTransform}">${svg}</g>`;
- if(backdropLayout!==d){document.querySelector('.map-card').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style,{foreground:worldArt,lake}))}")`;backdropLayout=d;}
+ if(backdropLayout!==d){document.querySelector('.map-card').style.backgroundImage=`url("data:image/svg+xml,${encodeURIComponent(courseContinuation(d,d.style,{foreground:worldArt,lake,sidePadding:simpleDaily?d.width:0}))}")`;backdropLayout=d;}
  const textNodes=[...$('map').querySelectorAll('[data-word-label]')];
  const needsBallSpace=p=>p.key!==finalKey&&(p.key===currentKey||state.waypoint&&p.key===waypointKey||preview?.success&&p.key===wordLieKey(preview.word,preview));
  const obstacles=planets.filter(p=>!p.previous&&!p.waypointReference).map(p=>{if(needsBallSpace(p)||p.resumeThrough!==undefined){const b=p.key===currentKey?ballPosition(p.word,preview):{x:p.pos.x,y:p.pos.y-(p.key===teeKey?16*scale:0)};return {x:b.x-17,y:b.y-17,width:34,height:40};}const radius=p.key===targetKey?10:8;return {x:p.pos.x-radius,y:p.pos.y-radius,width:2*radius,height:2*radius};});
@@ -561,9 +561,9 @@ function map(preview=null){
   const view=completedMapView(d.width,$('map').clientWidth,highest,lowest,narrow());
   card.style.setProperty('--completed-map-height',`${view.height}px`);card.style.setProperty('--result-course-lift','0px');
   $('map').setAttribute('viewBox',`${view.x} ${view.y} ${view.width} ${view.viewHeight}`);
-  resultMapCamera.show({x:view.x,y:view.y,width:view.width},{worldWidth:d.width,frameWidth:$('map').clientWidth,frameHeight:view.height});
+  resultMapCamera.show({x:view.x,y:view.y,width:view.width},{worldWidth:d.width,frameWidth:$('map').clientWidth,frameHeight:view.height,backdropPadding:d.width});
  }
- else if(simpleDaily)resultMapCamera.remember({x:0,y:0,width:d.width});
+ else if(simpleDaily)resultMapCamera.remember({x:0,y:0,width:d.width},{worldWidth:d.width,frameWidth:$('map').clientWidth,backdropPadding:d.width});
 
  moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
 }

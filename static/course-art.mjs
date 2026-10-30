@@ -1,4 +1,4 @@
-import {appearanceUnit,bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=terrain-variety-v2';
+import {appearanceUnit,bunkerPath,bunkerPoints,greenPoints,shoreY,lakeGeometry,lakeContains,greenPath,greenContains} from './course-appearance.mjs?v=quick-result-camera-v1';
 
 /** Quiet, plan-view scorecard artwork. All scenery is behind the played words. */
 function smoothContour(points){
@@ -238,15 +238,15 @@ export function neighbouringCourse(d){
  return {fairway:render(segments)+' Z',path:render(pathCurves),outline:sample(segments),pathPoints:sample(pathCurves)};
 }
 /** One world behind the playable viewport and feedback, with no image edge at their join. */
-export function courseContinuation(d,style,{foreground=null,lake=lakeGeometry(d,style)}={}){
- const w=d.width,{fairway,path}=neighbouringCourse(d);
+export function courseContinuation(d,style,{foreground=null,lake=lakeGeometry(d,style),sidePadding=0}={}){
+ const w=d.width,{fairway,path}=neighbouringCourse(d),canvasWidth=w+2*sidePadding,canvasHeight=sidePadding?2600:1730;
  const defs=`<pattern id="green-mown" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#95c87b"/><rect width="11" height="22" fill="#a5d18d"/></pattern><pattern id="fairway-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#d8e7c4"/><rect width="50" height="1300" fill="#e1edcf"/></pattern>${courseArtDefs}`;
  const world=foreground??`${courseSurrounds(d,style,lake)}${courseBunkers(d,style)}<path d="${greenPath(d,7)}" fill="#b8cf94"/><path d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>${courseLake(d,style,lake)}${approachLandscape(d,style)}${d.par3?par3PathArt(d,style):''}${courseTrees(d,style,lake)}`;
  const waterOutline=lake.outline.map(p=>`${p.x},${p.y}`).join(' '),transform=d.reflectY?'translate(0 430) scale(1 -1)':'';
  const ripples=lakeRipples(w,455,760,style.phase);
- return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="1730" viewBox="0 0 ${w} 1730">
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" height="${canvasHeight}" viewBox="${-sidePadding} 0 ${canvasWidth} ${canvasHeight}">
  <defs>${foreground?'':defs}<pattern id="neighbour-mown" width="100" height="1300" patternUnits="userSpaceOnUse"><rect width="100" height="1300" fill="#cfddb9"/><rect width="50" height="1300" fill="#dbe5c6"/></pattern><clipPath id="world-water"><polygon points="${waterOutline}"/></clipPath></defs>
- <rect width="${w}" height="1730" fill="#c4d3a7"/>${world}
+ <rect x="${-sidePadding}" width="${canvasWidth}" height="${canvasHeight}" fill="#c4d3a7"/>${world}
  <g id="continuation-water-details" clip-path="url(#world-water)" fill="none"><path d="${lake.path}" transform="${transform}" stroke="#b8d1cb" stroke-width="3" opacity=".65"/><g stroke="#cfdfd8" stroke-linecap="round">${ripples}</g></g>
  <path d="${fairway}" fill="url(#neighbour-mown)" stroke="#afc18e" stroke-width="7" stroke-linejoin="round"/>
  <path d="${path}" fill="none" stroke="#a8b88d" stroke-width="13"/><path d="${path}" fill="none" stroke="#e1dcc4" stroke-width="8"/>

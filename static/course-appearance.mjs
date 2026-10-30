@@ -95,8 +95,10 @@ export function lakeGeometry(d,style){
  let shore=`M${points[0].x},${points[0].y}`;
  for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],step=(b.x-a.x)/3,slope=x=>(shoreY(x+.1,d,style)-shoreY(x-.1,d,style))/.2;shore+=` C${a.x+step},${a.y+step*slope(a.x)} ${b.x-step},${b.y-step*slope(b.x)} ${b.x},${b.y}`;}
  const a=points.at(-1),tangent=(shoreY(end+.1,d,style)-shoreY(end-.1,d,style))/.2,b={x:end+80,y:a.y+80*tangent},c={x:d.width*.62,y:640},e={x:-30,y:686};
- const path=shore+` C${b.x},${b.y} ${c.x},${c.y} ${e.x},${e.y} Z`;
+ const pad=d.sceneryPadding??0;
+ const path=shore+` C${b.x},${b.y} ${c.x},${c.y} ${e.x},${e.y}${pad?` L${-pad},${e.y} L${-pad},${points[0].y}`:""} Z`;
  const outline=[...points,...Array.from({length:48},(_,i)=>{const t=(i+1)/48,u=1-t;return {x:u*u*u*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t*t*t*e.x,y:u*u*u*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t*t*t*e.y};})];
+ if(pad)outline.push({x:-pad,y:e.y},{x:-pad,y:points[0].y});
  return {path,shore,outline,obstacles:points.slice(0,-1).map((p,i)=>({x:p.x,y:Math.min(p.y,points[i+1].y),width:points[i+1].x-p.x,height:700-Math.min(p.y,points[i+1].y)})).filter(o=>o.y<430)};
 }
 /** Include a safety margin for the entire tree canopy and shadow, not just its centre. */
