@@ -30,3 +30,9 @@ const opening={simpleDaily:true,busy:false,dailyResultReturn:null,retryTimer:nul
 runInNewContext(source.slice(source.indexOf('async function openDaily(day){'),source.indexOf('function adjacentDaily(')),opening);
 await opening.openDaily('day');assert.equal(replayed,1);assert.equal(opening.dailyResultReturn,null);
 console.log('Trophy-only reopening passed: background taps cannot reopen results, ordinary cancellation works, and completed-hole navigation starts playable.');
+
+const savedBest={won:true,history:[{word:'bridge',success:true}],challenge:{id:'same',attempt:2}},reference={simpleDaily:true,state:{won:false,history:[],challenge:{id:'same',attempt:9}},retryPreview:null,flightLog:{active:{previous_labels_dismissed:true},data:{journeys:[]}},practising:()=>false,dailyBestState:()=>savedBest,daily:{current:()=>({bestStrokes:{journeyId:'durable-best'}})},previousAttempts:()=>[]};
+runInNewContext(source.slice(source.indexOf('function retrySource(){'),source.indexOf('function retryFromWord(')),reference);
+assert.equal(reference.retrySource().state,savedBest);assert.equal(reference.retrySource().id,'durable-best');assert.equal(reference.retrySource().referenceBest,true,'durable best remains available after export history/reset');assert.equal(reference.retrySource().attempt,9);reference.state.challenge.attempt=1;assert.equal(reference.retrySource().attempt,3,'restored old best must use a retry number newer than its saved attempt');
+reference.state.history=[{word:'new',success:true}];assert.equal(reference.retrySource(),null,'do not overlay an old best over a new route in progress');reference.state.history=[];reference.retryPreview={};assert.equal(reference.retrySource(),null,'an explicit retry selection keeps its own source route');
+console.log('Saved route reference passed: empty export log and tee replay show tappable best lies without replacing a new route or selected retry.');

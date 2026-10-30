@@ -1,7 +1,7 @@
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay} from './how-to-play.mjs?v=help-comparison-v2';
+import {howToPlay} from './how-to-play.mjs?v=in-hole-results-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -9,8 +9,8 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=help-comparison-v2';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=help-comparison-v2';
+import {mountDailyUI} from './daily-ui.mjs?v=in-hole-results-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=in-hole-results-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
@@ -24,7 +24,7 @@ import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
 import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=cubic-results-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
-import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=help-comparison-v2';
+import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=in-hole-results-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
@@ -290,6 +290,11 @@ async function openDaily(day){
  reviewingDailyBest=false;
  setBag(false);setHoleLog(false);const previousDay=daily.data.selected;daily.visit(day);
  const record=daily.current(),journey=flightLog.data.journeys.find(j=>j.id===record?.journeyId);
+ // A reset can leave a live tee journey alongside a compact best summary.
+ // Recover the durable geometry before restoring that live journey below.
+ if(record?.bestStrokes&&journey&&!journey.state.won&&!journey.state.challenge_failed&&!bestResultState(record,flightLog.data.journeys)){
+  lock(true);try{const recovered=await recoverBestState(client,def,record.bestStrokes);if(recovered){record.bestStrokes.state=structuredClone(recovered);daily.save();}}finally{lock(false);}
+ }
  if(record?.bestStrokes&&(!journey||journey.state.won||journey.state.challenge_failed)){
   lock(true);try{
    const saved=bestResultState(record,flightLog.data.journeys);let restored=null;
@@ -383,6 +388,9 @@ function moveWordLabels(previous){
 }
 function retrySource(){
  if(practising())return null;
+ if(simpleDaily&&state?.challenge&&!retryPreview&&!state.won&&!state.challenge_failed&&!state.history.length){
+  const saved=dailyBestState();if(saved?.won)return {state:saved,id:daily.current().bestStrokes.journeyId,attempt:Math.max(state.challenge.attempt,saved.challenge.attempt+1),referenceBest:true};
+ }
  if(!state?.challenge||retryPreview||state.won||state.challenge_failed||state.history.some(h=>!h.assumed)||(flightLog.active?.previous_labels_dismissed&&!flightLog.active?.auto_retry))return null;
  const previous=previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)[0];
  if(!previous||!previous.state.history.some(h=>h.success))return null;
@@ -397,7 +405,7 @@ function retryFromWord(through,{focusEntry=true}={}){
  if(returnsToOriginalLie(switching,through)){cancelRetry();if(focusEntry)$('word').focus({preventScroll:true});return;}
  if(!switching&&!previous&&through===state.history.length&&!state.won&&!state.challenge_failed){if(focusEntry)$('word').focus({preventScroll:true});return;}
  const nextAttempt=inCourse()&&!practising()?Math.max(state.challenge.attempt+1,...rounds.hole.attempts.map(a=>a.number+1)):state.challenge.attempt+1;
- const attempt=switching?.attempt??(previous?state.challenge.attempt:nextAttempt);
+ const attempt=switching?.attempt??previous?.attempt??(previous?state.challenge.attempt:nextAttempt);
  if(rollingMode&&inCourse()&&attempt>rounds.hole.allowance){rollingUI.lockMessage();return;}
  const practicePreview=!practising()&&attempt>attemptLimit(state.challenge.par);
  const sourceState={...source.state,continuous_play:true,...(rollingMode&&inCourse()?{challenge:{...source.state.challenge,attempt_limit:rounds.hole.allowance}}:{}),...(practicePreview?{challenge:{...source.state.challenge,practice:true,locked_result:lockedHoleResult(source.state)}}:{})};
@@ -485,7 +493,7 @@ if(typeof ResizeObserver!=='undefined'){
 function map(preview=null){
  const d=dimensions(),previousLabels=captureWordLabels(d);$('map').setAttribute('viewBox',`0 0 ${d.width} ${COURSE_HEIGHT}`);
  const zone=d.zoneLeft,lake=state.waypoint?waypointLake(d,d.style):lakeGeometry(d,d.style),scale=d.artScale??1,teeOffset=state.waypoint?44:d.par3?64:TEE_MARKER_OFFSET;
- const retry=preview?null:retrySource(),previousEntry=(retry?.state??retryPreview?.source.state)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'));$('retry-guidance').hidden=true;
+ const retry=preview?null:retrySource(),reference=retryPreview?.source.state??(retry?.referenceBest?retry.state:null),previousEntry=(retry?.state??reference)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'));$('retry-guidance').hidden=true;
  const chipArt=chipShading(d,zone),waypointArt=state.waypoint?waypointZone(state,d,waypointDisplay.occupied):'';
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="${100*scale}" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="${100*scale}" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="${50*scale}" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="${22*scale}" height="${22*scale}" patternUnits="userSpaceOnUse"><rect width="${22*scale}" height="${22*scale}" fill="#95c87b"/><rect width="${11*scale}" height="${22*scale}" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><g class="course-scenery">${state.waypoint?waypointLandscape(state,d,d.style):courseSurrounds(d,d.style,lake)}</g>${chipArt}<g class="course-scenery">${state.waypoint?waypointGreen(d,d.style):`${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>`}${state.waypoint?'':`<path d="${par3CentreTrace(d)}" stroke="#a7bb9b" fill="none" stroke-dasharray="3 8"/>`}${state.waypoint?'':courseLake(d,d.style,lake)+approachLandscape(d,d.style)}${d.par3?par3PathArt(d,d.style):''}${courseTrees(d,d.style,lake)}</g>${waypointArt}`;
  const worldTransform=`rotate(${state.waypoint?d.style.rotation??0:0} ${d.width/2} 215)`;
@@ -495,16 +503,16 @@ function map(preview=null){
 
 
  const previousNodes=new Map();
- if(!flightLog.active?.previous_labels_dismissed&&showPreviousLabels(state,preview))for(const attempt of previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)){
+ if(!retry?.referenceBest&&!flightLog.active?.previous_labels_dismissed&&showPreviousLabels(state,preview))for(const attempt of previousAttempts(flightLog.data.journeys,state,flightLog.active?.id)){
   for(const label of previousWordLabels(attempt.state,d))previousNodes.set(label.key,{...label,previous:true,failed:true});
  }
  for(const h of [...visibleAttempts(state).filter(h=>h.success||usefulForwardMiss(h,state)),...(state.automatic_shots??[])]){const origin=state.history.findLast(e=>e.success&&e.word===h.origin&&e.attempt<h.attempt),a=position(h.origin,origin),b=position(h.word,h);svg+=`<path data-shot-path="${h.attempt}" d="${h.golden_holed?shotTrail('golden',a,{x:d.right,y:d.holeY},{tee:h.origin===state.start,landingFraction:goldenLanding(a,{x:d.right,y:d.holeY},d).fraction}):h.automatic&&automaticFinishMotion(a,d)==='putt'?`M ${a.x},${a.y} L ${b.x},${b.y}`:path(a,b)}" fill="none" stroke="${h.success?'#7d9f73':'#b7bfb1'}" stroke-width="1.4" ${h.success?'':'stroke-dasharray="3 5"'} opacity=".6"/>`;}
  const currentKey=currentLieKey(state),targetKey=wordLieKey(state.target,state.stage??0),teeKey=wordLieKey(state.start),finalKey=wordLieKey(state.final_target??state.target,state.waypoint?1:0),waypointKey=wordLieKey(state.waypoint?.word);
  const nodes=new Map([[teeKey,{key:teeKey,word:state.start,pos:state.waypoint?waypointAnchors(d).tee:position(state.start),...(state.challenge?{resumeThrough:0}:{})}]]);
  for(const h of visibleAttempts(state).filter(h=>h.success||usefulForwardMiss(h,state))){const key=wordLieKey(h.word,h);if(key===targetKey)continue;const old=nodes.get(key);if(!old)nodes.set(key,{key,word:h.word,pos:position(h.word,h),failed:!h.success,...(h.success&&!h.won?{resumeThrough:h.attempt}:{})});else if(h.success)Object.assign(old,{pos:position(h.word,h),failed:false,...(!h.won?{resumeThrough:h.attempt}:{})});}
- if(retryPreview)for(const h of retryPreview.source.state.history.filter(h=>h.success&&!h.automatic)){
+ if(reference)for(const h of reference.history.filter(h=>h.success&&!h.automatic)){
   const key=wordLieKey(h.word,h);if(nodes.has(key)||key===targetKey)continue;
-  const source=retryPreview.source.state,pos=source.waypoint?waypointPosition(source,h.word,d,h):projectPoint(h.destination,source.baseline,source.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);
+  const source=reference,pos=source.waypoint?waypointPosition(source,h.word,d,h):projectPoint(h.destination,source.baseline,source.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);
   nodes.set(key,{key,word:h.word,pos,...(!h.won?{resumeThrough:h.attempt}:{}),retryFuture:true});
  }
  if(!state.waypoint||state.stage!==0||waypointDisplay.showTarget)nodes.set(targetKey,{key:targetKey,word:state.target,pos:position(state.target,state.waypoint&&state.stage===1?{stage:1}:null),...(waypointDisplay.reference?{waypointReference:true}:{})});
@@ -546,10 +554,12 @@ function map(preview=null){
  card.style.setProperty('--result-course-lift',`${lift}px`);
  card.style.setProperty('--completed-map-height',`${completedMapHeight($('map').clientHeight,lowest,screenScale,lift)}px`);
  card.style.setProperty('--result-card-overlap',`${state.won?completedCardOverlap($('map').clientHeight,lowest,screenScale,lift):36}px`);
+ card.style.backgroundSize='';card.style.backgroundPosition='';
  if(simpleDaily&&holeResult()){
   const view=completedMapView(d.width,$('map').clientWidth,highest,lowest,narrow());
   card.style.setProperty('--completed-map-height',`${view.height}px`);card.style.setProperty('--result-course-lift','0px');
   $('map').setAttribute('viewBox',`${view.x} ${view.y} ${view.width} ${view.viewHeight}`);
+  card.style.backgroundSize=`${d.width*view.scale}px auto`;card.style.backgroundPosition=`${-view.x*view.scale}px ${-view.y*view.scale}px`;
  }
 
  moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
@@ -739,7 +749,7 @@ function update(){
 
 }
 function renderResultContext(){
- if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent='PAR 5';if(!justHoled)$('arrival-title').textContent='Your best';return;}
+ if(simpleDaily){$('arrival-context').textContent=justHoled?'JUST NOW':'PERSONAL BESTS';$('arrival-context').hidden=false;$('arrival-par').textContent='PAR 5';if(!justHoled){const strokes=daily.current()?.bestStrokes?.strokes,result=golfResult(strokes);$('arrival-title').textContent=Number.isFinite(strokes)?strokes>7?`You finished ${result}!`:`You got ${/^[aeiou]/i.test(result)?'an':'a'} ${result}!`:'Your result';}return;}
  const context=resultContext(justHoled,state?.won,roundSummary()),moment=context==='just-now',review=context==='review';
  $('arrival-context').textContent=moment?'JUST NOW':'SCORECARD';
  $('arrival-context').hidden=review;
