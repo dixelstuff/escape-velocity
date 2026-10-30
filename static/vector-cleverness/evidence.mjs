@@ -1,12 +1,12 @@
 /** Maintained browser-only vector evidence adapter. No server or lexical queries. */
 /** Arbitrary completed-route evidence. Same operations as V6.4/V6.5 builders. */
-import {Game} from '../engine.mjs?v=cubic-results-v1';
+import {Game} from '../engine.mjs?v=uk-us-v1';
 const wordnetPairEvidence=()=>({matches:[],phrase_matches:[],dictionary_semantic:[],morphology:null,source_scope:'Vectors only'}),wordnetCoverage={source:'Vectors only; lexical evidence excluded'};
 import {strategyStateKey} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 function evidenceFor(state,diagnostics,e){const pairs=[];for(let i=0;i<diagnostics.route.length;i++)for(let j=i+1;j<Math.min(diagnostics.route.length,i+4);j++)pairs.push({from_position:i,to_position:j,from:diagnostics.route[i],to:diagnostics.route[j],cosine:e.cosine(diagnostics.route[i],diagnostics.route[j])});const d=diagnostics.dogleg_strategy;return {state,diagnostics,pairs,waypoint_pair:d?{from:diagnostics.route[d.position],to:d.waypoint,cosine:e.cosine(diagnostics.route[d.position],d.waypoint)}:null};}
 import {scoreV6} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {scoreV67} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=cubic-results-v1';
+import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=uk-us-v1';
 const clone=g=>Object.assign(Object.create(Object.getPrototypeOf(g)),g,{history:structuredClone(g.history),route:[...g.route],automatic_shots:structuredClone(g.automatic_shots)}),angular=c=>Math.acos(Math.max(-1,Math.min(1,c)));
 export function replayCompleted(e,s){
  if(!s?.won||!Array.isArray(s.history)||!s.history.length)throw Error('A successfully completed attempt is required.');

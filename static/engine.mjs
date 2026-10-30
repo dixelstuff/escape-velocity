@@ -1,3 +1,4 @@
+import {SPELLING_EQUIVALENCE,spellingResolver} from './spelling-equivalence.mjs?v=uk-us-v1';
 import {familyVariants} from './word-families.mjs?v=golf-v189';
 import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=personal-daily-v1';
 import {progressiveModel} from './progressive-model.mjs?v=golf-v189';
@@ -53,9 +54,13 @@ export class Game {
     const legacy=['distance-v1','fixed-threshold-v1','fixed-threshold-v2'].includes(rules);
     const golf=!rules||rules.startsWith('golf-');
     const modern=!rules||['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(rules);
+    const spelling=options.spelling_equivalence;
+    if(spelling&&spelling!==SPELLING_EQUIVALENCE)throw Error('Unknown spelling equivalence rule.');
+    if(spelling){embeddings=spellingResolver(embeddings).model;this.spelling_equivalence=spelling;}
+    const same=(a,b)=>embeddings.resolveSpelling?embeddings.resolveSpelling(a)===embeddings.resolveSpelling(b):a===b;
     const launch_min=options.launch_min??(legacy?.25:golf?(rules?.10:.095):.08),launch_max=options.launch_max??(legacy?.40:modern?(rules ? .21 : .215):golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
-    if(start===target)throw Error('Tee and hole words must differ.');
+    if(same(start,target))throw Error('Tee and hole words must differ.');
     if(!Number.isFinite(threshold)||threshold<.1||threshold>.9)throw Error('Green threshold must be between 0.1 and 0.9.');
     if(!['fixed','distance'].includes(mode))throw Error('Unknown shot mode.');
     if(!Number.isFinite(launch_min)||!Number.isFinite(launch_max)||launch_min<.01||launch_max>.9||launch_min>launch_max)throw Error('Shot requirements must be between 0.01 and 0.9, with short shots no harder than long shots.');
@@ -66,7 +71,7 @@ export class Game {
     if(waypoint){
       if(!modern)throw Error('Waypoint holes need current golf rules.');
       if(waypoint.turn&&!['up','down'].includes(waypoint.turn))throw Error('Unknown dogleg direction.');
-      if(!embeddings.index.has(finalTarget)||finalTarget===target||finalTarget===start)throw Error('Choose three different supported words.');
+      if(!embeddings.index.has(finalTarget)||same(finalTarget,target)||same(finalTarget,start))throw Error('Choose three different supported words.');
       this.waypoint={word:target,threshold:waypoint.threshold??.265,...(waypoint.turn?{turn:waypoint.turn}:{})};
       this.final_target=finalTarget;this.final_threshold=threshold;this.threshold=this.waypoint.threshold;
       this.stage=0;this.leg_start=start;
@@ -88,6 +93,7 @@ export class Game {
     this.plural_tolerance=options.plural_tolerance??(Array.isArray(options.history)?.02:.025);
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
   }
+  sameWord(a,b){return this.e.resolveSpelling?this.e.resolveSpelling(a)===this.e.resolveSpelling(b):a===b;}
   requirement(origin,word,current=this.e.cosine(origin,this.target),destination=this.e.cosine(word,this.target)) {
     const launch=launchRequirement(current,destination,this.baseline,this.threshold,this.launch_min,this.launch_max,
       ['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(this.rules));
@@ -102,7 +108,7 @@ export class Game {
   }
   finishRequirement(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
     const entry=this.history?.at(-1);
-    atDoglegEntry??=!!entry?.waypoint_reached&&(word===this.current||word===entry.scoring_word);
+    atDoglegEntry??=!!entry?.waypoint_reached&&(this.sameWord(word,this.current)||this.sameWord(word,entry.scoring_word));
     const span=this.second_leg_finish_span??0;
     const target=this.e.cosine(this.target,this.target);
     if(!(span>0&&this.waypoint&&this.stage===1&&this.history.length>=(this.second_leg_finish_after??0)&&this.rules==='golf-distance-v3'&&this.mode==='distance'&&this.finish_mode==='range'&&!atDoglegEntry&&this.threshold-this.baseline<span))
@@ -115,13 +121,13 @@ export class Game {
   finishesFrom(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
     if(destination+1e-7>=this.threshold)return true;
     if(this.waypoint&&this.stage===0)return false;
-    if(!this.modern||this.finish_mode!=='range'||word===this.start)return false;
+    if(!this.modern||this.finish_mode!=='range'||this.sameWord(word,this.start))return false;
     return destination+1e-7>=this.finishRequirement(word,destination,atDoglegEntry).required;
   }
   finishShortfall(word,destination,atDoglegEntry=undefined) {
     if(this.finishesFrom(word,destination,atDoglegEntry))return 0;
     let required=this.threshold;
-    if(!(this.waypoint&&this.stage===0)&&this.modern&&this.finish_mode==='range'&&word!==this.start)
+    if(!(this.waypoint&&this.stage===0)&&this.modern&&this.finish_mode==='range'&&!this.sameWord(word,this.start))
       required=Math.min(required,this.finishRequirement(word,destination,atDoglegEntry).required);
     return required-destination;
   }
@@ -132,7 +138,7 @@ export class Game {
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
     const isGolf=this.rules.startsWith('golf-'),connected=launch+1e-7>=required;
-    const backtrack=this.modern&&this.allow_backtracking!==false&&!forward&&this.route.includes(displayWord);
+    const backtrack=this.modern&&this.allow_backtracking!==false&&!forward&&this.route.some(w=>this.sameWord(w,displayWord));
     const safe=backtrack||destination+1e-7>=this.best_progress-this.backward_allowance;
     const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
     const result={word:displayWord,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&this.finishesFrom(word,destination,false),attempt:this.history.length+1};
@@ -143,17 +149,18 @@ export class Game {
     if(word!==displayWord)result.scoring_word=word;
     return result;
   }
-  isGolden(word){return this.challenge?.version===STROKE_PLAY&&this.challenge.par<=4&&this.golden_paths.some(path=>path.length===this.challenge.par-2&&path.length===this.history.length&&path.every((w,i)=>w===this.history[i].word)&&path.at(-1)===word)&&(!this.waypoint||this.history.at(-1)?.stage===1);}
+  isGolden(word){return this.challenge?.version===STROKE_PLAY&&this.challenge.par<=4&&this.golden_paths.some(path=>path.length===this.challenge.par-2&&path.length===this.history.length&&path.every((w,i)=>this.sameWord(w,this.history[i].word))&&this.sameWord(path.at(-1),word))&&(!this.waypoint||this.history.at(-1)?.stage===1);}
   pluralResult(word) {
     const original=this.shotResult(word);
-    if(!this.plural_rescue||word===this.target||original.won)return original;
+    if(!this.plural_rescue||this.sameWord(word,this.target)||original.won)return original;
     const hitNear=!original.connected&&original.required-original.launch<=this.plural_tolerance+1e-7;
     const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=this.plural_tolerance+1e-7;
     if(!hitNear&&!finishNear)return original;
-    const variants=new Set([word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])]);
+    const semanticWord=this.e.resolveSpelling?.(word)??word;
+    const variants=new Set([semanticWord+'s',semanticWord+'es',...(semanticWord.endsWith('s')?[semanticWord.slice(0,-1)]:[]),...(semanticWord.endsWith('es')?[semanticWord.slice(0,-2)]:[])]);
     const choices=[];
     for(const candidate of variants){
-      if(candidate===this.current||candidate===this.target||!this.e.index.has(candidate)||this.e.cosine(word,candidate)<=.65)continue;
+      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate)||this.e.cosine(word,candidate)<=.65)continue;
       const result=this.shotResult(candidate,word);
       // Rescue contact or finishing only; never rescue a backward/water hit.
       if(!original.safe||!result.success)continue;
@@ -165,13 +172,13 @@ export class Game {
   /** Existing plural rescue wins first. New saves explicitly retain the family rule. */
   pluralShot(word) {
     const original=this.pluralResult(word);
-    if(!this.family_rescue||original.won||original.scoring_word||word===this.target||!original.safe)return original;
+    if(!this.family_rescue||original.won||original.scoring_word||this.sameWord(word,this.target)||!original.safe)return original;
     const hitNear=!original.connected&&original.required-original.launch<=.025+1e-7;
     const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=.025+1e-7;
     if(!hitNear&&!finishNear)return original;
     const choices=[];
-    for(const candidate of familyVariants(word)){
-      if(candidate===this.current||candidate===this.target||!this.e.index.has(candidate))continue;
+    for(const candidate of familyVariants(this.e.resolveSpelling?.(word)??word)){
+      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate))continue;
       const similarity=this.e.cosine(word,candidate);if(similarity<=.65)continue;
       const result=this.shotResult(candidate,word);
       if(result.success&&(hitNear||finishNear&&result.won))choices.push({result,similarity});
@@ -183,11 +190,12 @@ export class Game {
     word=word.trim().toLowerCase();
     if(this.won)throw Error('Hole complete. Start a new hole.');
     if(this.challenge_failed)throw Error(challengeFailure({challenge:this.challenge,challenge_failed:true,history:this.history})+' Start the next attempt.');
-    if(this.waypoint&&this.stage===1&&word===this.waypoint.word&&this.history.some(h=>h.success&&h.word===word))throw Error('That waypoint word has already been played. Try another word.');
+    if(this.waypoint&&this.stage===1&&this.sameWord(word,this.waypoint.word)&&this.history.some(h=>h.success&&this.sameWord(h.word,word)))throw Error('That waypoint word has already been played. Try another word.');
     if(!this.e.index.has(word))throw Error('That word is outside the supported vocabulary. No shot used.');
     if(this.rules==='fixed-threshold-v1') {
-      if(word===this.start||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
-    } else if(word===this.current)throw Error('The ball is already on that word. No shot used.');
+      if(this.sameWord(word,this.start)||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
+    } else if(this.sameWord(word,this.current))throw Error('The ball is already on that word. No shot used.');
+    if(this.spelling_equivalence&&this.history.some(h=>h.success&&h.stage===this.stage&&h.word!==word&&this.sameWord(h.word,word)))throw Error('That spelling is the same word already played on this leg. Try another word.');
     const result=this.pluralShot(word),{success,destination,inside,backtrack}=result;
     const scoringWord=result.scoring_word??word;
     let finishDestination=destination,finishInside=inside;
@@ -204,9 +212,9 @@ export class Game {
         if(result.won)result.waypoint_finish=true;
       }
     }
-    if((!this.continuous_play||this.challenge?.version!==STROKE_PLAY)&&this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&word!==this.target&&this.history.length+1>(this.challenge.version===STROKE_PLAY?(this.replay_stroke_cap??maximumStrokes(this.challenge.par)):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';delete result.waypoint_finish;}
+    if((!this.continuous_play||this.challenge?.version!==STROKE_PLAY)&&this.challenge&&this.challenge.version!=='waypoint-trial-v1'&&result.won&&!this.sameWord(word,this.target)&&this.history.length+1>(this.challenge.version===STROKE_PLAY?(this.replay_stroke_cap??maximumStrokes(this.challenge.par)):this.challenge.par)&&!this.isGolden(word)){result.won=false;result.outcome='landed';delete result.waypoint_finish;}
     if(result.won&&this.isGolden(word)){result.golden_holed=true;result.finish_reason='golden';this.current=this.target;this.route.push(this.target);}
-    if(this.modern&&result.won&&word!==this.target&&!result.golden_holed){
+    if(this.modern&&result.won&&!this.sameWord(word,this.target)&&!result.golden_holed){
       const automatic={word:this.target,origin:word,automatic:true,outcome:result.waypoint_reached?'chip':finishInside?'putt':'chip',attempt:this.history.length+1,success:true,inside:true,won:true};
       if(this.finish_mode==='range'){result.finish_reason=finishInside?'green':'range';automatic.finish_reason=result.finish_reason;Object.assign(automatic,this.finishRequirement(scoringWord,finishDestination,!!result.waypoint_reached),{launch:finishDestination,destination:this.e.cosine(this.target,this.target)});}
       this.automatic_shots.push(automatic);result.automatic_shot=automatic;this.current=this.target;this.route.push(this.target);
@@ -219,6 +227,7 @@ export class Game {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
       attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
+      ...(this.spelling_equivalence?{spelling_equivalence:this.spelling_equivalence}:{}),
       ...(this.abandoned?{abandoned:true}:{}),
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
@@ -235,7 +244,7 @@ export function waypointLegAccess(embeddings,settings){
  const initial=new Game(embeddings,settings.start,settings.target,settings.threshold??.27,settings);
  if(!initial.waypoint)throw Error('Choose a waypoint word.');
  const legs=[[initial.start,initial.waypoint.word,initial.waypoint.threshold],[initial.waypoint.word,initial.final_target,initial.final_threshold]].map(([start,target,threshold])=>{
-  const game=new Game(initial.e,start,target,threshold,{mode:initial.mode,launch_min:initial.launch_min,launch_max:initial.launch_max,rules:initial.rules,finish_mode:'range'}),shot=game.submit(target);
+  const game=new Game(initial.e,start,target,threshold,{mode:initial.mode,launch_min:initial.launch_min,launch_max:initial.launch_max,rules:initial.rules,finish_mode:'range',spelling_equivalence:initial.spelling_equivalence}),shot=game.submit(target);
   return {start,target,direct:shot.success,contact:shot.launch,required:shot.required};
  });
  const invalid=legs.filter(leg=>leg.direct);
@@ -312,7 +321,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
   }
   const hubs=new Uint8Array(hubBuffer),embeddings=new Embeddings(words,vectors,config.dimensions,hubs);
   if(loader)embeddings.rowReady=i=>!!loader.ready[i];
-  function variants(word){if(typeof word!=='string')return [];word=word.trim().toLowerCase();return [word,...familyVariants(word),word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])];}
+  function variants(word){if(typeof word!=='string')return [];word=word.trim().toLowerCase();return [word,...familyVariants(word),word+'s',word+'es',...(word.endsWith('s')?[word.slice(0,-1)]:[]),...(word.endsWith('es')?[word.slice(0,-2)]:[])].flatMap(w=>[w,spellingResolver(embeddings).resolve(w)]);}
   async function prepare(value){
     if(!loader)return;
     if((value?.state??value)?.headwind){await loader.whenComplete();return;}
@@ -346,6 +355,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
   // selection synchronous so mobile focus stays in the native tap gesture.
   function retryNow(saved,through,attempt){
     const settings=retryPrefix(saved,through,attempt);
+    if(through===0&&['golf-distance-v3','golf-fixed-v3'].includes(saved.rules))settings.spelling_equivalence=SPELLING_EQUIVALENCE;
     if(saved.waypoint&&saved.rules==='golf-distance-v3'){
       settings.second_leg_finish_span=SECOND_LEG_FINISH_SPAN;
       // Adopt the rule for new exploration without reinterpreting assumed shots.
@@ -362,16 +372,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=cubic-results-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=golf-v189')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=golf-v189')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=golf-v189')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=cubic-results-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=cubic-results-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=cubic-results-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=cubic-results-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=uk-us-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=uk-us-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=uk-us-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=uk-us-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=uk-us-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=uk-us-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=uk-us-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=uk-us-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=uk-us-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=uk-us-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=uk-us-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=uk-us-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=uk-us-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=cubic-results-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=uk-us-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -384,7 +394,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=golf-v189')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=uk-us-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);

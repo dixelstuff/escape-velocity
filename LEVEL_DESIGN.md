@@ -16,6 +16,8 @@ New daily holes are all **Par 5 with a mandatory dogleg**. Players may reach the
 
 New distance-mode games also record `second_leg_finish_span: 0.12`: only automatic finishes after playing a subsequent second-leg word use a minimum semantic span of 0.12. The immediate dogleg-entry finish, normal shot contact and backward-shot rules stay unchanged. In particular, CREAM must not gain a new immediate finish to ICEBERG. Old saved histories without the setting retain their original finishing rule (span 0); do not reinterpret old results using the new allowance. A new retry from an old lie adopts the allowance only after its assumed prefix (`second_leg_finish_after`), so already-played shots are preserved.
 
+New personal-game attempts also use `spelling_equivalence: "uk-us-v1"`. Use this explicit setting when validating newly authored routes: curated UK/US forms share one semantic row, while historic route audits without it retain original rules. See [the spelling audit](reports/spelling-equivalence/README.md) for coverage and examples of setup changes.
+
 ## Recipe that worked for the fresh 30
 
 On 29 October 2026 the player described the new batch (#136–#165) as quite good. Preserve the approach, rather than copying its words or exact routes:

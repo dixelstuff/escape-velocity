@@ -1,0 +1,632 @@
+{
+  "version": "uk-us-v1",
+  "model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "canonical_policy": "Prefer the listed US form if supported; otherwise use the listed UK row. No averaged vectors or regenerated neighbourhoods.",
+  "curated_pairs": 726,
+  "supported_spellings": 608,
+  "additional_accepted_spellings": 61,
+  "calibrations": [
+    {
+      "id": "P-A",
+      "route": [
+        "penguin",
+        "fish",
+        "market",
+        "volatile",
+        "volcano"
+      ],
+      "previous": 80,
+      "current": 80,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "P-B",
+      "route": [
+        "penguin",
+        "books",
+        "cash",
+        "rise",
+        "volcano"
+      ],
+      "previous": 86,
+      "current": 86,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "P-C",
+      "route": [
+        "penguin",
+        "book",
+        "note",
+        "message",
+        "danger",
+        "volcano"
+      ],
+      "previous": 80,
+      "current": 80,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "V-A",
+      "route": [
+        "velvet",
+        "red",
+        "television",
+        "drama",
+        "jealousy"
+      ],
+      "previous": 85,
+      "current": 85,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "V-B",
+      "route": [
+        "velvet",
+        "smooth",
+        "orbit",
+        "sphere",
+        "relationship",
+        "jealousy"
+      ],
+      "previous": 76,
+      "current": 76,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "V-C",
+      "route": [
+        "velvet",
+        "curtain",
+        "slide",
+        "drift",
+        "orbit",
+        "eye",
+        "tears",
+        "jealousy"
+      ],
+      "previous": 42,
+      "current": 42,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "A",
+      "route": [
+        "squid",
+        "ink",
+        "document",
+        "espionage"
+      ],
+      "previous": 88,
+      "current": 88,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "B",
+      "route": [
+        "prawn",
+        "king",
+        "ruler",
+        "head",
+        "salesman"
+      ],
+      "previous": 70,
+      "current": 70,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "C",
+      "route": [
+        "robot",
+        "activity",
+        "disorder",
+        "chaotic",
+        "spiral",
+        "stairs"
+      ],
+      "previous": 68,
+      "current": 68,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "D",
+      "route": [
+        "hamster",
+        "wheel",
+        "power",
+        "electricity"
+      ],
+      "previous": 96,
+      "current": 96,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "E",
+      "route": [
+        "flute",
+        "pipe",
+        "water",
+        "plant",
+        "botany"
+      ],
+      "previous": 76,
+      "current": 76,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "F",
+      "route": [
+        "apricot",
+        "smell",
+        "perfume",
+        "chemical",
+        "chemistry"
+      ],
+      "previous": 56,
+      "current": 56,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "G",
+      "route": [
+        "honeycomb",
+        "lattice",
+        "pattern",
+        "design",
+        "notes",
+        "music",
+        "orchestra"
+      ],
+      "previous": 34,
+      "current": 34,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "H",
+      "route": [
+        "rabbit",
+        "bunny",
+        "mat",
+        "pad",
+        "mouse",
+        "computer",
+        "electric",
+        "cook",
+        "oven",
+        "bakery"
+      ],
+      "previous": 23,
+      "current": 23,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "I",
+      "route": [
+        "rabbit",
+        "mouse",
+        "computer",
+        "engineer",
+        "baker",
+        "bakery"
+      ],
+      "previous": 83,
+      "current": 83,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "J",
+      "route": [
+        "rabbit",
+        "mouse",
+        "chips",
+        "pie",
+        "bakery"
+      ],
+      "previous": 88,
+      "current": 88,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "K",
+      "route": [
+        "almond",
+        "sugar",
+        "hard",
+        "stone",
+        "statue"
+      ],
+      "previous": 74,
+      "current": 74,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "L",
+      "route": [
+        "tortoise",
+        "sea",
+        "beach",
+        "wedding"
+      ],
+      "previous": 92,
+      "current": 92,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "M",
+      "route": [
+        "mate",
+        "friend",
+        "dinner",
+        "date",
+        "fate"
+      ],
+      "previous": 81,
+      "current": 81,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "AN-A",
+      "route": [
+        "anchor",
+        "sea",
+        "natural",
+        "beautiful",
+        "butterfly"
+      ],
+      "previous": 75,
+      "current": 75,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "AN-B",
+      "route": [
+        "anchor",
+        "sea",
+        "sick",
+        "fly",
+        "butterfly"
+      ],
+      "previous": 77,
+      "current": 77,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "AN-C",
+      "route": [
+        "anchor",
+        "news",
+        "drugs",
+        "high",
+        "fly",
+        "butterfly"
+      ],
+      "previous": 72,
+      "current": 72,
+      "delta": 0,
+      "error": null
+    },
+    {
+      "id": "AN-D",
+      "route": [
+        "anchor",
+        "news",
+        "drugs",
+        "herbal",
+        "flowers",
+        "butterfly"
+      ],
+      "previous": 72,
+      "current": 72,
+      "delta": 0,
+      "error": null
+    }
+  ],
+  "asset": {
+    "bytes": 6430,
+    "gzip_bytes": 2560,
+    "lookup_initialization_ms": 0.5771669999999745,
+    "shared_vector_matrix": true
+  },
+  "samples": [
+    {
+      "enabled": false,
+      "word": "color",
+      "score": 86,
+      "unrounded": 85.72712191606237,
+      "components": {
+        "semantic_ingenuity": 0.5064551821590177,
+        "strategic_effectiveness": 0.7553124999999999,
+        "route_elegance": 0.6902605205520163
+      },
+      "route": [
+        "carrot",
+        "orange",
+        "color",
+        "prism"
+      ],
+      "analysis_ms": 539.4857089999999
+    },
+    {
+      "enabled": false,
+      "word": "colour",
+      "score": 89,
+      "unrounded": 88.51039288177351,
+      "components": {
+        "semantic_ingenuity": 0.5491443752998452,
+        "strategic_effectiveness": 0.7546875,
+        "route_elegance": 0.705014874421654
+      },
+      "route": [
+        "carrot",
+        "orange",
+        "colour",
+        "prism"
+      ],
+      "analysis_ms": 175.1652919999999
+    },
+    {
+      "enabled": true,
+      "word": "color",
+      "score": 86,
+      "unrounded": 85.72712191606237,
+      "components": {
+        "semantic_ingenuity": 0.5064551821590177,
+        "strategic_effectiveness": 0.7553124999999999,
+        "route_elegance": 0.6902605205520163
+      },
+      "route": [
+        "carrot",
+        "orange",
+        "color",
+        "prism"
+      ],
+      "analysis_ms": 117.91145799999981
+    },
+    {
+      "enabled": true,
+      "word": "colour",
+      "score": 86,
+      "unrounded": 85.72712191606237,
+      "components": {
+        "semantic_ingenuity": 0.5064551821590177,
+        "strategic_effectiveness": 0.7553124999999999,
+        "route_elegance": 0.6902605205520163
+      },
+      "route": [
+        "carrot",
+        "orange",
+        "colour",
+        "prism"
+      ],
+      "analysis_ms": 9.563041999999996
+    }
+  ],
+  "compatibility": {
+    "active_audited_routes": 69,
+    "exactly_unchanged": 62,
+    "changed": [
+      {
+        "hole": [
+          "turmeric",
+          "cinematography",
+          "popcorn"
+        ],
+        "words": [
+          "colour",
+          "films"
+        ],
+        "old_strokes": 3,
+        "new_strokes": 1,
+        "new_completed": false,
+        "new_error": "colour: contact"
+      },
+      {
+        "hole": [
+          "terrapin",
+          "defence",
+          "omelette"
+        ],
+        "words": [
+          "turtle",
+          "shell",
+          "shield",
+          "shell",
+          "egg"
+        ],
+        "old_strokes": 6,
+        "new_strokes": 6,
+        "new_completed": true,
+        "new_error": null
+      },
+      {
+        "hole": [
+          "carrot",
+          "light",
+          "prism"
+        ],
+        "words": [
+          "orange",
+          "colour"
+        ],
+        "old_strokes": 3,
+        "new_strokes": 3,
+        "new_completed": true,
+        "new_error": null
+      },
+      {
+        "hole": [
+          "celery",
+          "craft",
+          "kayak"
+        ],
+        "words": [
+          "fibre",
+          "thread",
+          "canvas",
+          "boat"
+        ],
+        "old_strokes": 5,
+        "new_strokes": 1,
+        "new_completed": false,
+        "new_error": "fibre: contact"
+      },
+      {
+        "hole": [
+          "hyena",
+          "comedy",
+          "clarinet"
+        ],
+        "words": [
+          "laughing",
+          "humour",
+          "improvisation"
+        ],
+        "old_strokes": 4,
+        "new_strokes": 4,
+        "new_completed": true,
+        "new_error": null
+      },
+      {
+        "hole": [
+          "crow",
+          "printer",
+          "palette"
+        ],
+        "words": [
+          "black",
+          "print",
+          "colour"
+        ],
+        "old_strokes": 4,
+        "new_strokes": 4,
+        "new_completed": true,
+        "new_error": null
+      },
+      {
+        "hole": [
+          "petunia",
+          "mould",
+          "candelabra"
+        ],
+        "words": [
+          "pot",
+          "clay",
+          "mould",
+          "wax",
+          "candle"
+        ],
+        "old_strokes": 6,
+        "new_strokes": 1,
+        "new_completed": false,
+        "new_error": "pot: contact"
+      }
+    ],
+    "verified_alternatives": [
+      {
+        "start": "turmeric",
+        "waypoint": "cinematography",
+        "target": "popcorn",
+        "words": [
+          "yellow",
+          "colour",
+          "films"
+        ],
+        "completed_route": [
+          "turmeric",
+          "yellow",
+          "colour",
+          "films",
+          "popcorn"
+        ],
+        "strokes": 4
+      },
+      {
+        "start": "celery",
+        "waypoint": "craft",
+        "target": "kayak",
+        "words": [
+          "stalk",
+          "fibre",
+          "thread",
+          "canvas",
+          "boat"
+        ],
+        "completed_route": [
+          "celery",
+          "stalk",
+          "fibre",
+          "thread",
+          "canvas",
+          "boat",
+          "kayak"
+        ],
+        "strokes": 6
+      },
+      {
+        "start": "petunia",
+        "waypoint": "mould",
+        "target": "candelabra",
+        "words": [
+          "flower",
+          "pot",
+          "clay",
+          "mould",
+          "wax",
+          "candle"
+        ],
+        "completed_route": [
+          "petunia",
+          "flower",
+          "pot",
+          "clay",
+          "mould",
+          "wax",
+          "candle",
+          "candelabra"
+        ],
+        "strokes": 7
+      }
+    ]
+  },
+  "performance": {
+    "iterations": 100000,
+    "raw_median_ms": 32.97404199999983,
+    "shared_median_ms": 38.11475000000064,
+    "extra_us_per_comparison": 0.05140708000000813,
+    "checksum": 126606.72824177555
+  },
+  "browser": {
+    "browser": "Desktop Chrome with mobile viewport 390x844",
+    "isolated_profile": true,
+    "progressive_model_and_assessment_worker": true,
+    "displayed_scores": {
+      "COLOR": 86,
+      "COLOUR": 86
+    },
+    "identical_unrounded_score": 85.72712191606237,
+    "identical_shot_evidence": true,
+    "entered_spelling_retained": true,
+    "scores_saved_in_indexeddb": true
+  }
+}

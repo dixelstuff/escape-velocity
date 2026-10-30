@@ -1,5 +1,5 @@
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
-import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
+import {playtestKey,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=uk-us-v1';
 export function mountDailyCleverness(node,{request,modelHash,onReport,getSavedReport}){
  let active=null;const pending=new Map(),cache=new Map();
  function draw(r){node.hidden=true;node.innerHTML=`<p class="daily-cleverness-score">Cleverness <strong>${r.band_free.score}<span>/100</span></strong></p>`;}

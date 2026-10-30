@@ -1,4 +1,4 @@
-import {isRetiredHole} from './hole-retirement.mjs?v=retired-holes-2026-10-30-v1';
+import {isRetiredHole} from './hole-retirement.mjs?v=uk-us-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */

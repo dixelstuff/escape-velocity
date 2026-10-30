@@ -1,12 +1,13 @@
+import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=uk-us-v1';
 import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=cubic-results-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=cubic-results-v1';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=cubic-results-v1';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=uk-us-v1';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=uk-us-v1';
 import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=cubic-results-v1';
 import {rescoreV66} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {makePlaytestReport,playtestKey} from '../cleverness-playtest-data.mjs?v=cubic-results-v1';
+import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=uk-us-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
@@ -24,13 +25,28 @@ export async function scoreVectorInput(input,evidence,modelSha){
 export class VectorClevernessAnalyser{
  constructor(e,options={}){this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}
  async warm(state){
+  state=canonicalSpellingState(state,this.e);
   const words=[...new Set([state.start,...(state.route??[]),state.waypoint?.word,state.final_target??state.target].filter(w=>this.e.index.has(w)))];
   const v4=this.v5.v4,profiles=await v4.store.forWords(this.e,words);
   for(const word of words){v4.semantic.nearest(word);v4.local(word,profiles.get(word));await new Promise(resolve=>setTimeout(resolve,0));}
   return {prepared:words.length};
  }
- async analyse(state){const key=playtestKey(state,this.modelSha);if(this.cache.has(key))return this.cache.get(key);const task=(async()=>{
-  if(!state.waypoint){replayCompleted(this.e,state);const diagnostics=await this.v5.analyse(state);return scoreVectorInput(evidenceFor(state,diagnostics,this.e),null,this.modelSha);}
-  const {input,evidence}=await buildLiveEvidence(this.e,this.v5,state,async triples=>triples.map(triple=>({triple,distinct_senses_supported:false,uncertainty:[]})));return scoreVectorInput(input,evidence,this.modelSha);
- })();this.cache.set(key,task);try{const r=await task;if(this.cache.size>12)this.cache.delete(this.cache.keys().next().value);return r;}catch(e){this.cache.delete(key);throw e;}}
+ async analyse(original){
+  const key=playtestKey(original,this.modelSha);if(this.cache.has(key))return this.cache.get(key);
+  const state=canonicalSpellingState(original,this.e),task=(async()=>{
+   let report;
+   if(!state.waypoint){replayCompleted(this.e,state);const diagnostics=await this.v5.analyse(state);report=await scoreVectorInput(evidenceFor(state,diagnostics,this.e),null,this.modelSha);}
+   else{const {input,evidence}=await buildLiveEvidence(this.e,this.v5,state,async triples=>triples.map(triple=>({triple,distinct_senses_supported:false,uncertainty:[]})));report=await scoreVectorInput(input,evidence,this.modelSha);}
+   if(original.spelling_equivalence===SPELLING_EQUIVALENCE){
+    const sequence=report.strongest_sequence??[],at=state.route.findIndex((_,i)=>sequence.every((w,j)=>state.route[i+j]===w));
+    report.spelling_equivalence={version:SPELLING_EQUIVALENCE,canonical_route:[...state.route],canonical_waypoint:state.waypoint?.word??null};
+    report.key=key;report.hole_key=playtestHoleKey(original);report.tee=original.start;report.waypoint=original.waypoint?.word??null;report.flag=original.final_target??original.target;report.route=[...original.route];
+    report.landing=original.history.find(h=>h.waypoint_reached)?.word??null;
+    if(at>=0)report.strongest_sequence=original.route.slice(at,at+sequence.length);
+   }
+   return report;
+  })();
+  this.cache.set(key,task);try{const r=await task;if(this.cache.size>12)this.cache.delete(this.cache.keys().next().value);return r;}catch(e){this.cache.delete(key);throw e;}
+ }
+
 }

@@ -1,5 +1,5 @@
 /** Lazy diagnostic panel; no focus, layout anchoring or gameplay state changes. */
-import {CLEVERNESS_V5_VERSION,clevernessV5Key} from './cleverness-v5-key.mjs?v=golf-v189';
+import {CLEVERNESS_V5_VERSION,clevernessV5Key} from './cleverness-v5-key.mjs?v=uk-us-v1';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),word=x=>esc(x?.toUpperCase()),route=xs=>xs.map(word).join(' → '),n=x=>Number.isFinite(x)?x.toFixed(4):'—',index=x=>Number.isFinite(x)?x.toFixed(6):'—';
 export function clevernessV5Markup(r){
  const yes=x=>x===null?'unknown':x?'yes':'no';

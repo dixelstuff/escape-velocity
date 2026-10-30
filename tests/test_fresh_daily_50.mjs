@@ -12,10 +12,11 @@ scan(dailyManifest.holes.slice(0,audit.oldCount));scan(config.puzzles);for(const
 assert.deepEqual([...prior].sort(),audit.priorEndpoints);
 const fresh=new Set();
 for(const [i,h]of added.entries()){
- const p=source[i],check=audit.checks[i],s=h.settings;assert.equal(h.date,addDay(audit.firstDate,i));assert.equal(h.id,'daily-'+h.date);assert.equal(s.par,5);assert.equal(s.continuous_play,true);assert.deepEqual(s.golden_paths,[]);assert.equal(s.waypoint.threshold,.265);assert.equal(s.threshold,.27);assert.equal(s.launch_min,.095);assert.equal(s.launch_max,.215);assert.equal(s.waypoint.turn,i%2?'down':'up');assert.equal(waypointLegAccess(e,s).allowed,true);
+ const p=source[i],check=audit.checks[i],s=h.settings;assert.equal(h.date,addDay(audit.firstDate,i));assert.equal(h.id,'daily-'+h.date);assert.equal(s.par,5);assert.equal(s.continuous_play,true);assert.deepEqual(s.golden_paths,[]);assert.equal(s.waypoint.threshold,.265);assert.equal(s.threshold,.27);assert.equal(s.launch_min,.095);assert.equal(s.launch_max,.215);assert.equal(s.waypoint.turn,i%2?'down':'up');assert.equal(waypointLegAccess(e,{...s,spelling_equivalence:false}).allowed,true);
  assert.deepEqual([s.start,s.waypoint.word,s.target],[p.start,p.waypoint,p.target]);
  for(const w of [s.start,s.waypoint.word,s.target]){assert.ok(e.index.has(w));assert.ok(!prior.has(w),'Previously used endpoint '+w);assert.ok(!fresh.has(w),'Repeated new word '+w);fresh.add(w);}
- assert.equal(s.second_leg_finish_span,.12);const g=new Game(e,s.start,s.target,s.threshold,{...s,challenge:{id:h.id,version:'stroke-play-v1',par:5,attempt:1,unlimited:true}});for(const word of p.verificationWords){assert.equal(g.won,false,'Verification must not contain words after completion');const event=g.submit(word);assert.equal(event.success,true,`${s.start}: ${word}`);}
+ // These published route audits predate spelling equivalence; replay their recorded rules.
+ assert.equal(s.second_leg_finish_span,.12);const g=new Game(e,s.start,s.target,s.threshold,{...s,spelling_equivalence:false,challenge:{id:h.id,version:'stroke-play-v1',par:5,attempt:1,unlimited:true}});for(const word of p.verificationWords){assert.equal(g.won,false,'Verification must not contain words after completion');const event=g.submit(word);assert.equal(event.success,true,`${s.start}: ${word}`);}
  assert.equal(g.won,true);assert.equal(g.stage,1);assert.ok(g.history.some(h=>h.waypoint_reached));assert.equal(g.state().attempts,check.strokes);assert.deepEqual(g.state().route,check.route);
 }
 assert.equal(fresh.size,150);assert.equal(new Set(dailyManifest.holes.map(h=>h.id)).size,dailyManifest.holes.length);

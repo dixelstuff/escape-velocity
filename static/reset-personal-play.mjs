@@ -1,4 +1,4 @@
-import {DAILY_KEY} from './daily-game.mjs?v=opportunity08-bonus2-v1';
+import {DAILY_KEY} from './daily-game.mjs?v=uk-us-v1';
 export const DAILY_RESET_BACKUP_KEY='word-golf.personal-daily.reset-backup.v1';
 /** Reset a personal export batch, preserving hole definitions and selection.
  * The caller prepares a fresh engine state before touching saved history.

@@ -31,6 +31,8 @@ jobs:
           node tests/test_personal_reset.mjs
           node tests/test_personal_daily.mjs
           node tests/test_hole_retirement.mjs
+          node tests/test_spelling_equivalence.mjs
+          node tests/test_spelling_cleverness.mjs
           node tests/test_future_daily_proposals.mjs
           node tests/test_fresh_daily_30.mjs
           node tests/test_fresh_daily_50.mjs

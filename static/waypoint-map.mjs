@@ -1,3 +1,4 @@
+import {stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
 import {mapFraction} from './map.mjs?v=golf-v189';
 import {appearanceUnit,greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=quick-result-camera-v1';
 import {courseLake,courseBunkers} from './course-art.mjs?v=quick-result-camera-v1';
@@ -56,21 +57,21 @@ export function waypointBoundaryPosition(point,d,inside){
 }
 /** Store each shot in its own leg, so switching target does not move earlier labels. */
 export function waypointPosition(state,word,d,event=null){
- const a=waypointAnchors(d);
+ const a=waypointAnchors(d),semanticWord=stateSpelling(state,word),same=(a,b)=>stateSpelling(state,a)===stateSpelling(state,b);
  const h=event??state.history.findLast(h=>h.word===word&&h.success)??state.history.findLast(h=>h.word===word);
  const stage=h?.stage??(h?.leg_target===state.final_target?1:0);
  const legThreshold=h?.leg_threshold??(stage===0?state.waypoint.threshold:state.threshold)??state.threshold;
  const inside=!!h&&(!!h.waypoint_reached||h.destination+1e-7>=legThreshold);
- if(word===state.start&&stage!==1)return a.tee;
- if(word===state.final_target&&(!h||stage===1||h.won))return a.flag;
+ if(same(word,state.start)&&stage!==1)return a.tee;
+ if(same(word,state.final_target)&&(!h||stage===1||h.won))return a.flag;
  // The named dogleg is a fixed landmark; playing it must not move its marker.
- if(word===state.waypoint.word&&(!h||stage===0))return a.bend;
+ if(same(word,state.waypoint.word)&&(!h||stage===0))return a.bend;
  if(!h)return a.bend;
  // A weak swing can aim inside the zone. Keep its faded intended lie honest,
  // without treating it as a successful arrival or advancing the game stage.
  if(stage===0&&inside){
   const rx=d.width*.065,ry=40,dx=(a.bend.x-a.tee.x)/rx,dy=(a.bend.y-a.tee.y)/ry,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
-  const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-legThreshold)/(1-legThreshold)))),forward=.62*(2*depth-1),side=.18*Math.sin(appearanceUnit(word,':waypoint-lie')*Math.PI*2+h.destination*5);
+  const depth=Math.sqrt(Math.max(0,Math.min(1,(h.destination-legThreshold)/(1-legThreshold)))),forward=.62*(2*depth-1),side=.18*Math.sin(appearanceUnit(semanticWord,':waypoint-lie')*Math.PI*2+h.destination*5);
   return waypointBoundaryPosition({x:a.bend.x+rx*(forward*ux-side*uy),y:a.bend.y+ry*(forward*uy+side*ux)},d,true);
  }
  const entry=state.history.find(h=>h.waypoint_reached);
@@ -78,7 +79,7 @@ export function waypointPosition(state,word,d,event=null){
  const goal=stage===1?a.flag:a.bend;
  const threshold=h.leg_threshold??state.threshold,baseline=h.leg_baseline??state.baseline;
  const fraction=mapFraction(h.destination,stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
- const offset=[-24,26,-36,34,-12,14][Math.floor(appearanceUnit(word,':word-lie')*6)];
+ const offset=[-24,26,-36,34,-12,14][Math.floor(appearanceUnit(semanticWord,':word-lie')*6)];
  return stage===1?finalLie(d,start,fraction,offset):waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
 }
 /** The exact same path geometry drives drawing and tree clearance. */

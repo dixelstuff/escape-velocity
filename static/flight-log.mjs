@@ -1,4 +1,4 @@
-import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
+import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=uk-us-v1';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=personal-daily-v1';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
 import {successTitle,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';

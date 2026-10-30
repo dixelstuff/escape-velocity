@@ -1,5 +1,5 @@
-import {wordLieKey} from './word-lies.mjs?v=golf-v189';
-import {waypointPosition} from './waypoint-map.mjs?v=cubic-results-v1';
+import {wordLieKey} from './word-lies.mjs?v=uk-us-v1';
+import {waypointPosition} from './waypoint-map.mjs?v=uk-us-v1';
 import {projectPoint} from './map.mjs?v=golf-v189';
 import {usefulForwardMiss} from './play-feedback.mjs?v=golf-v189';
 /** Compare only retries in this challenge, including a completed attempt replayed within the same challenge. */
@@ -12,8 +12,8 @@ export function previousAttempts(journeys,state,activeId){
 /** Retain the visible word anchors for faded labels and dots, without old travel lines. */
 export function previousWordLabels(state,d){
  const latest=new Map();
- for(const h of state.history.filter(h=>h.success||usefulForwardMiss(h,state)))if(!((h.word===state.start&&(h.stage??0)===0)||(h.word===state.target&&(h.stage??0)===(state.stage??0))))latest.set(wordLieKey(h.word,h),h);
- return [...latest.values()].map(h=>({key:wordLieKey(h.word,h),word:h.word,...(h.success&&!h.won&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
+ for(const h of state.history.filter(h=>h.success||usefulForwardMiss(h,state)))if(!((h.word===state.start&&(h.stage??0)===0)||(h.word===state.target&&(h.stage??0)===(state.stage??0))))latest.set(wordLieKey(h.word,h,state),h);
+ return [...latest.values()].map(h=>({key:wordLieKey(h.word,h,state),word:h.word,...(h.success&&!h.won&&(state.waypoint||state.challenge?.version==='stroke-play-v1')?{resumeThrough:h.attempt}:{}),pos:state.waypoint?waypointPosition(state,h.word,d,h):projectPoint(h.destination,state.baseline,state.threshold,d,.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6])}));
 }
 export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.some(h=>!h.assumed)&&!state?.won;}
 

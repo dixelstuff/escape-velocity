@@ -1,6 +1,6 @@
-import {isRetiredHole} from './hole-retirement.mjs?v=retired-holes-2026-10-30-v1';
+import {isRetiredHole} from './hole-retirement.mjs?v=uk-us-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
-import {golfResult} from './daily-game.mjs?v=opportunity08-bonus2-v1';
+import {golfResult} from './daily-game.mjs?v=uk-us-v1';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const dateLabel=day=>day?.startsWith('custom-')?'Your hole':new Intl.DateTimeFormat('en',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(day+'T00:00:00Z'));
 export function holeNumber(game,hole){const i=game.available().findIndex(h=>h.id===hole?.id);return i<0?'#—':'#'+(i+1);}

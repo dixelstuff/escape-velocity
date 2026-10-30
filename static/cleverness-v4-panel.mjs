@@ -1,5 +1,5 @@
 /** Optional read-only V4 panel. No focus, keyboard or viewport controls. */
-import {clevernessV4Key,CLEVERNESS_V4_VERSION} from './cleverness-v4-key.mjs?v=golf-v189';
+import {clevernessV4Key,CLEVERNESS_V4_VERSION} from './cleverness-v4-key.mjs?v=uk-us-v1';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),word=x=>esc(x?.toUpperCase()),n=x=>Number.isFinite(x)?x.toFixed(3):'—',pct=x=>Number.isFinite(x)?(x*100).toFixed(1)+'%':'—',route=xs=>xs.map(word).join(' → ');
 export function clevernessV4Markup(r){
  const find=p=>r.bridges.find(b=>b.position===p),candidate=r.context_candidates.map(find).filter(Boolean),setups=r.necessary_setups.map(find).filter(Boolean),dogleg=r.dogleg;
