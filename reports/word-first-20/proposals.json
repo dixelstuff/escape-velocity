@@ -1,0 +1,665 @@
+[
+  {
+    "start": "fame",
+    "waypoint": "scatter",
+    "target": "ribbon",
+    "directions": {
+      "tee": [
+        "celebrity",
+        "star",
+        "glory",
+        "reputation",
+        "recognition",
+        "success",
+        "name",
+        "public",
+        "legend",
+        "spotlight"
+      ],
+      "dogleg": [
+        "spread",
+        "throw",
+        "seeds",
+        "light",
+        "disperse",
+        "mess"
+      ],
+      "flag": [
+        "bow",
+        "prize",
+        "tape",
+        "colour",
+        "gift",
+        "strip",
+        "typewriter",
+        "finish"
+      ]
+    }
+  },
+  {
+    "start": "promise",
+    "waypoint": "shadow",
+    "target": "luck",
+    "directions": {
+      "tee": [
+        "vow",
+        "pledge",
+        "hope",
+        "commitment",
+        "future",
+        "keep",
+        "swear",
+        "word",
+        "potential"
+      ],
+      "dogleg": [
+        "shade",
+        "dark",
+        "follow",
+        "copy",
+        "doubt",
+        "secret",
+        "silhouette"
+      ],
+      "flag": [
+        "chance",
+        "fortune",
+        "wish",
+        "dice",
+        "charm",
+        "lucky",
+        "fate"
+      ]
+    }
+  },
+  {
+    "start": "drift",
+    "waypoint": "honour",
+    "target": "clear",
+    "directions": {
+      "tee": [
+        "float",
+        "current",
+        "wind",
+        "wander",
+        "snow",
+        "slip",
+        "direction",
+        "loose",
+        "slide"
+      ],
+      "dogleg": [
+        "respect",
+        "medal",
+        "duty",
+        "honest",
+        "glory",
+        "promise",
+        "prize"
+      ],
+      "flag": [
+        "transparent",
+        "clean",
+        "obvious",
+        "free",
+        "sky",
+        "solve"
+      ]
+    }
+  },
+  {
+    "start": "charm",
+    "waypoint": "split",
+    "target": "duty",
+    "directions": {
+      "tee": [
+        "magic",
+        "spell",
+        "luck",
+        "attract",
+        "bracelet",
+        "polite",
+        "smile"
+      ],
+      "dogleg": [
+        "divide",
+        "crack",
+        "share",
+        "break",
+        "leave",
+        "banana"
+      ],
+      "flag": [
+        "job",
+        "work",
+        "tax",
+        "obligation",
+        "honour",
+        "service",
+        "responsibility"
+      ]
+    }
+  },
+  {
+    "start": "spare",
+    "waypoint": "dream",
+    "target": "tension",
+    "directions": {
+      "tee": [
+        "extra",
+        "reserve",
+        "save",
+        "time",
+        "wheel",
+        "change",
+        "mercy",
+        "bowling"
+      ],
+      "dogleg": [
+        "sleep",
+        "hope",
+        "ambition",
+        "vision",
+        "imagine",
+        "nightmare",
+        "future"
+      ],
+      "flag": [
+        "strain",
+        "stress",
+        "wire",
+        "suspense",
+        "conflict",
+        "tight"
+      ]
+    }
+  },
+  {
+    "start": "hide",
+    "waypoint": "rhythm",
+    "target": "pocket",
+    "directions": {
+      "tee": [
+        "cover",
+        "conceal",
+        "skin",
+        "leather",
+        "secret",
+        "seek",
+        "shelter"
+      ],
+      "dogleg": [
+        "beat",
+        "music",
+        "pattern",
+        "dance",
+        "pace",
+        "flow",
+        "cycle"
+      ],
+      "flag": [
+        "money",
+        "carry",
+        "bag",
+        "billiards",
+        "steal",
+        "space",
+        "save"
+      ]
+    }
+  },
+  {
+    "start": "cold",
+    "waypoint": "trust",
+    "target": "parade",
+    "directions": {
+      "tee": [
+        "ice",
+        "winter",
+        "flu",
+        "distant",
+        "chill",
+        "emotion",
+        "frozen",
+        "drink"
+      ],
+      "dogleg": [
+        "faith",
+        "belief",
+        "rely",
+        "money",
+        "bank",
+        "confidence",
+        "honest"
+      ],
+      "flag": [
+        "march",
+        "show",
+        "pride",
+        "display",
+        "music",
+        "uniform"
+      ]
+    }
+  },
+  {
+    "start": "bluff",
+    "waypoint": "romance",
+    "target": "shift",
+    "directions": {
+      "tee": [
+        "pretend",
+        "poker",
+        "cliff",
+        "boast",
+        "lie",
+        "deception",
+        "brave"
+      ],
+      "dogleg": [
+        "love",
+        "date",
+        "passion",
+        "novel",
+        "adventure",
+        "story"
+      ],
+      "flag": [
+        "move",
+        "change",
+        "work",
+        "gear",
+        "dress",
+        "alter",
+        "turn"
+      ]
+    }
+  },
+  {
+    "start": "still",
+    "waypoint": "revenge",
+    "target": "smooth",
+    "directions": {
+      "tee": [
+        "quiet",
+        "calm",
+        "photograph",
+        "remain",
+        "silent",
+        "water",
+        "distill",
+        "freeze"
+      ],
+      "dogleg": [
+        "anger",
+        "justice",
+        "payback",
+        "avenge",
+        "spite",
+        "hurt"
+      ],
+      "flag": [
+        "silky",
+        "easy",
+        "even",
+        "gentle",
+        "polished",
+        "calm"
+      ]
+    }
+  },
+  {
+    "start": "rush",
+    "waypoint": "wisdom",
+    "target": "fold",
+    "directions": {
+      "tee": [
+        "hurry",
+        "speed",
+        "crowd",
+        "thrill",
+        "river",
+        "reed",
+        "demand"
+      ],
+      "dogleg": [
+        "knowledge",
+        "sage",
+        "age",
+        "advice",
+        "sense",
+        "experience"
+      ],
+      "flag": [
+        "bend",
+        "paper",
+        "crease",
+        "flock",
+        "close",
+        "wrap",
+        "arms"
+      ]
+    }
+  },
+  {
+    "start": "lift",
+    "waypoint": "honest",
+    "target": "season",
+    "directions": {
+      "tee": [
+        "raise",
+        "elevator",
+        "weight",
+        "ride",
+        "steal",
+        "mood",
+        "carry"
+      ],
+      "dogleg": [
+        "truth",
+        "frank",
+        "fair",
+        "sincere",
+        "trust",
+        "open"
+      ],
+      "flag": [
+        "time",
+        "winter",
+        "summer",
+        "flavour",
+        "salt",
+        "spice",
+        "mature"
+      ]
+    }
+  },
+  {
+    "start": "glow",
+    "waypoint": "borrow",
+    "target": "fence",
+    "directions": {
+      "tee": [
+        "light",
+        "warm",
+        "shine",
+        "pride",
+        "fire",
+        "bright",
+        "ember",
+        "healthy"
+      ],
+      "dogleg": [
+        "loan",
+        "lend",
+        "library",
+        "money",
+        "copy",
+        "return",
+        "debt"
+      ],
+      "flag": [
+        "barrier",
+        "garden",
+        "sword",
+        "boundary",
+        "stolen",
+        "jump"
+      ]
+    }
+  },
+  {
+    "start": "habit",
+    "waypoint": "stitch",
+    "target": "crown",
+    "directions": {
+      "tee": [
+        "routine",
+        "custom",
+        "repeat",
+        "monk",
+        "robe",
+        "practice",
+        "addiction"
+      ],
+      "dogleg": [
+        "sew",
+        "thread",
+        "wound",
+        "pain",
+        "knit",
+        "pattern"
+      ],
+      "flag": [
+        "king",
+        "tooth",
+        "top",
+        "prize",
+        "head",
+        "royal"
+      ]
+    }
+  },
+  {
+    "start": "tension",
+    "waypoint": "gift",
+    "target": "track",
+    "directions": {
+      "tee": [
+        "strain",
+        "stress",
+        "wire",
+        "suspense",
+        "conflict",
+        "tight"
+      ],
+      "dogleg": [
+        "present",
+        "talent",
+        "give",
+        "wrap",
+        "birthday",
+        "generous"
+      ],
+      "flag": [
+        "path",
+        "follow",
+        "record",
+        "train",
+        "music",
+        "race"
+      ]
+    }
+  },
+  {
+    "start": "screen",
+    "waypoint": "loyal",
+    "target": "swing",
+    "directions": {
+      "tee": [
+        "film",
+        "display",
+        "filter",
+        "hide",
+        "test",
+        "protect"
+      ],
+      "dogleg": [
+        "faithful",
+        "friend",
+        "dog",
+        "allegiance",
+        "royal",
+        "devoted"
+      ],
+      "flag": [
+        "move",
+        "pendulum",
+        "playground",
+        "golf",
+        "music",
+        "dance"
+      ]
+    }
+  },
+  {
+    "start": "shelter",
+    "waypoint": "tempt",
+    "target": "paint",
+    "directions": {
+      "tee": [
+        "home",
+        "roof",
+        "protect",
+        "refuge",
+        "cover",
+        "shade",
+        "safe"
+      ],
+      "dogleg": [
+        "desire",
+        "lure",
+        "offer",
+        "attract",
+        "risk",
+        "sweet"
+      ],
+      "flag": [
+        "colour",
+        "art",
+        "brush",
+        "coat",
+        "picture",
+        "decorate"
+      ]
+    }
+  },
+  {
+    "start": "spoil",
+    "waypoint": "gravity",
+    "target": "ring",
+    "directions": {
+      "tee": [
+        "ruin",
+        "rot",
+        "pamper",
+        "treasure",
+        "victory",
+        "surprise"
+      ],
+      "dogleg": [
+        "weight",
+        "pull",
+        "force",
+        "serious",
+        "fall",
+        "earth"
+      ],
+      "flag": [
+        "circle",
+        "bell",
+        "call",
+        "jewellery",
+        "boxing",
+        "group"
+      ]
+    }
+  },
+  {
+    "start": "thrill",
+    "waypoint": "frame",
+    "target": "root",
+    "directions": {
+      "tee": [
+        "excite",
+        "adventure",
+        "ride",
+        "fear",
+        "joy",
+        "rush"
+      ],
+      "dogleg": [
+        "picture",
+        "border",
+        "structure",
+        "blame",
+        "glasses",
+        "build"
+      ],
+      "flag": [
+        "tree",
+        "cause",
+        "origin",
+        "family",
+        "number",
+        "tooth",
+        "grow"
+      ]
+    }
+  },
+  {
+    "start": "plain",
+    "waypoint": "ambition",
+    "target": "echo",
+    "directions": {
+      "tee": [
+        "simple",
+        "clear",
+        "ordinary",
+        "field",
+        "honest",
+        "obvious",
+        "land",
+        "flour"
+      ],
+      "dogleg": [
+        "goal",
+        "career",
+        "drive",
+        "success",
+        "hunger",
+        "dream"
+      ],
+      "flag": [
+        "repeat",
+        "sound",
+        "reflection",
+        "memory",
+        "reply"
+      ]
+    }
+  },
+  {
+    "start": "dare",
+    "waypoint": "comfort",
+    "target": "signal",
+    "directions": {
+      "tee": [
+        "risk",
+        "challenge",
+        "brave",
+        "courage",
+        "bold",
+        "truth",
+        "venture"
+      ],
+      "dogleg": [
+        "ease",
+        "soft",
+        "home",
+        "warm",
+        "console",
+        "soothe"
+      ],
+      "flag": [
+        "sign",
+        "wave",
+        "light",
+        "message",
+        "traffic",
+        "cue",
+        "flag"
+      ]
+    }
+  }
+]

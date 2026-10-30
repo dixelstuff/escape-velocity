@@ -1,0 +1,5738 @@
+{
+  "batch": "word-first-20-2026-10-31",
+  "oldCount": 265,
+  "oldSha": "206e902034950d777ee0b163856fdc01d479201c19f0866e6ca89d08834d3930",
+  "firstDate": "2027-07-12",
+  "lastDate": "2027-07-31",
+  "proposalsSha256": "23a3387c776c1e8b902260adb83e737ff7919edaff3bfa8313bb6f83f8da5aa5",
+  "checks": [
+    {
+      "id": "daily-2027-07-12",
+      "date": "2027-07-12",
+      "settings": {
+        "start": "fame",
+        "target": "ribbon",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "scatter",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 1,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "fame",
+          "target": "scatter",
+          "direct": false,
+          "contact": -0.08060424068025895,
+          "required": 0.215
+        },
+        {
+          "start": "scatter",
+          "target": "ribbon",
+          "direct": false,
+          "contact": -0.004385067139082821,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "fame",
+          "scatter",
+          "ribbon"
+        ],
+        "openings": [
+          {
+            "word": "celebrity",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "star",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "glory",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "reputation",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "recognition",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "success",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "name",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "public",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "legend",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "spotlight",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "spread",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "throw",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "light",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "disperse",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "mess",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 25473,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "glory",
+            "glow",
+            "decorate"
+          ],
+          "state": {
+            "start": "fame",
+            "current": "ribbon",
+            "target": "ribbon",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.26697167734164395,
+            "progress": 1,
+            "attempts": 4,
+            "route": [
+              "fame",
+              "glory",
+              "glow",
+              "decorate",
+              "ribbon"
+            ],
+            "history": [
+              {
+                "word": "glory",
+                "origin": "fame",
+                "launch": 0.4699765077311895,
+                "destination": 0.011190522483957466,
+                "required": 0.12687279055958406,
+                "trip_fraction": 0.2656065879965337,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "scatter",
+                "leg_baseline": -0.08060424068025895,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "glow",
+                "origin": "glory",
+                "launch": 0.3042355832985777,
+                "destination": 0.1777154555384186,
+                "required": 0.15282044782553147,
+                "trip_fraction": 0.4818370652127623,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 2,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "scatter",
+                "leg_baseline": -0.08060424068025895,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "decorate",
+                "origin": "glow",
+                "launch": 0.2844776992317293,
+                "destination": 0.320455588468576,
+                "required": 0.12530676161488447,
+                "trip_fraction": 0.252556346790704,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 3,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "scatter",
+                "leg_baseline": -0.08060424068025895,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "ribbon",
+                  "origin": "decorate",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 4,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.26697167734164395,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "scatter",
+              "threshold": 0.265
+            },
+            "final_target": "ribbon",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "decorate",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "ribbon",
+                "origin": "decorate",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 4,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.26697167734164395,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.26697167734164395,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-13",
+      "date": "2027-07-13",
+      "settings": {
+        "start": "promise",
+        "target": "luck",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "shadow",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 2,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "promise",
+          "target": "shadow",
+          "direct": false,
+          "contact": 0.14474384824097797,
+          "required": 0.24341176470588236
+        },
+        {
+          "start": "shadow",
+          "target": "luck",
+          "direct": false,
+          "contact": 0.1291150934594043,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "promise",
+          "shadow",
+          "luck"
+        ],
+        "openings": [
+          {
+            "word": "vow",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "pledge",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "hope",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "commitment",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "future",
+            "hit": true,
+            "forward": true,
+            "waypoint": true
+          },
+          {
+            "word": "keep",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "swear",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "word",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "potential",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "shade",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "dark",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "follow",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "copy",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "doubt",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "secret",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "silhouette",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2974,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "hope",
+            "doubt"
+          ],
+          "state": {
+            "start": "promise",
+            "current": "luck",
+            "target": "luck",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.37163578202171266,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "promise",
+              "hope",
+              "doubt",
+              "luck"
+            ],
+            "history": [
+              {
+                "word": "hope",
+                "origin": "promise",
+                "launch": 0.564064049597846,
+                "destination": 0.21665727664185397,
+                "required": 0.1779021452208333,
+                "trip_fraction": 0.5980020759767976,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.01114189610361759,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "shadow",
+                "leg_baseline": 0.14474384824097797,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "doubt",
+                "origin": "hope",
+                "launch": 0.6128135163635307,
+                "destination": 0.32066974075860344,
+                "required": 0.1482747725265144,
+                "trip_fraction": 0.40199792402320245,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.005035021643730088,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "shadow",
+                "leg_baseline": 0.14474384824097797,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "luck",
+                  "origin": "doubt",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.37163578202171266,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "shadow",
+              "threshold": 0.265
+            },
+            "final_target": "luck",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "doubt",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "luck",
+                "origin": "doubt",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.37163578202171266,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.37163578202171266,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-14",
+      "date": "2027-07-14",
+      "settings": {
+        "start": "drift",
+        "target": "clear",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "honour",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 3,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "drift",
+          "target": "honour",
+          "direct": false,
+          "contact": -0.12948752996089752,
+          "required": 0.215
+        },
+        {
+          "start": "honour",
+          "target": "clear",
+          "direct": false,
+          "contact": 0.15246719002607279,
+          "required": 0.24766666666666667
+        }
+      ],
+      "safety": {
+        "words": [
+          "drift",
+          "honour",
+          "clear"
+        ],
+        "openings": [
+          {
+            "word": "float",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "current",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "wind",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "wander",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "snow",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "slip",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "direction",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "loose",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "slide",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "respect",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "medal",
+            "hit": true,
+            "forward": false
+          },
+          {
+            "word": "duty",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "honest",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "glory",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "promise",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "prize",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 4753,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "direction",
+            "follow"
+          ],
+          "state": {
+            "start": "drift",
+            "current": "clear",
+            "target": "clear",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.4772879322335939,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "drift",
+              "direction",
+              "follow",
+              "clear"
+            ],
+            "history": [
+              {
+                "word": "direction",
+                "origin": "drift",
+                "launch": 0.3485053211736613,
+                "destination": 0.0957887989638948,
+                "required": 0.1660338587446969,
+                "trip_fraction": 0.5710607099472123,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.002506573551031418,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "honour",
+                "leg_baseline": -0.12948752996089752,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "follow",
+                "origin": "direction",
+                "launch": 0.3886222108696984,
+                "destination": 0.27038267452371656,
+                "required": 0.15210421864190501,
+                "trip_fraction": 0.4289392900527877,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.005631503835570484,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "honour",
+                "leg_baseline": -0.12948752996089752,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "clear",
+                  "origin": "follow",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.4772879322335939,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "honour",
+              "threshold": 0.265
+            },
+            "final_target": "clear",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "follow",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "clear",
+                "origin": "follow",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.4772879322335939,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.4772879322335939,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-15",
+      "date": "2027-07-15",
+      "settings": {
+        "start": "charm",
+        "target": "duty",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "split",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 4,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "charm",
+          "target": "split",
+          "direct": false,
+          "contact": -0.04637787948740879,
+          "required": 0.215
+        },
+        {
+          "start": "split",
+          "target": "duty",
+          "direct": false,
+          "contact": 0.04459918595239287,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "charm",
+          "split",
+          "duty"
+        ],
+        "openings": [
+          {
+            "word": "magic",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "spell",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "luck",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "attract",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "bracelet",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "polite",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "smile",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "divide",
+            "hit": true,
+            "forward": false
+          },
+          {
+            "word": "crack",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "share",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "break",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "leave",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "banana",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 4158,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "luck",
+            "just"
+          ],
+          "state": {
+            "start": "charm",
+            "current": "duty",
+            "target": "duty",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.27650802012976783,
+            "progress": 0.9999898323165439,
+            "attempts": 3,
+            "route": [
+              "charm",
+              "luck",
+              "just",
+              "duty"
+            ],
+            "history": [
+              {
+                "word": "luck",
+                "origin": "charm",
+                "launch": 0.4466284763584554,
+                "destination": 0.031879547921562335,
+                "required": 0.1251591471575818,
+                "trip_fraction": 0.2513262263131817,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "split",
+                "leg_baseline": -0.04637787948740879,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "just",
+                "origin": "luck",
+                "launch": 0.39032692354703613,
+                "destination": 0.28297080794436624,
+                "required": 0.20376638982708342,
+                "trip_fraction": 0.7486737736868183,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.018925536984665224,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "split",
+                "leg_baseline": -0.04637787948740879,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "duty",
+                  "origin": "just",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.27650802012976783,
+                  "destination": 0.9999898323165439
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "split",
+              "threshold": 0.265
+            },
+            "final_target": "duty",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "just",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "duty",
+                "origin": "just",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.27650802012976783,
+                "destination": 0.9999898323165439
+              }
+            ],
+            "best_progress": 0.27650802012976783,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-16",
+      "date": "2027-07-16",
+      "settings": {
+        "start": "spare",
+        "target": "tension",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "dream",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 5,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "spare",
+          "target": "dream",
+          "direct": false,
+          "contact": 0.12839229123073892,
+          "required": 0.215
+        },
+        {
+          "start": "dream",
+          "target": "tension",
+          "direct": false,
+          "contact": 0.09554673348611686,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "spare",
+          "dream",
+          "tension"
+        ],
+        "openings": [
+          {
+            "word": "extra",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "reserve",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "save",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "time",
+            "hit": true,
+            "forward": true,
+            "waypoint": true
+          },
+          {
+            "word": "wheel",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "change",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "mercy",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "bowling",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "sleep",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "hope",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "ambition",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "vision",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "imagine",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "nightmare",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "future",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2380,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "time",
+            "even"
+          ],
+          "state": {
+            "start": "spare",
+            "current": "tension",
+            "target": "tension",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.23569876353394648,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "spare",
+              "time",
+              "even",
+              "tension"
+            ],
+            "history": [
+              {
+                "word": "time",
+                "origin": "spare",
+                "launch": 0.24919388383341357,
+                "destination": 0.34984816994347057,
+                "required": 0.24903921568627452,
+                "trip_fraction": 1,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.034039215686274514,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "dream",
+                "leg_baseline": 0.12839229123073892,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true
+              },
+              {
+                "word": "even",
+                "origin": "time",
+                "launch": 0.6757734170787444,
+                "destination": 0.2587838551335153,
+                "required": 0.19161426622386754,
+                "trip_fraction": 0.6730104794448201,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.015853008690489133,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "green",
+                "backtrack": false,
+                "stage": 1,
+                "leg_target": "tension",
+                "leg_baseline": 0.23569876353394648,
+                "leg_threshold": 0.27,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "tension",
+                  "origin": "even",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.1065219133872006,
+                  "trip_fraction": 0.09346787388737252,
+                  "hub_surcharge": 0.0003057685207159021,
+                  "launch": 0.2587838551335153,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "dream",
+              "threshold": 0.265
+            },
+            "final_target": "tension",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "time",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "tension",
+                "origin": "even",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.1065219133872006,
+                "trip_fraction": 0.09346787388737252,
+                "hub_surcharge": 0.0003057685207159021,
+                "launch": 0.2587838551335153,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.2587838551335153,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-17",
+      "date": "2027-07-17",
+      "settings": {
+        "start": "hide",
+        "target": "pocket",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "rhythm",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 6,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "hide",
+          "target": "rhythm",
+          "direct": false,
+          "contact": 0.033616261680435855,
+          "required": 0.215
+        },
+        {
+          "start": "rhythm",
+          "target": "pocket",
+          "direct": false,
+          "contact": 0.04844744488582364,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "hide",
+          "rhythm",
+          "pocket"
+        ],
+        "openings": [
+          {
+            "word": "cover",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "conceal",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "skin",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "leather",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "secret",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "seek",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "shelter",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "beat",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "music",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "pattern",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "dance",
+            "hit": true,
+            "forward": false
+          },
+          {
+            "word": "pace",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "flow",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "cycle",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 23098,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "cover",
+            "easy",
+            "quick"
+          ],
+          "state": {
+            "start": "hide",
+            "current": "pocket",
+            "target": "pocket",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.20636646324282992,
+            "progress": 1,
+            "attempts": 4,
+            "route": [
+              "hide",
+              "cover",
+              "easy",
+              "quick",
+              "pocket"
+            ],
+            "history": [
+              {
+                "word": "cover",
+                "origin": "hide",
+                "launch": 0.40994072543344373,
+                "destination": 0.0884529277573165,
+                "required": 0.12444152061037317,
+                "trip_fraction": 0.23699446847533298,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0010021843933332175,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "rhythm",
+                "leg_baseline": 0.033616261680435855,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "easy",
+                "origin": "cover",
+                "launch": 0.302073546245083,
+                "destination": 0.27409399752104946,
+                "required": 0.20230228518155324,
+                "trip_fraction": 0.763005531524667,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": false,
+                "attempt": 2,
+                "hub_surcharge": 0.015741621398593208,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "rhythm",
+                "leg_baseline": 0.033616261680435855,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true
+              },
+              {
+                "word": "quick",
+                "origin": "easy",
+                "launch": 0.6606620909715275,
+                "destination": 0.19886512983612192,
+                "required": 0.1091459999660247,
+                "trip_fraction": 0.11788333305020587,
+                "boundary": false,
+                "success": true,
+                "inside": false,
+                "won": true,
+                "attempt": 3,
+                "hub_surcharge": 0,
+                "forward": false,
+                "connected": true,
+                "safe": true,
+                "outcome": "green",
+                "backtrack": false,
+                "stage": 1,
+                "leg_target": "pocket",
+                "leg_baseline": 0.20636646324282992,
+                "leg_threshold": 0.27,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "pocket",
+                  "origin": "quick",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 4,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.17163325723234074,
+                  "trip_fraction": 0.5927905846989842,
+                  "hub_surcharge": 0.0054983870684626535,
+                  "launch": 0.19886512983612192,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "rhythm",
+              "threshold": 0.265
+            },
+            "final_target": "pocket",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "easy",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "pocket",
+                "origin": "quick",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 4,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.17163325723234074,
+                "trip_fraction": 0.5927905846989842,
+                "hub_surcharge": 0.0054983870684626535,
+                "launch": 0.19886512983612192,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.20636646324282992,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-18",
+      "date": "2027-07-18",
+      "settings": {
+        "start": "cold",
+        "target": "parade",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "trust",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 7,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "cold",
+          "target": "trust",
+          "direct": false,
+          "contact": 0.06296918612042646,
+          "required": 0.21623529411764705
+        },
+        {
+          "start": "trust",
+          "target": "parade",
+          "direct": false,
+          "contact": -0.016919666311878245,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "cold",
+          "trust",
+          "parade"
+        ],
+        "openings": [
+          {
+            "word": "ice",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "winter",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "flu",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "distant",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "chill",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "emotion",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "frozen",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "drink",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "faith",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "belief",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "rely",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "money",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "bank",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "confidence",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "honest",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2380,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "drink",
+            "gift"
+          ],
+          "state": {
+            "start": "cold",
+            "current": "parade",
+            "target": "parade",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.22575333828376642,
+            "progress": 0.9999529733064492,
+            "attempts": 3,
+            "route": [
+              "cold",
+              "drink",
+              "gift",
+              "parade"
+            ],
+            "history": [
+              {
+                "word": "drink",
+                "origin": "cold",
+                "launch": 0.3544663749494248,
+                "destination": 0.053699481817602646,
+                "required": 0.10050591513729146,
+                "trip_fraction": 0.04588262614409549,
+                "boundary": false,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": false,
+                "connected": true,
+                "safe": true,
+                "outcome": "recovery",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "trust",
+                "leg_baseline": 0.06296918612042646,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "gift",
+                "origin": "drink",
+                "launch": 0.21944965035072528,
+                "destination": 0.2690028122892727,
+                "required": 0.215,
+                "trip_fraction": 1,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "trust",
+                "leg_baseline": 0.06296918612042646,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "parade",
+                  "origin": "gift",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.22575333828376642,
+                  "destination": 0.9999529733064492
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "trust",
+              "threshold": 0.265
+            },
+            "final_target": "parade",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "gift",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "parade",
+                "origin": "gift",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.22575333828376642,
+                "destination": 0.9999529733064492
+              }
+            ],
+            "best_progress": 0.22575333828376642,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-19",
+      "date": "2027-07-19",
+      "settings": {
+        "start": "bluff",
+        "target": "shift",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "romance",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 8,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "bluff",
+          "target": "romance",
+          "direct": false,
+          "contact": -0.05748098933327128,
+          "required": 0.215
+        },
+        {
+          "start": "romance",
+          "target": "shift",
+          "direct": false,
+          "contact": 0.0385402143756437,
+          "required": 0.23311764705882354
+        }
+      ],
+      "safety": {
+        "words": [
+          "bluff",
+          "romance",
+          "shift"
+        ],
+        "openings": [
+          {
+            "word": "pretend",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "poker",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "cliff",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "boast",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "lie",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "deception",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "brave",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "love",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "date",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "passion",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "novel",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "adventure",
+            "hit": true,
+            "forward": false
+          },
+          {
+            "word": "story",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2972,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "lie",
+            "sense"
+          ],
+          "state": {
+            "start": "bluff",
+            "current": "shift",
+            "target": "shift",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.32797366329259603,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "bluff",
+              "lie",
+              "sense",
+              "shift"
+            ],
+            "history": [
+              {
+                "word": "lie",
+                "origin": "bluff",
+                "launch": 0.2587135229814521,
+                "destination": 0.1468010165749547,
+                "required": 0.17101639017440817,
+                "trip_fraction": 0.6334699181200683,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "romance",
+                "leg_baseline": -0.05748098933327128,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "sense",
+                "origin": "lie",
+                "launch": 0.2521802526262036,
+                "destination": 0.31146475868263224,
+                "required": 0.14351970563322416,
+                "trip_fraction": 0.3665300818799317,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.004536095807632355,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "romance",
+                "leg_baseline": -0.05748098933327128,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "shift",
+                  "origin": "sense",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.32797366329259603,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "romance",
+              "threshold": 0.265
+            },
+            "final_target": "shift",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "sense",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "shift",
+                "origin": "sense",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.32797366329259603,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.32797366329259603,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-20",
+      "date": "2027-07-20",
+      "settings": {
+        "start": "still",
+        "target": "smooth",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "revenge",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 9,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "still",
+          "target": "revenge",
+          "direct": false,
+          "contact": 0.1309428953227325,
+          "required": 0.24876470588235294
+        },
+        {
+          "start": "revenge",
+          "target": "smooth",
+          "direct": false,
+          "contact": -0.012730733109492576,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "still",
+          "revenge",
+          "smooth"
+        ],
+        "openings": [
+          {
+            "word": "quiet",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "calm",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "photograph",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "remain",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "silent",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "water",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "distill",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "freeze",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "anger",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "justice",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "payback",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "avenge",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "spite",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "hurt",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 1787,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "calm",
+            "repeat"
+          ],
+          "state": {
+            "start": "still",
+            "current": "smooth",
+            "target": "smooth",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.22206324400031008,
+            "progress": 0.9999235395853248,
+            "attempts": 3,
+            "route": [
+              "still",
+              "calm",
+              "repeat",
+              "smooth"
+            ],
+            "history": [
+              {
+                "word": "calm",
+                "origin": "still",
+                "launch": 0.3161391290013853,
+                "destination": 0.2043257011548576,
+                "required": 0.17080542234899754,
+                "trip_fraction": 0.5473996026453706,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.010117470031553043,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "revenge",
+                "leg_baseline": 0.1309428953227325,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "repeat",
+                "origin": "calm",
+                "launch": 0.27892718851762766,
+                "destination": 0.2997952274108684,
+                "required": 0.14953697785319064,
+                "trip_fraction": 0.45260039735462937,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.00022493017063513398,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "revenge",
+                "leg_baseline": 0.1309428953227325,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "smooth",
+                  "origin": "repeat",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.22206324400031008,
+                  "destination": 0.9999235395853248
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "revenge",
+              "threshold": 0.265
+            },
+            "final_target": "smooth",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "repeat",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "smooth",
+                "origin": "repeat",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.22206324400031008,
+                "destination": 0.9999235395853248
+              }
+            ],
+            "best_progress": 0.22206324400031008,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-21",
+      "date": "2027-07-21",
+      "settings": {
+        "start": "rush",
+        "target": "fold",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "wisdom",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 10,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "rush",
+          "target": "wisdom",
+          "direct": false,
+          "contact": 0.09210003072621475,
+          "required": 0.215
+        },
+        {
+          "start": "wisdom",
+          "target": "fold",
+          "direct": false,
+          "contact": 0.04697971251698618,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "rush",
+          "wisdom",
+          "fold"
+        ],
+        "openings": [
+          {
+            "word": "hurry",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "speed",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "crowd",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "thrill",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "river",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "reed",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "demand",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "knowledge",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "sage",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "age",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "advice",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "sense",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "experience",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 24284,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "demand",
+            "need",
+            "keep"
+          ],
+          "state": {
+            "start": "rush",
+            "current": "fold",
+            "target": "fold",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.1597689447553421,
+            "progress": 0.9999563330384262,
+            "attempts": 4,
+            "route": [
+              "rush",
+              "demand",
+              "need",
+              "keep",
+              "fold"
+            ],
+            "history": [
+              {
+                "word": "demand",
+                "origin": "rush",
+                "launch": 0.21891884359502,
+                "destination": 0.12473313715508993,
+                "required": 0.11866577011759322,
+                "trip_fraction": 0.18873980467400203,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0010169935567129788,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "wisdom",
+                "leg_baseline": 0.09210003072621475,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "need",
+                "origin": "demand",
+                "launch": 0.4748376033653585,
+                "destination": 0.32474769514192303,
+                "required": 0.21529589873004581,
+                "trip_fraction": 0.811260195325998,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": false,
+                "attempt": 2,
+                "hub_surcharge": 0.022944675290926066,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "wisdom",
+                "leg_baseline": 0.09210003072621475,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true
+              },
+              {
+                "word": "keep",
+                "origin": "need",
+                "launch": 0.6553886989604507,
+                "destination": 0.21089383036087384,
+                "required": 0.1581549564964595,
+                "trip_fraction": 0.46379747968537555,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": true,
+                "attempt": 3,
+                "hub_surcharge": 0.007499258934214437,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "green",
+                "backtrack": false,
+                "stage": 1,
+                "leg_target": "fold",
+                "leg_baseline": 0.1597689447553421,
+                "leg_threshold": 0.27,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "fold",
+                  "origin": "keep",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 4,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.1623310190827379,
+                  "trip_fraction": 0.4925514136593849,
+                  "hub_surcharge": 0.008224849443611711,
+                  "launch": 0.21089383036087384,
+                  "destination": 0.9999563330384262
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "wisdom",
+              "threshold": 0.265
+            },
+            "final_target": "fold",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "need",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "fold",
+                "origin": "keep",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 4,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.1623310190827379,
+                "trip_fraction": 0.4925514136593849,
+                "hub_surcharge": 0.008224849443611711,
+                "launch": 0.21089383036087384,
+                "destination": 0.9999563330384262
+              }
+            ],
+            "best_progress": 0.21089383036087384,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-22",
+      "date": "2027-07-22",
+      "settings": {
+        "start": "lift",
+        "target": "season",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "honest",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 11,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "lift",
+          "target": "honest",
+          "direct": false,
+          "contact": 0.03953750349046459,
+          "required": 0.22419607843137254
+        },
+        {
+          "start": "honest",
+          "target": "season",
+          "direct": false,
+          "contact": 0.028007922171127575,
+          "required": 0.22419607843137254
+        }
+      ],
+      "safety": {
+        "words": [
+          "lift",
+          "honest",
+          "season"
+        ],
+        "openings": [
+          {
+            "word": "raise",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "elevator",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "weight",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "ride",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "steal",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "mood",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "carry",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "truth",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "frank",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "fair",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "sincere",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "trust",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "open",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 3565,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "raise",
+            "keep"
+          ],
+          "state": {
+            "start": "lift",
+            "current": "season",
+            "target": "season",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.27669428450781197,
+            "progress": 0.9999978315515854,
+            "attempts": 3,
+            "route": [
+              "lift",
+              "raise",
+              "keep",
+              "season"
+            ],
+            "history": [
+              {
+                "word": "raise",
+                "origin": "lift",
+                "launch": 0.4070233251222817,
+                "destination": 0.1331371899759688,
+                "required": 0.1495957969225053,
+                "trip_fraction": 0.4151452588991696,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.004778365854604949,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "honest",
+                "leg_baseline": 0.03953750349046459,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "keep",
+                "origin": "raise",
+                "launch": 0.518457163396306,
+                "destination": 0.2935658771057206,
+                "required": 0.17677890643988903,
+                "trip_fraction": 0.5848547411008304,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.011596337507789378,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "honest",
+                "leg_baseline": 0.03953750349046459,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "season",
+                  "origin": "keep",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.27669428450781197,
+                  "destination": 0.9999978315515854
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "honest",
+              "threshold": 0.265
+            },
+            "final_target": "season",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "keep",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "season",
+                "origin": "keep",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.27669428450781197,
+                "destination": 0.9999978315515854
+              }
+            ],
+            "best_progress": 0.27669428450781197,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-23",
+      "date": "2027-07-23",
+      "settings": {
+        "start": "glow",
+        "target": "fence",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "borrow",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 12,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "glow",
+          "target": "borrow",
+          "direct": false,
+          "contact": -0.04621576136833028,
+          "required": 0.215
+        },
+        {
+          "start": "borrow",
+          "target": "fence",
+          "direct": false,
+          "contact": 0.01554469759503263,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "glow",
+          "borrow",
+          "fence"
+        ],
+        "openings": [
+          {
+            "word": "light",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "warm",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "shine",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "pride",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "fire",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "bright",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "ember",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "healthy",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "loan",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "lend",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "library",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "money",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "copy",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "return",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "debt",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 4752,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "bright",
+            "keep"
+          ],
+          "state": {
+            "start": "glow",
+            "current": "fence",
+            "target": "fence",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.28117919383112167,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "glow",
+              "bright",
+              "keep",
+              "fence"
+            ],
+            "history": [
+              {
+                "word": "bright",
+                "origin": "glow",
+                "launch": 0.5474610483761353,
+                "destination": 0.05398136400799558,
+                "required": 0.1336344669443938,
+                "trip_fraction": 0.3219538912032816,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "borrow",
+                "leg_baseline": -0.04621576136833028,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "keep",
+                "origin": "bright",
+                "launch": 0.2631027714742231,
+                "destination": 0.3078256913954647,
+                "required": 0.19195184173906518,
+                "trip_fraction": 0.6780461087967184,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.015586308683458982,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "borrow",
+                "leg_baseline": -0.04621576136833028,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "fence",
+                  "origin": "keep",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.28117919383112167,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "borrow",
+              "threshold": 0.265
+            },
+            "final_target": "fence",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "keep",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "fence",
+                "origin": "keep",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.28117919383112167,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.28117919383112167,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-24",
+      "date": "2027-07-24",
+      "settings": {
+        "start": "habit",
+        "target": "crown",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "stitch",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 13,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "habit",
+          "target": "stitch",
+          "direct": false,
+          "contact": 0.05650283605973527,
+          "required": 0.215
+        },
+        {
+          "start": "stitch",
+          "target": "crown",
+          "direct": false,
+          "contact": 0.013467480086546857,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "habit",
+          "stitch",
+          "crown"
+        ],
+        "openings": [
+          {
+            "word": "routine",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "custom",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "repeat",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "monk",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "robe",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "practice",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "addiction",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "sew",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "thread",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "wound",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "pain",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "knit",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "pattern",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 22505,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "repeat",
+            "pattern",
+            "bright"
+          ],
+          "state": {
+            "start": "habit",
+            "current": "crown",
+            "target": "crown",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.13902213560413657,
+            "progress": 0.9999485290978534,
+            "attempts": 4,
+            "route": [
+              "habit",
+              "repeat",
+              "pattern",
+              "bright",
+              "crown"
+            ],
+            "history": [
+              {
+                "word": "repeat",
+                "origin": "habit",
+                "launch": 0.12974571353151987,
+                "destination": 0.06704259839898441,
+                "required": 0.10106613277997517,
+                "trip_fraction": 0.050551106499793066,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "stitch",
+                "leg_baseline": 0.05650283605973527,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "pattern",
+                "origin": "repeat",
+                "launch": 0.30903441798318454,
+                "destination": 0.286707114130877,
+                "required": 0.21375929318029294,
+                "trip_fraction": 0.9494488935002069,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": false,
+                "attempt": 2,
+                "hub_surcharge": 0.004825425960268108,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "stitch",
+                "leg_baseline": 0.05650283605973527,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true
+              },
+              {
+                "word": "bright",
+                "origin": "pattern",
+                "launch": 0.3327136537577644,
+                "destination": 0.19648908029921586,
+                "required": 0.14868083673019655,
+                "trip_fraction": 0.4387531050391307,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": true,
+                "attempt": 3,
+                "hub_surcharge": 0.0010304641255008554,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "green",
+                "backtrack": false,
+                "stage": 1,
+                "leg_target": "crown",
+                "leg_baseline": 0.13902213560413657,
+                "leg_threshold": 0.27,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "crown",
+                  "origin": "bright",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 4,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.1623496273953043,
+                  "trip_fraction": 0.5612468949608693,
+                  "hub_surcharge": 0,
+                  "launch": 0.19648908029921586,
+                  "destination": 0.9999485290978534
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "stitch",
+              "threshold": 0.265
+            },
+            "final_target": "crown",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "pattern",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "crown",
+                "origin": "bright",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 4,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.1623496273953043,
+                "trip_fraction": 0.5612468949608693,
+                "hub_surcharge": 0,
+                "launch": 0.19648908029921586,
+                "destination": 0.9999485290978534
+              }
+            ],
+            "best_progress": 0.19648908029921586,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-25",
+      "date": "2027-07-25",
+      "settings": {
+        "start": "tension",
+        "target": "track",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "gift",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 14,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "tension",
+          "target": "gift",
+          "direct": false,
+          "contact": 0.010371143080647016,
+          "required": 0.215
+        },
+        {
+          "start": "gift",
+          "target": "track",
+          "direct": false,
+          "contact": 0.10084245261441538,
+          "required": 0.2202156862745098
+        }
+      ],
+      "safety": {
+        "words": [
+          "tension",
+          "gift",
+          "track"
+        ],
+        "openings": [
+          {
+            "word": "strain",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "stress",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "wire",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "suspense",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "conflict",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "tight",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "present",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "talent",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "give",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "wrap",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "birthday",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "generous",
+            "hit": true,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 3564,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "conflict",
+            "even"
+          ],
+          "state": {
+            "start": "tension",
+            "current": "track",
+            "target": "track",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.3249825433085789,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "tension",
+              "conflict",
+              "even",
+              "track"
+            ],
+            "history": [
+              {
+                "word": "conflict",
+                "origin": "tension",
+                "launch": 0.532453513589644,
+                "destination": 0.049516343132381735,
+                "required": 0.11408392879100793,
+                "trip_fraction": 0.15373434309581388,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0006358076195102578,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "gift",
+                "leg_baseline": 0.010371143080647016,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "even",
+                "origin": "conflict",
+                "launch": 0.34993781064167706,
+                "destination": 0.3135457880234753,
+                "required": 0.22161767350044392,
+                "trip_fraction": 0.8462656569041861,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.02506579467194158,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "gift",
+                "leg_baseline": 0.010371143080647016,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "track",
+                  "origin": "even",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.3249825433085789,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "gift",
+              "threshold": 0.265
+            },
+            "final_target": "track",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "even",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "track",
+                "origin": "even",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.3249825433085789,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.3249825433085789,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-26",
+      "date": "2027-07-26",
+      "settings": {
+        "start": "screen",
+        "target": "swing",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "loyal",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 15,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "screen",
+          "target": "loyal",
+          "direct": false,
+          "contact": 0.011285359941666684,
+          "required": 0.22515686274509805
+        },
+        {
+          "start": "loyal",
+          "target": "swing",
+          "direct": false,
+          "contact": 0.06289969891076908,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "screen",
+          "loyal",
+          "swing"
+        ],
+        "openings": [
+          {
+            "word": "film",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "display",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "filter",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "hide",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "test",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "protect",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "faithful",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "friend",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "dog",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "allegiance",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "royal",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "devoted",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 1192,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "display",
+            "crowd"
+          ],
+          "state": {
+            "start": "screen",
+            "current": "swing",
+            "target": "swing",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.21853360245040676,
+            "progress": 0.99997808835451,
+            "attempts": 3,
+            "route": [
+              "screen",
+              "display",
+              "crowd",
+              "swing"
+            ],
+            "history": [
+              {
+                "word": "display",
+                "origin": "screen",
+                "launch": 0.5215888298398568,
+                "destination": 0.06998989365638408,
+                "required": 0.1233093847648046,
+                "trip_fraction": 0.23138015883206514,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0005437657049567957,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "loyal",
+                "leg_baseline": 0.011285359941666684,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "crowd",
+                "origin": "display",
+                "launch": 0.27007150297868066,
+                "destination": 0.3028334774844552,
+                "required": 0.19307264242955333,
+                "trip_fraction": 0.7686198411679349,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.005838261489401153,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "loyal",
+                "leg_baseline": 0.011285359941666684,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "swing",
+                  "origin": "crowd",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.2184313725490196,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0.0034313725490196082,
+                  "launch": 0.21853360245040676,
+                  "destination": 0.99997808835451
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "loyal",
+              "threshold": 0.265
+            },
+            "final_target": "swing",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "crowd",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "swing",
+                "origin": "crowd",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.2184313725490196,
+                "trip_fraction": 1,
+                "hub_surcharge": 0.0034313725490196082,
+                "launch": 0.21853360245040676,
+                "destination": 0.99997808835451
+              }
+            ],
+            "best_progress": 0.21853360245040676,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-27",
+      "date": "2027-07-27",
+      "settings": {
+        "start": "shelter",
+        "target": "paint",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "tempt",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 16,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "shelter",
+          "target": "tempt",
+          "direct": false,
+          "contact": 0.02719273012917256,
+          "required": 0.215
+        },
+        {
+          "start": "tempt",
+          "target": "paint",
+          "direct": false,
+          "contact": 0.02281683893488662,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "shelter",
+          "tempt",
+          "paint"
+        ],
+        "openings": [
+          {
+            "word": "home",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "roof",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "protect",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "refuge",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "cover",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "shade",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "safe",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "desire",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "lure",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "offer",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "attract",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "risk",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "sweet",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2972,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "protect",
+            "steal"
+          ],
+          "state": {
+            "start": "shelter",
+            "current": "paint",
+            "target": "paint",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.26231433154680417,
+            "progress": 0.9999990052037901,
+            "attempts": 3,
+            "route": [
+              "shelter",
+              "protect",
+              "steal",
+              "paint"
+            ],
+            "history": [
+              {
+                "word": "protect",
+                "origin": "shelter",
+                "launch": 0.35164236579294084,
+                "destination": 0.06852438617806911,
+                "required": 0.11671877539380247,
+                "trip_fraction": 0.17380316451783473,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0008623956516623156,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "tempt",
+                "leg_baseline": 0.02719273012917256,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "steal",
+                "origin": "protect",
+                "launch": 0.30105874858562487,
+                "destination": 0.3072146790000261,
+                "required": 0.2136312156139156,
+                "trip_fraction": 0.8261968354821653,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.019487595356055754,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "tempt",
+                "leg_baseline": 0.02719273012917256,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "paint",
+                  "origin": "steal",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.26231433154680417,
+                  "destination": 0.9999990052037901
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "tempt",
+              "threshold": 0.265
+            },
+            "final_target": "paint",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "steal",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "paint",
+                "origin": "steal",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.26231433154680417,
+                "destination": 0.9999990052037901
+              }
+            ],
+            "best_progress": 0.26231433154680417,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-28",
+      "date": "2027-07-28",
+      "settings": {
+        "start": "spoil",
+        "target": "ring",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "gravity",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 17,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "spoil",
+          "target": "gravity",
+          "direct": false,
+          "contact": 0.0017350496173094143,
+          "required": 0.215
+        },
+        {
+          "start": "gravity",
+          "target": "ring",
+          "direct": false,
+          "contact": 0.12516562725977565,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "spoil",
+          "gravity",
+          "ring"
+        ],
+        "openings": [
+          {
+            "word": "ruin",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "rot",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "pamper",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "treasure",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "victory",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "surprise",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "weight",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "pull",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "force",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "serious",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "fall",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "earth",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2971,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "ruin",
+            "earth"
+          ],
+          "state": {
+            "start": "spoil",
+            "current": "ring",
+            "target": "ring",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.25224154112038377,
+            "progress": 0.9999718314692281,
+            "attempts": 3,
+            "route": [
+              "spoil",
+              "ruin",
+              "earth",
+              "ring"
+            ],
+            "history": [
+              {
+                "word": "ruin",
+                "origin": "spoil",
+                "launch": 0.43519639465284854,
+                "destination": 0.043772048673417885,
+                "required": 0.11416107662413949,
+                "trip_fraction": 0.1596756385344958,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "gravity",
+                "leg_baseline": 0.0017350496173094143,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "earth",
+                "origin": "ruin",
+                "launch": 0.1961227867514026,
+                "destination": 0.48260830874551175,
+                "required": 0.1958389233758605,
+                "trip_fraction": 0.8403243614655043,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "gravity",
+                "leg_baseline": 0.0017350496173094143,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "ring",
+                  "origin": "earth",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.25224154112038377,
+                  "destination": 0.9999718314692281
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "gravity",
+              "threshold": 0.265
+            },
+            "final_target": "ring",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "earth",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "ring",
+                "origin": "earth",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.25224154112038377,
+                "destination": 0.9999718314692281
+              }
+            ],
+            "best_progress": 0.25224154112038377,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-29",
+      "date": "2027-07-29",
+      "settings": {
+        "start": "thrill",
+        "target": "root",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "frame",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 18,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "thrill",
+          "target": "frame",
+          "direct": false,
+          "contact": 0.061626198308658786,
+          "required": 0.215
+        },
+        {
+          "start": "frame",
+          "target": "root",
+          "direct": false,
+          "contact": 0.10111661456539878,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "thrill",
+          "frame",
+          "root"
+        ],
+        "openings": [
+          {
+            "word": "excite",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "adventure",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "ride",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "fear",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "joy",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "rush",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "picture",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "border",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "structure",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "blame",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "glasses",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "build",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2378,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "ride",
+            "simple"
+          ],
+          "state": {
+            "start": "thrill",
+            "current": "root",
+            "target": "root",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.2885289796640791,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "thrill",
+              "ride",
+              "simple",
+              "root"
+            ],
+            "history": [
+              {
+                "word": "ride",
+                "origin": "thrill",
+                "launch": 0.5319944718893339,
+                "destination": 0.19578118162462488,
+                "required": 0.17415767844251956,
+                "trip_fraction": 0.6596473203543297,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "frame",
+                "leg_baseline": 0.061626198308658786,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "simple",
+                "origin": "ride",
+                "launch": 0.2165118956945662,
+                "destination": 0.35841707398321887,
+                "required": 0.1391812376636907,
+                "trip_fraction": 0.3403526796456703,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.0033389161062102497,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "frame",
+                "leg_baseline": 0.061626198308658786,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "root",
+                  "origin": "simple",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.2885289796640791,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "frame",
+              "threshold": 0.265
+            },
+            "final_target": "root",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "simple",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "root",
+                "origin": "simple",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.2885289796640791,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.2885289796640791,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-30",
+      "date": "2027-07-30",
+      "settings": {
+        "start": "plain",
+        "target": "echo",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "ambition",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 19,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "plain",
+          "target": "ambition",
+          "direct": false,
+          "contact": 0.12671264275559224,
+          "required": 0.215
+        },
+        {
+          "start": "ambition",
+          "target": "echo",
+          "direct": false,
+          "contact": -0.01613730723693152,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "plain",
+          "ambition",
+          "echo"
+        ],
+        "openings": [
+          {
+            "word": "simple",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "clear",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "ordinary",
+            "hit": true,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "field",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "honest",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "obvious",
+            "hit": true,
+            "forward": true,
+            "waypoint": true
+          },
+          {
+            "word": "land",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "flour",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "goal",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "career",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "drive",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "success",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "hunger",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "dream",
+            "hit": true,
+            "forward": true
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2973,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "simple",
+            "vision"
+          ],
+          "state": {
+            "start": "plain",
+            "current": "echo",
+            "target": "echo",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.22916756059316867,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "plain",
+              "simple",
+              "vision",
+              "echo"
+            ],
+            "history": [
+              {
+                "word": "simple",
+                "origin": "plain",
+                "launch": 0.43211801662982907,
+                "destination": 0.19332435236447054,
+                "required": 0.15949066426157726,
+                "trip_fraction": 0.481690524254863,
+                "boundary": true,
+                "success": true,
+                "inside": false,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.0066878013509937126,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "landed",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "ambition",
+                "leg_baseline": 0.12671264275559224,
+                "leg_threshold": 0.265
+              },
+              {
+                "word": "vision",
+                "origin": "simple",
+                "launch": 0.25873425370627956,
+                "destination": 0.42679769326059613,
+                "required": 0.16494042586571808,
+                "trip_fraction": 0.5183094757451371,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.007743288776301614,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "ambition",
+                "leg_baseline": 0.12671264275559224,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true,
+                "waypoint_finish": true,
+                "finish_reason": "range",
+                "automatic_shot": {
+                  "word": "echo",
+                  "origin": "vision",
+                  "automatic": true,
+                  "outcome": "chip",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "range",
+                  "required": 0.215,
+                  "trip_fraction": 1,
+                  "hub_surcharge": 0,
+                  "launch": 0.22916756059316867,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "ambition",
+              "threshold": 0.265
+            },
+            "final_target": "echo",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "vision",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "echo",
+                "origin": "vision",
+                "automatic": true,
+                "outcome": "chip",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "range",
+                "required": 0.215,
+                "trip_fraction": 1,
+                "hub_surcharge": 0,
+                "launch": 0.22916756059316867,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.22916756059316867,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    },
+    {
+      "id": "daily-2027-07-31",
+      "date": "2027-07-31",
+      "settings": {
+        "start": "dare",
+        "target": "signal",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "comfort",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "word-first-20-2026-10-31",
+        "course_number": 20,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "dare",
+          "target": "comfort",
+          "direct": false,
+          "contact": 0.0681729878688202,
+          "required": 0.215
+        },
+        {
+          "start": "comfort",
+          "target": "signal",
+          "direct": false,
+          "contact": 0.17976942208770197,
+          "required": 0.215
+        }
+      ],
+      "safety": {
+        "words": [
+          "dare",
+          "comfort",
+          "signal"
+        ],
+        "openings": [
+          {
+            "word": "risk",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "challenge",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "brave",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "courage",
+            "hit": true,
+            "forward": true,
+            "waypoint": false
+          },
+          {
+            "word": "bold",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          },
+          {
+            "word": "truth",
+            "hit": true,
+            "forward": true,
+            "waypoint": true
+          },
+          {
+            "word": "venture",
+            "hit": false,
+            "forward": false,
+            "waypoint": false
+          }
+        ],
+        "literalDoglegProbes": [
+          {
+            "word": "ease",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "soft",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "home",
+            "hit": true,
+            "forward": true
+          },
+          {
+            "word": "warm",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "console",
+            "hit": false,
+            "forward": false
+          },
+          {
+            "word": "soothe",
+            "hit": false,
+            "forward": false
+          }
+        ],
+        "search": {
+          "type": "bounded post-selection safety check",
+          "pool": 595,
+          "maxDepth": 9,
+          "beam": 36,
+          "evaluated": 2379,
+          "exhaustive": false
+        },
+        "witness": {
+          "inputs": [
+            "truth",
+            "nothing"
+          ],
+          "state": {
+            "start": "dare",
+            "current": "signal",
+            "target": "signal",
+            "threshold": 0.27,
+            "mode": "distance",
+            "rules": "golf-distance-v3",
+            "launch_min": 0.095,
+            "launch_max": 0.215,
+            "baseline": 0.13255481394662638,
+            "progress": 1,
+            "attempts": 3,
+            "route": [
+              "dare",
+              "truth",
+              "nothing",
+              "signal"
+            ],
+            "history": [
+              {
+                "word": "truth",
+                "origin": "dare",
+                "launch": 0.33536987848128774,
+                "destination": 0.27833231742988573,
+                "required": 0.23119607843137255,
+                "trip_fraction": 1,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": false,
+                "attempt": 1,
+                "hub_surcharge": 0.01619607843137255,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "waypoint",
+                "backtrack": false,
+                "stage": 0,
+                "leg_target": "comfort",
+                "leg_baseline": 0.0681729878688202,
+                "leg_threshold": 0.265,
+                "waypoint_reached": true
+              },
+              {
+                "word": "nothing",
+                "origin": "truth",
+                "launch": 0.48696208001729246,
+                "destination": 0.2758863182789355,
+                "required": 0.24945098039215685,
+                "trip_fraction": 1,
+                "boundary": true,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "attempt": 2,
+                "hub_surcharge": 0.03445098039215686,
+                "forward": true,
+                "connected": true,
+                "safe": true,
+                "outcome": "green",
+                "backtrack": false,
+                "stage": 1,
+                "leg_target": "signal",
+                "leg_baseline": 0.13255481394662638,
+                "leg_threshold": 0.27,
+                "finish_reason": "green",
+                "automatic_shot": {
+                  "word": "signal",
+                  "origin": "nothing",
+                  "automatic": true,
+                  "outcome": "putt",
+                  "attempt": 3,
+                  "success": true,
+                  "inside": true,
+                  "won": true,
+                  "finish_reason": "green",
+                  "required": 0.095,
+                  "trip_fraction": 0,
+                  "hub_surcharge": 0,
+                  "launch": 0.2758863182789355,
+                  "destination": 1
+                }
+              }
+            ],
+            "won": true,
+            "spelling_equivalence": "uk-us-v1",
+            "waypoint": {
+              "word": "comfort",
+              "threshold": 0.265
+            },
+            "final_target": "signal",
+            "final_threshold": 0.27,
+            "stage": 1,
+            "leg_start": "truth",
+            "second_leg_finish_span": 0.12,
+            "second_leg_finish_after": 0,
+            "waypoint_auto_finish": true,
+            "plural_rescue": true,
+            "family_rescue": true,
+            "continuous_play": true,
+            "plural_tolerance": 0.025,
+            "allow_backtracking": false,
+            "finish_mode": "range",
+            "challenge": {
+              "version": "stroke-play-v1",
+              "par": 5,
+              "attempt": 1,
+              "id": "local-research"
+            },
+            "challenge_failed": false,
+            "automatic_shots": [
+              {
+                "word": "signal",
+                "origin": "nothing",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 3,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.2758863182789355,
+                "destination": 1
+              }
+            ],
+            "best_progress": 0.2758863182789355,
+            "backward_allowance": 0.01
+          }
+        }
+      }
+    }
+  ]
+}

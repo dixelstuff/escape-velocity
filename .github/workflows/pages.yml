@@ -32,6 +32,7 @@ jobs:
           node tests/test_personal_daily.mjs
           node tests/test_hole_retirement.mjs
           node tests/test_word_first_review.mjs
+          node tests/test_word_first_20.mjs
           node tests/test_spelling_equivalence.mjs
           node tests/test_spelling_cleverness.mjs
           node tests/test_future_daily_proposals.mjs

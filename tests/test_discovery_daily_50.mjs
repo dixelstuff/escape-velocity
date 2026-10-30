@@ -34,6 +34,6 @@ for(const words of [['guava','horticulture','robin'],['okra','conservation','swa
  const h=dailyManifest.holes.find(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target].join('|')===words.join('|'));assert.ok(h,'Archived definition retained');assert.ok(isRetiredHole(h));
 }
 const memory=new Map(),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)},game=new DailyGame(storage,dailyManifest,{today:()=> '2026-10-30'});
-const playableBatch=added.filter(h=>!isRetiredHole(h));assert.equal(playableBatch.length,43);assert.equal(game.available().length,243);assert.equal(game.available().at(-43).id,playableBatch[0].id);assert.equal(game.available().at(-1).id,playableBatch.at(-1).id);
+const playableBatch=added.filter(h=>!isRetiredHole(h));assert.equal(playableBatch.length,43);assert.deepEqual(game.available().filter(h=>h.settings.course_set===audit.batch),playableBatch,'The surviving historical batch remains selectable after later appends');
 assert.equal(new Set(dailyManifest.holes.map(h=>h.id)).size,dailyManifest.holes.length);
-console.log(`Discovery batch passed: 50 all-Par-5 holes, ${setups} verified setup approaches, 50 complete current-rule routes, inaccessible direct legs, original 215 unchanged, historical batch preserved, 43 still playable in batch, 243 playable holes overall.`);
+console.log(`Discovery batch passed: 50 all-Par-5 holes, ${setups} verified setup approaches, 50 complete current-rule routes, inaccessible direct legs, original 215 unchanged, historical batch preserved, 43 still playable in batch, later batches may append without changing this audit.`);

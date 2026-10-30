@@ -56,3 +56,5 @@ The old recipe began with a conceptual journey and selected a dogleg to support 
 The player explicitly retired GUAVA → HORTICULTURE → ROBIN, OKRA → CONSERVATION → SWALLOW, BELLOWS → FORGE → CLOVER, and then seven further holes on October 31. Other questionable holes are recommendations only. See [the complete bank review and shortlist](reports/hole-word-review-2026-10-31/README.md).
 
 Historical batch reports remain as records of what was published and validated at the time, not current generation instructions. No automatic word-quality filter or gameplay rule is introduced by this guide.
+
+The first word-first playtest is the [twenty-hole pilot](reports/word-first-20/README.md), published as #244–#263. Its proposals contain words and independent association notes, without prescribed routes. Bounded post-selection completion witnesses are safety diagnostics, not new templates for generation; mechanically valid generic associations do not establish enjoyment. Use the player's feedback on the words and exploration to assess this pilot.
