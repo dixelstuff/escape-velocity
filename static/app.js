@@ -296,7 +296,7 @@ async function openDaily(day){
  if(record?.bestStrokes&&journey&&!journey.state.won&&!journey.state.challenge_failed&&!bestResultState(record,flightLog.data.journeys)){
   lock(true);try{const recovered=await recoverBestState(client,def,record.bestStrokes);if(recovered){record.bestStrokes.state=structuredClone(recovered);daily.save();}}finally{lock(false);}
  }
- if(record?.bestStrokes&&(!journey||journey.state.won||journey.state.challenge_failed)){
+ if(record?.bestStrokes&&(!journey||journey.state.won||journey.state.challenge_failed||!journey.state.history?.length)){
   lock(true);try{
    const saved=bestResultState(record,flightLog.data.journeys);let restored=null;
    if(saved)try{restored=(await api('restore',{state:saved})).state;}catch{}
@@ -306,7 +306,7 @@ async function openDaily(day){
    reviewingDailyBest=true;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=true;retryPreview=null;selectedLogId=null;flightLog.data.activeId=null;flightLog.save();$('word').value='';
   }catch(error){daily.data.selected=previousDay;daily.save();$('status').textContent='Could not reopen that hole: '+error.message;}
   finally{lock(false);$('launch').disabled=true;}
-  if(daily.data.selected===day&&reviewingDailyBest)await retryResultHole();
+  if(daily.data.selected===day&&reviewingDailyBest)update();
   return;
  }
 

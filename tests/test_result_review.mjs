@@ -24,12 +24,18 @@ handlers.pointerdown({target:{closest:()=>null}});assert.equal(restored,0);asser
 cancel.retryPreview={original:{state:{won:false},reviewingDailyBest:true}};cancel.cancelRetry();assert.equal(restored,0);
 cancel.retryPreview={original:{state:{won:false,current:'paper'},entry:'typed'}};cancel.cancelRetry();assert.equal(restored,1);assert.equal(cancel.state.current,'paper');assert.equal(cancelInput.value,'typed','ordinary within-play cancellation still restores the current lie');
 
-// Opening a completed hole starts playable at the tee; only the trophy reviews.
-const saved={won:true,current:'flag',challenge:{unlimited:true}},record={bestStrokes:{state:saved}},def={id:'hole',date:'day',settings:{}};let replayed=0;
-const opening={simpleDaily:true,busy:false,dailyResultReturn:null,retryTimer:null,retryPreview:null,state:null,reviewingDailyBest:false,clearTimeout(){},daily:{definition:()=>def,data:{selected:'day'},visit(){},current:()=>record,save(){}},flightLog:{data:{journeys:[]},save(){}},setBag(){},setHoleLog(){},bestResultState:()=>saved,api:async()=>({state:saved}),lock(){},justHoled:false,shownEvent:null,activeNotice:'',noticeDismissed:false,selectedLogId:null,$:()=>({value:''}),retryResultHole(){replayed++;},update(){throw Error('must not render completed results on navigation');}};
+// Completed-hole navigation shows saved results unless a reattempt has shots in progress.
+const saved={won:true,current:'flag',challenge:{unlimited:true}},record={bestStrokes:{state:saved}},def={id:'hole',date:'day',settings:{}};let replayed=0,openedRenders=0;
+const opening={structuredClone,dailyUI:null,simpleDaily:true,busy:false,dailyResultReturn:null,retryTimer:null,retryPreview:null,state:null,reviewingDailyBest:false,clearTimeout(){},daily:{definition:()=>def,data:{selected:'day'},visit(){},current:()=>record,save(){},record(){}},flightLog:{data:{journeys:[]},save(){}},setBag(){},setHoleLog(){},bestResultState:()=>saved,api:async()=>({state:saved}),lock(){},justHoled:false,shownEvent:null,activeNotice:'',noticeDismissed:false,selectedLogId:null,$:()=>({value:''}),retryResultHole(){replayed++;},update(){openedRenders++;}};
 runInNewContext(source.slice(source.indexOf('async function openDaily(day){'),source.indexOf('function adjacentDaily(')),opening);
-await opening.openDaily('day');assert.equal(replayed,1);assert.equal(opening.dailyResultReturn,null);
-console.log('Trophy-only reopening passed: background taps cannot reopen results, ordinary cancellation works, and completed-hole navigation starts playable.');
+await opening.openDaily('day');assert.equal(replayed,0);assert.equal(openedRenders,1);assert.equal(opening.reviewingDailyBest,true);assert.equal(opening.dailyResultReturn,null);
+opening.flightLog.data.journeys=[{id:'fresh-tee',state:{won:false,history:[],challenge:{unlimited:true}}}];record.journeyId='fresh-tee';
+await opening.openDaily('day');assert.equal(opening.reviewingDailyBest,true);assert.equal(replayed,0,'an untouched tee replay is not an active reattempt');
+const reattempt={won:false,current:'paper',history:[{word:'paper',success:true}],challenge:{unlimited:true}};
+opening.flightLog.data.journeys=[{id:'reattempt',state:reattempt}];record.journeyId='reattempt';opening.api=async()=>({state:reattempt});
+await opening.openDaily('day');assert.equal(opening.reviewingDailyBest,false);assert.equal(opening.state,reattempt);assert.equal(opening.flightLog.data.activeId,'reattempt');assert.equal(replayed,0);
+
+console.log('Navigation results passed: completed holes show saved results, untouched tee replays show results, and active reattempts resume their existing lie.');
 
 const savedBest={won:true,history:[{word:'bridge',success:true}],challenge:{id:'same',attempt:2}},reference={simpleDaily:true,state:{won:false,history:[],challenge:{id:'same',attempt:9}},retryPreview:null,flightLog:{active:{previous_labels_dismissed:true},data:{journeys:[]}},practising:()=>false,dailyBestState:()=>savedBest,daily:{current:()=>({bestStrokes:{journeyId:'durable-best'}})},previousAttempts:()=>[]};
 runInNewContext(source.slice(source.indexOf('function retrySource(){'),source.indexOf('function retryFromWord(')),reference);
