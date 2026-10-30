@@ -1,7 +1,7 @@
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
-import {howToPlay,selectHelpLie} from './how-to-play.mjs?v=results-review-v1';
+import {howToPlay,selectHelpLie} from './how-to-play.mjs?v=trophy-only-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
@@ -9,8 +9,8 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=archive-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=cubic-results-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=fresh-daily-2026-10-29-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=results-review-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=results-review-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=trophy-only-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=trophy-only-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=cubic-results-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
@@ -24,7 +24,7 @@ import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
 import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=cubic-results-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
-import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=stable-frame-v1';
+import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=trophy-only-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=terrain-variety-v2';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=terrain-variety-v2';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
@@ -285,21 +285,22 @@ async function openDaily(day){
  if(!simpleDaily||busy)return;
  const def=daily.definition(day);if(!def)return;
  dailyResultReturn=null;
- clearTimeout(retryTimer);if(retryPreview)cancelRetry();
+ clearTimeout(retryTimer);if(retryPreview)cancelRetry();retryPreview=null;
  if(state?.challenge?.unlimited&&!reviewingDailyBest)daily.record(flightLog.active);
  reviewingDailyBest=false;
  setBag(false);setHoleLog(false);const previousDay=daily.data.selected;daily.visit(day);
  const record=daily.current(),journey=flightLog.data.journeys.find(j=>j.id===record?.journeyId);
- if(record?.bestStrokes){
+ if(record?.bestStrokes&&(!journey||journey.state.won||journey.state.challenge_failed)){
   lock(true);try{
    const saved=bestResultState(record,flightLog.data.journeys);let restored=null;
    if(saved)try{restored=(await api('restore',{state:saved})).state;}catch{}
    restored??=await recoverBestState(client,def,record.bestStrokes);
    state=restored??(await api('new',{...def.settings,finish_mode:'range',challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})).state;
    if(restored&&!record.bestStrokes.state){record.bestStrokes.state=structuredClone(restored);daily.save();}
-   reviewingDailyBest=true;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=true;retryPreview=null;selectedLogId=null;flightLog.data.activeId=null;flightLog.save();$('word').value='';update();
+   reviewingDailyBest=true;justHoled=false;shownEvent=null;activeNotice='';noticeDismissed=true;retryPreview=null;selectedLogId=null;flightLog.data.activeId=null;flightLog.save();$('word').value='';
   }catch(error){daily.data.selected=previousDay;daily.save();$('status').textContent='Could not reopen that hole: '+error.message;}
   finally{lock(false);$('launch').disabled=true;}
+  if(daily.data.selected===day&&reviewingDailyBest)await retryResultHole();
   return;
  }
 
@@ -410,6 +411,8 @@ function retryFromWord(through,{focusEntry=true}={}){
 }
 function cancelRetry(){
  if(!retryPreview||committingRetry||changingRetry||busy)return;
+ // Leaving a new try must not silently reopen completed results.
+ if(simpleDaily&&(retryPreview.original.state.won||retryPreview.original.reviewingDailyBest))return;
  const original=retryPreview.original;retryPreview=null;
  try{reviewingDailyBest=!!original.reviewingDailyBest;state=client.restoreRetry(original.state).state;shownEvent=original.shownEvent;activeNotice=original.activeNotice;noticeDismissed=original.noticeDismissed;$('word').value=original.entry??'';update();$('status').textContent='';}finally{$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);}
 }
