@@ -1,0 +1,983 @@
+[
+  {
+    "start": "dance",
+    "waypoint": "borrow",
+    "target": "stitch",
+    "directions": {
+      "dance": [
+        "music",
+        "step",
+        "move",
+        "rhythm",
+        "party",
+        "partner",
+        "turn",
+        "spin"
+      ],
+      "borrow": [
+        "loan",
+        "lend",
+        "library",
+        "money",
+        "copy",
+        "return",
+        "debt"
+      ],
+      "stitch": [
+        "sew",
+        "thread",
+        "wound",
+        "pain",
+        "knit",
+        "pattern"
+      ]
+    }
+  },
+  {
+    "start": "cloud",
+    "waypoint": "courage",
+    "target": "whisper",
+    "directions": {
+      "cloud": [
+        "sky",
+        "rain",
+        "shade",
+        "computer",
+        "doubt",
+        "storm",
+        "dream",
+        "fog"
+      ],
+      "courage": [
+        "brave",
+        "fear",
+        "risk",
+        "heart",
+        "strength",
+        "hero"
+      ],
+      "whisper": [
+        "quiet",
+        "secret",
+        "voice",
+        "rumour",
+        "wind",
+        "soft"
+      ]
+    }
+  },
+  {
+    "start": "ticket",
+    "waypoint": "mercy",
+    "target": "orbit",
+    "directions": {
+      "ticket": [
+        "travel",
+        "train",
+        "seat",
+        "fine",
+        "chance",
+        "show",
+        "entry",
+        "prize"
+      ],
+      "mercy": [
+        "kindness",
+        "pardon",
+        "forgive",
+        "compassion",
+        "relief",
+        "spare"
+      ],
+      "orbit": [
+        "circle",
+        "space",
+        "moon",
+        "influence",
+        "turn",
+        "cycle"
+      ]
+    }
+  },
+  {
+    "start": "mend",
+    "waypoint": "shadow",
+    "target": "risk",
+    "directions": {
+      "mend": [
+        "repair",
+        "fix",
+        "heal",
+        "sew",
+        "wound",
+        "friendship",
+        "broken"
+      ],
+      "shadow": [
+        "shade",
+        "dark",
+        "follow",
+        "copy",
+        "doubt",
+        "secret",
+        "silhouette"
+      ],
+      "risk": [
+        "danger",
+        "chance",
+        "dare",
+        "gamble",
+        "insurance",
+        "venture"
+      ]
+    }
+  },
+  {
+    "start": "sleep",
+    "waypoint": "bright",
+    "target": "mask",
+    "directions": {
+      "sleep": [
+        "rest",
+        "dream",
+        "night",
+        "bed",
+        "quiet",
+        "tired",
+        "peace"
+      ],
+      "bright": [
+        "light",
+        "clever",
+        "cheerful",
+        "vivid",
+        "shine",
+        "future"
+      ],
+      "mask": [
+        "face",
+        "disguise",
+        "cover",
+        "hide",
+        "theatre",
+        "costume",
+        "protect"
+      ]
+    }
+  },
+  {
+    "start": "fold",
+    "waypoint": "passion",
+    "target": "wild",
+    "directions": {
+      "fold": [
+        "bend",
+        "paper",
+        "crease",
+        "flock",
+        "close",
+        "wrap",
+        "arms"
+      ],
+      "passion": [
+        "love",
+        "heat",
+        "desire",
+        "anger",
+        "music",
+        "feeling",
+        "enthusiasm"
+      ],
+      "wild": [
+        "free",
+        "animal",
+        "storm",
+        "nature",
+        "untamed",
+        "crazy",
+        "forest",
+        "adventure"
+      ]
+    }
+  },
+  {
+    "start": "temper",
+    "waypoint": "mirror",
+    "target": "credit",
+    "directions": {
+      "temper": [
+        "anger",
+        "mood",
+        "steel",
+        "heat",
+        "calm",
+        "control",
+        "balance"
+      ],
+      "mirror": [
+        "reflect",
+        "glass",
+        "image",
+        "copy",
+        "reverse",
+        "shine"
+      ],
+      "credit": [
+        "money",
+        "bank",
+        "trust",
+        "praise",
+        "acknowledge",
+        "loan",
+        "film"
+      ]
+    }
+  },
+  {
+    "start": "signal",
+    "waypoint": "comfort",
+    "target": "silk",
+    "directions": {
+      "signal": [
+        "sign",
+        "wave",
+        "light",
+        "message",
+        "traffic",
+        "cue",
+        "flag"
+      ],
+      "comfort": [
+        "ease",
+        "soft",
+        "home",
+        "warm",
+        "console",
+        "soothe"
+      ],
+      "silk": [
+        "smooth",
+        "cloth",
+        "thread",
+        "soft",
+        "fine",
+        "web",
+        "dress"
+      ]
+    }
+  },
+  {
+    "start": "dice",
+    "waypoint": "shelter",
+    "target": "moment",
+    "directions": {
+      "dice": [
+        "chance",
+        "game",
+        "cube",
+        "cut",
+        "roll",
+        "risk"
+      ],
+      "shelter": [
+        "home",
+        "roof",
+        "protect",
+        "refuge",
+        "cover",
+        "shade",
+        "safe"
+      ],
+      "moment": [
+        "time",
+        "brief",
+        "pause",
+        "memory",
+        "important",
+        "weight",
+        "now"
+      ]
+    }
+  },
+  {
+    "start": "root",
+    "waypoint": "wonder",
+    "target": "field",
+    "directions": {
+      "root": [
+        "tree",
+        "cause",
+        "origin",
+        "family",
+        "number",
+        "tooth",
+        "grow"
+      ],
+      "wonder": [
+        "awe",
+        "question",
+        "surprise",
+        "miracle",
+        "marvel",
+        "think"
+      ],
+      "field": [
+        "land",
+        "grass",
+        "sport",
+        "work",
+        "space",
+        "science",
+        "magnet"
+      ]
+    }
+  },
+  {
+    "start": "trail",
+    "waypoint": "favour",
+    "target": "shine",
+    "directions": {
+      "trail": [
+        "path",
+        "follow",
+        "track",
+        "walk",
+        "clue",
+        "leave",
+        "smoke"
+      ],
+      "favour": [
+        "kindness",
+        "prefer",
+        "help",
+        "gift",
+        "friend",
+        "owe"
+      ],
+      "shine": [
+        "light",
+        "polish",
+        "sun",
+        "bright",
+        "pride",
+        "talent",
+        "glow"
+      ]
+    }
+  },
+  {
+    "start": "border",
+    "waypoint": "faith",
+    "target": "drift",
+    "directions": {
+      "border": [
+        "edge",
+        "country",
+        "garden",
+        "frame",
+        "limit",
+        "cross"
+      ],
+      "faith": [
+        "belief",
+        "trust",
+        "religion",
+        "hope",
+        "promise",
+        "loyal"
+      ],
+      "drift": [
+        "float",
+        "current",
+        "wind",
+        "wander",
+        "snow",
+        "slip",
+        "direction",
+        "loose",
+        "slide"
+      ]
+    }
+  },
+  {
+    "start": "fresh",
+    "waypoint": "duty",
+    "target": "shell",
+    "directions": {
+      "fresh": [
+        "new",
+        "clean",
+        "cool",
+        "food",
+        "air",
+        "bright",
+        "bold"
+      ],
+      "duty": [
+        "job",
+        "work",
+        "tax",
+        "obligation",
+        "honour",
+        "service",
+        "responsibility"
+      ],
+      "shell": [
+        "cover",
+        "egg",
+        "sea",
+        "empty",
+        "computer",
+        "case",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "start": "lantern",
+    "waypoint": "ambition",
+    "target": "fold",
+    "directions": {
+      "lantern": [
+        "light",
+        "lamp",
+        "glow",
+        "night",
+        "festival",
+        "camp",
+        "guide"
+      ],
+      "ambition": [
+        "goal",
+        "career",
+        "drive",
+        "success",
+        "hunger",
+        "dream"
+      ],
+      "fold": [
+        "bend",
+        "paper",
+        "crease",
+        "flock",
+        "close",
+        "wrap",
+        "arms"
+      ]
+    }
+  },
+  {
+    "start": "pause",
+    "waypoint": "gravity",
+    "target": "ribbon",
+    "directions": {
+      "pause": [
+        "stop",
+        "rest",
+        "wait",
+        "breath",
+        "music",
+        "break",
+        "moment"
+      ],
+      "gravity": [
+        "weight",
+        "pull",
+        "force",
+        "serious",
+        "fall",
+        "earth"
+      ],
+      "ribbon": [
+        "bow",
+        "prize",
+        "tape",
+        "colour",
+        "gift",
+        "strip",
+        "typewriter",
+        "finish"
+      ]
+    }
+  },
+  {
+    "start": "circle",
+    "waypoint": "rescue",
+    "target": "warm",
+    "directions": {
+      "circle": [
+        "round",
+        "ring",
+        "group",
+        "cycle",
+        "turn",
+        "draw"
+      ],
+      "rescue": [
+        "save",
+        "help",
+        "lifeboat",
+        "danger",
+        "hero",
+        "safe"
+      ],
+      "warm": [
+        "heat",
+        "kind",
+        "friendly",
+        "sun",
+        "welcome",
+        "glow"
+      ]
+    }
+  },
+  {
+    "start": "silent",
+    "waypoint": "shift",
+    "target": "worth",
+    "directions": {
+      "silent": [
+        "quiet",
+        "still",
+        "secret",
+        "film",
+        "speech",
+        "peace"
+      ],
+      "shift": [
+        "move",
+        "change",
+        "work",
+        "gear",
+        "dress",
+        "alter",
+        "turn"
+      ],
+      "worth": [
+        "value",
+        "price",
+        "deserve",
+        "merit",
+        "rich",
+        "respect"
+      ]
+    }
+  },
+  {
+    "start": "roam",
+    "waypoint": "justice",
+    "target": "pocket",
+    "directions": {
+      "roam": [
+        "wander",
+        "travel",
+        "free",
+        "phone",
+        "walk",
+        "explore"
+      ],
+      "justice": [
+        "law",
+        "fair",
+        "judge",
+        "court",
+        "rights",
+        "sentence"
+      ],
+      "pocket": [
+        "money",
+        "carry",
+        "bag",
+        "billiards",
+        "steal",
+        "space",
+        "save"
+      ]
+    }
+  },
+  {
+    "start": "tide",
+    "waypoint": "luck",
+    "target": "clear",
+    "directions": {
+      "tide": [
+        "sea",
+        "water",
+        "moon",
+        "change",
+        "rise",
+        "current"
+      ],
+      "luck": [
+        "chance",
+        "fortune",
+        "wish",
+        "dice",
+        "charm",
+        "lucky",
+        "fate"
+      ],
+      "clear": [
+        "transparent",
+        "clean",
+        "obvious",
+        "free",
+        "sky",
+        "solve"
+      ]
+    }
+  },
+  {
+    "start": "flash",
+    "waypoint": "honour",
+    "target": "soft",
+    "directions": {
+      "flash": [
+        "light",
+        "quick",
+        "camera",
+        "memory",
+        "show",
+        "bright"
+      ],
+      "honour": [
+        "respect",
+        "medal",
+        "duty",
+        "honest",
+        "glory",
+        "promise",
+        "prize"
+      ],
+      "soft": [
+        "gentle",
+        "quiet",
+        "cloth",
+        "weak",
+        "kind",
+        "cushion"
+      ]
+    }
+  },
+  {
+    "start": "notice",
+    "waypoint": "trust",
+    "target": "ribbon",
+    "directions": {
+      "notice": [
+        "see",
+        "sign",
+        "warning",
+        "attention",
+        "letter",
+        "observe"
+      ],
+      "trust": [
+        "faith",
+        "belief",
+        "rely",
+        "money",
+        "bank",
+        "confidence",
+        "honest"
+      ],
+      "ribbon": [
+        "bow",
+        "prize",
+        "tape",
+        "colour",
+        "gift",
+        "strip",
+        "typewriter",
+        "finish"
+      ]
+    }
+  },
+  {
+    "start": "warm",
+    "waypoint": "question",
+    "target": "scale",
+    "directions": {
+      "warm": [
+        "heat",
+        "kind",
+        "friendly",
+        "sun",
+        "welcome",
+        "glow"
+      ],
+      "question": [
+        "ask",
+        "doubt",
+        "test",
+        "answer",
+        "curious",
+        "judge"
+      ],
+      "scale": [
+        "size",
+        "weight",
+        "fish",
+        "music",
+        "map",
+        "climb",
+        "measure"
+      ]
+    }
+  },
+  {
+    "start": "spin",
+    "waypoint": "shadow",
+    "target": "gentle",
+    "directions": {
+      "spin": [
+        "turn",
+        "thread",
+        "story",
+        "wheel",
+        "dance",
+        "twist"
+      ],
+      "shadow": [
+        "shade",
+        "dark",
+        "follow",
+        "copy",
+        "doubt",
+        "secret",
+        "silhouette"
+      ],
+      "gentle": [
+        "soft",
+        "kind",
+        "calm",
+        "care",
+        "light",
+        "slow"
+      ]
+    }
+  },
+  {
+    "start": "march",
+    "waypoint": "curiosity",
+    "target": "mask",
+    "directions": {
+      "march": [
+        "walk",
+        "soldier",
+        "music",
+        "spring",
+        "protest",
+        "time"
+      ],
+      "curiosity": [
+        "interest",
+        "question",
+        "wonder",
+        "discover",
+        "strange",
+        "explore"
+      ],
+      "mask": [
+        "face",
+        "disguise",
+        "cover",
+        "hide",
+        "theatre",
+        "costume",
+        "protect"
+      ]
+    }
+  },
+  {
+    "start": "wander",
+    "waypoint": "value",
+    "target": "crown",
+    "directions": {
+      "wander": [
+        "roam",
+        "travel",
+        "walk",
+        "mind",
+        "lost",
+        "drift"
+      ],
+      "value": [
+        "worth",
+        "price",
+        "respect",
+        "belief",
+        "number",
+        "treasure"
+      ],
+      "crown": [
+        "king",
+        "tooth",
+        "top",
+        "prize",
+        "head",
+        "royal"
+      ]
+    }
+  },
+  {
+    "start": "flame",
+    "waypoint": "belief",
+    "target": "cloak",
+    "directions": {
+      "flame": [
+        "fire",
+        "light",
+        "heat",
+        "passion",
+        "love",
+        "burn"
+      ],
+      "belief": [
+        "faith",
+        "trust",
+        "opinion",
+        "religion",
+        "idea",
+        "doubt"
+      ],
+      "cloak": [
+        "cover",
+        "hide",
+        "cloth",
+        "secret",
+        "disguise",
+        "night"
+      ]
+    }
+  },
+  {
+    "start": "silver",
+    "waypoint": "secret",
+    "target": "tangle",
+    "directions": {
+      "silver": [
+        "metal",
+        "coin",
+        "shine",
+        "moon",
+        "spoon",
+        "prize"
+      ],
+      "secret": [
+        "hidden",
+        "private",
+        "whisper",
+        "mystery",
+        "trust",
+        "spy",
+        "share"
+      ],
+      "tangle": [
+        "knot",
+        "hair",
+        "confuse",
+        "thread",
+        "mess",
+        "argument"
+      ]
+    }
+  },
+  {
+    "start": "thread",
+    "waypoint": "danger",
+    "target": "wonder",
+    "directions": {
+      "thread": [
+        "sew",
+        "string",
+        "story",
+        "line",
+        "needle",
+        "connect"
+      ],
+      "danger": [
+        "risk",
+        "fear",
+        "warning",
+        "unsafe",
+        "threat",
+        "adventure"
+      ],
+      "wonder": [
+        "awe",
+        "question",
+        "surprise",
+        "miracle",
+        "marvel",
+        "think"
+      ]
+    }
+  },
+  {
+    "start": "stage",
+    "waypoint": "borrow",
+    "target": "drift",
+    "directions": {
+      "stage": [
+        "theatre",
+        "act",
+        "step",
+        "level",
+        "show",
+        "perform"
+      ],
+      "borrow": [
+        "loan",
+        "lend",
+        "library",
+        "money",
+        "copy",
+        "return",
+        "debt"
+      ],
+      "drift": [
+        "float",
+        "current",
+        "wind",
+        "wander",
+        "snow",
+        "slip",
+        "direction",
+        "loose",
+        "slide"
+      ]
+    }
+  },
+  {
+    "start": "catch",
+    "waypoint": "peace",
+    "target": "hollow",
+    "directions": {
+      "catch": [
+        "grab",
+        "fish",
+        "game",
+        "understand",
+        "trap",
+        "hook"
+      ],
+      "peace": [
+        "calm",
+        "quiet",
+        "war",
+        "rest",
+        "agreement",
+        "dove"
+      ],
+      "hollow": [
+        "empty",
+        "echo",
+        "tree",
+        "cave",
+        "false",
+        "inside"
+      ]
+    }
+  }
+]

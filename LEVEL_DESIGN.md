@@ -1,10 +1,10 @@
 # Choosing Word Golf holes
 
-## Current editorial direction — 31 October 2026
+## Current editorial direction — 1 November 2026
 
 **Choose interesting words first. Players discover the route.** The aim is an accessible landscape of associations, not an authored sequence of clever bridges. This supersedes the old route-first recipe and the October 30 emphasis on requiring setup shots.
 
-FAME is the reference example: familiar, evocative, and open to different contexts without suggesting one compulsory category. It is a noun, so this is not a ban on nouns. Familiar verbs, adjectives and words with several grammatical uses can help vary the bank, but grammatical patterns are not a quality test either.
+FAME is one example, not a template or vocabulary target: familiar, evocative, and open to different contexts without suggesting one compulsory category. It is a noun, so this is not a ban on nouns. Familiar verbs, adjectives and words with several grammatical uses can help vary the bank, but grammatical patterns are not a quality test either.
 
 ### Select the words
 
@@ -58,3 +58,13 @@ The player explicitly retired GUAVA → HORTICULTURE → ROBIN, OKRA → CONSERV
 Historical batch reports remain as records of what was published and validated at the time, not current generation instructions. No automatic word-quality filter or gameplay rule is introduced by this guide.
 
 The first word-first playtest is the [twenty-hole pilot](reports/word-first-20/README.md), published as #244–#263. Its proposals contain words and independent association notes, without prescribed routes. Bounded post-selection completion witnesses are safety diagnostics, not new templates for generation; mechanically valid generic associations do not establish enjoyment. Use the player's feedback on the words and exploration to assess this pilot.
+
+## Combination feedback — 1 November 2026
+
+Keep SPARE → DREAM → TENSION, PROMISE → SHADOW → LUCK, CHARM → SPLIT → DUTY and DRIFT → HONOUR → CLEAR unchanged: the player enjoyed their natural choices and discoveries. DRIFT was a satisfying quick eagle; do not respond by enforcing difficulty. Retire FAME → SCATTER → RIBBON only: 34 journeys and an awkward experience show that three interesting words can still combine poorly. FAME remains a worthwhile word in other combinations.
+
+Check **actual reached dogleg words**, not merely the literal waypoint: their route state determines which outgoing associations succeed. Look for several natural directions on both legs and useful handoffs between them. Write general association notes per word independently of a triple, then validate options with the authoritative engine. Check the final association even when the engine finishes automatically. Keep successful witness paths outside live hole settings. A mathematically valid completion does not establish credible associations.
+
+The local checker is a bounded editorial aid, not a generator of intended routes, semantic oracle or fun predictor. Its missing coverage on player-approved holes and its successful probes on the rejected FAME combination must remain visible. Do not tune association notes to pass those controls, infer difficulty from search counts, reject quick solutions, or demand arbitrary counts of landings. Editorial judgement plus play feedback decides which combinations stay.
+
+The [30-hole combination playtest and review](reports/word-landscape-30/README.md) records the new proposals, checks, uncertainties and recommendation-only shortlist. The complete prior inventory remains archived; retire only specifically authorised combinations.

@@ -25,7 +25,8 @@ export const retiredHoleWords=[
  ['minnow','wicket','basket'],
  ['toothpick','throne','galleon'],
  ['keyhole','crystals','necktie'],
- ['wren','architectural','pagoda']
+ ['wren','architectural','pagoda'],
+ ['fame','scatter','ribbon']
 ];
 const retiredKeys=new Set(retiredHoleWords.map(words=>words.map(spellingIdentity).join('|')));
 export function isRetiredHole(hole){

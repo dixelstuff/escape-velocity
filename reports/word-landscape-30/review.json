@@ -1,0 +1,2911 @@
+{
+  "date": "2026-11-01",
+  "scope": "All 285 existing archived definitions; 262 playable after the sole new retirement. Prior full-bank review carried forward and the 20-hole pilot reconsidered using player feedback and combination-level editorial judgement. Recommendations are qualitative risks, not predicted route difficulty.",
+  "inventory": [
+    {
+      "id": "daily-2026-10-20",
+      "words": [
+        "peacock",
+        "fashion",
+        "theatre"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-21",
+      "words": [
+        "snail",
+        "building",
+        "orchestra"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-10-22",
+      "words": [
+        "giraffe",
+        "clothing",
+        "telephone"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-10-23",
+      "words": [
+        "snowflake",
+        "jewellery",
+        "surgery"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-24",
+      "words": [
+        "kangaroo",
+        "clothing",
+        "court"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-25",
+      "words": [
+        "feather",
+        "writing",
+        "ocean"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-26",
+      "words": [
+        "spider",
+        "fashion",
+        "stadium"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-10-27",
+      "words": [
+        "penguin",
+        "library",
+        "galaxy"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-28",
+      "words": [
+        "pencil",
+        "forest",
+        "orchestra"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-29",
+      "words": [
+        "piano",
+        "lock",
+        "river"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-30",
+      "words": [
+        "coal",
+        "wedding",
+        "telescope"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-10-31",
+      "words": [
+        "cactus",
+        "sewing",
+        "violence"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-01",
+      "words": [
+        "comet",
+        "jewellery",
+        "football"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-02",
+      "words": [
+        "squid",
+        "painting",
+        "courtroom"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-03",
+      "words": [
+        "candy",
+        "dentistry",
+        "mining"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-11-04",
+      "words": [
+        "dolphin",
+        "radio",
+        "submarine"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-11-05",
+      "words": [
+        "sponge",
+        "chemistry",
+        "detective"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-06",
+      "words": [
+        "stool",
+        "furniture",
+        "arithmetic"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2026-11-07",
+      "words": [
+        "squirrel",
+        "carpentry",
+        "electricity"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-11-08",
+      "words": [
+        "chocolate",
+        "volcano",
+        "glass"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-09",
+      "words": [
+        "accordion",
+        "bakery",
+        "geology"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-10",
+      "words": [
+        "fossil",
+        "calendar",
+        "bicycle"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-11",
+      "words": [
+        "ignite",
+        "range",
+        "sailor"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-12",
+      "words": [
+        "alert",
+        "crane",
+        "spooky"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-13",
+      "words": [
+        "calm",
+        "glove",
+        "haircut"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-14",
+      "words": [
+        "lake",
+        "pole",
+        "ladle"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-15",
+      "words": [
+        "laps",
+        "health",
+        "spin"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-16",
+      "words": [
+        "roses",
+        "noses",
+        "notes"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-17",
+      "words": [
+        "roses",
+        "notes",
+        "noses"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-18",
+      "words": [
+        "rain",
+        "carry",
+        "playwright"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-19",
+      "words": [
+        "nacho",
+        "clip",
+        "tight"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-20",
+      "words": [
+        "lungs",
+        "short",
+        "perfection"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-21",
+      "words": [
+        "pimple",
+        "sunscreen",
+        "mentioned"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-22",
+      "words": [
+        "ran",
+        "rage",
+        "regal"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-23",
+      "words": [
+        "nest",
+        "best",
+        "crest"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-24",
+      "words": [
+        "makeup",
+        "gossip",
+        "sport"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-25",
+      "words": [
+        "map",
+        "nap",
+        "gap"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-26",
+      "words": [
+        "lace",
+        "witch",
+        "plaid"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-27",
+      "words": [
+        "shuttle",
+        "butler",
+        "rut"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-28",
+      "words": [
+        "salt",
+        "festive",
+        "caramel"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-11-29",
+      "words": [
+        "anchor",
+        "dentist",
+        "orchard"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-11-30",
+      "words": [
+        "compass",
+        "hospital",
+        "diamond"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-01",
+      "words": [
+        "hammock",
+        "parliament",
+        "trumpet"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-02",
+      "words": [
+        "teaspoon",
+        "laboratory",
+        "forest"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-03",
+      "words": [
+        "giraffe",
+        "kitchen",
+        "satellite"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-04",
+      "words": [
+        "pumpkin",
+        "railway",
+        "festival"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-05",
+      "words": [
+        "daisy",
+        "shipyard",
+        "violin"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-06",
+      "words": [
+        "magnet",
+        "hospital",
+        "orchestra"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-07",
+      "words": [
+        "coral",
+        "stadium",
+        "engine"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-08",
+      "words": [
+        "ferry",
+        "classroom",
+        "beehive"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-09",
+      "words": [
+        "tulip",
+        "concert",
+        "mountain"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-10",
+      "words": [
+        "flower",
+        "computing",
+        "harbour"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-11",
+      "words": [
+        "oyster",
+        "wardrobe",
+        "astronomy"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-12",
+      "words": [
+        "crocodile",
+        "fashion",
+        "space"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-13",
+      "words": [
+        "acorn",
+        "nursery",
+        "galaxy"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-14",
+      "words": [
+        "bottle",
+        "music",
+        "harbour"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-15",
+      "words": [
+        "cigar",
+        "harbour",
+        "necklace"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-16",
+      "words": [
+        "almond",
+        "confectionery",
+        "statue"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-17",
+      "words": [
+        "octopus",
+        "office",
+        "riverbank"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-18",
+      "words": [
+        "falcon",
+        "aviation",
+        "binoculars"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2026-12-19",
+      "words": [
+        "broom",
+        "airport",
+        "microscope"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-20",
+      "words": [
+        "backpack",
+        "mountaineering",
+        "clinic"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-21",
+      "words": [
+        "fountain",
+        "newsroom",
+        "camera"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-22",
+      "words": [
+        "saffron",
+        "cuisine",
+        "alchemy"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-23",
+      "words": [
+        "beetle",
+        "armour",
+        "castle"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-24",
+      "words": [
+        "sponge",
+        "microbiology",
+        "cheddar"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-25",
+      "words": [
+        "snail",
+        "jewellery",
+        "clock"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-26",
+      "words": [
+        "igloo",
+        "insulation",
+        "pastry"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-27",
+      "words": [
+        "peacock",
+        "stationery",
+        "theatre"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-28",
+      "words": [
+        "pigeon",
+        "postage",
+        "castle"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2026-12-29",
+      "words": [
+        "candle",
+        "optics",
+        "rainbow"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-30",
+      "words": [
+        "bee",
+        "politics",
+        "radio"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2026-12-31",
+      "words": [
+        "sandwich",
+        "construction",
+        "mountain"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-01",
+      "words": [
+        "bell",
+        "shipyard",
+        "dentist"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-02",
+      "words": [
+        "snowman",
+        "bakery",
+        "electricity"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-03",
+      "words": [
+        "mushroom",
+        "architecture",
+        "trumpet"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-04",
+      "words": [
+        "lemon",
+        "photography",
+        "castle"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-05",
+      "words": [
+        "lobster",
+        "armour",
+        "chapel"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-06",
+      "words": [
+        "spider",
+        "textiles",
+        "fishing"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-07",
+      "words": [
+        "anchor",
+        "construction",
+        "music"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-08",
+      "words": [
+        "jellyfish",
+        "lighting",
+        "classroom"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-09",
+      "words": [
+        "scissors",
+        "surgery",
+        "waterfall"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-10",
+      "words": [
+        "kangaroo",
+        "athletics",
+        "painting"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-11",
+      "words": [
+        "teapot",
+        "politics",
+        "waterfall"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-12",
+      "words": [
+        "zebra",
+        "transport",
+        "archaeology"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-13",
+      "words": [
+        "cannon",
+        "photography",
+        "cathedral"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-14",
+      "words": [
+        "biscuit",
+        "geology",
+        "porcelain"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-15",
+      "words": [
+        "squid",
+        "printing",
+        "espionage"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-16",
+      "words": [
+        "jigsaw",
+        "timber",
+        "passport"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-17",
+      "words": [
+        "anvil",
+        "metallurgy",
+        "portrait"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-01-18",
+      "words": [
+        "balloon",
+        "meteorology",
+        "keyboard"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-19",
+      "words": [
+        "swan",
+        "choreography",
+        "revolution"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-20",
+      "words": [
+        "skeleton",
+        "paleontology",
+        "screenplay"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-01-21",
+      "words": [
+        "raven",
+        "literature",
+        "chimney"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-22",
+      "words": [
+        "honeycomb",
+        "architecture",
+        "orchestra"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-23",
+      "words": [
+        "rabbit",
+        "computing",
+        "bakery"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-24",
+      "words": [
+        "hamster",
+        "exercise",
+        "electricity"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-25",
+      "words": [
+        "flute",
+        "plumbing",
+        "botany"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-26",
+      "words": [
+        "apricot",
+        "perfumery",
+        "chemistry"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-27",
+      "words": [
+        "tortoise",
+        "navigation",
+        "wedding"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-01-28",
+      "words": [
+        "hammock",
+        "textiles",
+        "navigation"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-29",
+      "words": [
+        "hourglass",
+        "geology",
+        "computer"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-30",
+      "words": [
+        "marble",
+        "geology",
+        "music"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-01-31",
+      "words": [
+        "chameleon",
+        "theatre",
+        "medicine"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-01",
+      "words": [
+        "teapot",
+        "ceramics",
+        "astronaut"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-02",
+      "words": [
+        "anemone",
+        "photography",
+        "medicine"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-03",
+      "words": [
+        "kettle",
+        "ballet",
+        "quicksand"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-04",
+      "words": [
+        "walrus",
+        "optics",
+        "sundial"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-05",
+      "words": [
+        "velvet",
+        "alchemy",
+        "tornado"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-06",
+      "words": [
+        "hiccup",
+        "religion",
+        "satellite"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-07",
+      "words": [
+        "mozzarella",
+        "espionage",
+        "tunnel"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-02-08",
+      "words": [
+        "hammock",
+        "acrobatics",
+        "carnival"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-09",
+      "words": [
+        "porcupine",
+        "navigation",
+        "marionette"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-02-10",
+      "words": [
+        "toaster",
+        "archaeology",
+        "mosquito"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-11",
+      "words": [
+        "jigsaw",
+        "celebrity",
+        "avalanche"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-02-12",
+      "words": [
+        "pigeon",
+        "mathematics",
+        "lipstick"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-13",
+      "words": [
+        "coconut",
+        "detective",
+        "submarine"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-14",
+      "words": [
+        "trampoline",
+        "photography",
+        "gravestone"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-15",
+      "words": [
+        "mustard",
+        "royalty",
+        "eclipse"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-16",
+      "words": [
+        "scarecrow",
+        "chemistry",
+        "carousel"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-17",
+      "words": [
+        "whistle",
+        "mythology",
+        "pancake"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-18",
+      "words": [
+        "sandwich",
+        "recycling",
+        "hurricane"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-19",
+      "words": [
+        "platypus",
+        "gambling",
+        "telescope"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-02-20",
+      "words": [
+        "umbrella",
+        "psychology",
+        "treasure"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-21",
+      "words": [
+        "dumpling",
+        "jazz",
+        "vampire"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-22",
+      "words": [
+        "firefly",
+        "economics",
+        "skyscraper"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-23",
+      "words": [
+        "zipper",
+        "folklore",
+        "karaoke"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-24",
+      "words": [
+        "peacock",
+        "engineering",
+        "blizzard"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-25",
+      "words": [
+        "biscuit",
+        "diplomacy",
+        "canyon"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-26",
+      "words": [
+        "chandelier",
+        "football",
+        "parachute"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-27",
+      "words": [
+        "radish",
+        "superstition",
+        "helicopter"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-02-28",
+      "words": [
+        "squirrel",
+        "literature",
+        "volleyball"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-01",
+      "words": [
+        "marshmallow",
+        "geometry",
+        "piranha"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-02",
+      "words": [
+        "megaphone",
+        "ecology",
+        "pyramid"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-03",
+      "words": [
+        "slipper",
+        "cryptography",
+        "geyser"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-04",
+      "words": [
+        "button",
+        "software",
+        "seahorse"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-05",
+      "words": [
+        "bagpipe",
+        "funeral",
+        "silk"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-06",
+      "words": [
+        "peppermint",
+        "finance",
+        "aquarium"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-07",
+      "words": [
+        "turnstile",
+        "irrigation",
+        "bassoon"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-08",
+      "words": [
+        "cushion",
+        "monarchy",
+        "apiary"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-03-09",
+      "words": [
+        "cassette",
+        "genetics",
+        "corkscrew"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-10",
+      "words": [
+        "suitcase",
+        "forestry",
+        "xylophone"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-11",
+      "words": [
+        "cucumber",
+        "cosmetics",
+        "iceberg"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-12",
+      "words": [
+        "gondola",
+        "mechanism",
+        "concerto"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-13",
+      "words": [
+        "salmon",
+        "trade",
+        "rook"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-14",
+      "words": [
+        "daffodil",
+        "electronics",
+        "garlic"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-15",
+      "words": [
+        "manatee",
+        "buoyancy",
+        "champagne"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-16",
+      "words": [
+        "caribou",
+        "knitting",
+        "catapult"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-17",
+      "words": [
+        "spatula",
+        "masonry",
+        "pianist"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-18",
+      "words": [
+        "chestnut",
+        "equestrian",
+        "cabinet"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-19",
+      "words": [
+        "straw",
+        "housing",
+        "aviary"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-20",
+      "words": [
+        "urchin",
+        "jeweler",
+        "lute"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-21",
+      "words": [
+        "turmeric",
+        "cinematography",
+        "popcorn"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-22",
+      "words": [
+        "doughnut",
+        "cosmology",
+        "bathtub"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-03-23",
+      "words": [
+        "acacia",
+        "shipbuilding",
+        "recliner"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-03-24",
+      "words": [
+        "mole",
+        "excavation",
+        "molar"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-25",
+      "words": [
+        "walnut",
+        "neuroscience",
+        "headphones"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-26",
+      "words": [
+        "sardine",
+        "compression",
+        "mattress"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-27",
+      "words": [
+        "compost",
+        "journalism",
+        "concertina"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-28",
+      "words": [
+        "tangerine",
+        "leather",
+        "basketball"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-29",
+      "words": [
+        "pistachio",
+        "ammunition",
+        "viola"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-03-30",
+      "words": [
+        "albatross",
+        "banking",
+        "shoelace"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-03-31",
+      "words": [
+        "thimble",
+        "immunology",
+        "rampart"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-01",
+      "words": [
+        "doorknob",
+        "rhythm",
+        "stethoscope"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-02",
+      "words": [
+        "terrapin",
+        "defence",
+        "omelette"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-03",
+      "words": [
+        "apron",
+        "tailoring",
+        "frog"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-04",
+      "words": [
+        "eel",
+        "conductivity",
+        "fiddle"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-05",
+      "words": [
+        "cabin",
+        "hospitality",
+        "crayon"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-06",
+      "words": [
+        "ivy",
+        "fortification",
+        "viaduct"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-07",
+      "words": [
+        "cherry",
+        "winemaking",
+        "bagel"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-08",
+      "words": [
+        "lime",
+        "stonework",
+        "blackboard"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-09",
+      "words": [
+        "bonsai",
+        "protection",
+        "tribunal"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-10",
+      "words": [
+        "fern",
+        "reproduction",
+        "waffle"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-11",
+      "words": [
+        "jaguar",
+        "aerodynamics",
+        "jar"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-12",
+      "words": [
+        "hornet",
+        "military",
+        "linen"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-13",
+      "words": [
+        "carrot",
+        "light",
+        "prism"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-14",
+      "words": [
+        "lemur",
+        "fur",
+        "tassel"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-04-15",
+      "words": [
+        "flea",
+        "retail",
+        "stallion"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-16",
+      "words": [
+        "nettle",
+        "reflex",
+        "semaphore"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-17",
+      "words": [
+        "celery",
+        "craft",
+        "kayak"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-18",
+      "words": [
+        "juniper",
+        "alcohol",
+        "phantom"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-19",
+      "words": [
+        "canoe",
+        "monetary",
+        "pepper"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-20",
+      "words": [
+        "funnel",
+        "wheel",
+        "wheat"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-21",
+      "words": [
+        "peach",
+        "dressmaking",
+        "satin"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-22",
+      "words": [
+        "cinnamon",
+        "weaponry",
+        "musket"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-23",
+      "words": [
+        "guava",
+        "horticulture",
+        "robin"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-04-24",
+      "words": [
+        "leek",
+        "stock",
+        "buoy"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-04-25",
+      "words": [
+        "hyena",
+        "comedy",
+        "clarinet"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-26",
+      "words": [
+        "okra",
+        "conservation",
+        "swallow"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-04-27",
+      "words": [
+        "ceramic",
+        "coronation",
+        "taxation"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-28",
+      "words": [
+        "latch",
+        "percussion",
+        "typewriter"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-29",
+      "words": [
+        "bull",
+        "insurance",
+        "parsnip"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-04-30",
+      "words": [
+        "pretzel",
+        "twine",
+        "pigtail"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-01",
+      "words": [
+        "crow",
+        "printer",
+        "palette"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-02",
+      "words": [
+        "parsley",
+        "plate",
+        "gazpacho"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-05-03",
+      "words": [
+        "bellows",
+        "forge",
+        "clover"
+      ],
+      "disposition": "retired",
+      "priorReview": "previously-retired"
+    },
+    {
+      "id": "daily-2027-05-04",
+      "words": [
+        "geranium",
+        "perfumer",
+        "sandal"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-05",
+      "words": [
+        "pickle",
+        "saltwater",
+        "cargo"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-06",
+      "words": [
+        "fox",
+        "coat",
+        "gull"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-07",
+      "words": [
+        "nutmeg",
+        "sailing",
+        "rosewood"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-08",
+      "words": [
+        "cobbler",
+        "baking",
+        "nectar"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-09",
+      "words": [
+        "petunia",
+        "mould",
+        "candelabra"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-10",
+      "words": [
+        "banjo",
+        "bow",
+        "elk"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-11",
+      "words": [
+        "dandelion",
+        "reservoir",
+        "oar"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-12",
+      "words": [
+        "grape",
+        "distillation",
+        "baguette"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-13",
+      "words": [
+        "caper",
+        "anthropology",
+        "chisel"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-14",
+      "words": [
+        "quince",
+        "heating",
+        "kiln"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-15",
+      "words": [
+        "cricket",
+        "orchestral",
+        "palace"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-16",
+      "words": [
+        "lilac",
+        "gardening",
+        "tiara"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-05-17",
+      "words": [
+        "bullet",
+        "force",
+        "firework"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-18",
+      "words": [
+        "dragonfly",
+        "icy",
+        "marzipan"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-19",
+      "words": [
+        "cockatoo",
+        "voice",
+        "doorbell"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-20",
+      "words": [
+        "mussel",
+        "ornaments",
+        "trombone"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-21",
+      "words": [
+        "cod",
+        "freezing",
+        "lava"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-22",
+      "words": [
+        "spool",
+        "point",
+        "discus"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-23",
+      "words": [
+        "blacksmith",
+        "hearing",
+        "tenor"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-24",
+      "words": [
+        "caravan",
+        "cinematographer",
+        "curtain"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-05-25",
+      "words": [
+        "duck",
+        "accounting",
+        "chord"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-26",
+      "words": [
+        "grapefruit",
+        "pigment",
+        "yacht"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-27",
+      "words": [
+        "skate",
+        "paper",
+        "canteen"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-28",
+      "words": [
+        "puffin",
+        "engraving",
+        "cuttlefish"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-05-29",
+      "words": [
+        "salami",
+        "electronics",
+        "marionette"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-05-30",
+      "words": [
+        "coin",
+        "herbaceous",
+        "stoic"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-05-31",
+      "words": [
+        "nightingale",
+        "theatre",
+        "saxophone"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-01",
+      "words": [
+        "barnacle",
+        "jewelry",
+        "ruby"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-02",
+      "words": [
+        "trombone",
+        "archaeological",
+        "pike"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-03",
+      "words": [
+        "butter",
+        "livestock",
+        "bugle"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-04",
+      "words": [
+        "mango",
+        "jars",
+        "dirigible"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-05",
+      "words": [
+        "hacksaw",
+        "skeletal",
+        "macaroni"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-06-06",
+      "words": [
+        "sage",
+        "government",
+        "senator"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-06-07",
+      "words": [
+        "onion",
+        "topography",
+        "harmonium"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-08",
+      "words": [
+        "fennel",
+        "navigation",
+        "marina"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-06-09",
+      "words": [
+        "gavel",
+        "badminton",
+        "dulcimer"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-10",
+      "words": [
+        "sugar",
+        "fairytale",
+        "sparrow"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-11",
+      "words": [
+        "caraway",
+        "battery",
+        "lantern"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-12",
+      "words": [
+        "tapir",
+        "grip",
+        "squeegee"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-13",
+      "words": [
+        "collar",
+        "instrumental",
+        "piccolo"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-06-14",
+      "words": [
+        "sardine",
+        "decorating",
+        "easel"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-15",
+      "words": [
+        "lotus",
+        "automotive",
+        "soprano"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-16",
+      "words": [
+        "shrimp",
+        "modelling",
+        "toboggan"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-17",
+      "words": [
+        "petal",
+        "travel",
+        "cymbal"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-18",
+      "words": [
+        "beret",
+        "scrub",
+        "ponytail"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-19",
+      "words": [
+        "suit",
+        "kiln",
+        "terrace"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-06-20",
+      "words": [
+        "reed",
+        "measuring",
+        "jackhammer"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-21",
+      "words": [
+        "lychee",
+        "singer",
+        "mandolin"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-22",
+      "words": [
+        "larch",
+        "bows",
+        "mongoose"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-23",
+      "words": [
+        "scales",
+        "singing",
+        "teapot"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-24",
+      "words": [
+        "mink",
+        "weaving",
+        "jackfruit"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-06-25",
+      "words": [
+        "wrench",
+        "combustion",
+        "dumpling"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-26",
+      "words": [
+        "deer",
+        "woodwind",
+        "mortar"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-27",
+      "words": [
+        "paddle",
+        "arrow",
+        "cello"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-28",
+      "words": [
+        "scallop",
+        "rocket",
+        "barracuda"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-06-29",
+      "words": [
+        "gingerbread",
+        "sunlight",
+        "cockpit"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-06-30",
+      "words": [
+        "tuna",
+        "trading",
+        "harmonica"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-01",
+      "words": [
+        "moose",
+        "arms",
+        "grappling"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-07-02",
+      "words": [
+        "chickpea",
+        "heating",
+        "locomotive"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-07-03",
+      "words": [
+        "dice",
+        "crystals",
+        "beehive"
+      ],
+      "disposition": "provisional-keep",
+      "priorReview": "provisional-keep"
+    },
+    {
+      "id": "daily-2027-07-04",
+      "words": [
+        "minnow",
+        "wicket",
+        "basket"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-05",
+      "words": [
+        "pistachio",
+        "equestrian",
+        "paddock"
+      ],
+      "disposition": "shortlist",
+      "priorReview": "shortlist"
+    },
+    {
+      "id": "daily-2027-07-06",
+      "words": [
+        "seaweed",
+        "paper",
+        "cornet"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-07-07",
+      "words": [
+        "wren",
+        "architectural",
+        "pagoda"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-08",
+      "words": [
+        "toothpick",
+        "throne",
+        "galleon"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-09",
+      "words": [
+        "bracelet",
+        "fantasy",
+        "witchcraft"
+      ],
+      "disposition": "watch",
+      "priorReview": "watch"
+    },
+    {
+      "id": "daily-2027-07-10",
+      "words": [
+        "holly",
+        "preserves",
+        "scone"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-11",
+      "words": [
+        "keyhole",
+        "crystals",
+        "necktie"
+      ],
+      "disposition": "retired",
+      "priorReview": "removed-as-requested"
+    },
+    {
+      "id": "daily-2027-07-12",
+      "words": [
+        "fame",
+        "scatter",
+        "ribbon"
+      ],
+      "disposition": "retired",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-13",
+      "words": [
+        "promise",
+        "shadow",
+        "luck"
+      ],
+      "disposition": "player-approved",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-14",
+      "words": [
+        "drift",
+        "honour",
+        "clear"
+      ],
+      "disposition": "player-approved",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-15",
+      "words": [
+        "charm",
+        "split",
+        "duty"
+      ],
+      "disposition": "player-approved",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-16",
+      "words": [
+        "spare",
+        "dream",
+        "tension"
+      ],
+      "disposition": "player-approved",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-17",
+      "words": [
+        "hide",
+        "rhythm",
+        "pocket"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-18",
+      "words": [
+        "cold",
+        "trust",
+        "parade"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-19",
+      "words": [
+        "bluff",
+        "romance",
+        "shift"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-20",
+      "words": [
+        "still",
+        "revenge",
+        "smooth"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-21",
+      "words": [
+        "rush",
+        "wisdom",
+        "fold"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-22",
+      "words": [
+        "lift",
+        "honest",
+        "season"
+      ],
+      "disposition": "additional-review-candidate",
+      "priorReview": null,
+      "reason": "HONEST is a broad personal assessment with fewer concrete onward contexts. LIFT and SEASON are individually rich, but their combination may reward generic middle links.",
+      "recommendation": "Consider replacing the combination, retaining the individual words."
+    },
+    {
+      "id": "daily-2027-07-23",
+      "words": [
+        "glow",
+        "borrow",
+        "fence"
+      ],
+      "disposition": "additional-review-candidate",
+      "priorReview": null,
+      "reason": "The words are accessible, but BORROW channels the middle towards loans/possession; the combination risks two unrelated searches instead of a useful handoff.",
+      "recommendation": "Replace if playtesting confirms the handoff feels arbitrary."
+    },
+    {
+      "id": "daily-2027-07-24",
+      "words": [
+        "habit",
+        "stitch",
+        "crown"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-25",
+      "words": [
+        "tension",
+        "gift",
+        "track"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-26",
+      "words": [
+        "screen",
+        "loyal",
+        "swing"
+      ],
+      "disposition": "additional-review-candidate",
+      "priorReview": null,
+      "reason": "LOYAL suggests a relatively narrow set of person/pet/trust links. The SCREEN approach and SWING departure may feel disconnected despite the versatile endpoints.",
+      "recommendation": "Prioritise a playtest; replace rather than make thresholds easier if frustrating."
+    },
+    {
+      "id": "daily-2027-07-27",
+      "words": [
+        "shelter",
+        "tempt",
+        "paint"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-28",
+      "words": [
+        "spoil",
+        "gravity",
+        "ring"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-29",
+      "words": [
+        "thrill",
+        "frame",
+        "root"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-30",
+      "words": [
+        "plain",
+        "ambition",
+        "echo"
+      ],
+      "disposition": "retain-for-playtest",
+      "priorReview": null
+    },
+    {
+      "id": "daily-2027-07-31",
+      "words": [
+        "dare",
+        "comfort",
+        "signal"
+      ],
+      "disposition": "additional-review-candidate",
+      "priorReview": null,
+      "reason": "The first leg looks inviting, but the change from COMFORT to SIGNAL may be a separate chore rather than a satisfying consequence of a landing choice.",
+      "recommendation": "Watch the second leg; replacement candidate, not a proven bad hole."
+    }
+  ],
+  "additionalRecommendations": [
+    {
+      "words": [
+        "glow",
+        "borrow",
+        "fence"
+      ],
+      "reason": "The words are accessible, but BORROW channels the middle towards loans/possession; the combination risks two unrelated searches instead of a useful handoff.",
+      "recommendation": "Replace if playtesting confirms the handoff feels arbitrary."
+    },
+    {
+      "words": [
+        "screen",
+        "loyal",
+        "swing"
+      ],
+      "reason": "LOYAL suggests a relatively narrow set of person/pet/trust links. The SCREEN approach and SWING departure may feel disconnected despite the versatile endpoints.",
+      "recommendation": "Prioritise a playtest; replace rather than make thresholds easier if frustrating."
+    },
+    {
+      "words": [
+        "lift",
+        "honest",
+        "season"
+      ],
+      "reason": "HONEST is a broad personal assessment with fewer concrete onward contexts. LIFT and SEASON are individually rich, but their combination may reward generic middle links.",
+      "recommendation": "Consider replacing the combination, retaining the individual words."
+    },
+    {
+      "words": [
+        "dare",
+        "comfort",
+        "signal"
+      ],
+      "reason": "The first leg looks inviting, but the change from COMFORT to SIGNAL may be a separate chore rather than a satisfying consequence of a landing choice.",
+      "recommendation": "Watch the second leg; replacement candidate, not a proven bad hole."
+    }
+  ],
+  "approved": [
+    "spare|dream|tension",
+    "promise|shadow|luck",
+    "charm|split|duty",
+    "drift|honour|clear"
+  ],
+  "newlyRetired": [
+    "fame|scatter|ribbon"
+  ]
+}

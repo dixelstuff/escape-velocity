@@ -1,0 +1,2348 @@
+{
+  "fame": [
+    "celebrity",
+    "star",
+    "glory",
+    "reputation",
+    "recognition",
+    "success",
+    "name",
+    "public",
+    "legend",
+    "spotlight"
+  ],
+  "promise": [
+    "vow",
+    "pledge",
+    "hope",
+    "commitment",
+    "future",
+    "keep",
+    "swear",
+    "word",
+    "potential"
+  ],
+  "drift": [
+    "float",
+    "current",
+    "wind",
+    "wander",
+    "snow",
+    "slip",
+    "direction",
+    "loose",
+    "slide"
+  ],
+  "charm": [
+    "magic",
+    "spell",
+    "luck",
+    "attract",
+    "bracelet",
+    "polite",
+    "smile"
+  ],
+  "spare": [
+    "extra",
+    "reserve",
+    "save",
+    "time",
+    "wheel",
+    "change",
+    "mercy",
+    "bowling"
+  ],
+  "grace": [
+    "elegance",
+    "favour",
+    "prayer",
+    "pardon",
+    "ballet",
+    "smooth",
+    "kindness"
+  ],
+  "hide": [
+    "cover",
+    "conceal",
+    "skin",
+    "leather",
+    "secret",
+    "seek",
+    "shelter"
+  ],
+  "spark": [
+    "fire",
+    "light",
+    "idea",
+    "start",
+    "electric",
+    "romance",
+    "plug"
+  ],
+  "cold": [
+    "ice",
+    "winter",
+    "flu",
+    "distant",
+    "chill",
+    "emotion",
+    "frozen",
+    "drink"
+  ],
+  "flat": [
+    "level",
+    "apartment",
+    "dull",
+    "tyre",
+    "music",
+    "pancake",
+    "plain"
+  ],
+  "glow": [
+    "light",
+    "warm",
+    "shine",
+    "pride",
+    "fire",
+    "bright",
+    "ember",
+    "healthy"
+  ],
+  "bluff": [
+    "pretend",
+    "poker",
+    "cliff",
+    "boast",
+    "lie",
+    "deception",
+    "brave"
+  ],
+  "chase": [
+    "pursue",
+    "hunt",
+    "race",
+    "follow",
+    "dream",
+    "money",
+    "love"
+  ],
+  "scar": [
+    "wound",
+    "heal",
+    "memory",
+    "mark",
+    "pain",
+    "history",
+    "scratch"
+  ],
+  "still": [
+    "quiet",
+    "calm",
+    "photograph",
+    "remain",
+    "silent",
+    "water",
+    "distill",
+    "freeze"
+  ],
+  "habit": [
+    "routine",
+    "custom",
+    "repeat",
+    "monk",
+    "robe",
+    "practice",
+    "addiction"
+  ],
+  "rush": [
+    "hurry",
+    "speed",
+    "crowd",
+    "thrill",
+    "river",
+    "reed",
+    "demand"
+  ],
+  "plain": [
+    "simple",
+    "clear",
+    "ordinary",
+    "field",
+    "honest",
+    "obvious",
+    "land",
+    "flour"
+  ],
+  "dare": [
+    "risk",
+    "challenge",
+    "brave",
+    "courage",
+    "bold",
+    "truth",
+    "venture"
+  ],
+  "favour": [
+    "kindness",
+    "prefer",
+    "help",
+    "gift",
+    "friend",
+    "owe"
+  ],
+  "lift": [
+    "raise",
+    "elevator",
+    "weight",
+    "ride",
+    "steal",
+    "mood",
+    "carry"
+  ],
+  "draw": [
+    "sketch",
+    "pull",
+    "tie",
+    "lottery",
+    "card",
+    "attract",
+    "curtain"
+  ],
+  "fair": [
+    "just",
+    "pale",
+    "carnival",
+    "equal",
+    "weather",
+    "pretty",
+    "bargain"
+  ],
+  "wish": [
+    "hope",
+    "dream",
+    "desire",
+    "star",
+    "luck",
+    "grant"
+  ],
+  "shadow": [
+    "shade",
+    "dark",
+    "follow",
+    "copy",
+    "doubt",
+    "secret",
+    "silhouette"
+  ],
+  "honour": [
+    "respect",
+    "medal",
+    "duty",
+    "honest",
+    "glory",
+    "promise",
+    "prize"
+  ],
+  "wild": [
+    "free",
+    "animal",
+    "storm",
+    "nature",
+    "untamed",
+    "crazy",
+    "forest",
+    "adventure"
+  ],
+  "dream": [
+    "sleep",
+    "hope",
+    "ambition",
+    "vision",
+    "imagine",
+    "nightmare",
+    "future"
+  ],
+  "storm": [
+    "wind",
+    "rain",
+    "thunder",
+    "anger",
+    "protest",
+    "cloud"
+  ],
+  "rhythm": [
+    "beat",
+    "music",
+    "pattern",
+    "dance",
+    "pace",
+    "flow",
+    "cycle"
+  ],
+  "balance": [
+    "scale",
+    "weight",
+    "fair",
+    "steady",
+    "bank",
+    "account",
+    "poise"
+  ],
+  "trust": [
+    "faith",
+    "belief",
+    "rely",
+    "money",
+    "bank",
+    "confidence",
+    "honest"
+  ],
+  "courage": [
+    "brave",
+    "fear",
+    "risk",
+    "heart",
+    "strength",
+    "hero"
+  ],
+  "justice": [
+    "law",
+    "fair",
+    "judge",
+    "court",
+    "rights",
+    "sentence"
+  ],
+  "romance": [
+    "love",
+    "date",
+    "passion",
+    "novel",
+    "adventure",
+    "story"
+  ],
+  "faith": [
+    "belief",
+    "trust",
+    "religion",
+    "hope",
+    "promise",
+    "loyal"
+  ],
+  "chance": [
+    "luck",
+    "risk",
+    "probability",
+    "opportunity",
+    "gamble",
+    "dice"
+  ],
+  "revenge": [
+    "anger",
+    "justice",
+    "payback",
+    "avenge",
+    "spite",
+    "hurt"
+  ],
+  "escape": [
+    "free",
+    "prison",
+    "flee",
+    "rescue",
+    "exit",
+    "holiday",
+    "leak"
+  ],
+  "wisdom": [
+    "knowledge",
+    "sage",
+    "age",
+    "advice",
+    "sense",
+    "experience"
+  ],
+  "ambition": [
+    "goal",
+    "career",
+    "drive",
+    "success",
+    "hunger",
+    "dream"
+  ],
+  "comfort": [
+    "ease",
+    "soft",
+    "home",
+    "warm",
+    "console",
+    "soothe"
+  ],
+  "depth": [
+    "deep",
+    "water",
+    "ocean",
+    "wisdom",
+    "meaning",
+    "dimension",
+    "feeling"
+  ],
+  "honest": [
+    "truth",
+    "frank",
+    "fair",
+    "sincere",
+    "trust",
+    "open"
+  ],
+  "loyal": [
+    "faithful",
+    "friend",
+    "dog",
+    "allegiance",
+    "royal",
+    "devoted"
+  ],
+  "hunger": [
+    "food",
+    "appetite",
+    "desire",
+    "empty",
+    "need",
+    "ambition"
+  ],
+  "sharp": [
+    "knife",
+    "pointed",
+    "clever",
+    "sting",
+    "music",
+    "quick",
+    "clear"
+  ],
+  "empty": [
+    "blank",
+    "hollow",
+    "vacant",
+    "lonely",
+    "nothing",
+    "space",
+    "bottle",
+    "full"
+  ],
+  "root": [
+    "tree",
+    "cause",
+    "origin",
+    "family",
+    "number",
+    "tooth",
+    "grow"
+  ],
+  "quiet": [
+    "silent",
+    "calm",
+    "peace",
+    "whisper",
+    "still",
+    "rest"
+  ],
+  "stretch": [
+    "pull",
+    "extend",
+    "reach",
+    "elastic",
+    "exercise",
+    "time",
+    "space"
+  ],
+  "luck": [
+    "chance",
+    "fortune",
+    "wish",
+    "dice",
+    "charm",
+    "lucky",
+    "fate"
+  ],
+  "clear": [
+    "transparent",
+    "clean",
+    "obvious",
+    "free",
+    "sky",
+    "solve"
+  ],
+  "duty": [
+    "job",
+    "work",
+    "tax",
+    "obligation",
+    "honour",
+    "service",
+    "responsibility"
+  ],
+  "tension": [
+    "strain",
+    "stress",
+    "wire",
+    "suspense",
+    "conflict",
+    "tight"
+  ],
+  "credit": [
+    "money",
+    "bank",
+    "trust",
+    "praise",
+    "acknowledge",
+    "loan",
+    "film"
+  ],
+  "mercy": [
+    "kindness",
+    "pardon",
+    "forgive",
+    "compassion",
+    "relief",
+    "spare"
+  ],
+  "rumour": [
+    "gossip",
+    "whisper",
+    "news",
+    "false",
+    "story",
+    "secret"
+  ],
+  "parade": [
+    "march",
+    "show",
+    "pride",
+    "display",
+    "music",
+    "uniform"
+  ],
+  "fever": [
+    "heat",
+    "temperature",
+    "illness",
+    "excitement",
+    "rush",
+    "hot"
+  ],
+  "rough": [
+    "uneven",
+    "rugged",
+    "harsh",
+    "draft",
+    "sketch",
+    "difficult"
+  ],
+  "shift": [
+    "move",
+    "change",
+    "work",
+    "gear",
+    "dress",
+    "alter",
+    "turn"
+  ],
+  "mirror": [
+    "reflect",
+    "glass",
+    "image",
+    "copy",
+    "reverse",
+    "shine"
+  ],
+  "rescue": [
+    "save",
+    "help",
+    "lifeboat",
+    "danger",
+    "hero",
+    "safe"
+  ],
+  "smooth": [
+    "silky",
+    "easy",
+    "even",
+    "gentle",
+    "polished",
+    "calm"
+  ],
+  "bright": [
+    "light",
+    "clever",
+    "cheerful",
+    "vivid",
+    "shine",
+    "future"
+  ],
+  "fold": [
+    "bend",
+    "paper",
+    "crease",
+    "flock",
+    "close",
+    "wrap",
+    "arms"
+  ],
+  "echo": [
+    "repeat",
+    "sound",
+    "reflection",
+    "memory",
+    "reply"
+  ],
+  "signal": [
+    "sign",
+    "wave",
+    "light",
+    "message",
+    "traffic",
+    "cue",
+    "flag"
+  ],
+  "broken": [
+    "crack",
+    "damaged",
+    "heart",
+    "promise",
+    "pieces",
+    "fractured"
+  ],
+  "season": [
+    "time",
+    "winter",
+    "summer",
+    "flavour",
+    "salt",
+    "spice",
+    "mature"
+  ],
+  "mist": [
+    "fog",
+    "spray",
+    "cloud",
+    "obscure",
+    "water",
+    "haze"
+  ],
+  "loose": [
+    "free",
+    "untied",
+    "relaxed",
+    "baggy",
+    "escape",
+    "release"
+  ],
+  "freedom": [
+    "liberty",
+    "choice",
+    "free",
+    "rights",
+    "prison",
+    "independence"
+  ],
+  "scatter": [
+    "spread",
+    "throw",
+    "seeds",
+    "light",
+    "disperse",
+    "mess"
+  ],
+  "ribbon": [
+    "bow",
+    "prize",
+    "tape",
+    "colour",
+    "gift",
+    "strip",
+    "typewriter",
+    "finish"
+  ],
+  "shelter": [
+    "home",
+    "roof",
+    "protect",
+    "refuge",
+    "cover",
+    "shade",
+    "safe"
+  ],
+  "pitch": [
+    "throw",
+    "field",
+    "music",
+    "sales",
+    "tar",
+    "tent",
+    "slope"
+  ],
+  "borrow": [
+    "loan",
+    "lend",
+    "library",
+    "money",
+    "copy",
+    "return",
+    "debt"
+  ],
+  "split": [
+    "divide",
+    "crack",
+    "share",
+    "break",
+    "leave",
+    "banana"
+  ],
+  "whisper": [
+    "quiet",
+    "secret",
+    "voice",
+    "rumour",
+    "wind",
+    "soft"
+  ],
+  "frame": [
+    "picture",
+    "border",
+    "structure",
+    "blame",
+    "glasses",
+    "build"
+  ],
+  "cherish": [
+    "love",
+    "treasure",
+    "memory",
+    "care",
+    "protect",
+    "value"
+  ],
+  "pocket": [
+    "money",
+    "carry",
+    "bag",
+    "billiards",
+    "steal",
+    "space",
+    "save"
+  ],
+  "mask": [
+    "face",
+    "disguise",
+    "cover",
+    "hide",
+    "theatre",
+    "costume",
+    "protect"
+  ],
+  "fence": [
+    "barrier",
+    "garden",
+    "sword",
+    "boundary",
+    "stolen",
+    "jump"
+  ],
+  "cradle": [
+    "baby",
+    "rock",
+    "origin",
+    "hold",
+    "nurse",
+    "birth"
+  ],
+  "hollow": [
+    "empty",
+    "echo",
+    "tree",
+    "cave",
+    "false",
+    "inside"
+  ],
+  "screen": [
+    "film",
+    "display",
+    "filter",
+    "hide",
+    "test",
+    "protect"
+  ],
+  "crown": [
+    "king",
+    "tooth",
+    "top",
+    "prize",
+    "head",
+    "royal"
+  ],
+  "stitch": [
+    "sew",
+    "thread",
+    "wound",
+    "pain",
+    "knit",
+    "pattern"
+  ],
+  "gift": [
+    "present",
+    "talent",
+    "give",
+    "wrap",
+    "birthday",
+    "generous"
+  ],
+  "track": [
+    "path",
+    "follow",
+    "record",
+    "train",
+    "music",
+    "race"
+  ],
+  "remember": [
+    "memory",
+    "forget",
+    "recall",
+    "past",
+    "note",
+    "keep"
+  ],
+  "swing": [
+    "move",
+    "pendulum",
+    "playground",
+    "golf",
+    "music",
+    "dance"
+  ],
+  "tempt": [
+    "desire",
+    "lure",
+    "offer",
+    "attract",
+    "risk",
+    "sweet"
+  ],
+  "paint": [
+    "colour",
+    "art",
+    "brush",
+    "coat",
+    "picture",
+    "decorate"
+  ],
+  "fault": [
+    "blame",
+    "error",
+    "crack",
+    "earthquake",
+    "serve",
+    "fail"
+  ],
+  "spoil": [
+    "ruin",
+    "rot",
+    "pamper",
+    "treasure",
+    "victory",
+    "surprise"
+  ],
+  "gravity": [
+    "weight",
+    "pull",
+    "force",
+    "serious",
+    "fall",
+    "earth"
+  ],
+  "ring": [
+    "circle",
+    "bell",
+    "call",
+    "jewellery",
+    "boxing",
+    "group"
+  ],
+  "thrill": [
+    "excite",
+    "adventure",
+    "ride",
+    "fear",
+    "joy",
+    "rush"
+  ],
+  "wonder": [
+    "awe",
+    "question",
+    "surprise",
+    "miracle",
+    "marvel",
+    "think"
+  ],
+  "press": [
+    "push",
+    "newspaper",
+    "print",
+    "crowd",
+    "iron",
+    "squeeze"
+  ],
+  "crash": [
+    "collision",
+    "fall",
+    "computer",
+    "noise",
+    "market",
+    "break"
+  ],
+  "secret": [
+    "hidden",
+    "private",
+    "whisper",
+    "mystery",
+    "trust",
+    "spy",
+    "share"
+  ],
+  "dance": [
+    "music",
+    "step",
+    "move",
+    "rhythm",
+    "party",
+    "partner",
+    "turn",
+    "spin"
+  ],
+  "switch": [
+    "change",
+    "light",
+    "electric",
+    "turn",
+    "swap",
+    "button",
+    "rail",
+    "choice"
+  ],
+  "cloud": [
+    "sky",
+    "rain",
+    "shade",
+    "computer",
+    "doubt",
+    "storm",
+    "dream",
+    "fog"
+  ],
+  "bold": [
+    "brave",
+    "type",
+    "colour",
+    "risk",
+    "confident",
+    "loud",
+    "dare"
+  ],
+  "ticket": [
+    "travel",
+    "train",
+    "seat",
+    "fine",
+    "chance",
+    "show",
+    "entry",
+    "prize"
+  ],
+  "mend": [
+    "repair",
+    "fix",
+    "heal",
+    "sew",
+    "wound",
+    "friendship",
+    "broken"
+  ],
+  "dust": [
+    "powder",
+    "clean",
+    "dry",
+    "earth",
+    "space",
+    "old",
+    "ashes",
+    "sweep"
+  ],
+  "sleep": [
+    "rest",
+    "dream",
+    "night",
+    "bed",
+    "quiet",
+    "tired",
+    "peace"
+  ],
+  "challenge": [
+    "dare",
+    "question",
+    "contest",
+    "difficult",
+    "risk",
+    "test",
+    "doubt"
+  ],
+  "passion": [
+    "love",
+    "heat",
+    "desire",
+    "anger",
+    "music",
+    "feeling",
+    "enthusiasm"
+  ],
+  "temper": [
+    "anger",
+    "mood",
+    "steel",
+    "heat",
+    "calm",
+    "control",
+    "balance"
+  ],
+  "silk": [
+    "smooth",
+    "cloth",
+    "thread",
+    "soft",
+    "fine",
+    "web",
+    "dress"
+  ],
+  "ghost": [
+    "spirit",
+    "haunt",
+    "fear",
+    "pale",
+    "past",
+    "memory",
+    "shadow",
+    "writer"
+  ],
+  "curtain": [
+    "window",
+    "cloth",
+    "stage",
+    "hide",
+    "close",
+    "fall",
+    "theatre"
+  ],
+  "brave": [
+    "courage",
+    "bold",
+    "fear",
+    "hero",
+    "face",
+    "risk"
+  ],
+  "judge": [
+    "court",
+    "law",
+    "decision",
+    "fair",
+    "opinion",
+    "contest",
+    "taste"
+  ],
+  "paper": [
+    "write",
+    "book",
+    "fold",
+    "news",
+    "sheet",
+    "tree",
+    "exam"
+  ],
+  "wave": [
+    "water",
+    "sea",
+    "hand",
+    "signal",
+    "sound",
+    "light",
+    "move"
+  ],
+  "blade": [
+    "knife",
+    "sharp",
+    "grass",
+    "sword",
+    "fan",
+    "skate",
+    "cut"
+  ],
+  "moment": [
+    "time",
+    "brief",
+    "pause",
+    "memory",
+    "important",
+    "weight",
+    "now"
+  ],
+  "lost": [
+    "missing",
+    "found",
+    "confused",
+    "direction",
+    "game",
+    "alone",
+    "forget"
+  ],
+  "prompt": [
+    "quick",
+    "cue",
+    "help",
+    "question",
+    "remind",
+    "actor",
+    "answer"
+  ],
+  "field": [
+    "land",
+    "grass",
+    "sport",
+    "work",
+    "space",
+    "science",
+    "magnet"
+  ],
+  "trail": [
+    "path",
+    "follow",
+    "track",
+    "walk",
+    "clue",
+    "leave",
+    "smoke"
+  ],
+  "shine": [
+    "light",
+    "polish",
+    "sun",
+    "bright",
+    "pride",
+    "talent",
+    "glow"
+  ],
+  "weight": [
+    "heavy",
+    "mass",
+    "lift",
+    "scale",
+    "importance",
+    "pressure",
+    "burden"
+  ],
+  "border": [
+    "edge",
+    "country",
+    "garden",
+    "frame",
+    "limit",
+    "cross"
+  ],
+  "fresh": [
+    "new",
+    "clean",
+    "cool",
+    "food",
+    "air",
+    "bright",
+    "bold"
+  ],
+  "shell": [
+    "cover",
+    "egg",
+    "sea",
+    "empty",
+    "computer",
+    "case",
+    "weapon"
+  ],
+  "swear": [
+    "promise",
+    "oath",
+    "curse",
+    "word",
+    "truth",
+    "angry"
+  ],
+  "lantern": [
+    "light",
+    "lamp",
+    "glow",
+    "night",
+    "festival",
+    "camp",
+    "guide"
+  ],
+  "witness": [
+    "see",
+    "court",
+    "evidence",
+    "test",
+    "watch",
+    "story",
+    "sign"
+  ],
+  "sweet": [
+    "sugar",
+    "kind",
+    "nice",
+    "taste",
+    "music",
+    "love",
+    "candy"
+  ],
+  "strain": [
+    "stress",
+    "pull",
+    "filter",
+    "muscle",
+    "effort",
+    "music",
+    "tension"
+  ],
+  "debt": [
+    "owe",
+    "money",
+    "loan",
+    "thanks",
+    "duty",
+    "credit",
+    "burden"
+  ],
+  "bloom": [
+    "flower",
+    "grow",
+    "fresh",
+    "colour",
+    "health",
+    "flourish"
+  ],
+  "pause": [
+    "stop",
+    "rest",
+    "wait",
+    "breath",
+    "music",
+    "break",
+    "moment"
+  ],
+  "lock": [
+    "key",
+    "door",
+    "hair",
+    "canal",
+    "secure",
+    "hold",
+    "close"
+  ],
+  "mystery": [
+    "secret",
+    "puzzle",
+    "crime",
+    "unknown",
+    "story",
+    "question"
+  ],
+  "circle": [
+    "round",
+    "ring",
+    "group",
+    "cycle",
+    "turn",
+    "draw"
+  ],
+  "worth": [
+    "value",
+    "price",
+    "deserve",
+    "merit",
+    "rich",
+    "respect"
+  ],
+  "patience": [
+    "wait",
+    "calm",
+    "time",
+    "endure",
+    "card",
+    "care"
+  ],
+  "breath": [
+    "air",
+    "life",
+    "wind",
+    "pause",
+    "whisper",
+    "sigh",
+    "fresh"
+  ],
+  "turn": [
+    "change",
+    "spin",
+    "corner",
+    "page",
+    "chance",
+    "move",
+    "bend"
+  ],
+  "reach": [
+    "touch",
+    "stretch",
+    "goal",
+    "arrive",
+    "range",
+    "extend"
+  ],
+  "glory": [
+    "fame",
+    "honour",
+    "pride",
+    "bright",
+    "success",
+    "shine"
+  ],
+  "glass": [
+    "clear",
+    "window",
+    "lens",
+    "mirror",
+    "bottle",
+    "cup",
+    "fragile"
+  ],
+  "charge": [
+    "money",
+    "power",
+    "electric",
+    "attack",
+    "accuse",
+    "duty",
+    "rush"
+  ],
+  "roam": [
+    "wander",
+    "travel",
+    "free",
+    "phone",
+    "walk",
+    "explore"
+  ],
+  "memory": [
+    "remember",
+    "past",
+    "computer",
+    "store",
+    "forget",
+    "image"
+  ],
+  "tide": [
+    "sea",
+    "water",
+    "moon",
+    "change",
+    "rise",
+    "current"
+  ],
+  "taste": [
+    "flavour",
+    "tongue",
+    "judge",
+    "style",
+    "choice",
+    "sample"
+  ],
+  "flash": [
+    "light",
+    "quick",
+    "camera",
+    "memory",
+    "show",
+    "bright"
+  ],
+  "soft": [
+    "gentle",
+    "quiet",
+    "cloth",
+    "weak",
+    "kind",
+    "cushion"
+  ],
+  "notice": [
+    "see",
+    "sign",
+    "warning",
+    "attention",
+    "letter",
+    "observe"
+  ],
+  "warm": [
+    "heat",
+    "kind",
+    "friendly",
+    "sun",
+    "welcome",
+    "glow"
+  ],
+  "question": [
+    "ask",
+    "doubt",
+    "test",
+    "answer",
+    "curious",
+    "judge"
+  ],
+  "scale": [
+    "size",
+    "weight",
+    "fish",
+    "music",
+    "map",
+    "climb",
+    "measure"
+  ],
+  "spin": [
+    "turn",
+    "thread",
+    "story",
+    "wheel",
+    "dance",
+    "twist"
+  ],
+  "gentle": [
+    "soft",
+    "kind",
+    "calm",
+    "care",
+    "light",
+    "slow"
+  ],
+  "rain": [
+    "water",
+    "cloud",
+    "storm",
+    "drop",
+    "fall",
+    "weather"
+  ],
+  "dark": [
+    "night",
+    "black",
+    "secret",
+    "fear",
+    "shade",
+    "sad"
+  ],
+  "hope": [
+    "wish",
+    "dream",
+    "future",
+    "trust",
+    "faith",
+    "promise",
+    "chance"
+  ],
+  "chain": [
+    "link",
+    "metal",
+    "prison",
+    "series",
+    "shop",
+    "necklace"
+  ],
+  "bend": [
+    "curve",
+    "turn",
+    "flex",
+    "bow",
+    "river",
+    "rule"
+  ],
+  "spirit": [
+    "ghost",
+    "soul",
+    "courage",
+    "mood",
+    "drink",
+    "life"
+  ],
+  "voice": [
+    "sound",
+    "speak",
+    "sing",
+    "opinion",
+    "vote",
+    "word"
+  ],
+  "danger": [
+    "risk",
+    "fear",
+    "warning",
+    "unsafe",
+    "threat",
+    "adventure"
+  ],
+  "march": [
+    "walk",
+    "soldier",
+    "music",
+    "spring",
+    "protest",
+    "time"
+  ],
+  "curiosity": [
+    "interest",
+    "question",
+    "wonder",
+    "discover",
+    "strange",
+    "explore"
+  ],
+  "reflect": [
+    "mirror",
+    "think",
+    "light",
+    "consider",
+    "image",
+    "show"
+  ],
+  "rest": [
+    "sleep",
+    "pause",
+    "peace",
+    "remain",
+    "support",
+    "music"
+  ],
+  "wander": [
+    "roam",
+    "travel",
+    "walk",
+    "mind",
+    "lost",
+    "drift"
+  ],
+  "value": [
+    "worth",
+    "price",
+    "respect",
+    "belief",
+    "number",
+    "treasure"
+  ],
+  "search": [
+    "find",
+    "look",
+    "seek",
+    "hunt",
+    "question",
+    "explore"
+  ],
+  "peace": [
+    "calm",
+    "quiet",
+    "war",
+    "rest",
+    "agreement",
+    "dove"
+  ],
+  "thunder": [
+    "storm",
+    "noise",
+    "loud",
+    "rain",
+    "anger",
+    "roar"
+  ],
+  "flame": [
+    "fire",
+    "light",
+    "heat",
+    "passion",
+    "love",
+    "burn"
+  ],
+  "belief": [
+    "faith",
+    "trust",
+    "opinion",
+    "religion",
+    "idea",
+    "doubt"
+  ],
+  "cloak": [
+    "cover",
+    "hide",
+    "cloth",
+    "secret",
+    "disguise",
+    "night"
+  ],
+  "touch": [
+    "feel",
+    "hand",
+    "contact",
+    "gentle",
+    "move",
+    "reach"
+  ],
+  "story": [
+    "tale",
+    "book",
+    "news",
+    "lie",
+    "level",
+    "history",
+    "plot"
+  ],
+  "frost": [
+    "ice",
+    "cold",
+    "white",
+    "glass",
+    "winter",
+    "freeze"
+  ],
+  "bridge": [
+    "cross",
+    "river",
+    "connect",
+    "card",
+    "music",
+    "tooth",
+    "nose"
+  ],
+  "silver": [
+    "metal",
+    "coin",
+    "shine",
+    "moon",
+    "spoon",
+    "prize"
+  ],
+  "tangle": [
+    "knot",
+    "hair",
+    "confuse",
+    "thread",
+    "mess",
+    "argument"
+  ],
+  "garden": [
+    "grow",
+    "plant",
+    "flower",
+    "earth",
+    "care",
+    "bed",
+    "border"
+  ],
+  "pride": [
+    "proud",
+    "honour",
+    "lion",
+    "group",
+    "joy",
+    "dignity",
+    "show"
+  ],
+  "thread": [
+    "sew",
+    "string",
+    "story",
+    "line",
+    "needle",
+    "connect"
+  ],
+  "hidden": [
+    "secret",
+    "cover",
+    "lost",
+    "conceal",
+    "private",
+    "buried"
+  ],
+  "stage": [
+    "theatre",
+    "act",
+    "step",
+    "level",
+    "show",
+    "perform"
+  ],
+  "spring": [
+    "season",
+    "water",
+    "coil",
+    "jump",
+    "bounce",
+    "fresh"
+  ],
+  "claim": [
+    "say",
+    "own",
+    "demand",
+    "right",
+    "insurance",
+    "assert"
+  ],
+  "change": [
+    "alter",
+    "money",
+    "turn",
+    "switch",
+    "new",
+    "exchange"
+  ],
+  "bank": [
+    "money",
+    "river",
+    "save",
+    "loan",
+    "store",
+    "turn"
+  ],
+  "brush": [
+    "paint",
+    "hair",
+    "clean",
+    "touch",
+    "bush",
+    "teeth"
+  ],
+  "move": [
+    "turn",
+    "travel",
+    "shift",
+    "emotion",
+    "game",
+    "change"
+  ],
+  "letter": [
+    "write",
+    "word",
+    "post",
+    "sign",
+    "school",
+    "alphabet"
+  ],
+  "colour": [
+    "paint",
+    "light",
+    "mood",
+    "tone",
+    "shade",
+    "flag"
+  ],
+  "catch": [
+    "grab",
+    "fish",
+    "game",
+    "understand",
+    "trap",
+    "hook"
+  ],
+  "trace": [
+    "track",
+    "line",
+    "copy",
+    "clue",
+    "small",
+    "follow"
+  ],
+  "laugh": [
+    "fun",
+    "joke",
+    "joy",
+    "smile",
+    "sound",
+    "happy"
+  ],
+  "sound": [
+    "noise",
+    "music",
+    "voice",
+    "healthy",
+    "safe",
+    "water"
+  ],
+  "break": [
+    "crack",
+    "pause",
+    "rest",
+    "escape",
+    "chance",
+    "rule"
+  ],
+  "haze": [
+    "fog",
+    "mist",
+    "cloud",
+    "unclear",
+    "memory",
+    "smoke"
+  ],
+  "cover": [
+    "hide",
+    "blanket",
+    "book",
+    "protect",
+    "insurance",
+    "lid"
+  ],
+  "light": [
+    "bright",
+    "shine",
+    "flame",
+    "lamp",
+    "weight",
+    "glow",
+    "sun"
+  ],
+  "wind": [
+    "air",
+    "storm",
+    "sail",
+    "breath",
+    "blow",
+    "turn"
+  ],
+  "word": [
+    "say",
+    "speak",
+    "language",
+    "letter",
+    "meaning",
+    "promise"
+  ],
+  "hold": [
+    "carry",
+    "grip",
+    "hug",
+    "pause",
+    "keep",
+    "grab"
+  ],
+  "pull": [
+    "draw",
+    "tug",
+    "lift",
+    "push",
+    "magnet",
+    "strain"
+  ],
+  "keep": [
+    "hold",
+    "save",
+    "guard",
+    "promise",
+    "castle",
+    "remain"
+  ],
+  "just": [
+    "fair",
+    "only",
+    "law",
+    "right"
+  ],
+  "even": [
+    "level",
+    "flat",
+    "equal",
+    "smooth",
+    "number"
+  ],
+  "nothing": [
+    "empty",
+    "none",
+    "zero",
+    "blank"
+  ],
+  "pretty": [
+    "beautiful",
+    "lovely",
+    "attractive",
+    "nice"
+  ],
+  "feeling": [
+    "emotion",
+    "touch",
+    "sense",
+    "mood"
+  ],
+  "sense": [
+    "meaning",
+    "feel",
+    "hear",
+    "touch",
+    "understand"
+  ],
+  "need": [
+    "want",
+    "require",
+    "hunger",
+    "help"
+  ],
+  "help": [
+    "aid",
+    "save",
+    "rescue",
+    "care",
+    "support"
+  ],
+  "kind": [
+    "nice",
+    "gentle",
+    "type",
+    "sort",
+    "care"
+  ],
+  "direction": [
+    "way",
+    "point",
+    "course",
+    "north",
+    "lead"
+  ],
+  "follow": [
+    "chase",
+    "lead",
+    "trail",
+    "track",
+    "obey"
+  ],
+  "pattern": [
+    "design",
+    "repeat",
+    "shape",
+    "model",
+    "fabric"
+  ],
+  "close": [
+    "near",
+    "shut",
+    "end",
+    "friend",
+    "tight"
+  ],
+  "name": [
+    "word",
+    "fame",
+    "call",
+    "identity",
+    "title"
+  ],
+  "meaning": [
+    "sense",
+    "word",
+    "purpose",
+    "idea"
+  ],
+  "public": [
+    "people",
+    "crowd",
+    "open",
+    "audience",
+    "common"
+  ],
+  "crowd": [
+    "people",
+    "press",
+    "audience",
+    "group",
+    "busy"
+  ],
+  "friend": [
+    "loyal",
+    "trust",
+    "help",
+    "love",
+    "share"
+  ],
+  "love": [
+    "care",
+    "passion",
+    "heart",
+    "romance",
+    "cherish"
+  ],
+  "doubt": [
+    "uncertain",
+    "question",
+    "faith",
+    "trust",
+    "shadow"
+  ],
+  "time": [
+    "clock",
+    "wait",
+    "season",
+    "moment",
+    "past",
+    "pressure"
+  ],
+  "pressure": [
+    "stress",
+    "force",
+    "weight",
+    "air",
+    "push",
+    "time"
+  ],
+  "stress": [
+    "strain",
+    "tension",
+    "pressure",
+    "worry",
+    "emphasis"
+  ],
+  "grow": [
+    "plant",
+    "increase",
+    "bloom",
+    "age",
+    "develop"
+  ],
+  "home": [
+    "house",
+    "family",
+    "shelter",
+    "comfort",
+    "safe"
+  ],
+  "family": [
+    "home",
+    "root",
+    "tree",
+    "parent",
+    "relation"
+  ],
+  "open": [
+    "door",
+    "begin",
+    "free",
+    "honest",
+    "clear"
+  ],
+  "free": [
+    "escape",
+    "liberty",
+    "choice",
+    "loose",
+    "give"
+  ],
+  "care": [
+    "kind",
+    "look",
+    "nurse",
+    "protect",
+    "worry"
+  ],
+  "fire": [
+    "flame",
+    "heat",
+    "light",
+    "burn",
+    "job",
+    "shoot"
+  ],
+  "water": [
+    "rain",
+    "sea",
+    "river",
+    "clear",
+    "drink",
+    "wash"
+  ],
+  "river": [
+    "water",
+    "bank",
+    "flow",
+    "current",
+    "bridge",
+    "bend"
+  ],
+  "flow": [
+    "water",
+    "river",
+    "rhythm",
+    "move",
+    "current"
+  ],
+  "music": [
+    "sound",
+    "note",
+    "rhythm",
+    "dance",
+    "play"
+  ],
+  "note": [
+    "music",
+    "paper",
+    "letter",
+    "money",
+    "notice"
+  ],
+  "book": [
+    "read",
+    "paper",
+    "story",
+    "reserve",
+    "ticket"
+  ],
+  "play": [
+    "game",
+    "theatre",
+    "music",
+    "fun",
+    "act"
+  ],
+  "game": [
+    "play",
+    "chance",
+    "sport",
+    "rule",
+    "challenge"
+  ],
+  "work": [
+    "job",
+    "duty",
+    "effort",
+    "art",
+    "function"
+  ],
+  "job": [
+    "work",
+    "duty",
+    "career",
+    "task",
+    "post"
+  ],
+  "goal": [
+    "aim",
+    "dream",
+    "score",
+    "target",
+    "ambition"
+  ],
+  "money": [
+    "coin",
+    "bank",
+    "credit",
+    "debt",
+    "change"
+  ],
+  "interest": [
+    "curiosity",
+    "money",
+    "bank",
+    "attention",
+    "care"
+  ],
+  "line": [
+    "thread",
+    "draw",
+    "row",
+    "phone",
+    "word",
+    "border"
+  ],
+  "point": [
+    "sharp",
+    "tip",
+    "idea",
+    "score",
+    "direction"
+  ],
+  "step": [
+    "walk",
+    "dance",
+    "stage",
+    "stair",
+    "move"
+  ],
+  "face": [
+    "head",
+    "mask",
+    "look",
+    "clock",
+    "brave"
+  ],
+  "head": [
+    "face",
+    "top",
+    "lead",
+    "mind",
+    "crown"
+  ],
+  "heart": [
+    "love",
+    "courage",
+    "feeling",
+    "beat",
+    "centre"
+  ],
+  "beat": [
+    "rhythm",
+    "heart",
+    "win",
+    "hit",
+    "music"
+  ],
+  "win": [
+    "prize",
+    "success",
+    "game",
+    "victory"
+  ],
+  "prize": [
+    "win",
+    "award",
+    "value",
+    "ribbon",
+    "honour"
+  ],
+  "success": [
+    "win",
+    "fame",
+    "achievement",
+    "goal",
+    "pride"
+  ],
+  "share": [
+    "give",
+    "split",
+    "stock",
+    "friend",
+    "divide"
+  ],
+  "stock": [
+    "share",
+    "store",
+    "soup",
+    "market",
+    "supply"
+  ],
+  "market": [
+    "shop",
+    "trade",
+    "stock",
+    "sell",
+    "food"
+  ],
+  "guide": [
+    "lead",
+    "map",
+    "help",
+    "show",
+    "light"
+  ],
+  "lead": [
+    "guide",
+    "metal",
+    "pencil",
+    "front",
+    "follow"
+  ],
+  "seed": [
+    "plant",
+    "start",
+    "idea",
+    "grow",
+    "scatter"
+  ],
+  "space": [
+    "empty",
+    "room",
+    "star",
+    "gap",
+    "universe"
+  ],
+  "star": [
+    "fame",
+    "space",
+    "light",
+    "sky",
+    "celebrity"
+  ],
+  "decorate": [
+    "colour",
+    "ribbon",
+    "paint",
+    "ornament",
+    "gift"
+  ],
+  "ride": [
+    "travel",
+    "horse",
+    "lift",
+    "thrill",
+    "cycle"
+  ],
+  "horizon": [
+    "sky",
+    "distance",
+    "future",
+    "limit",
+    "view",
+    "beyond"
+  ],
+  "silent": [
+    "quiet",
+    "still",
+    "secret",
+    "film",
+    "speech",
+    "peace"
+  ],
+  "orbit": [
+    "circle",
+    "space",
+    "moon",
+    "influence",
+    "turn",
+    "cycle"
+  ],
+  "risk": [
+    "danger",
+    "chance",
+    "dare",
+    "gamble",
+    "insurance",
+    "venture"
+  ],
+  "dice": [
+    "chance",
+    "game",
+    "cube",
+    "cut",
+    "roll",
+    "risk"
+  ],
+  "tender": [
+    "gentle",
+    "soft",
+    "offer",
+    "money",
+    "care",
+    "sore"
+  ]
+}

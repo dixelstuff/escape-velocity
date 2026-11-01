@@ -1,0 +1,1768 @@
+{
+  "version": "natural-handoff-v2",
+  "candidatesSha256": "ccfc554b181c48aadd0aba69073d250de20a6505bdddfc4ea34085c09a5371f9",
+  "directionsSha256": "0a45346e377ad932cf846b36e27a4c20962c3ec3ec14c9a3277397cab64dac5d",
+  "graph": {
+    "words": 966,
+    "missing": [
+      "mark",
+      "seeds"
+    ]
+  },
+  "checks": [
+    {
+      "words": [
+        "spare",
+        "dream",
+        "tension"
+      ],
+      "allowed": true,
+      "directLegs": [
+        {
+          "start": "spare",
+          "target": "dream",
+          "direct": false,
+          "contact": 0.12839229123073892,
+          "required": 0.215
+        },
+        {
+          "start": "dream",
+          "target": "tension",
+          "direct": false,
+          "contact": 0.09554673348611686,
+          "required": 0.215
+        }
+      ],
+      "limits": {
+        "approachDepth": 4,
+        "beam": 64,
+        "landingLimit": 12,
+        "finishDepth": 4,
+        "exhaustive": false
+      },
+      "evaluated": 86,
+      "openingCount": 3,
+      "openings": [
+        {
+          "word": "extra",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "reserve",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "save",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "time",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": true
+        },
+        {
+          "word": "wheel",
+          "hit": true,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "change",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "mercy",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "bowling",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        }
+      ],
+      "distinctLandings": 4,
+      "usableLandings": 1,
+      "handoffs": [
+        {
+          "landing": "friend",
+          "outgoing": [
+            {
+              "word": "favor",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "loyal",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "close",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "trust",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "help",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "love",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "share",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 3,
+          "finishedOnLanding": false,
+          "inputs": [
+            "save",
+            "help",
+            "friend"
+          ]
+        },
+        {
+          "landing": "time",
+          "outgoing": [
+            {
+              "word": "spare",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "stretch",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "season",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "moment",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "patience",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "march",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "clock",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "wait",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "past",
+              "hit": true,
+              "advances": false,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "pressure",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "time"
+          ]
+        },
+        {
+          "landing": "keep",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "save",
+            "keep"
+          ]
+        },
+        {
+          "landing": "need",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "save",
+            "help",
+            "need"
+          ]
+        }
+      ],
+      "witness": null
+    },
+    {
+      "words": [
+        "promise",
+        "shadow",
+        "luck"
+      ],
+      "allowed": true,
+      "directLegs": [
+        {
+          "start": "promise",
+          "target": "shadow",
+          "direct": false,
+          "contact": 0.14474384824097797,
+          "required": 0.24341176470588236
+        },
+        {
+          "start": "shadow",
+          "target": "luck",
+          "direct": false,
+          "contact": 0.1291150934594043,
+          "required": 0.215
+        }
+      ],
+      "limits": {
+        "approachDepth": 4,
+        "beam": 64,
+        "landingLimit": 12,
+        "finishDepth": 4,
+        "exhaustive": false
+      },
+      "evaluated": 127,
+      "openingCount": 7,
+      "openings": [
+        {
+          "word": "vow",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "pledge",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "hope",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "commitment",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "future",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": true
+        },
+        {
+          "word": "keep",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "swear",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "word",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "potential",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "honor",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "faith",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "broken",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        }
+      ],
+      "distinctLandings": 5,
+      "usableLandings": 0,
+      "handoffs": [
+        {
+          "landing": "future",
+          "outgoing": [
+            {
+              "word": "promise",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "dream",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "bright",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "hope",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "horizon",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "future"
+          ]
+        },
+        {
+          "landing": "dream",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "hope",
+            "dream"
+          ]
+        },
+        {
+          "landing": "doubt",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "faith",
+            "doubt"
+          ]
+        },
+        {
+          "landing": "still",
+          "outgoing": [
+            {
+              "word": "quiet",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "calm",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "photograph",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "remain",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "silent",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "water",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "distill",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "freeze",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "keep",
+            "remain",
+            "still"
+          ]
+        },
+        {
+          "landing": "spotlight",
+          "outgoing": [
+            {
+              "word": "fame",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "word",
+            "name",
+            "fame",
+            "spotlight"
+          ]
+        }
+      ],
+      "witness": null
+    },
+    {
+      "words": [
+        "charm",
+        "split",
+        "duty"
+      ],
+      "allowed": true,
+      "directLegs": [
+        {
+          "start": "charm",
+          "target": "split",
+          "direct": false,
+          "contact": -0.04637787948740879,
+          "required": 0.215
+        },
+        {
+          "start": "split",
+          "target": "duty",
+          "direct": false,
+          "contact": 0.04459918595239287,
+          "required": 0.215
+        }
+      ],
+      "limits": {
+        "approachDepth": 4,
+        "beam": 64,
+        "landingLimit": 12,
+        "finishDepth": 4,
+        "exhaustive": false
+      },
+      "evaluated": 274,
+      "openingCount": 6,
+      "openings": [
+        {
+          "word": "magic",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "spell",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "luck",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "attract",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "bracelet",
+          "hit": true,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "polite",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "smile",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        }
+      ],
+      "distinctLandings": 7,
+      "usableLandings": 1,
+      "handoffs": [
+        {
+          "landing": "win",
+          "outgoing": [
+            {
+              "word": "beat",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "prize",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "success",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "game",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "victory",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 4,
+          "finishedOnLanding": false,
+          "inputs": [
+            "luck",
+            "dice",
+            "game",
+            "win"
+          ]
+        },
+        {
+          "landing": "tie",
+          "outgoing": [
+            {
+              "word": "draw",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 1,
+          "finishedOnLanding": false,
+          "inputs": [
+            "attract",
+            "draw",
+            "tie"
+          ]
+        },
+        {
+          "landing": "line",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "attract",
+            "draw",
+            "line"
+          ]
+        },
+        {
+          "landing": "turn",
+          "outgoing": [
+            {
+              "word": "shift",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "dance",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "switch",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "circle",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "change",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "spin",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "corner",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "page",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "chance",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "move",
+              "hit": true,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "bend",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "bank",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "wind",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "orbit",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "luck",
+            "chance",
+            "turn"
+          ]
+        },
+        {
+          "landing": "break",
+          "outgoing": [
+            {
+              "word": "split",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "crash",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "pause",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "crack",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "rest",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "escape",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "chance",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "rule",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "luck",
+            "chance",
+            "break"
+          ]
+        },
+        {
+          "landing": "move",
+          "outgoing": [
+            {
+              "word": "shift",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "swing",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "dance",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "wave",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "turn",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "touch",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "travel",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "emotion",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "game",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "change",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "flow",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "step",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "luck",
+            "dice",
+            "game",
+            "move"
+          ]
+        },
+        {
+          "landing": "rule",
+          "outgoing": [
+            {
+              "word": "bend",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "break",
+              "hit": true,
+              "advances": false,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "game",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "luck",
+            "dice",
+            "game",
+            "rule"
+          ]
+        }
+      ],
+      "witness": null
+    },
+    {
+      "words": [
+        "drift",
+        "honour",
+        "clear"
+      ],
+      "allowed": true,
+      "directLegs": [
+        {
+          "start": "drift",
+          "target": "honour",
+          "direct": false,
+          "contact": -0.12948752996089752,
+          "required": 0.215
+        },
+        {
+          "start": "honour",
+          "target": "clear",
+          "direct": false,
+          "contact": 0.15246719002607279,
+          "required": 0.24766666666666667
+        }
+      ],
+      "limits": {
+        "approachDepth": 4,
+        "beam": 64,
+        "landingLimit": 12,
+        "finishDepth": 4,
+        "exhaustive": false
+      },
+      "evaluated": 302,
+      "openingCount": 8,
+      "openings": [
+        {
+          "word": "float",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "current",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "wind",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "wander",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "snow",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "slip",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "direction",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "loose",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "slide",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        }
+      ],
+      "distinctLandings": 16,
+      "usableLandings": 1,
+      "handoffs": [
+        {
+          "landing": "prize",
+          "outgoing": [
+            {
+              "word": "honor",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "ribbon",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "crown",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "ticket",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "silver",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "win",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "award",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "value",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 4,
+          "finishedOnLanding": false,
+          "inputs": [
+            "wander",
+            "travel",
+            "ticket",
+            "prize"
+          ]
+        },
+        {
+          "landing": "liberty",
+          "outgoing": [
+            {
+              "word": "freedom",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "free",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": true
+            }
+          ],
+          "naturalOutgoings": 1,
+          "finishedOnLanding": false,
+          "inputs": [
+            "loose",
+            "free",
+            "liberty"
+          ]
+        },
+        {
+          "landing": "way",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "direction",
+            "way"
+          ]
+        },
+        {
+          "landing": "march",
+          "outgoing": [
+            {
+              "word": "parade",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "walk",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "soldier",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "music",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "spring",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "protest",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            },
+            {
+              "word": "time",
+              "hit": true,
+              "advances": true,
+              "finishes": true,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": false,
+          "inputs": [
+            "wander",
+            "walk",
+            "march"
+          ]
+        },
+        {
+          "landing": "chance",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "wind",
+            "turn",
+            "chance"
+          ]
+        },
+        {
+          "landing": "forget",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "direction",
+            "lost",
+            "forget"
+          ]
+        },
+        {
+          "landing": "freedom",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "loose",
+            "free",
+            "freedom"
+          ]
+        },
+        {
+          "landing": "give",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "loose",
+            "free",
+            "give"
+          ]
+        },
+        {
+          "landing": "follow",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "direction",
+            "lead",
+            "follow"
+          ]
+        },
+        {
+          "landing": "life",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "wind",
+            "breath",
+            "life"
+          ]
+        },
+        {
+          "landing": "win",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "direction",
+            "lost",
+            "game",
+            "win"
+          ]
+        },
+        {
+          "landing": "show",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "wander",
+            "travel",
+            "ticket",
+            "show"
+          ]
+        }
+      ],
+      "witness": {
+        "inputs": [
+          "loose",
+          "free",
+          "liberty",
+          "free"
+        ],
+        "state": {
+          "start": "drift",
+          "current": "clear",
+          "target": "clear",
+          "threshold": 0.27,
+          "mode": "distance",
+          "rules": "golf-distance-v3",
+          "launch_min": 0.095,
+          "launch_max": 0.215,
+          "baseline": 0.13612921127878508,
+          "progress": 1,
+          "attempts": 5,
+          "route": [
+            "drift",
+            "loose",
+            "free",
+            "liberty",
+            "free",
+            "clear"
+          ],
+          "history": [
+            {
+              "word": "loose",
+              "origin": "drift",
+              "launch": 0.2239612547118668,
+              "destination": -0.037418390305901994,
+              "required": 0.12300670723278527,
+              "trip_fraction": 0.2333892269398772,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 1,
+              "hub_surcharge": 0,
+              "forward": true,
+              "connected": true,
+              "safe": true,
+              "outcome": "landed",
+              "backtrack": false,
+              "stage": 0,
+              "leg_target": "honour",
+              "leg_baseline": -0.12948752996089752,
+              "leg_threshold": 0.265
+            },
+            {
+              "word": "free",
+              "origin": "loose",
+              "launch": 0.28342407020772953,
+              "destination": 0.14388455961125146,
+              "required": 0.15400680228809788,
+              "trip_fraction": 0.4595910799388883,
+              "boundary": true,
+              "success": true,
+              "inside": false,
+              "won": false,
+              "attempt": 2,
+              "hub_surcharge": 0.0038558726954312844,
+              "forward": true,
+              "connected": true,
+              "safe": true,
+              "outcome": "landed",
+              "backtrack": false,
+              "stage": 0,
+              "leg_target": "honour",
+              "leg_baseline": -0.12948752996089752,
+              "leg_threshold": 0.265
+            },
+            {
+              "word": "liberty",
+              "origin": "free",
+              "launch": 0.35340991800057964,
+              "destination": 0.2881411543530703,
+              "required": 0.13356309016707213,
+              "trip_fraction": 0.3070196931212345,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": false,
+              "attempt": 3,
+              "hub_surcharge": 0.0017207269925239863,
+              "forward": true,
+              "connected": true,
+              "safe": true,
+              "outcome": "waypoint",
+              "backtrack": false,
+              "stage": 0,
+              "leg_target": "honour",
+              "leg_baseline": -0.12948752996089752,
+              "leg_threshold": 0.265,
+              "waypoint_reached": true
+            },
+            {
+              "word": "free",
+              "origin": "liberty",
+              "launch": 0.35340991800057964,
+              "destination": 0.3590908100359229,
+              "required": 0.2332549019607843,
+              "trip_fraction": 1,
+              "boundary": true,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "attempt": 4,
+              "hub_surcharge": 0.018254901960784317,
+              "forward": true,
+              "connected": true,
+              "safe": true,
+              "outcome": "green",
+              "backtrack": false,
+              "stage": 1,
+              "leg_target": "clear",
+              "leg_baseline": 0.13612921127878508,
+              "leg_threshold": 0.27,
+              "finish_reason": "green",
+              "automatic_shot": {
+                "word": "clear",
+                "origin": "free",
+                "automatic": true,
+                "outcome": "putt",
+                "attempt": 5,
+                "success": true,
+                "inside": true,
+                "won": true,
+                "finish_reason": "green",
+                "required": 0.095,
+                "trip_fraction": 0,
+                "hub_surcharge": 0,
+                "launch": 0.3590908100359229,
+                "destination": 1
+              }
+            }
+          ],
+          "won": true,
+          "spelling_equivalence": "uk-us-v1",
+          "waypoint": {
+            "word": "honour",
+            "threshold": 0.265
+          },
+          "final_target": "clear",
+          "final_threshold": 0.27,
+          "stage": 1,
+          "leg_start": "liberty",
+          "second_leg_finish_span": 0.12,
+          "second_leg_finish_after": 0,
+          "waypoint_auto_finish": true,
+          "plural_rescue": true,
+          "family_rescue": true,
+          "continuous_play": true,
+          "plural_tolerance": 0.025,
+          "allow_backtracking": false,
+          "finish_mode": "range",
+          "challenge": {
+            "version": "stroke-play-v1",
+            "par": 5,
+            "attempt": 1,
+            "id": "local-research"
+          },
+          "challenge_failed": false,
+          "automatic_shots": [
+            {
+              "word": "clear",
+              "origin": "free",
+              "automatic": true,
+              "outcome": "putt",
+              "attempt": 5,
+              "success": true,
+              "inside": true,
+              "won": true,
+              "finish_reason": "green",
+              "required": 0.095,
+              "trip_fraction": 0,
+              "hub_surcharge": 0,
+              "launch": 0.3590908100359229,
+              "destination": 1
+            }
+          ],
+          "best_progress": 0.3590908100359229,
+          "backward_allowance": 0.01
+        },
+        "finishContextSupported": true
+      }
+    },
+    {
+      "words": [
+        "fame",
+        "scatter",
+        "ribbon"
+      ],
+      "allowed": true,
+      "directLegs": [
+        {
+          "start": "fame",
+          "target": "scatter",
+          "direct": false,
+          "contact": -0.08060424068025895,
+          "required": 0.215
+        },
+        {
+          "start": "scatter",
+          "target": "ribbon",
+          "direct": false,
+          "contact": -0.004385067139082821,
+          "required": 0.215
+        }
+      ],
+      "limits": {
+        "approachDepth": 4,
+        "beam": 64,
+        "landingLimit": 12,
+        "finishDepth": 4,
+        "exhaustive": false
+      },
+      "evaluated": 310,
+      "openingCount": 7,
+      "openings": [
+        {
+          "word": "celebrity",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "star",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "glory",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "reputation",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "recognition",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "success",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "name",
+          "hit": false,
+          "advances": false,
+          "reachesDogleg": false
+        },
+        {
+          "word": "public",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "legend",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        },
+        {
+          "word": "spotlight",
+          "hit": true,
+          "advances": true,
+          "reachesDogleg": false
+        }
+      ],
+      "distinctLandings": 3,
+      "usableLandings": 2,
+      "handoffs": [
+        {
+          "landing": "dust",
+          "outgoing": [
+            {
+              "word": "powder",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "clean",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "dry",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "earth",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "space",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "old",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "ashes",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "sweep",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 3,
+          "finishedOnLanding": false,
+          "inputs": [
+            "star",
+            "space",
+            "dust"
+          ]
+        },
+        {
+          "landing": "scatter",
+          "outgoing": [
+            {
+              "word": "spread",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "throw",
+              "hit": true,
+              "advances": true,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "light",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "disperse",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "mess",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            },
+            {
+              "word": "seed",
+              "hit": false,
+              "advances": false,
+              "finishes": false,
+              "finishContextSupported": false
+            }
+          ],
+          "naturalOutgoings": 2,
+          "finishedOnLanding": false,
+          "inputs": [
+            "star",
+            "light",
+            "scatter"
+          ]
+        },
+        {
+          "landing": "flame",
+          "outgoing": [],
+          "naturalOutgoings": 0,
+          "finishedOnLanding": true,
+          "inputs": [
+            "star",
+            "light",
+            "flame"
+          ]
+        }
+      ],
+      "witness": null
+    }
+  ]
+}
