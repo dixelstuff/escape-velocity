@@ -1,0 +1,222 @@
+[
+  {
+    "start": "palm",
+    "waypoint": "suspense",
+    "target": "shrink",
+    "directions": {
+      "palm": [
+        "hand",
+        "fingers",
+        "tree",
+        "tropical",
+        "oil",
+        "hold",
+        "touch",
+        "slap",
+        "coin",
+        "read"
+      ],
+      "suspense": [
+        "tension",
+        "wait",
+        "mystery",
+        "thriller",
+        "drama",
+        "fear",
+        "excitement",
+        "uncertain",
+        "story",
+        "doubt"
+      ],
+      "shrink": [
+        "small",
+        "reduce",
+        "contract",
+        "retreat",
+        "fear",
+        "shy",
+        "cloth",
+        "wash",
+        "decrease",
+        "size"
+      ]
+    }
+  },
+  {
+    "start": "scoop",
+    "waypoint": "loyalty",
+    "target": "rain",
+    "directions": {
+      "scoop": [
+        "spoon",
+        "ice",
+        "cream",
+        "dig",
+        "shovel",
+        "news",
+        "story",
+        "gather",
+        "hollow",
+        "bowl"
+      ],
+      "loyalty": [
+        "faithful",
+        "trust",
+        "friend",
+        "devotion",
+        "duty",
+        "support",
+        "dog",
+        "allegiance",
+        "promise",
+        "respect"
+      ],
+      "rain": [
+        "water",
+        "cloud",
+        "storm",
+        "drop",
+        "fall",
+        "weather",
+        "wet",
+        "umbrella",
+        "shower",
+        "tears"
+      ]
+    }
+  },
+  {
+    "start": "ripple",
+    "waypoint": "pride",
+    "target": "glue",
+    "directions": {
+      "ripple": [
+        "wave",
+        "water",
+        "spread",
+        "effect",
+        "circle",
+        "small",
+        "shake",
+        "movement",
+        "surface",
+        "sound"
+      ],
+      "pride": [
+        "proud",
+        "honour",
+        "lion",
+        "group",
+        "joy",
+        "dignity",
+        "show",
+        "ego",
+        "success",
+        "shame",
+        "glory"
+      ],
+      "glue": [
+        "stick",
+        "adhesive",
+        "paper",
+        "join",
+        "repair",
+        "bond",
+        "hold",
+        "together",
+        "paste",
+        "fix"
+      ]
+    }
+  },
+  {
+    "start": "draft",
+    "waypoint": "jealousy",
+    "target": "cushion",
+    "directions": {
+      "draft": [
+        "write",
+        "paper",
+        "rough",
+        "outline",
+        "beer",
+        "wind",
+        "military",
+        "select",
+        "plan",
+        "bank"
+      ],
+      "jealousy": [
+        "envy",
+        "rival",
+        "love",
+        "desire",
+        "possess",
+        "resent",
+        "green",
+        "fear",
+        "relationship",
+        "suspicion"
+      ],
+      "cushion": [
+        "soft",
+        "pillow",
+        "seat",
+        "protect",
+        "fall",
+        "comfort",
+        "support",
+        "pad",
+        "money",
+        "shock"
+      ]
+    }
+  },
+  {
+    "start": "pin",
+    "waypoint": "relief",
+    "target": "cloud",
+    "directions": {
+      "pin": [
+        "needle",
+        "sharp",
+        "fasten",
+        "hold",
+        "point",
+        "badge",
+        "secret",
+        "number",
+        "bowling",
+        "fall"
+      ],
+      "relief": [
+        "ease",
+        "help",
+        "rescue",
+        "comfort",
+        "relax",
+        "pain",
+        "contrast",
+        "raised",
+        "sculpture",
+        "map"
+      ],
+      "cloud": [
+        "sky",
+        "rain",
+        "shade",
+        "computer",
+        "doubt",
+        "storm",
+        "dream",
+        "fog",
+        "white",
+        "weather",
+        "mist",
+        "hidden",
+        "worry",
+        "storage"
+      ]
+    }
+  }
+]

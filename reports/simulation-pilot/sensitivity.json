@@ -1,0 +1,52 @@
+[
+  {
+    "id": "daily-2027-09-30",
+    "words": [
+      "palm",
+      "suspense",
+      "shrink"
+    ],
+    "maxStrokeCdfGap": 0.3069307574722737,
+    "maxClevernessCdfGap": 0.3166666666666668
+  },
+  {
+    "id": "daily-2027-10-01",
+    "words": [
+      "scoop",
+      "loyalty",
+      "rain"
+    ],
+    "maxStrokeCdfGap": 0.49972210940339035,
+    "maxClevernessCdfGap": 0.5249999999999999
+  },
+  {
+    "id": "daily-2027-10-02",
+    "words": [
+      "ripple",
+      "pride",
+      "glue"
+    ],
+    "maxStrokeCdfGap": 0.29492594362159574,
+    "maxClevernessCdfGap": 0.2750000000000002
+  },
+  {
+    "id": "daily-2027-10-03",
+    "words": [
+      "draft",
+      "jealousy",
+      "cushion"
+    ],
+    "maxStrokeCdfGap": 0.1838322596943287,
+    "maxClevernessCdfGap": 0.30833333333333346
+  },
+  {
+    "id": "daily-2027-10-04",
+    "words": [
+      "pin",
+      "relief",
+      "cloud"
+    ],
+    "maxStrokeCdfGap": 0.30985098681649326,
+    "maxClevernessCdfGap": 0.4749999999999999
+  }
+]

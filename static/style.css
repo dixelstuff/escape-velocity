@@ -1116,3 +1116,13 @@ body.personal-daily .map-card{background-color:#c4d3a7;}
 .help-score-trophy{display:inline-block;width:19px;height:19px;margin-left:4px;vertical-align:-3px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 #how-to-play-content .help-closing{padding:18px 0 4px;text-align:center;}
 #how-to-play-content .help-closing p{font-size:14px;line-height:1.55;margin:0;}
+
+/* Five-hole, read-only simulation pilot. No play/keyboard geometry changes. */
+.simulation-comparison{margin:9px 0 4px;padding-top:0;text-align:left}
+.simulation-comparison summary{cursor:pointer;font-size:.86rem;color:#456b50;list-style:none;text-align:center;text-decoration:underline;text-underline-offset:3px}
+.simulation-comparison summary::-webkit-details-marker{display:none}.simulation-comparison summary small{font-size:.62rem;text-decoration:none;letter-spacing:.08em;margin-left:5px;color:#78866f}
+.simulation-scroll{max-height:340px;overflow:auto;overscroll-behavior:contain;padding:3px 4px 7px}
+.simulation-route{font-size:.8rem;margin:9px 0}.simulation-comparison table{width:100%;border-collapse:collapse;font-size:.75rem;margin:10px 0}
+.simulation-comparison th,.simulation-comparison td{padding:7px 4px;border-bottom:1px solid #dce2d1;text-align:center;font-weight:400}.simulation-comparison th:first-child{text-align:left}.simulation-comparison thead th{font-size:.67rem;color:#64775d}
+.simulation-caption{font-size:.73rem;line-height:1.45;color:#6a795f;margin:9px 0}.simulation-select{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.75rem;color:#566f4e}.simulation-select select{width:auto;max-width:65%;font-size:.75rem;padding:6px;min-height:0;background:#fafbf3}
+.simulation-chart-label{font-size:.74rem;font-weight:600;margin:12px 0 2px}.simulation-charts svg{display:block;width:100%;max-height:100px}.simulation-bars{fill:#719572}.simulation-marker{stroke:#bf9650;stroke-width:2}.simulation-axis{stroke:#cbd6bd;stroke-width:1}.simulation-charts text{fill:#6a795f;font:9px sans-serif}

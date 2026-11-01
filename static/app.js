@@ -1,5 +1,7 @@
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
+import {mountSimulationPanel} from './simulation-panel.mjs?v=simulation-pilot-v1';
+import {simulationSettingsKey} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
@@ -10,7 +12,7 @@ import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=uk-us-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=dogleg-choice30-v1';
-import {dailyManifest} from './daily-manifest.mjs?v=dogleg-choice30-v1';
+import {dailyManifest} from './daily-manifest.mjs?v=simulation-pilot-v1';
 import {mountDailyUI} from './daily-ui.mjs?v=dogleg-choice30-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=uk-us-v1';
 import {completedPlaytests} from './cleverness-playtest-data.mjs?v=uk-us-v1';
@@ -264,6 +266,7 @@ async function initialiseRolling(){
 }
 const daily=simpleDaily?new DailyGame(personalStorage,dailyManifest):null;
 let dailyUI;
+const simulationPanel=mountSimulationPanel($('simulation-comparison'));
 function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
 function renderDailyBests(){
  if(!simpleDaily||!state)return;
@@ -272,7 +275,7 @@ function renderDailyBests(){
  $('arrival-skill').hidden=!holeResult();$('arrival-attempt-cell').hidden=false;
  renderStrokeScore($('arrival-skill-value'),5,best?.bestStrokes?best.bestStrokes.strokes-5:null);
  $('arrival-attempt').textContent=best?.bestCleverness?best.bestCleverness.score+'/100':'—/100';
- dailyUI?.render();renderDailyResult();
+ dailyUI?.render();renderDailyResult();renderSimulationResult();
 }
 function renderDailyResult(){
  const best=daily.current(),routes=featuredRoutes(best);
@@ -282,6 +285,14 @@ function renderDailyResult(){
  const current=flightLog.active?.cleverness_playtest;
  $('arrival-detail').hidden=!justHoled;
  $('arrival-detail').textContent=justHoled?(current?.band_free?.version===BAND_FREE_VERSION?'Cleverness '+current.band_free.score+'/100':'Cleverness calculating…'):'';
+}
+function renderSimulationResult(){
+ if(!simpleDaily||!state)return;
+ const best=daily.current();
+ const source=state?.won?state:dailyBestState(),same=b=>b?.state?.won&&b.strokes===source?.attempts&&JSON.stringify(b.route)===JSON.stringify(source?.route)&&simulationSettingsKey(b.state)===simulationSettingsKey(source);
+ const report=flightLog.data.journeys.find(j=>same({state:j.state,strokes:j.state?.attempts,route:j.state?.route})&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION)?.cleverness_playtest;
+ const stored=[best?.bestStrokes,best?.bestCleverness].find(b=>same(b)&&(b.scoreVersion??b.version)===BAND_FREE_VERSION),value=report?.band_free?.unrounded_score??stored?.cleverness??stored?.unrounded;
+ simulationPanel.show({id:daily.selected()?.id,state:source,score:Number.isFinite(value)?Math.round(value):null,modelSha:source?modelHash(source):null,visible:holeResult()});
 }
 async function openDaily(day){
  if(!simpleDaily||busy)return;
