@@ -1,0 +1,1510 @@
+{
+  "batch": "dogleg-choice-30-2026-11-02",
+  "oldCount": 315,
+  "oldSha": "0a44b195cfd77ce369de76c6498b95c1292ecbaf82ad45127413c6a0c9892f53",
+  "firstDate": "2027-08-31",
+  "lastDate": "2027-09-29",
+  "proposalsSha256": "dec50033ec76319eab4fcaa98801c026294dcce338c1d1eca215ecd9d50d0b9a",
+  "checks": [
+    {
+      "id": "daily-2027-08-31",
+      "date": "2027-08-31",
+      "settings": {
+        "start": "rumour",
+        "target": "thirst",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "shelf",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 1,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "rumour",
+          "target": "shelf",
+          "direct": false,
+          "contact": -0.08443546828675608,
+          "required": 0.215
+        },
+        {
+          "start": "shelf",
+          "target": "thirst",
+          "direct": false,
+          "contact": 0.013582657404185738,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 0
+    },
+    {
+      "id": "daily-2027-09-01",
+      "date": "2027-09-01",
+      "settings": {
+        "start": "lazy",
+        "target": "marble",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "embrace",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 2,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "lazy",
+          "target": "embrace",
+          "direct": false,
+          "contact": 0.09714714699202887,
+          "required": 0.23284313725490197
+        },
+        {
+          "start": "embrace",
+          "target": "marble",
+          "direct": false,
+          "contact": -0.06713823588518153,
+          "required": 0.23284313725490197
+        }
+      ],
+      "safetyIndex": 1
+    },
+    {
+      "id": "daily-2027-09-02",
+      "date": "2027-09-02",
+      "settings": {
+        "start": "button",
+        "target": "shiver",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "envy",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 3,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "button",
+          "target": "envy",
+          "direct": false,
+          "contact": 0.0759980273724068,
+          "required": 0.215
+        },
+        {
+          "start": "envy",
+          "target": "shiver",
+          "direct": false,
+          "contact": 0.18824369637331984,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 2
+    },
+    {
+      "id": "daily-2027-09-03",
+      "date": "2027-09-03",
+      "settings": {
+        "start": "squeeze",
+        "target": "tilt",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "legend",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 4,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "squeeze",
+          "target": "legend",
+          "direct": false,
+          "contact": -0.05246459714089724,
+          "required": 0.215
+        },
+        {
+          "start": "legend",
+          "target": "tilt",
+          "direct": false,
+          "contact": -0.11324088338005822,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 3
+    },
+    {
+      "id": "daily-2027-09-04",
+      "date": "2027-09-04",
+      "settings": {
+        "start": "rust",
+        "target": "interrupt",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "fortune",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 5,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "rust",
+          "target": "fortune",
+          "direct": false,
+          "contact": 0.018031353618425783,
+          "required": 0.215
+        },
+        {
+          "start": "fortune",
+          "target": "interrupt",
+          "direct": false,
+          "contact": -0.12975435394400847,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 4
+    },
+    {
+      "id": "daily-2027-09-05",
+      "date": "2027-09-05",
+      "settings": {
+        "start": "harmless",
+        "target": "packet",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "chorus",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 6,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "harmless",
+          "target": "chorus",
+          "direct": false,
+          "contact": 0.006855682060631807,
+          "required": 0.215
+        },
+        {
+          "start": "chorus",
+          "target": "packet",
+          "direct": false,
+          "contact": 0.004859895409595083,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 5
+    },
+    {
+      "id": "daily-2027-09-06",
+      "date": "2027-09-06",
+      "settings": {
+        "start": "prompt",
+        "target": "hungry",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "knot",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 7,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "prompt",
+          "target": "knot",
+          "direct": false,
+          "contact": -0.12496314926829655,
+          "required": 0.22145098039215685
+        },
+        {
+          "start": "knot",
+          "target": "hungry",
+          "direct": false,
+          "contact": -0.08344132043293939,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 6
+    },
+    {
+      "id": "daily-2027-09-07",
+      "date": "2027-09-07",
+      "settings": {
+        "start": "hush",
+        "target": "loft",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "rebound",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 8,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "hush",
+          "target": "rebound",
+          "direct": false,
+          "contact": -0.13350478362917784,
+          "required": 0.215
+        },
+        {
+          "start": "rebound",
+          "target": "loft",
+          "direct": false,
+          "contact": 0.034908473612631497,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 7
+    },
+    {
+      "id": "daily-2027-09-08",
+      "date": "2027-09-08",
+      "settings": {
+        "start": "careless",
+        "target": "murmur",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "banner",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 9,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "careless",
+          "target": "banner",
+          "direct": false,
+          "contact": -0.07140446907214937,
+          "required": 0.215
+        },
+        {
+          "start": "banner",
+          "target": "murmur",
+          "direct": false,
+          "contact": -0.011723524039553013,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 8
+    },
+    {
+      "id": "daily-2027-09-09",
+      "date": "2027-09-09",
+      "settings": {
+        "start": "settle",
+        "target": "nerve",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "glass",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 10,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "settle",
+          "target": "glass",
+          "direct": false,
+          "contact": 0.05649875680569494,
+          "required": 0.215
+        },
+        {
+          "start": "glass",
+          "target": "nerve",
+          "direct": false,
+          "contact": 0.07254477754759137,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 9
+    },
+    {
+      "id": "daily-2027-09-10",
+      "date": "2027-09-10",
+      "settings": {
+        "start": "velvet",
+        "target": "bargain",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "deceive",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 11,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "velvet",
+          "target": "deceive",
+          "direct": false,
+          "contact": -0.07688615964070777,
+          "required": 0.215
+        },
+        {
+          "start": "deceive",
+          "target": "bargain",
+          "direct": false,
+          "contact": -0.04084224979442297,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 10
+    },
+    {
+      "id": "daily-2027-09-11",
+      "date": "2027-09-11",
+      "settings": {
+        "start": "remote",
+        "target": "plead",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "temper",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 12,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "remote",
+          "target": "temper",
+          "direct": false,
+          "contact": -0.007719921115494799,
+          "required": 0.215
+        },
+        {
+          "start": "temper",
+          "target": "plead",
+          "direct": false,
+          "contact": 0.044439051394874696,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 11
+    },
+    {
+      "id": "daily-2027-09-12",
+      "date": "2027-09-12",
+      "settings": {
+        "start": "stumble",
+        "target": "blush",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "verdict",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 13,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "stumble",
+          "target": "verdict",
+          "direct": false,
+          "contact": -0.05462675633316394,
+          "required": 0.215
+        },
+        {
+          "start": "verdict",
+          "target": "blush",
+          "direct": false,
+          "contact": 0.060711984218869475,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 12
+    },
+    {
+      "id": "daily-2027-09-13",
+      "date": "2027-09-13",
+      "settings": {
+        "start": "frown",
+        "target": "sincere",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "parcel",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 14,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "frown",
+          "target": "parcel",
+          "direct": false,
+          "contact": -0.054319457990686715,
+          "required": 0.215
+        },
+        {
+          "start": "parcel",
+          "target": "sincere",
+          "direct": false,
+          "contact": 0.02681407756608678,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 13
+    },
+    {
+      "id": "daily-2027-09-14",
+      "date": "2027-09-14",
+      "settings": {
+        "start": "fidget",
+        "target": "slate",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "excuse",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 15,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "fidget",
+          "target": "excuse",
+          "direct": false,
+          "contact": 0.011524517512953025,
+          "required": 0.22831372549019607
+        },
+        {
+          "start": "excuse",
+          "target": "slate",
+          "direct": false,
+          "contact": 0.02077776210535376,
+          "required": 0.22831372549019607
+        }
+      ],
+      "safetyIndex": 14
+    },
+    {
+      "id": "daily-2027-09-15",
+      "date": "2027-09-15",
+      "settings": {
+        "start": "tender",
+        "target": "pebble",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "protest",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 16,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "tender",
+          "target": "protest",
+          "direct": false,
+          "contact": 0.06561524137759989,
+          "required": 0.22927450980392156
+        },
+        {
+          "start": "protest",
+          "target": "pebble",
+          "direct": false,
+          "contact": 0.026553898218480754,
+          "required": 0.22927450980392156
+        }
+      ],
+      "safetyIndex": 15
+    },
+    {
+      "id": "daily-2027-09-16",
+      "date": "2027-09-16",
+      "settings": {
+        "start": "eager",
+        "target": "forgive",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "stripe",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 17,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "eager",
+          "target": "stripe",
+          "direct": false,
+          "contact": -0.06529120321374648,
+          "required": 0.23188235294117648
+        },
+        {
+          "start": "stripe",
+          "target": "forgive",
+          "direct": false,
+          "contact": -0.10481321220458995,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 16
+    },
+    {
+      "id": "daily-2027-09-17",
+      "date": "2027-09-17",
+      "settings": {
+        "start": "flinch",
+        "target": "rough",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "deposit",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 18,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "flinch",
+          "target": "deposit",
+          "direct": false,
+          "contact": -0.055691099380055675,
+          "required": 0.215
+        },
+        {
+          "start": "deposit",
+          "target": "rough",
+          "direct": false,
+          "contact": -0.01258752748981351,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 17
+    },
+    {
+      "id": "daily-2027-09-18",
+      "date": "2027-09-18",
+      "settings": {
+        "start": "blunt",
+        "target": "sigh",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "festival",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 19,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "blunt",
+          "target": "festival",
+          "direct": false,
+          "contact": -0.0666379501526535,
+          "required": 0.215
+        },
+        {
+          "start": "festival",
+          "target": "sigh",
+          "direct": false,
+          "contact": 0.0365801587158785,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 18
+    },
+    {
+      "id": "daily-2027-09-19",
+      "date": "2027-09-19",
+      "settings": {
+        "start": "smudge",
+        "target": "cheer",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "retreat",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 20,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "smudge",
+          "target": "retreat",
+          "direct": false,
+          "contact": -0.13022697824635543,
+          "required": 0.215
+        },
+        {
+          "start": "retreat",
+          "target": "cheer",
+          "direct": false,
+          "contact": 0.12271136278104677,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 19
+    },
+    {
+      "id": "daily-2027-09-20",
+      "date": "2027-09-20",
+      "settings": {
+        "start": "pledge",
+        "target": "tickle",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "fog",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 21,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "pledge",
+          "target": "fog",
+          "direct": false,
+          "contact": -0.08096291465335526,
+          "required": 0.2221372549019608
+        },
+        {
+          "start": "fog",
+          "target": "tickle",
+          "direct": false,
+          "contact": 0.00719200542789622,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 20
+    },
+    {
+      "id": "daily-2027-09-21",
+      "date": "2027-09-21",
+      "settings": {
+        "start": "surplus",
+        "target": "drain",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "laugh",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 22,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "surplus",
+          "target": "laugh",
+          "direct": false,
+          "contact": 0.016274329344014404,
+          "required": 0.215
+        },
+        {
+          "start": "laugh",
+          "target": "drain",
+          "direct": false,
+          "contact": 0.014952407526834577,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 21
+    },
+    {
+      "id": "daily-2027-09-22",
+      "date": "2027-09-22",
+      "settings": {
+        "start": "window",
+        "target": "splash",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "burden",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 23,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "window",
+          "target": "burden",
+          "direct": false,
+          "contact": 0.0012643669106182642,
+          "required": 0.215
+        },
+        {
+          "start": "burden",
+          "target": "splash",
+          "direct": false,
+          "contact": -0.014627133461544872,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 22
+    },
+    {
+      "id": "daily-2027-09-23",
+      "date": "2027-09-23",
+      "settings": {
+        "start": "collar",
+        "target": "flicker",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "consent",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 24,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "collar",
+          "target": "consent",
+          "direct": false,
+          "contact": -0.05551227358591859,
+          "required": 0.215
+        },
+        {
+          "start": "consent",
+          "target": "flicker",
+          "direct": false,
+          "contact": -0.09504086241395271,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 23
+    },
+    {
+      "id": "daily-2027-09-24",
+      "date": "2027-09-24",
+      "settings": {
+        "start": "match",
+        "target": "stubborn",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "whisper",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 25,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "match",
+          "target": "whisper",
+          "direct": false,
+          "contact": -0.0763219823502368,
+          "required": 0.215
+        },
+        {
+          "start": "whisper",
+          "target": "stubborn",
+          "direct": false,
+          "contact": 0.07059508793281566,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 24
+    },
+    {
+      "id": "daily-2027-09-25",
+      "date": "2027-09-25",
+      "settings": {
+        "start": "post",
+        "target": "unfold",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "craving",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 26,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "post",
+          "target": "craving",
+          "direct": false,
+          "contact": -0.11220594396399974,
+          "required": 0.215
+        },
+        {
+          "start": "craving",
+          "target": "unfold",
+          "direct": false,
+          "contact": -0.01379382959476061,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 25
+    },
+    {
+      "id": "daily-2027-09-26",
+      "date": "2027-09-26",
+      "settings": {
+        "start": "brick",
+        "target": "jolly",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "blame",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 27,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "brick",
+          "target": "blame",
+          "direct": false,
+          "contact": -0.027038756580225254,
+          "required": 0.215
+        },
+        {
+          "start": "blame",
+          "target": "jolly",
+          "direct": false,
+          "contact": -0.11730247412378958,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 26
+    },
+    {
+      "id": "daily-2027-09-27",
+      "date": "2027-09-27",
+      "settings": {
+        "start": "dress",
+        "target": "storm",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "reluctant",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 28,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "dress",
+          "target": "reluctant",
+          "direct": false,
+          "contact": 0.12136969389757724,
+          "required": 0.22652941176470587
+        },
+        {
+          "start": "reluctant",
+          "target": "storm",
+          "direct": false,
+          "contact": 0.07213876700552646,
+          "required": 0.22652941176470587
+        }
+      ],
+      "safetyIndex": 27
+    },
+    {
+      "id": "daily-2027-09-28",
+      "date": "2027-09-28",
+      "settings": {
+        "start": "record",
+        "target": "fray",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "mercy",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 29,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "record",
+          "target": "mercy",
+          "direct": false,
+          "contact": 0.03790019269217737,
+          "required": 0.215
+        },
+        {
+          "start": "mercy",
+          "target": "fray",
+          "direct": false,
+          "contact": 0.08274821712211633,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 28
+    },
+    {
+      "id": "daily-2027-09-29",
+      "date": "2027-09-29",
+      "settings": {
+        "start": "whim",
+        "target": "stain",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "handshake",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "golden_paths": [],
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "dogleg-choice-30-2026-11-02",
+        "course_number": 30,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1"
+      },
+      "directLegs": [
+        {
+          "start": "whim",
+          "target": "handshake",
+          "direct": false,
+          "contact": 0.05770209565253026,
+          "required": 0.215
+        },
+        {
+          "start": "handshake",
+          "target": "stain",
+          "direct": false,
+          "contact": 0.08094179907220678,
+          "required": 0.215
+        }
+      ],
+      "safetyIndex": 29
+    }
+  ]
+}

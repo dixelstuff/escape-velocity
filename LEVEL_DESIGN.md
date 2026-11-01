@@ -1,6 +1,6 @@
 # Choosing Word Golf holes
 
-## Current editorial direction — 1 November 2026
+## Current editorial direction — 2 November 2026
 
 **Choose interesting words first. Players discover the route.** The aim is an accessible landscape of associations, not an authored sequence of clever bridges. This supersedes the old route-first recipe and the October 30 emphasis on requiring setup shots.
 
@@ -68,3 +68,17 @@ Check **actual reached dogleg words**, not merely the literal waypoint: their ro
 The local checker is a bounded editorial aid, not a generator of intended routes, semantic oracle or fun predictor. Its missing coverage on player-approved holes and its successful probes on the rejected FAME combination must remain visible. Do not tune association notes to pass those controls, infer difficulty from search counts, reject quick solutions, or demand arbitrary counts of landings. Editorial judgement plus play feedback decides which combinations stay.
 
 The [30-hole combination playtest and review](reports/word-landscape-30/README.md) records the new proposals, checks, uncertainties and recommendation-only shortlist. The complete prior inventory remains archived; retire only specifically authorised combinations.
+
+## Dogleg choice feedback — 2 November 2026
+
+Keep DANCE → BORROW → STITCH, CIRCLE → RESCUE → WARM, SPARE → DREAM → TENSION and FRESH → DUTY → SHELL. DANCE was excellent after 45 journeys; FAME was awkward after 34. **Do not optimise for fewer journeys, short witnesses or mathematical elegance.** Exploration can be the pleasure.
+
+The requested retirements are FAME → SCATTER → RIBBON (already retired), SPOIL → GRAVITY → RING, FOLD → PASSION → WILD, ROOT → WONDER → FIELD, BORDER → FAITH → DRIFT, TIDE → LUCK → CLEAR and SLEEP → BRIGHT → MASK. WEIGHT, LOVE and LIGHT illustrated shared-bridge shortcuts; LINE → HOPE and WISH → CLEAR illustrated model-valid but humanly arbitrary links. Do not rescue those combinations by adjusting gameplay.
+
+Prefer a more substantial dogleg-to-flag landscape. Evaluate **actual potential landing words**, not only named waypoint/flag distance: preserve prefixes, stage baselines, automatic finishes and route restrictions. Compare the same pool of onward words from each reached lie, then inspect differences in successful progress and short finishes. Different landings should offer materially different opportunities. Do not require symmetric legs or demand that every choice be difficult.
+
+Review obvious single-word shortcuts individually; a low aggregate shortcut share may hide one LIGHT-like answer. Avoid combinations where most sampled landings finish immediately, but never make a percentage a universal quality rule: the enjoyable SPARE control has a high sampled finish share. Missing context evidence is uncertain, not proof of an impossible or bad association. Inspect whether the incoming association, dogleg meaning and outgoing options are humanly credible. A counterintuitive familiar sense can be delightful; an inexplicable vector jump is not difficulty worth preserving.
+
+Broaden nomination beyond the last few batches: familiar everyday objects with several uses, physical actions, social contexts, feelings and properties. Avoid cycling AMBITION, COMFORT, GRAVITY, HONOUR and RIBBON. Reuse remains permissible when it improves a combination; do not trade familiarity for obscure unused words. Do not fit the next batch to FAME/SPARE or ban all concrete nouns. Choose words independently of an intended solution, and replace weak combinations after critical checks rather than constructing a bespoke bridge to save them.
+
+The [30-hole dogleg-choice playtest](reports/dogleg-choice-30/README.md) records the selected words, rejected candidates, shared-pool landing probes and limits. Its measured vector separation is an editorial comparison, not a new threshold, scoring component or enjoyment predictor. Gameplay and saved-state rules remain unchanged.

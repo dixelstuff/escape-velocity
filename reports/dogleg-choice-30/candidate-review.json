@@ -1,0 +1,1511 @@
+{
+  "date": "2026-11-02",
+  "method": "Words fixed before search. Editorial combination review plus bounded natural-context checks; no ranking by shortest witness, journeys or Cleverness. Missing evidence is not proof of impossibility.",
+  "checks": [
+    {
+      "words": [
+        "patient",
+        "leak",
+        "applause"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 1,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.00983266636467306,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "joke",
+        "anchor",
+        "hesitate"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 4,
+      "landings": 1,
+      "waypointFlagSimilarity": 0.011704682914569275,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "request",
+        "tangle",
+        "crisp"
+      ],
+      "selected": false,
+      "reason": "Not selected: several sampled arrival finishes plus an uneven conceptual handoff; stronger alternatives in this pool.",
+      "allowed": true,
+      "completed": true,
+      "openings": 10,
+      "landings": 12,
+      "waypointFlagSimilarity": 0.07421772008819971,
+      "entryFinishShare": 0.25,
+      "naturalOneWordFinishShare": 0.25,
+      "distinctAdvancingOptionSets": 10
+    },
+    {
+      "words": [
+        "guest",
+        "pulse",
+        "repair"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 7,
+      "waypointFlagSimilarity": -0.012424053672475566,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "bargain",
+        "flicker",
+        "stubborn"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.05975195031169278,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "awake",
+        "fraction",
+        "plead"
+      ],
+      "selected": false,
+      "reason": "Rejected despite completion evidence: the sampled visible/fraction handoff is difficult to explain naturally.",
+      "allowed": true,
+      "completed": true,
+      "openings": 10,
+      "landings": 8,
+      "waypointFlagSimilarity": 0.04927077865067986,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "rumour",
+        "shelf",
+        "thirst"
+      ],
+      "selected": true,
+      "reason": "Retained: ordinary meanings span news, display/storage and bodily need; continental-shelf associations are familiar secondary meanings, not an intended route.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 18,
+      "waypointFlagSimilarity": 0.013582657404185738,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.05555555555555555,
+      "distinctAdvancingOptionSets": 18
+    },
+    {
+      "words": [
+        "lazy",
+        "embrace",
+        "marble"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 3,
+      "landings": 15,
+      "waypointFlagSimilarity": -0.06713823588518153,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 15
+    },
+    {
+      "words": [
+        "button",
+        "envy",
+        "shiver"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 3,
+      "landings": 4,
+      "waypointFlagSimilarity": 0.18824369637331984,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 4
+    },
+    {
+      "words": [
+        "trouble",
+        "polish",
+        "coincidence"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.005340840383723844,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "grin",
+        "burden",
+        "patch"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 28,
+      "waypointFlagSimilarity": 0.06707369334253599,
+      "entryFinishShare": 0.07142857142857142,
+      "naturalOneWordFinishShare": 0.07142857142857142,
+      "distinctAdvancingOptionSets": 27
+    },
+    {
+      "words": [
+        "squeeze",
+        "legend",
+        "tilt"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 17,
+      "waypointFlagSimilarity": -0.11324088338005822,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.058823529411764705,
+      "distinctAdvancingOptionSets": 17
+    },
+    {
+      "words": [
+        "worry",
+        "switch",
+        "glimpse"
+      ],
+      "selected": false,
+      "reason": "Existing direct-leg rule rejects this combination.",
+      "allowed": false,
+      "completed": false,
+      "openings": null
+    },
+    {
+      "words": [
+        "poise",
+        "cough",
+        "bounty"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.02570768519944977,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "sudden",
+        "rival",
+        "soak"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 10,
+      "landings": 19,
+      "waypointFlagSimilarity": -0.07710602703468794,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 19
+    },
+    {
+      "words": [
+        "grumble",
+        "attic",
+        "persuade"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.03437113005020365,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "hurry",
+        "excuse",
+        "glitter"
+      ],
+      "selected": false,
+      "reason": "Existing direct-leg rule rejects this combination.",
+      "allowed": false,
+      "completed": false,
+      "openings": null
+    },
+    {
+      "words": [
+        "vacant",
+        "spice",
+        "defend"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 12,
+      "waypointFlagSimilarity": -0.09006956364783036,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "whim",
+        "handshake",
+        "stain"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 3,
+      "waypointFlagSimilarity": 0.08094179907220678,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 3
+    },
+    {
+      "words": [
+        "rust",
+        "fortune",
+        "interrupt"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 17,
+      "waypointFlagSimilarity": -0.12975435394400847,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 17
+    },
+    {
+      "words": [
+        "dazzle",
+        "refund",
+        "prison"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 0,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.014166259079502197,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "towel",
+        "amuse",
+        "stubble"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.04126515261668828,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "harmless",
+        "chorus",
+        "packet"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 10,
+      "waypointFlagSimilarity": 0.004859895409595083,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 10
+    },
+    {
+      "words": [
+        "bare",
+        "betray",
+        "wheel"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 1,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.04723641992859484,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "quarrel",
+        "thread",
+        "invisible"
+      ],
+      "selected": false,
+      "reason": "Existing direct-leg rule rejects this combination.",
+      "allowed": false,
+      "completed": false,
+      "openings": null
+    },
+    {
+      "words": [
+        "tremble",
+        "invite",
+        "chalk"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 1,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.028473162461523316,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "scratch",
+        "farewell",
+        "patient"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 12,
+      "waypointFlagSimilarity": 0.003647885263490025,
+      "entryFinishShare": 0.08333333333333333,
+      "naturalOneWordFinishShare": 0.08333333333333333,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "prompt",
+        "knot",
+        "hungry"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 13,
+      "waypointFlagSimilarity": -0.08344132043293939,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 13
+    },
+    {
+      "words": [
+        "hush",
+        "rebound",
+        "loft"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 47,
+      "waypointFlagSimilarity": 0.034908473612631497,
+      "entryFinishShare": 0.02127659574468085,
+      "naturalOneWordFinishShare": 0.0425531914893617,
+      "distinctAdvancingOptionSets": 47
+    },
+    {
+      "words": [
+        "careless",
+        "banner",
+        "murmur"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 14,
+      "waypointFlagSimilarity": -0.011723524039553013,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.07142857142857142,
+      "distinctAdvancingOptionSets": 14
+    },
+    {
+      "words": [
+        "pluck",
+        "doubt",
+        "pillow"
+      ],
+      "selected": false,
+      "reason": "Too little sampled landing variety to establish a useful choice landscape.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 2,
+      "waypointFlagSimilarity": -0.05041574537244742,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 2
+    },
+    {
+      "words": [
+        "settle",
+        "glass",
+        "nerve"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 30,
+      "waypointFlagSimilarity": 0.07254477754759137,
+      "entryFinishShare": 0.06666666666666667,
+      "naturalOneWordFinishShare": 0.13333333333333333,
+      "distinctAdvancingOptionSets": 29
+    },
+    {
+      "words": [
+        "shrug",
+        "evidence",
+        "ripe"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 3,
+      "waypointFlagSimilarity": 0.04042876198764134,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 3
+    },
+    {
+      "words": [
+        "linger",
+        "complaint",
+        "tin"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 22,
+      "waypointFlagSimilarity": -0.055898707960295724,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 22
+    },
+    {
+      "words": [
+        "uproar",
+        "patch",
+        "forgive"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 12,
+      "waypointFlagSimilarity": -0.027748308450100012,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.08333333333333333,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "snap",
+        "vow",
+        "curious"
+      ],
+      "selected": false,
+      "reason": "Rejected despite completion evidence: a large sampled share finishes at arrival and familiar prompt/ready links risk a shallow shortcut.",
+      "allowed": true,
+      "completed": true,
+      "openings": 2,
+      "landings": 5,
+      "waypointFlagSimilarity": 0.031998932294300175,
+      "entryFinishShare": 0.4,
+      "naturalOneWordFinishShare": 0.6,
+      "distinctAdvancingOptionSets": 4
+    },
+    {
+      "words": [
+        "sincere",
+        "dent",
+        "spectacle"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 5,
+      "landings": 1,
+      "waypointFlagSimilarity": 0.00041570440953364596,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "thrift",
+        "riddle",
+        "chill"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.0024765535852111498,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "polite",
+        "slope",
+        "crave"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 10,
+      "waypointFlagSimilarity": -0.03896448610430525,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 10
+    },
+    {
+      "words": [
+        "scatter",
+        "appetite",
+        "witness"
+      ],
+      "selected": false,
+      "reason": "Rejected despite completion evidence: the sampled completion leans on a diffuse bodily/category chain rather than a persuasive combination.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 48,
+      "waypointFlagSimilarity": -0.015941893820127007,
+      "entryFinishShare": 0.0625,
+      "naturalOneWordFinishShare": 0.0625,
+      "distinctAdvancingOptionSets": 46
+    },
+    {
+      "words": [
+        "elastic",
+        "gossip",
+        "solemn"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.03957324702787446,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "puzzle",
+        "breeze",
+        "consent"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 26,
+      "waypointFlagSimilarity": -0.13031962464629032,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 26
+    },
+    {
+      "words": [
+        "frantic",
+        "sketch",
+        "stumble"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 4,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.09471893480440485,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "velvet",
+        "deceive",
+        "bargain"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 16,
+      "waypointFlagSimilarity": -0.04084224979442297,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 16
+    },
+    {
+      "words": [
+        "remote",
+        "temper",
+        "plead"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 14,
+      "waypointFlagSimilarity": 0.044439051394874696,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 14
+    },
+    {
+      "words": [
+        "mischief",
+        "crease",
+        "rally"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.010287614315132032,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "faint",
+        "request",
+        "thorn"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 6,
+      "landings": 50,
+      "waypointFlagSimilarity": -0.07240803935565054,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 50
+    },
+    {
+      "words": [
+        "stumble",
+        "verdict",
+        "blush"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 15,
+      "waypointFlagSimilarity": 0.060711984218869475,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 15
+    },
+    {
+      "words": [
+        "splash",
+        "bargain",
+        "lonely"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 22,
+      "waypointFlagSimilarity": 0.07831450237608806,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 22
+    },
+    {
+      "words": [
+        "decent",
+        "whisper",
+        "cork"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 8,
+      "waypointFlagSimilarity": -0.04452284158105613,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 8
+    },
+    {
+      "words": [
+        "astonish",
+        "wrinkle",
+        "spare"
+      ],
+      "selected": false,
+      "reason": "Too little sampled landing variety to establish a useful choice landscape.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 2,
+      "waypointFlagSimilarity": -0.07400890130611515,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 2
+    },
+    {
+      "words": [
+        "remedy",
+        "humble",
+        "spark"
+      ],
+      "selected": false,
+      "reason": "Too little sampled landing variety to establish a useful choice landscape.",
+      "allowed": true,
+      "completed": true,
+      "openings": 1,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.08214120665297742,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "hollow",
+        "verdict",
+        "cushion"
+      ],
+      "selected": false,
+      "reason": "Not selected: completion alone does not offset thin sampled landing diversity.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 2,
+      "waypointFlagSimilarity": -0.027929146187489096,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 2
+    },
+    {
+      "words": [
+        "glance",
+        "harvest",
+        "refuse"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 1,
+      "landings": 5,
+      "waypointFlagSimilarity": 0.11149366159406782,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 5
+    },
+    {
+      "words": [
+        "frown",
+        "parcel",
+        "sincere"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 4,
+      "waypointFlagSimilarity": 0.02681407756608678,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 4
+    },
+    {
+      "words": [
+        "casual",
+        "tribute",
+        "wire"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 2,
+      "landings": 1,
+      "waypointFlagSimilarity": 0.0345956777206311,
+      "entryFinishShare": 1,
+      "naturalOneWordFinishShare": 1,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "itch",
+        "bargain",
+        "muse"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 5,
+      "landings": 7,
+      "waypointFlagSimilarity": -0.0021911584535700968,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "fidget",
+        "excuse",
+        "slate"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 12,
+      "waypointFlagSimilarity": 0.02077776210535376,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "tender",
+        "protest",
+        "pebble"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 17,
+      "waypointFlagSimilarity": 0.026553898218480754,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 17
+    },
+    {
+      "words": [
+        "humble",
+        "interval",
+        "dare"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 7,
+      "waypointFlagSimilarity": -0.07711603099539843,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "brisk",
+        "bouquet",
+        "remind"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 6,
+      "landings": 2,
+      "waypointFlagSimilarity": 0.037090892021296895,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 2
+    },
+    {
+      "words": [
+        "awkward",
+        "hinge",
+        "celebrate"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 5,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.010299047643457016,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "eager",
+        "stripe",
+        "forgive"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 19,
+      "waypointFlagSimilarity": -0.10481321220458995,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 19
+    },
+    {
+      "words": [
+        "delay",
+        "froth",
+        "trust"
+      ],
+      "selected": false,
+      "reason": "Not selected: the bounded check finds only one dogleg landing, so onward variety is insufficiently demonstrated.",
+      "allowed": true,
+      "completed": true,
+      "openings": 10,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.10370166846951179,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "grate",
+        "rumour",
+        "mild"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 14,
+      "waypointFlagSimilarity": 0.038095003767011804,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 14
+    },
+    {
+      "words": [
+        "flinch",
+        "deposit",
+        "rough"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 7,
+      "waypointFlagSimilarity": -0.01258752748981351,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "blunt",
+        "festival",
+        "sigh"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 13,
+      "waypointFlagSimilarity": 0.0365801587158785,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 13
+    },
+    {
+      "words": [
+        "praise",
+        "handle",
+        "suspicious"
+      ],
+      "selected": false,
+      "reason": "Existing direct-leg rule rejects this combination.",
+      "allowed": false,
+      "completed": false,
+      "openings": null
+    },
+    {
+      "words": [
+        "smudge",
+        "retreat",
+        "cheer"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 12,
+      "waypointFlagSimilarity": 0.12271136278104677,
+      "entryFinishShare": 0.08333333333333333,
+      "naturalOneWordFinishShare": 0.08333333333333333,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "pledge",
+        "fog",
+        "tickle"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 30,
+      "waypointFlagSimilarity": 0.00719200542789622,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 30
+    },
+    {
+      "words": [
+        "barrel",
+        "consent",
+        "pale"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 8,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.0410360677724384,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "crumble",
+        "pretend",
+        "balcony"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 3,
+      "landings": 5,
+      "waypointFlagSimilarity": 0.079462690235232,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 5
+    },
+    {
+      "words": [
+        "muddle",
+        "zip",
+        "sincere"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 1,
+      "waypointFlagSimilarity": -0.09799941178062,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 1
+    },
+    {
+      "words": [
+        "yawn",
+        "pocket",
+        "defy"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 0,
+      "waypointFlagSimilarity": -0.019439800033111965,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "surplus",
+        "laugh",
+        "drain"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 47,
+      "waypointFlagSimilarity": 0.014952407526834577,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.0851063829787234,
+      "distinctAdvancingOptionSets": 47
+    },
+    {
+      "words": [
+        "rattle",
+        "noble",
+        "rumour"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 9,
+      "waypointFlagSimilarity": -0.009227003071828221,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 9
+    },
+    {
+      "words": [
+        "safety",
+        "carpet",
+        "envy"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 7,
+      "landings": 21,
+      "waypointFlagSimilarity": 0.035393801114423695,
+      "entryFinishShare": 0.047619047619047616,
+      "naturalOneWordFinishShare": 0.047619047619047616,
+      "distinctAdvancingOptionSets": 21
+    },
+    {
+      "words": [
+        "fuss",
+        "shadow",
+        "neat"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 11,
+      "waypointFlagSimilarity": 0.008570720046918723,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 11
+    },
+    {
+      "words": [
+        "dimple",
+        "courage",
+        "shuffle"
+      ],
+      "selected": false,
+      "reason": "Not selected from the wider pool: batch balance, vocabulary reuse or stronger alternative combinations.",
+      "allowed": true,
+      "completed": true,
+      "openings": 1,
+      "landings": 7,
+      "waypointFlagSimilarity": -0.019847656301863026,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 7
+    },
+    {
+      "words": [
+        "sticky",
+        "debate",
+        "yawn"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 5,
+      "landings": 12,
+      "waypointFlagSimilarity": 0.033310936066186514,
+      "entryFinishShare": 0.08333333333333333,
+      "naturalOneWordFinishShare": 0.08333333333333333,
+      "distinctAdvancingOptionSets": 12
+    },
+    {
+      "words": [
+        "stamp",
+        "hesitate",
+        "cradle"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 19,
+      "waypointFlagSimilarity": 0.045965307941514766,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 18
+    },
+    {
+      "words": [
+        "window",
+        "burden",
+        "splash"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 10,
+      "landings": 37,
+      "waypointFlagSimilarity": -0.014627133461544872,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0.02702702702702703,
+      "distinctAdvancingOptionSets": 37
+    },
+    {
+      "words": [
+        "collar",
+        "consent",
+        "flicker"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 6,
+      "landings": 9,
+      "waypointFlagSimilarity": -0.09504086241395271,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 9
+    },
+    {
+      "words": [
+        "coil",
+        "laughter",
+        "genuine"
+      ],
+      "selected": false,
+      "reason": "Existing direct-leg rule rejects this combination.",
+      "allowed": false,
+      "completed": false,
+      "openings": null
+    },
+    {
+      "words": [
+        "match",
+        "whisper",
+        "stubborn"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 9,
+      "landings": 32,
+      "waypointFlagSimilarity": 0.07059508793281566,
+      "entryFinishShare": 0.0625,
+      "naturalOneWordFinishShare": 0.0625,
+      "distinctAdvancingOptionSets": 31
+    },
+    {
+      "words": [
+        "post",
+        "craving",
+        "unfold"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 11,
+      "landings": 19,
+      "waypointFlagSimilarity": -0.01379382959476061,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 19
+    },
+    {
+      "words": [
+        "brick",
+        "blame",
+        "jolly"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 27,
+      "waypointFlagSimilarity": -0.11730247412378958,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 27
+    },
+    {
+      "words": [
+        "ruler",
+        "gossip",
+        "faint"
+      ],
+      "selected": false,
+      "reason": "No supported completion found within the fixed diagnostic bounds; not published in this batch.",
+      "allowed": true,
+      "completed": false,
+      "openings": 3,
+      "landings": 0,
+      "waypointFlagSimilarity": 0.09694504996878095,
+      "entryFinishShare": null,
+      "naturalOneWordFinishShare": null,
+      "distinctAdvancingOptionSets": 0
+    },
+    {
+      "words": [
+        "dress",
+        "reluctant",
+        "storm"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 4,
+      "landings": 15,
+      "waypointFlagSimilarity": 0.07213876700552646,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 15
+    },
+    {
+      "words": [
+        "record",
+        "mercy",
+        "fray"
+      ],
+      "selected": true,
+      "reason": "Retained after editorial review of accessible words, varied contexts, actual handoffs and nontrivial second-leg options.",
+      "allowed": true,
+      "completed": true,
+      "openings": 8,
+      "landings": 23,
+      "waypointFlagSimilarity": 0.08274821712211633,
+      "entryFinishShare": 0,
+      "naturalOneWordFinishShare": 0,
+      "distinctAdvancingOptionSets": 23
+    }
+  ]
+}

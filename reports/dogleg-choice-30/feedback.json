@@ -1,0 +1,95 @@
+{
+  "source": "User playtest feedback, 2 November 2026. These are human judgements, not detector training labels.",
+  "remove": [
+    {
+      "words": [
+        "fame",
+        "scatter",
+        "ribbon"
+      ],
+      "reason": "Awkward combination; already retired on 1 November."
+    },
+    {
+      "words": [
+        "spoil",
+        "gravity",
+        "ring"
+      ],
+      "reason": "WEIGHT effectively completes both legs."
+    },
+    {
+      "words": [
+        "fold",
+        "passion",
+        "wild"
+      ],
+      "reason": "LOVE trivialises the second leg."
+    },
+    {
+      "words": [
+        "root",
+        "wonder",
+        "field"
+      ],
+      "reason": "Unnatural associations."
+    },
+    {
+      "words": [
+        "border",
+        "faith",
+        "drift"
+      ],
+      "reason": "LINE → HOPE felt arbitrary."
+    },
+    {
+      "words": [
+        "tide",
+        "luck",
+        "clear"
+      ],
+      "reason": "WISH → CLEAR felt arbitrary."
+    },
+    {
+      "words": [
+        "sleep",
+        "bright",
+        "mask"
+      ],
+      "reason": "LIGHT provides a trivial shortcut."
+    }
+  ],
+  "keep": [
+    {
+      "words": [
+        "dance",
+        "borrow",
+        "stitch"
+      ],
+      "reason": "Excellent exploration despite 45 journeys."
+    },
+    {
+      "words": [
+        "circle",
+        "rescue",
+        "warm"
+      ],
+      "reason": "Enjoyable discovery through RUNWAY → AIRPLANE → ARRIVE."
+    },
+    {
+      "words": [
+        "spare",
+        "dream",
+        "tension"
+      ],
+      "reason": "Multiple interesting possibilities."
+    },
+    {
+      "words": [
+        "fresh",
+        "duty",
+        "shell"
+      ],
+      "reason": "Satisfying progression through different concepts."
+    }
+  ]
+}

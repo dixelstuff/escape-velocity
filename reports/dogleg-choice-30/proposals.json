@@ -1,0 +1,1293 @@
+[
+  {
+    "start": "rumour",
+    "waypoint": "shelf",
+    "target": "thirst",
+    "directions": {
+      "rumour": [
+        "gossip",
+        "whisper",
+        "news",
+        "false",
+        "story",
+        "secret",
+        "spread",
+        "hearsay",
+        "talk",
+        "reputation"
+      ],
+      "shelf": [
+        "book",
+        "library",
+        "storage",
+        "cupboard",
+        "ledge",
+        "bracket",
+        "display",
+        "stack",
+        "shop",
+        "hold"
+      ],
+      "thirst": [
+        "water",
+        "drink",
+        "dry",
+        "desire",
+        "need",
+        "hunger",
+        "quench",
+        "parched",
+        "craving",
+        "mouth"
+      ]
+    }
+  },
+  {
+    "start": "lazy",
+    "waypoint": "embrace",
+    "target": "marble",
+    "directions": {
+      "lazy": [
+        "idle",
+        "rest",
+        "sleep",
+        "slow",
+        "reluctant",
+        "work",
+        "effort",
+        "comfortable",
+        "lounge",
+        "sluggish"
+      ],
+      "embrace": [
+        "hug",
+        "arms",
+        "welcome",
+        "accept",
+        "love",
+        "hold",
+        "warm",
+        "adopt",
+        "close",
+        "support"
+      ],
+      "marble": [
+        "stone",
+        "statue",
+        "sculpture",
+        "floor",
+        "glass",
+        "ball",
+        "game",
+        "smooth",
+        "vein",
+        "white"
+      ]
+    }
+  },
+  {
+    "start": "button",
+    "waypoint": "envy",
+    "target": "shiver",
+    "directions": {
+      "button": [
+        "shirt",
+        "coat",
+        "fasten",
+        "press",
+        "switch",
+        "hole",
+        "push",
+        "badge",
+        "control",
+        "key"
+      ],
+      "envy": [
+        "jealousy",
+        "desire",
+        "green",
+        "want",
+        "resent",
+        "wish",
+        "wealth",
+        "rival",
+        "success",
+        "admire"
+      ],
+      "shiver": [
+        "cold",
+        "shake",
+        "tremble",
+        "fear",
+        "chill",
+        "fever",
+        "winter",
+        "goosebumps",
+        "quiver",
+        "frost"
+      ]
+    }
+  },
+  {
+    "start": "squeeze",
+    "waypoint": "legend",
+    "target": "tilt",
+    "directions": {
+      "squeeze": [
+        "press",
+        "tight",
+        "grip",
+        "hug",
+        "juice",
+        "lemon",
+        "crowd",
+        "fit",
+        "extract",
+        "pressure"
+      ],
+      "legend": [
+        "story",
+        "myth",
+        "fame",
+        "hero",
+        "tale",
+        "key",
+        "map",
+        "symbol",
+        "ancient",
+        "folklore"
+      ],
+      "tilt": [
+        "lean",
+        "angle",
+        "slope",
+        "tip",
+        "slant",
+        "balance",
+        "head",
+        "sideways",
+        "turn",
+        "incline"
+      ]
+    }
+  },
+  {
+    "start": "rust",
+    "waypoint": "fortune",
+    "target": "interrupt",
+    "directions": {
+      "rust": [
+        "iron",
+        "metal",
+        "orange",
+        "decay",
+        "age",
+        "neglect",
+        "corrosion",
+        "water",
+        "brown",
+        "old"
+      ],
+      "fortune": [
+        "luck",
+        "wealth",
+        "money",
+        "fate",
+        "future",
+        "success",
+        "chance",
+        "treasure",
+        "teller",
+        "rich"
+      ],
+      "interrupt": [
+        "stop",
+        "break",
+        "disturb",
+        "cut",
+        "speak",
+        "pause",
+        "disrupt",
+        "conversation",
+        "intrude",
+        "time"
+      ]
+    }
+  },
+  {
+    "start": "harmless",
+    "waypoint": "chorus",
+    "target": "packet",
+    "directions": {
+      "harmless": [
+        "safe",
+        "innocent",
+        "gentle",
+        "danger",
+        "mild",
+        "kind",
+        "weak",
+        "benign",
+        "friendly",
+        "hurt"
+      ],
+      "chorus": [
+        "song",
+        "sing",
+        "voices",
+        "repeat",
+        "music",
+        "choir",
+        "refrain",
+        "group",
+        "together",
+        "stage"
+      ],
+      "packet": [
+        "parcel",
+        "package",
+        "envelope",
+        "mail",
+        "small",
+        "bundle",
+        "paper",
+        "data",
+        "information",
+        "sweets"
+      ]
+    }
+  },
+  {
+    "start": "prompt",
+    "waypoint": "knot",
+    "target": "hungry",
+    "directions": {
+      "prompt": [
+        "quick",
+        "cue",
+        "help",
+        "question",
+        "remind",
+        "actor",
+        "answer",
+        "ready",
+        "request",
+        "signal",
+        "stage",
+        "immediate"
+      ],
+      "knot": [
+        "tie",
+        "rope",
+        "thread",
+        "tangle",
+        "bow",
+        "speed",
+        "boat",
+        "twist",
+        "problem",
+        "bind"
+      ],
+      "hungry": [
+        "food",
+        "appetite",
+        "eat",
+        "desire",
+        "empty",
+        "hunger",
+        "starve",
+        "need",
+        "eager",
+        "stomach"
+      ]
+    }
+  },
+  {
+    "start": "hush",
+    "waypoint": "rebound",
+    "target": "loft",
+    "directions": {
+      "hush": [
+        "quiet",
+        "silence",
+        "whisper",
+        "calm",
+        "secret",
+        "stop",
+        "sleep",
+        "soft",
+        "noise",
+        "peace"
+      ],
+      "rebound": [
+        "bounce",
+        "return",
+        "recover",
+        "spring",
+        "ball",
+        "reaction",
+        "repeat",
+        "relationship",
+        "rise",
+        "reverse"
+      ],
+      "loft": [
+        "attic",
+        "high",
+        "room",
+        "roof",
+        "space",
+        "studio",
+        "pigeon",
+        "raise",
+        "apartment",
+        "house"
+      ]
+    }
+  },
+  {
+    "start": "careless",
+    "waypoint": "banner",
+    "target": "murmur",
+    "directions": {
+      "careless": [
+        "mistake",
+        "reckless",
+        "thoughtless",
+        "accident",
+        "neglect",
+        "sloppy",
+        "forget",
+        "clumsy",
+        "risk",
+        "casual"
+      ],
+      "banner": [
+        "flag",
+        "sign",
+        "slogan",
+        "protest",
+        "headline",
+        "cloth",
+        "wave",
+        "display",
+        "advertise",
+        "march"
+      ],
+      "murmur": [
+        "whisper",
+        "quiet",
+        "sound",
+        "heart",
+        "soft",
+        "stream",
+        "mutter",
+        "talk",
+        "breath",
+        "voice"
+      ]
+    }
+  },
+  {
+    "start": "settle",
+    "waypoint": "glass",
+    "target": "nerve",
+    "directions": {
+      "settle": [
+        "rest",
+        "calm",
+        "resolve",
+        "pay",
+        "stay",
+        "home",
+        "land",
+        "agreement",
+        "sink",
+        "decide"
+      ],
+      "glass": [
+        "clear",
+        "window",
+        "lens",
+        "mirror",
+        "bottle",
+        "cup",
+        "fragile",
+        "transparent",
+        "drink",
+        "break",
+        "pane",
+        "crystal"
+      ],
+      "nerve": [
+        "courage",
+        "fear",
+        "nervous",
+        "brain",
+        "pain",
+        "impulse",
+        "signal",
+        "muscle",
+        "touch",
+        "sensation"
+      ]
+    }
+  },
+  {
+    "start": "velvet",
+    "waypoint": "deceive",
+    "target": "bargain",
+    "directions": {
+      "velvet": [
+        "soft",
+        "cloth",
+        "fabric",
+        "smooth",
+        "touch",
+        "luxury",
+        "curtain",
+        "red",
+        "silk",
+        "texture"
+      ],
+      "deceive": [
+        "trick",
+        "lie",
+        "false",
+        "cheat",
+        "mislead",
+        "disguise",
+        "illusion",
+        "trust",
+        "fool",
+        "betray"
+      ],
+      "bargain": [
+        "cheap",
+        "price",
+        "deal",
+        "trade",
+        "buy",
+        "sell",
+        "agreement",
+        "negotiate",
+        "market",
+        "discount"
+      ]
+    }
+  },
+  {
+    "start": "remote",
+    "waypoint": "temper",
+    "target": "plead",
+    "directions": {
+      "remote": [
+        "distant",
+        "far",
+        "control",
+        "isolated",
+        "television",
+        "alone",
+        "rural",
+        "away",
+        "signal",
+        "hidden"
+      ],
+      "temper": [
+        "anger",
+        "mood",
+        "steel",
+        "heat",
+        "calm",
+        "control",
+        "balance"
+      ],
+      "plead": [
+        "beg",
+        "ask",
+        "mercy",
+        "court",
+        "guilty",
+        "appeal",
+        "argue",
+        "request",
+        "desperate",
+        "excuse"
+      ]
+    }
+  },
+  {
+    "start": "stumble",
+    "waypoint": "verdict",
+    "target": "blush",
+    "directions": {
+      "stumble": [
+        "trip",
+        "fall",
+        "falter",
+        "mistake",
+        "walk",
+        "bump",
+        "hesitate",
+        "obstacle",
+        "feet",
+        "clumsy"
+      ],
+      "verdict": [
+        "court",
+        "jury",
+        "judge",
+        "guilty",
+        "decision",
+        "evidence",
+        "trial",
+        "sentence",
+        "innocent",
+        "outcome"
+      ],
+      "blush": [
+        "red",
+        "face",
+        "shy",
+        "embarrassment",
+        "pink",
+        "shame",
+        "cheeks",
+        "flush",
+        "modest",
+        "smile"
+      ]
+    }
+  },
+  {
+    "start": "frown",
+    "waypoint": "parcel",
+    "target": "sincere",
+    "directions": {
+      "frown": [
+        "face",
+        "angry",
+        "forehead",
+        "expression",
+        "worry",
+        "disapprove",
+        "unhappy",
+        "brow",
+        "wrinkle",
+        "scowl"
+      ],
+      "parcel": [
+        "package",
+        "packet",
+        "mail",
+        "post",
+        "wrap",
+        "paper",
+        "deliver",
+        "gift",
+        "land",
+        "part"
+      ],
+      "sincere": [
+        "honest",
+        "true",
+        "genuine",
+        "heartfelt",
+        "earnest",
+        "trust",
+        "faithful",
+        "frank",
+        "real",
+        "apology"
+      ]
+    }
+  },
+  {
+    "start": "fidget",
+    "waypoint": "excuse",
+    "target": "slate",
+    "directions": {
+      "fidget": [
+        "restless",
+        "nervous",
+        "move",
+        "twitch",
+        "impatient",
+        "wait",
+        "hands",
+        "squirm",
+        "worry",
+        "wiggle"
+      ],
+      "excuse": [
+        "pardon",
+        "reason",
+        "explanation",
+        "forgive",
+        "apology",
+        "absence",
+        "justify",
+        "blame",
+        "mistake",
+        "permission"
+      ],
+      "slate": [
+        "stone",
+        "roof",
+        "grey",
+        "board",
+        "school",
+        "write",
+        "clean",
+        "wipe",
+        "list",
+        "tablet"
+      ]
+    }
+  },
+  {
+    "start": "tender",
+    "waypoint": "protest",
+    "target": "pebble",
+    "directions": {
+      "tender": [
+        "gentle",
+        "soft",
+        "offer",
+        "money",
+        "care",
+        "sore",
+        "touch",
+        "bid",
+        "meat",
+        "painful",
+        "loving",
+        "young"
+      ],
+      "protest": [
+        "object",
+        "oppose",
+        "march",
+        "crowd",
+        "strike",
+        "demonstrate",
+        "complain",
+        "refusal",
+        "dissent",
+        "voice"
+      ],
+      "pebble": [
+        "stone",
+        "small",
+        "beach",
+        "smooth",
+        "round",
+        "shore",
+        "river",
+        "rock",
+        "skip",
+        "gravel"
+      ]
+    }
+  },
+  {
+    "start": "eager",
+    "waypoint": "stripe",
+    "target": "forgive",
+    "directions": {
+      "eager": [
+        "keen",
+        "excited",
+        "ready",
+        "desire",
+        "hungry",
+        "enthusiastic",
+        "willing",
+        "want",
+        "impatient",
+        "interest"
+      ],
+      "stripe": [
+        "line",
+        "pattern",
+        "colour",
+        "cloth",
+        "tiger",
+        "uniform",
+        "mark",
+        "band",
+        "flag",
+        "rank"
+      ],
+      "forgive": [
+        "pardon",
+        "mercy",
+        "excuse",
+        "blame",
+        "fault",
+        "guilt",
+        "kindness",
+        "forget",
+        "apology",
+        "peace"
+      ]
+    }
+  },
+  {
+    "start": "flinch",
+    "waypoint": "deposit",
+    "target": "rough",
+    "directions": {
+      "flinch": [
+        "shrink",
+        "recoil",
+        "fear",
+        "pain",
+        "startle",
+        "shy",
+        "wince",
+        "move",
+        "hesitate",
+        "fright"
+      ],
+      "deposit": [
+        "bank",
+        "money",
+        "pay",
+        "account",
+        "save",
+        "leave",
+        "layer",
+        "sediment",
+        "sand",
+        "mineral"
+      ],
+      "rough": [
+        "uneven",
+        "rugged",
+        "harsh",
+        "draft",
+        "sketch",
+        "difficult",
+        "coarse",
+        "tough",
+        "raw",
+        "approximate",
+        "storm",
+        "sea",
+        "texture"
+      ]
+    }
+  },
+  {
+    "start": "blunt",
+    "waypoint": "festival",
+    "target": "sigh",
+    "directions": {
+      "blunt": [
+        "dull",
+        "sharp",
+        "direct",
+        "honest",
+        "rude",
+        "edge",
+        "weapon",
+        "plain",
+        "frank",
+        "force"
+      ],
+      "festival": [
+        "celebration",
+        "music",
+        "film",
+        "party",
+        "dance",
+        "crowd",
+        "fair",
+        "carnival",
+        "holiday",
+        "season"
+      ],
+      "sigh": [
+        "breath",
+        "air",
+        "relief",
+        "sad",
+        "tired",
+        "longing",
+        "sound",
+        "regret",
+        "wish",
+        "exhale"
+      ]
+    }
+  },
+  {
+    "start": "smudge",
+    "waypoint": "retreat",
+    "target": "cheer",
+    "directions": {
+      "smudge": [
+        "mark",
+        "smear",
+        "ink",
+        "dirty",
+        "stain",
+        "fingerprint",
+        "blur",
+        "pencil",
+        "rub",
+        "cloud"
+      ],
+      "retreat": [
+        "withdraw",
+        "escape",
+        "rest",
+        "hide",
+        "army",
+        "holiday",
+        "quiet",
+        "refuge",
+        "move",
+        "defeat"
+      ],
+      "cheer": [
+        "happy",
+        "joy",
+        "encourage",
+        "applause",
+        "crowd",
+        "shout",
+        "spirit",
+        "support",
+        "brighten",
+        "comfort"
+      ]
+    }
+  },
+  {
+    "start": "pledge",
+    "waypoint": "fog",
+    "target": "tickle",
+    "directions": {
+      "pledge": [
+        "promise",
+        "vow",
+        "oath",
+        "commitment",
+        "donate",
+        "security",
+        "loyalty",
+        "swear",
+        "money",
+        "word"
+      ],
+      "fog": [
+        "mist",
+        "cloud",
+        "damp",
+        "grey",
+        "sea",
+        "hidden",
+        "obscure",
+        "confusion",
+        "breath",
+        "weather"
+      ],
+      "tickle": [
+        "touch",
+        "laugh",
+        "feather",
+        "skin",
+        "itch",
+        "gentle",
+        "amuse",
+        "tease",
+        "brush",
+        "nerves"
+      ]
+    }
+  },
+  {
+    "start": "surplus",
+    "waypoint": "laugh",
+    "target": "drain",
+    "directions": {
+      "surplus": [
+        "extra",
+        "excess",
+        "plenty",
+        "spare",
+        "supply",
+        "waste",
+        "profit",
+        "remain",
+        "money",
+        "stock"
+      ],
+      "laugh": [
+        "fun",
+        "joke",
+        "joy",
+        "smile",
+        "sound",
+        "happy",
+        "funny",
+        "humor",
+        "amuse",
+        "comedy",
+        "giggle",
+        "pleasure"
+      ],
+      "drain": [
+        "water",
+        "pipe",
+        "sink",
+        "empty",
+        "flow",
+        "waste",
+        "energy",
+        "exhaust",
+        "street",
+        "channel"
+      ]
+    }
+  },
+  {
+    "start": "window",
+    "waypoint": "burden",
+    "target": "splash",
+    "directions": {
+      "window": [
+        "glass",
+        "light",
+        "see",
+        "view",
+        "frame",
+        "open",
+        "opportunity",
+        "shop",
+        "screen",
+        "escape"
+      ],
+      "burden": [
+        "weight",
+        "load",
+        "carry",
+        "duty",
+        "responsibility",
+        "heavy",
+        "worry",
+        "debt",
+        "bear",
+        "strain"
+      ],
+      "splash": [
+        "water",
+        "wet",
+        "drop",
+        "puddle",
+        "wave",
+        "swim",
+        "rain",
+        "colour",
+        "spill",
+        "sound"
+      ]
+    }
+  },
+  {
+    "start": "collar",
+    "waypoint": "consent",
+    "target": "flicker",
+    "directions": {
+      "collar": [
+        "neck",
+        "shirt",
+        "coat",
+        "dog",
+        "lead",
+        "catch",
+        "arrest",
+        "ring",
+        "control",
+        "grab"
+      ],
+      "consent": [
+        "agree",
+        "permission",
+        "allow",
+        "yes",
+        "approval",
+        "willing",
+        "accept",
+        "choice",
+        "marriage",
+        "contract"
+      ],
+      "flicker": [
+        "light",
+        "flame",
+        "candle",
+        "screen",
+        "blink",
+        "shadow",
+        "fire",
+        "glow",
+        "brief",
+        "waver"
+      ]
+    }
+  },
+  {
+    "start": "match",
+    "waypoint": "whisper",
+    "target": "stubborn",
+    "directions": {
+      "match": [
+        "game",
+        "compete",
+        "equal",
+        "pair",
+        "fire",
+        "light",
+        "suit",
+        "compare",
+        "fit",
+        "contest"
+      ],
+      "whisper": [
+        "quiet",
+        "secret",
+        "voice",
+        "rumour",
+        "wind",
+        "soft"
+      ],
+      "stubborn": [
+        "refuse",
+        "determined",
+        "obstinate",
+        "resist",
+        "fixed",
+        "mule",
+        "tough",
+        "will",
+        "persistence",
+        "defiant"
+      ]
+    }
+  },
+  {
+    "start": "post",
+    "waypoint": "craving",
+    "target": "unfold",
+    "directions": {
+      "post": [
+        "mail",
+        "letter",
+        "job",
+        "position",
+        "pole",
+        "fence",
+        "message",
+        "share",
+        "after",
+        "office"
+      ],
+      "craving": [
+        "desire",
+        "appetite",
+        "hunger",
+        "wish",
+        "need",
+        "long",
+        "food",
+        "thirst",
+        "urge",
+        "want"
+      ],
+      "unfold": [
+        "open",
+        "reveal",
+        "spread",
+        "story",
+        "develop",
+        "expand",
+        "paper",
+        "emerge",
+        "show",
+        "explain"
+      ]
+    }
+  },
+  {
+    "start": "brick",
+    "waypoint": "blame",
+    "target": "jolly",
+    "directions": {
+      "brick": [
+        "wall",
+        "building",
+        "red",
+        "hard",
+        "clay",
+        "block",
+        "house",
+        "throw",
+        "solid",
+        "work"
+      ],
+      "blame": [
+        "fault",
+        "guilt",
+        "accuse",
+        "responsibility",
+        "mistake",
+        "excuse",
+        "cause",
+        "condemn",
+        "wrong",
+        "shame"
+      ],
+      "jolly": [
+        "happy",
+        "cheerful",
+        "merry",
+        "fun",
+        "laugh",
+        "bright",
+        "festive",
+        "joy",
+        "pleasant",
+        "good"
+      ]
+    }
+  },
+  {
+    "start": "dress",
+    "waypoint": "reluctant",
+    "target": "storm",
+    "directions": {
+      "dress": [
+        "clothes",
+        "wear",
+        "gown",
+        "fashion",
+        "costume",
+        "cover",
+        "arrange",
+        "formal",
+        "bandage",
+        "wound"
+      ],
+      "reluctant": [
+        "unwilling",
+        "hesitate",
+        "doubt",
+        "shy",
+        "slow",
+        "resist",
+        "refuse",
+        "uncertain",
+        "oppose",
+        "delay"
+      ],
+      "storm": [
+        "wind",
+        "rain",
+        "thunder",
+        "anger",
+        "protest",
+        "cloud"
+      ]
+    }
+  },
+  {
+    "start": "record",
+    "waypoint": "mercy",
+    "target": "fray",
+    "directions": {
+      "record": [
+        "music",
+        "sound",
+        "write",
+        "document",
+        "evidence",
+        "history",
+        "album",
+        "best",
+        "achievement",
+        "disc"
+      ],
+      "mercy": [
+        "kindness",
+        "pardon",
+        "forgive",
+        "compassion",
+        "relief",
+        "spare",
+        "pity",
+        "lenient",
+        "judge",
+        "beg",
+        "grace"
+      ],
+      "fray": [
+        "thread",
+        "worn",
+        "edge",
+        "fight",
+        "clash",
+        "conflict",
+        "wear",
+        "tangle",
+        "unravel",
+        "damage"
+      ]
+    }
+  },
+  {
+    "start": "whim",
+    "waypoint": "handshake",
+    "target": "stain",
+    "directions": {
+      "whim": [
+        "fancy",
+        "impulse",
+        "sudden",
+        "desire",
+        "wish",
+        "caprice",
+        "playful",
+        "idea",
+        "mood",
+        "spontaneous"
+      ],
+      "handshake": [
+        "greet",
+        "meet",
+        "welcome",
+        "agreement",
+        "deal",
+        "hands",
+        "friend",
+        "business",
+        "introduction",
+        "trust"
+      ],
+      "stain": [
+        "mark",
+        "colour",
+        "spill",
+        "ink",
+        "wine",
+        "blood",
+        "dirty",
+        "wash",
+        "shame",
+        "reputation"
+      ]
+    }
+  }
+]

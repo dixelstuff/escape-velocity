@@ -1,0 +1,778 @@
+{
+  "newVocabulary": [
+    "rumour",
+    "shelf",
+    "thirst",
+    "lazy",
+    "embrace",
+    "envy",
+    "shiver",
+    "squeeze",
+    "legend",
+    "tilt",
+    "rust",
+    "fortune",
+    "interrupt",
+    "harmless",
+    "chorus",
+    "packet",
+    "prompt",
+    "knot",
+    "hungry",
+    "hush",
+    "rebound",
+    "loft",
+    "careless",
+    "banner",
+    "murmur",
+    "settle",
+    "nerve",
+    "deceive",
+    "bargain",
+    "remote",
+    "plead",
+    "stumble",
+    "verdict",
+    "blush",
+    "frown",
+    "parcel",
+    "sincere",
+    "fidget",
+    "excuse",
+    "slate",
+    "tender",
+    "protest",
+    "pebble",
+    "eager",
+    "stripe",
+    "forgive",
+    "flinch",
+    "deposit",
+    "rough",
+    "blunt",
+    "sigh",
+    "smudge",
+    "retreat",
+    "cheer",
+    "pledge",
+    "fog",
+    "tickle",
+    "surplus",
+    "laugh",
+    "drain",
+    "window",
+    "burden",
+    "splash",
+    "consent",
+    "flicker",
+    "match",
+    "stubborn",
+    "post",
+    "craving",
+    "unfold",
+    "brick",
+    "blame",
+    "jolly",
+    "dress",
+    "reluctant",
+    "storm",
+    "record",
+    "fray",
+    "whim",
+    "handshake",
+    "stain"
+  ],
+  "uniqueWords": 90,
+  "previous30WaypointFlagSimilarity": {
+    "mean": 0.08997543431894997,
+    "median": 0.08714338650224818,
+    "min": -0.04721893135092614,
+    "max": 0.2230156853673293
+  },
+  "newWaypointFlagSimilarity": {
+    "mean": 0.005899682422356515,
+    "median": 0.014267532465510158,
+    "min": -0.12975435394400847,
+    "max": 0.18824369637331984
+  },
+  "selected": [
+    {
+      "words": [
+        "rumour",
+        "shelf",
+        "thirst"
+      ],
+      "openingCount": 9,
+      "landings": 18,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0.05555555555555555,
+      "mechanicalSets": 18,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 3,
+        "remainingStrokeCounts": [
+          2,
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "lazy",
+        "embrace",
+        "marble"
+      ],
+      "openingCount": 3,
+      "landings": 15,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 15,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "button",
+        "envy",
+        "shiver"
+      ],
+      "openingCount": 3,
+      "landings": 4,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 4,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "squeeze",
+        "legend",
+        "tilt"
+      ],
+      "openingCount": 8,
+      "landings": 17,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0.058823529411764705,
+      "mechanicalSets": 17,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          2
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "rust",
+        "fortune",
+        "interrupt"
+      ],
+      "openingCount": 5,
+      "landings": 17,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 17,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 3,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "harmless",
+        "chorus",
+        "packet"
+      ],
+      "openingCount": 7,
+      "landings": 10,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 10,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "prompt",
+        "knot",
+        "hungry"
+      ],
+      "openingCount": 9,
+      "landings": 13,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 13,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "hush",
+        "rebound",
+        "loft"
+      ],
+      "openingCount": 6,
+      "landings": 47,
+      "entryFinishShare": 0.02127659574468085,
+      "naturalNextFinishShare": 0.0425531914893617,
+      "mechanicalSets": 47,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          0,
+          2
+        ]
+      },
+      "earlyEntryFinishes": [
+        {
+          "landing": "corner",
+          "inputs": [
+            "secret",
+            "trust",
+            "bank",
+            "turn",
+            "corner"
+          ]
+        }
+      ]
+    },
+    {
+      "words": [
+        "careless",
+        "banner",
+        "murmur"
+      ],
+      "openingCount": 7,
+      "landings": 14,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0.07142857142857142,
+      "mechanicalSets": 14,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 5,
+        "remainingStrokeCounts": [
+          2,
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "settle",
+        "glass",
+        "nerve"
+      ],
+      "openingCount": 5,
+      "landings": 30,
+      "entryFinishShare": 0.06666666666666667,
+      "naturalNextFinishShare": 0.13333333333333333,
+      "mechanicalSets": 29,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 6,
+        "remainingStrokeCounts": [
+          0,
+          2,
+          3
+        ]
+      },
+      "earlyEntryFinishes": [
+        {
+          "landing": "layer",
+          "inputs": [
+            "pay",
+            "deposit",
+            "layer"
+          ]
+        },
+        {
+          "landing": "broken",
+          "inputs": [
+            "land",
+            "field",
+            "patch",
+            "repair",
+            "broken"
+          ]
+        }
+      ]
+    },
+    {
+      "words": [
+        "velvet",
+        "deceive",
+        "bargain"
+      ],
+      "openingCount": 8,
+      "landings": 16,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 16,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "remote",
+        "temper",
+        "plead"
+      ],
+      "openingCount": 9,
+      "landings": 14,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 14,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "stumble",
+        "verdict",
+        "blush"
+      ],
+      "openingCount": 6,
+      "landings": 15,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 15,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "frown",
+        "parcel",
+        "sincere"
+      ],
+      "openingCount": 6,
+      "landings": 4,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 4,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "fidget",
+        "excuse",
+        "slate"
+      ],
+      "openingCount": 4,
+      "landings": 12,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 12,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "tender",
+        "protest",
+        "pebble"
+      ],
+      "openingCount": 6,
+      "landings": 17,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 17,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "eager",
+        "stripe",
+        "forgive"
+      ],
+      "openingCount": 8,
+      "landings": 19,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 19,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "flinch",
+        "deposit",
+        "rough"
+      ],
+      "openingCount": 4,
+      "landings": 7,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 7,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "blunt",
+        "festival",
+        "sigh"
+      ],
+      "openingCount": 8,
+      "landings": 13,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 13,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "smudge",
+        "retreat",
+        "cheer"
+      ],
+      "openingCount": 7,
+      "landings": 12,
+      "entryFinishShare": 0.08333333333333333,
+      "naturalNextFinishShare": 0.08333333333333333,
+      "mechanicalSets": 12,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          0
+        ]
+      },
+      "earlyEntryFinishes": [
+        {
+          "landing": "quiet",
+          "inputs": [
+            "stain",
+            "wash",
+            "water",
+            "still",
+            "quiet"
+          ]
+        }
+      ]
+    },
+    {
+      "words": [
+        "pledge",
+        "fog",
+        "tickle"
+      ],
+      "openingCount": 8,
+      "landings": 30,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 30,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 1,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "surplus",
+        "laugh",
+        "drain"
+      ],
+      "openingCount": 7,
+      "landings": 47,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0.0851063829787234,
+      "mechanicalSets": 47,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 10,
+        "remainingStrokeCounts": [
+          2,
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "window",
+        "burden",
+        "splash"
+      ],
+      "openingCount": 10,
+      "landings": 37,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0.02702702702702703,
+      "mechanicalSets": 37,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 10,
+        "remainingStrokeCounts": [
+          2,
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "collar",
+        "consent",
+        "flicker"
+      ],
+      "openingCount": 6,
+      "landings": 9,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 9,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "match",
+        "whisper",
+        "stubborn"
+      ],
+      "openingCount": 9,
+      "landings": 32,
+      "entryFinishShare": 0.0625,
+      "naturalNextFinishShare": 0.0625,
+      "mechanicalSets": 31,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          0
+        ]
+      },
+      "earlyEntryFinishes": [
+        {
+          "landing": "cheerful",
+          "inputs": [
+            "light",
+            "bright",
+            "cheerful"
+          ]
+        },
+        {
+          "landing": "careless",
+          "inputs": [
+            "game",
+            "lost",
+            "forget",
+            "careless"
+          ]
+        }
+      ]
+    },
+    {
+      "words": [
+        "post",
+        "craving",
+        "unfold"
+      ],
+      "openingCount": 11,
+      "landings": 19,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 19,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "brick",
+        "blame",
+        "jolly"
+      ],
+      "openingCount": 8,
+      "landings": 27,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 27,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 2,
+        "remainingStrokeCounts": [
+          3
+        ]
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "dress",
+        "reluctant",
+        "storm"
+      ],
+      "openingCount": 4,
+      "landings": 15,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 15,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "record",
+        "mercy",
+        "fray"
+      ],
+      "openingCount": 8,
+      "landings": 23,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 23,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    },
+    {
+      "words": [
+        "whim",
+        "handshake",
+        "stain"
+      ],
+      "openingCount": 4,
+      "landings": 3,
+      "entryFinishShare": 0,
+      "naturalNextFinishShare": 0,
+      "mechanicalSets": 3,
+      "shortFinishes": {
+        "maxPlayerInputs": 2,
+        "exhaustive": false,
+        "found": 0,
+        "remainingStrokeCounts": []
+      },
+      "earlyEntryFinishes": []
+    }
+  ]
+}
