@@ -1,6 +1,6 @@
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
-import {mountSimulationPanel} from './simulation-panel.mjs?v=simulation-pilot-v1';
+import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=simulation-pilot-v1';
 import {simulationSettingsKey} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
@@ -288,11 +288,13 @@ function renderDailyResult(){
 }
 function renderSimulationResult(){
  if(!simpleDaily||!state)return;
+ const id=daily.selected()?.id;
+ if(!holeResult()||!SIMULATION_HOLE_IDS.includes(id)){simulationPanel.show({id,state,visible:false});return;}
  const best=daily.current();
  const source=state?.won?state:dailyBestState(),same=b=>b?.state?.won&&b.strokes===source?.attempts&&JSON.stringify(b.route)===JSON.stringify(source?.route)&&simulationSettingsKey(b.state)===simulationSettingsKey(source);
  const report=flightLog.data.journeys.find(j=>same({state:j.state,strokes:j.state?.attempts,route:j.state?.route})&&j.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION)?.cleverness_playtest;
  const stored=[best?.bestStrokes,best?.bestCleverness].find(b=>same(b)&&(b.scoreVersion??b.version)===BAND_FREE_VERSION),value=report?.band_free?.unrounded_score??stored?.cleverness??stored?.unrounded;
- simulationPanel.show({id:daily.selected()?.id,state:source,score:Number.isFinite(value)?Math.round(value):null,modelSha:source?modelHash(source):null,visible:holeResult()});
+ simulationPanel.show({id,state:source,score:Number.isFinite(value)?Math.round(value):null,modelSha:source?modelHash(source):null,visible:holeResult()});
 }
 async function openDaily(day){
  if(!simpleDaily||busy)return;
