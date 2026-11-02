@@ -247,6 +247,10 @@ body.word-entry-active .previous-attempt-element,body.word-entry-active [data-pr
 /* The current lie and current target share a clear, restrained emphasis. */
 .active-word-label .label-body rect{fill:#356b47;fill-opacity:1;stroke:#d4e7be;stroke-width:2;filter:drop-shadow(0 0 4px #a8ca8270);}
 .active-word-label .planet-label{fill:#fffdf2;}
+.word-label.playable-dogleg-label{pointer-events:all;cursor:pointer;opacity:1;}
+.word-label.playable-dogleg-label .label-body rect{fill:#498d46;fill-opacity:1;stroke:#d5edb7;stroke-width:2;filter:drop-shadow(0 0 5px #9bd86b95);}
+.playable-dogleg-label .planet-label{fill:#fffdf2;}
+.playable-dogleg-label:focus-visible .label-body rect{stroke:#fffdf2;stroke-width:3;}
 
 .mission #hole-number{font-weight:600;color:#304b36;}
 .mission #hole-par{font-weight:400;color:#6b7d64;margin-left:3px;}

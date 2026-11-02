@@ -310,6 +310,18 @@ async function loadPackedModel(config) {
   return vectors;
 }
 
+/** Read-only UI hint: use a normal submission on an isolated copy of the lie. */
+export function canPlayDogleg(game) {
+  if(!game?.waypoint||game.stage!==0||game.won||game.challenge_failed)return false;
+  try {
+    const copy=Object.assign(Object.create(Object.getPrototypeOf(game)),game,{
+      history:game.history.slice(),route:game.route.slice(),automatic_shots:game.automatic_shots.slice()
+    });
+    const result=copy.submit(game.waypoint.word);
+    return !!(result.success&&result.waypoint_reached);
+  } catch { return false; }
+}
+
 export async function createBrowserClient({progressive=true,onProgress}={}) {
   const config=await loadFile('./model/config.json',false,'no-cache');
   const [words,hubBuffer]=await Promise.all([loadFile('./model/'+config.words_file),loadFile('./model/'+config.hub_file,true)]);
@@ -390,7 +402,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(!workerModels.has(profile)){worker.postMessage({init:true,profile,modelSha:config.vector_sha256,words,vectors:model.vectors,dimensions:config.dimensions,hubs,localScaling:model.localScaling});workerModels.add(profile);}
     return new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});worker.postMessage({id,body,operation});});
   }
-  return { config,retryNow,restoreRetry, prefetch(word){return prepare(word);},startBackground(){return loader?.startBackground()??Promise.resolve();},canFinish(state){return probe(state).finishesFrom(state.current,state.progress);},chipRange(state){return chipRange(probe(state));}, async request(path, body) {
+  return { config,retryNow,restoreRetry, prefetch(word){return prepare(word);},startBackground(){return loader?.startBackground()??Promise.resolve();},canPlayDogleg(state){return canPlayDogleg(probe(state));},canFinish(state){return probe(state).finishesFrom(state.current,state.progress);},chipRange(state){return chipRange(probe(state));}, async request(path, body) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);

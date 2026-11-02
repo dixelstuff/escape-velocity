@@ -33,7 +33,7 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=uk-us-v1';
+import { createBrowserClient } from './engine.mjs?v=tap-dogleg-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
 import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=uk-us-v1';
@@ -350,7 +350,7 @@ async function api(path,body){
  if(rollingMode&&body?.state?.challenge?.rolling){const saved=body.state,h=rounds.store.bank[saved.challenge.id];if(h)body={...body,state:{...saved,challenge:{...saved.challenge,attempt_limit:h.allowance}}};}
  return client.request(path,body);
 }
-function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())return;busy=value;for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id)&&!e.closest('#cleverness-playtest'))e.disabled=value&&!(changingRetry&&e.id==='word');$('word').readOnly=false;if(!value){courseInputLocks();if(state){renderBag();renderNotice();if(simpleDaily)prepareRouteAnalysis(state);}}}
+function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())return;busy=value;syncDoglegLabel();for(const e of document.querySelectorAll('button,input,select'))if(!['copy-log','download-log','log-journey'].includes(e.id)&&!e.closest('#cleverness-playtest'))e.disabled=value&&!(changingRetry&&e.id==='word');$('word').readOnly=false;if(!value){courseInputLocks();if(state){renderBag();renderNotice();if(simpleDaily)prepareRouteAnalysis(state);}}}
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const desktopInteraction=()=>matchMedia('(hover: hover) and (pointer: fine)').matches;
 let appearanceKey,appearanceLayout,backdropLayout;
@@ -459,7 +459,7 @@ function commitRetry(){
 }
 document.addEventListener('pointerdown',event=>{if(retryPreview&&!busy&&!event.target.closest('#launch-form,[data-resume-through],button,[data-course-row],#hole-attempt-log'))void cancelRetry();});
 function tappedWord(event){
- const labels=[...$('map').querySelectorAll('[data-resume-through],[data-focus-entry]')].filter(label=>getComputedStyle(label).visibility!=='hidden');
+ const labels=[...$('map').querySelectorAll('[data-resume-through],[data-focus-entry],[data-play-dogleg]')].filter(label=>getComputedStyle(label).visibility!=='hidden');
  const targets=labels.map(label=>{
   const rect=label.querySelector('.label-body rect'),dot=[...$('map').querySelectorAll('[data-lie-dot]')].find(n=>n.dataset.lieKey===label.dataset.lieKey)?.querySelector('circle');
   return {word:label.dataset.lieKey,boxes:[rect,dot].filter(Boolean).map(node=>node.getBoundingClientRect())};
@@ -469,6 +469,10 @@ function tappedWord(event){
 }
 function activateWord(label){
  if(!label||!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;
+ if(label.hasAttribute('data-play-dogleg')){
+  if(doglegReady())void submit(state.waypoint.word);
+  return;
+ }
  if(label.hasAttribute('data-resume-through'))void retryFromWord(Number(label.dataset.resumeThrough));
  else if(!busy)$('word').focus({preventScroll:true});
 }
@@ -494,11 +498,26 @@ $('map').addEventListener('click',event=>{
   if(!busy&&(event.detail===0||tap?.result)){event.preventDefault();event.stopPropagation();void resultControlNavigation(resumeResultHole);}
   return;
  }
- const label=event.detail===0?event.target.closest('[data-resume-through],[data-focus-entry]'):pendingWordTap?.label??tappedWord(event);
+ const label=event.detail===0?event.target.closest('[data-resume-through],[data-focus-entry],[data-play-dogleg]'):pendingWordTap?.label??tappedWord(event);
  pendingWordTap=null;if(!label||busy)return;
  event.preventDefault();event.stopPropagation();activateWord(label);
 });
-$('map').addEventListener('keydown',event=>{if(!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;if(!['Enter',' '].includes(event.key))return;if(simpleDaily&&holeResult()){event.preventDefault();void resultControlNavigation(resumeResultHole);return;}const label=event.target.closest('[data-resume-through]');if(label){event.preventDefault();void retryFromWord(Number(label.dataset.resumeThrough));}else if(event.target.closest('[data-focus-entry]')&&!busy){event.preventDefault();$('word').focus({preventScroll:true});}});
+$('map').addEventListener('keydown',event=>{if(!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;if(!['Enter',' '].includes(event.key))return;if(simpleDaily&&holeResult()){event.preventDefault();void resultControlNavigation(resumeResultHole);return;}const label=event.target.closest('[data-play-dogleg],[data-resume-through],[data-focus-entry]');if(label){event.preventDefault();event.stopPropagation();activateWord(label);}});
+function doglegReady(){
+ return !!(client&&state?.waypoint&&state.stage===0&&!busy&&!restoring&&!holeResult()&&!courseResult()
+  &&!(inCourse()&&rounds.active.finished&&!practising())
+  &&(!rollingMode||!inCourse()||rounds.playable(retryPreview?.original.state??state))
+  &&client.canPlayDogleg(state));
+}
+function syncDoglegLabel(){
+ const ready=doglegReady();
+ for(const label of $('map').querySelectorAll('[data-dogleg-target]')){
+  label.toggleAttribute('data-play-dogleg',ready);label.classList.toggle('playable-dogleg-label',ready);
+  if(ready){label.setAttribute('role','button');label.setAttribute('tabindex','0');label.setAttribute('aria-label',`Play ${state.waypoint.word.toUpperCase()} to reach the dogleg`);}
+  else if(label.hasAttribute('data-resume-through'))label.setAttribute('aria-label',`Retry from ${label.dataset.labelWord.toUpperCase()}`);
+  else if(!label.hasAttribute('data-focus-entry')){label.removeAttribute('role');label.removeAttribute('tabindex');label.removeAttribute('aria-label');}
+ }
+}
 function syncControlTrees(){
  const buttons=[...document.querySelectorAll('#toggle-bag,#show-best-route')].filter(button=>getComputedStyle(button).visibility!=='hidden').map(button=>button.getBoundingClientRect()).filter(b=>b.width>0&&b.height>0);
  for(const tree of $('map').querySelectorAll('[data-course-tree]'))tree.toggleAttribute('data-hidden-for-control',treeOverlapsControls(tree.getBoundingClientRect(),buttons));
@@ -561,7 +580,7 @@ function map(preview=null){
  for(const node of textNodes)node.remove();
  let labels='';
  for(const p of planets){const box=layout.labels.get(p.key);if(!box)continue;const endX=Math.max(box.x,Math.min(box.x+box.width,p.pos.x)),endY=Math.max(box.y,Math.min(box.y+box.height,p.pos.y));const length=Math.hypot(endX-p.pos.x,endY-p.pos.y)||1;const markerRadius=(p.key===currentKey?16:p.key===finalKey?10:6)*scale;const startX=p.pos.x+markerRadius*(endX-p.pos.x)/length,startY=p.pos.y+markerRadius*(endY-p.pos.y)/length;
- labels+=`<g class="word-label${!p.previous&&(state.won?(p.key===teeKey||p.key===finalKey||stateSpelling(state,p.word)===stateSpelling(state,state.waypoint?.word)&&state.history.some(h=>h.waypoint_reached&&h.word===p.word)):(p.key===currentKey||p.key===targetKey))?' active-word-label':''}${p.previous?' previous-word-label previous-attempt-element':''}${p.waypointReference?' waypoint-reference-label':''}" ${p.waypointReference?'data-waypoint-reference="true"':''} data-label-word="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${p.key===currentKey?'data-focus-entry="true"':''} ${p.resumeThrough!==undefined?`data-resume-through="${p.resumeThrough}" role="button" tabindex="0" aria-label="Retry from ${esc(p.word.toUpperCase())}"`: p.key===currentKey?`role="button" tabindex="0" aria-label="${state.current===state.start?'Play your first word':'Play your next word'}"`:''} opacity="${p.retryFuture?.7:p.failed?.72:1}">${p.previous||p.waypointReference?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><g class="label-upright" transform="rotate(${state.waypoint?-(d.style.rotation??0):0} ${box.x+box.width/2} ${box.y+box.height/2})"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g></g>`;
+ labels+=`<g class="word-label${!p.previous&&(state.won?(p.key===teeKey||p.key===finalKey||stateSpelling(state,p.word)===stateSpelling(state,state.waypoint?.word)&&state.history.some(h=>h.waypoint_reached&&h.word===p.word)):(p.key===currentKey||p.key===targetKey))?' active-word-label':''}${p.previous?' previous-word-label previous-attempt-element':''}${p.waypointReference?' waypoint-reference-label':''}" ${p.waypointReference?'data-waypoint-reference="true"':''} data-label-word="${esc(p.word)}" data-lie-key="${esc(p.key)}" ${state.waypoint&&state.stage===0&&p.key===waypointKey&&!p.previous?'data-dogleg-target="true"':''} ${p.key===currentKey?'data-focus-entry="true"':''} ${p.resumeThrough!==undefined?`data-resume-through="${p.resumeThrough}" role="button" tabindex="0" aria-label="Retry from ${esc(p.word.toUpperCase())}"`: p.key===currentKey?`role="button" tabindex="0" aria-label="${state.current===state.start?'Play your first word':'Play your next word'}"`:''} opacity="${p.retryFuture?.7:p.failed?.72:1}">${p.previous||p.waypointReference?'':`<path d="M${startX} ${startY} L${endX} ${endY}" stroke="#8ba17e" stroke-width="1"/>`}<g class="label-body"><g class="label-upright" transform="rotate(${state.waypoint?-(d.style.rotation??0):0} ${box.x+box.width/2} ${box.y+box.height/2})"><rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="5" fill="#f4f7ee" fill-opacity=".96"/><text x="${box.textX}" y="${box.textY}" dominant-baseline="central" text-anchor="middle" class="planet-label">${esc(p.word.toUpperCase())}</text></g></g></g>`;
  }
  $('map').querySelector('#course-world').insertAdjacentHTML('beforeend',labels);
  $('map').setAttribute('viewBox',`0 0 ${d.width} ${layout.height}`);
@@ -582,7 +601,7 @@ function map(preview=null){
  }
  else if(simpleDaily)resultMapCamera.remember({x:0,y:0,width:d.width},{worldWidth:d.width,frameWidth:$('map').clientWidth,backdropPadding:d.width});
 
- moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
+ syncDoglegLabel();moveWordLabels(previousLabels);labelSceneKey=currentLabelScene();syncControlTrees();syncMapOverlay();
 }
 function telemetry(){
  if(simpleDaily)return;

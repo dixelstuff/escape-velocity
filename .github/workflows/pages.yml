@@ -37,6 +37,7 @@ jobs:
           node tests/test_dogleg_choice_30.mjs
           node tests/test_simulation_pilot.mjs
           node tests/test_open_landscapes_30.mjs
+          node tests/test_tap_dogleg.mjs
           node tests/test_spelling_equivalence.mjs
           node tests/test_spelling_cleverness.mjs
           node tests/test_future_daily_proposals.mjs
