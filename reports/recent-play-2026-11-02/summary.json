@@ -1,0 +1,3697 @@
+{
+  "sources": [
+    {
+      "file": "word-golf-play-2026-11-01T10-23-18-855Z.json",
+      "batch": "ff08a6f5-db55-4c5c-9b61-83185442dcba",
+      "journeys": 320
+    },
+    {
+      "file": "word-golf-play-2026-11-02T06-10-46-675Z.json",
+      "batch": "b50b3e76-7f7c-4f6a-aafa-3cfe959c637f",
+      "journeys": 711
+    },
+    {
+      "file": "word-golf-play-2026-11-02T08-28-54-160Z.json",
+      "batch": "438ded0f-0841-4b01-bcdb-a42ff66b65c1",
+      "journeys": 65
+    }
+  ],
+  "method": "Deduplicate journeys by ID and latest updatedAt; exclude assumed prefix entries and automatic finishing entries; deduplicate actual submissions within each word triple by timestamp, normalised word, origin and stage. Errors retained as inputs, not mechanical shots. Counts describe captured activity, not lifetime attempts. Missing completion is not proof a hole was abandoned or unsolvable. One player; no enjoyment labels inferred.",
+  "unique_journeys": 1096,
+  "played_holes": 68,
+  "holes": [
+    {
+      "words": [
+        "spoil",
+        "gravity",
+        "ring"
+      ],
+      "input_count": 3,
+      "mechanical_shots": 3,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 3,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "spoil": 1
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "weight"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "spoil",
+            "break",
+            "weight",
+            "ring"
+          ],
+          "strokes": 3,
+          "cleverness": 86,
+          "time": "2026-11-01T01:13:43.943Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "thrill",
+        "frame",
+        "root"
+      ],
+      "input_count": 17,
+      "mechanical_shots": 17,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 17,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 14,
+        "hits": 3,
+        "misses": 11,
+        "contact_failures": 10,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "thrill": 10,
+          "crime": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 3,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "picture"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "thrill",
+            "crime",
+            "picture",
+            "stuck",
+            "root"
+          ],
+          "strokes": 4,
+          "cleverness": 81,
+          "time": "2026-11-01T01:16:43.673Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "plain",
+        "ambition",
+        "echo"
+      ],
+      "input_count": 18,
+      "mechanical_shots": 17,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 18,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 14,
+        "hits": 2,
+        "misses": 12,
+        "contact_failures": 7,
+        "backward_only_failures": 5,
+        "miss_origins": {
+          "plain": 12
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 1,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "desire": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "desire"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "plain",
+            "basic",
+            "desire",
+            "listen",
+            "echo"
+          ],
+          "strokes": 4,
+          "cleverness": 81,
+          "time": "2026-11-01T01:19:48.212Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "dare",
+        "comfort",
+        "signal"
+      ],
+      "input_count": 4,
+      "mechanical_shots": 4,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 4,
+      "best_strokes": 2,
+      "first_leg": {
+        "shots": 4,
+        "hits": 2,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "challenge": 2
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "hope"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "dare",
+            "hope",
+            "signal"
+          ],
+          "strokes": 2,
+          "cleverness": 98,
+          "time": "2026-11-01T01:21:00.480Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "loop",
+        "sundae",
+        "cheeky"
+      ],
+      "input_count": 7,
+      "mechanical_shots": 7,
+      "no_shot_errors": 0,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 7,
+        "hits": 2,
+        "misses": 5,
+        "contact_failures": 5,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "loop": 2,
+          "spin": 2,
+          "circle": 1
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 0,
+      "observed_landing_words": [],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "dance",
+        "borrow",
+        "stitch"
+      ],
+      "input_count": 49,
+      "mechanical_shots": 48,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 36,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 32,
+        "hits": 15,
+        "misses": 17,
+        "contact_failures": 15,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "dance": 7,
+          "house": 5,
+          "break": 1,
+          "style": 1,
+          "fast": 1,
+          "mix": 1,
+          "home": 1
+        }
+      },
+      "second_leg": {
+        "shots": 16,
+        "hits": 6,
+        "misses": 10,
+        "contact_failures": 8,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "rent": 7,
+          "loan": 2,
+          "tuxedo": 1
+        }
+      },
+      "observed_dogleg_entries": 4,
+      "observed_landing_words": [
+        "buy",
+        "loan",
+        "rent"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "dance",
+            "house",
+            "rent",
+            "tuxedo",
+            "shirt",
+            "stitch"
+          ],
+          "strokes": 5,
+          "cleverness": 65,
+          "time": "2026-11-01T03:46:45.387Z"
+        },
+        {
+          "route": [
+            "dance",
+            "home",
+            "buy",
+            "dress",
+            "stitch"
+          ],
+          "strokes": 4,
+          "cleverness": 70,
+          "time": "2026-11-01T03:49:06.260Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "cloud",
+        "courage",
+        "whisper"
+      ],
+      "input_count": 22,
+      "mechanical_shots": 21,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 22,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 13,
+        "hits": 7,
+        "misses": 6,
+        "contact_failures": 6,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "cloud": 2,
+          "lightning": 2,
+          "storm": 1,
+          "thunder": 1
+        }
+      },
+      "second_leg": {
+        "shots": 8,
+        "hits": 2,
+        "misses": 6,
+        "contact_failures": 6,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "strength": 6
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "strength"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "cloud",
+            "storm",
+            "strength",
+            "volume",
+            "soft",
+            "whisper"
+          ],
+          "strokes": 5,
+          "cleverness": 73,
+          "time": "2026-11-01T03:53:02.466Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "ticket",
+        "mercy",
+        "orbit"
+      ],
+      "input_count": 6,
+      "mechanical_shots": 6,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 4,
+        "hits": 3,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "deal": 1
+        }
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "relief"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "ticket",
+            "free",
+            "relief",
+            "plane",
+            "orbit"
+          ],
+          "strokes": 4,
+          "cleverness": 80,
+          "time": "2026-11-01T04:33:42.193Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "mend",
+        "shadow",
+        "risk"
+      ],
+      "input_count": 61,
+      "mechanical_shots": 61,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 61,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 60,
+        "hits": 18,
+        "misses": 42,
+        "contact_failures": 41,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "mend": 31,
+          "fix": 6,
+          "heal": 3,
+          "build": 1,
+          "repair": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "light"
+      ],
+      "close_successful_first_leg_shots": [
+        {
+          "origin": "build",
+          "word": "long",
+          "shortfall": 0.01417414175706655
+        }
+      ],
+      "completions": [
+        {
+          "route": [
+            "mend",
+            "help",
+            "light",
+            "low",
+            "risk"
+          ],
+          "strokes": 4,
+          "cleverness": 86,
+          "time": "2026-11-01T05:32:10.483Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "sleep",
+        "bright",
+        "mask"
+      ],
+      "input_count": 1,
+      "mechanical_shots": 1,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 1,
+      "best_strokes": 2,
+      "first_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "light"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "sleep",
+            "light",
+            "mask"
+          ],
+          "strokes": 2,
+          "cleverness": 88,
+          "time": "2026-11-01T05:32:25.498Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "fold",
+        "passion",
+        "wild"
+      ],
+      "input_count": 8,
+      "mechanical_shots": 7,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 7,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 6,
+        "hits": 3,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "fold": 3
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "love",
+        "passion"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "fold",
+            "together",
+            "passion",
+            "love",
+            "wild"
+          ],
+          "strokes": 4,
+          "cleverness": 76,
+          "time": "2026-11-01T05:55:50.510Z"
+        },
+        {
+          "route": [
+            "fold",
+            "together",
+            "love",
+            "wild"
+          ],
+          "strokes": 3,
+          "cleverness": 94,
+          "time": "2026-11-01T05:55:59.367Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "temper",
+        "mirror",
+        "credit"
+      ],
+      "input_count": 12,
+      "mechanical_shots": 12,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 11,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 10,
+        "hits": 3,
+        "misses": 7,
+        "contact_failures": 6,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "reflection": 7
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "reflection"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "temper",
+            "emotions",
+            "reflection",
+            "praise",
+            "positive",
+            "credit"
+          ],
+          "strokes": 5,
+          "cleverness": 57,
+          "time": "2026-11-01T06:17:12.155Z"
+        },
+        {
+          "route": [
+            "temper",
+            "emotions",
+            "reflection",
+            "positive",
+            "credit"
+          ],
+          "strokes": 4,
+          "cleverness": 81,
+          "time": "2026-11-01T06:17:21.433Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "signal",
+        "comfort",
+        "silk"
+      ],
+      "input_count": 7,
+      "mechanical_shots": 7,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 7,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 6,
+        "hits": 4,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "signal": 1,
+          "danger": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "sleep"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "signal",
+            "danger",
+            "sleep",
+            "sheets",
+            "silk"
+          ],
+          "strokes": 4,
+          "cleverness": 78,
+          "time": "2026-11-01T06:32:11.968Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "dice",
+        "shelter",
+        "moment"
+      ],
+      "input_count": 6,
+      "mechanical_shots": 6,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 6,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 6,
+        "hits": 5,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "dice": 1
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "home"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "dice",
+            "game",
+            "home",
+            "moment"
+          ],
+          "strokes": 3,
+          "cleverness": 88,
+          "time": "2026-11-01T06:32:53.794Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "root",
+        "wonder",
+        "field"
+      ],
+      "input_count": 13,
+      "mechanical_shots": 13,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 13,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 9,
+        "hits": 3,
+        "misses": 6,
+        "contact_failures": 5,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "root": 4,
+          "tree": 2
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 2,
+        "misses": 2,
+        "contact_failures": 1,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "magic": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "magic"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "root",
+            "tree",
+            "magic",
+            "science",
+            "field"
+          ],
+          "strokes": 4,
+          "cleverness": 79,
+          "time": "2026-11-01T06:56:28.720Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "trail",
+        "favour",
+        "shine"
+      ],
+      "input_count": 5,
+      "mechanical_shots": 5,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 3,
+        "hits": 3,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 1,
+        "misses": 1,
+        "contact_failures": 0,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "promise": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "promise"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "trail",
+            "path",
+            "promise",
+            "faith",
+            "shine"
+          ],
+          "strokes": 4,
+          "cleverness": 87,
+          "time": "2026-11-01T07:17:58.750Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "border",
+        "faith",
+        "drift"
+      ],
+      "input_count": 5,
+      "mechanical_shots": 5,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "dreams": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "hope"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "border",
+            "line",
+            "hope",
+            "dreams",
+            "fade",
+            "drift"
+          ],
+          "strokes": 5,
+          "cleverness": 58,
+          "time": "2026-11-01T07:18:57.607Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "fresh",
+        "duty",
+        "shell"
+      ],
+      "input_count": 9,
+      "mechanical_shots": 8,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 9,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 5,
+        "hits": 2,
+        "misses": 3,
+        "contact_failures": 3,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "fresh": 3
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "service": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "service"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "fresh",
+            "water",
+            "service",
+            "navy",
+            "shell"
+          ],
+          "strokes": 4,
+          "cleverness": 75,
+          "time": "2026-11-01T07:40:51.957Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "lantern",
+        "ambition",
+        "fold"
+      ],
+      "input_count": 17,
+      "mechanical_shots": 17,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 17,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 13,
+        "hits": 5,
+        "misses": 8,
+        "contact_failures": 5,
+        "backward_only_failures": 3,
+        "miss_origins": {
+          "lantern": 4,
+          "flame": 2,
+          "light": 1,
+          "dark": 1
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 2,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "ambition": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "ambition"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "lantern",
+            "dark",
+            "ambition",
+            "desire",
+            "hold",
+            "fold"
+          ],
+          "strokes": 5,
+          "cleverness": 55,
+          "time": "2026-11-01T08:10:30.631Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "pause",
+        "gravity",
+        "ribbon"
+      ],
+      "input_count": 4,
+      "mechanical_shots": 4,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 4,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 3,
+        "hits": 3,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "earth"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "pause",
+            "stop",
+            "earth",
+            "ring",
+            "ribbon"
+          ],
+          "strokes": 4,
+          "cleverness": 78,
+          "time": "2026-11-01T08:11:40.341Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "circle",
+        "rescue",
+        "warm"
+      ],
+      "input_count": 23,
+      "mechanical_shots": 23,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 10,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 6,
+        "hits": 2,
+        "misses": 4,
+        "contact_failures": 4,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "circle": 4
+        }
+      },
+      "second_leg": {
+        "shots": 17,
+        "hits": 4,
+        "misses": 13,
+        "contact_failures": 13,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "airplane": 13
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "airplane"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "circle",
+            "runway",
+            "airplane",
+            "travel",
+            "holiday",
+            "warm"
+          ],
+          "strokes": 5,
+          "cleverness": 72,
+          "time": "2026-11-01T08:13:00.575Z"
+        },
+        {
+          "route": [
+            "circle",
+            "runway",
+            "airplane",
+            "arrive",
+            "warm"
+          ],
+          "strokes": 4,
+          "cleverness": 83,
+          "time": "2026-11-01T08:14:40.785Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "silent",
+        "shift",
+        "worth"
+      ],
+      "input_count": 4,
+      "mechanical_shots": 4,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 4,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "silent": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "mood"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "silent",
+            "quiet",
+            "mood",
+            "self",
+            "worth"
+          ],
+          "strokes": 4,
+          "cleverness": 76,
+          "time": "2026-11-01T08:16:28.492Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "roam",
+        "justice",
+        "pocket"
+      ],
+      "input_count": 40,
+      "mechanical_shots": 38,
+      "no_shot_errors": 2,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 37,
+        "hits": 4,
+        "misses": 33,
+        "contact_failures": 31,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "roam": 30,
+          "free": 1,
+          "travel": 1,
+          "animal": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 0,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "innocent": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "innocent"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "tide",
+        "luck",
+        "clear"
+      ],
+      "input_count": 5,
+      "mechanical_shots": 5,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 5,
+        "hits": 2,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "moon": 2,
+          "tide": 1
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "wish"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "tide",
+            "moon",
+            "wish",
+            "clear"
+          ],
+          "strokes": 3,
+          "cleverness": 90,
+          "time": "2026-11-01T10:04:33.225Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "flash",
+        "honour",
+        "soft"
+      ],
+      "input_count": 27,
+      "mechanical_shots": 26,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 27,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 20,
+        "hits": 9,
+        "misses": 11,
+        "contact_failures": 10,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "flash": 6,
+          "light": 3,
+          "mob": 1,
+          "flood": 1
+        }
+      },
+      "second_leg": {
+        "shots": 6,
+        "hits": 2,
+        "misses": 4,
+        "contact_failures": 4,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "respect": 4
+        }
+      },
+      "observed_dogleg_entries": 3,
+      "observed_landing_words": [
+        "honour",
+        "pride",
+        "respect"
+      ],
+      "close_successful_first_leg_shots": [
+        {
+          "origin": "light",
+          "word": "justice",
+          "shortfall": 0.010668124303165327
+        }
+      ],
+      "completions": [
+        {
+          "route": [
+            "flash",
+            "light",
+            "honour",
+            "music",
+            "soft"
+          ],
+          "strokes": 4,
+          "cleverness": 77,
+          "time": "2026-11-01T10:10:24.360Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "notice",
+        "trust",
+        "ribbon"
+      ],
+      "input_count": 5,
+      "mechanical_shots": 5,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 4,
+        "hits": 1,
+        "misses": 3,
+        "contact_failures": 1,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "notice": 3
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "board"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "notice",
+            "board",
+            "black",
+            "ribbon"
+          ],
+          "strokes": 3,
+          "cleverness": 86,
+          "time": "2026-11-01T10:43:41.956Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "warm",
+        "question",
+        "scale"
+      ],
+      "input_count": 12,
+      "mechanical_shots": 11,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 12,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 10,
+        "hits": 2,
+        "misses": 8,
+        "contact_failures": 7,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "welcome": 8
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "welcome"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "warm",
+            "welcome",
+            "quick",
+            "scale"
+          ],
+          "strokes": 3,
+          "cleverness": 74,
+          "time": "2026-11-01T10:46:20.804Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "spin",
+        "shadow",
+        "gentle"
+      ],
+      "input_count": 30,
+      "mechanical_shots": 30,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 30,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 21,
+        "hits": 10,
+        "misses": 11,
+        "contact_failures": 9,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "spin": 9,
+          "soft": 1,
+          "ball": 1
+        }
+      },
+      "second_leg": {
+        "shots": 9,
+        "hits": 5,
+        "misses": 4,
+        "contact_failures": 3,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "cast": 3,
+          "poor": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "cast"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "spin",
+            "line",
+            "cast",
+            "far",
+            "soft",
+            "gentle"
+          ],
+          "strokes": 5,
+          "cleverness": 60,
+          "time": "2026-11-01T10:52:07.507Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "march",
+        "curiosity",
+        "mask"
+      ],
+      "input_count": 30,
+      "mechanical_shots": 29,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 30,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 25,
+        "hits": 12,
+        "misses": 13,
+        "contact_failures": 12,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "march": 4,
+          "direction": 3,
+          "time": 2,
+          "unknown": 2,
+          "rights": 1,
+          "independence": 1
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 1,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "curious": 3
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "curious",
+        "intrigued"
+      ],
+      "close_successful_first_leg_shots": [
+        {
+          "origin": "thought",
+          "word": "thoughtful",
+          "shortfall": 0.017256703674902396
+        }
+      ],
+      "completions": [
+        {
+          "route": [
+            "march",
+            "direction",
+            "curious",
+            "look",
+            "mask"
+          ],
+          "strokes": 4,
+          "cleverness": 73,
+          "time": "2026-11-01T19:42:05.348Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "wander",
+        "value",
+        "crown"
+      ],
+      "input_count": 5,
+      "mechanical_shots": 5,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 3,
+      "first_leg": {
+        "shots": 2,
+        "hits": 1,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "wander": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 1,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "around": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "around"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "wander",
+            "around",
+            "castle",
+            "crown"
+          ],
+          "strokes": 3,
+          "cleverness": 88,
+          "time": "2026-11-01T19:55:28.710Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "flame",
+        "belief",
+        "cloak"
+      ],
+      "input_count": 13,
+      "mechanical_shots": 13,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 13,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 10,
+        "hits": 5,
+        "misses": 5,
+        "contact_failures": 5,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "flame": 2,
+          "light": 1,
+          "candle": 1,
+          "ignite": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 1,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "love": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "love"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "flame",
+            "burning",
+            "love",
+            "wear",
+            "cloak"
+          ],
+          "strokes": 4,
+          "cleverness": 80,
+          "time": "2026-11-01T19:57:22.549Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "silver",
+        "secret",
+        "tangle"
+      ],
+      "input_count": 9,
+      "mechanical_shots": 9,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 9,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 7,
+        "hits": 4,
+        "misses": 3,
+        "contact_failures": 1,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "silver": 2,
+          "age": 1
+        }
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 1,
+        "misses": 1,
+        "contact_failures": 0,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "truth": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "truth"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "silver",
+            "age",
+            "truth",
+            "lie",
+            "tangle"
+          ],
+          "strokes": 4,
+          "cleverness": 67,
+          "time": "2026-11-01T19:58:49.784Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "thread",
+        "danger",
+        "wonder"
+      ],
+      "input_count": 13,
+      "mechanical_shots": 13,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 8,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 11,
+        "hits": 5,
+        "misses": 6,
+        "contact_failures": 3,
+        "backward_only_failures": 3,
+        "miss_origins": {
+          "thread": 4,
+          "rope": 2
+        }
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "fire"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "thread",
+            "rope",
+            "burn",
+            "fire",
+            "woman",
+            "wonder"
+          ],
+          "strokes": 5,
+          "cleverness": 74,
+          "time": "2026-11-01T21:32:04.603Z"
+        },
+        {
+          "route": [
+            "thread",
+            "flame",
+            "fire",
+            "woman",
+            "wonder"
+          ],
+          "strokes": 4,
+          "cleverness": 84,
+          "time": "2026-11-01T21:32:40.192Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "stage",
+        "borrow",
+        "drift"
+      ],
+      "input_count": 10,
+      "mechanical_shots": 10,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 10,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 4,
+        "hits": 4,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 6,
+        "hits": 2,
+        "misses": 4,
+        "contact_failures": 3,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "rent": 3,
+          "tear": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "rent"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "stage",
+            "door",
+            "rent",
+            "tear",
+            "throw",
+            "drift"
+          ],
+          "strokes": 5,
+          "cleverness": 53,
+          "time": "2026-11-01T21:33:38.083Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "catch",
+        "peace",
+        "hollow"
+      ],
+      "input_count": 26,
+      "mechanical_shots": 26,
+      "no_shot_errors": 0,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 0,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "catch": 1
+        }
+      },
+      "second_leg": {
+        "shots": 23,
+        "hits": 1,
+        "misses": 22,
+        "contact_failures": 14,
+        "backward_only_failures": 8,
+        "miss_origins": {
+          "victory": 18,
+          "hope": 4
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "hope"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "rumour",
+        "shelf",
+        "thirst"
+      ],
+      "input_count": 19,
+      "mechanical_shots": 18,
+      "no_shot_errors": 1,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 17,
+        "hits": 6,
+        "misses": 11,
+        "contact_failures": 11,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "rumour": 10,
+          "truth": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "lie"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "button",
+        "envy",
+        "shiver"
+      ],
+      "input_count": 57,
+      "mechanical_shots": 57,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 57,
+      "best_strokes": 6,
+      "first_leg": {
+        "shots": 53,
+        "hits": 22,
+        "misses": 31,
+        "contact_failures": 24,
+        "backward_only_failures": 7,
+        "miss_origins": {
+          "button": 14,
+          "sew": 6,
+          "green": 4,
+          "dress": 4,
+          "clothes": 1,
+          "suit": 1,
+          "needle": 1
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 3,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "jealous": 1
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "jealous"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "button",
+            "dress",
+            "beauty",
+            "jealous",
+            "reaction",
+            "cold",
+            "shiver"
+          ],
+          "strokes": 6,
+          "cleverness": 52,
+          "time": "2026-11-01T22:51:06.194Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "squeeze",
+        "legend",
+        "tilt"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 20,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 9,
+        "hits": 3,
+        "misses": 6,
+        "contact_failures": 6,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "squeeze": 4,
+          "pressure": 2
+        }
+      },
+      "second_leg": {
+        "shots": 11,
+        "hits": 5,
+        "misses": 6,
+        "contact_failures": 4,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "joust": 3,
+          "sword": 2,
+          "fall": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "sword"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "squeeze",
+            "grip",
+            "sword",
+            "sharp",
+            "angle",
+            "tilt"
+          ],
+          "strokes": 5,
+          "cleverness": 58,
+          "time": "2026-11-01T22:55:58.070Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "rust",
+        "fortune",
+        "interrupt"
+      ],
+      "input_count": 15,
+      "mechanical_shots": 15,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 15,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 11,
+        "hits": 7,
+        "misses": 4,
+        "contact_failures": 4,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "metal": 1,
+          "rust": 1,
+          "copper": 1,
+          "iron": 1
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 3,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "fortune": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "fortune"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "rust",
+            "iron",
+            "fortune",
+            "lose",
+            "interrupt"
+          ],
+          "strokes": 4,
+          "cleverness": 74,
+          "time": "2026-11-01T23:21:50.369Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "harmless",
+        "chorus",
+        "packet"
+      ],
+      "input_count": 27,
+      "mechanical_shots": 27,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 19,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 8,
+        "hits": 3,
+        "misses": 5,
+        "contact_failures": 5,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "harmless": 4,
+          "bird": 1
+        }
+      },
+      "second_leg": {
+        "shots": 19,
+        "hits": 15,
+        "misses": 4,
+        "contact_failures": 1,
+        "backward_only_failures": 3,
+        "miss_origins": {
+          "song": 2,
+          "mix": 1,
+          "compilation": 1
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "song"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "harmless",
+            "bird",
+            "song",
+            "mix",
+            "storage",
+            "packet"
+          ],
+          "strokes": 5,
+          "cleverness": 60,
+          "time": "2026-11-01T23:25:21.086Z"
+        },
+        {
+          "route": [
+            "harmless",
+            "bird",
+            "song",
+            "box",
+            "packet"
+          ],
+          "strokes": 4,
+          "cleverness": 74,
+          "time": "2026-11-02T00:47:54.950Z"
+        },
+        {
+          "route": [
+            "harmless",
+            "bird",
+            "song",
+            "box",
+            "packet"
+          ],
+          "strokes": 4,
+          "cleverness": 74,
+          "time": "2026-11-02T00:48:18.339Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "prompt",
+        "knot",
+        "hungry"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 5,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 17,
+        "hits": 8,
+        "misses": 9,
+        "contact_failures": 9,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "quick": 7,
+          "prompt": 2
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 0,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "rope": 1
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "knot",
+        "rope"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "prompt",
+            "fast",
+            "slip",
+            "knot",
+            "stomach",
+            "hungry"
+          ],
+          "strokes": 5,
+          "cleverness": 61,
+          "time": "2026-11-02T00:49:56.393Z"
+        },
+        {
+          "route": [
+            "prompt",
+            "fast",
+            "rope",
+            "trap",
+            "hungry"
+          ],
+          "strokes": 4,
+          "cleverness": 78,
+          "time": "2026-11-02T00:52:41.489Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "hush",
+        "rebound",
+        "loft"
+      ],
+      "input_count": 51,
+      "mechanical_shots": 48,
+      "no_shot_errors": 3,
+      "completed": true,
+      "inputs_through_first_observed_finish": 31,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 29,
+        "hits": 11,
+        "misses": 18,
+        "contact_failures": 17,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "hush": 13,
+          "softly": 2,
+          "quiet": 1,
+          "swoosh": 1,
+          "hum": 1
+        }
+      },
+      "second_leg": {
+        "shots": 19,
+        "hits": 5,
+        "misses": 14,
+        "contact_failures": 8,
+        "backward_only_failures": 6,
+        "miss_origins": {
+          "ball": 9,
+          "bounce": 3,
+          "fly": 2
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "ball",
+        "bounce"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "hush",
+            "softly",
+            "ball",
+            "fly",
+            "bed",
+            "loft"
+          ],
+          "strokes": 5,
+          "cleverness": 69,
+          "time": "2026-11-02T00:59:00.527Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "careless",
+        "banner",
+        "murmur"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 17,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 8,
+        "hits": 3,
+        "misses": 5,
+        "contact_failures": 4,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "careless": 4,
+          "poor": 1
+        }
+      },
+      "second_leg": {
+        "shots": 12,
+        "hits": 4,
+        "misses": 8,
+        "contact_failures": 4,
+        "backward_only_failures": 4,
+        "miss_origins": {
+          "message": 8
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "message"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "careless",
+            "poor",
+            "message",
+            "heart",
+            "murmur"
+          ],
+          "strokes": 4,
+          "cleverness": 83,
+          "time": "2026-11-02T01:06:11.735Z"
+        },
+        {
+          "route": [
+            "careless",
+            "poor",
+            "message",
+            "heart",
+            "murmur"
+          ],
+          "strokes": 4,
+          "cleverness": 83,
+          "time": "2026-11-02T01:07:09.488Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "settle",
+        "glass",
+        "nerve"
+      ],
+      "input_count": 24,
+      "mechanical_shots": 22,
+      "no_shot_errors": 2,
+      "completed": true,
+      "inputs_through_first_observed_finish": 24,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 13,
+        "hits": 3,
+        "misses": 10,
+        "contact_failures": 10,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "settle": 10
+        }
+      },
+      "second_leg": {
+        "shots": 9,
+        "hits": 4,
+        "misses": 5,
+        "contact_failures": 3,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "electricity": 4,
+          "house": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "house"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "settle",
+            "sell",
+            "house",
+            "worry",
+            "stress",
+            "nerve"
+          ],
+          "strokes": 5,
+          "cleverness": 58,
+          "time": "2026-11-02T01:21:16.145Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "velvet",
+        "deceive",
+        "bargain"
+      ],
+      "input_count": 7,
+      "mechanical_shots": 7,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 6,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 6,
+        "hits": 3,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "suit": 2,
+          "velvet": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "trick"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "velvet",
+            "suit",
+            "trick",
+            "shop",
+            "bargain"
+          ],
+          "strokes": 4,
+          "cleverness": 76,
+          "time": "2026-11-02T01:22:29.013Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "remote",
+        "temper",
+        "plead"
+      ],
+      "input_count": 21,
+      "mechanical_shots": 20,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 21,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "second_leg": {
+        "shots": 18,
+        "hits": 6,
+        "misses": 12,
+        "contact_failures": 8,
+        "backward_only_failures": 4,
+        "miss_origins": {
+          "temper": 7,
+          "anger": 2,
+          "angry": 2,
+          "passion": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "temper"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "remote",
+            "control",
+            "temper",
+            "angry",
+            "innocent",
+            "plead"
+          ],
+          "strokes": 5,
+          "cleverness": 63,
+          "time": "2026-11-02T01:35:56.266Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "stumble",
+        "verdict",
+        "blush"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 20,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "fall": 1
+        }
+      },
+      "second_leg": {
+        "shots": 17,
+        "hits": 8,
+        "misses": 9,
+        "contact_failures": 8,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "decision": 6,
+          "exercise": 2,
+          "sex": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "decision"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "stumble",
+            "fall",
+            "decision",
+            "rich",
+            "flush",
+            "blush"
+          ],
+          "strokes": 5,
+          "cleverness": 59,
+          "time": "2026-11-02T01:38:49.025Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "frown",
+        "parcel",
+        "sincere"
+      ],
+      "input_count": 96,
+      "mechanical_shots": 95,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 65,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 94,
+        "hits": 19,
+        "misses": 75,
+        "contact_failures": 71,
+        "backward_only_failures": 4,
+        "miss_origins": {
+          "frown": 49,
+          "worry": 8,
+          "face": 5,
+          "confuse": 3,
+          "unhappy": 2,
+          "smile": 2,
+          "stress": 2,
+          "sad": 1,
+          "forehead": 1,
+          "wet": 1,
+          "house": 1
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "envelope"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "frown",
+            "unhappy",
+            "customer",
+            "envelope",
+            "letter",
+            "sincere"
+          ],
+          "strokes": 5,
+          "cleverness": 65,
+          "time": "2026-11-02T01:50:47.976Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "fidget",
+        "excuse",
+        "slate"
+      ],
+      "input_count": 4,
+      "mechanical_shots": 4,
+      "no_shot_errors": 0,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 4,
+        "hits": 0,
+        "misses": 4,
+        "contact_failures": 4,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "fidget": 4
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 0,
+      "observed_landing_words": [],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "tender",
+        "protest",
+        "pebble"
+      ],
+      "input_count": 22,
+      "mechanical_shots": 22,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 22,
+      "best_strokes": 6,
+      "first_leg": {
+        "shots": 20,
+        "hits": 9,
+        "misses": 11,
+        "contact_failures": 10,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "tender": 8,
+          "heart": 1,
+          "meat": 1,
+          "touch": 1
+        }
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 2,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "riot"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "tender",
+            "love",
+            "hate",
+            "riot",
+            "throw",
+            "stone",
+            "pebble"
+          ],
+          "strokes": 6,
+          "cleverness": 42,
+          "time": "2026-11-02T02:11:24.551Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "eager",
+        "stripe",
+        "forgive"
+      ],
+      "input_count": 13,
+      "mechanical_shots": 12,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 13,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 9,
+        "hits": 3,
+        "misses": 6,
+        "contact_failures": 6,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "eager": 6
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "zebra": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "zebra"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "eager",
+            "beaver",
+            "zebra",
+            "zoo",
+            "cruelty",
+            "forgive"
+          ],
+          "strokes": 5,
+          "cleverness": 66,
+          "time": "2026-11-02T02:15:31.459Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "blunt",
+        "festival",
+        "sigh"
+      ],
+      "input_count": 39,
+      "mechanical_shots": 35,
+      "no_shot_errors": 4,
+      "completed": true,
+      "inputs_through_first_observed_finish": 39,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 18,
+        "hits": 7,
+        "misses": 11,
+        "contact_failures": 11,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "knife": 5,
+          "blunt": 3,
+          "sword": 3
+        }
+      },
+      "second_leg": {
+        "shots": 17,
+        "hits": 6,
+        "misses": 11,
+        "contact_failures": 6,
+        "backward_only_failures": 5,
+        "miss_origins": {
+          "fair": 7,
+          "lady": 2,
+          "ride": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "fair"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "blunt",
+            "decision",
+            "fair",
+            "ride",
+            "horror",
+            "sigh"
+          ],
+          "strokes": 5,
+          "cleverness": 58,
+          "time": "2026-11-02T02:36:54.307Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "smudge",
+        "retreat",
+        "cheer"
+      ],
+      "input_count": 6,
+      "mechanical_shots": 6,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 6,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 5,
+        "hits": 2,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "camouflage": 3
+        }
+      },
+      "second_leg": {
+        "shots": 1,
+        "hits": 1,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "battle"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "smudge",
+            "camouflage",
+            "battle",
+            "cry",
+            "cheer"
+          ],
+          "strokes": 4,
+          "cleverness": 77,
+          "time": "2026-11-02T02:38:44.105Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "pledge",
+        "fog",
+        "tickle"
+      ],
+      "input_count": 21,
+      "mechanical_shots": 20,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 21,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 16,
+        "hits": 5,
+        "misses": 11,
+        "contact_failures": 10,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "pledge": 10,
+          "strive": 1
+        }
+      },
+      "second_leg": {
+        "shots": 4,
+        "hits": 2,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "wind": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "wind"
+      ],
+      "close_successful_first_leg_shots": [
+        {
+          "origin": "lift",
+          "word": "clear",
+          "shortfall": 0.003929152583295958
+        }
+      ],
+      "completions": [
+        {
+          "route": [
+            "pledge",
+            "time",
+            "wind",
+            "breeze",
+            "tickle"
+          ],
+          "strokes": 4,
+          "cleverness": 88,
+          "time": "2026-11-02T03:04:23.291Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "gay",
+        "wasabi",
+        "clock"
+      ],
+      "input_count": 26,
+      "mechanical_shots": 24,
+      "no_shot_errors": 2,
+      "completed": true,
+      "inputs_through_first_observed_finish": 26,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 21,
+        "hits": 6,
+        "misses": 15,
+        "contact_failures": 15,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "gay": 10,
+          "pride": 2,
+          "happy": 1,
+          "content": 1,
+          "sex": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 1,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "sushi": 2
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "sushi"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "gay",
+            "restaurant",
+            "sushi",
+            "meal",
+            "clock"
+          ],
+          "strokes": 4,
+          "cleverness": 74,
+          "time": "2026-11-02T02:49:36.310Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "lesbian",
+        "scissors",
+        "climax"
+      ],
+      "input_count": 11,
+      "mechanical_shots": 11,
+      "no_shot_errors": 0,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 11,
+        "hits": 4,
+        "misses": 7,
+        "contact_failures": 6,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "woman": 4,
+          "lesbian": 2,
+          "orgasm": 1
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 0,
+      "observed_landing_words": [],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "surplus",
+        "laugh",
+        "drain"
+      ],
+      "input_count": 4,
+      "mechanical_shots": 4,
+      "no_shot_errors": 0,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 4,
+        "hits": 1,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "surplus": 3
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 0,
+      "observed_landing_words": [],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "nuance",
+        "cavity",
+        "climax"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 20,
+      "best_strokes": 7,
+      "first_leg": {
+        "shots": 11,
+        "hits": 5,
+        "misses": 6,
+        "contact_failures": 5,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "nuance": 4,
+          "fine": 2
+        }
+      },
+      "second_leg": {
+        "shots": 9,
+        "hits": 3,
+        "misses": 6,
+        "contact_failures": 4,
+        "backward_only_failures": 2,
+        "miss_origins": {
+          "tooth": 5,
+          "sweet": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "tooth"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "nuance",
+            "fine",
+            "brush",
+            "tooth",
+            "sweet",
+            "finish",
+            "ending",
+            "climax"
+          ],
+          "strokes": 7,
+          "cleverness": 40,
+          "time": "2026-11-02T03:59:47.658Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "window",
+        "burden",
+        "splash"
+      ],
+      "input_count": 14,
+      "mechanical_shots": 14,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 14,
+      "best_strokes": 6,
+      "first_leg": {
+        "shots": 6,
+        "hits": 3,
+        "misses": 3,
+        "contact_failures": 3,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "window": 3
+        }
+      },
+      "second_leg": {
+        "shots": 8,
+        "hits": 2,
+        "misses": 6,
+        "contact_failures": 6,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "difficult": 6
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "difficult"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "window",
+            "broken",
+            "hard",
+            "difficult",
+            "hard",
+            "landing",
+            "splash"
+          ],
+          "strokes": 6,
+          "cleverness": 45,
+          "time": "2026-11-02T04:48:25.876Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "brick",
+        "blame",
+        "jolly"
+      ],
+      "input_count": 9,
+      "mechanical_shots": 9,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 9,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 7,
+        "hits": 4,
+        "misses": 3,
+        "contact_failures": 3,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "block": 3
+        }
+      },
+      "second_leg": {
+        "shots": 2,
+        "hits": 1,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "cause": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "cause"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "brick",
+            "block",
+            "cause",
+            "good",
+            "jolly"
+          ],
+          "strokes": 4,
+          "cleverness": 82,
+          "time": "2026-11-02T05:12:49.466Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "dress",
+        "reluctant",
+        "storm"
+      ],
+      "input_count": 26,
+      "mechanical_shots": 25,
+      "no_shot_errors": 1,
+      "completed": true,
+      "inputs_through_first_observed_finish": 26,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 18,
+        "hits": 4,
+        "misses": 14,
+        "contact_failures": 8,
+        "backward_only_failures": 6,
+        "miss_origins": {
+          "dress": 8,
+          "formal": 2,
+          "resign": 2,
+          "down": 2
+        }
+      },
+      "second_leg": {
+        "shots": 7,
+        "hits": 2,
+        "misses": 5,
+        "contact_failures": 4,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "hero": 4,
+          "reluctant": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "reluctant"
+      ],
+      "close_successful_first_leg_shots": [
+        {
+          "origin": "formal",
+          "word": "resign",
+          "shortfall": 0.013953679266378471
+        }
+      ],
+      "completions": [
+        {
+          "route": [
+            "dress",
+            "down",
+            "reluctant",
+            "hero",
+            "war",
+            "storm"
+          ],
+          "strokes": 5,
+          "cleverness": 48,
+          "time": "2026-11-02T05:27:18.303Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "record",
+        "mercy",
+        "fray"
+      ],
+      "input_count": 18,
+      "mechanical_shots": 16,
+      "no_shot_errors": 2,
+      "completed": true,
+      "inputs_through_first_observed_finish": 15,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 8,
+        "hits": 5,
+        "misses": 3,
+        "contact_failures": 2,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "record": 3
+        }
+      },
+      "second_leg": {
+        "shots": 8,
+        "hits": 4,
+        "misses": 4,
+        "contact_failures": 3,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "soul": 4
+        }
+      },
+      "observed_dogleg_entries": 2,
+      "observed_landing_words": [
+        "soul"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "record",
+            "music",
+            "soul",
+            "fight",
+            "battle",
+            "fray"
+          ],
+          "strokes": 5,
+          "cleverness": 54,
+          "time": "2026-11-02T05:33:08.727Z"
+        },
+        {
+          "route": [
+            "record",
+            "music",
+            "soul",
+            "demons",
+            "battle",
+            "fray"
+          ],
+          "strokes": 5,
+          "cleverness": 81,
+          "time": "2026-11-02T05:33:40.229Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "whim",
+        "handshake",
+        "stain"
+      ],
+      "input_count": 14,
+      "mechanical_shots": 13,
+      "no_shot_errors": 1,
+      "completed": false,
+      "inputs_through_first_observed_finish": null,
+      "best_strokes": null,
+      "first_leg": {
+        "shots": 13,
+        "hits": 1,
+        "misses": 12,
+        "contact_failures": 12,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "whim": 10,
+          "thoughtless": 2
+        }
+      },
+      "second_leg": {
+        "shots": 0,
+        "hits": 0,
+        "misses": 0,
+        "contact_failures": 0,
+        "backward_only_failures": 0,
+        "miss_origins": {}
+      },
+      "observed_dogleg_entries": 0,
+      "observed_landing_words": [],
+      "close_successful_first_leg_shots": [],
+      "completions": []
+    },
+    {
+      "words": [
+        "palm",
+        "suspense",
+        "shrink"
+      ],
+      "input_count": 8,
+      "mechanical_shots": 8,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 7,
+      "best_strokes": 5,
+      "first_leg": {
+        "shots": 5,
+        "hits": 3,
+        "misses": 2,
+        "contact_failures": 1,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "hand": 1,
+          "palm": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "tension": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "tension"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "palm",
+            "hand",
+            "hold",
+            "tension",
+            "reduce",
+            "shrink"
+          ],
+          "strokes": 5,
+          "cleverness": 76,
+          "time": "2026-11-02T05:41:06.790Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "scoop",
+        "loyalty",
+        "rain"
+      ],
+      "input_count": 13,
+      "mechanical_shots": 13,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 13,
+      "best_strokes": 6,
+      "first_leg": {
+        "shots": 10,
+        "hits": 5,
+        "misses": 5,
+        "contact_failures": 5,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "scoop": 4,
+          "cone": 1
+        }
+      },
+      "second_leg": {
+        "shots": 3,
+        "hits": 2,
+        "misses": 1,
+        "contact_failures": 1,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "money": 1
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "customer"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "scoop",
+            "spoon",
+            "fed",
+            "customer",
+            "money",
+            "liquid",
+            "rain"
+          ],
+          "strokes": 6,
+          "cleverness": 42,
+          "time": "2026-11-02T05:47:48.820Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "ripple",
+        "pride",
+        "glue"
+      ],
+      "input_count": 20,
+      "mechanical_shots": 20,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 20,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 5,
+        "hits": 3,
+        "misses": 2,
+        "contact_failures": 2,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "ripple": 1,
+          "muscles": 1
+        }
+      },
+      "second_leg": {
+        "shots": 15,
+        "hits": 2,
+        "misses": 13,
+        "contact_failures": 8,
+        "backward_only_failures": 5,
+        "miss_origins": {
+          "strength": 13
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "strength"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "ripple",
+            "muscles",
+            "strength",
+            "together",
+            "glue"
+          ],
+          "strokes": 4,
+          "cleverness": 76,
+          "time": "2026-11-02T06:10:29.104Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "draft",
+        "jealousy",
+        "cushion"
+      ],
+      "input_count": 60,
+      "mechanical_shots": 60,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 46,
+      "best_strokes": 6,
+      "first_leg": {
+        "shots": 47,
+        "hits": 22,
+        "misses": 25,
+        "contact_failures": 16,
+        "backward_only_failures": 9,
+        "miss_origins": {
+          "book": 15,
+          "draft": 4,
+          "lies": 2,
+          "murder": 1,
+          "beautiful": 1,
+          "human": 1,
+          "words": 1
+        }
+      },
+      "second_leg": {
+        "shots": 13,
+        "hits": 4,
+        "misses": 9,
+        "contact_failures": 8,
+        "backward_only_failures": 1,
+        "miss_origins": {
+          "envy": 7,
+          "comparison": 1,
+          "lazy": 1
+        }
+      },
+      "observed_dogleg_entries": 3,
+      "observed_landing_words": [
+        "envy",
+        "jealousy"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "draft",
+            "words",
+            "harm",
+            "envy",
+            "comparison",
+            "better",
+            "cushion"
+          ],
+          "strokes": 6,
+          "cleverness": 49,
+          "time": "2026-11-02T07:36:41.918Z"
+        }
+      ]
+    },
+    {
+      "words": [
+        "pin",
+        "relief",
+        "cloud"
+      ],
+      "input_count": 17,
+      "mechanical_shots": 17,
+      "no_shot_errors": 0,
+      "completed": true,
+      "inputs_through_first_observed_finish": 11,
+      "best_strokes": 4,
+      "first_leg": {
+        "shots": 6,
+        "hits": 2,
+        "misses": 4,
+        "contact_failures": 4,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "pin": 4
+        }
+      },
+      "second_leg": {
+        "shots": 11,
+        "hits": 6,
+        "misses": 5,
+        "contact_failures": 5,
+        "backward_only_failures": 0,
+        "miss_origins": {
+          "food": 5
+        }
+      },
+      "observed_dogleg_entries": 1,
+      "observed_landing_words": [
+        "food"
+      ],
+      "close_successful_first_leg_shots": [],
+      "completions": [
+        {
+          "route": [
+            "pin",
+            "drop",
+            "food",
+            "aeroplane",
+            "sky",
+            "cloud"
+          ],
+          "strokes": 5,
+          "cleverness": 57,
+          "time": "2026-11-02T08:25:30.193Z"
+        },
+        {
+          "route": [
+            "pin",
+            "drop",
+            "food",
+            "water",
+            "cloud"
+          ],
+          "strokes": 4,
+          "cleverness": 70,
+          "time": "2026-11-02T08:27:09.774Z"
+        }
+      ]
+    }
+  ]
+}

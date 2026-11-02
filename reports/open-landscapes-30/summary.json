@@ -1,0 +1,23 @@
+{
+  "selected": 30,
+  "considered": 100,
+  "words": 84,
+  "openingRange": [
+    2,
+    10
+  ],
+  "landingRange": [
+    8,
+    57
+  ],
+  "reachedLandings": 842,
+  "immediateFinishLandings": 115,
+  "limits": {
+    "approachDepth": 5,
+    "beam": 160,
+    "landingLimit": 64,
+    "finishDepth": 7,
+    "exhaustive": false
+  },
+  "scope": "Bounded shared-context probes, not exhaustive vocabulary search or evidence of human enjoyment."
+}

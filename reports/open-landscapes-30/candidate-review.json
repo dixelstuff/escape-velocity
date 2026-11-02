@@ -1,0 +1,1302 @@
+[
+  {
+    "words": [
+      "stamp",
+      "music",
+      "patience"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 20,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "brush",
+      "shelter",
+      "voice"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "spark",
+      "memory",
+      "balance"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "chase",
+      "paper",
+      "freedom"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 10,
+    "distinctLandings": 31,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "scar",
+      "rhythm",
+      "garden"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 6,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "grace",
+      "bank",
+      "thunder"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 0,
+    "distinctLandings": 0,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "flat",
+      "promise",
+      "breeze"
+    ],
+    "selected": false,
+    "reason": "Passed over: narrow initial opening and a long, predominantly descriptive completion witness.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cradle",
+      "chance",
+      "dust"
+    ],
+    "selected": false,
+    "reason": "Passed over: only three reached landings in the deeper probe; prefer more evidenced room to explore.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "press",
+      "escape",
+      "sweet"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 11,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "swear",
+      "mirror",
+      "spring"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 11,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "blade",
+      "humour",
+      "rest"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "pitch",
+      "mystery",
+      "warm"
+    ],
+    "selected": false,
+    "reason": "Passed over: quick completion relies on a broadly descriptive SWEET/KIND/WARM chain.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 16,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "fever",
+      "frame",
+      "seed"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "glow",
+      "fault",
+      "carpet"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 7,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "wish",
+      "charge",
+      "frost"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 16,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bold",
+      "letter",
+      "quiet"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 1,
+    "distinctLandings": 0,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "debt",
+      "season",
+      "whisper"
+    ],
+    "selected": false,
+    "reason": "Passed over for greater variety within the final batch.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 23,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "ghost",
+      "work",
+      "colour"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "stretch",
+      "secret",
+      "applause"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "bloom",
+      "judge",
+      "smooth"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 0,
+    "distinctLandings": 0,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "chain",
+      "dream",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "wave",
+      "credit",
+      "open"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 8,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "crash",
+      "kindness",
+      "silk"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 10,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "draw",
+      "spirit",
+      "chill"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 1,
+    "distinctLandings": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "hunger",
+      "track",
+      "fair"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 28,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "empty",
+      "dance",
+      "wire"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 13,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "glory",
+      "pocket",
+      "rain"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 13,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "balance",
+      "gift",
+      "thunder"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "claim",
+      "curtain",
+      "fresh"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cover",
+      "romance",
+      "slope"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spring",
+      "witness",
+      "breath"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 16,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "garden",
+      "split",
+      "memory"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sound",
+      "brave",
+      "patch"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 24,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "taste",
+      "hidden",
+      "crown"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 10,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "polish",
+      "fear",
+      "home"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "grin",
+      "freedom",
+      "silver"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 16,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "guest",
+      "pressure",
+      "bloom"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 17,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "leak",
+      "trust",
+      "brave"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 24,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "repair",
+      "music",
+      "loose"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 30,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "pulse",
+      "shelter",
+      "clear"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 26,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "applause",
+      "debt",
+      "river"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 30,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "request",
+      "frost",
+      "play"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "spice",
+      "memory",
+      "draw"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 7,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "towel",
+      "chance",
+      "sharp"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 17,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "pillow",
+      "justice",
+      "note"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 15,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "chalk",
+      "honour",
+      "bloom"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 22,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "scratch",
+      "courage",
+      "rest"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 20,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "farewell",
+      "bank",
+      "rhythm"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "riddle",
+      "family",
+      "brush"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 27,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "chill",
+      "stage",
+      "wish"
+    ],
+    "selected": false,
+    "reason": "Passed over: many reached landings immediately finish; adds less dogleg decision-making to this mix.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 25,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "polite",
+      "storm",
+      "spring"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "breeze",
+      "duty",
+      "paint"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 10,
+    "distinctLandings": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sketch",
+      "mercy",
+      "bright"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "mischief",
+      "paper",
+      "still"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "crease",
+      "rescue",
+      "voice"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "rally",
+      "secret",
+      "garden"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "thorn",
+      "balance",
+      "claim"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 0,
+    "distinctLandings": 0,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "cork",
+      "shadow",
+      "sweet"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 15,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "wrinkle",
+      "freedom",
+      "seed"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 21,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "remedy",
+      "frame",
+      "hunger"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "harvest",
+      "promise",
+      "blade"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "refuse",
+      "crown",
+      "smooth"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "casual",
+      "charge",
+      "silk"
+    ],
+    "selected": false,
+    "reason": "Passed over for greater variety within the final batch.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 14,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "tribute",
+      "shelter",
+      "wave"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "itch",
+      "mirror",
+      "field"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 15,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "muse",
+      "credit",
+      "warm"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "brisk",
+      "gift",
+      "hidden"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "bouquet",
+      "spirit",
+      "fair"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "hinge",
+      "story",
+      "quiet"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "celebrate",
+      "pocket",
+      "frost"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "mild",
+      "rhythm",
+      "blade"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 11,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "handle",
+      "dream",
+      "choir"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 16,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "barrel",
+      "romance",
+      "shine"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 9,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "crumble",
+      "duty",
+      "echo"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "pretend",
+      "bank",
+      "thread"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "balcony",
+      "chance",
+      "fault"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "distinctLandings": 30,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "yawn",
+      "fame",
+      "bright"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "defy",
+      "season",
+      "colour"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "rattle",
+      "patience",
+      "cloud"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "noble",
+      "screen",
+      "rain"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 30,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "fuss",
+      "spring",
+      "shelter"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 33,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "neat",
+      "mystery",
+      "flame"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "shuffle",
+      "courage",
+      "note"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 35,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sticky",
+      "memory",
+      "fair"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 9,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "debate",
+      "garden",
+      "cloak"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "distinctLandings": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "coil",
+      "mercy",
+      "dance"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "laughter",
+      "letter",
+      "shade"
+    ],
+    "selected": true,
+    "reason": "Selected after combination, opening and landing review.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "genuine",
+      "stage",
+      "wind"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "ruler",
+      "trust",
+      "bloom"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 2,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "silence",
+      "credit",
+      "paper"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "wink",
+      "freedom",
+      "rhythm"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 23,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spill",
+      "glory",
+      "quiet"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "hint",
+      "music",
+      "dust"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "distinctLandings": 24,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "rustle",
+      "gift",
+      "thunder"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 2,
+    "distinctLandings": 26,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "check",
+      "romance",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "distinctLandings": 19,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "flutter",
+      "judge",
+      "sharp"
+    ],
+    "selected": false,
+    "reason": "Not selected: bounded context check did not establish a complete supported route; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 11,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "respect",
+      "curtain",
+      "flow"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 9,
+    "distinctLandings": 12,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sneak",
+      "balance",
+      "frost"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "distinctLandings": 18,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "feast",
+      "shadow",
+      "voice"
+    ],
+    "selected": false,
+    "reason": "Rejected: existing direct-leg rule fails.",
+    "allowed": false,
+    "openingCount": null,
+    "distinctLandings": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "bump",
+      "story",
+      "free"
+    ],
+    "selected": false,
+    "reason": "Passed over in favour of the final mix; not a judgement that this is unplayable.",
+    "allowed": true,
+    "openingCount": 8,
+    "distinctLandings": 18,
+    "completionFound": true
+  }
+]

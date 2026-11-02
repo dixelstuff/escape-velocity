@@ -1,0 +1,74 @@
+{
+  "humour": [
+    "joke",
+    "laughter",
+    "funny",
+    "wit",
+    "comedy",
+    "mood",
+    "amusement",
+    "irony",
+    "playful",
+    "laugh"
+  ],
+  "kindness": [
+    "care",
+    "generous",
+    "help",
+    "sympathy",
+    "gentle",
+    "friend",
+    "charity",
+    "warmth",
+    "compassion",
+    "good"
+  ],
+  "fear": [
+    "afraid",
+    "fright",
+    "danger",
+    "worry",
+    "terror",
+    "panic",
+    "horror",
+    "anxiety",
+    "dread",
+    "nervous"
+  ],
+  "choir": [
+    "sing",
+    "voice",
+    "church",
+    "music",
+    "harmony",
+    "chorus",
+    "song",
+    "group",
+    "concert",
+    "soprano"
+  ],
+  "shade": [
+    "shadow",
+    "tree",
+    "dark",
+    "light",
+    "cool",
+    "shelter",
+    "colour",
+    "tone",
+    "screen",
+    "cover"
+  ],
+  "feather": [
+    "bird",
+    "light",
+    "soft",
+    "wing",
+    "pen",
+    "quill",
+    "down",
+    "plume",
+    "pillow",
+    "float"
+  ]
+}
