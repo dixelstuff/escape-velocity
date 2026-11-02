@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from '../static/attempt-ghosts.mjs';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from '../static/attempt-ghosts.mjs';
 import {mapLayout,projectPoint,layoutLabels} from '../static/map.mjs';
 const challenge={version:'par-challenge-v2',id:'challenge-a',par:3,attempt:6};
 const state={start:'tee',target:'hole',current:'tee',threshold:.27,baseline:.02,word_model:'ls15-v1',challenge,history:[],route:['tee']};
@@ -33,3 +33,15 @@ for(const previousEntry of [{word:'bridge',waypoint_reached:true},{word:'middle'
 }
 assert.deepEqual(waypointRetryDisplay(replayWaypoint,null,true),{showTarget:true,reference:false,occupied:false},'Fresh first leg restores the target and its zone');
 assert.equal(waypointRetryDisplay(state,null).showTarget,false);
+
+for(const entry of [{word:'bridge',waypoint_reached:true},{word:'middle',waypoint_reached:true}]){
+ assert.deepEqual(waypointRetryDisplay(replayWaypoint,entry,true,true),{showTarget:true,reference:false,occupied:false},'Selecting an earlier first-leg lie restores its target zone over a remembered route');
+ assert.deepEqual(waypointRetryDisplay(replayWaypoint,entry,false,true),{showTarget:true,reference:false,occupied:false},'The restored target zone does not depend on keyboard focus');
+}
+const playedMiddle={history:[{word:'middle',stage:0,success:true,attempt:3,waypoint_reached:true},{word:'middle',stage:1,success:true,attempt:5}]};
+assert.equal(waypointTargetLie(replayWaypoint,playedMiddle).attempt,3,'Target navigation uses the existing first-leg lie');
+assert.equal(waypointTargetLie({...replayWaypoint,stage:1},playedMiddle),null);
+assert.equal(waypointTargetLie(replayWaypoint,{history:[{word:'middle',stage:1,success:true,attempt:5}]}),null,'A second-leg use is not a first-leg lie');
+assert.equal(waypointTargetLie(replayWaypoint,{history:[{word:'bridge',stage:0,success:true,waypoint_reached:true,attempt:3}]}),null,'Reaching the dogleg with another word does not make the literal target an already-played lie');
+assert.equal(waypointTargetLie(replayWaypoint,{history:[{word:'middle',stage:0,success:false,attempt:3}]}),null);
+console.log('Dogleg retry passed: first-leg selections restore the zone with or without keyboard focus; an actual played target returns its original lie, with separate leg identities.');

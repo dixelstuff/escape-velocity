@@ -17,8 +17,15 @@ export function previousWordLabels(state,d){
 }
 export function showPreviousLabels(state,preview=null){return !preview&&!state?.history?.some(h=>!h.assumed)&&!state?.won;}
 
-/** Old routes may suppress the zone, but must never suppress the next target label. */
-export function waypointRetryDisplay(state,previousEntry,editing=false){
+/** A selected first-leg retry restores its objective, even over a remembered route. */
+export function waypointRetryDisplay(state,previousEntry,editing=false,retrying=false){
  const firstLeg=!!state.waypoint&&state.stage===0;
- return {showTarget:firstLeg,reference:firstLeg&&!!previousEntry&&!editing,occupied:!!previousEntry};
+ return {showTarget:firstLeg,reference:firstLeg&&!!previousEntry&&!editing&&!retrying,occupied:!!previousEntry&&!retrying};
+}
+
+/** A played target remains a navigable lie, never a new-shot shortcut. */
+export function waypointTargetLie(state,source){
+ if(!state?.waypoint||state.stage!==0)return null;
+ const key=wordLieKey(state.waypoint.word,0,state);
+ return source?.history?.findLast(h=>h.success&&!h.automatic&&wordLieKey(h.word,h,state)===key)??null;
 }

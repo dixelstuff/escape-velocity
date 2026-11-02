@@ -38,7 +38,7 @@ import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visib
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
 import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=uk-us-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay} from './attempt-ghosts.mjs?v=uk-us-v1';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=dogleg-retry-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
@@ -469,12 +469,12 @@ function tappedWord(event){
 }
 function activateWord(label){
  if(!label||!$('hole-attempt-log').hidden&&(holeResult()||courseResult()))return;
+ if(label.hasAttribute('data-resume-through')){void retryFromWord(Number(label.dataset.resumeThrough));return;}
  if(label.hasAttribute('data-play-dogleg')){
   if(doglegReady())void submit(state.waypoint.word);
   return;
  }
- if(label.hasAttribute('data-resume-through'))void retryFromWord(Number(label.dataset.resumeThrough));
- else if(!busy)$('word').focus({preventScroll:true});
+ if(!busy)$('word').focus({preventScroll:true});
 }
 let pendingWordTap=null;
 $('map').addEventListener('pointerdown',event=>{
@@ -512,8 +512,9 @@ function doglegReady(){
 function syncDoglegLabel(){
  const ready=doglegReady();
  for(const label of $('map').querySelectorAll('[data-dogleg-target]')){
-  label.toggleAttribute('data-play-dogleg',ready);label.classList.toggle('playable-dogleg-label',ready);
-  if(ready){label.setAttribute('role','button');label.setAttribute('tabindex','0');label.setAttribute('aria-label',`Play ${state.waypoint.word.toUpperCase()} to reach the dogleg`);}
+  const playable=ready&&!label.hasAttribute('data-resume-through');
+  label.toggleAttribute('data-play-dogleg',playable);label.classList.toggle('playable-dogleg-label',playable);
+  if(playable){label.setAttribute('role','button');label.setAttribute('tabindex','0');label.setAttribute('aria-label',`Play ${state.waypoint.word.toUpperCase()} to reach the dogleg`);}
   else if(label.hasAttribute('data-resume-through'))label.setAttribute('aria-label',`Retry from ${label.dataset.labelWord.toUpperCase()}`);
   else if(!label.hasAttribute('data-focus-entry')){label.removeAttribute('role');label.removeAttribute('tabindex');label.removeAttribute('aria-label');}
  }
@@ -529,7 +530,7 @@ if(typeof ResizeObserver!=='undefined'){
 function map(preview=null){
  const d=dimensions(),previousLabels=captureWordLabels(d);$('map').setAttribute('viewBox',`0 0 ${d.width} ${COURSE_HEIGHT}`);
  const zone=d.zoneLeft,lake=state.waypoint?waypointLake(d,d.style):lakeGeometry(d,d.style),scale=d.artScale??1,teeOffset=state.waypoint?44:d.par3?64:TEE_MARKER_OFFSET;
- const retry=preview?null:retrySource(),reference=retryPreview?.source.state??(retry?.referenceBest?retry.state:null),previousEntry=(retry?.state??reference)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'));$('retry-guidance').hidden=true;
+ const retry=preview?null:retrySource(),reference=retryPreview?.source.state??(retry?.referenceBest?retry.state:null),previousEntry=(retry?.state??reference)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'),!!retryPreview);$('retry-guidance').hidden=true;
  const chipArt=chipShading(d,zone),waypointArt=state.waypoint?waypointZone(state,d,waypointDisplay.occupied):'';
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="${100*scale}" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="${100*scale}" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="${50*scale}" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="${22*scale}" height="${22*scale}" patternUnits="userSpaceOnUse"><rect width="${22*scale}" height="${22*scale}" fill="#95c87b"/><rect width="${11*scale}" height="${22*scale}" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><g class="course-scenery">${state.waypoint?waypointLandscape(state,d,d.style):courseSurrounds(d,d.style,lake)}</g>${chipArt}<g class="course-scenery">${state.waypoint?waypointGreen(d,d.style):`${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>`}${state.waypoint?'':`<path d="${par3CentreTrace(d)}" stroke="#a7bb9b" fill="none" stroke-dasharray="3 8"/>`}${state.waypoint?'':courseLake(d,d.style,lake)+approachLandscape(d,d.style)}${d.par3?par3PathArt(d,d.style):''}${courseTrees(d,d.style,lake)}</g>${waypointArt}`;
  const worldTransform=`rotate(${state.waypoint?d.style.rotation??0:0} ${d.width/2} 215)`;
@@ -556,6 +557,7 @@ function map(preview=null){
  if(state.waypoint){nodes.set(finalKey,{key:finalKey,word:state.final_target,pos:position(state.final_target,{stage:1})});if(!nodes.has(waypointKey)&&((state.stage===0&&!previousEntry)||state.won))nodes.set(waypointKey,{key:waypointKey,word:state.waypoint.word,pos:waypointAnchors(d).bend,...(state.won?{waypointReference:true}:{})});}
  if(preview&&(preview.success||usefulForwardMiss(preview,state))){const key=wordKey(preview.word,preview),old=nodes.get(key);if(old)old.preview=true;else nodes.set(key,{key,word:preview.word,pos:position(preview.word,preview),preview:true});}
  for(const [key,node] of previousNodes){if(!nodes.has(key))nodes.set(key,node);else if(retry&&node.resumeThrough!==undefined)nodes.get(key).resumeThrough=node.resumeThrough;}
+ const targetLie=waypointTargetLie(state,reference??retry?.state);if(targetLie&&nodes.has(waypointKey))nodes.get(waypointKey).resumeThrough=targetLie.attempt;
  if(state.won){const last=state.history.at(-1);if(last?.success&&stateSpelling(state,last.word)===stateSpelling(state,state.final_target??state.target)){const flag=nodes.get(finalKey);if(flag)flag.word=last.word;}}
  const planets=[...nodes.values()];
  for(const p of planets){if(p.waypointReference)continue;const active=p.key===currentKey;
@@ -1462,7 +1464,7 @@ $('launch').addEventListener('pointerdown',event=>{
 function syncEntryWaypoint(){
  if(!state?.waypoint||busy||state.stage!==0)return;
  const retry=retrySource(),previousEntry=(retry?.state??retryPreview?.source.state)?.history.find(h=>h.waypoint_reached);
- const display=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'));
+ const display=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'),!!retryPreview);
  const target=[...$('map').querySelectorAll('.word-label[data-lie-key]')].find(node=>node.dataset.lieKey===wordLieKey(state.target,state.stage??0,state));
  if(target){target.classList.toggle('waypoint-reference-label',display.reference);target.toggleAttribute('data-waypoint-reference',display.reference);}
 }

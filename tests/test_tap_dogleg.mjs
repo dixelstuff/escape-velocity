@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {Game,canPlayDogleg} from '../static/engine.mjs';
 import {dailyManifest} from '../static/daily-manifest.mjs';
+import {waypointTargetLie,waypointRetryDisplay} from '../static/attempt-ghosts.mjs';
 import {loadResearchModel,researchSettings} from '../scripts/cleverness-research-utils.mjs';
 
 const {e}=loadResearchModel(),settings={...researchSettings('leak','trust','brave'),spelling_equivalence:'uk-us-v1',second_leg_finish_span:.12};
@@ -15,6 +16,12 @@ assert.equal(game.history,history);assert.equal(game.route,route);assert.equal(g
 const actual=game.submit('trust');assert.equal(actual.success,true);assert.equal(actual.waypoint_reached,true);
 assert.equal(game.stage,1);assert.equal(game.history.length,before.history.length+1);
 assert.equal(canPlayDogleg(game),false,'Only first-leg target shots are offered');
+const retry=new Game(e,'leak','brave',.27,settings);
+retry.submit('roof');retry.submit('shelter');
+assert.equal(canPlayDogleg(retry),true,'The earlier lie could genuinely play the target again');
+assert.equal(waypointTargetLie(retry.state(),game.state()).attempt,3,'But the played target identifies the existing lie to return to');
+assert.deepEqual(waypointRetryDisplay(retry.state(),game.history.at(-1),false,true),{showTarget:true,reference:false,occupied:false},'Returning to that first leg restores the zone even outside text entry');
+assert.equal(retry.history.length,2);assert.equal(game.history.length,3,'Selecting a remembered lie cannot add a shot to either route');
 assert.equal(canPlayDogleg(Object.assign(Object.create(Game.prototype),game,{stage:0,won:true})),false);
 assert.equal(canPlayDogleg(Object.assign(Object.create(Game.prototype),game,{stage:0,challenge_failed:true})),false);
 assert.equal(canPlayDogleg(null),false);
