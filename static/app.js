@@ -419,7 +419,7 @@ function retryFromWord(through,{focusEntry=true}={}){
  if(reviewingDailyBest&&!state.won)return retryResultHole();
  if(inCourse()&&!practising()&&rounds.hole.locked&&(rounds.active.finished||Math.max(0,...rounds.hole.attempts.map(a=>a.number))>=attemptLimit(state.challenge.par)))return void keepPractising({focusEntry});
  const switching=retryPreview,previous=switching?null:retrySource(),source=switching?.source??previous??{state,id:flightLog.active?.id};
- if(returnsToOriginalLie(switching,through)){cancelRetry();if(focusEntry)$('word').focus({preventScroll:true});return;}
+ if(returnsToOriginalLie(switching,through)){cancelRetry({restoreFeedback:false});if(focusEntry)$('word').focus({preventScroll:true});return;}
  if(!switching&&!previous&&through===state.history.length&&!state.won&&!state.challenge_failed){if(focusEntry)$('word').focus({preventScroll:true});return;}
  const nextAttempt=inCourse()&&!practising()?Math.max(state.challenge.attempt+1,...rounds.hole.attempts.map(a=>a.number+1)):state.challenge.attempt+1;
  const attempt=switching?.attempt??previous?.attempt??(previous?state.challenge.attempt:nextAttempt);
@@ -434,12 +434,12 @@ function retryFromWord(through,{focusEntry=true}={}){
   $('status').textContent=`Retry from ${state.current.toUpperCase()}. Play your next word.`;
  }catch(error){$('status').textContent=error.message;}finally{changingRetry=false;if(focusEntry&&retryPreview&&document.activeElement!==$('word'))$('word').focus({preventScroll:true});}
 }
-function cancelRetry(){
+function cancelRetry({restoreFeedback=true}={}){
  if(!retryPreview||committingRetry||changingRetry||busy)return;
  // Leaving a new try must not silently reopen completed results.
  if(simpleDaily&&(retryPreview.original.state.won||retryPreview.original.reviewingDailyBest))return;
  const original=retryPreview.original;retryPreview=null;
- try{reviewingDailyBest=!!original.reviewingDailyBest;state=client.restoreRetry(original.state).state;shownEvent=original.shownEvent;activeNotice=original.activeNotice;noticeDismissed=original.noticeDismissed;$('word').value=original.entry??'';update();$('status').textContent='';}finally{$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);}
+ try{reviewingDailyBest=!!original.reviewingDailyBest;state=client.restoreRetry(original.state).state;shownEvent=original.shownEvent;activeNotice=restoreFeedback?original.activeNotice:'';noticeDismissed=restoreFeedback?original.noticeDismissed:true;$('word').value=original.entry??'';update();$('status').textContent='';}finally{$('word').disabled=!!state.challenge_failed;$('launch').disabled=!!(state.won||state.challenge_failed);}
 }
 function commitRetry(){
  if(!retryPreview)return false;
