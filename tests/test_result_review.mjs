@@ -18,11 +18,17 @@ console.log('Trophy results review passed: saved best on map, current lie/input/
 // A background tap after Try Again must never cancel back to a won state.
 let restored=0;const handlers={},cancelInput={value:''};
 const cancel={simpleDaily:true,retryPreview:{original:{state:{won:true}}},committingRetry:false,changingRetry:false,busy:false,state:{won:false,current:'tee'},document:{addEventListener:(type,fn)=>handlers[type]=fn},client:{restoreRetry:s=>{restored++;return {state:s};}},$:()=>cancelInput,update(){},reviewingDailyBest:false};
-runInNewContext(source.slice(source.indexOf('function cancelRetry(){'),source.indexOf('function commitRetry(){')),cancel);
+runInNewContext(source.slice(source.indexOf('function cancelRetry('),source.indexOf('function commitRetry(){')),cancel);
 runInNewContext(source.slice(source.indexOf("document.addEventListener('pointerdown',event=>{if(retryPreview"),source.indexOf('function tappedWord(')),cancel);
 handlers.pointerdown({target:{closest:()=>null}});assert.equal(restored,0);assert.equal(cancel.state.won,false);assert.ok(cancel.retryPreview);
 cancel.retryPreview={original:{state:{won:false},reviewingDailyBest:true}};cancel.cancelRetry();assert.equal(restored,0);
 cancel.retryPreview={original:{state:{won:false,current:'paper'},entry:'typed'}};cancel.cancelRetry();assert.equal(restored,1);assert.equal(cancel.state.current,'paper');assert.equal(cancelInput.value,'typed','ordinary within-play cancellation still restores the current lie');
+// An explicit lie selection restores position, not the old shot announcement.
+cancel.retryPreview={original:{state:{won:false,current:'dogleg'},entry:'',shownEvent:{waypoint_reached:true},activeNotice:'Dogleg reached! Now aim for FLAG.',noticeDismissed:false}};
+cancel.cancelRetry({restoreFeedback:false});
+assert.equal(restored,2);assert.equal(cancel.state.current,'dogleg');assert.equal(cancel.activeNotice,'');assert.equal(cancel.noticeDismissed,true);assert.equal(cancel.shownEvent.waypoint_reached,true,'Retain route evidence without replaying its feedback');
+console.log('Lie return feedback passed: explicit navigation restores the lie but dismisses the previous dogleg announcement.');
+
 
 // Completed-hole navigation shows saved results unless a reattempt has shots in progress.
 const saved={won:true,current:'flag',challenge:{unlimited:true}},record={bestStrokes:{state:saved}},def={id:'hole',date:'day',settings:{}};let replayed=0,openedRenders=0;
