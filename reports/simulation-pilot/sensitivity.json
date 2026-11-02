@@ -6,8 +6,9 @@
       "suspense",
       "shrink"
     ],
-    "maxStrokeCdfGap": 0.3069307574722737,
-    "maxClevernessCdfGap": 0.3166666666666668
+    "scorerVersion": "band-free-harmonic-v6-dogleg-access",
+    "maxStrokeCdfGap": 0.3069307574722738,
+    "maxClevernessCdfGap": 0.3166666666666667
   },
   {
     "id": "daily-2027-10-01",
@@ -16,8 +17,9 @@
       "loyalty",
       "rain"
     ],
-    "maxStrokeCdfGap": 0.49972210940339035,
-    "maxClevernessCdfGap": 0.5249999999999999
+    "scorerVersion": "band-free-harmonic-v6-dogleg-access",
+    "maxStrokeCdfGap": 0.49972210940339024,
+    "maxClevernessCdfGap": 0.5333333333333332
   },
   {
     "id": "daily-2027-10-02",
@@ -26,8 +28,9 @@
       "pride",
       "glue"
     ],
+    "scorerVersion": "band-free-harmonic-v6-dogleg-access",
     "maxStrokeCdfGap": 0.29492594362159574,
-    "maxClevernessCdfGap": 0.2750000000000002
+    "maxClevernessCdfGap": 0.275
   },
   {
     "id": "daily-2027-10-03",
@@ -36,8 +39,9 @@
       "jealousy",
       "cushion"
     ],
+    "scorerVersion": "band-free-harmonic-v6-dogleg-access",
     "maxStrokeCdfGap": 0.1838322596943287,
-    "maxClevernessCdfGap": 0.30833333333333346
+    "maxClevernessCdfGap": 0.30833333333333335
   },
   {
     "id": "daily-2027-10-04",
@@ -46,7 +50,8 @@
       "relief",
       "cloud"
     ],
-    "maxStrokeCdfGap": 0.30985098681649326,
-    "maxClevernessCdfGap": 0.4749999999999999
+    "scorerVersion": "band-free-harmonic-v6-dogleg-access",
+    "maxStrokeCdfGap": 0.3098509868164934,
+    "maxClevernessCdfGap": 0.475
   }
 ]

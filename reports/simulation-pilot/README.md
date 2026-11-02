@@ -32,7 +32,7 @@ Cleverness histograms use displayed integer scores, so ties are explicit. **Lowe
 
 All scored routes and draw references remain inspectable in [scored-routes.json](scored-routes.json) and `draws-*.json`. The app receives histograms and joint stroke/Cleverness counts only, with no solution routes or spoilers.
 
-## Observed distributions
+## Original v5 distributions (historical reference)
 
 Ranges / medians below are empirical. No normal distribution was fitted; discrete strokes and repeated routes produce skew and multiple Cleverness peaks.
 
@@ -54,7 +54,7 @@ Ranges / medians below are empirical. No normal distribution was fitted; discret
 | #321 PIN → RELIEF → CLOUD | Exploratory | 1356/2000 | 4–13 / 6 | 2–72 / 41.5 |
 | #321 PIN → RELIEF → CLOUD | One-step planning | 1893/2000 | 4–10 / 5 | 19–72 / 53 |
 
-### Sensitivity to the sampling policy
+### Original v5 sensitivity to the sampling policy (historical reference)
 
 Largest difference between any two styles' cumulative distributions, in percentage points:
 
@@ -87,3 +87,27 @@ The run took **192.2 seconds**, with **1.03 GiB RSS at the end** on this machine
 3. Regenerate the pilot whenever gameplay rules, vectors, the scorer or the sampling pool/policy changes. Keep historical research runs versioned rather than treating previous distributions as current truth.
 
 This establishes feasibility and an inspectable live comparison, not a validated measure of player skill or human hole difficulty.
+
+## Current v6 Cleverness distributions — 3 November 2026
+
+The same seeded journeys, selected route draws, model and stroke distributions have been retained; Cleverness is refreshed with `band-free-harmonic-v6-dogleg-access`. The initial v5 Cleverness values above are historical reference. Current app values and fixtures use this table. This does not improve the sampler's human-representativeness limitations.
+
+| Hole | Style | Current Cleverness min / median / max |
+| --- | --- | --- |
+| PALM → SUSPENSE → SHRINK | Connection-first | 10 / 30 / 63 |
+| PALM → SUSPENSE → SHRINK | Exploratory | 10 / 39 / 68 |
+| PALM → SUSPENSE → SHRINK | One-step planning | 10 / 44.5 / 68 |
+| SCOOP → LOYALTY → RAIN | Connection-first | 6 / 24 / 57 |
+| SCOOP → LOYALTY → RAIN | Exploratory | 4 / 31 / 62 |
+| SCOOP → LOYALTY → RAIN | One-step planning | 15 / 42 / 62 |
+| RIPPLE → PRIDE → GLUE | Connection-first | 10 / 56 / 72 |
+| RIPPLE → PRIDE → GLUE | Exploratory | 9 / 52 / 73 |
+| RIPPLE → PRIDE → GLUE | One-step planning | 24 / 56 / 73 |
+| DRAFT → JEALOUSY → CUSHION | Connection-first | 11 / 58 / 58 |
+| DRAFT → JEALOUSY → CUSHION | Exploratory | 6 / 32 / 58 |
+| DRAFT → JEALOUSY → CUSHION | One-step planning | 10 / 50 / 58 |
+| PIN → RELIEF → CLOUD | Connection-first | 7 / 37 / 62 |
+| PIN → RELIEF → CLOUD | Exploratory | 2 / 41.5 / 72 |
+| PIN → RELIEF → CLOUD | One-step planning | 19 / 53 / 72 |
+
+Current maximum Cleverness CDF gaps between styles: PALM / SUSPENSE / SHRINK 31.7 percentage points, SCOOP / LOYALTY / RAIN 53.3 percentage points, RIPPLE / PRIDE / GLUE 27.5 percentage points, DRAFT / JEALOUSY / CUSHION 30.8 percentage points, PIN / RELIEF / CLOUD 47.5 percentage points. The refreshed [sensitivity data](sensitivity.json) uses the current scorer; the earlier table is retained as historical v5 evidence.

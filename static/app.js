@@ -1,21 +1,21 @@
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
-import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=simulation-pilot-v1';
+import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=dogleg-bonus-v1';
 import {simulationSettingsKey} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-bonus-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
 import {howToPlay} from './how-to-play.mjs?v=help-scores-trophy-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
-import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=uk-us-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=dogleg-choice30-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=dogleg-bonus-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=dogleg-bonus-v1';
 import {dailyManifest} from './daily-manifest.mjs?v=open-landscapes30-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=dogleg-choice30-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=uk-us-v1';
-import {completedPlaytests} from './cleverness-playtest-data.mjs?v=uk-us-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=dogleg-bonus-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=dogleg-bonus-v1';
+import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=dogleg-bonus-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
@@ -33,10 +33,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=tap-dogleg-v1';
+import { createBrowserClient } from './engine.mjs?v=dogleg-bonus-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=uk-us-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=dogleg-bonus-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=dogleg-retry-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
@@ -270,6 +270,7 @@ const simulationPanel=mountSimulationPanel($('simulation-comparison'));
 function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
 function renderDailyBests(){
  if(!simpleDaily||!state)return;
+ refreshRetainedCleverness();
  const best=daily.current(),labels=document.querySelectorAll('#arrival-banner .scorecard-grid .scorecard-label');
  labels[0].textContent='BEST STROKES';labels[1].textContent='BEST CLEVERNESS';
  $('arrival-skill').hidden=!holeResult();$('arrival-attempt-cell').hidden=false;
@@ -334,8 +335,8 @@ function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
-const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=uk-us-v1')).mountPlaytestPanel;
-const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(journey)daily.recordReport(journey);renderDailyBests();}}});
+const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=dogleg-bonus-v1')).mountPlaytestPanel;
+const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(!daily.recordRetainedReport(saved,report,journey)&&journey)daily.recordReport(journey);renderDailyBests();}}});
 const oldPanels=[];
 if(!simpleDaily){
  for(const [file,name,id,action] of [['cleverness-v5-panel','mountClevernessV5Panel','cleverness-v5','cleverness-v5'],['cleverness-v4-panel','mountClevernessV4Panel','cleverness-v4','cleverness-v4'],['association-panel','mountAssociationPanel','association-analysis','association-analysis'],['cleverness-panel','mountClevernessPanel','cleverness-analysis','cleverness-analysis'],['semantic-panel','mountSemanticPanel','semantic-analysis','semantic-analysis']]){const module=await import('./'+file+'.mjs');oldPanels.push(module[name]($(id),{request:saved=>api(action,{state:saved}),modelHash}));}
@@ -959,6 +960,23 @@ function renderNotice(){
  $('shot-notice').classList.remove('miss-notice');
  const text=message.replace(/^Miss!\s*/i,'');
  $('shot-notice-text').replaceChildren(...text.split(/(\b[A-Z][A-Z’'\-]*\b)/g).filter(Boolean).map(part=>{if(/^[A-Z][A-Z’'\-]*$/.test(part)){const word=document.createElement('strong');word.textContent=part;return word;}return document.createTextNode(part);}));
+}
+const retainedClevernessTasks=new Set();
+function refreshRetainedCleverness(){
+ if(!simpleDaily||!client)return;
+ const record=daily.current();
+ for(const best of [record?.bestStrokes,record?.bestCleverness]){
+  if(!best?.state?.won||(best.scoreVersion??best.version)===BAND_FREE_VERSION)continue;
+  const saved=structuredClone(best.state),key=playtestKey(saved,modelHash(saved));
+  if(retainedClevernessTasks.has(key))continue;
+  retainedClevernessTasks.add(key);if(retainedClevernessTasks.size>48)retainedClevernessTasks.delete(retainedClevernessTasks.values().next().value);
+  void api('cleverness-vector',{state:saved}).then(report=>{
+   if(report.key!==key||report.band_free?.version!==BAND_FREE_VERSION)return;
+   flightLog.recordClevernessPlaytest(report);
+   const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===key);
+   daily.recordRetainedReport(saved,report,journey);renderDailyBests();
+  }).catch(()=>retainedClevernessTasks.delete(key));
+ }
 }
 const semanticWarmKeys=new Set();
 function prepareRouteAnalysis(saved){

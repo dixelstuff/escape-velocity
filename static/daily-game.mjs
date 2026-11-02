@@ -1,6 +1,6 @@
 import {isRetiredHole} from './hole-retirement.mjs?v=dogleg-choice30-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=cubic-results-v1';
+import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-bonus-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */
 export const DAILY_KEY='word-golf.personal-daily.v1';
 export const dayUTC=(date=new Date())=>date.toISOString().slice(0,10);
@@ -18,9 +18,9 @@ export class DailyGame{
   for(const h of Object.values(this.data.holes)){
    const old=h.bestCleverness?.version==='band-free-harmonic-v4-relaxed-legs';
    if(Number.isFinite(h.bestStrokes?.cleverness)&&(h.bestStrokes.scoreVersion==='band-free-harmonic-v4-relaxed-legs'||!h.bestStrokes.scoreVersion&&old)){
-    h.bestStrokes.rawCleverness=h.bestStrokes.cleverness;h.bestStrokes.cleverness=stretchScore(h.bestStrokes.cleverness);h.bestStrokes.scoreVersion=BAND_FREE_VERSION;changed=true;
+    h.bestStrokes.rawCleverness=h.bestStrokes.cleverness;h.bestStrokes.cleverness=stretchScore(h.bestStrokes.cleverness);h.bestStrokes.scoreVersion=LEGACY_BAND_FREE_VERSION;changed=true;
    }
-   if(old){const b=h.bestCleverness;b.rawUnrounded=b.unrounded??b.score;b.unrounded=stretchScore(b.rawUnrounded);b.score=Math.round(b.unrounded);b.version=BAND_FREE_VERSION;changed=true;}
+   if(old){const b=h.bestCleverness;b.rawUnrounded=b.unrounded??b.score;b.unrounded=stretchScore(b.rawUnrounded);b.score=Math.round(b.unrounded);b.version=LEGACY_BAND_FREE_VERSION;changed=true;}
   }
   if(changed)this.save();
  }
@@ -49,6 +49,25 @@ export class DailyGame{
   }this.save();
  }
  recordReport(journey){const selected=this.data.selected,h=this.data.holes[journey?.state?.challenge?.id],latest=h?.journeyId,at=h?.lastPlayedAt,updated=h?.updatedAt,completedAt=h?.completedAt;this.record(journey);if(h){h.journeyId=latest;h.lastPlayedAt=at;h.updatedAt=updated;h.completedAt=completedAt;}this.data.selected=selected;this.save();}
+ /** Refresh durable bests without inventing play/export records or changing recency. */
+ recordRetainedReport(state,report,journey=null){
+  const h=this.data.holes[state?.challenge?.id],score=report?.band_free;
+  if(!h||!state?.won||score?.version!==BAND_FREE_VERSION||!Number.isFinite(score.unrounded_score)||JSON.stringify(report.route)!==JSON.stringify(state.route))return false;
+  const matches=b=>b&&b.strokes===state.attempts&&JSON.stringify(b.route)===JSON.stringify(state.route);
+  const known=[h.bestStrokes,h.bestCleverness,h.pendingCleverness].find(matches);
+  if(!known&&!journey)return false;
+  const candidate={...(known??{}),state:structuredClone(state),journeyId:known?.journeyId??journey.id,strokes:state.attempts,route:[...state.route],attempt:state.challenge.attempt,completedAt:known?.completedAt??journey?.updatedAt,cleverness:score.unrounded_score,scoreVersion:BAND_FREE_VERSION,score:score.score,unrounded:score.unrounded_score,version:BAND_FREE_VERSION};
+  if(matches(h.bestStrokes)||state.attempts===h.bestStrokes?.strokes&&score.unrounded_score>(h.bestStrokes.cleverness??-1))h.bestStrokes={...candidate};
+  // Keep the previous best route until it too has a current score. A delayed
+  // report for another route must not erase a potentially stronger old best.
+  if(h.bestCleverness&&h.bestCleverness.version!==BAND_FREE_VERSION&&!matches(h.bestCleverness)){
+   if(!h.pendingCleverness||candidate.unrounded>h.pendingCleverness.unrounded)h.pendingCleverness=candidate;
+  }else{
+   const candidates=[candidate,h.bestCleverness,h.pendingCleverness,h.bestStrokes?.scoreVersion===BAND_FREE_VERSION?{...h.bestStrokes,score:Math.round(h.bestStrokes.cleverness),unrounded:h.bestStrokes.cleverness,version:BAND_FREE_VERSION}:null].filter(b=>b?.version===BAND_FREE_VERSION);
+   h.bestCleverness=candidates.sort((a,b)=>b.unrounded-a.unrounded)[0];delete h.pendingCleverness;
+  }
+  this.save();return true;
+ }
  refreshCompletedAt(journeys){
   let changed=false;
   for(const h of Object.values(this.data.holes))if(h.bestStrokes&&!h.completedAt){const dates=journeys.filter(j=>j.state?.won&&j.state.challenge?.id===h.id).map(j=>j.updatedAt).sort();if(dates.length){h.completedAt=dates.at(-1);changed=true;}}
