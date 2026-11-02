@@ -1,0 +1,508 @@
+{
+  "bolt": [
+    "screw",
+    "fasten",
+    "lightning",
+    "run",
+    "lock",
+    "door",
+    "metal",
+    "thunder",
+    "sudden",
+    "dash"
+  ],
+  "roll": [
+    "turn",
+    "wheel",
+    "bread",
+    "dice",
+    "paper",
+    "film",
+    "wave",
+    "rock",
+    "round",
+    "drum"
+  ],
+  "slice": [
+    "cut",
+    "piece",
+    "bread",
+    "cake",
+    "share",
+    "serve",
+    "thin",
+    "golf",
+    "angle"
+  ],
+  "strike": [
+    "hit",
+    "match",
+    "light",
+    "worker",
+    "protest",
+    "gold",
+    "bowling",
+    "clock",
+    "attack"
+  ],
+  "beam": [
+    "light",
+    "smile",
+    "support",
+    "wood",
+    "steel",
+    "ray",
+    "bridge",
+    "pride",
+    "sun"
+  ],
+  "grip": [
+    "hold",
+    "hand",
+    "handle",
+    "control",
+    "fear",
+    "firm",
+    "tight",
+    "pressure",
+    "squeeze"
+  ],
+  "tip": [
+    "point",
+    "advice",
+    "end",
+    "money",
+    "spill",
+    "tilt",
+    "balance",
+    "hat"
+  ],
+  "stroke": [
+    "swimming",
+    "brush",
+    "paint",
+    "hand",
+    "touch",
+    "mark",
+    "clock",
+    "hit"
+  ],
+  "plant": [
+    "flower",
+    "factory",
+    "grow",
+    "secret",
+    "spy",
+    "foot",
+    "seed",
+    "root",
+    "garden",
+    "stage"
+  ],
+  "spell": [
+    "word",
+    "magic",
+    "charm",
+    "letters",
+    "period",
+    "weather",
+    "curse",
+    "witch"
+  ],
+  "punch": [
+    "hit",
+    "drink",
+    "hole",
+    "press",
+    "force",
+    "joke",
+    "boxer",
+    "ticket"
+  ],
+  "pound": [
+    "weight",
+    "money",
+    "crush",
+    "dog",
+    "beat",
+    "currency",
+    "heavy",
+    "coin"
+  ],
+  "spot": [
+    "mark",
+    "place",
+    "stain",
+    "see",
+    "dog",
+    "position",
+    "light",
+    "notice"
+  ],
+  "cast": [
+    "throw",
+    "actor",
+    "plaster",
+    "shadow",
+    "spell",
+    "vote",
+    "mold",
+    "stage"
+  ],
+  "joint": [
+    "join",
+    "bone",
+    "smoke",
+    "shared",
+    "connection",
+    "elbow",
+    "union",
+    "wood"
+  ],
+  "mint": [
+    "coin",
+    "fresh",
+    "flavor",
+    "sweet",
+    "money",
+    "new",
+    "plant",
+    "green"
+  ],
+  "chest": [
+    "box",
+    "heart",
+    "treasure",
+    "body",
+    "drawer",
+    "wood",
+    "lung"
+  ],
+  "latch": [
+    "catch",
+    "lock",
+    "door",
+    "close",
+    "hold",
+    "gate",
+    "fasten",
+    "safe"
+  ],
+  "sink": [
+    "basin",
+    "drop",
+    "fall",
+    "ship",
+    "kitchen",
+    "wash",
+    "dive",
+    "water"
+  ],
+  "clip": [
+    "cut",
+    "paper",
+    "film",
+    "hair",
+    "fasten",
+    "short",
+    "trim",
+    "ticket"
+  ],
+  "flush": [
+    "water",
+    "red",
+    "blush",
+    "flow",
+    "toilet",
+    "clean",
+    "cards",
+    "money"
+  ],
+  "trim": [
+    "cut",
+    "neat",
+    "edge",
+    "thin",
+    "decorate",
+    "hair",
+    "sail"
+  ],
+  "rank": [
+    "order",
+    "position",
+    "smell",
+    "high",
+    "army",
+    "list",
+    "level",
+    "status",
+    "place"
+  ],
+  "quiver": [
+    "tremble",
+    "shake",
+    "arrow",
+    "bow",
+    "fear",
+    "cold",
+    "shiver"
+  ],
+  "firm": [
+    "solid",
+    "company",
+    "strong",
+    "steady",
+    "business",
+    "sure",
+    "hard",
+    "hold"
+  ],
+  "jam": [
+    "fruit",
+    "spread",
+    "music",
+    "traffic",
+    "stuck",
+    "crowd",
+    "squeeze",
+    "block"
+  ],
+  "lean": [
+    "thin",
+    "slope",
+    "depend",
+    "angle",
+    "meat",
+    "balance",
+    "support"
+  ],
+  "bracket": [
+    "support",
+    "shelf",
+    "group",
+    "pair",
+    "frame",
+    "hold",
+    "tournament"
+  ],
+  "crack": [
+    "break",
+    "split",
+    "joke",
+    "sharp",
+    "sound",
+    "gap",
+    "chance",
+    "solve"
+  ],
+  "stream": [
+    "water",
+    "flow",
+    "river",
+    "film",
+    "online",
+    "current",
+    "music"
+  ],
+  "shuffle": [
+    "cards",
+    "mix",
+    "move",
+    "dance",
+    "music",
+    "feet",
+    "deck",
+    "order"
+  ],
+  "harbour": [
+    "boat",
+    "ship",
+    "port",
+    "shelter",
+    "hide",
+    "water",
+    "safe",
+    "sea"
+  ],
+  "current": [
+    "now",
+    "modern",
+    "flow",
+    "river",
+    "water",
+    "electricity",
+    "trend",
+    "present"
+  ],
+  "bark": [
+    "tree",
+    "dog",
+    "sound",
+    "skin",
+    "rough",
+    "wood",
+    "trunk"
+  ],
+  "clean": [
+    "wash",
+    "fresh",
+    "clear",
+    "neat",
+    "pure",
+    "honest",
+    "tidy"
+  ],
+  "smoke": [
+    "fire",
+    "cloud",
+    "tobacco",
+    "mist",
+    "signal",
+    "grey",
+    "screen"
+  ],
+  "calm": [
+    "quiet",
+    "peace",
+    "still",
+    "sea",
+    "gentle",
+    "rest",
+    "steady"
+  ],
+  "treat": [
+    "gift",
+    "care",
+    "sweet",
+    "handle",
+    "deal",
+    "pleasure",
+    "reward",
+    "food"
+  ],
+  "grant": [
+    "give",
+    "allow",
+    "money",
+    "funding",
+    "wish",
+    "accept",
+    "permission"
+  ],
+  "flavour": [
+    "taste",
+    "spice",
+    "sweet",
+    "food",
+    "character",
+    "hint",
+    "strong"
+  ],
+  "veil": [
+    "hide",
+    "cover",
+    "cloth",
+    "wedding",
+    "mystery",
+    "secret",
+    "thin"
+  ],
+  "copper": [
+    "metal",
+    "coin",
+    "wire",
+    "colour",
+    "police",
+    "pipe",
+    "green"
+  ],
+  "drum": [
+    "beat",
+    "music",
+    "rhythm",
+    "roll",
+    "barrel",
+    "sound",
+    "rain"
+  ],
+  "nest": [
+    "home",
+    "bird",
+    "bed",
+    "shelter",
+    "egg",
+    "rest",
+    "settle"
+  ],
+  "twist": [
+    "turn",
+    "bend",
+    "dance",
+    "plot",
+    "spin",
+    "thread",
+    "tale"
+  ],
+  "cheek": [
+    "face",
+    "smile",
+    "blush",
+    "bold",
+    "nerve",
+    "skin",
+    "kiss"
+  ],
+  "stray": [
+    "wander",
+    "lost",
+    "dog",
+    "loose",
+    "drift",
+    "leave",
+    "path"
+  ],
+  "bound": [
+    "tie",
+    "limit",
+    "leap",
+    "jump",
+    "book",
+    "duty",
+    "promise"
+  ],
+  "weather": [
+    "rain",
+    "storm",
+    "wind",
+    "season",
+    "climate",
+    "endure",
+    "change"
+  ],
+  "set": [
+    "place",
+    "group",
+    "collection",
+    "scene",
+    "ready",
+    "firm",
+    "jewel"
+  ],
+  "down": [
+    "below",
+    "sad",
+    "soft",
+    "feather",
+    "hill",
+    "fall",
+    "lower"
+  ],
+  "broad": [
+    "wide",
+    "open",
+    "general",
+    "shoulder",
+    "river",
+    "smile"
+  ]
+}

@@ -1,0 +1,1202 @@
+[
+  {
+    "words": [
+      "bolt",
+      "envy",
+      "harbour"
+    ],
+    "selected": false,
+    "reason": "Passed over: long diagnostic example relies on a diffuse emotional/physical chain; prefer clearer natural opportunities.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "roll",
+      "trust",
+      "spice"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "slice",
+      "promise",
+      "thunder"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "strike",
+      "kindness",
+      "curtain"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "beam",
+      "chance",
+      "whisper"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "grip",
+      "mystery",
+      "spring"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "tip",
+      "courage",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "stroke",
+      "secret",
+      "garden"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "plant",
+      "honour",
+      "echo"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spell",
+      "pressure",
+      "pocket"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "punch",
+      "memory",
+      "silk"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "pound",
+      "romance",
+      "flow"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spot",
+      "freedom",
+      "wire"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cast",
+      "patience",
+      "taste"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "joint",
+      "duty",
+      "cloud"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "mint",
+      "rescue",
+      "shadow"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "chest",
+      "music",
+      "quiet"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "latch",
+      "fame",
+      "drift"
+    ],
+    "selected": false,
+    "reason": "Passed over: the completion example repeats CHANCE and then relies on a broad CASUAL/LOOSE description.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sink",
+      "mercy",
+      "colour"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 9,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "clip",
+      "dream",
+      "breath"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "flush",
+      "witness",
+      "sweet"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "trim",
+      "justice",
+      "spark"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "rank",
+      "shelter",
+      "brush"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "quiver",
+      "credit",
+      "field"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "firm",
+      "wonder",
+      "ribbon"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 9,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "jam",
+      "pride",
+      "mask"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "lean",
+      "glory",
+      "dust"
+    ],
+    "selected": false,
+    "reason": "Passed over: only one advancing natural opening in the initial check.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bracket",
+      "curiosity",
+      "flame"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "crack",
+      "balance",
+      "crown"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "stream",
+      "fault",
+      "duty"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "margin",
+      "cradle",
+      "sound"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "wink",
+      "season",
+      "grip"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "pulse",
+      "gift",
+      "scar"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "crisp",
+      "brave",
+      "claim"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "patch",
+      "chance",
+      "whisper"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "taste",
+      "mirror",
+      "current"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "check",
+      "spirit",
+      "hollow"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "draw",
+      "patience",
+      "bark"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sweet",
+      "witness",
+      "coil"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 9,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "flat",
+      "mercy",
+      "sound"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "glimpse",
+      "bank",
+      "honour"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "loose",
+      "judge",
+      "letter"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "rough",
+      "wish",
+      "note"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "bright",
+      "debt",
+      "shuffle"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "shade",
+      "fame",
+      "clean"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 11,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "dimple",
+      "duty",
+      "thunder"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "faint",
+      "family",
+      "stamp"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "poise",
+      "danger",
+      "silver"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "smoke",
+      "shelter",
+      "name"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "calm",
+      "pocket",
+      "blade"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 12,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "shadow",
+      "rhythm",
+      "treat"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "claim",
+      "music",
+      "tip"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "grant",
+      "curtain",
+      "roll"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "frost",
+      "freedom",
+      "firm"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "shift",
+      "trust",
+      "beam"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "wire",
+      "courage",
+      "mint"
+    ],
+    "selected": false,
+    "reason": "Passed over: the witness relies heavily on LIGHT/GENTLE/KIND/SWEET descriptive links.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "hurry",
+      "paper",
+      "grace"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cheer",
+      "mystery",
+      "plant"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bargain",
+      "ghost",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Passed over: narrow sampled opening and repetitive witness.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "feast",
+      "balance",
+      "hint"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "safety",
+      "romance",
+      "flush"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 10,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "pale",
+      "story",
+      "latch"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "grace",
+      "credit",
+      "trim"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 0,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "puzzle",
+      "honour",
+      "sink"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 9,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "sharp",
+      "shelter",
+      "spell"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "mystery",
+      "duty",
+      "clip"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "genuine",
+      "split",
+      "flavour"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "thrift",
+      "witness",
+      "joint"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "lonely",
+      "festival",
+      "cast"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "harvest",
+      "dream",
+      "punch"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spark",
+      "patience",
+      "rank"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bloom",
+      "secret",
+      "pound"
+    ],
+    "selected": false,
+    "reason": "Passed over: repeat COIN in the diagnostic example and less varied incoming exploration than preferred for this batch.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "handle",
+      "wonder",
+      "spot"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 8,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "swing",
+      "memory",
+      "bracket"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "hunger",
+      "promise",
+      "quiver"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "breeze",
+      "glory",
+      "crack"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "veil",
+      "chance",
+      "sound"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 6,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "copper",
+      "pride",
+      "silence"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "drum",
+      "mercy",
+      "hollow"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "nest",
+      "pressure",
+      "grin"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "twist",
+      "family",
+      "shelf"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cheek",
+      "music",
+      "stray"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bound",
+      "gift",
+      "weather"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "set",
+      "freedom",
+      "glow"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "down",
+      "duty",
+      "frame"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 2,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "plain",
+      "rescue",
+      "brush"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "broad",
+      "trust",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "spring",
+      "honour",
+      "hinge"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 1,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "hush",
+      "fortune",
+      "plant"
+    ],
+    "selected": false,
+    "reason": "Passed over: the sample circles through SECRET/SHARE/FRIEND rather than showing a clear progression.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "light",
+      "justice",
+      "spice"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "bold",
+      "shadow",
+      "trim"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "feather",
+      "wish",
+      "shift"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "pocket",
+      "spirit",
+      "stream"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "spare",
+      "credit",
+      "jam"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "silk",
+      "curiosity",
+      "beam"
+    ],
+    "selected": true,
+    "reason": "Selected after opening, landing and human association review.",
+    "allowed": true,
+    "openingCount": 5,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "cradle",
+      "revenge",
+      "flow"
+    ],
+    "selected": false,
+    "reason": "No complete context-supported witness in the initial bounded check; not proof of impossibility.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "dare",
+      "season",
+      "clip"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 7,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "mask",
+      "patience",
+      "chest"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 4,
+    "completionFound": true
+  },
+  {
+    "words": [
+      "rest",
+      "debate",
+      "bolt"
+    ],
+    "selected": false,
+    "reason": "Existing direct-leg check fails.",
+    "allowed": false,
+    "openingCount": null,
+    "completionFound": false
+  },
+  {
+    "words": [
+      "wave",
+      "debt",
+      "spell"
+    ],
+    "selected": false,
+    "reason": "Passed over to balance the final mix; not a claim that this is unplayable.",
+    "allowed": true,
+    "openingCount": 3,
+    "completionFound": true
+  }
+]

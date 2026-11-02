@@ -1,0 +1,16 @@
+{
+  "selected": 30,
+  "considered": 100,
+  "distinctWords": 81,
+  "maximumWordFrequency": 2,
+  "reachedLandings": 1076,
+  "openingRange": [
+    3,
+    11
+  ],
+  "landingRange": [
+    6,
+    64
+  ],
+  "scope": "Bounded shared-context engine probes, not exhaustive vocabulary coverage or a prediction of enjoyment."
+}

@@ -57,7 +57,7 @@ const saved={version:1,selected:old.date,holes:{[old.id]:{id:old.id,date:old.dat
 const memory=new Map([[DAILY_KEY,JSON.stringify(saved)]]),storage={getItem:k=>memory.get(k)??null,setItem:(k,val)=>memory.set(k,val)};
 const daily=new DailyGame(storage,dailyManifest,{today:()=> '2026-11-02'});
 assert.deepEqual(daily.available().filter(h=>h.settings.course_set===v.batch),batch);
-assert.equal(daily.available().length,351);
+assert.equal(daily.available().filter(h=>h.date<=v.lastDate).length,351);
 assert.deepEqual(daily.data.holes[old.id],saved.holes[old.id]);assert.equal(memory.get(DAILY_KEY),JSON.stringify(saved));
 daily.visit(batch[0].date);daily.visit(batch.at(-1).date);
 const restored=new DailyGame(storage,dailyManifest,{today:()=> '2026-11-02'});

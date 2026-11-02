@@ -1,0 +1,1085 @@
+[
+  {
+    "start": "strike",
+    "waypoint": "kindness",
+    "target": "curtain",
+    "directions": {
+      "strike": [
+        "hit",
+        "match",
+        "light",
+        "worker",
+        "protest",
+        "gold",
+        "bowling",
+        "clock",
+        "attack"
+      ],
+      "kindness": [
+        "care",
+        "generous",
+        "help",
+        "sympathy",
+        "gentle",
+        "friend",
+        "charity",
+        "warmth",
+        "compassion",
+        "good"
+      ],
+      "curtain": [
+        "window",
+        "cloth",
+        "stage",
+        "hide",
+        "close",
+        "fall",
+        "theatre"
+      ]
+    }
+  },
+  {
+    "start": "spell",
+    "waypoint": "pressure",
+    "target": "pocket",
+    "directions": {
+      "spell": [
+        "word",
+        "magic",
+        "charm",
+        "letters",
+        "period",
+        "weather",
+        "curse",
+        "witch"
+      ],
+      "pressure": [
+        "stress",
+        "force",
+        "weight",
+        "air",
+        "push",
+        "time"
+      ],
+      "pocket": [
+        "money",
+        "carry",
+        "bag",
+        "billiards",
+        "steal",
+        "space",
+        "save"
+      ]
+    }
+  },
+  {
+    "start": "pound",
+    "waypoint": "romance",
+    "target": "flow",
+    "directions": {
+      "pound": [
+        "weight",
+        "money",
+        "crush",
+        "dog",
+        "beat",
+        "currency",
+        "heavy",
+        "coin"
+      ],
+      "romance": [
+        "love",
+        "date",
+        "passion",
+        "novel",
+        "adventure",
+        "story"
+      ],
+      "flow": [
+        "water",
+        "river",
+        "rhythm",
+        "move",
+        "current"
+      ]
+    }
+  },
+  {
+    "start": "spot",
+    "waypoint": "freedom",
+    "target": "wire",
+    "directions": {
+      "spot": [
+        "mark",
+        "place",
+        "stain",
+        "see",
+        "dog",
+        "position",
+        "light",
+        "notice"
+      ],
+      "freedom": [
+        "liberty",
+        "choice",
+        "free",
+        "rights",
+        "prison",
+        "independence"
+      ],
+      "wire": [
+        "metal",
+        "electricity",
+        "cable",
+        "telephone",
+        "fence",
+        "thread",
+        "signal",
+        "message",
+        "bend",
+        "connect"
+      ]
+    }
+  },
+  {
+    "start": "firm",
+    "waypoint": "wonder",
+    "target": "ribbon",
+    "directions": {
+      "firm": [
+        "solid",
+        "company",
+        "strong",
+        "steady",
+        "business",
+        "sure",
+        "hard",
+        "hold"
+      ],
+      "wonder": [
+        "awe",
+        "question",
+        "surprise",
+        "miracle",
+        "marvel",
+        "think"
+      ],
+      "ribbon": [
+        "bow",
+        "prize",
+        "tape",
+        "colour",
+        "gift",
+        "strip",
+        "typewriter",
+        "finish"
+      ]
+    }
+  },
+  {
+    "start": "clip",
+    "waypoint": "dream",
+    "target": "breath",
+    "directions": {
+      "clip": [
+        "cut",
+        "paper",
+        "film",
+        "hair",
+        "fasten",
+        "short",
+        "trim",
+        "ticket"
+      ],
+      "dream": [
+        "sleep",
+        "hope",
+        "ambition",
+        "vision",
+        "imagine",
+        "nightmare",
+        "future"
+      ],
+      "breath": [
+        "air",
+        "life",
+        "wind",
+        "pause",
+        "whisper",
+        "sigh",
+        "fresh"
+      ]
+    }
+  },
+  {
+    "start": "trim",
+    "waypoint": "justice",
+    "target": "spark",
+    "directions": {
+      "trim": [
+        "cut",
+        "neat",
+        "edge",
+        "thin",
+        "decorate",
+        "hair",
+        "sail"
+      ],
+      "justice": [
+        "law",
+        "fair",
+        "judge",
+        "court",
+        "rights",
+        "sentence"
+      ],
+      "spark": [
+        "fire",
+        "light",
+        "idea",
+        "start",
+        "electric",
+        "romance",
+        "plug"
+      ]
+    }
+  },
+  {
+    "start": "wink",
+    "waypoint": "season",
+    "target": "grip",
+    "directions": {
+      "wink": [
+        "eye",
+        "blink",
+        "signal",
+        "hint",
+        "joke",
+        "secret",
+        "flirt",
+        "close",
+        "eyelid",
+        "playful"
+      ],
+      "season": [
+        "time",
+        "winter",
+        "summer",
+        "flavour",
+        "salt",
+        "spice",
+        "mature"
+      ],
+      "grip": [
+        "hold",
+        "hand",
+        "handle",
+        "control",
+        "fear",
+        "firm",
+        "tight",
+        "pressure",
+        "squeeze"
+      ]
+    }
+  },
+  {
+    "start": "patch",
+    "waypoint": "chance",
+    "target": "whisper",
+    "directions": {
+      "patch": [
+        "mend",
+        "repair",
+        "cloth",
+        "spot",
+        "field",
+        "software",
+        "update",
+        "cover",
+        "hole",
+        "work"
+      ],
+      "chance": [
+        "luck",
+        "risk",
+        "probability",
+        "opportunity",
+        "gamble",
+        "dice"
+      ],
+      "whisper": [
+        "quiet",
+        "secret",
+        "voice",
+        "rumour",
+        "wind",
+        "soft"
+      ]
+    }
+  },
+  {
+    "start": "sweet",
+    "waypoint": "witness",
+    "target": "coil",
+    "directions": {
+      "sweet": [
+        "sugar",
+        "kind",
+        "nice",
+        "taste",
+        "music",
+        "love",
+        "candy"
+      ],
+      "witness": [
+        "see",
+        "court",
+        "evidence",
+        "test",
+        "watch",
+        "story",
+        "sign",
+        "testify",
+        "crime",
+        "observe",
+        "spectator",
+        "proof",
+        "statement",
+        "testimony"
+      ],
+      "coil": [
+        "twist",
+        "spiral",
+        "spring",
+        "wire",
+        "rope",
+        "hair",
+        "curl",
+        "turn",
+        "wind",
+        "loop"
+      ]
+    }
+  },
+  {
+    "start": "shade",
+    "waypoint": "fame",
+    "target": "clean",
+    "directions": {
+      "shade": [
+        "shadow",
+        "tree",
+        "dark",
+        "light",
+        "cool",
+        "shelter",
+        "colour",
+        "tone",
+        "screen",
+        "cover"
+      ],
+      "fame": [
+        "celebrity",
+        "star",
+        "glory",
+        "reputation",
+        "recognition",
+        "success",
+        "name",
+        "public",
+        "legend",
+        "spotlight"
+      ],
+      "clean": [
+        "wash",
+        "fresh",
+        "clear",
+        "neat",
+        "pure",
+        "honest",
+        "tidy"
+      ]
+    }
+  },
+  {
+    "start": "faint",
+    "waypoint": "family",
+    "target": "stamp",
+    "directions": {
+      "faint": [
+        "weak",
+        "pale",
+        "dizzy",
+        "light",
+        "vague",
+        "distant",
+        "collapse",
+        "delicate",
+        "subtle",
+        "whisper"
+      ],
+      "family": [
+        "home",
+        "root",
+        "tree",
+        "parent",
+        "relation"
+      ],
+      "stamp": [
+        "post",
+        "mail",
+        "letter",
+        "mark",
+        "foot",
+        "approval",
+        "seal",
+        "collect",
+        "authority",
+        "ticket"
+      ]
+    }
+  },
+  {
+    "start": "poise",
+    "waypoint": "danger",
+    "target": "silver",
+    "directions": {
+      "poise": [
+        "balance",
+        "grace",
+        "calm",
+        "composure",
+        "posture",
+        "confidence",
+        "ready",
+        "hold",
+        "dignity",
+        "elegant"
+      ],
+      "danger": [
+        "risk",
+        "fear",
+        "warning",
+        "unsafe",
+        "threat",
+        "adventure"
+      ],
+      "silver": [
+        "metal",
+        "coin",
+        "shine",
+        "moon",
+        "spoon",
+        "prize"
+      ]
+    }
+  },
+  {
+    "start": "shadow",
+    "waypoint": "rhythm",
+    "target": "treat",
+    "directions": {
+      "shadow": [
+        "shade",
+        "dark",
+        "follow",
+        "copy",
+        "doubt",
+        "secret",
+        "silhouette"
+      ],
+      "rhythm": [
+        "beat",
+        "music",
+        "pattern",
+        "dance",
+        "pace",
+        "flow",
+        "cycle"
+      ],
+      "treat": [
+        "gift",
+        "care",
+        "sweet",
+        "handle",
+        "deal",
+        "pleasure",
+        "reward",
+        "food"
+      ]
+    }
+  },
+  {
+    "start": "claim",
+    "waypoint": "music",
+    "target": "tip",
+    "directions": {
+      "claim": [
+        "say",
+        "own",
+        "demand",
+        "right",
+        "insurance",
+        "assert"
+      ],
+      "music": [
+        "sound",
+        "note",
+        "rhythm",
+        "dance",
+        "play"
+      ],
+      "tip": [
+        "point",
+        "advice",
+        "end",
+        "money",
+        "spill",
+        "tilt",
+        "balance",
+        "hat"
+      ]
+    }
+  },
+  {
+    "start": "grant",
+    "waypoint": "curtain",
+    "target": "roll",
+    "directions": {
+      "grant": [
+        "give",
+        "allow",
+        "money",
+        "funding",
+        "wish",
+        "accept",
+        "permission"
+      ],
+      "curtain": [
+        "window",
+        "cloth",
+        "stage",
+        "hide",
+        "close",
+        "fall",
+        "theatre"
+      ],
+      "roll": [
+        "turn",
+        "wheel",
+        "bread",
+        "dice",
+        "paper",
+        "film",
+        "wave",
+        "rock",
+        "round",
+        "drum"
+      ]
+    }
+  },
+  {
+    "start": "frost",
+    "waypoint": "freedom",
+    "target": "firm",
+    "directions": {
+      "frost": [
+        "ice",
+        "cold",
+        "white",
+        "glass",
+        "winter",
+        "freeze"
+      ],
+      "freedom": [
+        "liberty",
+        "choice",
+        "free",
+        "rights",
+        "prison",
+        "independence"
+      ],
+      "firm": [
+        "solid",
+        "company",
+        "strong",
+        "steady",
+        "business",
+        "sure",
+        "hard",
+        "hold"
+      ]
+    }
+  },
+  {
+    "start": "hurry",
+    "waypoint": "paper",
+    "target": "grace",
+    "directions": {
+      "hurry": [
+        "rush",
+        "quick",
+        "haste",
+        "speed",
+        "late",
+        "run",
+        "time",
+        "urgent",
+        "fast",
+        "race"
+      ],
+      "paper": [
+        "write",
+        "book",
+        "fold",
+        "news",
+        "sheet",
+        "tree",
+        "exam"
+      ],
+      "grace": [
+        "elegance",
+        "favour",
+        "prayer",
+        "pardon",
+        "ballet",
+        "smooth",
+        "kindness"
+      ]
+    }
+  },
+  {
+    "start": "cheer",
+    "waypoint": "mystery",
+    "target": "plant",
+    "directions": {
+      "cheer": [
+        "happy",
+        "joy",
+        "encourage",
+        "applause",
+        "crowd",
+        "shout",
+        "spirit",
+        "support",
+        "brighten",
+        "comfort"
+      ],
+      "mystery": [
+        "secret",
+        "puzzle",
+        "crime",
+        "unknown",
+        "story",
+        "question"
+      ],
+      "plant": [
+        "flower",
+        "factory",
+        "grow",
+        "secret",
+        "spy",
+        "foot",
+        "seed",
+        "root",
+        "garden",
+        "stage"
+      ]
+    }
+  },
+  {
+    "start": "feast",
+    "waypoint": "balance",
+    "target": "hint",
+    "directions": {
+      "feast": [
+        "food",
+        "meal",
+        "eat",
+        "dinner",
+        "banquet",
+        "plenty",
+        "celebrate",
+        "festival",
+        "rich",
+        "delight"
+      ],
+      "balance": [
+        "scale",
+        "weight",
+        "fair",
+        "steady",
+        "bank",
+        "account",
+        "poise"
+      ],
+      "hint": [
+        "clue",
+        "suggest",
+        "signal",
+        "whisper",
+        "tip",
+        "trace",
+        "imply",
+        "small",
+        "advice",
+        "idea"
+      ]
+    }
+  },
+  {
+    "start": "pale",
+    "waypoint": "story",
+    "target": "latch",
+    "directions": {
+      "pale": [
+        "light",
+        "white",
+        "colour",
+        "faint",
+        "weak",
+        "ill",
+        "skin",
+        "moon",
+        "fear",
+        "shade"
+      ],
+      "story": [
+        "tale",
+        "book",
+        "news",
+        "lie",
+        "level",
+        "history",
+        "plot"
+      ],
+      "latch": [
+        "catch",
+        "lock",
+        "door",
+        "close",
+        "hold",
+        "gate",
+        "fasten",
+        "safe"
+      ]
+    }
+  },
+  {
+    "start": "puzzle",
+    "waypoint": "honour",
+    "target": "sink",
+    "directions": {
+      "puzzle": [
+        "riddle",
+        "mystery",
+        "solve",
+        "question",
+        "jigsaw",
+        "confusion",
+        "game",
+        "pieces",
+        "wonder",
+        "clue"
+      ],
+      "honour": [
+        "respect",
+        "medal",
+        "duty",
+        "honest",
+        "glory",
+        "promise",
+        "prize"
+      ],
+      "sink": [
+        "basin",
+        "drop",
+        "fall",
+        "ship",
+        "kitchen",
+        "wash",
+        "dive",
+        "water"
+      ]
+    }
+  },
+  {
+    "start": "sharp",
+    "waypoint": "shelter",
+    "target": "spell",
+    "directions": {
+      "sharp": [
+        "knife",
+        "pointed",
+        "clever",
+        "sting",
+        "music",
+        "quick",
+        "clear"
+      ],
+      "shelter": [
+        "home",
+        "roof",
+        "protect",
+        "refuge",
+        "cover",
+        "shade",
+        "safe"
+      ],
+      "spell": [
+        "word",
+        "magic",
+        "charm",
+        "letters",
+        "period",
+        "weather",
+        "curse",
+        "witch"
+      ]
+    }
+  },
+  {
+    "start": "spark",
+    "waypoint": "patience",
+    "target": "rank",
+    "directions": {
+      "spark": [
+        "fire",
+        "light",
+        "idea",
+        "start",
+        "electric",
+        "romance",
+        "plug"
+      ],
+      "patience": [
+        "wait",
+        "calm",
+        "time",
+        "endure",
+        "card",
+        "care",
+        "tolerate",
+        "virtue",
+        "steady",
+        "slow",
+        "tired",
+        "persistence"
+      ],
+      "rank": [
+        "order",
+        "position",
+        "smell",
+        "high",
+        "army",
+        "list",
+        "level",
+        "status",
+        "place"
+      ]
+    }
+  },
+  {
+    "start": "swing",
+    "waypoint": "memory",
+    "target": "bracket",
+    "directions": {
+      "swing": [
+        "move",
+        "pendulum",
+        "playground",
+        "golf",
+        "music",
+        "dance"
+      ],
+      "memory": [
+        "remember",
+        "past",
+        "computer",
+        "store",
+        "forget",
+        "image"
+      ],
+      "bracket": [
+        "support",
+        "shelf",
+        "group",
+        "pair",
+        "frame",
+        "hold",
+        "tournament"
+      ]
+    }
+  },
+  {
+    "start": "twist",
+    "waypoint": "family",
+    "target": "shelf",
+    "directions": {
+      "twist": [
+        "turn",
+        "bend",
+        "dance",
+        "plot",
+        "spin",
+        "thread",
+        "tale"
+      ],
+      "family": [
+        "home",
+        "root",
+        "tree",
+        "parent",
+        "relation"
+      ],
+      "shelf": [
+        "book",
+        "library",
+        "storage",
+        "cupboard",
+        "ledge",
+        "bracket",
+        "display",
+        "stack",
+        "shop",
+        "hold"
+      ]
+    }
+  },
+  {
+    "start": "bound",
+    "waypoint": "gift",
+    "target": "weather",
+    "directions": {
+      "bound": [
+        "tie",
+        "limit",
+        "leap",
+        "jump",
+        "book",
+        "duty",
+        "promise"
+      ],
+      "gift": [
+        "present",
+        "talent",
+        "give",
+        "wrap",
+        "birthday",
+        "generous"
+      ],
+      "weather": [
+        "rain",
+        "storm",
+        "wind",
+        "season",
+        "climate",
+        "endure",
+        "change"
+      ]
+    }
+  },
+  {
+    "start": "pocket",
+    "waypoint": "spirit",
+    "target": "stream",
+    "directions": {
+      "pocket": [
+        "money",
+        "carry",
+        "bag",
+        "billiards",
+        "steal",
+        "space",
+        "save"
+      ],
+      "spirit": [
+        "ghost",
+        "soul",
+        "courage",
+        "mood",
+        "drink",
+        "life"
+      ],
+      "stream": [
+        "water",
+        "flow",
+        "river",
+        "film",
+        "online",
+        "current",
+        "music"
+      ]
+    }
+  },
+  {
+    "start": "silk",
+    "waypoint": "curiosity",
+    "target": "beam",
+    "directions": {
+      "silk": [
+        "smooth",
+        "cloth",
+        "thread",
+        "soft",
+        "fine",
+        "web",
+        "dress"
+      ],
+      "curiosity": [
+        "interest",
+        "question",
+        "wonder",
+        "discover",
+        "strange",
+        "explore"
+      ],
+      "beam": [
+        "light",
+        "smile",
+        "support",
+        "wood",
+        "steel",
+        "ray",
+        "bridge",
+        "pride",
+        "sun"
+      ]
+    }
+  },
+  {
+    "start": "mystery",
+    "waypoint": "duty",
+    "target": "clip",
+    "directions": {
+      "mystery": [
+        "secret",
+        "puzzle",
+        "crime",
+        "unknown",
+        "story",
+        "question"
+      ],
+      "duty": [
+        "job",
+        "work",
+        "tax",
+        "obligation",
+        "honour",
+        "service",
+        "responsibility"
+      ],
+      "clip": [
+        "cut",
+        "paper",
+        "film",
+        "hair",
+        "fasten",
+        "short",
+        "trim",
+        "ticket"
+      ]
+    }
+  }
+]
