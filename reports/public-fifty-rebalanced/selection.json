@@ -1,0 +1,788 @@
+{
+  "version": "public-fifty-mixed-v2",
+  "selection": [
+    {
+      "position": 1,
+      "id": "daily-2027-11-04",
+      "words": [
+        "strike",
+        "kindness",
+        "curtain"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 8
+      }
+    },
+    {
+      "position": 2,
+      "id": "daily-2027-11-11",
+      "words": [
+        "wink",
+        "season",
+        "grip"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 4
+      }
+    },
+    {
+      "position": 3,
+      "id": "daily-2027-12-11",
+      "words": [
+        "giggle",
+        "pressure",
+        "thread"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 4,
+      "id": "daily-2027-11-06",
+      "words": [
+        "pound",
+        "romance",
+        "flow"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 6
+      }
+    },
+    {
+      "position": 5,
+      "id": "daily-2027-12-12",
+      "words": [
+        "splash",
+        "duty",
+        "whisper"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 6,
+      "id": "daily-2027-12-15",
+      "words": [
+        "glitter",
+        "rescue",
+        "hush"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 7,
+      "id": "daily-2027-11-08",
+      "words": [
+        "firm",
+        "wonder",
+        "ribbon"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 8
+      }
+    },
+    {
+      "position": 8,
+      "id": "daily-2027-12-16",
+      "words": [
+        "riddle",
+        "patience",
+        "button"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 9,
+      "id": "daily-2027-11-12",
+      "words": [
+        "patch",
+        "chance",
+        "whisper"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 13
+      }
+    },
+    {
+      "position": 10,
+      "id": "daily-2027-12-17",
+      "words": [
+        "dazzle",
+        "debt",
+        "feather"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 11,
+      "id": "daily-2027-12-18",
+      "words": [
+        "shuffle",
+        "loyalty",
+        "mirror"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 12,
+      "id": "daily-2027-11-10",
+      "words": [
+        "trim",
+        "justice",
+        "spark"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 3
+      }
+    },
+    {
+      "position": 13,
+      "id": "daily-2027-12-19",
+      "words": [
+        "snuggle",
+        "chance",
+        "flame"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 14,
+      "id": "daily-2027-11-17",
+      "words": [
+        "shadow",
+        "rhythm",
+        "treat"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 17
+      }
+    },
+    {
+      "position": 15,
+      "id": "daily-2027-12-20",
+      "words": [
+        "confetti",
+        "purpose",
+        "shell"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 16,
+      "id": "daily-2027-12-22",
+      "words": [
+        "wink",
+        "fortune",
+        "tangle"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 17,
+      "id": "daily-2027-11-16",
+      "words": [
+        "poise",
+        "danger",
+        "silver"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 4
+      }
+    },
+    {
+      "position": 18,
+      "id": "daily-2027-12-23",
+      "words": [
+        "fiddle",
+        "hope",
+        "copper"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 19,
+      "id": "daily-2027-11-19",
+      "words": [
+        "grant",
+        "curtain",
+        "roll"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 11
+      }
+    },
+    {
+      "position": 20,
+      "id": "daily-2027-12-24",
+      "words": [
+        "ripple",
+        "carnival",
+        "hollow"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 21,
+      "id": "daily-2027-12-26",
+      "words": [
+        "fumble",
+        "romance",
+        "glass"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 22,
+      "id": "daily-2027-11-09",
+      "words": [
+        "clip",
+        "dream",
+        "breath"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 3,
+        "submittedThroughFirstFinish": 2
+      }
+    },
+    {
+      "position": 23,
+      "id": "daily-2027-12-27",
+      "words": [
+        "puddle",
+        "pride",
+        "charge"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 24,
+      "id": "daily-2027-11-23",
+      "words": [
+        "feast",
+        "balance",
+        "hint"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 10
+      }
+    },
+    {
+      "position": 25,
+      "id": "daily-2027-12-28",
+      "words": [
+        "chuckle",
+        "suspense",
+        "plant"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 26,
+      "id": "daily-2027-12-29",
+      "words": [
+        "sneak",
+        "harmony",
+        "paint"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 27,
+      "id": "daily-2027-11-26",
+      "words": [
+        "sharp",
+        "shelter",
+        "spell"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 10
+      }
+    },
+    {
+      "position": 28,
+      "id": "daily-2027-12-30",
+      "words": [
+        "grumble",
+        "kindness",
+        "beam"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 29,
+      "id": "daily-2027-11-30",
+      "words": [
+        "bound",
+        "gift",
+        "weather"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 13
+      }
+    },
+    {
+      "position": 30,
+      "id": "daily-2027-12-31",
+      "words": [
+        "rattle",
+        "faith",
+        "fold"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 31,
+      "id": "daily-2028-01-07",
+      "words": [
+        "hitch",
+        "rhythm",
+        "float"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 32,
+      "id": "daily-2027-11-21",
+      "words": [
+        "hurry",
+        "paper",
+        "grace"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 8
+      }
+    },
+    {
+      "position": 33,
+      "id": "daily-2028-01-09",
+      "words": [
+        "swoop",
+        "patience",
+        "veil"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 34,
+      "id": "daily-2027-11-14",
+      "words": [
+        "shade",
+        "fame",
+        "clean"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 7
+      }
+    },
+    {
+      "position": 35,
+      "id": "daily-2028-01-10",
+      "words": [
+        "swirl",
+        "trust",
+        "nest"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 36,
+      "id": "daily-2028-01-11",
+      "words": [
+        "jolly",
+        "purpose",
+        "crack"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 37,
+      "id": "daily-2027-11-27",
+      "words": [
+        "spark",
+        "patience",
+        "rank"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 4
+      }
+    },
+    {
+      "position": 38,
+      "id": "daily-2028-01-13",
+      "words": [
+        "flutter",
+        "debt",
+        "joke"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 39,
+      "id": "daily-2027-11-18",
+      "words": [
+        "claim",
+        "music",
+        "tip"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 23
+      }
+    },
+    {
+      "position": 40,
+      "id": "daily-2028-01-14",
+      "words": [
+        "tangle",
+        "memory",
+        "scoop"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 41,
+      "id": "daily-2028-01-15",
+      "words": [
+        "fuss",
+        "glory",
+        "whirl"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 42,
+      "id": "daily-2027-11-24",
+      "words": [
+        "pale",
+        "story",
+        "latch"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 4
+      }
+    },
+    {
+      "position": 43,
+      "id": "daily-2028-01-16",
+      "words": [
+        "sparkle",
+        "freedom",
+        "patch"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 44,
+      "id": "daily-2028-01-17",
+      "words": [
+        "grin",
+        "suspense",
+        "mint"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 45,
+      "id": "daily-2027-11-29",
+      "words": [
+        "twist",
+        "family",
+        "shelf"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 3,
+        "submittedThroughFirstFinish": 7
+      }
+    },
+    {
+      "position": 46,
+      "id": "daily-2028-01-18",
+      "words": [
+        "stumble",
+        "faith",
+        "copper"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 47,
+      "id": "daily-2028-01-19",
+      "words": [
+        "fluffy",
+        "purpose",
+        "sink"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 48,
+      "id": "daily-2027-12-03",
+      "words": [
+        "mystery",
+        "duty",
+        "clip"
+      ],
+      "source": "playtested-30",
+      "playEvidence": {
+        "bestStrokes": 4,
+        "submittedThroughFirstFinish": 5
+      }
+    },
+    {
+      "position": 49,
+      "id": "daily-2028-01-20",
+      "words": [
+        "whirl",
+        "family",
+        "glove"
+      ],
+      "source": "playful-50"
+    },
+    {
+      "position": 50,
+      "id": "daily-2028-01-22",
+      "words": [
+        "pickle",
+        "rhythm",
+        "cloud"
+      ],
+      "source": "playful-50"
+    }
+  ],
+  "removedFromPublic": [
+    {
+      "originalPublicNumber": 1,
+      "id": "daily-2027-12-04",
+      "words": [
+        "mischief",
+        "balance",
+        "velvet"
+      ],
+      "reason": "Indirect opening: mischief/jokes to balance, then tactile velvet; checked example needs several shifts before the dogleg."
+    },
+    {
+      "originalPublicNumber": 2,
+      "id": "daily-2027-12-05",
+      "words": [
+        "wobble",
+        "promise",
+        "ribbon"
+      ],
+      "reason": "Physical wobble to promise relies on a broad positive-description handoff in the checked example. Early user feedback warrants a safer public replacement."
+    },
+    {
+      "originalPublicNumber": 3,
+      "id": "daily-2027-12-06",
+      "words": [
+        "bubble",
+        "justice",
+        "shadow"
+      ],
+      "reason": "Physical bubble to justice requires an indirect sound/voice/vote approach in the checked example."
+    },
+    {
+      "originalPublicNumber": 4,
+      "id": "daily-2027-12-07",
+      "words": [
+        "blush",
+        "weather",
+        "puzzle"
+      ],
+      "reason": "Checked example leans on flush/clean/clear as generic properties; replace this early combination rather than assuming it will feel intuitive."
+    },
+    {
+      "originalPublicNumber": 5,
+      "id": "daily-2027-12-08",
+      "words": [
+        "juggle",
+        "honour",
+        "spark"
+      ],
+      "reason": "Juggling to honour has a long balance/bank/trust approach; familiar words do not make this combination welcoming."
+    },
+    {
+      "originalPublicNumber": 6,
+      "id": "daily-2027-12-09",
+      "words": [
+        "encore",
+        "shelter",
+        "twist"
+      ],
+      "reason": "Encore to shelter uses a march/protest/storm detour in the checked example; too indirect for this opening run."
+    },
+    {
+      "originalPublicNumber": 7,
+      "id": "daily-2027-12-10",
+      "words": [
+        "fizz",
+        "memory",
+        "crown"
+      ],
+      "reason": "Fizz to memory and crown has a long light/flash/show chain; playful tee alone does not supply natural access."
+    },
+    {
+      "originalPublicNumber": 10,
+      "id": "daily-2027-12-13",
+      "words": [
+        "squabble",
+        "season",
+        "glow"
+      ],
+      "reason": "Only three reached landing words in the bounded context graph, with no sampled natural one-word finish; an additional narrowing warning."
+    },
+    {
+      "originalPublicNumber": 11,
+      "id": "daily-2027-12-14",
+      "words": [
+        "tumble",
+        "trust",
+        "paper"
+      ],
+      "reason": "Only eight natural onward-option sets among forty reached landings, and an unconvincing chance/hope/dream/cloud witness."
+    },
+    {
+      "originalPublicNumber": 18,
+      "id": "daily-2027-12-21",
+      "words": [
+        "sizzle",
+        "honour",
+        "cloud"
+      ],
+      "reason": "Long physical-to-social approach through heat/temper/balance/fair/equal; the sampled route also repeats FAIR across the dogleg."
+    },
+    {
+      "originalPublicNumber": 22,
+      "id": "daily-2027-12-25",
+      "words": [
+        "bounce",
+        "secret",
+        "stitch"
+      ],
+      "reason": "Checked finish cycles through WIRE on both legs; the route evidence does not establish varied natural exploration."
+    },
+    {
+      "originalPublicNumber": 29,
+      "id": "daily-2028-01-01",
+      "words": [
+        "fluke",
+        "silence",
+        "brush"
+      ],
+      "reason": "Five-shot approach in the checked example, then TOUCH/FEELING/TOUCH recycling. Retain as an admin experiment, not a confident public choice."
+    },
+    {
+      "originalPublicNumber": 30,
+      "id": "daily-2028-01-02",
+      "words": [
+        "jelly",
+        "respect",
+        "draft"
+      ],
+      "reason": "Jelly to respect requires a long category-to-social chain; the sampled example is weak evidence of enjoyable access."
+    },
+    {
+      "originalPublicNumber": 31,
+      "id": "daily-2028-01-03",
+      "words": [
+        "popcorn",
+        "grace",
+        "edge"
+      ],
+      "reason": "Four-shot approach and a TRUST/FAITH/TRUST loop in the checked example; limited natural onward variation in the sample."
+    },
+    {
+      "originalPublicNumber": 32,
+      "id": "daily-2028-01-04",
+      "words": [
+        "snooze",
+        "courage",
+        "stamp"
+      ],
+      "reason": "Snooze to courage needs clock/strike/protest/voice in the checked approach; the conceptual gap is awkward rather than playful."
+    },
+    {
+      "originalPublicNumber": 33,
+      "id": "daily-2028-01-05",
+      "words": [
+        "muddle",
+        "fame",
+        "bright"
+      ],
+      "reason": "Only eight natural onward-option sets among nineteen sampled landings, and a diffuse fear/respect/praise/glory example."
+    },
+    {
+      "originalPublicNumber": 34,
+      "id": "daily-2028-01-06",
+      "words": [
+        "crumble",
+        "spirit",
+        "knot"
+      ],
+      "reason": "Five-shot checked approach and a break/rest/music detour; too little convincing evidence for a broad accessible public opening."
+    },
+    {
+      "originalPublicNumber": 36,
+      "id": "daily-2028-01-08",
+      "words": [
+        "squeak",
+        "honour",
+        "shine"
+      ],
+      "reason": "Only three advancing opening suggestions in the sample; reaching honour takes five shots in the checked example."
+    },
+    {
+      "originalPublicNumber": 40,
+      "id": "daily-2028-01-12",
+      "words": [
+        "twinkle",
+        "justice",
+        "lace"
+      ],
+      "reason": "Five-shot checked approach, repeating STORY across the dogleg; semantic cycling is not evidence of enjoyable variety."
+    },
+    {
+      "originalPublicNumber": 49,
+      "id": "daily-2028-01-21",
+      "words": [
+        "fickle",
+        "story",
+        "beam"
+      ],
+      "reason": "Long abstract loyalty/respect/praise progression to story; replace rather than treating sampled landings as proof of access."
+    }
+  ],
+  "note": "Removed from public selection only; all archive definitions and retained play progress remain unchanged. Bounded checks identify concerns, not objective difficulty."
+}

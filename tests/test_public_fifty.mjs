@@ -65,7 +65,8 @@ assert.equal(restored.selected().id,batch.at(-1).id);assert.deepEqual(restored.d
 console.log(`Public fifty archive passed: 50 completions, ${probes} landing-choice probes replayed, all 410 previous definitions and saved progress preserved; #382–#431 available.`);
 
 // Same permanent hole records, two independent browsing surfaces; no destructive migration.
-const {dailyManifest:publicManifest}=await import('../static/public-manifest.mjs');
+// Freeze the launch collection here; the current editorial mix is checked separately.
+const publicManifest={version:1,scopeToManifest:true,includeCustom:false,entryHoleId:batch[0].id,holes:batch};
 assert.equal(publicManifest.holes.length,50);assert.deepEqual(publicManifest.holes,batch);
 assert.equal(publicManifest.includeCustom,false);assert.equal(publicManifest.scopeToManifest,true);
 const oldData=JSON.parse(memory.get(DAILY_KEY)),newHole=batch[0];

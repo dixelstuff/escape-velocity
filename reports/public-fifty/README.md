@@ -1,4 +1,6 @@
-# Fifty playful open landscapes — 3 November 2026
+# Fifty playful open landscapes — original launch selection
+
+**Historical launch selection.** The current public mix is documented in [the rebalanced public fifty](../public-fifty-rebalanced/README.md). The original fifty remain unchanged in the admin archive.
 
 The public app now browses only this collection, numbered **#1–#50**. Admin (`?admin=1`) retains all **431 playable archive holes**, custom creation and research/export controls. The new holes are #382–#431 there. These are two views of the same permanent IDs and settings, not separately scored duplicates. Switching views preserves stored bests, custom definitions and play history. Public stats and recent finishes show this collection only; admin stats include the whole retained library.
 
