@@ -81,7 +81,7 @@ assert.equal(publicGame.stats().completed,1);assert.ok(publicGame.visibleRecords
 assert.deepEqual(publicGame.data.holes[old.id],oldData.holes[old.id],'Hidden archive progress remains stored');
 publicGame.visit(batch.at(-1).date);
 const adminAgain=new DailyGame(storage,dailyManifest,{today:()=> '2026-11-03'});
-assert.equal(adminAgain.available().length,432);assert.equal(adminAgain.definition('custom-keep').id,'custom-keep');
+assert.equal(adminAgain.available().filter(h=>h.custom||h.date<=v.lastDate).length,432);assert.equal(adminAgain.definition('custom-keep').id,'custom-keep');
 assert.deepEqual(adminAgain.data.holes[old.id],oldData.holes[old.id]);
 assert.deepEqual(adminAgain.data.holes[newHole.id],oldData.holes[newHole.id]);
 assert.equal(adminAgain.stats().completed,3,'Admin stats include public, archived and custom bests');

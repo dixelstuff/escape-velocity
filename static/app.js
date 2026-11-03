@@ -43,7 +43,7 @@ import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './pla
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
 const rollingParams=new URLSearchParams(location.search),adminMode=rollingParams.get('admin')==='1',simpleDaily=!adminMode||!rollingParams.has('lab'),competitiveMode=!simpleDaily&&rollingParams.get('mode')==='competitive',tourMode=!simpleDaily&&(competitiveMode||rollingParams.get('mode')==='tour'),rollingMode=!simpleDaily&&(tourMode||rollingParams.get('mode')==='rolling');
-const {dailyManifest}=await import(adminMode?'./daily-manifest.mjs?v=public-fifty-v1':'./public-manifest.mjs?v=public-fifty-mixed-v2');
+const {dailyManifest}=await import(adminMode?'./daily-manifest.mjs?v=fresh-public-fifty-v3':'./public-manifest.mjs?v=fresh-public-fifty-v3');
 document.body.classList.toggle('admin-mode',adminMode);
 document.body.classList.toggle('personal-daily',simpleDaily);document.body.classList.toggle('developer-mode',!simpleDaily);
 const rollingTestDay=rollingParams.get('date'),rollingSimulation=rollingMode&&/^\d{4}-\d{2}-\d{2}$/.test(rollingTestDay??'')&&Number.isFinite(Date.parse(rollingTestDay+'T00:00:00Z'));

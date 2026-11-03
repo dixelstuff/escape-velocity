@@ -1,0 +1,27 @@
+{
+  "excluded": [
+    {
+      "words": [
+        "mark",
+        "holiday",
+        "stream"
+      ],
+      "missing": [
+        "mark"
+      ],
+      "duplicate": false
+    },
+    {
+      "words": [
+        "mark",
+        "comfort",
+        "shell"
+      ],
+      "missing": [
+        "mark"
+      ],
+      "duplicate": false
+    }
+  ],
+  "supported": 158
+}

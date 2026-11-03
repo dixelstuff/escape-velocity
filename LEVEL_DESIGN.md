@@ -1,6 +1,8 @@
 # Choosing Word Golf holes
 
-## Current editorial direction — 3 November 2026
+## Current editorial direction — 4 November 2026
+
+**Current instruction: return to the successful open-landscape approach. The quirky/playful vocabulary experiment is withdrawn. Vary familiar words and contexts without selecting for quirkiness, surprise, obscurity or a particular intended bridge.**
 
 **Choose interesting words first. Players discover the route.** The aim is an accessible landscape of associations, not an authored sequence of clever bridges. This supersedes the old route-first recipe and the October 30 emphasis on requiring setup shots.
 
@@ -107,17 +109,28 @@ The [dogleg-choice review](reports/dogleg-choice-review-2026-11-03/README.md) co
 
 The [second open-landscape batch](reports/open-landscapes-30-v2/README.md), #352–#381, continues this accepted balance. It broadens familiar multi-use words (including STRIKE, SPELL, POUND, SPOT, FIRM, CLIP and TRIM) and records 100 word-first nominations before checks. It does not optimise for the subsequently implemented dogleg strategy bonus, witness length or numeric opening counts. Its diagnostic examples and alternative landings remain evidence for playtesting, not authored solutions or a guarantee of enjoyment.
 
-### More playful vocabulary — 3 November 2026
+### Historical playful-vocabulary experiment — withdrawn 4 November 2026
 
 The player also liked #352–#381: generally very good, some a little easy. Keep them and the accessible exploration balance. The [latest play review](reports/open-landscapes-30-v2/play-feedback/README.md) records thirty captured completions: 2 eagles, 25 birdies and 3 pars. Easy finishes alone are not a reason to harden the game or reject a combination.
 
-For the next batch, feature a little more **familiar, quirky, fun vocabulary**, so discovering the words brings surprise as well as discovering connections. The recent compact multi-use words are useful but can feel tonally similar. Broaden towards vivid imagery, humour, sound, social character and playful meanings: WOBBLE, MISCHIEF, BUBBLE, RASCAL, FIZZ, BLUSH, JUGGLE and ENCORE illustrate possibilities, not a required list. Mix playful words with quieter versatile ones; do not make every triple eccentric. Concrete objects are welcome when they offer varied contexts. Quirky must not mean obscure, narrow category tees, strained associations or an authored clever solution. Select interesting words independently, then review the combination and actual landing opportunities as before. No gameplay, scoring or difficulty-target change follows from this preference.
+The now-withdrawn experiment proposed a little more **familiar, quirky, fun vocabulary**, so discovering the words brings surprise as well as discovering connections. The recent compact multi-use words are useful but can feel tonally similar. Broaden towards vivid imagery, humour, sound, social character and playful meanings: WOBBLE, MISCHIEF, BUBBLE, RASCAL, FIZZ, BLUSH, JUGGLE and ENCORE illustrate possibilities, not a required list. Mix playful words with quieter versatile ones; do not make every triple eccentric. Concrete objects are welcome when they offer varied contexts. Quirky must not mean obscure, narrow category tees, strained associations or an authored clever solution. Select interesting words independently, then review the combination and actual landing opportunities as before. No gameplay, scoring or difficulty-target change follows from this preference.
 
 The [public fifty](reports/public-fifty/README.md) applies the playful-word preference in a separate public selection (#1–#50), while admin retains the same permanent definitions as #382–#431 alongside the archive. Display numbering is view-specific; stable IDs, gameplay and scoring are shared. Treat this as a new human playtest, not proof that quirky vocabulary alone makes a good combination.
 
 
-### Playful does not mean remote — 3 November 2026
+### Historical first rebalance — superseded 4 November 2026
 
 The player found the opening of the playful fifty hard. Do not respond merely by counting mechanically valid openings or distinct sampled landings. The nominations paired too many physical/playful tees with remote abstract doglegs; a legal chain of generic properties is weak evidence for human access. Keep playful vocabulary, but review whether its combinations permit natural opening decisions and credible handoffs. Do not require a short solution or reject enjoyable long exploration; the player's qualitative experience decides.
 
 The [rebalanced public selection](reports/public-fifty-rebalanced/README.md) mixes 20 positively playtested holes from the previous thirty with 30 newer playful holes, starts with proven accessible material and continues mixing throughout. Twenty questionable newer combinations leave the public view only; all remain in admin with stable IDs and saved results. This is an editorial selection change, not permission to alter gameplay thresholds or erase any history.
+
+
+## Return to natural open landscapes — 4 November 2026
+
+The player rejected the playful fifty as a direction, not just its opening holes. Drop the deliberate quirky/fun/surprise brief. The previous #322–#351 and #352–#381 batches remain the positively received references. Return to familiar, evocative, versatile words whose combinations offer natural choices, and vary vocabulary and contexts rather than forcing novelty or hard physical-to-abstract jumps. Everyday actions, qualities, social contexts and concrete words with several uses can all work. Avoid repetitive abstract doglegs as well as predictable category tees. Do not overfit to a few approved example words.
+
+A long exploration can still be enjoyable, and quick eagles can still be satisfying. Do not select by short witness length, simulated Cleverness, mathematical novelty, maximum semantic distance or arbitrary counts of graph landings. Check credible openings and credible onward moves from different actual dogleg landings, then critically inspect the whole combination. A generic, cyclic or hard-to-explain safety witness is a warning to revisit a candidate, not a designed route to improve. Nominate words and independent contexts before looking for complete paths. No threshold or scoring changes may rescue weak combinations.
+
+The requested fresh public collection must contain fifty new combinations, replacing the entire previous public selection. Keep the archive and all prior stable IDs/progress; public withdrawal is not global retirement. Public display numbers can change without rewriting hole definitions. Human playtesting will determine whether the returned selection direction succeeds.
+
+The [fresh public fifty](reports/fresh-public-fifty/README.md), public #1–#50 / admin #432–#481, replaces the complete earlier public selection. It records 160 independent nominations, critical review and bounded engine checks under this restored direction. Keep its examples as diagnostics, not prescribed player routes.

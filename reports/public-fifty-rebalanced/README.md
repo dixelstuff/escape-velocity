@@ -1,4 +1,6 @@
-# Rebalanced public fifty — 3 November 2026
+# Rebalanced public fifty — historical 3 November selection
+
+**Replaced on 4 November 2026.** The player withdrew the quirky-word direction. The current public course is [a fresh fifty](../fresh-public-fifty/README.md); this report preserves the prior selection and its checks.
 
 The public collection remains **50 holes: 20 playtested holes from the previous thirty, mixed with 30 of the newer playful batch**. All 431 admin holes remain available. Nothing is retired globally and no stored record is erased or reassigned.
 

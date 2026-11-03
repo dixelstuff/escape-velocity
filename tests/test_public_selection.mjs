@@ -2,15 +2,17 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as manifest} from '../static/public-manifest.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {completedHoles,holeNumber} from '../static/daily-ui.mjs';
 import {Game,waypointLegAccess} from '../static/engine.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const read=f=>JSON.parse(fs.readFileSync(f)),plan=read('reports/public-fifty-rebalanced/selection.json'),validation=read('reports/public-fifty-rebalanced/validation.json');
+// Historical mix stays reproducible when a later public collection replaces it.
+const manifest={version:1,view:plan.version,scopeToManifest:true,includeCustom:false,entryHoleId:plan.selection[0].id,holes:plan.selection.map(r=>archive.holes.find(h=>h.id===r.id))};
+const historicalArchive={...archive,holes:archive.holes.slice(0,validation.archiveDefinitions)};
 assert.equal(manifest.holes.length,50);assert.equal(manifest.view,plan.version);assert.equal(new Set(manifest.holes.map(h=>h.id)).size,50);
-assert.equal(crypto.createHash('sha256').update(JSON.stringify(archive)).digest('hex'),validation.archiveSha256,'Entire archive must stay unchanged');
-assert.equal(archive.holes.length,validation.archiveDefinitions);assert.deepEqual(manifest.holes.map(h=>h.id),validation.publicIds);
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(historicalArchive)).digest('hex'),validation.archiveSha256,'Entire archive must stay unchanged');
+assert.equal(historicalArchive.holes.length,validation.archiveDefinitions);assert.deepEqual(manifest.holes.map(h=>h.id),validation.publicIds);
 assert.equal(plan.selection.filter(r=>r.source==='playtested-30').length,20);assert.equal(plan.selection.filter(r=>r.source==='playful-50').length,30);
 const previous=read('reports/public-fifty/validation.json').holes,played=read('reports/open-landscapes-30-v2/play-feedback/summary.json').rows;
 assert.equal(plan.removedFromPublic.length,20);
@@ -39,7 +41,7 @@ assert.equal(publicGame.stats().completed,2);assert.equal(completedHoles(publicG
 assert.deepEqual(publicGame.data.holes[removed.id],data.holes[removed.id]);
 assert.notEqual(holeNumber(publicGame,retained),'#'+(previous.findIndex(h=>h.id===retained.id)+1),'Retained hole can be renumbered without copying or resetting it');
 publicGame.visit(incoming.date);assert.deepEqual(publicGame.current(),{...data.holes[incoming.id],lastPlayedAt:publicGame.current().lastPlayedAt});
-const admin=new DailyGame(storage,archive);assert.equal(admin.available().length,431);assert.equal(admin.stats().completed,3);assert.deepEqual(admin.data.holes[removed.id],data.holes[removed.id]);
+const admin=new DailyGame(storage,archive);assert.equal(admin.available().filter(h=>historicalArchive.holes.some(old=>old.id===h.id)).length,431);assert.equal(admin.stats().completed,3);assert.deepEqual(admin.data.holes[removed.id],data.holes[removed.id]);
 // A withdrawn selected hole falls back safely; it is never silently replaced under its ID.
 const withdrawn={...data,selected:removed.date};memory.set(DAILY_KEY,JSON.stringify(withdrawn));const fallback=new DailyGame(storage,manifest);assert.equal(fallback.selected().id,incoming.id);assert.deepEqual(fallback.data.holes[removed.id],data.holes[removed.id]);
 console.log('Rebalanced public course passed: 20 played + 30 newer, 50 engine completions, unchanged archive/rules, stable progress through reorder and public withdrawal, scoped stats and safe fallback.');

@@ -1,0 +1,1834 @@
+{
+  "version": "natural-handoff-v2",
+  "candidatesSha256": "e886da439db7095484ce9d4e793e6f4bc6547264a86c16b8392b5469ae1e84ac",
+  "directionsSha256": "a54ba37c80661868317c15f71c9a88fe57a2b01ab25fa19898af7e7f2ff75cfd",
+  "graph": {
+    "words": 2200,
+    "missing": [
+      "crunchy",
+      "go",
+      "goosebumps",
+      "mark",
+      "punchline",
+      "seeds",
+      "up"
+    ]
+  },
+  "checks": [
+    {
+      "words": [
+        "turn",
+        "comfort",
+        "thread"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 9,
+      "usableLandings": 6,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "space",
+        "promise",
+        "warm"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "touch",
+        "weather",
+        "crown"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 50,
+      "usableLandings": 26,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "cross",
+        "dream",
+        "glass"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 31,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "sound",
+        "gift",
+        "shade"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 42,
+      "usableLandings": 14,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "hold",
+        "story",
+        "silver"
+      ],
+      "allowed": true,
+      "openingCount": 16,
+      "distinctLandings": 94,
+      "usableLandings": 31,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "stand",
+        "memory",
+        "curtain"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 8,
+      "usableLandings": 6,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "settle",
+        "music",
+        "shell"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 43,
+      "usableLandings": 25,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "open",
+        "duty",
+        "feather"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 21,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "point",
+        "shelter",
+        "ribbon"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 20,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "warm",
+        "credit",
+        "window"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 45,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "dress",
+        "freedom",
+        "spark"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 45,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "count",
+        "shadow",
+        "garden"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 8,
+      "usableLandings": 3,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "break",
+        "respect",
+        "wing"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 6,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "wait",
+        "colour",
+        "pocket"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 54,
+      "usableLandings": 19,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "brave",
+        "balance",
+        "paper"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 45,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "spread",
+        "honour",
+        "glove"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 50,
+      "usableLandings": 31,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "lift",
+        "secret",
+        "copper"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 39,
+      "usableLandings": 28,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "ground",
+        "chance",
+        "mirror"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "still",
+        "courage",
+        "coin"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 11,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "worth",
+        "season",
+        "silk"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "trust",
+        "shape",
+        "weather"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "spare",
+        "voice",
+        "flame"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 1,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "charm",
+        "pressure",
+        "leaf"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 86,
+      "usableLandings": 53,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "pattern",
+        "rescue",
+        "gold"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 22,
+      "usableLandings": 6,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "signal",
+        "grace",
+        "brush"
+      ],
+      "allowed": true,
+      "openingCount": 16,
+      "distinctLandings": 27,
+      "usableLandings": 18,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "front",
+        "wonder",
+        "nest"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 16,
+      "usableLandings": 7,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "keep",
+        "fortune",
+        "spring"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 3,
+      "usableLandings": 1,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "present",
+        "silence",
+        "wire"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 5,
+      "usableLandings": 4,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "story",
+        "shelter",
+        "beam"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 11,
+      "usableLandings": 4,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "fall",
+        "purpose",
+        "lace"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 79,
+      "usableLandings": 56,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "play",
+        "debt",
+        "frost"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 41,
+      "usableLandings": 27,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "gain",
+        "rhythm",
+        "veil"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 20,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "rest",
+        "mystery",
+        "stamp"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 12,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "offer",
+        "shadow",
+        "glow"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "scale",
+        "hope",
+        "collar"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 48,
+      "usableLandings": 38,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "room",
+        "justice",
+        "sail"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 26,
+      "usableLandings": 14,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "share",
+        "danger",
+        "marble"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 55,
+      "usableLandings": 44,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "choice",
+        "music",
+        "hollow"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "wave",
+        "patience",
+        "brick"
+      ],
+      "allowed": true,
+      "openingCount": 12,
+      "distinctLandings": 72,
+      "usableLandings": 48,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "doubt",
+        "gift",
+        "smoke"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 12,
+      "usableLandings": 6,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "wish",
+        "balance",
+        "door"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 7,
+      "usableLandings": 1,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "need",
+        "colour",
+        "ring"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "hide",
+        "honour",
+        "drum"
+      ],
+      "allowed": true,
+      "openingCount": 13,
+      "distinctLandings": 64,
+      "usableLandings": 32,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "set",
+        "memory",
+        "river"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 1,
+      "usableLandings": 0,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "change",
+        "shelter",
+        "lace"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 24,
+      "usableLandings": 18,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "watch",
+        "comfort",
+        "spray"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "mind",
+        "season",
+        "copper"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 9,
+      "usableLandings": 4,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "press",
+        "promise",
+        "feather"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 1,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "handle",
+        "dream",
+        "cloud"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 73,
+      "usableLandings": 41,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "relief",
+        "pattern",
+        "crown"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 38,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "secret",
+        "holiday",
+        "brush"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 18,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "surface",
+        "loyalty",
+        "pocket"
+      ],
+      "allowed": true,
+      "openingCount": 15,
+      "distinctLandings": 55,
+      "usableLandings": 33,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "match",
+        "mystery",
+        "milk"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 17,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "save",
+        "story",
+        "flame"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 11,
+      "usableLandings": 5,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "pitch",
+        "grace",
+        "window"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 19,
+      "usableLandings": 11,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "support",
+        "weather",
+        "pen"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 41,
+      "usableLandings": 31,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "shape",
+        "fortune",
+        "silk"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 2,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "clear",
+        "courage",
+        "chest"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 2,
+      "usableLandings": 0,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "rise",
+        "family",
+        "wire"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 24,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "cover",
+        "rhythm",
+        "shelf"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 37,
+      "usableLandings": 27,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "credit",
+        "rescue",
+        "drift"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 4,
+      "usableLandings": 4,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "temper",
+        "gift",
+        "sail"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 73,
+      "usableLandings": 40,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "sense",
+        "freedom",
+        "glove"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "blank",
+        "trust",
+        "garden"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 58,
+      "usableLandings": 19,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "welcome",
+        "shadow",
+        "float"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 1,
+      "usableLandings": 0,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "search",
+        "honour",
+        "shade"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 47,
+      "usableLandings": 26,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "reach",
+        "music",
+        "frost"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 20,
+      "usableLandings": 14,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "belong",
+        "pressure",
+        "glass"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 35,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "plain",
+        "purpose",
+        "coat"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "notice",
+        "hope",
+        "nest"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "focus",
+        "chance",
+        "veil"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "ease",
+        "duty",
+        "thread"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 13,
+      "usableLandings": 6,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "charge",
+        "wonder",
+        "shell"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 65,
+      "usableLandings": 43,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "crowd",
+        "promise",
+        "beam"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 42,
+      "usableLandings": 31,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "leave",
+        "balance",
+        "stamp"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 4,
+      "usableLandings": 3,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "collect",
+        "dream",
+        "spring"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "float",
+        "respect",
+        "crown"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 144,
+      "usableLandings": 62,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "hope",
+        "pattern",
+        "mint"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 25,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "lead",
+        "holiday",
+        "cloud"
+      ],
+      "allowed": true,
+      "openingCount": 8,
+      "distinctLandings": 19,
+      "usableLandings": 11,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "patch",
+        "voice",
+        "silver"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 67,
+      "usableLandings": 32,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "bridge",
+        "silence",
+        "breath"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "inside",
+        "fortune",
+        "feather"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 4,
+      "usableLandings": 4,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "solid",
+        "mystery",
+        "light"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 29,
+      "usableLandings": 5,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "blind",
+        "season",
+        "paper"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 26,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "reserved",
+        "warmth",
+        "edge"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 5,
+      "usableLandings": 0,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "fade",
+        "credit",
+        "ribbon"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 60,
+      "usableLandings": 45,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "return",
+        "courage",
+        "leaf"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 23,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "resist",
+        "story",
+        "spark"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 49,
+      "usableLandings": 17,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "admit",
+        "colour",
+        "wing"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 12,
+      "usableLandings": 7,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "wander",
+        "gift",
+        "curtain"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 7,
+      "usableLandings": 3,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "drift",
+        "family",
+        "brush"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 24,
+      "usableLandings": 11,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "drive",
+        "shadow",
+        "silk"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 12,
+      "usableLandings": 7,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "frame",
+        "comfort",
+        "river"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 21,
+      "usableLandings": 10,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "flow",
+        "promise",
+        "shelf"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 20,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "close",
+        "music",
+        "coin"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 18,
+      "usableLandings": 15,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "round",
+        "duty",
+        "garden"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 47,
+      "usableLandings": 19,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "cast",
+        "hope",
+        "mirror"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "fine",
+        "weather",
+        "pocket"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 30,
+      "usableLandings": 16,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "stock",
+        "memory",
+        "glow"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 18,
+      "usableLandings": 6,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "back",
+        "respect",
+        "shell"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "light",
+        "rescue",
+        "collar"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 23,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "step",
+        "fortune",
+        "glass"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 4,
+      "usableLandings": 2,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "chain",
+        "season",
+        "feather"
+      ],
+      "allowed": true,
+      "openingCount": 6,
+      "distinctLandings": 35,
+      "usableLandings": 23,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "strike",
+        "holiday",
+        "shade"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 2,
+      "usableLandings": 2,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "field",
+        "grace",
+        "wire"
+      ],
+      "allowed": true,
+      "openingCount": 12,
+      "distinctLandings": 18,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "spring",
+        "justice",
+        "coat"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 1,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "fair",
+        "rhythm",
+        "leaf"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 43,
+      "usableLandings": 25,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "form",
+        "mystery",
+        "copper"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 4,
+      "usableLandings": 3,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "kind",
+        "pattern",
+        "sail"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "firm",
+        "voice",
+        "weather"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 4,
+      "usableLandings": 0,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "run",
+        "honour",
+        "ribbon"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "lean",
+        "comfort",
+        "stamp"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 23,
+      "usableLandings": 15,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "trace",
+        "freedom",
+        "milk"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 40,
+      "usableLandings": 21,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "bound",
+        "promise",
+        "curtain"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 13,
+      "usableLandings": 5,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "edge",
+        "dream",
+        "coin"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 18,
+      "usableLandings": 11,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "spot",
+        "shelter",
+        "gold"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 9,
+      "usableLandings": 7,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "rough",
+        "music",
+        "wing"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 35,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "fresh",
+        "credit",
+        "veil"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "pride",
+        "colour",
+        "window"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "quiet",
+        "chance",
+        "shell"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 40,
+      "usableLandings": 20,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "ready",
+        "shadow",
+        "paper"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 15,
+      "usableLandings": 5,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "soft",
+        "fortune",
+        "beam"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 9,
+      "usableLandings": 9,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "sharp",
+        "holiday",
+        "glove"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 7,
+      "usableLandings": 3,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "spirit",
+        "pattern",
+        "chest"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 10,
+      "usableLandings": 2,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "rival",
+        "warmth",
+        "stream"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 28,
+      "usableLandings": 11,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "fit",
+        "memory",
+        "sail"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 5,
+      "usableLandings": 3,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "bright",
+        "duty",
+        "collar"
+      ],
+      "allowed": true,
+      "openingCount": 12,
+      "distinctLandings": 40,
+      "usableLandings": 21,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "fold",
+        "voice",
+        "mirror"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 32,
+      "usableLandings": 8,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "rest",
+        "family",
+        "spark"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "balance",
+        "secret",
+        "garden"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 33,
+      "usableLandings": 9,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "voice",
+        "hope",
+        "copper"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "trust",
+        "colour",
+        "shelf"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 90,
+      "usableLandings": 38,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "value",
+        "weather",
+        "thread"
+      ],
+      "allowed": true,
+      "openingCount": 9,
+      "distinctLandings": 55,
+      "usableLandings": 36,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "bound",
+        "rescue",
+        "silk"
+      ],
+      "allowed": true,
+      "openingCount": 2,
+      "distinctLandings": 3,
+      "usableLandings": 1,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "open",
+        "rhythm",
+        "glow"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 25,
+      "usableLandings": 10,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "wish",
+        "credit",
+        "feather"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 27,
+      "usableLandings": 19,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "spare",
+        "holiday",
+        "shade"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 33,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "room",
+        "promise",
+        "wing"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 22,
+      "usableLandings": 7,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "plain",
+        "music",
+        "veil"
+      ],
+      "allowed": true,
+      "openingCount": 12,
+      "distinctLandings": 70,
+      "usableLandings": 46,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "close",
+        "gift",
+        "river"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 27,
+      "usableLandings": 18,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "lead",
+        "shadow",
+        "coat"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 29,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "share",
+        "season",
+        "glass"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 17,
+      "usableLandings": 7,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "cover",
+        "chance",
+        "frost"
+      ],
+      "allowed": true,
+      "openingCount": 3,
+      "distinctLandings": 16,
+      "usableLandings": 8,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "firm",
+        "shelter",
+        "coin"
+      ],
+      "allowed": true,
+      "openingCount": 10,
+      "distinctLandings": 23,
+      "usableLandings": 17,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "sense",
+        "story",
+        "silver"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "return",
+        "pattern",
+        "curtain"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 23,
+      "usableLandings": 10,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "notice",
+        "freedom",
+        "beam"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 30,
+      "usableLandings": 17,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "choice",
+        "rescue",
+        "collar"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 20,
+      "usableLandings": 12,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "settle",
+        "honour",
+        "garden"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "ground",
+        "voice",
+        "pocket"
+      ],
+      "allowed": true,
+      "openingCount": 5,
+      "distinctLandings": 21,
+      "usableLandings": 13,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "still",
+        "holiday",
+        "lace"
+      ],
+      "allowed": true,
+      "openingCount": 1,
+      "distinctLandings": 1,
+      "usableLandings": 1,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "surface",
+        "hope",
+        "wire"
+      ],
+      "allowed": true,
+      "openingCount": 11,
+      "distinctLandings": 100,
+      "usableLandings": 45,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "reach",
+        "balance",
+        "milk"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "handle",
+        "respect",
+        "cloud"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "front",
+        "credit",
+        "paper"
+      ],
+      "allowed": false,
+      "hasWitness": false
+    },
+    {
+      "words": [
+        "present",
+        "weather",
+        "mint"
+      ],
+      "allowed": true,
+      "openingCount": 7,
+      "distinctLandings": 18,
+      "usableLandings": 9,
+      "hasWitness": true
+    },
+    {
+      "words": [
+        "point",
+        "family",
+        "silk"
+      ],
+      "allowed": true,
+      "openingCount": 4,
+      "distinctLandings": 2,
+      "usableLandings": 1,
+      "hasWitness": true
+    }
+  ]
+}

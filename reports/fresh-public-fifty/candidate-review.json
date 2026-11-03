@@ -1,0 +1,860 @@
+[
+  {
+    "words": [
+      "touch",
+      "weather",
+      "crown"
+    ],
+    "selected": false,
+    "reason": "The strongest checked example runs through several distant field/harvest/bounty concepts; set aside for now.",
+    "openings": 11,
+    "landings": 64
+  },
+  {
+    "words": [
+      "cross",
+      "dream",
+      "glass"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 58
+  },
+  {
+    "words": [
+      "sound",
+      "gift",
+      "shade"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 11,
+    "landings": 57
+  },
+  {
+    "words": [
+      "hold",
+      "story",
+      "silver"
+    ],
+    "selected": false,
+    "reason": "The deeper witness repeats LIGHT and shifts through broad focus/story context; not enough confidence in the whole triple.",
+    "openings": 16,
+    "landings": 64
+  },
+  {
+    "words": [
+      "settle",
+      "music",
+      "shell"
+    ],
+    "selected": false,
+    "reason": "Checked routes depend on a broad book/music or space/music association and repeat COVER; choose a different combination.",
+    "openings": 10,
+    "landings": 64
+  },
+  {
+    "words": [
+      "point",
+      "shelter",
+      "ribbon"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 7,
+    "landings": 33
+  },
+  {
+    "words": [
+      "dress",
+      "freedom",
+      "spark"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 57
+  },
+  {
+    "words": [
+      "count",
+      "shadow",
+      "garden"
+    ],
+    "selected": false,
+    "reason": "Narrower opening sample and most reached landings already finish; more concern about a constrained approach followed by a bypass.",
+    "openings": 3,
+    "landings": 11
+  },
+  {
+    "words": [
+      "break",
+      "respect",
+      "wing"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 6
+  },
+  {
+    "words": [
+      "wait",
+      "colour",
+      "pocket"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 64
+  },
+  {
+    "words": [
+      "brave",
+      "balance",
+      "paper"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 64
+  },
+  {
+    "words": [
+      "lift",
+      "secret",
+      "copper"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 10,
+    "landings": 64
+  },
+  {
+    "words": [
+      "still",
+      "courage",
+      "coin"
+    ],
+    "selected": false,
+    "reason": "Broad solemn/sincere/honest property chain, or an extended speech/debate/curiosity path. Not a confident accessible combination.",
+    "openings": 6,
+    "landings": 21
+  },
+  {
+    "words": [
+      "charm",
+      "pressure",
+      "leaf"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 4,
+    "landings": 64
+  },
+  {
+    "words": [
+      "signal",
+      "grace",
+      "brush"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 16,
+    "landings": 32
+  },
+  {
+    "words": [
+      "story",
+      "shelter",
+      "beam"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 4,
+    "landings": 29
+  },
+  {
+    "words": [
+      "play",
+      "debt",
+      "frost"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 4,
+    "landings": 64
+  },
+  {
+    "words": [
+      "rest",
+      "mystery",
+      "stamp"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 13
+  },
+  {
+    "words": [
+      "scale",
+      "hope",
+      "collar"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 8,
+    "landings": 53
+  },
+  {
+    "words": [
+      "room",
+      "justice",
+      "sail"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 9,
+    "landings": 45
+  },
+  {
+    "words": [
+      "hide",
+      "honour",
+      "drum"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 13,
+    "landings": 64
+  },
+  {
+    "words": [
+      "mind",
+      "season",
+      "copper"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 9
+  },
+  {
+    "words": [
+      "handle",
+      "dream",
+      "cloud"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 10,
+    "landings": 64
+  },
+  {
+    "words": [
+      "relief",
+      "pattern",
+      "crown"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 6,
+    "landings": 64
+  },
+  {
+    "words": [
+      "surface",
+      "loyalty",
+      "pocket"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 15,
+    "landings": 64
+  },
+  {
+    "words": [
+      "match",
+      "mystery",
+      "milk"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 33
+  },
+  {
+    "words": [
+      "save",
+      "story",
+      "flame"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 11
+  },
+  {
+    "words": [
+      "pitch",
+      "grace",
+      "window"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 5,
+    "landings": 26
+  },
+  {
+    "words": [
+      "support",
+      "weather",
+      "pen"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 9,
+    "landings": 64
+  },
+  {
+    "words": [
+      "rise",
+      "family",
+      "wire"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 33
+  },
+  {
+    "words": [
+      "cover",
+      "rhythm",
+      "shelf"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 8,
+    "landings": 46
+  },
+  {
+    "words": [
+      "credit",
+      "rescue",
+      "drift"
+    ],
+    "selected": false,
+    "reason": "Only four reached landings in this bounded graph; simple bank/river example does not establish sufficient alternatives.",
+    "openings": 4,
+    "landings": 4
+  },
+  {
+    "words": [
+      "blank",
+      "trust",
+      "garden"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 9,
+    "landings": 64
+  },
+  {
+    "words": [
+      "search",
+      "honour",
+      "shade"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 8,
+    "landings": 60
+  },
+  {
+    "words": [
+      "reach",
+      "music",
+      "frost"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 5,
+    "landings": 27
+  },
+  {
+    "words": [
+      "belong",
+      "pressure",
+      "glass"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 8,
+    "landings": 46
+  },
+  {
+    "words": [
+      "charge",
+      "wonder",
+      "shell"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 9,
+    "landings": 64
+  },
+  {
+    "words": [
+      "crowd",
+      "promise",
+      "beam"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 11,
+    "landings": 64
+  },
+  {
+    "words": [
+      "float",
+      "respect",
+      "crown"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 8,
+    "landings": 64
+  },
+  {
+    "words": [
+      "hope",
+      "pattern",
+      "mint"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 4,
+    "landings": 40
+  },
+  {
+    "words": [
+      "inside",
+      "fortune",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Checked approach becomes a long hero/legend/fame chain; too little evidence of natural access from INSIDE.",
+    "openings": 6,
+    "landings": 7
+  },
+  {
+    "words": [
+      "solid",
+      "mystery",
+      "light"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 11,
+    "landings": 49
+  },
+  {
+    "words": [
+      "blind",
+      "season",
+      "paper"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 40
+  },
+  {
+    "words": [
+      "fade",
+      "credit",
+      "ribbon"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 5,
+    "landings": 64
+  },
+  {
+    "words": [
+      "return",
+      "courage",
+      "leaf"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 5,
+    "landings": 28
+  },
+  {
+    "words": [
+      "resist",
+      "story",
+      "spark"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 6,
+    "landings": 64
+  },
+  {
+    "words": [
+      "drift",
+      "family",
+      "brush"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 53
+  },
+  {
+    "words": [
+      "drive",
+      "shadow",
+      "silk"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 23
+  },
+  {
+    "words": [
+      "frame",
+      "comfort",
+      "river"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 5,
+    "landings": 36
+  },
+  {
+    "words": [
+      "flow",
+      "promise",
+      "shelf"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 21
+  },
+  {
+    "words": [
+      "close",
+      "music",
+      "coin"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 7,
+    "landings": 29
+  },
+  {
+    "words": [
+      "stock",
+      "memory",
+      "glow"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 6,
+    "landings": 21
+  },
+  {
+    "words": [
+      "light",
+      "rescue",
+      "collar"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 9,
+    "landings": 26
+  },
+  {
+    "words": [
+      "chain",
+      "season",
+      "feather"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 6,
+    "landings": 64
+  },
+  {
+    "words": [
+      "field",
+      "grace",
+      "wire"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 12,
+    "landings": 25
+  },
+  {
+    "words": [
+      "fair",
+      "rhythm",
+      "leaf"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 11,
+    "landings": 46
+  },
+  {
+    "words": [
+      "lean",
+      "comfort",
+      "stamp"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 29
+  },
+  {
+    "words": [
+      "rough",
+      "music",
+      "wing"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 63
+  },
+  {
+    "words": [
+      "ready",
+      "shadow",
+      "paper"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 4,
+    "landings": 24
+  },
+  {
+    "words": [
+      "soft",
+      "fortune",
+      "beam"
+    ],
+    "selected": false,
+    "reason": "Long chance/luck/charm route from SOFT; adjective-to-abstract gap risks reproducing the rejected direction.",
+    "openings": 5,
+    "landings": 15
+  },
+  {
+    "words": [
+      "rival",
+      "warmth",
+      "stream"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 10,
+    "landings": 55
+  },
+  {
+    "words": [
+      "balance",
+      "secret",
+      "garden"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 3,
+    "landings": 54
+  },
+  {
+    "words": [
+      "trust",
+      "colour",
+      "shelf"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 11,
+    "landings": 64
+  },
+  {
+    "words": [
+      "value",
+      "weather",
+      "thread"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 9,
+    "landings": 64
+  },
+  {
+    "words": [
+      "wish",
+      "credit",
+      "feather"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 4,
+    "landings": 30
+  },
+  {
+    "words": [
+      "spare",
+      "holiday",
+      "shade"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 5,
+    "landings": 50
+  },
+  {
+    "words": [
+      "room",
+      "promise",
+      "wing"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 5,
+    "landings": 22
+  },
+  {
+    "words": [
+      "plain",
+      "music",
+      "veil"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 12,
+    "landings": 64
+  },
+  {
+    "words": [
+      "close",
+      "gift",
+      "river"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 39
+  },
+  {
+    "words": [
+      "share",
+      "season",
+      "glass"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 17
+  },
+  {
+    "words": [
+      "cover",
+      "chance",
+      "frost"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 3,
+    "landings": 18
+  },
+  {
+    "words": [
+      "firm",
+      "shelter",
+      "coin"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 10,
+    "landings": 31
+  },
+  {
+    "words": [
+      "return",
+      "pattern",
+      "curtain"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 26
+  },
+  {
+    "words": [
+      "notice",
+      "freedom",
+      "beam"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 11,
+    "landings": 42
+  },
+  {
+    "words": [
+      "choice",
+      "rescue",
+      "collar"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 27
+  },
+  {
+    "words": [
+      "ground",
+      "voice",
+      "pocket"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 5,
+    "landings": 33
+  },
+  {
+    "words": [
+      "surface",
+      "hope",
+      "wire"
+    ],
+    "selected": false,
+    "reason": "Not selected after comparative editorial review: less convincing combination, weaker handoff evidence or overlap with stronger nominations. This is not an objective difficulty judgement.",
+    "openings": 11,
+    "landings": 64
+  },
+  {
+    "words": [
+      "present",
+      "weather",
+      "mint"
+    ],
+    "selected": true,
+    "reason": "Selected after reviewing familiar opening contexts, named dogleg meaning and observed onward alternatives; safety example is not an intended solution.",
+    "openings": 7,
+    "landings": 22
+  }
+]
