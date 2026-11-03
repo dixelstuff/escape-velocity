@@ -38,6 +38,8 @@ jobs:
           node tests/test_simulation_pilot.mjs
           node tests/test_open_landscapes_30.mjs
           node tests/test_open_landscapes_30_v2.mjs
+          node tests/test_public_fifty.mjs
+          node tests/test_new_best_finish.mjs
           node tests/test_tap_dogleg.mjs
           node tests/test_dogleg_strategy_bonus.mjs
           node tests/test_spelling_equivalence.mjs

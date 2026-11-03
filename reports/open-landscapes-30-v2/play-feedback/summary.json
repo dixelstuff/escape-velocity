@@ -1,0 +1,555 @@
+{
+  "source": "word-golf-play-2026-11-03T07-28-52-593Z.json",
+  "scope": "Latest 30 holes only, internal schedule 2027-11-04 through 2027-12-03",
+  "holes": 30,
+  "completed": 30,
+  "bestResults": {
+    "Eagle": 2,
+    "Birdie": 25,
+    "Par": 3
+  },
+  "medianNewSubmissionsThroughFirstCapturedFinish": 8,
+  "rows": [
+    {
+      "hole": [
+        "strike",
+        "kindness",
+        "curtain"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 8,
+      "submittedThroughFirstFinish": 8,
+      "bestRoute": [
+        "strike",
+        "through",
+        "love",
+        "pull",
+        "curtain"
+      ]
+    },
+    {
+      "hole": [
+        "spell",
+        "pressure",
+        "pocket"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 31,
+      "submittedThroughFirstFinish": 31,
+      "bestRoute": [
+        "spell",
+        "mistakes",
+        "pressure",
+        "money",
+        "pocket"
+      ]
+    },
+    {
+      "hole": [
+        "pound",
+        "romance",
+        "flow"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 6,
+      "submittedThroughFirstFinish": 6,
+      "bestRoute": [
+        "pound",
+        "money",
+        "love",
+        "give",
+        "flow"
+      ]
+    },
+    {
+      "hole": [
+        "spot",
+        "freedom",
+        "wire"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 3,
+      "submittedThroughFirstFinish": 3,
+      "bestRoute": [
+        "spot",
+        "goal",
+        "free",
+        "money",
+        "wire"
+      ]
+    },
+    {
+      "hole": [
+        "firm",
+        "wonder",
+        "ribbon"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 8,
+      "submittedThroughFirstFinish": 8,
+      "bestRoute": [
+        "firm",
+        "solid",
+        "idea",
+        "gift",
+        "ribbon"
+      ]
+    },
+    {
+      "hole": [
+        "clip",
+        "dream",
+        "breath"
+      ],
+      "bestStrokes": 3,
+      "completedRoutes": 1,
+      "submittedWords": 2,
+      "submittedThroughFirstFinish": 2,
+      "bestRoute": [
+        "clip",
+        "movie",
+        "take",
+        "breath"
+      ]
+    },
+    {
+      "hole": [
+        "trim",
+        "justice",
+        "spark"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 3,
+      "submittedThroughFirstFinish": 3,
+      "bestRoute": [
+        "trim",
+        "cut",
+        "law",
+        "idea",
+        "spark"
+      ]
+    },
+    {
+      "hole": [
+        "wink",
+        "season",
+        "grip"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 4,
+      "submittedThroughFirstFinish": 4,
+      "bestRoute": [
+        "wink",
+        "eye",
+        "spring",
+        "hold",
+        "grip"
+      ]
+    },
+    {
+      "hole": [
+        "patch",
+        "chance",
+        "whisper"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 13,
+      "submittedThroughFirstFinish": 13,
+      "bestRoute": [
+        "patch",
+        "fix",
+        "say",
+        "speak",
+        "whisper"
+      ]
+    },
+    {
+      "hole": [
+        "sweet",
+        "witness",
+        "coil"
+      ],
+      "bestStrokes": 5,
+      "completedRoutes": 1,
+      "submittedWords": 23,
+      "submittedThroughFirstFinish": 23,
+      "bestRoute": [
+        "sweet",
+        "wedding",
+        "witness",
+        "change",
+        "spring",
+        "coil"
+      ]
+    },
+    {
+      "hole": [
+        "shade",
+        "fame",
+        "clean"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 7,
+      "submittedThroughFirstFinish": 7,
+      "bestRoute": [
+        "shade",
+        "light",
+        "spotlight",
+        "gleaming",
+        "clean"
+      ]
+    },
+    {
+      "hole": [
+        "faint",
+        "family",
+        "stamp"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 36,
+      "submittedThroughFirstFinish": 35,
+      "bestRoute": [
+        "faint",
+        "distant",
+        "love",
+        "letter",
+        "stamp"
+      ]
+    },
+    {
+      "hole": [
+        "poise",
+        "danger",
+        "silver"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 4,
+      "submittedThroughFirstFinish": 4,
+      "bestRoute": [
+        "poise",
+        "calm",
+        "storm",
+        "cloud",
+        "silver"
+      ]
+    },
+    {
+      "hole": [
+        "shadow",
+        "rhythm",
+        "treat"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 17,
+      "submittedThroughFirstFinish": 17,
+      "bestRoute": [
+        "shadow",
+        "dark",
+        "sound",
+        "sweet",
+        "treat"
+      ]
+    },
+    {
+      "hole": [
+        "claim",
+        "music",
+        "tip"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 2,
+      "submittedWords": 25,
+      "submittedThroughFirstFinish": 23,
+      "bestRoute": [
+        "claim",
+        "offer",
+        "performance",
+        "money",
+        "tip"
+      ]
+    },
+    {
+      "hole": [
+        "grant",
+        "curtain",
+        "roll"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 11,
+      "submittedThroughFirstFinish": 11,
+      "bestRoute": [
+        "grant",
+        "home",
+        "window",
+        "car",
+        "roll"
+      ]
+    },
+    {
+      "hole": [
+        "frost",
+        "freedom",
+        "firm"
+      ],
+      "bestStrokes": 5,
+      "completedRoutes": 1,
+      "submittedWords": 22,
+      "submittedThroughFirstFinish": 22,
+      "bestRoute": [
+        "frost",
+        "cold",
+        "march",
+        "freedom",
+        "block",
+        "firm"
+      ]
+    },
+    {
+      "hole": [
+        "hurry",
+        "paper",
+        "grace"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 8,
+      "submittedThroughFirstFinish": 8,
+      "bestRoute": [
+        "hurry",
+        "quick",
+        "news",
+        "good",
+        "grace"
+      ]
+    },
+    {
+      "hole": [
+        "cheer",
+        "mystery",
+        "plant"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 29,
+      "submittedThroughFirstFinish": 29,
+      "bestRoute": [
+        "cheer",
+        "big",
+        "novel",
+        "new",
+        "plant"
+      ]
+    },
+    {
+      "hole": [
+        "feast",
+        "balance",
+        "hint"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 10,
+      "submittedThroughFirstFinish": 10,
+      "bestRoute": [
+        "feast",
+        "dinner",
+        "food",
+        "flavour",
+        "hint"
+      ]
+    },
+    {
+      "hole": [
+        "pale",
+        "story",
+        "latch"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 4,
+      "submittedThroughFirstFinish": 4,
+      "bestRoute": [
+        "pale",
+        "white",
+        "house",
+        "door",
+        "latch"
+      ]
+    },
+    {
+      "hole": [
+        "puzzle",
+        "honour",
+        "sink"
+      ],
+      "bestStrokes": 5,
+      "completedRoutes": 1,
+      "submittedWords": 11,
+      "submittedThroughFirstFinish": 11,
+      "bestRoute": [
+        "puzzle",
+        "piece",
+        "award",
+        "night",
+        "sun",
+        "sink"
+      ]
+    },
+    {
+      "hole": [
+        "sharp",
+        "shelter",
+        "spell"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 10,
+      "submittedThroughFirstFinish": 10,
+      "bestRoute": [
+        "sharp",
+        "light",
+        "shade",
+        "dark",
+        "spell"
+      ]
+    },
+    {
+      "hole": [
+        "spark",
+        "patience",
+        "rank"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 4,
+      "submittedThroughFirstFinish": 4,
+      "bestRoute": [
+        "spark",
+        "idea",
+        "wait",
+        "achieve",
+        "rank"
+      ]
+    },
+    {
+      "hole": [
+        "swing",
+        "memory",
+        "bracket"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 5,
+      "submittedThroughFirstFinish": 5,
+      "bestRoute": [
+        "swing",
+        "lose",
+        "memory",
+        "age",
+        "bracket"
+      ]
+    },
+    {
+      "hole": [
+        "twist",
+        "family",
+        "shelf"
+      ],
+      "bestStrokes": 3,
+      "completedRoutes": 2,
+      "submittedWords": 9,
+      "submittedThroughFirstFinish": 7,
+      "bestRoute": [
+        "twist",
+        "movie",
+        "book",
+        "shelf"
+      ]
+    },
+    {
+      "hole": [
+        "bound",
+        "gift",
+        "weather"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 13,
+      "submittedThroughFirstFinish": 13,
+      "bestRoute": [
+        "bound",
+        "wrapped",
+        "package",
+        "news",
+        "weather"
+      ]
+    },
+    {
+      "hole": [
+        "pocket",
+        "spirit",
+        "stream"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 8,
+      "submittedThroughFirstFinish": 8,
+      "bestRoute": [
+        "pocket",
+        "rocket",
+        "spirit",
+        "energy",
+        "stream"
+      ]
+    },
+    {
+      "hole": [
+        "silk",
+        "curiosity",
+        "beam"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 33,
+      "submittedThroughFirstFinish": 33,
+      "bestRoute": [
+        "silk",
+        "woman",
+        "strange",
+        "light",
+        "beam"
+      ]
+    },
+    {
+      "hole": [
+        "mystery",
+        "duty",
+        "clip"
+      ],
+      "bestStrokes": 4,
+      "completedRoutes": 1,
+      "submittedWords": 5,
+      "submittedThroughFirstFinish": 5,
+      "bestRoute": [
+        "mystery",
+        "murder",
+        "country",
+        "music",
+        "clip"
+      ]
+    }
+  ]
+}

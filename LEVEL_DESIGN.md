@@ -1,6 +1,6 @@
 # Choosing Word Golf holes
 
-## Current editorial direction — 2 November 2026
+## Current editorial direction — 3 November 2026
 
 **Choose interesting words first. Players discover the route.** The aim is an accessible landscape of associations, not an authored sequence of clever bridges. This supersedes the old route-first recipe and the October 30 emphasis on requiring setup shots.
 
@@ -106,3 +106,11 @@ The player explicitly liked the new #322–#351 batch: less restricted, still re
 The [dogleg-choice review](reports/dogleg-choice-review-2026-11-03/README.md) compares actual alternative landings with the literal dogleg on incoming and outgoing moves. Most alternative landings demonstrate functional value by this test, so it is not an automatic marker of exceptional ingenuity or a new generation objective. Existing scoring is unchanged. Continue choosing versatile words and reviewing natural choices from actual lies rather than constructing an intended solution or forcing a literal-target substitution failure.
 
 The [second open-landscape batch](reports/open-landscapes-30-v2/README.md), #352–#381, continues this accepted balance. It broadens familiar multi-use words (including STRIKE, SPELL, POUND, SPOT, FIRM, CLIP and TRIM) and records 100 word-first nominations before checks. It does not optimise for the subsequently implemented dogleg strategy bonus, witness length or numeric opening counts. Its diagnostic examples and alternative landings remain evidence for playtesting, not authored solutions or a guarantee of enjoyment.
+
+### More playful vocabulary — 3 November 2026
+
+The player also liked #352–#381: generally very good, some a little easy. Keep them and the accessible exploration balance. The [latest play review](reports/open-landscapes-30-v2/play-feedback/README.md) records thirty captured completions: 2 eagles, 25 birdies and 3 pars. Easy finishes alone are not a reason to harden the game or reject a combination.
+
+For the next batch, feature a little more **familiar, quirky, fun vocabulary**, so discovering the words brings surprise as well as discovering connections. The recent compact multi-use words are useful but can feel tonally similar. Broaden towards vivid imagery, humour, sound, social character and playful meanings: WOBBLE, MISCHIEF, BUBBLE, RASCAL, FIZZ, BLUSH, JUGGLE and ENCORE illustrate possibilities, not a required list. Mix playful words with quieter versatile ones; do not make every triple eccentric. Concrete objects are welcome when they offer varied contexts. Quirky must not mean obscure, narrow category tees, strained associations or an authored clever solution. Select interesting words independently, then review the combination and actual landing opportunities as before. No gameplay, scoring or difficulty-target change follows from this preference.
+
+The [public fifty](reports/public-fifty/README.md) applies the playful-word preference in a separate public selection (#1–#50), while admin retains the same permanent definitions as #382–#431 alongside the archive. Display numbering is view-specific; stable IDs, gameplay and scoring are shared. Treat this as a new human playtest, not proof that quirky vocabulary alone makes a good combination.

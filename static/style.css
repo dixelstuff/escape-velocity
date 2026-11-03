@@ -1130,3 +1130,10 @@ body.personal-daily .map-card{background-color:#c4d3a7;}
 .simulation-comparison th,.simulation-comparison td{padding:7px 4px;border-bottom:1px solid #dce2d1;text-align:center;font-weight:400}.simulation-comparison th:first-child{text-align:left}.simulation-comparison thead th{font-size:.67rem;color:#64775d}
 .simulation-caption{font-size:.73rem;line-height:1.45;color:#6a795f;margin:9px 0}.simulation-select{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.75rem;color:#566f4e}.simulation-select select{width:auto;max-width:65%;font-size:.75rem;padding:6px;min-height:0;background:#fafbf3}
 .simulation-chart-label{font-size:.74rem;font-weight:600;margin:12px 0 2px}.simulation-charts svg{display:block;width:100%;max-height:100px}.simulation-bars{fill:#719572}.simulation-marker{stroke:#bf9650;stroke-width:2}.simulation-axis{stroke:#cbd6bd;stroke-width:1}.simulation-charts text{fill:#6a795f;font:9px sans-serif}
+
+/* Admin is a URL-selected library view, not an authentication boundary. */
+body:not(.admin-mode) :is(#personal-create-hole,.personal-data,.mode-link){display:none!important;}
+#arrival-banner.new-best #arrival-context{color:#8b6b24;font-weight:750;letter-spacing:.08em;}
+#arrival-banner.new-best #arrival-par{color:#b28a2d;filter:drop-shadow(0 0 5px #e4bc5c99);animation:new-best-trophy 1.1s ease-out both;}
+@keyframes new-best-trophy{0%{filter:drop-shadow(0 0 1px #e4bc5c44);}45%{filter:drop-shadow(0 0 10px #e4bc5cdd);}100%{filter:drop-shadow(0 0 5px #e4bc5c99);}}
+@media(prefers-reduced-motion:reduce){#arrival-banner.new-best #arrival-par{animation:none;}}

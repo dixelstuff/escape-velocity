@@ -33,10 +33,11 @@ export class DailyGame{
   if(changed)this.save();
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today()&&!isRetiredHole(h));}
- available(){return this.manifest.holes.concat(this.data.customHoles??[]).filter(h=>!isRetiredHole(h));}
+ available(){return this.manifest.holes.concat(this.manifest.includeCustom===false?[]:this.data.customHoles??[]).filter(h=>!isRetiredHole(h));}
+ visibleRecords(){const ids=this.manifest.scopeToManifest?new Set(this.available().map(h=>h.id)):null;return Object.values(this.data.holes).filter(h=>!isRetiredHole(h)&&(!ids||ids.has(h.id)));}
  definition(day){return this.available().find(h=>h.date===day);}
  addCustom(settings){if(isRetiredHole(settings))throw Error('This hole has been retired. Choose a different combination.');const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
- latest(){return this.published().at(-1);}
+ latest(){return this.manifest.entryHoleId?this.available().find(h=>h.id===this.manifest.entryHoleId):this.published().at(-1);}
  selected(){return this.definition(this.data.selected)??this.latest();}
  save(){try{if(!this.storage||this.unreadable)throw Error();this.storage.setItem(DAILY_KEY,JSON.stringify(this.data));this.warning='';this.saveError='';}catch(error){this.saveError=error.name+': '+error.message;this.warning=error.code==='STALE_PLAY_BATCH'?error.message:error.name==='QuotaExceededError'?'Device storage is full. Export your play data before closing this page.':'Progress could not be saved on this device. Export your play data before closing this page.';}}
  visit(day){const def=this.definition(day);if(!def)throw Error('That daily hole is not available.');this.data.selected=day;const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:def.settings.start,waypoint:def.settings.waypoint.word,flag:def.settings.target};h.lastPlayedAt=this.now();this.save();return def;}
@@ -88,9 +89,9 @@ export class DailyGame{
   }if(changed)this.save();
  }
  current(){return this.data.holes[this.selected()?.id];}
- recent(){return Object.values(this.data.holes).filter(h=>!isRetiredHole(h)).sort((a,b)=>String(b.lastPlayedAt).localeCompare(String(a.lastPlayedAt))||b.date.localeCompare(a.date)).slice(0,9);}
+ recent(){return this.visibleRecords().sort((a,b)=>String(b.lastPlayedAt).localeCompare(String(a.lastPlayedAt))||b.date.localeCompare(a.date)).slice(0,9);}
  stats(){
-  const completed=Object.values(this.data.holes).filter(h=>h.bestStrokes&&!isRetiredHole(h)),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};
+  const completed=this.visibleRecords().filter(h=>h.bestStrokes),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};
   const group=h=>{const s=h.bestStrokes.strokes;return s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+';};
   for(const h of completed)counts[group(h)]++;
   const clever=completed.filter(h=>h.bestCleverness);

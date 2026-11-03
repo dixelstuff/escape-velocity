@@ -16,3 +16,5 @@ console.log('Result filters clear with All holes or a repeated selection; horizo
 assert.match(nodes.get("personal-stats").innerHTML,/Overall Cleverness/);assert.ok(!nodes.get("personal-stats").innerHTML.includes("Average best cleverness"));assert.match(nodes.get("personal-stats").innerHTML,/aria-label="Average Cleverness">64/);
 
 assert.equal(nodes.get("hole-number").textContent,"#12");assert.match(card.innerHTML,/<th>Hole<\/th>/);assert.ok(!card.innerHTML.includes("<th>Date</th>"));assert.match(nodes.get("personal-hole-picker").innerHTML,/#12 · TEE → MIDDLE → FLAG/);assert.ok(!nodes.get("personal-hole-picker").innerHTML.includes("Oct"));
+
+assert.ok(!card.innerHTML.includes("<details"),"Recent finishes and best-three cards link to full results instead of repeating route expanders");
