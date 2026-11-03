@@ -1,8 +1,12 @@
 # Standalone vector-only cleverness
 
-## Current dogleg access bonus (3 November 2026)
+## Current dogleg continuation adjustment (4 November 2026)
 
-The live scorer is `band-free-harmonic-v6-dogleg-access`. It retains the v5 harmonic/cubic formula and adds one bounded, quality- and leg-scaled bonus for a useful alternative dogleg landing. Incoming and outgoing substitutions are tested with the existing engine; near misses earn proportionately less. Literal landings, both-way replacements that work, and verified skippable landings earn no new bonus. Existing outgoing credit is conservatively deducted, and the existing leg ceiling still applies before the unchanged cubic display mapping. See [exact formulas, comparisons and persistence checks](reports/dogleg-strategy-bonus/README.md). Older sections below describe the preceding diagnostic and formula versions.
+The live scorer is `band-free-harmonic-v7-dogleg-continuation`. A route-local authoritative replay now distinguishes a removable dogleg landing from a landing needed to preserve the observed finishing continuation. Removable landings retain a bounded strategic deduction without a second elegance charge; demonstrated finishing setups receive the existing setup-role scale. Semantic ingenuity, opportunity correction, leg factors, harmonic mapping and gameplay are unchanged. Existing retained best routes are reanalysed from their saved histories; old compact reports without the required evidence retain their prior version. See [formulas, regression results and limits](reports/dogleg-continuation/README.md).
+
+## Previous dogleg access bonus (3 November 2026)
+
+The preceding scorer was `band-free-harmonic-v6-dogleg-access`. It retains the v5 harmonic/cubic formula and adds one bounded, quality- and leg-scaled bonus for a useful alternative dogleg landing. Incoming and outgoing substitutions are tested with the existing engine; near misses earn proportionately less. Literal landings, both-way replacements that work, and verified skippable landings earn no new bonus. Existing outgoing credit is conservatively deducted, and the existing leg ceiling still applies before the unchanged cubic display mapping. See [exact formulas, comparisons and persistence checks](reports/dogleg-strategy-bonus/README.md). Older sections below describe the preceding diagnostic and formula versions.
 
 
 The primary live cleverness score uses vectors, local semantic neighbourhoods and the actual played route. It runs in the existing browser assessment worker and needs only static files. No Python, localhost scoring service, WordNet query, dictionary evidence, LLM or external scoring API is involved.

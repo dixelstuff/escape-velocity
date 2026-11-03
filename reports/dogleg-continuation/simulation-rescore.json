@@ -1,0 +1,55 @@
+{
+  "previousVersion": "band-free-harmonic-v6-dogleg-access",
+  "version": "band-free-harmonic-v7-dogleg-continuation",
+  "uniqueRoutes": 586,
+  "elapsedMs": 207514.332708,
+  "assetBytes": 16997,
+  "changes": [
+    {
+      "id": 121,
+      "old": 46,
+      "new": 50
+    },
+    {
+      "id": 144,
+      "old": 27,
+      "new": 29
+    },
+    {
+      "id": 151,
+      "old": 17,
+      "new": 18
+    },
+    {
+      "id": 162,
+      "old": 22,
+      "new": 25
+    },
+    {
+      "id": 197,
+      "old": 22,
+      "new": 25
+    },
+    {
+      "id": 219,
+      "old": 7,
+      "new": 8
+    },
+    {
+      "id": 264,
+      "old": 19,
+      "new": 20
+    },
+    {
+      "id": 274,
+      "old": 38,
+      "new": 42
+    },
+    {
+      "id": 488,
+      "old": 28,
+      "new": 32
+    }
+  ],
+  "scope": "Identical routes and draw records; strokes, outcomes, seeds and sampling frequencies unchanged."
+}

@@ -1,0 +1,6 @@
+{
+  "evaluations": 1500,
+  "elapsedMs": 84.76300000000003,
+  "averageMs": 0.056508666666666686,
+  "scope": "Additional route-local continuation replay only; existing semantic-neighbour analysis excluded."
+}

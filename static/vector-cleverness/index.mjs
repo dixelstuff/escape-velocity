@@ -1,13 +1,14 @@
+import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=dogleg-continuation-v1';
 import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=uk-us-v1';
-import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=dogleg-bonus-v1';
+import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=dogleg-continuation-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=dogleg-bonus-v1';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=dogleg-bonus-v1';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=dogleg-continuation-v1';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=dogleg-continuation-v1';
 import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=cubic-results-v1';
 import {rescoreV66} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=dogleg-bonus-v1';
+import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=dogleg-continuation-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
@@ -20,7 +21,7 @@ export async function scoreVectorInput(input,evidence,modelSha){
   const departure=stageAssessment('departure',baseline.route,candidates,words,baseline.coherence.pairs.map(p=>p.value),c,P),aggregation=aggregateStages({departure},c),opportunity=opportunityCorrection(aggregation.raw_ingenuity,baseline.route.length-2,c);
   score=rescoreV66({...baseline,version:'cleverness-score-v6.6-candidate',components:{semantic_ingenuity:opportunity.adjusted_ingenuity,strategic_effectiveness:departure.effectiveness,route_elegance:baseline.components.route_elegance},stages:{departure},aggregation,opportunity,strongest_stage:'departure',strongest_moment:departure.strongest,corner_contribution:null},'harmonic');
  }
- const r=applyLiveCleverness({...makePlaytestReport(clean.state,score,baseline,modelSha),dogleg_access:evidence?.dogleg_access??{available:!clean.state.waypoint,eligible:false,reason:clean.state.waypoint?'Mechanical access evidence unavailable':'No dogleg'}});r.evidence_mode='vectors-only';r.formula_version=r.scorer_version;r.scorer_version='vector-harmonic-dogleg-access-v1';r.baseline_label='V6.2 vector-only comparison';r.reproducibility={input:clean,evidence:clean.state.waypoint?vectorEvidence(evidence):null};return r;
+ const r=applyLiveCleverness({...makePlaytestReport(clean.state,score,baseline,modelSha),dogleg_continuation:evidence?.dogleg_continuation??{version:CONTINUATION_VERSION,available:!clean.state.waypoint,classification:'unchanged',route:[...clean.state.route],reason:clean.state.waypoint?'Continuation evidence unavailable':'No dogleg'},dogleg_access:evidence?.dogleg_access??{available:!clean.state.waypoint,eligible:false,reason:clean.state.waypoint?'Mechanical access evidence unavailable':'No dogleg'}});r.evidence_mode='vectors-only';r.formula_version=r.primary_scorer;r.scorer_version='vector-harmonic-dogleg-continuation-v1';r.baseline_label='V6.2 vector-only comparison';r.reproducibility={input:clean,evidence:clean.state.waypoint?vectorEvidence(evidence):null};return r;
 }
 export class VectorClevernessAnalyser{
  constructor(e,options={}){this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}

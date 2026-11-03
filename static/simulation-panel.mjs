@@ -1,4 +1,4 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-bonus-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
 import {SIMULATION_DATA_VERSION,simulationSettingsKey,compareSimulatedRoute,simulationForState} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 export const SIMULATION_HOLE_IDS=['daily-2027-09-30','daily-2027-10-01','daily-2027-10-02','daily-2027-10-03','daily-2027-10-04'];
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),percent=x=>x===null?'—':Math.round(x)+'%';
@@ -11,7 +11,7 @@ export function simulationDetails(hole,{strokes,score},policyId=hole.styles[0].p
  const rows=compareSimulatedRoute(hole,{strokes,score}),chosen=hole.styles.find(s=>s.policy===policyId)??hole.styles[0],row=rows.find(r=>r.id===chosen.policy),same=row.sameStrokeLower===null?`Too few scored samples at ${strokes} strokes (${row.sameN}).`:`Among ${row.sameN} scored samples using ${strokes} strokes, ${percent(row.sameStrokeLower)} had lower Cleverness.`;
  return{rows,chosen,row,table:`<p class="simulation-route">Shown route: <b>${strokes} strokes · ${score} Cleverness</b></p><table><thead><tr><th>Sampling style</th><th>More strokes</th><th>Lower Cleverness</th></tr></thead><tbody>${rows.map(r=>`<tr><th>${escape(r.name)}</th><td>${percent(r.moreStrokes)}</td><td>${percent(r.lowerCleverness)}</td></tr>`).join('')}</tbody></table>`,chart:`<p class="simulation-chart-label">Strokes</p>${distributionChart(chosen.strokeHistogram,strokes,'Strokes')}<p class="simulation-chart-label">Cleverness</p>${distributionChart(chosen.clevernessHistogram,score,'Cleverness',{score:true})}<p class="simulation-caption">Gold line: your route. ${row.completed.toLocaleString('en')} completed simulations; ${row.scored} randomly sampled completions scored.</p><p class="simulation-caption">${same}</p>`};
 }
-export function mountSimulationPanel(node,{load=async()=>{const r=await fetch(new URL('./simulation-pilot.json?v=dogleg-bonus-v1',import.meta.url));if(!r.ok)throw Error('Simulation data unavailable');return r.json();}}={}){
+export function mountSimulationPanel(node,{load=async()=>{const r=await fetch(new URL('./simulation-pilot.json?v=dogleg-continuation-v1',import.meta.url));if(!r.ok)throw Error('Simulation data unavailable');return r.json();}}={}){
  let pending=null,key=null,token=0,last=null;
  node.addEventListener('click',event=>event.stopPropagation());node.addEventListener('pointerdown',event=>event.stopPropagation());
  function show(input){last=input;const{id,state,score,modelSha,visible=true}=input;

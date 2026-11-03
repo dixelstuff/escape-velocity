@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {bandFreeScore} from '../static/vector-cleverness/band-free.mjs';
 import {applyLiveCleverness} from '../static/cleverness-live-score.mjs';
-import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
+import {BAND_FREE_VERSION,PREVIOUS_BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
 import {applyDoglegStrategyBonus,doglegAccessEvidence,DOGLEG_STRATEGY_POINTS} from '../static/dogleg-strategy-bonus.mjs';
 import {replayCompleted} from '../static/vector-cleverness/evidence.mjs';
 import {Game} from '../static/engine.mjs';
@@ -31,7 +31,7 @@ const ceiling=bandFreeScore({semantic_ingenuity:1,strategic_effectiveness:1,rout
 const capped=add(1,1,ceiling,{semantic_ingenuity:1,strategic_effectiveness:1,route_elegance:1});assert.equal(capped.unrounded_score,100);assert.equal(capped.strategic_bonus.applied_amount,0);
 const legacy={components,opportunity:{raw_ingenuity:.55,pivot_positions:1},leg_efficiency:{legs:[{strokes:2},{strokes:2}]}};
 assert.equal(applyLiveCleverness(legacy).primary_scorer,LEGACY_BAND_FREE_VERSION,'Missing historical evidence must not be relabelled as a complete new score');
-const current=applyLiveCleverness({...legacy,dogleg_access:evidence(1,1)});const compact=compactPlaytestReport({...current,diagnostics:{aggregation:{},uncertainty:[]}});assert.deepEqual(compact.dogleg_access,current.dogleg_access);assert.deepEqual(compact.band_free.strategic_bonus,current.band_free.strategic_bonus);assert.equal(current.primary_scorer,BAND_FREE_VERSION);near(applyLiveCleverness(current).band_free.unrounded_score,current.band_free.unrounded_score);
+const current=applyLiveCleverness({...legacy,dogleg_access:evidence(1,1)});const compact=compactPlaytestReport({...current,diagnostics:{aggregation:{},uncertainty:[]}});assert.deepEqual(compact.dogleg_access,current.dogleg_access);assert.deepEqual(compact.band_free.strategic_bonus,current.band_free.strategic_bonus);assert.equal(current.primary_scorer,PREVIOUS_BAND_FREE_VERSION);near(applyLiveCleverness(current).band_free.unrounded_score,current.band_free.unrounded_score);
 
 const {e}=loadResearchModel(),data=JSON.parse(fs.readFileSync('tests/dogleg-strategy-fixtures.json'));
 const find=tee=>data[tee];

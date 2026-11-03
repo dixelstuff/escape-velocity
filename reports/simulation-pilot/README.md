@@ -111,3 +111,7 @@ The same seeded journeys, selected route draws, model and stroke distributions h
 | PIN → RELIEF → CLOUD | One-step planning | 19 / 53 / 72 |
 
 Current maximum Cleverness CDF gaps between styles: PALM / SUSPENSE / SHRINK 31.7 percentage points, SCOOP / LOYALTY / RAIN 53.3 percentage points, RIPPLE / PRIDE / GLUE 27.5 percentage points, DRAFT / JEALOUSY / CUSHION 30.8 percentage points, PIN / RELIEF / CLOUD 47.5 percentage points. The refreshed [sensitivity data](sensitivity.json) uses the current scorer; the earlier table is retained as historical v5 evidence.
+
+## V7 continuation rescore — 4 November 2026
+
+The same 586 sampled routes and all original draw references now use `band-free-harmonic-v7-dogleg-continuation`. Nine displayed scores increased; route histories, stroke counts, outcomes, seeds and sampling frequencies are unchanged. This was a rescore, not a new simulation. See [rescore benchmark and changed IDs](../dogleg-continuation/simulation-rescore.json). Run `node scripts/rescore_simulation_pilot.mjs` to reproduce. Earlier distribution tables remain historical snapshots.

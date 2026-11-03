@@ -1,6 +1,6 @@
 import {isRetiredHole} from './hole-retirement.mjs?v=dogleg-choice30-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
-import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-bonus-v1';
+import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */
 export const DAILY_KEY='word-golf.personal-daily.v1';
 export const dayUTC=(date=new Date())=>date.toISOString().slice(0,10);

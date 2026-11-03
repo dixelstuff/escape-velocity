@@ -1,4 +1,4 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-bonus-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
 /** Compare against the best retained BEFORE this completion, never its updated copy.
  * An equal-stroke improvement waits for comparable unrounded Cleverness evidence.
  */
