@@ -1,0 +1,437 @@
+[
+  {
+    "start": "crisp",
+    "waypoint": "dialogue",
+    "target": "basin"
+  },
+  {
+    "start": "brace",
+    "waypoint": "rehearsal",
+    "target": "glossy"
+  },
+  {
+    "start": "grasp",
+    "waypoint": "distance",
+    "target": "courtyard"
+  },
+  {
+    "start": "tackle",
+    "waypoint": "restaurant",
+    "target": "ember"
+  },
+  {
+    "start": "swell",
+    "waypoint": "reputation",
+    "target": "seam"
+  },
+  {
+    "start": "casual",
+    "waypoint": "emergency",
+    "target": "cement"
+  },
+  {
+    "start": "linger",
+    "waypoint": "conversation",
+    "target": "valve"
+  },
+  {
+    "start": "sour",
+    "waypoint": "argument",
+    "target": "balcony"
+  },
+  {
+    "start": "plunge",
+    "waypoint": "imagination",
+    "target": "stiff"
+  },
+  {
+    "start": "hunch",
+    "waypoint": "observation",
+    "target": "parcel"
+  },
+  {
+    "start": "pinch",
+    "waypoint": "reward",
+    "target": "hallway"
+  },
+  {
+    "start": "dodge",
+    "waypoint": "responsibility",
+    "target": "bronze"
+  },
+  {
+    "start": "burst",
+    "waypoint": "attention",
+    "target": "lounge"
+  },
+  {
+    "start": "scramble",
+    "waypoint": "invitation",
+    "target": "glossy"
+  },
+  {
+    "start": "gasp",
+    "waypoint": "opportunity",
+    "target": "railing"
+  },
+  {
+    "start": "launch",
+    "waypoint": "youth",
+    "target": "flask"
+  },
+  {
+    "start": "sprawl",
+    "waypoint": "defeat",
+    "target": "badge"
+  },
+  {
+    "start": "snug",
+    "waypoint": "routine",
+    "target": "foreign"
+  },
+  {
+    "start": "cling",
+    "waypoint": "identity",
+    "target": "torch"
+  },
+  {
+    "start": "sturdy",
+    "waypoint": "membership",
+    "target": "shallow"
+  },
+  {
+    "start": "brittle",
+    "waypoint": "conversation",
+    "target": "attic"
+  },
+  {
+    "start": "modest",
+    "waypoint": "competition",
+    "target": "hose"
+  },
+  {
+    "start": "dizzy",
+    "waypoint": "traffic",
+    "target": "linen"
+  },
+  {
+    "start": "fierce",
+    "waypoint": "reception",
+    "target": "paste"
+  },
+  {
+    "start": "fancy",
+    "waypoint": "collection",
+    "target": "stern"
+  },
+  {
+    "start": "shabby",
+    "waypoint": "influence",
+    "target": "lever"
+  },
+  {
+    "start": "neat",
+    "waypoint": "childhood",
+    "target": "socket"
+  },
+  {
+    "start": "stern",
+    "waypoint": "romance",
+    "target": "driveway"
+  },
+  {
+    "start": "daring",
+    "waypoint": "exhibition",
+    "target": "crate"
+  },
+  {
+    "start": "gloomy",
+    "waypoint": "rehearsal",
+    "target": "sleeve"
+  },
+  {
+    "start": "mingle",
+    "waypoint": "routine",
+    "target": "granite"
+  },
+  {
+    "start": "brisk",
+    "waypoint": "apology",
+    "target": "invoice"
+  },
+  {
+    "start": "lofty",
+    "waypoint": "restaurant",
+    "target": "cuff"
+  },
+  {
+    "start": "ample",
+    "waypoint": "surprise",
+    "target": "tray"
+  },
+  {
+    "start": "shallow",
+    "waypoint": "instruction",
+    "target": "stamp"
+  },
+  {
+    "start": "formal",
+    "waypoint": "accident",
+    "target": "pillar"
+  },
+  {
+    "start": "limp",
+    "waypoint": "celebration",
+    "target": "cement"
+  },
+  {
+    "start": "tidy",
+    "waypoint": "negotiation",
+    "target": "glossy"
+  },
+  {
+    "start": "stale",
+    "waypoint": "imagination",
+    "target": "junction"
+  },
+  {
+    "start": "glossy",
+    "waypoint": "tradition",
+    "target": "clinic"
+  },
+  {
+    "start": "dent",
+    "waypoint": "ownership",
+    "target": "chorus"
+  },
+  {
+    "start": "rash",
+    "waypoint": "knowledge",
+    "target": "postcard"
+  },
+  {
+    "start": "idle",
+    "waypoint": "perfume",
+    "target": "staircase"
+  },
+  {
+    "start": "cling",
+    "waypoint": "election",
+    "target": "basin"
+  },
+  {
+    "start": "gaze",
+    "waypoint": "disguise",
+    "target": "bronze"
+  },
+  {
+    "start": "tremble",
+    "waypoint": "friendship",
+    "target": "drawer"
+  },
+  {
+    "start": "sober",
+    "waypoint": "parade",
+    "target": "circuit"
+  },
+  {
+    "start": "fussy",
+    "waypoint": "invitation",
+    "target": "torch"
+  },
+  {
+    "start": "subtle",
+    "waypoint": "pharmacy",
+    "target": "youth"
+  },
+  {
+    "start": "nimble",
+    "waypoint": "conversation",
+    "target": "crater"
+  },
+  {
+    "start": "patient",
+    "waypoint": "partnership",
+    "target": "hose"
+  },
+  {
+    "start": "keen",
+    "waypoint": "childhood",
+    "target": "copper"
+  },
+  {
+    "start": "fond",
+    "waypoint": "emergency",
+    "target": "wardrobe"
+  },
+  {
+    "start": "glare",
+    "waypoint": "opportunity",
+    "target": "seam"
+  },
+  {
+    "start": "mutual",
+    "waypoint": "laboratory",
+    "target": "patio"
+  },
+  {
+    "start": "scant",
+    "waypoint": "reception",
+    "target": "poster"
+  },
+  {
+    "start": "dense",
+    "waypoint": "rehearsal",
+    "target": "compass"
+  },
+  {
+    "start": "weary",
+    "waypoint": "reputation",
+    "target": "plaster"
+  },
+  {
+    "start": "foreign",
+    "waypoint": "observation",
+    "target": "wool"
+  },
+  {
+    "start": "doubtful",
+    "waypoint": "studio",
+    "target": "cuff"
+  },
+  {
+    "start": "stubborn",
+    "waypoint": "market",
+    "target": "lantern"
+  },
+  {
+    "start": "snap",
+    "waypoint": "personality",
+    "target": "pantry"
+  },
+  {
+    "start": "soak",
+    "waypoint": "conversation",
+    "target": "medal"
+  },
+  {
+    "start": "bask",
+    "waypoint": "argument",
+    "target": "invoice"
+  },
+  {
+    "start": "lavish",
+    "waypoint": "traffic",
+    "target": "slate"
+  },
+  {
+    "start": "greedy",
+    "waypoint": "discovery",
+    "target": "sleeve"
+  },
+  {
+    "start": "lively",
+    "waypoint": "courtyard",
+    "target": "voltage"
+  },
+  {
+    "start": "humble",
+    "waypoint": "cinema",
+    "target": "hose"
+  },
+  {
+    "start": "bother",
+    "waypoint": "reward",
+    "target": "rubber"
+  },
+  {
+    "start": "boast",
+    "waypoint": "distance",
+    "target": "reception"
+  },
+  {
+    "start": "stiff",
+    "waypoint": "knowledge",
+    "target": "balcony"
+  },
+  {
+    "start": "slippery",
+    "waypoint": "routine",
+    "target": "charcoal"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "lens"
+  },
+  {
+    "start": "precise",
+    "waypoint": "accident",
+    "target": "chapel"
+  },
+  {
+    "start": "shy",
+    "waypoint": "temptation",
+    "target": "cylinder"
+  },
+  {
+    "start": "vacant",
+    "waypoint": "friendship",
+    "target": "petrol"
+  },
+  {
+    "start": "useful",
+    "waypoint": "disguise",
+    "target": "pillow"
+  },
+  {
+    "start": "local",
+    "waypoint": "sacrifice",
+    "target": "apron"
+  },
+  {
+    "start": "guilty",
+    "waypoint": "assembly",
+    "target": "chimney"
+  },
+  {
+    "start": "careless",
+    "waypoint": "nursery",
+    "target": "tyre"
+  },
+  {
+    "start": "brace",
+    "waypoint": "exhibition",
+    "target": "glossy"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "crayon"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "dew"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "jug"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "pavement"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "granite"
+  },
+  {
+    "start": "snug",
+    "waypoint": "routine",
+    "target": "shallow"
+  }
+]

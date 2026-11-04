@@ -1,0 +1,122 @@
+[
+  {
+    "start": "fancy",
+    "waypoint": "collection",
+    "target": "stern",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "crisp",
+    "waypoint": "dialogue",
+    "target": "basin",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "brace",
+    "waypoint": "exhibition",
+    "target": "glossy",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "grasp",
+    "waypoint": "distance",
+    "target": "courtyard",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "swell",
+    "waypoint": "reputation",
+    "target": "seam",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "casual",
+    "waypoint": "emergency",
+    "target": "cement",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "linger",
+    "waypoint": "conversation",
+    "target": "valve",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "shabby",
+    "waypoint": "influence",
+    "target": "lever",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "fierce",
+    "waypoint": "reception",
+    "target": "paste",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "gloomy",
+    "waypoint": "rehearsal",
+    "target": "sleeve",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "ample",
+    "waypoint": "surprise",
+    "target": "tray",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "cling",
+    "waypoint": "identity",
+    "target": "torch",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "doubtful",
+    "waypoint": "studio",
+    "target": "cuff",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "awkward",
+    "waypoint": "competition",
+    "target": "pavement",
+    "editorialGroup": "welcoming"
+  },
+  {
+    "start": "burst",
+    "waypoint": "attention",
+    "target": "lounge",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "stiff",
+    "waypoint": "knowledge",
+    "target": "balcony",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "tackle",
+    "waypoint": "restaurant",
+    "target": "ember",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "humble",
+    "waypoint": "cinema",
+    "target": "hose",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "brisk",
+    "waypoint": "apology",
+    "target": "invoice",
+    "editorialGroup": "discovery"
+  },
+  {
+    "start": "idle",
+    "waypoint": "perfume",
+    "target": "staircase",
+    "editorialGroup": "welcoming"
+  }
+]
