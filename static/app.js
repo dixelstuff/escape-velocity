@@ -43,7 +43,8 @@ import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './pla
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
 const rollingParams=new URLSearchParams(location.search),adminMode=rollingParams.get('admin')==='1',simpleDaily=!adminMode||!rollingParams.has('lab'),competitiveMode=!simpleDaily&&rollingParams.get('mode')==='competitive',tourMode=!simpleDaily&&(competitiveMode||rollingParams.get('mode')==='tour'),rollingMode=!simpleDaily&&(tourMode||rollingParams.get('mode')==='rolling');
-const {dailyManifest}=await import(adminMode?'./daily-manifest.mjs?v=novel-public-twenty-v1':'./public-manifest.mjs?v=novel-public-twenty-v1');
+const {dailyManifest:publicCollection}=await import('./public-manifest.mjs?v=clear-public-twenty-v1');
+const dailyManifest=adminMode?(await import('./admin-hole-order.mjs?v=clear-public-twenty-v1')).adminHoleOrder((await import('./daily-manifest.mjs?v=clear-public-twenty-v1')).dailyManifest,publicCollection):publicCollection;
 document.body.classList.toggle('admin-mode',adminMode);
 document.body.classList.toggle('personal-daily',simpleDaily);document.body.classList.toggle('developer-mode',!simpleDaily);
 const rollingTestDay=rollingParams.get('date'),rollingSimulation=rollingMode&&/^\d{4}-\d{2}-\d{2}$/.test(rollingTestDay??'')&&Number.isFinite(Date.parse(rollingTestDay+'T00:00:00Z'));
@@ -1413,7 +1414,7 @@ if(simpleDaily){
   dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning,detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);
-  $('personal-export').onclick=()=>{let exported;try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-play-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('personal-data-status').textContent='Play data download requested. Clear play history when you have saved the file.';};
+  $('personal-export').onclick=async()=>{let exported,savePending=false;try{await personalStorage?.root?.flush?.();}catch{savePending=true;}try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-play-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('personal-data-status').textContent=`Downloaded ${exported.play.journeys.length} journeys (${exported.play.journeys.reduce((n,j)=>n+j.entries.length,0)} played words).${savePending?' Device storage could not be updated; this download includes the current session.':''}`;};
   $('personal-restore').hidden=!flightLog.backup;
   $('personal-restore').onclick=async()=>{
    if(busy)return;

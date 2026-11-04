@@ -1,5 +1,10 @@
 # Choosing Word Golf holes
 
+## Latest direction — 5 November 2026
+
+The last public twenty were still slightly too easy, and the tees felt strained or abstract. Prefer nice common, clear, vivid words. Select combinations freely using human judgement; do not construct intended solutions or run exhaustive route searches, landscape audits or simulation campaigns for each batch. Check vocabulary, duplicate triples and basic direct-leg validity only, then let playtesting judge the balance. Aim a little harder through combinations, not obscure words or restricted openings. Current public batches must appear first, as holes 1–20, in the admin view too. This supersedes the heavy per-hole research requirements below.
+
+
 ## Current editorial direction — 4 November 2026
 
 **Current instruction: preserve the successful natural, open-landscape word style, broaden the vocabulary substantially beyond recent batches, and keep the opening inviting while reducing the prevalence of obvious short routes. Aim for roughly one-third welcoming/easy holes; the remaining majority should invite more discovery and meaningful choices on both legs. The quirky/playful vocabulary experiment remains withdrawn. Vary familiar words and contexts without selecting for quirkiness, surprise, obscurity or a particular intended bridge.**
