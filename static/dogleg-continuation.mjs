@@ -1,5 +1,5 @@
 /** Route-local finishing evidence and bounded component adjustment; no word search. */
-import {Game} from './engine.mjs?v=dogleg-continuation-v1';
+import {Game} from './engine.mjs?v=playable-vocab-v1';
 import {DEFAULT_CONFIG} from './vector-cleverness/cleverness-v6.mjs?v=cubic-results-v1';
 export const CONTINUATION_VERSION='dogleg-continuation-v1';
 const clip=x=>Math.max(0,Math.min(1,x));
