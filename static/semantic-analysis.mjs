@@ -1,5 +1,5 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=playable-vocab-v1';
+import {Game} from './engine.mjs?v=playable-vocab-v2';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {withHeadwind} from './headwind.mjs?v=golf-v189';
 import {analyseJourney} from './semantic-journey.mjs?v=golf-v189';

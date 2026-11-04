@@ -1,9 +1,9 @@
-import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=playable-vocab-v1';
+import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=playable-vocab-v2';
 import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=uk-us-v1';
-import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=playable-vocab-v1';
+import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=playable-vocab-v2';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=playable-vocab-v1';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=playable-vocab-v1';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=playable-vocab-v2';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=playable-vocab-v2';
 import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=cubic-results-v1';

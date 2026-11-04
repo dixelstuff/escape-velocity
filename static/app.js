@@ -33,10 +33,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=playable-vocab-v1';
+import { createBrowserClient } from './engine.mjs?v=playable-vocab-v2';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=playable-vocab-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=playable-vocab-v2';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=dogleg-retry-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';

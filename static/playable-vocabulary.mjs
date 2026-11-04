@@ -3,7 +3,7 @@ export const BLOCKED_PLAY_WORDS=Object.freeze(['yes','yeah','but']);
 const blocked=new Set(BLOCKED_PLAY_WORDS);
 export const isBlockedPlayWord=word=>blocked.has(String(word??'').trim().toLowerCase());
 export function requirePlayableWord(word){
- if(isBlockedPlayWord(word))throw Error(`${String(word).trim().toUpperCase()} is not in the playable vocabulary. No shot used.`);
+ if(isBlockedPlayWord(word))throw Error('Word not allowed. Try another.');
 }
 export function checkLiveVocabulary(path,body){
  if(path==='submit')requirePlayableWord(body.word);

@@ -1,5 +1,5 @@
-import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=playable-vocab-v1';
-import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=playable-vocab-v1';
+import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=playable-vocab-v2';
+import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=playable-vocab-v2';
 import {stretchBandFree} from './score-stretch.mjs?v=cubic-results-v1';
 /** Apply live-only opportunity/bonus settings; preserve historical comparison diagnostics. */
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=dogleg-continuation-v1';
