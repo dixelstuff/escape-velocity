@@ -1,0 +1,293 @@
+{
+  "blanket": [
+    "cover",
+    "warm",
+    "bed",
+    "wool",
+    "layer",
+    "snow",
+    "wrap",
+    "comfort",
+    "soft"
+  ],
+  "bruise": [
+    "hurt",
+    "purple",
+    "skin",
+    "knock",
+    "injury",
+    "tender",
+    "colour",
+    "heal",
+    "mark"
+  ],
+  "candle": [
+    "wax",
+    "light",
+    "flame",
+    "burn",
+    "wick",
+    "birthday",
+    "glow",
+    "melt"
+  ],
+  "canvas": [
+    "paint",
+    "sail",
+    "tent",
+    "cloth",
+    "frame",
+    "picture",
+    "cover",
+    "fabric"
+  ],
+  "clutch": [
+    "grip",
+    "hold",
+    "car",
+    "gear",
+    "purse",
+    "grasp",
+    "hand",
+    "pedal"
+  ],
+  "compass": [
+    "direction",
+    "north",
+    "needle",
+    "point",
+    "circle",
+    "navigate",
+    "bearing",
+    "guide"
+  ],
+  "curl": [
+    "hair",
+    "twist",
+    "wave",
+    "bend",
+    "roll",
+    "spiral",
+    "shape"
+  ],
+  "dim": [
+    "dark",
+    "light",
+    "faint",
+    "dull",
+    "unclear",
+    "shade",
+    "reduce"
+  ],
+  "fabric": [
+    "cloth",
+    "weave",
+    "thread",
+    "material",
+    "texture",
+    "pattern",
+    "cotton",
+    "silk"
+  ],
+  "friction": [
+    "rub",
+    "heat",
+    "resistance",
+    "conflict",
+    "grip",
+    "surface",
+    "tension"
+  ],
+  "fringe": [
+    "edge",
+    "hair",
+    "border",
+    "margin",
+    "benefit",
+    "curtain",
+    "trim"
+  ],
+  "glance": [
+    "look",
+    "glimpse",
+    "eye",
+    "quick",
+    "sight",
+    "view",
+    "notice"
+  ],
+  "gleam": [
+    "shine",
+    "light",
+    "bright",
+    "polish",
+    "eye",
+    "glow",
+    "metal"
+  ],
+  "ink": [
+    "pen",
+    "write",
+    "stain",
+    "print",
+    "black",
+    "paper",
+    "squid",
+    "mark"
+  ],
+  "kneel": [
+    "knee",
+    "bend",
+    "pray",
+    "worship",
+    "proposal",
+    "bow",
+    "floor"
+  ],
+  "pardon": [
+    "forgive",
+    "excuse",
+    "mercy",
+    "release",
+    "offence",
+    "sorry",
+    "apology"
+  ],
+  "payment": [
+    "money",
+    "pay",
+    "debt",
+    "wage",
+    "bill",
+    "receipt",
+    "charge",
+    "fee"
+  ],
+  "peel": [
+    "skin",
+    "strip",
+    "orange",
+    "remove",
+    "paint",
+    "layer",
+    "bark"
+  ],
+  "permission": [
+    "allow",
+    "consent",
+    "licence",
+    "authority",
+    "freedom",
+    "approval",
+    "grant"
+  ],
+  "proud": [
+    "pride",
+    "pleased",
+    "honour",
+    "boast",
+    "parent",
+    "dignity",
+    "achievement"
+  ],
+  "receipt": [
+    "purchase",
+    "proof",
+    "payment",
+    "bill",
+    "paper",
+    "shop",
+    "receive"
+  ],
+  "restless": [
+    "uneasy",
+    "move",
+    "sleep",
+    "impatient",
+    "wander",
+    "nervous",
+    "energy"
+  ],
+  "saddle": [
+    "horse",
+    "ride",
+    "seat",
+    "leather",
+    "burden",
+    "strap",
+    "bicycle"
+  ],
+  "scent": [
+    "smell",
+    "perfume",
+    "trail",
+    "nose",
+    "flower",
+    "trace",
+    "detect"
+  ],
+  "seal": [
+    "close",
+    "stamp",
+    "animal",
+    "wax",
+    "approval",
+    "leak",
+    "envelope"
+  ],
+  "steady": [
+    "balance",
+    "firm",
+    "stable",
+    "regular",
+    "calm",
+    "hold",
+    "constant"
+  ],
+  "sway": [
+    "swing",
+    "influence",
+    "move",
+    "opinion",
+    "tree",
+    "rhythm",
+    "persuade"
+  ],
+  "tame": [
+    "wild",
+    "train",
+    "gentle",
+    "animal",
+    "quiet",
+    "control",
+    "mild"
+  ],
+  "toast": [
+    "bread",
+    "heat",
+    "brown",
+    "drink",
+    "honour",
+    "speech",
+    "raise"
+  ],
+  "tune": [
+    "music",
+    "melody",
+    "song",
+    "adjust",
+    "radio",
+    "pitch",
+    "harmony"
+  ],
+  "wound": [
+    "injury",
+    "hurt",
+    "cut",
+    "heal",
+    "scar",
+    "bandage",
+    "wind",
+    "coil"
+  ]
+}

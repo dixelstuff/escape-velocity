@@ -1,0 +1,4 @@
+import fs from 'node:fs';import {shortProbes} from './check_discovery_twenty.mjs';
+const dir='reports/discovery-public-twenty/',old=JSON.parse(fs.readFileSync('reports/fresh-public-fifty/proposals.json')),fresh=JSON.parse(fs.readFileSync(dir+'proposals.json'));
+const results=[];for(const [source,rows]of [['previousFirst24',old.slice(0,24)],['new20',fresh]])for(const p of rows){const words=[p.start,p.waypoint,p.target],r=shortProbes(words);results.push({source,words,...r});console.log(source,words.join(' > '),r.count);}
+fs.writeFileSync(dir+'short-comparison.json',JSON.stringify({scope:'Same expanded independent context graph and two-manual-choice probe for both sets. Exhaustive within that pool/configuration only. Not all legal short solutions, human obviousness or predicted player results.',results},null,2)+'\n');

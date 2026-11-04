@@ -1,0 +1,122 @@
+[
+  {
+    "start": "curtain",
+    "waypoint": "patience",
+    "target": "charge"
+  },
+  {
+    "start": "rumour",
+    "waypoint": "repair",
+    "target": "tide"
+  },
+  {
+    "start": "anchor",
+    "waypoint": "mercy",
+    "target": "restless"
+  },
+  {
+    "start": "whisper",
+    "waypoint": "duty",
+    "target": "canvas"
+  },
+  {
+    "start": "flush",
+    "waypoint": "justice",
+    "target": "feather"
+  },
+  {
+    "start": "stroke",
+    "waypoint": "loyalty",
+    "target": "window"
+  },
+  {
+    "start": "gleam",
+    "waypoint": "burden",
+    "target": "witness"
+  },
+  {
+    "start": "proud",
+    "waypoint": "friction",
+    "target": "letter"
+  },
+  {
+    "start": "twist",
+    "waypoint": "consent",
+    "target": "blanket"
+  },
+  {
+    "start": "steady",
+    "waypoint": "rumour",
+    "target": "lock"
+  },
+  {
+    "start": "peel",
+    "waypoint": "ambition",
+    "target": "quiet"
+  },
+  {
+    "start": "scratch",
+    "waypoint": "welcome",
+    "target": "receipt"
+  },
+  {
+    "start": "faint",
+    "waypoint": "bargain",
+    "target": "crown"
+  },
+  {
+    "start": "glance",
+    "waypoint": "courage",
+    "target": "ribbon"
+  },
+  {
+    "start": "chill",
+    "waypoint": "promise",
+    "target": "saddle"
+  },
+  {
+    "start": "stumble",
+    "waypoint": "mercy",
+    "target": "ink"
+  },
+  {
+    "start": "fold",
+    "waypoint": "mercy",
+    "target": "pulse"
+  },
+  {
+    "start": "thirst",
+    "waypoint": "honour",
+    "target": "screen"
+  },
+  {
+    "start": "float",
+    "waypoint": "payment",
+    "target": "velvet"
+  },
+  {
+    "start": "lean",
+    "waypoint": "rescue",
+    "target": "scent"
+  },
+  {
+    "start": "sigh",
+    "waypoint": "friction",
+    "target": "crown"
+  },
+  {
+    "start": "tame",
+    "waypoint": "memory",
+    "target": "charge"
+  },
+  {
+    "start": "favour",
+    "waypoint": "signal",
+    "target": "bruise"
+  },
+  {
+    "start": "hollow",
+    "waypoint": "loyalty",
+    "target": "tune"
+  }
+]

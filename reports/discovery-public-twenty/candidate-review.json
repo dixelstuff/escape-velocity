@@ -1,0 +1,542 @@
+[
+  {
+    "words": [
+      "scent",
+      "promise",
+      "hinge"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "pulse",
+      "debt",
+      "shelter"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "curtain",
+      "patience",
+      "charge"
+    ],
+    "status": "selected",
+    "reason": "Discovery: familiar physical/social senses; patience opens several human contexts but charge requires a purposeful onward choice."
+  },
+  {
+    "words": [
+      "rumour",
+      "repair",
+      "tide"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: versatile news/secrecy opening; repair and tide offer distinct contexts without an instant named-target finish."
+  },
+  {
+    "words": [
+      "shiver",
+      "bargain",
+      "thread"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "anchor",
+      "mercy",
+      "restless"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical stability and social support offer different approaches; restless changes the onward objective."
+  },
+  {
+    "words": [
+      "crease",
+      "signal",
+      "hunger"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "whisper",
+      "duty",
+      "canvas"
+    ],
+    "status": "selected",
+    "reason": "Discovery: communication and social duties are accessible, while canvas offers a distinct material/creative destination."
+  },
+  {
+    "words": [
+      "flush",
+      "justice",
+      "feather"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: several everyday uses; justice and feather separate the tasks while leaving intuitive quality-based directions."
+  },
+  {
+    "words": [
+      "grace",
+      "borrow",
+      "thunder"
+    ],
+    "status": "not_selected",
+    "reason": "Bounded natural-context check did not demonstrate a usable complete route; insufficient safety evidence, not proof of impossibility."
+  },
+  {
+    "words": [
+      "itch",
+      "honour",
+      "frame"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "crack",
+      "permission",
+      "tender"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "echo",
+      "payment",
+      "hollow"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "habit",
+      "rescue",
+      "silver"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "stroke",
+      "loyalty",
+      "window"
+    ],
+    "status": "selected",
+    "reason": "Discovery: several familiar movement, touch and timing senses; loyalty and window favour deliberate landing selection."
+  },
+  {
+    "words": [
+      "gleam",
+      "burden",
+      "witness"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: visual and figurative senses; burden and witness support several social and observational contexts."
+  },
+  {
+    "words": [
+      "stain",
+      "courage",
+      "harbour"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "proud",
+      "friction",
+      "letter"
+    ],
+    "status": "selected",
+    "reason": "Discovery: emotion, social judgement and physical friction have plausible but non-identical possibilities; avoid assuming any single switch."
+  },
+  {
+    "words": [
+      "twist",
+      "consent",
+      "blanket"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical changes and narrative/social senses; consent and blanket encourage a different closing context."
+  },
+  {
+    "words": [
+      "steady",
+      "rumour",
+      "lock"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical and behavioural openings; rumour then lock asks for a further context decision rather than repeating one word."
+  },
+  {
+    "words": [
+      "pledge",
+      "flavour",
+      "strain"
+    ],
+    "status": "not_selected",
+    "reason": "Fails existing direct-leg check; not a candidate for publication."
+  },
+  {
+    "words": [
+      "frown",
+      "rhythm",
+      "seal"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "peel",
+      "ambition",
+      "quiet"
+    ],
+    "status": "not_selected",
+    "reason": "Many sampled landing words already finish; too much closing-leg overlap for the purpose of this playtest."
+  },
+  {
+    "words": [
+      "chase",
+      "pardon",
+      "margin"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "bluff",
+      "shelter",
+      "gentle"
+    ],
+    "status": "not_selected",
+    "reason": "Bounded natural-context check did not demonstrate a usable complete route; insufficient safety evidence, not proof of impossibility."
+  },
+  {
+    "words": [
+      "scratch",
+      "welcome",
+      "receipt"
+    ],
+    "status": "selected",
+    "reason": "Discovery: multiple physical, sound and starting senses; welcome and receipt broaden the contexts without a named-target shortcut."
+  },
+  {
+    "words": [
+      "tender",
+      "compass",
+      "quarrel"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "rattle",
+      "trust",
+      "fabric"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "fringe",
+      "memory",
+      "steady"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "stubborn",
+      "balance",
+      "feather"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "faint",
+      "bargain",
+      "crown"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: weak/light/uncertain senses; bargain and crown are familiar and multi-use without one prescribed path."
+  },
+  {
+    "words": [
+      "glance",
+      "courage",
+      "ribbon"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: familiar visual/social openings, with a useful distinction between courage and the physical ribbon finish."
+  },
+  {
+    "words": [
+      "chill",
+      "promise",
+      "saddle"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical and emotional starting directions; promise and saddle provide contrasting opportunities without obscure terms."
+  },
+  {
+    "words": [
+      "stumble",
+      "mercy",
+      "ink"
+    ],
+    "status": "selected",
+    "reason": "Discovery: movement and mistakes are natural openings; mercy and ink provide a more substantial second-leg change."
+  },
+  {
+    "words": [
+      "wound",
+      "rhythm",
+      "loose"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "hush",
+      "credit",
+      "spring"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "clutch",
+      "envy",
+      "paper"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "dim",
+      "justice",
+      "curl"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "sway",
+      "repair",
+      "fortune"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "kneel",
+      "signal",
+      "fold"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "smudge",
+      "patience",
+      "toast"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "spark",
+      "verdict",
+      "curtain"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "fold",
+      "mercy",
+      "pulse"
+    ],
+    "status": "not_selected",
+    "reason": "Held to avoid repeating target/dogleg vocabulary and to maintain the small twenty-hole mix; not declared a bad hole."
+  },
+  {
+    "words": [
+      "doubt",
+      "shelter",
+      "stitch"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "thirst",
+      "honour",
+      "screen"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: physical need and figurative desire; honour and screen retain a small number of natural short possibilities."
+  },
+  {
+    "words": [
+      "shade",
+      "bargain",
+      "witness"
+    ],
+    "status": "not_selected",
+    "reason": "Demonstrated witness repeats a word or revisits a context; a warning given the player dislikes cross-leg reuse. Held rather than claiming the hole is impossible or always dull."
+  },
+  {
+    "words": [
+      "thread",
+      "courage",
+      "frost"
+    ],
+    "status": "not_selected",
+    "reason": "Bounded natural-context check did not demonstrate a usable complete route; insufficient safety evidence, not proof of impossibility."
+  },
+  {
+    "words": [
+      "bloom",
+      "consent",
+      "hinge"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "grip",
+      "pardon",
+      "candle"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "float",
+      "payment",
+      "velvet"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical, financial and suggestion senses; payment and velvet give different finishing opportunities."
+  },
+  {
+    "words": [
+      "lean",
+      "rescue",
+      "scent"
+    ],
+    "status": "selected",
+    "reason": "Discovery: physical support, efficiency and preference senses; rescue and scent offer natural but different onward contexts."
+  },
+  {
+    "words": [
+      "sigh",
+      "friction",
+      "crown"
+    ],
+    "status": "not_selected",
+    "reason": "Held to avoid repeating target/dogleg vocabulary and to maintain the small twenty-hole mix; not declared a bad hole."
+  },
+  {
+    "words": [
+      "cradle",
+      "ambition",
+      "chalk"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "rush",
+      "duty",
+      "whisper"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "spare",
+      "verdict",
+      "weather"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "tame",
+      "memory",
+      "charge"
+    ],
+    "status": "not_selected",
+    "reason": "Held to avoid repeating target/dogleg vocabulary and to maintain the small twenty-hole mix; not declared a bad hole."
+  },
+  {
+    "words": [
+      "restless",
+      "credit",
+      "leaf"
+    ],
+    "status": "not_selected",
+    "reason": "Held after comparative editorial review: the selected twenty offer a better combination of credible handoffs, word variety and lower obvious-shortcut abundance. Mechanical validity alone did not qualify this candidate."
+  },
+  {
+    "words": [
+      "tension",
+      "flavour",
+      "clear"
+    ],
+    "status": "not_selected",
+    "reason": "Bounded natural-context check did not demonstrate a usable complete route; insufficient safety evidence, not proof of impossibility."
+  },
+  {
+    "words": [
+      "favour",
+      "signal",
+      "bruise"
+    ],
+    "status": "selected",
+    "reason": "Welcoming: request, preference and kindness senses; signal and bruise leave both action and physical-property possibilities."
+  },
+  {
+    "words": [
+      "hollow",
+      "loyalty",
+      "tune"
+    ],
+    "status": "selected",
+    "reason": "Discovery: spatial, sound and figurative senses; loyalty and tune leave several routes, with some easier landings retained."
+  }
+]

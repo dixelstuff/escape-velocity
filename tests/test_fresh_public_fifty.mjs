@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as manifest} from '../static/public-manifest.mjs';
+// Freeze this former public selection; current public composition is checked by test_discovery_public_twenty.mjs.
 import {DailyGame,DAILY_KEY,addDay} from '../static/daily-game.mjs';
 import {completedHoles,holeNumber} from '../static/daily-ui.mjs';
 import {Game,waypointLegAccess} from '../static/engine.mjs';
@@ -10,6 +10,7 @@ import {isRetiredHole} from '../static/hole-retirement.mjs';
 import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const dir='reports/fresh-public-fifty/',read=f=>JSON.parse(fs.readFileSync(f)),v=read(dir+'validation.json'),ps=read(dir+'proposals.json'),audit=read(dir+'safety.json'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const manifest={version:1,view:'fresh-public-fifty-v3',scopeToManifest:true,includeCustom:false,entryHoleId:v.holes[0].id,holes:v.holes};
 assert.equal(v.oldCount,460);assert.equal(sha(JSON.stringify(archive.holes.slice(0,v.oldCount))),v.oldSha,'All previous definitions and IDs stay exactly unchanged');
 const batch=archive.holes.slice(v.oldCount,v.oldCount+50);assert.deepEqual(batch,v.holes);assert.deepEqual(manifest.holes,batch);assert.equal(manifest.holes.length,50);
 assert.equal(manifest.view,'fresh-public-fifty-v3');assert.equal(manifest.entryHoleId,batch[0].id);assert.equal(manifest.scopeToManifest,true);assert.equal(manifest.includeCustom,false);
@@ -47,5 +48,5 @@ assert.equal(publicGame.available().length,50);assert.equal(publicGame.selected(
 assert.equal(holeNumber(publicGame,batch[0]),'#1');assert.equal(holeNumber(publicGame,batch.at(-1)),'#50');assert.equal(publicGame.definition(old.date),undefined);assert.equal(publicGame.definition('custom-keep'),undefined);
 publicGame.visit(batch[0].date);const state=structuredClone(audit.checks[0].witness.state);state.challenge={id:batch[0].id,version:'stroke-play-v1',par:5,attempt:1,unlimited:true};publicGame.record({id:'fresh-finish',updatedAt:'2026-11-04T01:00:00Z',state});assert.equal(publicGame.stats().completed,1);
 const publicReload=new DailyGame(storage,manifest);assert.deepEqual(publicReload.current().bestStrokes.route,state.route);assert.deepEqual(publicReload.data.holes[old.id],oldRecord);
-const admin=new DailyGame(storage,archive);assert.equal(admin.available().filter(h=>!h.custom).length,481);assert.equal(admin.definition('custom-keep').id,'custom-keep');assert.deepEqual(admin.data.holes[old.id],oldRecord);assert.equal(admin.stats().completed,2);
+const admin=new DailyGame(storage,{...archive,holes:archive.holes.slice(0,v.oldCount+50)});assert.equal(admin.available().filter(h=>!h.custom).length,481);assert.equal(admin.definition('custom-keep').id,'custom-keep');assert.deepEqual(admin.data.holes[old.id],oldRecord);assert.equal(admin.stats().completed,2);
 console.log(`Fresh fifty passed: 50 complete engine replays, ${landings} independently restored dogleg lies, ${samples} sampled onward-shot replays, no old public holes, unchanged archive/rules and retained progress.`);

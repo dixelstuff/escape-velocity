@@ -1,0 +1,142 @@
+[
+  {
+    "start": "rumour",
+    "waypoint": "repair",
+    "target": "tide",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: versatile news/secrecy opening; repair and tide offer distinct contexts without an instant named-target finish."
+  },
+  {
+    "start": "curtain",
+    "waypoint": "patience",
+    "target": "charge",
+    "editorialGroup": "discovery",
+    "review": "Discovery: familiar physical/social senses; patience opens several human contexts but charge requires a purposeful onward choice."
+  },
+  {
+    "start": "glance",
+    "waypoint": "courage",
+    "target": "ribbon",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: familiar visual/social openings, with a useful distinction between courage and the physical ribbon finish."
+  },
+  {
+    "start": "anchor",
+    "waypoint": "mercy",
+    "target": "restless",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical stability and social support offer different approaches; restless changes the onward objective."
+  },
+  {
+    "start": "proud",
+    "waypoint": "friction",
+    "target": "letter",
+    "editorialGroup": "discovery",
+    "review": "Discovery: emotion, social judgement and physical friction have plausible but non-identical possibilities; avoid assuming any single switch."
+  },
+  {
+    "start": "flush",
+    "waypoint": "justice",
+    "target": "feather",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: several everyday uses; justice and feather separate the tasks while leaving intuitive quality-based directions."
+  },
+  {
+    "start": "steady",
+    "waypoint": "rumour",
+    "target": "lock",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical and behavioural openings; rumour then lock asks for a further context decision rather than repeating one word."
+  },
+  {
+    "start": "stumble",
+    "waypoint": "mercy",
+    "target": "ink",
+    "editorialGroup": "discovery",
+    "review": "Discovery: movement and mistakes are natural openings; mercy and ink provide a more substantial second-leg change."
+  },
+  {
+    "start": "gleam",
+    "waypoint": "burden",
+    "target": "witness",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: visual and figurative senses; burden and witness support several social and observational contexts."
+  },
+  {
+    "start": "whisper",
+    "waypoint": "duty",
+    "target": "canvas",
+    "editorialGroup": "discovery",
+    "review": "Discovery: communication and social duties are accessible, while canvas offers a distinct material/creative destination."
+  },
+  {
+    "start": "chill",
+    "waypoint": "promise",
+    "target": "saddle",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical and emotional starting directions; promise and saddle provide contrasting opportunities without obscure terms."
+  },
+  {
+    "start": "faint",
+    "waypoint": "bargain",
+    "target": "crown",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: weak/light/uncertain senses; bargain and crown are familiar and multi-use without one prescribed path."
+  },
+  {
+    "start": "scratch",
+    "waypoint": "welcome",
+    "target": "receipt",
+    "editorialGroup": "discovery",
+    "review": "Discovery: multiple physical, sound and starting senses; welcome and receipt broaden the contexts without a named-target shortcut."
+  },
+  {
+    "start": "stroke",
+    "waypoint": "loyalty",
+    "target": "window",
+    "editorialGroup": "discovery",
+    "review": "Discovery: several familiar movement, touch and timing senses; loyalty and window favour deliberate landing selection."
+  },
+  {
+    "start": "favour",
+    "waypoint": "signal",
+    "target": "bruise",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: request, preference and kindness senses; signal and bruise leave both action and physical-property possibilities."
+  },
+  {
+    "start": "twist",
+    "waypoint": "consent",
+    "target": "blanket",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical changes and narrative/social senses; consent and blanket encourage a different closing context."
+  },
+  {
+    "start": "hollow",
+    "waypoint": "loyalty",
+    "target": "tune",
+    "editorialGroup": "discovery",
+    "review": "Discovery: spatial, sound and figurative senses; loyalty and tune leave several routes, with some easier landings retained."
+  },
+  {
+    "start": "thirst",
+    "waypoint": "honour",
+    "target": "screen",
+    "editorialGroup": "welcoming",
+    "review": "Welcoming: physical need and figurative desire; honour and screen retain a small number of natural short possibilities."
+  },
+  {
+    "start": "lean",
+    "waypoint": "rescue",
+    "target": "scent",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical support, efficiency and preference senses; rescue and scent offer natural but different onward contexts."
+  },
+  {
+    "start": "float",
+    "waypoint": "payment",
+    "target": "velvet",
+    "editorialGroup": "discovery",
+    "review": "Discovery: physical, financial and suggestion senses; payment and velvet give different finishing opportunities."
+  }
+]
