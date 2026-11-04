@@ -3,8 +3,8 @@ import fs from 'node:fs';
 import {BLOCKED_PLAY_WORDS,checkLiveVocabulary,isBlockedPlayWord} from '../static/playable-vocabulary.mjs';
 import {createBrowserClient,Game,restoreGame} from '../static/engine.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
-assert.deepEqual(BLOCKED_PLAY_WORDS,['yes','yeah','but']);
-for(const word of ['yes',' YEAH ','But']){
+assert.deepEqual(BLOCKED_PLAY_WORDS,['yes', 'yeah', 'but', 'actually', 'indeed', 'really', 'however', 'perhaps', 'very', 'also', 'maybe', 'someone']);
+for(const word of BLOCKED_PLAY_WORDS.flatMap(w=>[w,` ${w.toUpperCase()} `])){
  assert.equal(isBlockedPlayWord(word),true);
  assert.throws(()=>checkLiveVocabulary('submit',{word}),{message:'Word not allowed. Try another.'});
  for(const role of ['start','target','final_target'])assert.throws(()=>checkLiveVocabulary('new',{[role]:word}),{message:'Word not allowed. Try another.'});
@@ -20,7 +20,7 @@ globalThis.fetch=async url=>new Response(fs.readFileSync(decodeURIComponent(new 
 try{
  const client=await createBrowserClient({progressive:false});
  await client.request('new',settings);
- for(const word of [' YES ','yeah','but'])await assert.rejects(client.request('submit',{word}),{message:'Word not allowed. Try another.'});
+ for(const word of BLOCKED_PLAY_WORDS.map(w=>` ${w.toUpperCase()} `))await assert.rejects(client.request('submit',{word}),{message:'Word not allowed. Try another.'});
  const expectedEvent=expected.submit('food'),actual=await client.request('submit',{word:'food'});
  assert.deepEqual(actual.event,expectedEvent);assert.deepEqual(actual.state,expected.state(),'Blocked inputs do not change route, strokes or attempts');
  for(const role of ['start','target'])await assert.rejects(client.request('new',{...settings,[role]:'yes'}),{message:'Word not allowed. Try another.'});
@@ -31,4 +31,4 @@ try{
  assert.deepEqual((await client.request('restore',{state:saved})).state,saved);
  await assert.rejects(client.request('submit',{word:'yeah'}),{message:'Word not allowed. Try another.'});
 }finally{globalThis.fetch=fetchBefore;globalThis.caches=cachesBefore;}
-console.log('Playable vocabulary passed: exact three-word block, normalized inputs and endpoints, no shot/state changes, real browser client, unchanged vectors and historical replay.');
+console.log('Playable vocabulary passed: exact twelve-word block, normalized inputs and endpoints, no shot/state changes, real browser client, unchanged vectors and historical replay.');
