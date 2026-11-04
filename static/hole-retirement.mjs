@@ -1,4 +1,4 @@
-import {spellingIdentity} from './spelling-equivalence.mjs?v=uk-us-v1';
+import {spellingIdentity} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 /** Retire from play and visible stats, retaining original definitions and saved history. */
 export const retiredHoleWords=[
  ['avocado','bravado','embargo'],

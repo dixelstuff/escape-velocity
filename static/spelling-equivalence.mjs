@@ -126,7 +126,7 @@ export function spellingResolver(e){
 }
 export function canonicalSpellingState(state,e){
  const out=structuredClone(state);if(state.spelling_equivalence!==SPELLING_EQUIVALENCE)return out;
- const {resolve}=spellingResolver(e),wordKeys=new Set(['start','current','target','final_target','leg_start','word','origin','leg_target','scoring_word']);
+ const {resolve}=spellingResolver(e),wordKeys=new Set(['start','current','target','final_target','leg_start','word','origin','leg_target','scoring_word','contact_word','destination_word']);
  function visit(value,key){if(typeof value==='string')return wordKeys.has(key)||key==='route'||key==='golden_paths'?resolve(value):value;if(Array.isArray(value))return value.map(v=>visit(v,key));if(value&&typeof value==='object')for(const k of Object.keys(value))value[k]=visit(value[k],k);return value;}
  return visit(out);
 }

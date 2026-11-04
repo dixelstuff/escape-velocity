@@ -1,0 +1,601 @@
+{
+  "modelSha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "talentToStudio": 0.286033131253987,
+  "talentsToStudio": 0.20245327547718261,
+  "rows": [
+    {
+      "legacy": true,
+      "inputs": [
+        "talent"
+      ],
+      "event": {
+        "word": "talent",
+        "origin": "doubtful",
+        "launch": 0.05166047395232454,
+        "destination": 0.286033131253987,
+        "required": 0.215,
+        "trip_fraction": 1,
+        "boundary": true,
+        "success": false,
+        "inside": true,
+        "won": false,
+        "attempt": 1,
+        "hub_surcharge": 0,
+        "forward": true,
+        "connected": false,
+        "safe": true,
+        "outcome": "miss",
+        "backtrack": false,
+        "stage": 0,
+        "leg_target": "studio",
+        "leg_baseline": -0.14117404701391933,
+        "leg_threshold": 0.265
+      },
+      "state": {
+        "start": "doubtful",
+        "current": "doubtful",
+        "target": "studio",
+        "threshold": 0.265,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.14117404701391933,
+        "progress": -0.14117404701391933,
+        "attempts": 1,
+        "route": [
+          "doubtful"
+        ],
+        "history": [
+          {
+            "word": "talent",
+            "origin": "doubtful",
+            "launch": 0.05166047395232454,
+            "destination": 0.286033131253987,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": false,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": false,
+            "safe": true,
+            "outcome": "miss",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265
+          }
+        ],
+        "won": false,
+        "waypoint": {
+          "word": "studio",
+          "threshold": 0.265
+        },
+        "final_target": "cuff",
+        "final_threshold": 0.27,
+        "stage": 0,
+        "leg_start": "doubtful",
+        "second_leg_finish_span": 0.12,
+        "second_leg_finish_after": 0,
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": true,
+        "automatic_shots": [],
+        "best_progress": -0.14117404701391933,
+        "backward_allowance": 0.01
+      },
+      "positions": [
+        {
+          "narrow": true,
+          "turn": "up",
+          "point": {
+            "x": 291.19570788409715,
+            "y": 134.22380764894714
+          }
+        },
+        {
+          "narrow": true,
+          "turn": "down",
+          "point": {
+            "x": 318.5953755425508,
+            "y": 288.56600751982774
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "up",
+          "point": {
+            "x": 454.9276673472155,
+            "y": 134.1230050340321
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "down",
+          "point": {
+            "x": 497.7239790600287,
+            "y": 288.6388504011387
+          }
+        }
+      ]
+    },
+    {
+      "legacy": true,
+      "inputs": [
+        "dubious",
+        "talent"
+      ],
+      "event": {
+        "word": "talent",
+        "origin": "dubious",
+        "launch": 0.1941633701067076,
+        "destination": 0.20245327547718261,
+        "required": 0.1742707043101207,
+        "trip_fraction": 0.6605892025843392,
+        "boundary": true,
+        "success": true,
+        "inside": false,
+        "won": false,
+        "attempt": 2,
+        "hub_surcharge": 0,
+        "forward": true,
+        "connected": true,
+        "safe": true,
+        "outcome": "landed",
+        "backtrack": false,
+        "scoring_word": "talents",
+        "stage": 0,
+        "leg_target": "studio",
+        "leg_baseline": -0.14117404701391933,
+        "leg_threshold": 0.265
+      },
+      "state": {
+        "start": "doubtful",
+        "current": "talent",
+        "target": "studio",
+        "threshold": 0.265,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.14117404701391933,
+        "progress": 0.286033131253987,
+        "attempts": 2,
+        "route": [
+          "doubtful",
+          "dubious",
+          "talent"
+        ],
+        "history": [
+          {
+            "word": "dubious",
+            "origin": "doubtful",
+            "launch": 0.4433160153312201,
+            "destination": -0.06586091435019625,
+            "required": 0.11725050070551912,
+            "trip_fraction": 0.18542083921265937,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "talent",
+            "origin": "dubious",
+            "launch": 0.1941633701067076,
+            "destination": 0.20245327547718261,
+            "required": 0.1742707043101207,
+            "trip_fraction": 0.6605892025843392,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "scoring_word": "talents",
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265
+          }
+        ],
+        "won": false,
+        "waypoint": {
+          "word": "studio",
+          "threshold": 0.265
+        },
+        "final_target": "cuff",
+        "final_threshold": 0.27,
+        "stage": 0,
+        "leg_start": "doubtful",
+        "second_leg_finish_span": 0.12,
+        "second_leg_finish_after": 0,
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [],
+        "best_progress": 0.20245327547718261,
+        "backward_allowance": 0.01
+      },
+      "positions": [
+        {
+          "narrow": true,
+          "turn": "up",
+          "point": {
+            "x": 250.23754473063315,
+            "y": 144.38793107250868
+          }
+        },
+        {
+          "narrow": true,
+          "turn": "down",
+          "point": {
+            "x": 283.8926718252997,
+            "y": 259.7187732266979
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "up",
+          "point": {
+            "x": 396.34676188396827,
+            "y": 143.2959228378961
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "down",
+          "point": {
+            "x": 437.12733224073946,
+            "y": 258.9758095457725
+          }
+        }
+      ]
+    },
+    {
+      "legacy": false,
+      "inputs": [
+        "talent"
+      ],
+      "event": {
+        "word": "talent",
+        "origin": "doubtful",
+        "launch": 0.05166047395232454,
+        "destination": 0.286033131253987,
+        "required": 0.215,
+        "trip_fraction": 1,
+        "boundary": true,
+        "success": false,
+        "inside": true,
+        "won": false,
+        "attempt": 1,
+        "hub_surcharge": 0,
+        "forward": true,
+        "connected": false,
+        "safe": true,
+        "outcome": "miss",
+        "backtrack": false,
+        "stage": 0,
+        "leg_target": "studio",
+        "leg_baseline": -0.14117404701391933,
+        "leg_threshold": 0.265
+      },
+      "state": {
+        "start": "doubtful",
+        "current": "doubtful",
+        "target": "studio",
+        "threshold": 0.265,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.14117404701391933,
+        "progress": -0.14117404701391933,
+        "attempts": 1,
+        "route": [
+          "doubtful"
+        ],
+        "history": [
+          {
+            "word": "talent",
+            "origin": "doubtful",
+            "launch": 0.05166047395232454,
+            "destination": 0.286033131253987,
+            "required": 0.215,
+            "trip_fraction": 1,
+            "boundary": true,
+            "success": false,
+            "inside": true,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": false,
+            "safe": true,
+            "outcome": "miss",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265
+          }
+        ],
+        "won": false,
+        "waypoint": {
+          "word": "studio",
+          "threshold": 0.265
+        },
+        "final_target": "cuff",
+        "final_threshold": 0.27,
+        "stage": 0,
+        "leg_start": "doubtful",
+        "waypoint_rescue": {
+          "version": "fixed-destination-v1",
+          "after": 0
+        },
+        "second_leg_finish_span": 0.12,
+        "second_leg_finish_after": 0,
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": true,
+        "automatic_shots": [],
+        "best_progress": -0.14117404701391933,
+        "backward_allowance": 0.01
+      },
+      "positions": [
+        {
+          "narrow": true,
+          "turn": "up",
+          "point": {
+            "x": 291.19570788409715,
+            "y": 134.22380764894714
+          }
+        },
+        {
+          "narrow": true,
+          "turn": "down",
+          "point": {
+            "x": 318.5953755425508,
+            "y": 288.56600751982774
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "up",
+          "point": {
+            "x": 454.9276673472155,
+            "y": 134.1230050340321
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "down",
+          "point": {
+            "x": 497.7239790600287,
+            "y": 288.6388504011387
+          }
+        }
+      ]
+    },
+    {
+      "legacy": false,
+      "inputs": [
+        "dubious",
+        "talent"
+      ],
+      "event": {
+        "word": "talent",
+        "origin": "dubious",
+        "launch": 0.1941633701067076,
+        "destination": 0.286033131253987,
+        "required": 0.19274949929448087,
+        "trip_fraction": 0.8145791607873406,
+        "boundary": true,
+        "success": true,
+        "inside": true,
+        "won": false,
+        "attempt": 2,
+        "hub_surcharge": 0,
+        "forward": true,
+        "connected": true,
+        "safe": true,
+        "outcome": "waypoint",
+        "backtrack": false,
+        "contact_word": "talents",
+        "stage": 0,
+        "leg_target": "studio",
+        "leg_baseline": -0.14117404701391933,
+        "leg_threshold": 0.265,
+        "waypoint_reached": true
+      },
+      "state": {
+        "start": "doubtful",
+        "current": "talent",
+        "target": "cuff",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "baseline": -0.05121902379369203,
+        "progress": -0.05121902379369203,
+        "attempts": 2,
+        "route": [
+          "doubtful",
+          "dubious",
+          "talent"
+        ],
+        "history": [
+          {
+            "word": "dubious",
+            "origin": "doubtful",
+            "launch": 0.4433160153312201,
+            "destination": -0.06586091435019625,
+            "required": 0.11725050070551912,
+            "trip_fraction": 0.18542083921265937,
+            "boundary": true,
+            "success": true,
+            "inside": false,
+            "won": false,
+            "attempt": 1,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "landed",
+            "backtrack": false,
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265
+          },
+          {
+            "word": "talent",
+            "origin": "dubious",
+            "launch": 0.1941633701067076,
+            "destination": 0.286033131253987,
+            "required": 0.19274949929448087,
+            "trip_fraction": 0.8145791607873406,
+            "boundary": true,
+            "success": true,
+            "inside": true,
+            "won": false,
+            "attempt": 2,
+            "hub_surcharge": 0,
+            "forward": true,
+            "connected": true,
+            "safe": true,
+            "outcome": "waypoint",
+            "backtrack": false,
+            "contact_word": "talents",
+            "stage": 0,
+            "leg_target": "studio",
+            "leg_baseline": -0.14117404701391933,
+            "leg_threshold": 0.265,
+            "waypoint_reached": true
+          }
+        ],
+        "won": false,
+        "waypoint": {
+          "word": "studio",
+          "threshold": 0.265
+        },
+        "final_target": "cuff",
+        "final_threshold": 0.27,
+        "stage": 1,
+        "leg_start": "talent",
+        "waypoint_rescue": {
+          "version": "fixed-destination-v1",
+          "after": 0
+        },
+        "second_leg_finish_span": 0.12,
+        "second_leg_finish_after": 0,
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "continuous_play": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "finish_mode": "range",
+        "challenge": {
+          "version": "stroke-play-v1",
+          "par": 5,
+          "attempt": 1,
+          "id": "local-research"
+        },
+        "challenge_failed": false,
+        "automatic_shots": [],
+        "best_progress": -0.05121902379369203,
+        "backward_allowance": 0.01
+      },
+      "positions": [
+        {
+          "narrow": true,
+          "turn": "up",
+          "point": {
+            "x": 291.19570788409715,
+            "y": 134.22380764894714
+          }
+        },
+        {
+          "narrow": true,
+          "turn": "down",
+          "point": {
+            "x": 318.5953755425508,
+            "y": 288.56600751982774
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "up",
+          "point": {
+            "x": 454.9276673472155,
+            "y": 134.1230050340321
+          }
+        },
+        {
+          "narrow": false,
+          "turn": "down",
+          "point": {
+            "x": 497.7239790600287,
+            "y": 288.6388504011387
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {dailyManifest} from '../static/daily-manifest.mjs';
 import {addDay} from '../static/daily-game.mjs';
-import {waypointLegAccess,Game} from '../static/engine.mjs';
+import {waypointLegAccess} from '../static/engine.mjs';
+import {HistoricalWaypointGame as Game} from './historical-waypoint-game.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const audit=JSON.parse(fs.readFileSync('reports/fresh-daily-30/validation.json')),source=JSON.parse(fs.readFileSync('data/fresh-daily-30-2026-10-29.json')),{e,config}=loadResearchModel();
 assert.equal(audit.oldCount,135);assert.equal(audit.firstDate,'2027-03-04');assert.equal(audit.lastDate,'2027-04-02');

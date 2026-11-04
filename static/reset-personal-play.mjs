@@ -1,4 +1,4 @@
-import {DAILY_KEY} from './daily-game.mjs?v=dogleg-continuation-v1';
+import {DAILY_KEY} from './daily-game.mjs?v=fixed-waypoint-lie-v1';
 export const DAILY_RESET_BACKUP_KEY='word-golf.personal-daily.reset-backup.v1';
 /** Reset a personal export batch, preserving hole definitions and selection.
  * The caller prepares a fresh engine state before touching saved history.

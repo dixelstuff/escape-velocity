@@ -1,4 +1,4 @@
-import {isRetiredHole} from './hole-retirement.mjs?v=dogleg-choice30-v1';
+import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
 import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */

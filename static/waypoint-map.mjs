@@ -1,4 +1,4 @@
-import {stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
+import {stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {mapFraction} from './map.mjs?v=golf-v189';
 import {appearanceUnit,greenPoints,greenPath,greenContains,bunkerPath,bunkerPoints,lakeGeometry,shoreY} from './course-appearance.mjs?v=quick-result-camera-v1';
 import {courseLake,courseBunkers} from './course-art.mjs?v=quick-result-camera-v1';

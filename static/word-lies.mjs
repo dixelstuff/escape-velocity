@@ -1,4 +1,4 @@
-import {stateSpelling} from './spelling-equivalence.mjs?v=uk-us-v1';
+import {stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 /** A word can occupy a separate lie on each leg of a waypoint hole. */
 export const wordLieKey=(word,eventOrStage=0,state=null)=>`${stateSpelling(state,word)}@${typeof eventOrStage==='object'?eventOrStage?.stage??0:eventOrStage}`;
 export function currentLieKey(state){

@@ -32,7 +32,7 @@ assert.equal(canPlayDogleg(new Game(e,'leak','brave',.27,{...settings,waypoint:u
 const checks=JSON.parse(fs.readFileSync('reports/open-landscapes-30/safety.json'));let tested=0,available=0,unavailable=0;
 for(const c of checks.checks){
  const def=dailyManifest.holes.find(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target].join('|')===c.words.join('|'));
- const g=new Game(e,def.settings.start,def.settings.target,.27,def.settings);
+ const g=new Game(e,def.settings.start,def.settings.target,.27,{...def.settings,waypoint_rescue:c.witness.state.waypoint_rescue??false});
  for(const word of c.witness.inputs){
   const saved=g.state(),probe=Object.assign(Object.create(Game.prototype),g,{history:g.history.slice(),route:g.route.slice(),automatic_shots:g.automatic_shots.slice()});
   let event;try{if(g.stage===0&&!g.won&&!g.challenge_failed)event=probe.submit(g.waypoint.word);}catch{}
@@ -44,3 +44,15 @@ for(const c of checks.checks){
 }
 assert.ok(available>0&&unavailable>0);
 console.log(`Tap dogleg passed: ${tested} real prefixes match authoritative submissions (${available} available, ${unavailable} unavailable); probes are read-only, stage/finish/failure guards and one-shot target transition verified.`);
+
+// Current fixed-destination games must also keep the read-only hint exact.
+const currentChecks=JSON.parse(fs.readFileSync('reports/novel-public-twenty/safety.json'));
+for(const c of currentChecks.checks){
+ const def=dailyManifest.holes.find(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target].join('|')===c.words.join('|')),g=new Game(e,def.settings.start,def.settings.target,.27,def.settings);
+ for(const word of c.witness.inputs){
+  const before=g.state(),copy=Object.assign(Object.create(Game.prototype),g,{history:g.history.slice(),route:g.route.slice(),automatic_shots:g.automatic_shots.slice()});
+  let event;try{if(g.stage===0&&!g.won)event=copy.submit(g.waypoint.word);}catch{}
+  assert.equal(canPlayDogleg(g),!!(event?.success&&event.waypoint_reached));assert.deepEqual(g.state(),before);assert.ok(g.submit(word).success);
+ }
+}
+console.log('Current fixed-waypoint hint agrees with authoritative play on all twenty current public safety routes.');

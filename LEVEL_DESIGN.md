@@ -63,6 +63,8 @@ New daily holes are all **Par 5 with a mandatory dogleg**. Players may reach the
 
 New distance-mode games also record `second_leg_finish_span: 0.12`: only automatic finishes after playing a subsequent second-leg word use a minimum semantic span of 0.12. The immediate dogleg-entry finish, normal shot contact and backward-shot rules stay unchanged. In particular, CREAM must not gain a new immediate finish to ICEBERG. Old saved histories without the setting retain their original finishing rule (span 0); do not reinterpret old results using the new allowance. A new retry from an old lie adopts the allowance only after its assumed prefix (`second_leg_finish_after`), so already-played shots are preserved.
 
+New first-leg word-form rescue uses a fixed per-word/waypoint destination, including the existing small near-zone allowances. Contact rescue cannot relocate a word or shorten its intended distance. Fresh games record the fixed-destination-v1 waypoint_rescue marker; historical audits must retain their recorded marker (or legacy absence) and assumed-prefix activation index. See [the TALENT regression and compatibility notes](reports/fixed-waypoint-lies/README.md).
+
 New personal-game attempts also use `spelling_equivalence: "uk-us-v1"`. Use this explicit setting when validating newly authored routes: curated UK/US forms share one semantic row, while historic route audits without it retain original rules. See [the spelling audit](reports/spelling-equivalence/README.md) for coverage and examples of setup changes.
 
 ## Human judgement and play feedback

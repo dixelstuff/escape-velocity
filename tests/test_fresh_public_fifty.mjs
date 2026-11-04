@@ -5,7 +5,8 @@ import {dailyManifest as archive} from '../static/daily-manifest.mjs';
 // Freeze this former public selection; current public composition is checked by test_discovery_public_twenty.mjs.
 import {DailyGame,DAILY_KEY,addDay} from '../static/daily-game.mjs';
 import {completedHoles,holeNumber} from '../static/daily-ui.mjs';
-import {Game,waypointLegAccess} from '../static/engine.mjs';
+import {waypointLegAccess} from '../static/engine.mjs';
+import {HistoricalWaypointGame as Game} from './historical-waypoint-game.mjs';
 import {isRetiredHole} from '../static/hole-retirement.mjs';
 import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';

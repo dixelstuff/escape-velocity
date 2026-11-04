@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {completedHoles,holeNumber} from '../static/daily-ui.mjs';
-import {Game,waypointLegAccess} from '../static/engine.mjs';
+import {waypointLegAccess} from '../static/engine.mjs';
+import {HistoricalWaypointGame as Game} from './historical-waypoint-game.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const read=f=>JSON.parse(fs.readFileSync(f)),plan=read('reports/public-fifty-rebalanced/selection.json'),validation=read('reports/public-fifty-rebalanced/validation.json');
 // Historical mix stays reproducible when a later public collection replaces it.

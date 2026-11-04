@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {Embeddings,Game,decodeHalf} from '../static/engine.mjs';
+import {Embeddings,decodeHalf} from '../static/engine.mjs';
+import {HistoricalWaypointGame as Game} from './historical-waypoint-game.mjs';
 import {ClevernessAnalyser,mechanicalDiagnostics,replaySelection} from '../static/cleverness.mjs';
 import {completedBridgeRoute} from '../static/semantic-analysis.mjs';
 import {lexicalRelation} from '../static/lexical-relations.mjs';
