@@ -1,0 +1,77 @@
+{
+  "reason": "Player found the BUCKLE replacement too immediately solvable; replace flag with FRACTURE. No route optimisation or gameplay changes.",
+  "old": {
+    "id": "daily-2028-07-11",
+    "date": "2028-07-11",
+    "settings": {
+      "start": "bat",
+      "target": "buckle",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "fashion",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-buckle-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "replacement": {
+    "id": "daily-2028-07-12",
+    "date": "2028-07-12",
+    "settings": {
+      "start": "bat",
+      "target": "fracture",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "fashion",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-fracture-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  }
+}
