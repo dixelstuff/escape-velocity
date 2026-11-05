@@ -1,5 +1,10 @@
 # Choosing Word Golf holes
 
+## Latest refinement — rich associations, 5 November 2026
+
+Keep the simple, successful clear-word selection baseline. Aim for **easy to start, interesting to explore, challenging to perfect**. Prefer everyday words with multiple meanings or contexts throughout the triple; mix objects, actions and qualities naturally, without grammatical quotas or vague abstractions for variety. Surprising combinations should still offer natural human associations. Check ten independently nominated ordinary opening ideas per tee for several legal forward moves; replace a pairing if opening access is too narrow. This is a lightweight warning check, not proof that every branch completes. Keep vocabulary/duplicate/direct-leg checks; do not enumerate complete routes or optimise final score distributions. Journeys and final birdies reflect deliberate exploration, not necessarily frustration or ease. Preserve enjoyable earlier batches and their progress when adding new ones.
+
+
 ## Latest direction — 5 November 2026
 
 The last public twenty were still slightly too easy, and the tees felt strained or abstract. Prefer nice common, clear, vivid words. Select combinations freely using human judgement; do not construct intended solutions or run exhaustive route searches, landscape audits or simulation campaigns for each batch. Check vocabulary, duplicate triples and basic direct-leg validity only, then let playtesting judge the balance. Aim a little harder through combinations, not obscure words or restricted openings. Current public batches must appear first, as holes 1–20, in the admin view too. This supersedes the heavy per-hole research requirements below.
