@@ -46,6 +46,7 @@ jobs:
           node tests/test_clear_public_twenty.mjs
           node tests/test_rich_associations_thirty.mjs
           node tests/test_everyday_contexts_thirty.mjs
+          node tests/test_hole_one_buckle.mjs
           node tests/test_new_best_finish.mjs
           node tests/test_tap_dogleg.mjs
           node tests/test_dogleg_strategy_bonus.mjs
