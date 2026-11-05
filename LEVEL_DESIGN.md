@@ -1,5 +1,10 @@
 # Choosing Word Golf holes
 
+## Continuing the successful approach — 6 November 2026
+
+Keep the current lightweight, everyday, multi-meaning selection approach. Favour fresh words relative to the current public collection; reuse across the much older archive is acceptable for good familiar words. Check several intuitive openings without designing intended solutions or engineering final scores. Latest feedback: BEAM → BALANCE → LIGHT → SOFT scoring 57 was appropriate to the player because LIGHT/SOFT felt vague. Do not automatically interpret a low score on a short route as model under-recognition or a reason to alter the scorer. No scoring adjustment is requested. New batches appear first; earlier enjoyable holes and saved progress remain.
+
+
 ## Latest refinement — rich associations, 5 November 2026
 
 Keep the simple, successful clear-word selection baseline. Aim for **easy to start, interesting to explore, challenging to perfect**. Prefer everyday words with multiple meanings or contexts throughout the triple; mix objects, actions and qualities naturally, without grammatical quotas or vague abstractions for variety. Surprising combinations should still offer natural human associations. Check ten independently nominated ordinary opening ideas per tee for several legal forward moves; replace a pairing if opening access is too narrow. This is a lightweight warning check, not proof that every branch completes. Keep vocabulary/duplicate/direct-leg checks; do not enumerate complete routes or optimise final score distributions. Journeys and final birdies reflect deliberate exploration, not necessarily frustration or ease. Preserve enjoyable earlier batches and their progress when adding new ones.

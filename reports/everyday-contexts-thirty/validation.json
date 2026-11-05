@@ -1,0 +1,1170 @@
+{
+  "batch": "everyday-contexts-thirty-2026-11-06",
+  "priorCount": 600,
+  "priorSha": "43e73b2de81adaee27c4f4000bbb601cb9ce66c2f65b3c7e054e0cb49f9d5575",
+  "checks": "Ten independent familiar opening ideas per tee; at least three legal forward hits. Direct literal legs disallowed. No full-route search, score targets or intended solutions.",
+  "holes": [
+    {
+      "id": "daily-2028-06-11",
+      "date": "2028-06-11",
+      "settings": {
+        "start": "bat",
+        "target": "still",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "fashion",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 1,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-12",
+      "date": "2028-06-12",
+      "settings": {
+        "start": "palm",
+        "target": "dust",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "contest",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 2,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-13",
+      "date": "2028-06-13",
+      "settings": {
+        "start": "club",
+        "target": "blind",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "climate",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 3,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-14",
+      "date": "2028-06-14",
+      "settings": {
+        "start": "bank",
+        "target": "wrestle",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "silk",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 4,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-15",
+      "date": "2028-06-15",
+      "settings": {
+        "start": "chair",
+        "target": "wound",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "temptation",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 5,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-16",
+      "date": "2028-06-16",
+      "settings": {
+        "start": "file",
+        "target": "loose",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "harvest",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 6,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-17",
+      "date": "2028-06-17",
+      "settings": {
+        "start": "seal",
+        "target": "shiver",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "portrait",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 7,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-18",
+      "date": "2028-06-18",
+      "settings": {
+        "start": "point",
+        "target": "spoke",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "appetite",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 8,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-19",
+      "date": "2028-06-19",
+      "settings": {
+        "start": "draw",
+        "target": "crust",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "ceremony",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 9,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-20",
+      "date": "2028-06-20",
+      "settings": {
+        "start": "bolt",
+        "target": "whistle",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "custom",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 10,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-21",
+      "date": "2028-06-21",
+      "settings": {
+        "start": "ground",
+        "target": "price",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "whisper",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 11,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-22",
+      "date": "2028-06-22",
+      "settings": {
+        "start": "sound",
+        "target": "chase",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "habit",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 12,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-23",
+      "date": "2028-06-23",
+      "settings": {
+        "start": "lead",
+        "target": "crystal",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "remedy",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 13,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-24",
+      "date": "2028-06-24",
+      "settings": {
+        "start": "fair",
+        "target": "melt",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "network",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 14,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-25",
+      "date": "2028-06-25",
+      "settings": {
+        "start": "fine",
+        "target": "orbit",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "battle",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 15,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-26",
+      "date": "2028-06-26",
+      "settings": {
+        "start": "firm",
+        "target": "riddle",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "feather",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 16,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-27",
+      "date": "2028-06-27",
+      "settings": {
+        "start": "novel",
+        "target": "gold",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "traffic",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 17,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-28",
+      "date": "2028-06-28",
+      "settings": {
+        "start": "patient",
+        "target": "plain",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "sport",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 18,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-29",
+      "date": "2028-06-29",
+      "settings": {
+        "start": "cross",
+        "target": "scent",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "luxury",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 19,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-06-30",
+      "date": "2028-06-30",
+      "settings": {
+        "start": "order",
+        "target": "hatch",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "rhyme",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 20,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-01",
+      "date": "2028-07-01",
+      "settings": {
+        "start": "bowl",
+        "target": "tight",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "opera",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 21,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-02",
+      "date": "2028-07-02",
+      "settings": {
+        "start": "case",
+        "target": "play",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "growth",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 22,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-03",
+      "date": "2028-07-03",
+      "settings": {
+        "start": "course",
+        "target": "flush",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "jealous",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 23,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-04",
+      "date": "2028-07-04",
+      "settings": {
+        "start": "date",
+        "target": "peace",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "engine",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 24,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-05",
+      "date": "2028-07-05",
+      "settings": {
+        "start": "fan",
+        "target": "grip",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "medicine",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 25,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-06",
+      "date": "2028-07-06",
+      "settings": {
+        "start": "nail",
+        "target": "square",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "horizon",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 26,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-07",
+      "date": "2028-07-07",
+      "settings": {
+        "start": "plane",
+        "target": "crowd",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "debt",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 27,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-08",
+      "date": "2028-07-08",
+      "settings": {
+        "start": "ring",
+        "target": "drift",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "grace",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 28,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-09",
+      "date": "2028-07-09",
+      "settings": {
+        "start": "spot",
+        "target": "blank",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "accent",
+          "threshold": 0.265,
+          "turn": "up"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 29,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    },
+    {
+      "id": "daily-2028-07-10",
+      "date": "2028-07-10",
+      "settings": {
+        "start": "tip",
+        "target": "rail",
+        "threshold": 0.27,
+        "mode": "distance",
+        "rules": "golf-distance-v3",
+        "launch_min": 0.095,
+        "launch_max": 0.215,
+        "finish_mode": "range",
+        "waypoint": {
+          "word": "pleasure",
+          "threshold": 0.265,
+          "turn": "down"
+        },
+        "waypoint_auto_finish": true,
+        "plural_rescue": true,
+        "family_rescue": true,
+        "plural_tolerance": 0.025,
+        "allow_backtracking": false,
+        "continuous_play": true,
+        "par": 5,
+        "success_mode": true,
+        "success_version": "stroke-play-v1",
+        "course_set": "everyday-contexts-thirty-2026-11-06",
+        "course_number": 30,
+        "second_leg_finish_span": 0.12,
+        "spelling_equivalence": "uk-us-v1",
+        "dogleg_finish_rule": {
+          "version": "strong-arrival-v1",
+          "after": 0
+        },
+        "golden_paths": []
+      }
+    }
+  ],
+  "retainedPublicIds": [
+    "daily-2028-05-12",
+    "daily-2028-05-13",
+    "daily-2028-05-14",
+    "daily-2028-05-15",
+    "daily-2028-05-16",
+    "daily-2028-05-17",
+    "daily-2028-05-18",
+    "daily-2028-05-19",
+    "daily-2028-05-20",
+    "daily-2028-05-21",
+    "daily-2028-05-22",
+    "daily-2028-05-23",
+    "daily-2028-05-24",
+    "daily-2028-05-25",
+    "daily-2028-05-26",
+    "daily-2028-05-27",
+    "daily-2028-05-28",
+    "daily-2028-05-29",
+    "daily-2028-05-30",
+    "daily-2028-05-31",
+    "daily-2028-06-01",
+    "daily-2028-06-02",
+    "daily-2028-06-03",
+    "daily-2028-06-04",
+    "daily-2028-06-05",
+    "daily-2028-06-06",
+    "daily-2028-06-07",
+    "daily-2028-06-08",
+    "daily-2028-06-09",
+    "daily-2028-06-10",
+    "daily-2028-04-22",
+    "daily-2028-04-23",
+    "daily-2028-04-24",
+    "daily-2028-04-25",
+    "daily-2028-04-26",
+    "daily-2028-04-27",
+    "daily-2028-04-28",
+    "daily-2028-04-29",
+    "daily-2028-04-30",
+    "daily-2028-05-01",
+    "daily-2028-05-02",
+    "daily-2028-05-03",
+    "daily-2028-05-04",
+    "daily-2028-05-05",
+    "daily-2028-05-06",
+    "daily-2028-05-07",
+    "daily-2028-05-08",
+    "daily-2028-05-09",
+    "daily-2028-05-10",
+    "daily-2028-05-11"
+  ]
+}
