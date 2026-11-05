@@ -1,0 +1,131 @@
+{
+  "reason": "Player requested another complete replacement for Hole 1. Familiar multi-context words; lightweight opening checks only.",
+  "old": {
+    "id": "daily-2028-07-13",
+    "date": "2028-07-13",
+    "settings": {
+      "start": "handle",
+      "target": "rust",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "impression",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-handle-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "replacement": {
+    "id": "daily-2028-07-14",
+    "date": "2028-07-14",
+    "settings": {
+      "start": "punch",
+      "target": "marble",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "invitation",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-punch-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "priorCount": 633,
+  "priorSha": "ff5a5a91935df48b3f611aee254175579ea8034cc6a400981348681b6fa4526e",
+  "openings": [
+    {
+      "word": "hit",
+      "success": false,
+      "progress": -0.040963934342471475
+    },
+    {
+      "word": "fist",
+      "success": true,
+      "progress": 0.03889843563956674
+    },
+    {
+      "word": "box",
+      "success": true,
+      "progress": 0.05455670826995629
+    },
+    {
+      "word": "fight",
+      "success": true,
+      "progress": 0.09136474312435894
+    },
+    {
+      "word": "drink",
+      "success": true,
+      "progress": 0.0545512084981965
+    },
+    {
+      "word": "juice",
+      "success": false,
+      "progress": -0.11602884436524619
+    },
+    {
+      "word": "fruit",
+      "success": false,
+      "progress": -0.0396957762072816
+    },
+    {
+      "word": "hole",
+      "success": true,
+      "progress": 0.018725903315498726
+    },
+    {
+      "word": "paper",
+      "success": true,
+      "progress": 0.06316698186128633
+    },
+    {
+      "word": "kick",
+      "success": true,
+      "progress": 0.018260722413288022
+    }
+  ]
+}
