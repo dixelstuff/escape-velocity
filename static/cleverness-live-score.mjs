@@ -1,5 +1,5 @@
-import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=fixed-waypoint-lie-v1';
-import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=fixed-waypoint-lie-v1';
+import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=strong-arrival-v1';
+import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=strong-arrival-v1';
 import {stretchBandFree} from './score-stretch.mjs?v=cubic-results-v1';
 /** Apply live-only opportunity/bonus settings; preserve historical comparison diagnostics. */
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=dogleg-continuation-v1';

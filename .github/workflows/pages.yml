@@ -81,6 +81,7 @@ jobs:
           node tests/test_word_families.mjs
           node tests/test_waypoint.mjs
           node tests/test_waypoint_contact_geometry.mjs
+          node tests/test_strong_dogleg_finish.mjs
           node tests/test_waypoint_assessment.mjs
           node tests/test_headwind.mjs
           node tests/test_word_model.mjs

@@ -1,6 +1,6 @@
 /** Diagnostic combinations of existing evidence. Never called by gameplay. */
-import {ClevernessV4Analyser} from './cleverness-v4.mjs?v=fixed-waypoint-lie-v1';
-import {CLEVERNESS_V5_VERSION,clevernessV5Key} from './cleverness-v5-key.mjs?v=fixed-waypoint-lie-v1';
+import {ClevernessV4Analyser} from './cleverness-v4.mjs?v=strong-arrival-v1';
+import {CLEVERNESS_V5_VERSION,clevernessV5Key} from './cleverness-v5-key.mjs?v=strong-arrival-v1';
 export {CLEVERNESS_V5_VERSION,clevernessV5Key};
 const pos=x=>Math.max(0,x),clamp=x=>Math.min(1,Math.max(0,x));
 /** Competing transparent indices, deliberately NOT a route or cleverness score.

@@ -14,8 +14,8 @@ import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-p
 import {DailyGame,golfResult} from './daily-game.mjs?v=fixed-waypoint-lie-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
 import {mountDailyUI} from './daily-ui.mjs?v=fixed-waypoint-lie-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=fixed-waypoint-lie-v1';
-import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=fixed-waypoint-lie-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
+import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
@@ -26,19 +26,19 @@ import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=gol
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=fixed-waypoint-lie-v1';
 import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
-import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=fixed-waypoint-lie-v1';
+import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=strong-arrival-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
 import {typingCourseWidth,typingCourseFit,stableTypingViewport,shouldReturnHoleHeader,keyboardLayoutVisible,keyboardRestingHeight} from './typing-layout.mjs?v=quick-result-camera-v1';
 import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseArtDefs,approachLandscape,courseContinuation} from './course-art.mjs?v=quick-result-camera-v1';
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=fixed-waypoint-lie-v1';
+import { createBrowserClient } from './engine.mjs?v=strong-arrival-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=fixed-waypoint-lie-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=strong-arrival-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=fixed-waypoint-lie-v1';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=strong-arrival-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
@@ -338,7 +338,7 @@ function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
-const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=fixed-waypoint-lie-v1')).mountPlaytestPanel;
+const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=strong-arrival-v1')).mountPlaytestPanel;
 const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(!daily.recordRetainedReport(saved,report,journey)&&journey)daily.recordReport(journey);renderDailyBests();}}});
 const oldPanels=[];
 if(!simpleDaily){

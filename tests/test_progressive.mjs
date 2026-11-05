@@ -46,7 +46,7 @@ try{
  const settings={start:'penguin',target:'galaxy',waypoint:{word:'library',threshold:.27},finish_mode:'range',mode:'distance'};
  await client.request('new',settings);
  const actual=await client.request('submit',{word:'books'});
- const reference=new Game(new Embeddings(words,exact,300,new Uint8Array(read(config.hub_file))),settings.start,settings.target,undefined,settings);reference.submit('books');
+ const reference=new Game(new Embeddings(words,exact,300,new Uint8Array(read(config.hub_file))),settings.start,settings.target,undefined,{...settings,dogleg_finish_rule:{version:'strong-arrival-v1',after:0}});reference.submit('books');
  assert.deepEqual(actual.state,reference.state(),'on-demand waypoint shot has identical scoring');
  assert.deepEqual(client.chipRange(actual.state), (await import('../static/chip-range.mjs')).chipRange(reference));
  assert.equal(client.canFinish(actual.state),reference.finishesFrom(reference.current,reference.progress));

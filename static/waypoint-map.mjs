@@ -78,9 +78,20 @@ export function waypointPosition(state,word,d,event=null){
  const start=stage===1&&entry?waypointPosition({...state,history:state.history.slice(0,state.history.indexOf(entry)+1)},entry.word,d,entry):a.tee;
  const goal=stage===1?a.flag:a.bend;
  const threshold=h.leg_threshold??state.threshold,baseline=h.leg_baseline??state.baseline;
- const fraction=mapFraction(h.destination,stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
+ const normalFraction=mapFraction(h.destination,stage===1?finalLegMapBaseline(baseline,threshold):baseline,threshold,.88);
+ // The exceptional follow-up still has a visible hit/landing, then the normal
+ // separate automatic finish. Recorded semantics and scoring remain untouched.
+ const fraction=stage===1&&h.success&&h.dogleg_finish_followup&&h.automatic_shot?Math.max(1/3,normalFraction):normalFraction;
  const offset=[-24,26,-36,34,-12,14][Math.floor(appearanceUnit(semanticWord,':word-lie')*6)];
- return stage===1?finalLie(d,start,fraction,offset):waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
+ if(stage===1){
+  const point=finalLie(d,start,fraction,offset);
+  if(h.success&&h.dogleg_finish_followup&&h.automatic_shot){
+   const maximumDistance=Math.hypot(goal.x-start.x,goal.y-start.y)*2/3,distance=Math.hypot(goal.x-point.x,goal.y-point.y);
+   if(distance>maximumDistance)return {x:goal.x+(point.x-goal.x)*maximumDistance/distance,y:goal.y+(point.y-goal.y)*maximumDistance/distance};
+  }
+  return point;
+ }
+ return waypointBoundaryPosition(along(start,goal,fraction,offset),d,false);
 }
 /** The exact same path geometry drives drawing and tree clearance. */
 export function waypointCartPath(d){
