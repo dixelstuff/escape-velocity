@@ -1,0 +1,131 @@
+{
+  "reason": "Complete replacement requested after BAT/FASHION variants proved unsatisfactory. All three words changed; lightweight opening checks only.",
+  "old": {
+    "id": "daily-2028-07-12",
+    "date": "2028-07-12",
+    "settings": {
+      "start": "bat",
+      "target": "fracture",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "fashion",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-fracture-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "replacement": {
+    "id": "daily-2028-07-13",
+    "date": "2028-07-13",
+    "settings": {
+      "start": "handle",
+      "target": "rust",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "impression",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-handle-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "priorCount": 632,
+  "priorSha": "66edce1fb5449d942e83b4c2655a6220448c05dc066a551a074690a0ee9b5781",
+  "openings": [
+    {
+      "word": "door",
+      "success": true,
+      "progress": 0.059798097031489306
+    },
+    {
+      "word": "hold",
+      "success": true,
+      "progress": 0.10472980649046804
+    },
+    {
+      "word": "grip",
+      "success": true,
+      "progress": 0.049706336749750335
+    },
+    {
+      "word": "name",
+      "success": false,
+      "progress": 0.11761087419677096
+    },
+    {
+      "word": "carry",
+      "success": true,
+      "progress": 0.01793971470397082
+    },
+    {
+      "word": "manage",
+      "success": true,
+      "progress": 0.035266640752524836
+    },
+    {
+      "word": "touch",
+      "success": true,
+      "progress": 0.1896404257076938
+    },
+    {
+      "word": "hand",
+      "success": true,
+      "progress": 0.16722678042287953
+    },
+    {
+      "word": "tool",
+      "success": true,
+      "progress": 0.03305223635834409
+    },
+    {
+      "word": "control",
+      "success": true,
+      "progress": 0.04976189575972967
+    }
+  ]
+}
