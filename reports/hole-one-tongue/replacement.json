@@ -1,0 +1,164 @@
+{
+  "reason": "Replace PUNCH/INVITATION/MARBLE after player completed through BOX/LETTER/BOX. Retain approachable start, check a small sample for this specific repeated-word pattern. No gameplay changes.",
+  "old": {
+    "id": "daily-2028-07-14",
+    "date": "2028-07-14",
+    "settings": {
+      "start": "punch",
+      "target": "marble",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "invitation",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-punch-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "replacement": {
+    "id": "daily-2028-07-15",
+    "date": "2028-07-15",
+    "settings": {
+      "start": "tongue",
+      "target": "spill",
+      "threshold": 0.27,
+      "mode": "distance",
+      "rules": "golf-distance-v3",
+      "launch_min": 0.095,
+      "launch_max": 0.215,
+      "finish_mode": "range",
+      "waypoint": {
+        "word": "credit",
+        "threshold": 0.265,
+        "turn": "up"
+      },
+      "waypoint_auto_finish": true,
+      "plural_rescue": true,
+      "family_rescue": true,
+      "plural_tolerance": 0.025,
+      "allow_backtracking": false,
+      "continuous_play": true,
+      "par": 5,
+      "success_mode": true,
+      "success_version": "stroke-play-v1",
+      "course_set": "hole-one-tongue-2026-11-06",
+      "course_number": 1,
+      "second_leg_finish_span": 0.12,
+      "spelling_equivalence": "uk-us-v1",
+      "dogleg_finish_rule": {
+        "version": "strong-arrival-v1",
+        "after": 0
+      },
+      "golden_paths": []
+    }
+  },
+  "priorCount": 634,
+  "priorSha": "d3d744315d471b57917cd9596f57802154d8b874ecaa73aa1a6e34989e95a49c",
+  "openings": [
+    {
+      "word": "mouth",
+      "success": true,
+      "progress": 0.023625293644727208
+    },
+    {
+      "word": "taste",
+      "success": true,
+      "progress": 0.03781165817963483
+    },
+    {
+      "word": "language",
+      "success": true,
+      "progress": 0.13417283761816634
+    },
+    {
+      "word": "speech",
+      "success": true,
+      "progress": 0.09034186549206424
+    },
+    {
+      "word": "talk",
+      "success": false,
+      "progress": 0.15982472034193052
+    },
+    {
+      "word": "lick",
+      "success": false,
+      "progress": -0.058413549294925815
+    },
+    {
+      "word": "shoe",
+      "success": true,
+      "progress": -0.006482517104814178
+    },
+    {
+      "word": "food",
+      "success": false,
+      "progress": 0.2232390917788507
+    },
+    {
+      "word": "water",
+      "success": false,
+      "progress": 0.12332744801642548
+    },
+    {
+      "word": "paper",
+      "success": false,
+      "progress": 0.21107827261130296
+    }
+  ],
+  "repeatCheck": {
+    "first": [
+      "mouth",
+      "taste",
+      "language",
+      "speech",
+      "talk",
+      "lick",
+      "shoe",
+      "food",
+      "water",
+      "paper"
+    ],
+    "turn": [
+      "money",
+      "bank",
+      "loan",
+      "cash",
+      "trust",
+      "film",
+      "card",
+      "score",
+      "school",
+      "thanks",
+      "work",
+      "account",
+      "interest",
+      "finance"
+    ],
+    "configurations": 140,
+    "found": [],
+    "exhaustive": false
+  }
+}
