@@ -16,7 +16,7 @@ Open `?admin=1`, select any hole, then expand **Choose or create a hole → Sema
 
 A normal shot proposal is calculated with existing contact, directional progress, plural/family rescue and finish rules. On the first leg only, compare the **entered** word to `semantic_bunker.word` using raw GloVe (with shared UK/US representation, without headwind/local scaling). A catch changes success and won to false and records an ordinary `miss` plus `{word, similarity, threshold, exact, exact_only}` bunker evidence. It cannot switch targets or finish automatically. It ends the attempt and follows the existing last-lie retry flow. After reaching the dogleg, there is no bunker check. Retries and restored histories retain the recorded optional configuration.
 
-The ball flies to the centre of the existing dogleg sand shape, with a yellow label/hit indication. No obstacle, path, tree, green or fairway geometry is added or moved. Labels remain upright on both dogleg orientations. Hypothetical forward-miss ghosts are suppressed for trap hits, avoiding a misleading label at a semantic destination the ball never reached.
+The ball flies to the centre of the existing dogleg sand shape, with a small dot on the sand and a yellow label out in the inner rough, connected by the usual thin leader line. No hit oval is drawn. No obstacle, path, tree, green or fairway geometry is added or moved. Labels remain upright on both dogleg orientations. Hypothetical forward-miss ghosts are suppressed for trap hits, avoiding a misleading label at a semantic destination the ball never reached.
 
 ## Data isolation
 
@@ -33,3 +33,21 @@ No new dataset or network API. A configured first-leg shot adds one 300-componen
 `node tests/test_semantic_bunker.mjs` covers exact-only, threshold boundary, very close/below-threshold words, stage transition, ordinary miss accounting, unchanged normal route replay, deterministic bunker replay/retry/restart, equivalent spellings, target-ready hint, separate persistent control/test IDs, untouched original records, exclusion from normal stats, and existing bunker anchors for both orientations/viewports.
 
 114 existing workflow checks (including the added bunker check; excluding the separately edited landscape research test locally) passed. Targeted scoring, storage/reset and UI checks also pass. An isolated native-Chrome test exercises desktop and mobile layouts: UI configuration, yellow label, unchanged centreline, catch feedback and similarity, reload of the test configuration, bunker-off comparison and return to the original. Real player storage was not used or cleared.
+
+## Five 0.40 examples — 6 November
+
+The admin experiment panel now offers a **Five example holes · similarity 0.40** picker and **Play example** button. Starting an example registers all five as separate test configurations, so they also appear in the normal admin hole selector and can be navigated in sequence. The original archive and public collection stay unchanged.
+
+| Tee | Dogleg | Flag | Bunker |
+| --- | --- | --- | --- |
+| SPARE | DREAM | TENSION | SLEEP |
+| PROMISE | SHADOW | LUCK | DOUBT |
+| CHARM | SPLIT | DUTY | LOVE |
+| DRESS | FREEDOM | SPARK | FREE |
+| CIRCLE | RESCUE | WARM | FIRE |
+
+These are variants of familiar, previously played holes rather than a new generation method. They remove a sleep-related approach, a doubtful interpretation, an affection-related opening, the free/freedom shortcut and a fire/rescue approach respectively. At 0.40 the exclusion is intentionally broader than the conservative default. Several ordinary opening associations remain on each example; this is a lightweight playable-opening check, not a guarantee of difficulty or an exhaustive route search.
+
+`node tests/test_bunker_examples.mjs` loads the actual GloVe vectors and uses the authoritative game engine. Across ten plausible input controls per hole it retains 5, 5, 8, 4 and 5 legal openings respectively, while exercising catches on each. It also verifies exact catches, deterministic saved replay, independent persistent IDs and absence of changes to original/public definitions.
+
+Both bunker orientations and mobile/desktop layouts are checked geometrically: the label sits more than 70 map units from its sand dot, and the full label clears the inner fairway bank into the rough. Browser smoke testing checks all five examples, their 0.40/non-exact configuration, marker/leader, lack of any hit oval, reload and on/off/original comparison. Neither gameplay nor scoring formulas changed.

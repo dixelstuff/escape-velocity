@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import {Game,restoreGame,canPlayDogleg} from '../static/engine.mjs';
 import {bunkerSettings,bunkerCatch,bunkerExperimentSettings,bunkerExperimentId} from '../static/semantic-bunker.mjs';
-import {semanticBunkerArt,semanticBunkerPosition} from '../static/semantic-bunker-map.mjs';
-import {waypointBunkers,waypointLayout} from '../static/waypoint-map.mjs';
+import {semanticBunkerArt,semanticBunkerPosition,semanticBunkerLabel} from '../static/semantic-bunker-map.mjs';
+import {waypointBunkers,waypointLayout,waypointBankY} from '../static/waypoint-map.mjs';
 import {mapLayout} from '../static/map.mjs';
 import {courseStyle,pinPlacement} from '../static/course-appearance.mjs';
 import {DailyGame} from '../static/daily-game.mjs';
@@ -54,7 +54,10 @@ assert.equal(new DailyGame(storage,{holes:[source],includeCustom:true}).availabl
 for(const narrow of [false,true])for(const turn of ['up','down']){
  const state={...fresh(local).state(),waypoint:{...options.waypoint,turn}},style=courseStyle(source.id),d=waypointLayout(mapLayout(narrow),state,pinPlacement(source.id),style),b=waypointBunkers(d,style)[0],p=semanticBunkerPosition(d);
  assert.equal(p.x,b.x*d.width);assert.equal(p.y,d.reflectY?430-b.y:b.y);
- const art=semanticBunkerArt(state,d,hit);assert.match(art,/data-semantic-bunker="LOVE"/);assert.match(art,/data-bunker-hit/);assert.equal(semanticBunkerArt({...state,stage:1},d),'');
+ const art=semanticBunkerArt(state,d,hit);assert.match(art,/data-semantic-bunker="LOVE"/);assert.match(art,/data-bunker-dot/);assert.match(art,/data-bunker-leader/);assert.doesNotMatch(art,/ellipse|data-bunker-hit/);
+ const label=semanticBunkerLabel(d,'LOVE'),canonicalY=d.reflectY?430-label.y:label.y;
+ assert.ok(Math.hypot(label.x-p.x,label.y-p.y)>70,'label separated from sand');
+ for(const x of [label.x-label.width/2,label.x,label.x+label.width/2])assert.ok(canonicalY-label.height/2>waypointBankY(d,style,x),'entire label in inner rough');assert.equal(semanticBunkerArt({...state,stage:1},d),'');
  assert.equal(semanticBunkerArt({...state,semantic_bunker:undefined},d),'');
 }
 console.log('Semantic bunker passed: exact/local threshold, unchanged ordinary rules, first-leg-only failure, replay/retry, spelling, dogleg hint, experiment isolation, persistent configurations and existing bunker geometry.');

@@ -28,6 +28,7 @@ jobs:
           node tests/test_play_archive.mjs
           node tests/test_shared_play_storage.mjs
           node tests/test_semantic_bunker.mjs
+          node tests/test_bunker_examples.mjs
           node tests/test_personal_completed_ui.mjs
           node tests/test_semantic_warm.mjs
           node tests/test_personal_reset.mjs

@@ -1152,3 +1152,5 @@ body:not(.admin-mode) .personal-data #personal-data-status{font-size:12px;}
 #bunker-prototype .bunker-source{margin-top:12px;font-weight:600}
 .bunker-test-actions{display:flex;flex-wrap:wrap;gap:8px}.bunker-test-actions button{font-size:13px;padding:10px 12px}
 .semantic-bunker-label{pointer-events:none}
+
+#bunker-prototype .bunker-examples{display:grid;gap:9px;margin-top:14px}#bunker-prototype .bunker-examples select{width:100%;min-width:0;box-sizing:border-box;font-size:14px}#bunker-prototype .bunker-examples button{justify-self:start;font-size:13px;padding:10px 12px}

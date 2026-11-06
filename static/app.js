@@ -1,5 +1,6 @@
-import {mountBunkerPrototype} from './bunker-prototype.mjs?v=semantic-bunker-v1';
-import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=semantic-bunker-v1';
+import {bunkerExamples} from './bunker-examples.mjs?v=bunker-examples-v1';
+import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-examples-v1';
+import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=bunker-examples-v1';
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
 import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=dogleg-continuation-v1';
@@ -540,7 +541,7 @@ function map(preview=null){
  const retry=preview?null:retrySource(),reference=retryPreview?.source.state??(retry?.referenceBest?retry.state:null),previousEntry=(retry?.state??reference)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'),!!retryPreview);$('retry-guidance').hidden=true;
  const chipArt=chipShading(d,zone),waypointArt=state.waypoint?waypointZone(state,d,waypointDisplay.occupied):'';
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="${100*scale}" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="${100*scale}" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="${50*scale}" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="${22*scale}" height="${22*scale}" patternUnits="userSpaceOnUse"><rect width="${22*scale}" height="${22*scale}" fill="#95c87b"/><rect width="${11*scale}" height="${22*scale}" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><g class="course-scenery">${state.waypoint?waypointLandscape(state,d,d.style):courseSurrounds(d,d.style,lake)}</g>${chipArt}<g class="course-scenery">${state.waypoint?waypointGreen(d,d.style):`${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>`}${state.waypoint?'':`<path d="${par3CentreTrace(d)}" stroke="#a7bb9b" fill="none" stroke-dasharray="3 8"/>`}${state.waypoint?'':courseLake(d,d.style,lake)+approachLandscape(d,d.style)}${d.par3?par3PathArt(d,d.style):''}${courseTrees(d,d.style,lake)}</g>${waypointArt}`;
- svg+=semanticBunkerArt(state,d,preview??shownEvent);
+ svg+=semanticBunkerArt(state,d);
  const worldTransform=`rotate(${state.waypoint?d.style.rotation??0:0} ${d.width/2} 215)`;
  const worldArt=`<g transform="${worldTransform}">${svg.replace(chipArt,'').replace(waypointArt,'')}</g>`;
  for(const offset of [-teeOffset,teeOffset])svg+=`<g class="tee-marker" aria-label="Tee marker"><ellipse cx="${d.left}" cy="${d.teeY+offset+5*scale}" rx="${6*scale}" ry="${2*scale}" fill="#a9bf8d" opacity=".18"/><circle cx="${d.left}" cy="${d.teeY+offset}" r="${4.5*scale}" fill="#b8cf94" stroke="#aec58f" stroke-width="1.2"/></g>`;
@@ -761,6 +762,7 @@ function syncPuzzleSelection(){
 }
 function renderAttemptCounter(){renderBag();}
 function update(){
+ bunkerPrototype?.refresh();
  if(!busy&&state&&!state.won)prepareRouteAnalysis(state);
  if(simpleDaily&&state&&!retryPreview&&!reviewingDailyBest)daily.record(flightLog.active);
  $('chip-range-note').hidden=!showChipRange||!!state?.waypoint&&state.stage===0;
@@ -1416,7 +1418,7 @@ if(simpleDaily){
   $('personal-create-hole').hidden=!adminMode;$('personal-testing').querySelector('summary').textContent=adminMode?'Choose or create a hole':'Choose a hole';
   $('personal-create-hole').append($('create-journey'));$('custom-waypoint').required=true;$('custom-waypoint').parentElement.firstChild.textContent='Dogleg word';$('create-journey').querySelector('p').textContent='Choose three words for a Par 5 hole. Your holes are saved on this device.';
   dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning||personalStorage?.root?.archiveWarning||'',detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
-  if(adminMode)bunkerPrototype=mountBunkerPrototype({parent:$('personal-testing'),isBusy:()=>busy,getCurrent:()=>daily.selected(),getSource:()=>{const selected=daily.selected();return daily.available().find(h=>h.id===selected?.settings.bunker_experiment?.source_id)??selected;},onTest:async(source,settings)=>{
+  if(adminMode)bunkerPrototype=mountBunkerPrototype({examples:bunkerExamples(dailyManifest),onExample:async example=>{const definitions=bunkerExamples(dailyManifest).map(e=>daily.addCustom(e.settings));await navigateDaily(definitions[example.number-1].date);if(daily.selected()?.id!==definitions[example.number-1].id)throw Error('The example hole could not open.');},parent:$('personal-testing'),isBusy:()=>busy,getCurrent:()=>daily.selected(),getSource:()=>{const selected=daily.selected();return daily.available().find(h=>h.id===selected?.settings.bunker_experiment?.source_id)??selected;},onTest:async(source,settings)=>{
    if(!settings){await navigateDaily(source.date);return;}
    if(settings.semantic_bunker)settings.semantic_bunker=(await api('bunker-check',{semantic_bunker:settings.semantic_bunker})).bunker;
    const def=daily.addCustom(settings);await navigateDaily(def.date);
