@@ -6,11 +6,13 @@ export function intendedGain(event,state){
  return Number.isFinite(origin)?event.destination-origin:0;
 }
 export function usefulForwardMiss(event,state){
+ if(event?.bunker)return false; // Its actual visual destination is sand, not its hypothetical semantic lie.
  const gap=(state?.threshold??0)-(state?.baseline??0),gain=intendedGain(event,state);
  return event?.outcome==='miss'&&gap>1e-6&&gain>1e-7&&gain+1e-7>=.1*gap;
 }
 /** Short feedback describes the failed connection, independent of retry timing. */
 export function attemptNotice(event,target,state){
+ if(event?.bunker)return `${event.word.toUpperCase()} was caught by the ${event.bunker.word.toUpperCase()} bunker (similarity ${event.bunker.similarity.toFixed(3)}).`;
  const gain=intendedGain(event,state),near=.1*Math.max(0,(state?.threshold??0)-(state?.baseline??0));
  if(event?.outcome==='water'||event?.outcome==='miss'&&gain<-1e-7&&-gain+1e-7>=near)return `Miss! ${event.word.toUpperCase()} took you away from ${target.toUpperCase()}.`;
  if(event?.outcome==='miss')return usefulForwardMiss(event,state)?`Miss! ${event.word.toUpperCase()} needed a stronger link to ${event.origin.toUpperCase()}.`:'Miss! The connection was too weak.';

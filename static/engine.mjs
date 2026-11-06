@@ -1,3 +1,4 @@
+import {bunkerSettings,bunkerCatch} from './semantic-bunker.mjs?v=semantic-bunker-v1';
 import {checkLiveVocabulary,isBlockedPlayWord} from './playable-vocabulary.mjs?v=playable-vocab-v3';
 import {SPELLING_EQUIVALENCE,spellingResolver} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {familyVariants} from './word-families.mjs?v=golf-v189';
@@ -45,6 +46,7 @@ export const DOGLEG_FINISH_THRESHOLD=.32;
 export class Game {
   constructor(embeddings,start,target,threshold=undefined,options={}) {
     const waypoint=options.waypoint;
+    const rawEmbeddings=embeddings;
     threshold=options.final_threshold??threshold;
     const finalTarget=String(options.final_target??target).trim().toLowerCase();
     if(waypoint){
@@ -61,6 +63,10 @@ export class Game {
     const spelling=options.spelling_equivalence;
     if(spelling&&spelling!==SPELLING_EQUIVALENCE)throw Error('Unknown spelling equivalence rule.');
     if(spelling){embeddings=spellingResolver(embeddings).model;this.spelling_equivalence=spelling;}
+    this.bunkerModel=spelling?spellingResolver(rawEmbeddings).model:rawEmbeddings;
+    this.semantic_bunker=bunkerSettings(options.semantic_bunker,this.bunkerModel);
+    if(this.semantic_bunker&&!waypoint)throw Error('A semantic bunker needs a dogleg hole.');
+    if(options.bunker_experiment)this.bunker_experiment=structuredClone(options.bunker_experiment);
     const same=(a,b)=>embeddings.resolveSpelling?embeddings.resolveSpelling(a)===embeddings.resolveSpelling(b):a===b;
     const launch_min=options.launch_min??(legacy?.25:golf?(rules?.10:.095):.08),launch_max=options.launch_max??(legacy?.40:modern?(rules ? .21 : .215):golf?.20:.18);
     if(!embeddings.index.has(start)||!embeddings.index.has(target))throw Error('Choose words in the supported vocabulary.');
@@ -249,7 +255,10 @@ export class Game {
       if(this.sameWord(word,this.start)||this.history.some(e=>e.word===word))throw Error('That word has already been played. No shot used.');
     } else if(this.sameWord(word,this.current))throw Error('The ball is already on that word. No shot used.');
     if(this.spelling_equivalence&&this.history.some(h=>h.success&&h.stage===this.stage&&h.word!==word&&this.sameWord(h.word,word)))throw Error('That spelling is the same word already played on this leg. Try another word.');
-    const result=this.pluralShot(word),{success,destination,inside,backtrack}=result;
+    const result=this.pluralShot(word);
+    const caught=this.waypoint&&this.stage===0?bunkerCatch(this.semantic_bunker,word,this.bunkerModel):null;
+    if(caught)Object.assign(result,{success:false,won:false,outcome:'miss',bunker:caught});
+    const {success,destination,inside,backtrack}=result;
     if(success&&result.won&&this.deferredDoglegFollowup())result.dogleg_finish_followup=true;
     const scoringWord=result.scoring_word??word;
     let finishDestination=destination,finishInside=inside;
@@ -282,6 +291,8 @@ export class Game {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
       attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
+      ...(this.semantic_bunker?{semantic_bunker:this.semantic_bunker}:{}),
+      ...(this.bunker_experiment?{bunker_experiment:this.bunker_experiment}:{}),
       ...(this.spelling_equivalence?{spelling_equivalence:this.spelling_equivalence}:{}),
       ...(this.abandoned?{abandoned:true}:{}),
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
@@ -396,7 +407,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     function visit(v,key='word'){if(typeof v==='string'){if(['word','start','current','target','final_target','origin','scoring_word','contact_word','destination_word','route'].includes(key))needed.push(...variants(v));}else if(Array.isArray(v))v.forEach(item=>visit(item,key));else if(v&&typeof v==='object')for(const [k,item] of Object.entries(v))visit(item,k);}
     visit(value);await loader.ensureWords(needed);
   }
-  function probe(saved){return Object.assign(Object.create(Game.prototype),saved,{e:withHeadwind(withWordModel(embeddings,saved.word_model),saved.headwind),modern:['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules)});}
+  function probe(saved){return Object.assign(Object.create(Game.prototype),saved,{bunkerModel:saved.spelling_equivalence?spellingResolver(embeddings).model:embeddings,e:withHeadwind(withWordModel(embeddings,saved.word_model),saved.headwind),modern:['golf-distance-v2','golf-fixed-v2','golf-distance-v3','golf-fixed-v3'].includes(saved.rules)});}
   const models=new Map([['',embeddings]]),loading=new Map();embeddings.wordModels=models;
   async function ensureModel(id=''){
     if(!id)return embeddings;
@@ -441,16 +452,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=strong-arrival-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=strong-arrival-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=strong-arrival-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=strong-arrival-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=strong-arrival-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=strong-arrival-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=strong-arrival-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=strong-arrival-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=strong-arrival-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=strong-arrival-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=strong-arrival-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=strong-arrival-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=strong-arrival-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=semantic-bunker-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=semantic-bunker-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=semantic-bunker-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=semantic-bunker-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=semantic-bunker-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=semantic-bunker-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=strong-arrival-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=semantic-bunker-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -464,9 +475,10 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=strong-arrival-v1')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=semantic-bunker-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
+    if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);
     if (path === 'new') {
       if(body.validate_waypoint){const validation=waypointLegAccess(embeddings,body);if(!validation.allowed)throw Error(validation.message+' Choose a less directly connected pair.');}

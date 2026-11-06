@@ -1,3 +1,4 @@
+import {bunkerExperimentId} from './semantic-bunker.mjs?v=semantic-bunker-v1';
 import {mergeDailyRecords} from './play-record-merge.mjs?v=durable-results-v1';
 import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
@@ -39,9 +40,9 @@ export class DailyGame{
  }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today()&&!isRetiredHole(h));}
  available(){return this.manifest.holes.concat(this.manifest.includeCustom===false?[]:this.data.customHoles??[]).filter(h=>!isRetiredHole(h));}
- visibleRecords(){const ids=this.manifest.scopeToManifest?new Set(this.available().map(h=>h.id)):null;return Object.values(this.data.holes).filter(h=>!isRetiredHole(h)&&(!ids||ids.has(h.id)));}
+ visibleRecords(){const ids=this.manifest.scopeToManifest?new Set(this.available().map(h=>h.id)):null;return Object.values(this.data.holes).filter(h=>!h.id.startsWith('custom-bunker-')&&!isRetiredHole(h)&&(!ids||ids.has(h.id)));}
  definition(day){return this.available().find(h=>h.date===day);}
- addCustom(settings){if(isRetiredHole(settings))throw Error('This hole has been retired. Choose a different combination.');const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
+ addCustom(settings){if(isRetiredHole(settings))throw Error('This hole has been retired. Choose a different combination.');const key=settings.bunker_experiment?bunkerExperimentId(settings):'custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
  latest(){return this.manifest.entryHoleId?this.available().find(h=>h.id===this.manifest.entryHoleId):this.published().at(-1);}
  selected(){return this.definition(this.data.selected)??this.latest();}
  save(){try{if(!this.storage||this.unreadable)throw Error();const raw=this.storage.getItem(DAILY_KEY);if(raw)this.data=mergeDailyRecords(JSON.parse(raw),this.data);const encoded=JSON.stringify(this.data);this.storage.setItem(DAILY_KEY,encoded);this.savedRaw=encoded;this.warning='';this.saveError='';}catch(error){this.saveError=error.name+': '+error.message;this.warning=error.code==='STALE_PLAY_BATCH'?error.message:error.name==='QuotaExceededError'?'Device storage is full. Export your play data before closing this page.':'Progress could not be saved on this device. Export your play data before closing this page.';}}

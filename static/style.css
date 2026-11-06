@@ -1140,3 +1140,15 @@ body:not(.admin-mode) :is(#personal-create-hole,#personal-reset,#personal-restor
 
 body:not(.admin-mode) .personal-data{font-size:0;}
 body:not(.admin-mode) .personal-data #personal-data-status{font-size:12px;}
+
+/* Opt-in admin semantic bunker prototype. No map dimensions change. */
+#bunker-prototype{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+#bunker-prototype form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+#bunker-prototype label{display:flex;flex-direction:column;gap:5px;font-size:13px}
+#bunker-prototype input:not([type=checkbox]){width:100%;box-sizing:border-box;font-size:16px;min-width:0}
+#bunker-prototype .bunker-check{flex-direction:row;align-items:center;gap:7px}
+#bunker-prototype .bunker-check input{width:16px;height:16px;margin:0}
+#bunker-prototype p,#bunker-prototype .bunker-test-actions{grid-column:1/-1;margin:2px 0}
+#bunker-prototype .bunker-source{margin-top:12px;font-weight:600}
+.bunker-test-actions{display:flex;flex-wrap:wrap;gap:8px}.bunker-test-actions button{font-size:13px;padding:10px 12px}
+.semantic-bunker-label{pointer-events:none}

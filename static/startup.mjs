@@ -18,7 +18,7 @@ export function startupAction(saved, opening, retired=[]) {
 
 /** Existing rounds retain settings; restarting the previous standard defaults adopts the new course. */
 export function restartSettings(state,opening){
- if(state.waypoint)return {start:state.start,target:state.final_target,threshold:state.final_threshold,waypoint:state.waypoint,par:state.challenge?.par??4,...(state.golden_paths?{golden_paths:state.golden_paths}:{}),mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,word_model:state.word_model??''};
+ if(state.waypoint)return {...(state.semantic_bunker?{semantic_bunker:state.semantic_bunker}:{}),...(state.bunker_experiment?{bunker_experiment:state.bunker_experiment}:{}),start:state.start,target:state.final_target,threshold:state.final_threshold,waypoint:state.waypoint,par:state.challenge?.par??4,...(state.golden_paths?{golden_paths:state.golden_paths}:{}),mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,word_model:state.word_model??''};
  const previous=!state.headwind&&state.mode==='distance'&&state.launch_min===.10&&((state.threshold===.28&&state.launch_max===.21)||(state.threshold===.27&&state.launch_max===.22));
  return previous?{...opening,start:state.start,target:state.target}:{start:state.start,target:state.target,threshold:state.threshold,...(state.challenge?{par:state.challenge.par}:{}),...(state.golden_paths?{golden_paths:state.golden_paths}:{}),mode:state.mode,launch_min:state.launch_min,launch_max:state.launch_max,...(state.word_model?{word_model:state.word_model}:{}),...(state.headwind?{headwind:state.headwind}:{})};
 }

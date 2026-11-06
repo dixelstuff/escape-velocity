@@ -1,4 +1,4 @@
-import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=strong-arrival-v1';
+import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=semantic-bunker-v1';
 export const WAYPOINT_PAR_VERSION='waypoint-par-v1';
 const caches=new WeakMap();
 function similarityRow(e,word){

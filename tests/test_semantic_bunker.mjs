@@ -1,0 +1,60 @@
+import assert from 'node:assert/strict';
+import {Game,restoreGame,canPlayDogleg} from '../static/engine.mjs';
+import {bunkerSettings,bunkerCatch,bunkerExperimentSettings,bunkerExperimentId} from '../static/semantic-bunker.mjs';
+import {semanticBunkerArt,semanticBunkerPosition} from '../static/semantic-bunker-map.mjs';
+import {waypointBunkers,waypointLayout} from '../static/waypoint-map.mjs';
+import {mapLayout} from '../static/map.mjs';
+import {courseStyle,pinPlacement} from '../static/course-appearance.mjs';
+import {DailyGame} from '../static/daily-game.mjs';
+import {retryPrefix} from '../static/stroke-play.mjs';
+import {restartSettings} from '../static/startup.mjs';
+import {previousWordLabels} from '../static/attempt-ghosts.mjs';
+import {outcome} from '../static/flight-log.mjs';
+import {attemptNotice} from '../static/play-feedback.mjs';
+
+const words=['tee','dogleg','flag','love','loves','near','far','book','wave'];
+const pairs=new Map(),pair=(a,b,n)=>pairs.set([a,b].sort().join('|'),n);
+const e={index:new Map(words.map((w,i)=>[w,i])),cosine:(a,b)=>a===b?1:pairs.get([a,b].sort().join('|'))??.05};
+for(const w of ['love','loves','near','far','book']){pair('tee',w,.4);pair('dogleg',w,.3);pair('flag',w,.2);}
+pair('love','loves',.95);pair('love','near',.85);pair('love','far',.849999);pair('book','love',.4);pair('book','wave',.4);pair('wave','flag',.3);
+const options={waypoint:{word:'dogleg',threshold:.265},mode:'distance',finish_mode:'range',continuous_play:true,waypoint_auto_finish:false,plural_rescue:false,family_rescue:false,challenge:{version:'stroke-play-v1',id:'test',par:5,attempt:1,unlimited:true}};
+const source={id:'original',date:'2026-11-06',settings:{start:'tee',target:'flag',threshold:.8,...options}};
+const fresh=(bunker)=>new Game(e,'tee','flag',.8,{...options,...(bunker?{semantic_bunker:bunker}:{})});
+const exact={word:'love'},local={word:'love',threshold:.85,exact_only:false};
+let g=fresh();const ordinary=g.submit('love');assert.equal(ordinary.success,true);assert.equal(ordinary.waypoint_reached,true);
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state(),'unchanged normal holes replay identically');
+g=fresh(exact);const start=g.state(),hit=g.submit('love');
+assert.equal(hit.success,false);assert.equal(hit.won,false);assert.equal(hit.outcome,'miss');assert.equal(hit.bunker.similarity,1);assert.equal(hit.bunker.exact,true);
+assert.equal(g.current,'tee');assert.equal(g.stage,0);assert.deepEqual(g.route,['tee']);assert.equal(g.history.length,1);assert.equal(g.challenge_failed,true);assert.equal(g.state().attempts,1);assert.equal(g.best_progress,start.best_progress);
+assert.match(attemptNotice(hit,'dogleg',g.state()),/LOVE.*LOVE bunker.*1\.000/);
+assert.match(outcome({event:hit}),/Bunker.*LOVE.*1\.000/);
+assert.deepEqual(previousWordLabels(g.state(),mapLayout(true)),[],'no ghost at a hypothetical semantic landing after being caught in sand');
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state(),'bunker failure replays deterministically');
+assert.equal(fresh(exact).submit('loves').success,true,'exact-only does not silently expand to plural or family forms');
+assert.equal(fresh(local).submit('loves').bunker.similarity,.95);
+assert.equal(fresh(local).submit('near').bunker.similarity,.85,'inclusive threshold');
+assert.equal(fresh(local).submit('far').success,true,'no threshold epsilon widening');
+assert.equal(fresh({word:'love',threshold:1,exact_only:false}).submit('love').bunker.exact,true,'literal always caught');
+g=fresh(local);g.submit('book');assert.equal(g.stage,1);const second=g.submit('love');assert.equal(second.success,true);assert.equal(second.bunker,undefined,'same word unrestricted after dogleg');
+g=fresh({word:'dogleg'});assert.equal(canPlayDogleg(g),false,'ready-to-play hint respects trap');
+assert.equal(fresh({enabled:false,word:'love'}).submit('love').success,true);
+assert.throws(()=>fresh({word:'missing'}),/supported vocabulary/);assert.throws(()=>fresh({word:'love',threshold:1.1}),/between 0 and 1/);
+const alias={...e,resolveSpelling:w=>w==='loves'?'love':w};assert.equal(bunkerCatch(bunkerSettings(exact,e),'loves',alias).exact,true,'equivalent spellings cannot bypass exact exclusion');
+const retry=retryPrefix(fresh(exact).state(),0,2);assert.deepEqual(restoreGame(e,{...retry,history:[]}).state().semantic_bunker,bunkerSettings(exact,e));
+assert.deepEqual(restartSettings(fresh(local).state(),{}).semantic_bunker,bunkerSettings(local,e));
+
+const on=bunkerExperimentSettings(source,true,'love',.85,true),off=bunkerExperimentSettings(source,false,'love',.85,true);
+assert.equal(source.settings.semantic_bunker,undefined);assert.notEqual(bunkerExperimentId(on),bunkerExperimentId(off));assert.notEqual(bunkerExperimentId(on),bunkerExperimentId({...on,semantic_bunker:{...on.semantic_bunker,threshold:.9}}));assert.equal(bunkerExperimentId(on),bunkerExperimentId(structuredClone(on)));
+const store=new Map(),storage={getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)};
+const daily=new DailyGame(storage,{holes:[source],includeCustom:true},{today:()=>source.date});daily.visit(source.date);const before=structuredClone(daily.current());
+const test=daily.addCustom(on),control=daily.addCustom(off);assert.notEqual(test.id,control.id);assert.equal(daily.addCustom(on).id,test.id);
+daily.visit(test.date);daily.record({id:'test-finish',updatedAt:'2026-11-06T12:00:00Z',state:{...fresh().state(),won:true,challenge:{...options.challenge,id:test.id},attempts:3}});
+assert.deepEqual(daily.data.holes[source.id],before,'normal progress untouched');assert.equal(daily.stats().completed,0,'experiments do not inflate normal stats');
+assert.equal(new DailyGame(storage,{holes:[source],includeCustom:true}).available().find(h=>h.id===test.id).settings.semantic_bunker.word,'love');
+for(const narrow of [false,true])for(const turn of ['up','down']){
+ const state={...fresh(local).state(),waypoint:{...options.waypoint,turn}},style=courseStyle(source.id),d=waypointLayout(mapLayout(narrow),state,pinPlacement(source.id),style),b=waypointBunkers(d,style)[0],p=semanticBunkerPosition(d);
+ assert.equal(p.x,b.x*d.width);assert.equal(p.y,d.reflectY?430-b.y:b.y);
+ const art=semanticBunkerArt(state,d,hit);assert.match(art,/data-semantic-bunker="LOVE"/);assert.match(art,/data-bunker-hit/);assert.equal(semanticBunkerArt({...state,stage:1},d),'');
+ assert.equal(semanticBunkerArt({...state,semantic_bunker:undefined},d),'');
+}
+console.log('Semantic bunker passed: exact/local threshold, unchanged ordinary rules, first-leg-only failure, replay/retry, spelling, dogleg hint, experiment isolation, persistent configurations and existing bunker geometry.');

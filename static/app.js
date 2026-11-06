@@ -1,3 +1,5 @@
+import {mountBunkerPrototype} from './bunker-prototype.mjs?v=semantic-bunker-v1';
+import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=semantic-bunker-v1';
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
 import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=dogleg-continuation-v1';
@@ -10,10 +12,10 @@ import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=durable-results-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=durable-results-v1';
-import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=durable-results-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=durable-results-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=semantic-bunker-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=semantic-bunker-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=durable-results-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=semantic-bunker-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
 import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -24,7 +26,7 @@ import {bestHoleResult} from './practice-scorecard.mjs?v=golf-v189';
 import {treeOverlapsControls} from './control-trees.mjs?v=golf-v189';
 import {holeAttemptLog,remainingHoleAttempts} from './hole-attempt-log.mjs?v=golf-v189';
 import {wordLieKey,currentLieKey} from './word-lies.mjs?v=fixed-waypoint-lie-v1';
-import {collectSavedHoles} from './saved-holes.mjs?v=golf-v189';
+import {collectSavedHoles} from './saved-holes.mjs?v=semantic-bunker-v1';
 import {STROKE_PLAY,attemptLimit as baseAttemptLimit,maximumStrokes,isStrokePlay,exhausted,retryLieThrough,returnsToOriginalLie} from './stroke-play.mjs?v=personal-daily-v1';
 import {waypointLayout,waypointLake,waypointAnchors,waypointPosition,waypointLandscape,waypointGreen,waypointZone,waypointChipGuide} from './waypoint-map.mjs?v=strong-arrival-v1';
 import {CourseRounds,bestAttempt,postedAttempt,attemptResult,roundTotal,scoreText,resultText} from './course-round.mjs?v=golf-v189';
@@ -33,13 +35,13 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=strong-arrival-v1';
+import { createBrowserClient } from './engine.mjs?v=semantic-bunker-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
-import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=durable-results-v1';
+import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=semantic-bunker-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=semantic-bunker-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
-import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=strong-arrival-v1';
-import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
+import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=semantic-bunker-v1';
+import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=semantic-bunker-v1';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
 const rollingParams=new URLSearchParams(location.search),adminMode=rollingParams.get('admin')==='1',simpleDaily=!adminMode||!rollingParams.has('lab'),competitiveMode=!simpleDaily&&rollingParams.get('mode')==='competitive',tourMode=!simpleDaily&&(competitiveMode||rollingParams.get('mode')==='tour'),rollingMode=!simpleDaily&&(tourMode||rollingParams.get('mode')==='rolling');
@@ -269,7 +271,7 @@ async function initialiseRolling(){
 }
 const daily=simpleDaily?new DailyGame(personalStorage,dailyManifest):null;
 if(daily)daily.recoverResults(flightLog.data.journeys);
-let dailyUI;
+let dailyUI,bunkerPrototype;
 const simulationPanel=mountSimulationPanel($('simulation-comparison'));
 function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
 function renderDailyBests(){
@@ -359,11 +361,11 @@ function lock(value){if(!value&&rollingMode&&rollingUI&&!checkRollingDay())retur
 const narrow=()=>matchMedia('(max-width:650px)').matches;
 const desktopInteraction=()=>matchMedia('(hover: hover) and (pointer: fine)').matches;
 let appearanceKey,appearanceLayout,backdropLayout;
-function dimensions(){const seed=state?.challenge?state.challenge.id:flightLog.active?.id??'opening';const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement,style):base),style,sceneryPadding:simpleDaily?base.width:0};}return appearanceLayout;}
+function dimensions(){const seed=state?.bunker_experiment?.source_id??(state?.challenge?state.challenge.id:flightLog.active?.id??'opening');const key=`${narrow()}:${seed}:${!!state?.waypoint}`;if(key!==appearanceKey){appearanceKey=key;const style=courseStyle(seed);const placement=pinPlacement(seed),base=mapLayout(narrow(),{...placement,...(!state?.waypoint?{greenHeight:222,par3:true}:{}),teeY:state?.waypoint?style.teeY:style.par3TeeY,greenCentreY:style.greenCentreY});appearanceLayout={...(state?.waypoint?waypointLayout(base,state,placement,style):base),style,sceneryPadding:simpleDaily?base.width:0};}return appearanceLayout;}
 const COURSE_HEIGHT=430,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
 function goldenLanding(a,b,d){let lo=0,hi=1;for(let i=0;i<32;i++){const t=(lo+hi)/2;if(greenContains({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},d))hi=t;else lo=t;}const fraction=hi+(1-hi)*.22;return {fraction,x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction};}
-function position(word,event=null){const landed=event??state.history.findLast(e=>e.word===word);if(landed?.golden_holed){const d=dimensions();return goldenLanding(position(landed.origin),{x:d.right,y:d.holeY},d);}if(state.waypoint)return waypointPosition(state,word,dimensions(),event);if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=event??state.history.findLast(e=>e.word===word);return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
+function position(word,event=null){const landed=event??state.history.findLast(e=>e.word===word);if(landed?.bunker)return semanticBunkerPosition(dimensions());if(landed?.golden_holed){const d=dimensions();return goldenLanding(position(landed.origin),{x:d.right,y:d.holeY},d);}if(state.waypoint)return waypointPosition(state,word,dimensions(),event);if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=event??state.history.findLast(e=>e.word===word);return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
 // Word positions are ground anchors; lift the teed ball above its shadow.
 // A proposed shot must not relocate the current ball or its label-clearance obstacle.
 function ballPosition(word,event=null){const matching=event?.word===word?event:null,p=position(word,matching),landed=matching??state.history.findLast(h=>h.success&&h.word===word);return {...p,y:p.y-(word===state.start&&landed?.stage!==1?16*(dimensions().artScale??1):0)};}
@@ -538,6 +540,7 @@ function map(preview=null){
  const retry=preview?null:retrySource(),reference=retryPreview?.source.state??(retry?.referenceBest?retry.state:null),previousEntry=(retry?.state??reference)?.history.find(h=>h.waypoint_reached),waypointDisplay=waypointRetryDisplay(state,previousEntry,document.activeElement===$('word'),!!retryPreview);$('retry-guidance').hidden=true;
  const chipArt=chipShading(d,zone),waypointArt=state.waypoint?waypointZone(state,d,waypointDisplay.occupied):'';
  let svg=`<defs><radialGradient id="ball-shade" cx="30%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f5ed"/><stop offset="1" stop-color="#cbd6bd"/></radialGradient><pattern id="fairway-mown" width="${100*scale}" height="${COURSE_HEIGHT}" patternUnits="userSpaceOnUse"><rect width="${100*scale}" height="${COURSE_HEIGHT}" fill="#d8e7c4"/><rect width="${50*scale}" height="${COURSE_HEIGHT}" fill="#e1edcf"/></pattern><pattern id="green-mown" width="${22*scale}" height="${22*scale}" patternUnits="userSpaceOnUse"><rect width="${22*scale}" height="${22*scale}" fill="#95c87b"/><rect width="${11*scale}" height="${22*scale}" fill="#a5d18d"/></pattern>${courseArtDefs}</defs><g class="course-scenery">${state.waypoint?waypointLandscape(state,d,d.style):courseSurrounds(d,d.style,lake)}</g>${chipArt}<g class="course-scenery">${state.waypoint?waypointGreen(d,d.style):`${courseBunkers(d,d.style)}<path id="green-fringe" d="${greenPath(d,7)}" fill="#b8cf94"/><path id="putting-green" d="${greenPath(d)}" fill="url(#green-mown)" stroke="#70a35d" stroke-width="2"/>`}${state.waypoint?'':`<path d="${par3CentreTrace(d)}" stroke="#a7bb9b" fill="none" stroke-dasharray="3 8"/>`}${state.waypoint?'':courseLake(d,d.style,lake)+approachLandscape(d,d.style)}${d.par3?par3PathArt(d,d.style):''}${courseTrees(d,d.style,lake)}</g>${waypointArt}`;
+ svg+=semanticBunkerArt(state,d,preview??shownEvent);
  const worldTransform=`rotate(${state.waypoint?d.style.rotation??0:0} ${d.width/2} 215)`;
  const worldArt=`<g transform="${worldTransform}">${svg.replace(chipArt,'').replace(waypointArt,'')}</g>`;
  for(const offset of [-teeOffset,teeOffset])svg+=`<g class="tee-marker" aria-label="Tee marker"><ellipse cx="${d.left}" cy="${d.teeY+offset+5*scale}" rx="${6*scale}" ry="${2*scale}" fill="#a9bf8d" opacity=".18"/><circle cx="${d.left}" cy="${d.teeY+offset}" r="${4.5*scale}" fill="#b8cf94" stroke="#aec58f" stroke-width="1.2"/></g>`;
@@ -1014,9 +1017,9 @@ async function animate(event){
  if(reduced)return;
  const kind=event.golden_holed?'golden':event.automatic?automaticFinishMotion(position(event.origin),dimensions()):event.success&&event.word===(state.final_target??state.target)&&(!state.waypoint||event.stage===1||event.won)?'chip':'flight';
  ball.setAttribute('data-motion',kind);
- const duration=event.outcome==='miss'?450:kind==='golden'?1850:kind==='putt'?850:kind==='chip'?1350:1000;
+ const duration=event.bunker?1000:event.outcome==='miss'?450:kind==='golden'?1850:kind==='putt'?850:kind==='chip'?1350:1000;
  await new Promise(resolve=>{const start=performance.now();function frame(now){const t=Math.min(1,(now-start)/duration);let point=a;
- if(event.success){
+ if(event.success||event.bunker){
   const pose=shotMotion(kind,a,b,t,{tee:event.origin===state.start,...(event.golden_holed?{landingFraction:goldenLanding(a,b,dimensions()).fraction}:{})});point=pose;
   $('ball-body').setAttribute('transform',`translate(0,${-pose.lift}) scale(${pose.scale})`);
   $('ball-dimples').setAttribute('transform',`rotate(${pose.rotation})`);
@@ -1042,7 +1045,7 @@ async function submit(word){
  try{
  let data;try{data=await api('submit',{word});}catch(error){if(!retryPreview){flightLog.record(word,state,null,error.message);selectedLogId=flightLog.data.activeId;renderLog();}throw error;}
  if(simpleDaily&&data.state.won)newBestFinish={state:structuredClone(data.state),previous:structuredClone(daily.current()?.bestStrokes??null)};
- commitRetry();delete flightLog.active.auto_retry;const event=data.event;if(event.success)prepareRouteAnalysis(data.state);flightLog.record(word,data.state,event);if(data.state.challenge_failed){delete flightLog.active.notice_dismissed;flightLog.save();}selectedLogId=flightLog.data.activeId;await fadePreviousLabels();
+ commitRetry();delete flightLog.active.auto_retry;const event=data.event;bunkerPrototype?.hit(event);if(event.success)prepareRouteAnalysis(data.state);flightLog.record(word,data.state,event);if(data.state.challenge_failed){delete flightLog.active.notice_dismissed;flightLog.save();}selectedLogId=flightLog.data.activeId;await fadePreviousLabels();
  if(tourMode&&inCourse()){rounds.record(data.state,flightLog.active.id,rounds.hole.arrivalFraction??.9);rollingUI.refreshQualification();}
  // Keep the old state visible until the proposal and flight have played out.
  if(event.outcome||event.forward!==false){map(event);$('status').textContent=`Playing ${event.word.toUpperCase()}…`;
@@ -1055,7 +1058,7 @@ async function submit(word){
 
  state=data.state;justHoled=!!state.won;shownEvent=event;activeNotice=state.challenge_failed?noticeForAttempt(event,data.state):event.waypoint_reached&&!event.won?`Dogleg reached! Now aim for ${state.target.toUpperCase()}.`:'';update();$('word').value='';
  if(event.won&&!desktopInteraction())window.scrollTo({top:0,behavior:reduced?'instant':'smooth'});
- $('status').textContent=event.waypoint_reached&&!event.won?`Waypoint reached. Aim for ${state.target.toUpperCase()} now.`:event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Returned to ${event.word}.`:event.outcome==='recovery'?`Recovered to ${event.word}.`:event.success?`Landed on ${event.word}.`:'Ball stayed put. One shot counted.';
+ $('status').textContent=event.bunker?'':event.waypoint_reached&&!event.won?`Waypoint reached. Aim for ${state.target.toUpperCase()} now.`:event.won||['water','miss'].includes(event.outcome)?'':event.outcome==='backtrack'?`Returned to ${event.word}.`:event.outcome==='recovery'?`Recovered to ${event.word}.`:event.success?`Landed on ${event.word}.`:'Ball stayed put. One shot counted.';
 
  if(state.challenge_failed)scheduleRetry();
 
@@ -1413,6 +1416,12 @@ if(simpleDaily){
   $('personal-create-hole').hidden=!adminMode;$('personal-testing').querySelector('summary').textContent=adminMode?'Choose or create a hole':'Choose a hole';
   $('personal-create-hole').append($('create-journey'));$('custom-waypoint').required=true;$('custom-waypoint').parentElement.firstChild.textContent='Dogleg word';$('create-journey').querySelector('p').textContent='Choose three words for a Par 5 hole. Your holes are saved on this device.';
   dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning||personalStorage?.root?.archiveWarning||'',detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
+  if(adminMode)bunkerPrototype=mountBunkerPrototype({parent:$('personal-testing'),isBusy:()=>busy,getCurrent:()=>daily.selected(),getSource:()=>{const selected=daily.selected();return daily.available().find(h=>h.id===selected?.settings.bunker_experiment?.source_id)??selected;},onTest:async(source,settings)=>{
+   if(!settings){await navigateDaily(source.date);return;}
+   if(settings.semantic_bunker)settings.semantic_bunker=(await api('bunker-check',{semantic_bunker:settings.semantic_bunker})).bunker;
+   const def=daily.addCustom(settings);await navigateDaily(def.date);
+   if(daily.selected()?.id!==def.id)throw Error('The test hole could not open.');
+  }});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);
   $('personal-export').onclick=async()=>{let exported,savePending=false;try{await personalStorage?.root?.flush?.();}catch{savePending=true;}try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-play-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('personal-data-status').textContent=`Downloaded ${exported.play.journeys.length} journeys (${exported.play.journeys.reduce((n,j)=>n+j.entries.length,0)} played words).${savePending?' Device storage could not be updated; this download includes the current session.':''}`;};

@@ -44,7 +44,7 @@ export class FlightLog {
   async refreshClevernessScores(){
     const pending=this.data.journeys.filter(j=>j.state?.won&&['band-free-harmonic-v2-one-stroke','band-free-harmonic-v3-opportunity08-bonus2','band-free-harmonic-v4-relaxed-legs'].includes(j.cleverness_playtest?.band_free?.version));
     if(!pending.length)return 0;
-    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=strong-arrival-v1'));}catch{return 0;}let updated=0;
+    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=semantic-bunker-v1'));}catch{return 0;}let updated=0;
     for(const j of pending){try{const report=applyLiveCleverness(j.cleverness_playtest);report.version=PLAYTEST_VERSION;report.key=playtestKey(j.state,j.model_sha);j.cleverness_playtest=compactPlaytestReport(report);updated++;}catch{/* Incomplete old evidence is recalculated by the worker when reopened. */}}
     if(updated)this.save();return updated;
   }
@@ -186,6 +186,7 @@ export function outcome(entry) {
   if(e.finish_reason==='range')return 'Chip-in range reached — automatic finish follows';
   if(entry.completion==='holed-with-auto-finish'&&e.won)return e.automatic_shot?'Green reached — automatic finish follows':'Holed directly';
   if(e.outcome==='water')return 'Water hazard — ball returned';
+  if(e.bunker)return `Bunker — ${e.bunker.word.toUpperCase()} (similarity ${e.bunker.similarity.toFixed(3)})`;
   if(e.outcome==='miss')return 'Miss — ball stayed put';
   if(e.outcome==='recovery')return 'Recovery shot — ball landed';
   if(e.won)return entry.completion==='arrival-zone'?'On the green — hole complete':'Green reached — old final tap-in';
