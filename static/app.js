@@ -1,5 +1,5 @@
 import {bunkerExamples} from './bunker-examples.mjs?v=bunker-two-legs-v1';
-import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-two-legs-v1';
+import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-hit-only-v1';
 import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=bunker-two-legs-v1';
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
@@ -36,10 +36,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=bunker-two-legs-v1';
+import { createBrowserClient } from './engine.mjs?v=bunker-hit-only-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=semantic-bunker-v1';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=bunker-two-legs-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=bunker-hit-only-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=semantic-bunker-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=semantic-bunker-v1';

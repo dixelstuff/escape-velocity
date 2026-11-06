@@ -8,7 +8,7 @@ export function mountBunkerPrototype({parent,getSource,getCurrent,onTest,onExamp
  <label>Bunker word<input name="word" placeholder="e.g. love" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="40"></label>
  <label class="bunker-check"><input name="exact" type="checkbox" checked> Exact match only</label>
  <label>GloVe similarity threshold<input name="threshold" type="number" min="0" max="1" step="0.01" value="${DEFAULT_BUNKER_THRESHOLD}" disabled></label>
- <p class="subtle">Higher thresholds catch fewer words. Start at 0.85 for exceptionally close neighbours. Applies on both legs; the bunker marker moves greenside after the dogleg.</p>
+ <p class="subtle">Higher thresholds catch fewer words. Start at 0.85 for exceptionally close neighbours. Only otherwise successful shots can be caught. Applies on both legs; the bunker marker moves greenside after the dogleg.</p>
  <div class="bunker-test-actions"><button type="submit">Test this setting</button><button type="button" class="quiet" data-control>Compare without bunker</button><button type="button" class="quiet" data-original>Return to original</button></div>
  <p class="bunker-status" role="status" aria-live="polite"></p></form><p class="subtle">Test results are separate from the original hole and your overall stats. Each configuration keeps its own progress.</p>`;
  parent.append(panel);
@@ -39,5 +39,5 @@ export function mountBunkerPrototype({parent,getSource,getCurrent,onTest,onExamp
   else if(current?.settings.bunker_experiment){field('enabled').checked=false;controls();}
  }
  panel.addEventListener('toggle',refresh);refresh();
- return {refresh,hit:event=>{if(event.bunker)status.textContent=`${event.word.toUpperCase()} caught by ${event.bunker.word.toUpperCase()}: GloVe similarity ${event.bunker.similarity.toFixed(6)} (${event.bunker.exact?'exact spelling or equivalent':`threshold ${event.bunker.threshold}`}).`;}};
+ return {refresh,hit:event=>{if(event.bunker)status.textContent=`${event.word.toUpperCase()} caught by ${event.bunker.word.toUpperCase()}: GloVe similarity ${event.bunker.similarity.toFixed(6)} (${event.bunker.exact?'exact spelling or equivalent':`threshold ${event.bunker.threshold}`}).`;else if(event.success===false&&getCurrent?.()?.settings.semantic_bunker)status.textContent='Standard miss — the bunker did not cause this shot to fail.';}};
 }

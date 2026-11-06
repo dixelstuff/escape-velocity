@@ -16,7 +16,7 @@ const words=['tee','dogleg','flag','love','loves','near','far','book','wave'];
 const pairs=new Map(),pair=(a,b,n)=>pairs.set([a,b].sort().join('|'),n);
 const e={index:new Map(words.map((w,i)=>[w,i])),cosine:(a,b)=>a===b?1:pairs.get([a,b].sort().join('|'))??.05};
 for(const w of ['love','loves','near','far','book']){pair('tee',w,.4);pair('dogleg',w,.3);pair('flag',w,.2);}
-pair('love','loves',.95);pair('love','near',.85);pair('love','far',.849999);pair('book','love',.4);pair('book','wave',.4);pair('wave','flag',.3);
+pair('love','loves',.95);pair('love','near',.85);pair('love','far',.849999);pair('book','love',.4);pair('book','loves',.4);pair('book','wave',.4);pair('wave','flag',.3);
 const options={waypoint:{word:'dogleg',threshold:.265},mode:'distance',finish_mode:'range',continuous_play:true,waypoint_auto_finish:false,plural_rescue:false,family_rescue:false,challenge:{version:'stroke-play-v1',id:'test',par:5,attempt:1,unlimited:true}};
 const source={id:'original',date:'2026-11-06',settings:{start:'tee',target:'flag',threshold:.8,...options}};
 const fresh=(bunker)=>new Game(e,'tee','flag',.8,{...options,...(bunker?{semantic_bunker:bunker}:{})});
@@ -42,6 +42,20 @@ g=fresh(local);g.submit('book');assert.equal(g.submit('wave').success,true,'unre
 const legacy={...local,version:LEGACY_BUNKER_VERSION};g=fresh(legacy);g.submit('book');assert.equal(g.submit('love').success,true,'archived first-leg-only history remains unchanged');assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
 assert.equal(g.state().semantic_bunker.version,LEGACY_BUNKER_VERSION);
 const oldFailure=fresh(legacy);oldFailure.submit('love');assert.equal(oldFailure.history[0].success,false);assert.deepEqual(restoreGame(e,oldFailure.state()).state(),oldFailure.state(),'legacy bunker misses also replay unchanged');assert.equal(fresh(local).state().semantic_bunker.version,BUNKER_VERSION);
+
+// Traps intercept legal shots only; weak contact and backwards shots retain their ordinary result.
+const weak={...e,cosine:(a,b)=>[a,b].sort().join('|')==='love|tee'?.01:e.cosine(a,b)};
+const makeWith=(model,bunker,extra={})=>new Game(model,'tee','flag',.8,{...options,...extra,...(bunker?{semantic_bunker:bunker}:{})});
+const weakBase=makeWith(weak,null).submit('love'),weakTrap=makeWith(weak,local).submit('love');
+assert.equal(weakBase.success,false);assert.deepEqual(weakTrap,weakBase,'first-leg weak hit gets normal miss, no bunker metadata');assert.equal(weakTrap.bunker,undefined);
+const backwardsBase=fresh(),backwardsTrap=fresh(local);backwardsBase.best_progress=backwardsTrap.best_progress=.5;
+const back=backwardsBase.submit('love'),backTrap=backwardsTrap.submit('love');assert.equal(back.success,false);assert.equal(back.outcome,'water');assert.deepEqual(backTrap,back,'backwards shots remain ordinary backwards misses');
+const weakSecond={...e,cosine:(a,b)=>[a,b].sort().join('|')==='book|love'?.01:e.cosine(a,b)};
+const secondBase=makeWith(weakSecond,null),secondTrap=makeWith(weakSecond,local);secondBase.submit('book');secondTrap.submit('book');
+assert.deepEqual(secondTrap.submit('love'),secondBase.submit('love'),'second-leg weak contact also stays a standard miss');
+const historic=makeWith(weak,local,{history:[]});assert.ok(historic.submit('love').bunker,'historical pre-correction event remains a bunker catch');assert.equal(historic.state().bunker_hit_only_after,undefined);assert.deepEqual(restoreGame(weak,historic.state()).state(),historic.state());
+assert.equal(fresh(local).state().bunker_hit_only_after,0);assert.throws(()=>makeWith(e,local,{bunker_hit_only_after:-1}),/activation/);
+
 g=fresh({word:'dogleg'});assert.equal(canPlayDogleg(g),false,'ready-to-play hint respects trap');
 assert.equal(fresh({enabled:false,word:'love'}).submit('love').success,true);
 assert.throws(()=>fresh({word:'missing'}),/supported vocabulary/);assert.throws(()=>fresh({word:'love',threshold:1.1}),/between 0 and 1/);

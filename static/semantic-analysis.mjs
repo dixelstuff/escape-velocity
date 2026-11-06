@@ -1,5 +1,5 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=bunker-two-legs-v1';
+import {Game} from './engine.mjs?v=bunker-hit-only-v1';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {withHeadwind} from './headwind.mjs?v=golf-v189';
 import {analyseJourney} from './semantic-journey.mjs?v=golf-v189';
@@ -42,6 +42,7 @@ export function semanticRouteKey(saved){
  if(saved.waypoint_rescue)key.push({waypoint_rescue:saved.waypoint_rescue});
  if(saved.spelling_equivalence)key.push({spelling_equivalence:saved.spelling_equivalence});
  if(saved.semantic_bunker)key.push({semantic_bunker:saved.semantic_bunker});
+ if(saved.semantic_bunker&&saved.bunker_hit_only_after!=null)key.push({bunker_hit_only_after:saved.bunker_hit_only_after});
  return JSON.stringify(key);
 }
 const highest=(bridges,key)=>bridges.reduce((best,b)=>b[key].value!==null&&(!best||b[key].value>best.value+EPS)?{word:b.word,position:b.position,value:b[key].value}:best,null);

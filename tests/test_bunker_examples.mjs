@@ -29,14 +29,14 @@ for(const [i,example]of examples.entries()){
  let retained=0,caught=0;
  for(const word of samples[i].split(' ')){
   const normal=fresh(null),test=fresh(b),base=normal.submit(word),actual=test.submit(word);
-  if(actual.bunker){caught++;assert.equal(actual.success,false);assert.equal(test.stage,0);assert.ok(actual.bunker.exact||actual.bunker.similarity>=.4);}
+  if(actual.bunker){assert.equal(base.success,true,'only otherwise legal sample shots can be caught');caught++;assert.equal(actual.success,false);assert.equal(test.stage,0);assert.ok(actual.bunker.exact||actual.bunker.similarity>=.4);}
   else{assert.deepEqual(actual,base,'untrapped contact/progress stays identical');if(actual.success)retained++;}
  }
- assert.ok(retained>=4,`${settings.start}: preserve several familiar opening shots, got ${retained}`);assert.ok(caught>=1,`${settings.start}: at least one sample exercises the trap`);
+ assert.ok(retained>=4,`${settings.start}: preserve several familiar opening shots, got ${retained}`);
  const controlApproach=fresh(null),trappedApproach=fresh(b);let intercepted=false;
  for(const word of approaches[i]){assert.equal(controlApproach.submit(word).success,true,'chosen bunker removes a naturally playable approach');if(!intercepted){const shot=trappedApproach.submit(word);intercepted=!!shot.bunker;}}
  assert.equal(intercepted,true,'trap actually intercepts its selected approach');
- const test=fresh(b);test.submit(b.word);assert.equal(test.history.at(-1).bunker.word,b.word);assert.equal(test.challenge_failed,true);assert.deepEqual(restoreGame(e,test.state()).state(),test.state());
+ const test=fresh(b),ordinaryTrapWord=fresh(null).submit(b.word),attempted=test.submit(b.word);if(ordinaryTrapWord.success)assert.equal(attempted.bunker.word,b.word);else assert.deepEqual(attempted,ordinaryTrapWord,'an otherwise invalid exact word keeps normal miss feedback');assert.equal(test.challenge_failed,true);assert.deepEqual(restoreGame(e,test.state()).state(),test.state());
  for(const narrow of [false,true]){
   const state=fresh(b).state(),style=courseStyle(source.id),d=waypointLayout(mapLayout(narrow),state,pinPlacement(source.id),style),label=semanticBunkerLabel(d,b.word.toUpperCase()),canonicalY=d.reflectY?430-label.y:label.y;
   for(const x of [label.x-label.width/2,label.x,label.x+label.width/2])assert.ok(canonicalY-label.height/2>waypointBankY(d,style,x),'preset label stays in rough');

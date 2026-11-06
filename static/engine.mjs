@@ -65,6 +65,8 @@ export class Game {
     if(spelling){embeddings=spellingResolver(embeddings).model;this.spelling_equivalence=spelling;}
     this.bunkerModel=spelling?spellingResolver(rawEmbeddings).model:rawEmbeddings;
     this.semantic_bunker=bunkerSettings(options.semantic_bunker,this.bunkerModel);
+    this.bunker_hit_only_after=options.bunker_hit_only_after??(Array.isArray(options.history)?null:0);
+    if(this.semantic_bunker&&this.bunker_hit_only_after!==null&&(!Number.isInteger(this.bunker_hit_only_after)||this.bunker_hit_only_after<0))throw Error('Invalid bunker hit-check activation.');
     if(this.semantic_bunker&&!waypoint)throw Error('A semantic bunker needs a dogleg hole.');
     if(options.bunker_experiment)this.bunker_experiment=structuredClone(options.bunker_experiment);
     const same=(a,b)=>embeddings.resolveSpelling?embeddings.resolveSpelling(a)===embeddings.resolveSpelling(b):a===b;
@@ -256,7 +258,8 @@ export class Game {
     } else if(this.sameWord(word,this.current))throw Error('The ball is already on that word. No shot used.');
     if(this.spelling_equivalence&&this.history.some(h=>h.success&&h.stage===this.stage&&h.word!==word&&this.sameWord(h.word,word)))throw Error('That spelling is the same word already played on this leg. Try another word.');
     const result=this.pluralShot(word);
-    const caught=this.waypoint&&bunkerActive(this.semantic_bunker,this.stage)?bunkerCatch(this.semantic_bunker,word,this.bunkerModel):null;
+    const hitRequired=this.bunker_hit_only_after!=null&&this.history.length>=this.bunker_hit_only_after;
+    const caught=this.waypoint&&bunkerActive(this.semantic_bunker,this.stage)&&(!hitRequired||result.success)?bunkerCatch(this.semantic_bunker,word,this.bunkerModel):null;
     if(caught)Object.assign(result,{success:false,won:false,outcome:'miss',bunker:caught});
     const {success,destination,inside,backtrack}=result;
     if(success&&result.won&&this.deferredDoglegFollowup())result.dogleg_finish_followup=true;
@@ -291,7 +294,7 @@ export class Game {
     return structuredClone({start:this.start,current:this.current,target:this.target,threshold:this.threshold,mode:this.mode,rules:this.rules,
       launch_min:this.launch_min,launch_max:this.launch_max,baseline:this.baseline,progress:this.e.cosine(this.current,this.target),
       attempts:this.history.length+this.automatic_shots.length,route:this.route,history:this.history,won:this.won,
-      ...(this.semantic_bunker?{semantic_bunker:this.semantic_bunker}:{}),
+      ...(this.semantic_bunker?{semantic_bunker:this.semantic_bunker,...(this.bunker_hit_only_after!=null?{bunker_hit_only_after:this.bunker_hit_only_after}:{})}:{}),
       ...(this.bunker_experiment?{bunker_experiment:this.bunker_experiment}:{}),
       ...(this.spelling_equivalence?{spelling_equivalence:this.spelling_equivalence}:{}),
       ...(this.abandoned?{abandoned:true}:{}),
@@ -433,6 +436,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
   // selection synchronous so mobile focus stays in the native tap gesture.
   function retryNow(saved,through,attempt){
     const settings=retryPrefix(saved,through,attempt);
+    if(saved.semantic_bunker)settings.bunker_hit_only_after=Math.min(saved.bunker_hit_only_after??through,through);
     if(through===0&&['golf-distance-v3','golf-fixed-v3'].includes(saved.rules))settings.spelling_equivalence=SPELLING_EQUIVALENCE;
     if(saved.waypoint&&saved.rules==='golf-distance-v3'){
       settings.dogleg_finish_rule={version:DOGLEG_FINISH_RULE,after:Math.min(saved.dogleg_finish_rule?.after??through,through)};
@@ -452,16 +456,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=bunker-two-legs-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=bunker-two-legs-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=bunker-two-legs-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=bunker-two-legs-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=bunker-two-legs-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=bunker-two-legs-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=bunker-hit-only-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-hit-only-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-hit-only-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=bunker-hit-only-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=bunker-hit-only-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-hit-only-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-hit-only-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=bunker-hit-only-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-hit-only-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-hit-only-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-hit-only-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=bunker-hit-only-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=bunker-hit-only-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=bunker-two-legs-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=bunker-hit-only-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -475,7 +479,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=bunker-two-legs-v1')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=bunker-hit-only-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}
@@ -513,8 +517,8 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
       if (!game) throw Error('Start a new hole first.');
       // Adopt the correction on the next new shot, without replaying old shots
       // differently or changing the live game on an invalid input.
-      const adopt=game.waypoint&&(!game.dogleg_finish_rule||game.stage===0&&!game.waypoint_rescue);
-      const candidate=adopt?Object.assign(Object.create(Game.prototype),game,{history:game.history.slice(),route:game.route.slice(),automatic_shots:game.automatic_shots.slice(),dogleg_finish_rule:game.dogleg_finish_rule??{version:DOGLEG_FINISH_RULE,after:game.history.length},...(game.stage===0&&!game.waypoint_rescue?{waypoint_rescue:{version:WAYPOINT_RESCUE_GEOMETRY,after:game.history.length}}:{})}):game;
+      const adopt=game.waypoint&&(!game.dogleg_finish_rule||game.stage===0&&!game.waypoint_rescue||game.semantic_bunker&&game.bunker_hit_only_after==null);
+      const candidate=adopt?Object.assign(Object.create(Game.prototype),game,{...(game.semantic_bunker&&game.bunker_hit_only_after==null?{bunker_hit_only_after:game.history.length}:{}),history:game.history.slice(),route:game.route.slice(),automatic_shots:game.automatic_shots.slice(),dogleg_finish_rule:game.dogleg_finish_rule??{version:DOGLEG_FINISH_RULE,after:game.history.length},...(game.stage===0&&!game.waypoint_rescue?{waypoint_rescue:{version:WAYPOINT_RESCUE_GEOMETRY,after:game.history.length}}:{})}):game;
       const event=candidate.submit(body.word);game=candidate;return {event,state:game.state()};
     }
     throw Error('Unknown game operation.');
