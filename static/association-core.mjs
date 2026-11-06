@@ -1,6 +1,6 @@
 /** Read-only post-hole diagnostics. No final cleverness score. */
-import {ClevernessAnalyser,replaySelection,freshRouteGame} from './cleverness.mjs?v=semantic-bunker-v1';
-import {ASSOCIATION_VERSION,associationKey} from './association-key.mjs?v=semantic-bunker-v1';
+import {ClevernessAnalyser,replaySelection,freshRouteGame} from './cleverness.mjs?v=bunker-two-legs-v1';
+import {ASSOCIATION_VERSION,associationKey} from './association-key.mjs?v=bunker-two-legs-v1';
 export {ASSOCIATION_VERSION,associationKey};
 const EPS=1e-12,lex=(a,b)=>a<b?-1:a>b?1:0,now=()=>performance.now();
 export const COSINE_THRESHOLDS=[.1,.2,.3,.4];

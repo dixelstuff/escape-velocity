@@ -1,4 +1,4 @@
-import {bunkerExperimentSettings} from './semantic-bunker.mjs?v=semantic-bunker-v1';
+import {bunkerExperimentSettings} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
 /** Hand-picked opt-in examples. Neither original definitions nor public order change. */
 export const BUNKER_EXAMPLE_WORDS=Object.freeze([
  {tee:'spare',dogleg:'dream',flag:'tension',bunker:'sleep'},

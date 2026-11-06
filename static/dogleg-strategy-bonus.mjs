@@ -1,5 +1,5 @@
 /** Browser-only, route-local mechanical evidence. No vocabulary search or word-specific rules. */
-import {Game} from './engine.mjs?v=semantic-bunker-v1';
+import {Game} from './engine.mjs?v=bunker-two-legs-v1';
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=dogleg-continuation-v1';
 export const DOGLEG_STRATEGY_VERSION='dogleg-access-bonus-v1';
 export const DOGLEG_STRATEGY_POINTS=3;

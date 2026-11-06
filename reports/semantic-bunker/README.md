@@ -51,3 +51,13 @@ These are variants of familiar, previously played holes rather than a new genera
 `node tests/test_bunker_examples.mjs` loads the actual GloVe vectors and uses the authoritative game engine. Across ten plausible input controls per hole it retains 5, 5, 8, 4 and 5 legal openings respectively, while exercising catches on each. It also verifies exact catches, deterministic saved replay, independent persistent IDs and absence of changes to original/public definitions.
 
 Both bunker orientations and mobile/desktop layouts are checked geometrically: the label sits more than 70 map units from its sand dot, and the full label clears the inner fairway bank into the rough. Browser smoke testing checks all five examples, their 0.40/non-exact configuration, marker/leader, lack of any hit oval, reload and on/off/original comparison. Neither gameplay nor scoring formulas changed.
+
+## Both-leg revision — 6 November
+
+New tests now use `semantic-bunker-v2-both-legs`. The same word, exact-match option and similarity threshold apply on both legs. Before the dogleg its marker is on the existing dogleg sand; after the turn it relocates to the existing rear greenside bunker. Failed second-leg swings count/end/retry just like other misses. A retry from a first-leg lie restores the dogleg marker; a retry from a second-leg lie retains the greenside marker. Automatic finishing strokes are unchanged: the exclusion checks intentionally submitted words.
+
+Leader offsets are shortened from (6% width, 70 map units) to (3.5% width, 45 map units), with the label in the rough. The greenside label sits outside the rear edge of the green, using the same shorter offset. Neither location adds a hit oval or changes sand/green geometry.
+
+Archived `semantic-bunker-v1` configurations keep their first-leg-only rules, saved event geometry and bests. New example/test configurations receive a different version in their deterministic identity, so they cannot replace these old results. Use **Play example** again or **Test this setting** to open the revised two-leg variant. Old configurations are identified as earlier first-leg-only tests in the panel. Original/public holes and scoring formulas are unchanged.
+
+Tests cover exact/near catches on the second leg, unchanged ordinary second-leg shots, deterministic failure replay, last-lie retries, legacy successful second-leg replay, distinct old/new identities, marker selection in both orientations and label placement in rough on mobile/desktop layouts. Isolated browser checks exercise the turn, caught second-leg shot, reload and tapping back to tee.

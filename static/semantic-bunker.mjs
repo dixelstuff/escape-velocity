@@ -1,13 +1,15 @@
-/** Optional, local first-leg exclusion. Uses raw GloVe, never plural/family rescue. */
-export const BUNKER_VERSION='semantic-bunker-v1';
+/** Optional local exclusion. Legacy saves keep their original first-leg-only rule. */
+export const LEGACY_BUNKER_VERSION='semantic-bunker-v1';
+export const BUNKER_VERSION='semantic-bunker-v2-both-legs';
+export const bunkerActive=(settings,stage)=>!!settings&&(stage===0||stage===1&&settings.version===BUNKER_VERSION);
 export const DEFAULT_BUNKER_THRESHOLD=.85;
 export function bunkerSettings(value,embeddings){
  if(!value||value.enabled===false)return null;
  const word=String(value.word??'').trim().toLowerCase(),threshold=value.threshold??DEFAULT_BUNKER_THRESHOLD;
- if(value.version&&value.version!==BUNKER_VERSION)throw Error('Unknown bunker rule.');
+ if(value.version&&![BUNKER_VERSION,LEGACY_BUNKER_VERSION].includes(value.version))throw Error('Unknown bunker rule.');
  if(!word||!embeddings.index.has(word))throw Error('Choose a bunker word in the supported vocabulary.');
  if(!Number.isFinite(threshold)||threshold<0||threshold>1)throw Error('Bunker similarity must be between 0 and 1.');
- return {version:BUNKER_VERSION,word,threshold,exact_only:value.exact_only!==false};
+ return {version:value.version??BUNKER_VERSION,word,threshold,exact_only:value.exact_only!==false};
 }
 export function bunkerCatch(settings,word,embeddings){
  if(!settings)return null;

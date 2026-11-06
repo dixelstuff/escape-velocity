@@ -1,4 +1,4 @@
-import {bunkerExperimentId} from './semantic-bunker.mjs?v=semantic-bunker-v1';
+import {bunkerExperimentId} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
 import {mergeDailyRecords} from './play-record-merge.mjs?v=durable-results-v1';
 import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';

@@ -1,6 +1,6 @@
-import {bunkerExamples} from './bunker-examples.mjs?v=bunker-examples-v1';
-import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-examples-v1';
-import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=bunker-examples-v1';
+import {bunkerExamples} from './bunker-examples.mjs?v=bunker-two-legs-v1';
+import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-two-legs-v1';
+import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=bunker-two-legs-v1';
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
 import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=dogleg-continuation-v1';
@@ -13,10 +13,10 @@ import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
 import {openPlayArchive} from './play-archive.mjs?v=durable-results-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=durable-results-v1';
-import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=semantic-bunker-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=semantic-bunker-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=bunker-two-legs-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=bunker-two-legs-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=semantic-bunker-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=bunker-two-legs-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
 import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -36,10 +36,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=semantic-bunker-v1';
+import { createBrowserClient } from './engine.mjs?v=bunker-two-legs-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=semantic-bunker-v1';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=semantic-bunker-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=bunker-two-legs-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=semantic-bunker-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=semantic-bunker-v1';
@@ -366,7 +366,7 @@ function dimensions(){const seed=state?.bunker_experiment?.source_id??(state?.ch
 const COURSE_HEIGHT=430,TEE_MARKER_OFFSET=78;
 const x=similarity=>projectX(similarity,state.baseline,state.threshold,dimensions());
 function goldenLanding(a,b,d){let lo=0,hi=1;for(let i=0;i<32;i++){const t=(lo+hi)/2;if(greenContains({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},d))hi=t;else lo=t;}const fraction=hi+(1-hi)*.22;return {fraction,x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction};}
-function position(word,event=null){const landed=event??state.history.findLast(e=>e.word===word);if(landed?.bunker)return semanticBunkerPosition(dimensions());if(landed?.golden_holed){const d=dimensions();return goldenLanding(position(landed.origin),{x:d.right,y:d.holeY},d);}if(state.waypoint)return waypointPosition(state,word,dimensions(),event);if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=event??state.history.findLast(e=>e.word===word);return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
+function position(word,event=null){const landed=event??state.history.findLast(e=>e.word===word);if(landed?.bunker)return semanticBunkerPosition(dimensions(),landed.stage??0);if(landed?.golden_holed){const d=dimensions();return goldenLanding(position(landed.origin),{x:d.right,y:d.holeY},d);}if(state.waypoint)return waypointPosition(state,word,dimensions(),event);if(word===state.start)return {x:dimensions().left,y:dimensions().teeY};if(word===state.target)return {x:dimensions().right,y:dimensions().holeY};const h=event??state.history.findLast(e=>e.word===word);return projectPoint(h.destination,state.baseline,state.threshold,dimensions(),.88*[-62,54,-104,97,-28,15][(h.attempt-1)%6]);}
 // Word positions are ground anchors; lift the teed ball above its shadow.
 // A proposed shot must not relocate the current ball or its label-clearance obstacle.
 function ballPosition(word,event=null){const matching=event?.word===word?event:null,p=position(word,matching),landed=matching??state.history.findLast(h=>h.success&&h.word===word);return {...p,y:p.y-(word===state.start&&landed?.stage!==1?16*(dimensions().artScale??1):0)};}

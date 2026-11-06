@@ -1,4 +1,4 @@
-import {bunkerExperimentSettings,DEFAULT_BUNKER_THRESHOLD} from './semantic-bunker.mjs?v=semantic-bunker-v1';
+import {bunkerExperimentSettings,DEFAULT_BUNKER_THRESHOLD} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
 
 /** Admin-only controls. Applying settings opens a separate, durable test hole. */
 export function mountBunkerPrototype({parent,getSource,getCurrent,onTest,onExample,examples=[],isBusy}){
@@ -8,7 +8,7 @@ export function mountBunkerPrototype({parent,getSource,getCurrent,onTest,onExamp
  <label>Bunker word<input name="word" placeholder="e.g. love" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="40"></label>
  <label class="bunker-check"><input name="exact" type="checkbox" checked> Exact match only</label>
  <label>GloVe similarity threshold<input name="threshold" type="number" min="0" max="1" step="0.01" value="${DEFAULT_BUNKER_THRESHOLD}" disabled></label>
- <p class="subtle">Higher thresholds catch fewer words. Start at 0.85 for exceptionally close neighbours. Applies only before the dogleg.</p>
+ <p class="subtle">Higher thresholds catch fewer words. Start at 0.85 for exceptionally close neighbours. Applies on both legs; the bunker marker moves greenside after the dogleg.</p>
  <div class="bunker-test-actions"><button type="submit">Test this setting</button><button type="button" class="quiet" data-control>Compare without bunker</button><button type="button" class="quiet" data-original>Return to original</button></div>
  <p class="bunker-status" role="status" aria-live="polite"></p></form><p class="subtle">Test results are separate from the original hole and your overall stats. Each configuration keeps its own progress.</p>`;
  parent.append(panel);
@@ -33,6 +33,7 @@ export function mountBunkerPrototype({parent,getSource,getCurrent,onTest,onExamp
  let lastSelection=null;
  function refresh(){
   const source=getSource();sourceText.textContent=source?`${source.settings.start.toUpperCase()} → ${source.settings.waypoint.word.toUpperCase()} → ${source.settings.target.toUpperCase()}`:'Select a dogleg hole first.';
+  if(getCurrent?.()?.settings.semantic_bunker?.version==='semantic-bunker-v1')sourceText.textContent+=' · Earlier first-leg-only test. Use Test this setting to try both legs.';
   const current=getCurrent?.();if(current?.id===lastSelection)return;lastSelection=current?.id;
   if(current?.settings.semantic_bunker){const b=current.settings.semantic_bunker;field('enabled').checked=true;field('word').value=b.word;field('threshold').value=b.threshold;field('exact').checked=b.exact_only;controls();}
   else if(current?.settings.bunker_experiment){field('enabled').checked=false;controls();}

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {BUNKER_VERSION,LEGACY_BUNKER_VERSION} from '../static/semantic-bunker.mjs';
 import {bunkerExamples} from '../static/bunker-examples.mjs';
 import {dailyManifest} from '../static/daily-manifest.mjs';
 import {dailyManifest as publicManifest} from '../static/public-manifest.mjs';
@@ -22,7 +23,7 @@ const samples=[
 ];
 const approaches=[['bed','sleep'],['doubt'],['love'],['buy','free'],['round','fire']];
 for(const [i,example]of examples.entries()){
- const {settings,source}=example,b=settings.semantic_bunker;assert.equal(b.threshold,.4);assert.equal(b.exact_only,false);assert.ok(e.index.has(b.word));assert.equal(settings.bunker_experiment.source_id,source.id);
+ const {settings,source}=example,b=settings.semantic_bunker;assert.equal(b.version,BUNKER_VERSION);assert.notEqual(b.version,LEGACY_BUNKER_VERSION);assert.equal(b.threshold,.4);assert.equal(b.exact_only,false);assert.ok(e.index.has(b.word));assert.equal(settings.bunker_experiment.source_id,source.id);
  const def=daily.addCustom(settings);ids.add(def.id);assert.notEqual(def.id,source.id);assert.equal(daily.addCustom(settings).id,def.id);
  const fresh=trap=>new Game(e,settings.start,settings.target,settings.threshold,{...settings,semantic_bunker:trap,challenge:{id:def.id,version:'stroke-play-v1',par:5,attempt:1,unlimited:true},dogleg_finish_rule:{version:'strong-arrival-v1',after:0}});
  let retained=0,caught=0;
@@ -40,6 +41,7 @@ for(const [i,example]of examples.entries()){
   const state=fresh(b).state(),style=courseStyle(source.id),d=waypointLayout(mapLayout(narrow),state,pinPlacement(source.id),style),label=semanticBunkerLabel(d,b.word.toUpperCase()),canonicalY=d.reflectY?430-label.y:label.y;
   for(const x of [label.x-label.width/2,label.x,label.x+label.width/2])assert.ok(canonicalY-label.height/2>waypointBankY(d,style,x),'preset label stays in rough');
   assert.doesNotMatch(semanticBunkerArt(state,d),/ellipse/);
+  const secondLabel=semanticBunkerLabel(d,b.word.toUpperCase(),1),secondY=d.reflectY?430-secondLabel.y:secondLabel.y;assert.ok(secondY+secondLabel.height/2<(d.reflectY?430-d.greenBottom:d.greenTop));assert.match(semanticBunkerArt({...state,stage:1},d),/Greenside bunker/);
  }
  console.log(`${i+1}: ${settings.start} / ${settings.waypoint.word} / ${settings.target}; ${b.word} bunker at .40; ${retained} sampled openings retained, ${caught} caught.`);
 }

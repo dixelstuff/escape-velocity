@@ -1,4 +1,4 @@
-import {bunkerSettings,bunkerCatch} from './semantic-bunker.mjs?v=semantic-bunker-v1';
+import {bunkerSettings,bunkerCatch,bunkerActive} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
 import {checkLiveVocabulary,isBlockedPlayWord} from './playable-vocabulary.mjs?v=playable-vocab-v3';
 import {SPELLING_EQUIVALENCE,spellingResolver} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {familyVariants} from './word-families.mjs?v=golf-v189';
@@ -256,7 +256,7 @@ export class Game {
     } else if(this.sameWord(word,this.current))throw Error('The ball is already on that word. No shot used.');
     if(this.spelling_equivalence&&this.history.some(h=>h.success&&h.stage===this.stage&&h.word!==word&&this.sameWord(h.word,word)))throw Error('That spelling is the same word already played on this leg. Try another word.');
     const result=this.pluralShot(word);
-    const caught=this.waypoint&&this.stage===0?bunkerCatch(this.semantic_bunker,word,this.bunkerModel):null;
+    const caught=this.waypoint&&bunkerActive(this.semantic_bunker,this.stage)?bunkerCatch(this.semantic_bunker,word,this.bunkerModel):null;
     if(caught)Object.assign(result,{success:false,won:false,outcome:'miss',bunker:caught});
     const {success,destination,inside,backtrack}=result;
     if(success&&result.won&&this.deferredDoglegFollowup())result.dogleg_finish_followup=true;
@@ -452,16 +452,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=semantic-bunker-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=semantic-bunker-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=semantic-bunker-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=semantic-bunker-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=semantic-bunker-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=semantic-bunker-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=semantic-bunker-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=semantic-bunker-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=bunker-two-legs-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=bunker-two-legs-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=bunker-two-legs-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=bunker-two-legs-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=bunker-two-legs-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=bunker-two-legs-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=bunker-two-legs-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=bunker-two-legs-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=semantic-bunker-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=bunker-two-legs-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -475,7 +475,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=semantic-bunker-v1')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=bunker-two-legs-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}

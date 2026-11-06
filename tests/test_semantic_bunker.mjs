@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {Game,restoreGame,canPlayDogleg} from '../static/engine.mjs';
-import {bunkerSettings,bunkerCatch,bunkerExperimentSettings,bunkerExperimentId} from '../static/semantic-bunker.mjs';
+import {bunkerSettings,bunkerCatch,bunkerExperimentSettings,bunkerExperimentId,LEGACY_BUNKER_VERSION,BUNKER_VERSION} from '../static/semantic-bunker.mjs';
 import {semanticBunkerArt,semanticBunkerPosition,semanticBunkerLabel} from '../static/semantic-bunker-map.mjs';
 import {waypointBunkers,waypointLayout,waypointBankY} from '../static/waypoint-map.mjs';
 import {mapLayout} from '../static/map.mjs';
@@ -35,7 +35,13 @@ assert.equal(fresh(local).submit('loves').bunker.similarity,.95);
 assert.equal(fresh(local).submit('near').bunker.similarity,.85,'inclusive threshold');
 assert.equal(fresh(local).submit('far').success,true,'no threshold epsilon widening');
 assert.equal(fresh({word:'love',threshold:1,exact_only:false}).submit('love').bunker.exact,true,'literal always caught');
-g=fresh(local);g.submit('book');assert.equal(g.stage,1);const second=g.submit('love');assert.equal(second.success,true);assert.equal(second.bunker,undefined,'same word unrestricted after dogleg');
+g=fresh(local);g.submit('book');assert.equal(g.stage,1);const second=g.submit('love');assert.equal(second.success,false);assert.equal(second.bunker.word,'love');assert.equal(second.stage,1);assert.equal(g.current,'book');assert.equal(g.stage,1);assert.equal(g.challenge_failed,true);
+assert.deepEqual(restoreGame(e,g.state()).state(),g.state(),'greenside failure replays exactly');
+const resumed=restoreGame(e,{...retryPrefix(g.state(),1,2),history:g.state().history.slice(0,1)});assert.equal(resumed.stage,1);assert.equal(resumed.submit('loves').bunker.similarity,.95,'retry at dogleg retains second-leg trap and threshold');
+g=fresh(local);g.submit('book');assert.equal(g.submit('wave').success,true,'unrelated legal second-leg shots remain legal');
+const legacy={...local,version:LEGACY_BUNKER_VERSION};g=fresh(legacy);g.submit('book');assert.equal(g.submit('love').success,true,'archived first-leg-only history remains unchanged');assert.deepEqual(restoreGame(e,g.state()).state(),g.state());
+assert.equal(g.state().semantic_bunker.version,LEGACY_BUNKER_VERSION);
+const oldFailure=fresh(legacy);oldFailure.submit('love');assert.equal(oldFailure.history[0].success,false);assert.deepEqual(restoreGame(e,oldFailure.state()).state(),oldFailure.state(),'legacy bunker misses also replay unchanged');assert.equal(fresh(local).state().semantic_bunker.version,BUNKER_VERSION);
 g=fresh({word:'dogleg'});assert.equal(canPlayDogleg(g),false,'ready-to-play hint respects trap');
 assert.equal(fresh({enabled:false,word:'love'}).submit('love').success,true);
 assert.throws(()=>fresh({word:'missing'}),/supported vocabulary/);assert.throws(()=>fresh({word:'love',threshold:1.1}),/between 0 and 1/);
@@ -44,7 +50,7 @@ const retry=retryPrefix(fresh(exact).state(),0,2);assert.deepEqual(restoreGame(e
 assert.deepEqual(restartSettings(fresh(local).state(),{}).semantic_bunker,bunkerSettings(local,e));
 
 const on=bunkerExperimentSettings(source,true,'love',.85,true),off=bunkerExperimentSettings(source,false,'love',.85,true);
-assert.equal(source.settings.semantic_bunker,undefined);assert.notEqual(bunkerExperimentId(on),bunkerExperimentId(off));assert.notEqual(bunkerExperimentId(on),bunkerExperimentId({...on,semantic_bunker:{...on.semantic_bunker,threshold:.9}}));assert.equal(bunkerExperimentId(on),bunkerExperimentId(structuredClone(on)));
+assert.equal(source.settings.semantic_bunker,undefined);assert.notEqual(bunkerExperimentId(on),bunkerExperimentId(off));assert.notEqual(bunkerExperimentId(on),bunkerExperimentId({...on,semantic_bunker:{...on.semantic_bunker,version:LEGACY_BUNKER_VERSION}}),'new two-leg variants never overwrite first-leg-only bests');assert.notEqual(bunkerExperimentId(on),bunkerExperimentId({...on,semantic_bunker:{...on.semantic_bunker,threshold:.9}}));assert.equal(bunkerExperimentId(on),bunkerExperimentId(structuredClone(on)));
 const store=new Map(),storage={getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)};
 const daily=new DailyGame(storage,{holes:[source],includeCustom:true},{today:()=>source.date});daily.visit(source.date);const before=structuredClone(daily.current());
 const test=daily.addCustom(on),control=daily.addCustom(off);assert.notEqual(test.id,control.id);assert.equal(daily.addCustom(on).id,test.id);
@@ -56,8 +62,11 @@ for(const narrow of [false,true])for(const turn of ['up','down']){
  assert.equal(p.x,b.x*d.width);assert.equal(p.y,d.reflectY?430-b.y:b.y);
  const art=semanticBunkerArt(state,d,hit);assert.match(art,/data-semantic-bunker="LOVE"/);assert.match(art,/data-bunker-dot/);assert.match(art,/data-bunker-leader/);assert.doesNotMatch(art,/ellipse|data-bunker-hit/);
  const label=semanticBunkerLabel(d,'LOVE'),canonicalY=d.reflectY?430-label.y:label.y;
- assert.ok(Math.hypot(label.x-p.x,label.y-p.y)>70,'label separated from sand');
- for(const x of [label.x-label.width/2,label.x,label.x+label.width/2])assert.ok(canonicalY-label.height/2>waypointBankY(d,style,x),'entire label in inner rough');assert.equal(semanticBunkerArt({...state,stage:1},d),'');
+ assert.ok(Math.hypot(label.x-p.x,label.y-p.y)>45&&Math.hypot(label.x-p.x,label.y-p.y)<60,'leader appreciably shorter while label clears sand');
+ for(const x of [label.x-label.width/2,label.x,label.x+label.width/2])assert.ok(canonicalY-label.height/2>waypointBankY(d,style,x),'entire label in inner rough');assert.match(semanticBunkerArt({...state,stage:1},d),/Greenside bunker/);
+ const greenside=semanticBunkerPosition(d,1),sand=waypointBunkers(d,style)[1];assert.equal(greenside.x,sand.x*d.width);assert.equal(greenside.y,d.reflectY?430-sand.y:sand.y);assert.notDeepEqual(greenside,p);
+ const secondLabel=semanticBunkerLabel(d,'LOVE',1),cy=d.reflectY?430-secondLabel.y:secondLabel.y;assert.ok(cy+secondLabel.height/2<(d.reflectY?430-d.greenBottom:d.greenTop),'greenside label in rough behind the green');
+ assert.equal(semanticBunkerArt({...state,stage:1,semantic_bunker:{...state.semantic_bunker,version:LEGACY_BUNKER_VERSION}},d),'');
  assert.equal(semanticBunkerArt({...state,semantic_bunker:undefined},d),'');
 }
-console.log('Semantic bunker passed: exact/local threshold, unchanged ordinary rules, first-leg-only failure, replay/retry, spelling, dogleg hint, experiment isolation, persistent configurations and existing bunker geometry.');
+console.log('Semantic bunker passed: exact/local threshold, unchanged ordinary rules, both-leg failure and legacy compatibility, replay/retry, spelling, dogleg hint, experiment isolation, persistent configurations and existing bunker geometry.');
