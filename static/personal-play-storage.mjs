@@ -46,7 +46,7 @@ export class PersonalPlayStorage{
 }
 /** Export play in this batch, not the library of unplayed custom definitions. */
 export function personalPlayExport(daily,log){
- daily.storage?.assertCurrent?.();log.storage?.assertCurrent?.();
+ daily.storage?.assertCurrent?.();log.storage?.assertCurrent?.();log.refreshSaved?.();
  const played=new Set(log.data.journeys.map(j=>j.state.challenge?.id));
  const data=structuredClone(daily.data);
  // Player stats outlive research batches. Do not leak old routes back into exports.

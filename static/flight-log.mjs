@@ -1,3 +1,4 @@
+import {mergeFlightRecords} from './play-record-merge.mjs?v=durable-results-v1';
 import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=personal-daily-v1';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
@@ -17,7 +18,7 @@ export class FlightLog {
     this.data = {version:1, activeId:null, journeys:[]};
     let raw;
     try {
-      raw = storage?.getItem(LOG_KEY);
+      raw = storage?.getItem(LOG_KEY);this.savedRaw=raw;
       if (raw) {
         const parsed = JSON.parse(raw);
         if (parsed.version !== 1 || !Array.isArray(parsed.journeys) || !parsed.journeys.every(j => typeof j.id === 'string' && j.state && Array.isArray(j.entries))) throw Error('Invalid saved log');
@@ -51,11 +52,15 @@ export class FlightLog {
   save() {
     try {
       if (!this.storage || this.unreadableRaw) throw Error('Storage unavailable');
-      this.storage.setItem(LOG_KEY, JSON.stringify(this.data));
+      const raw=this.storage.getItem(LOG_KEY);if(raw&&raw!==this.savedRaw)this.data=mergeFlightRecords(JSON.parse(raw),this.data);
+      const encoded=JSON.stringify(this.data);this.storage.setItem(LOG_KEY,encoded);this.savedRaw=encoded;
       this.warning = '';this.saveError='';
     } catch(error) {
       this.saveError=error.name+': '+error.message;this.warning = error.code==='STALE_PLAY_BATCH'?error.message:'This browser could not save your scorecard. Download it before leaving this page.';
     }
+  }
+  refreshSaved(){
+    try{const raw=this.storage?.getItem(LOG_KEY);if(raw&&raw!==this.savedRaw&&!this.unreadableRaw){this.data=mergeFlightRecords(JSON.parse(raw),this.data);this.savedRaw=raw;}}catch{}
   }
   makeJourney(state, model, modelSha=null) {
     const timestamp = this.now();

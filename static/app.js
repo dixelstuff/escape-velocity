@@ -7,13 +7,13 @@ import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continua
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
 import {howToPlay} from './how-to-play.mjs?v=help-scores-trophy-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
-import {openPlayArchive} from './play-archive.mjs?v=archive-v1';
+import {openPlayArchive} from './play-archive.mjs?v=durable-results-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
-import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=archive-v1';
-import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=fixed-waypoint-lie-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=fixed-waypoint-lie-v1';
+import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=durable-results-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=durable-results-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=durable-results-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=fixed-waypoint-lie-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=durable-results-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
 import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -36,7 +36,7 @@ import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
 import { createBrowserClient } from './engine.mjs?v=strong-arrival-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=golf-v189';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=strong-arrival-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=durable-results-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=strong-arrival-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=golf-v189';
@@ -94,7 +94,7 @@ const personalStorage=simpleDaily&&storage?new PersonalPlayStorage(await openPla
 const flightLog=new FlightLog(personalStorage);
 if(simpleDaily&&personalStorage?.root?.backend){
  personalStorage.root.onError=error=>{flightLog.saveError=error.name+': '+error.message;flightLog.warning='Play data could not be saved. Export it before leaving.';dailyUI?.render();};
- personalStorage.root.onSaved=()=>{flightLog.warning='';flightLog.saveError='';dailyUI?.render();};
+ personalStorage.root.onSaved=()=>{flightLog.refreshSaved();daily?.refreshSaved();flightLog.warning='';flightLog.saveError='';dailyUI?.render();};
 }
 if(simpleDaily&&personalStorage)personalStorage.onRecoveryEvicted=()=>{flightLog.backup=null;const button=$('personal-restore');if(button)button.hidden=true;};
 if(simpleDaily)window.addEventListener('storage',event=>{if(event.key===PERSONAL_BATCH_KEY)location.reload();});
@@ -268,6 +268,7 @@ async function initialiseRolling(){
  if(!rollingSimulation){setInterval(()=>{if(!busy)checkRollingDay();},30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!busy)checkRollingDay();});}
 }
 const daily=simpleDaily?new DailyGame(personalStorage,dailyManifest):null;
+if(daily)daily.recoverResults(flightLog.data.journeys);
 let dailyUI;
 const simulationPanel=mountSimulationPanel($('simulation-comparison'));
 function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
@@ -1411,7 +1412,7 @@ if(simpleDaily){
   client=await createBrowserClient({onProgress:p=>{const note=$('word-loading-note');note.hidden=p.complete;note.textContent=p.error?'Some words are still loading.':'More words are loading in the background…';}});config=client.config;lock(false);
   $('personal-create-hole').hidden=!adminMode;$('personal-testing').querySelector('summary').textContent=adminMode?'Choose or create a hole':'Choose a hole';
   $('personal-create-hole').append($('create-journey'));$('custom-waypoint').required=true;$('custom-waypoint').parentElement.firstChild.textContent='Dogleg word';$('create-journey').querySelector('p').textContent='Choose three words for a Par 5 hole. Your holes are saved on this device.';
-  dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning,detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
+  dailyUI=mountDailyUI(daily,{storageWarning:()=>({message:flightLog.warning||personalStorage?.root?.archiveWarning||'',detail:flightLog.saveError}),onNavigate:navigateDaily,onToday:()=>navigateDaily(daily.latest().date)});
   if(daily.data.lastOpenedDay!==daily.today()){daily.data.selected=daily.latest().date;daily.data.lastOpenedDay=daily.today();daily.save();}
   await openDaily(daily.selected().date);
   $('personal-export').onclick=async()=>{let exported,savePending=false;try{await personalStorage?.root?.flush?.();}catch{savePending=true;}try{exported=personalPlayExport(daily,flightLog);}catch(error){$('personal-data-status').textContent=error.message;return;}const blob=new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='word-golf-play-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('personal-data-status').textContent=`Downloaded ${exported.play.journeys.length} journeys (${exported.play.journeys.reduce((n,j)=>n+j.entries.length,0)} played words).${savePending?' Device storage could not be updated; this download includes the current session.':''}`;};
@@ -1449,7 +1450,15 @@ if(simpleDaily){
     }finally{lock(false);if(state?.won||state?.challenge_failed)$('launch').disabled=true;}
    });
   };
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&daily.data.lastOpenedDay!==daily.today())dailyUI.render();});
+  let refreshingSavedPlay=false;
+  async function refreshSavedPlay(){
+   if(document.hidden||refreshingSavedPlay)return;refreshingSavedPlay=true;
+   try{personalStorage?.assertCurrent?.();await personalStorage?.root?.refresh?.();flightLog.refreshSaved();daily.refreshSaved();daily.recoverResults(flightLog.data.journeys);dailyUI.render();}
+   catch(error){if(error.code==='STALE_PLAY_BATCH')location.reload();}
+   finally{refreshingSavedPlay=false;}
+  }
+  window.addEventListener('pageshow',event=>{if(event.persisted)void refreshSavedPlay();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)void refreshSavedPlay();});
   requestAnimationFrame(()=>requestAnimationFrame(()=>{void client.startBackground().catch(()=>{});}));
  }catch(error){lock(false);$('status').textContent='The daily hole could not load: '+error.message;}
 }else{

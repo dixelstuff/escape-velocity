@@ -1,3 +1,4 @@
+import {mergeDailyRecords} from './play-record-merge.mjs?v=durable-results-v1';
 import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
 import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
@@ -9,7 +10,7 @@ export function golfResult(strokes){const diff=strokes-5;return diff<=-3?'Albatr
 export class DailyGame{
  constructor(storage,manifest,{today=()=>dayUTC(),now=()=>new Date().toISOString()}={}){
   this.storage=storage;this.manifest=manifest;this.today=today;this.now=now;this.warning='';this.data={version:1,selected:null,holes:{}};
-  try{const raw=storage?.getItem(DAILY_KEY);if(raw){const saved=JSON.parse(raw);if(saved.version!==1||!saved.holes||typeof saved.holes!=='object'||Array.isArray(saved.holes))throw Error('Invalid daily history');this.data=saved;}}
+  try{const raw=storage?.getItem(DAILY_KEY);this.savedRaw=raw;if(raw){const saved=JSON.parse(raw);if(saved.version!==1||!saved.holes||typeof saved.holes!=='object'||Array.isArray(saved.holes))throw Error('Invalid daily history');this.data=saved;}}
   catch(error){this.saveError=error.name+': '+error.message;this.warning='Saved daily progress could not be read. Export your play data before closing this page.';this.unreadable=true;}
   this.migrateDisplayScores();
  }
@@ -32,6 +33,10 @@ export class DailyGame{
   }
   if(changed)this.save();
  }
+ refreshSaved(){
+  if(this.unreadable)return;
+  try{const raw=this.storage?.getItem(DAILY_KEY);if(raw&&raw!==this.savedRaw){this.data=mergeDailyRecords(JSON.parse(raw),this.data);this.savedRaw=raw;}}catch{}
+ }
  published(){return this.manifest.holes.filter(h=>h.date<=this.today()&&!isRetiredHole(h));}
  available(){return this.manifest.holes.concat(this.manifest.includeCustom===false?[]:this.data.customHoles??[]).filter(h=>!isRetiredHole(h));}
  visibleRecords(){const ids=this.manifest.scopeToManifest?new Set(this.available().map(h=>h.id)):null;return Object.values(this.data.holes).filter(h=>!isRetiredHole(h)&&(!ids||ids.has(h.id)));}
@@ -39,15 +44,26 @@ export class DailyGame{
  addCustom(settings){if(isRetiredHole(settings))throw Error('This hole has been retired. Choose a different combination.');const key='custom-'+[settings.start,settings.waypoint.word,settings.target].map(encodeURIComponent).join('~');this.data.customHoles??=[];let def=this.data.customHoles.find(h=>h.id===key);if(!def){def={id:key,date:key,custom:true,settings:{...settings,par:5,continuous_play:true,golden_paths:[]}};this.data.customHoles.push(def);this.save();}return def;}
  latest(){return this.manifest.entryHoleId?this.available().find(h=>h.id===this.manifest.entryHoleId):this.published().at(-1);}
  selected(){return this.definition(this.data.selected)??this.latest();}
- save(){try{if(!this.storage||this.unreadable)throw Error();this.storage.setItem(DAILY_KEY,JSON.stringify(this.data));this.warning='';this.saveError='';}catch(error){this.saveError=error.name+': '+error.message;this.warning=error.code==='STALE_PLAY_BATCH'?error.message:error.name==='QuotaExceededError'?'Device storage is full. Export your play data before closing this page.':'Progress could not be saved on this device. Export your play data before closing this page.';}}
+ save(){try{if(!this.storage||this.unreadable)throw Error();const raw=this.storage.getItem(DAILY_KEY);if(raw)this.data=mergeDailyRecords(JSON.parse(raw),this.data);const encoded=JSON.stringify(this.data);this.storage.setItem(DAILY_KEY,encoded);this.savedRaw=encoded;this.warning='';this.saveError='';}catch(error){this.saveError=error.name+': '+error.message;this.warning=error.code==='STALE_PLAY_BATCH'?error.message:error.name==='QuotaExceededError'?'Device storage is full. Export your play data before closing this page.':'Progress could not be saved on this device. Export your play data before closing this page.';}}
  visit(day){const def=this.definition(day);if(!def)throw Error('That daily hole is not available.');this.data.selected=day;const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:def.settings.start,waypoint:def.settings.waypoint.word,flag:def.settings.target};h.lastPlayedAt=this.now();this.save();return def;}
- record(journey){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
+ record(journey,{persist=true}={}){const s=journey?.state,def=this.available().find(h=>h.id===s?.challenge?.id);if(!def||!s.challenge.unlimited||!s.waypoint)return;
   const h=this.data.holes[def.id]??={id:def.id,date:def.date,tee:s.start,waypoint:s.waypoint.word,flag:s.final_target??s.target};h.journeyId=journey.id;
   if(h.updatedAt!==journey.updatedAt){h.updatedAt=journey.updatedAt;h.lastPlayedAt=journey.updatedAt;}
   if(s.won){h.completedAt=journey.updatedAt;const candidate={state:structuredClone(s),journeyId:journey.id,strokes:s.attempts,route:[...s.route],attempt:s.challenge.attempt,completedAt:journey.updatedAt,...(journey.cleverness_playtest?.band_free?.version===BAND_FREE_VERSION&&Number.isFinite(journey.cleverness_playtest.band_free.unrounded_score)?{cleverness:journey.cleverness_playtest.band_free.unrounded_score,scoreVersion:BAND_FREE_VERSION}:{})};if(!h.bestStrokes||candidate.strokes<h.bestStrokes.strokes||candidate.strokes===h.bestStrokes.strokes&&(candidate.cleverness??-1)>(h.bestStrokes.cleverness??-1))h.bestStrokes=candidate;
    const report=journey.cleverness_playtest,score=report?.band_free;
    if(score?.version===BAND_FREE_VERSION&&Number.isFinite(score.unrounded_score)&&(!h.bestCleverness||h.bestCleverness.version!==BAND_FREE_VERSION||score.unrounded_score>h.bestCleverness.unrounded))h.bestCleverness={...candidate,score:score.score,unrounded:score.unrounded_score,version:score.version};
-  }this.save();
+  }if(persist)this.save();
+ }
+ /** Rebuild missing achievements from the current export batch, without changing the live lie. */
+ recoverResults(journeys){
+  const before=JSON.stringify(this.data),live=new Map(Object.entries(this.data.holes).map(([id,h])=>[id,{journeyId:h.journeyId,lastPlayedAt:h.lastPlayedAt,updatedAt:h.updatedAt,completedAt:h.completedAt}]));
+  const word=w=>String(w??'').trim().toLowerCase();
+  for(const j of [...journeys].filter(j=>j.state?.won).sort((a,b)=>String(a.updatedAt).localeCompare(String(b.updatedAt)))){
+   const s=j.state,def=this.available().find(h=>h.id===s.challenge?.id);
+   if(def&&word(s.start)===word(def.settings.start)&&word(s.waypoint?.word)===word(def.settings.waypoint.word)&&word(s.final_target??s.target)===word(def.settings.target))this.record(j,{persist:false});
+  }
+  for(const [id,fields]of live){const h=this.data.holes[id];for(const [k,v]of Object.entries(fields))if(v!==undefined)h[k]=v;else if(k==='journeyId')delete h[k];}
+  if(JSON.stringify(this.data)!==before){this.save();return true;}return false;
  }
  recordReport(journey){const selected=this.data.selected,h=this.data.holes[journey?.state?.challenge?.id],latest=h?.journeyId,at=h?.lastPlayedAt,updated=h?.updatedAt,completedAt=h?.completedAt;this.record(journey);if(h){h.journeyId=latest;h.lastPlayedAt=at;h.updatedAt=updated;h.completedAt=completedAt;}this.data.selected=selected;this.save();}
  /** Refresh durable bests without inventing play/export records or changing recency. */
