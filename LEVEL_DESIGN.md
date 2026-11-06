@@ -1,5 +1,11 @@
 # Choosing Word Golf holes
 
+## Very light exploration — 7 November 2026
+
+Keep generation lightweight and word-first. Choose a batch in one editorial pass using familiar, evocative words; vary tee, dogleg and flag rather than repeating a concrete-object tee / broad-abstract dogleg template. Preserve inviting openings and notice obvious ordinary short chains editorially, while retaining some welcoming quick holes. Multiple meanings remain welcome without being a requirement.
+
+Use only local vocabulary, blocked-word, duplicate-triple and direct-leg checks, plus six independently nominated familiar opening ideas per tee. Several legal forward openings are a warning check for access, not proof of enjoyment. Replace clear problems without repeatedly refining candidates. Do not routinely probe continuations, enumerate complete routes, audit landscapes, simulate play or analyse Cleverness. Player feedback guides subsequent batches; investigate specific satisfying low-scored routes separately when requested. This supersedes the older ten-opening and heavier exploration requirements below. New batches appear first in both public and admin order, retaining prior IDs and progress.
+
 ## Small editorial rebalance — 7 November 2026
 
 Keep the enjoyable, lightweight freestyle baseline. Multiple meanings are a welcome possibility, not a requirement throughout each triple. Mix in more vivid everyday objects, clear actions and specific qualities; do not make the batch feel like an ambiguity theme. Sometimes one versatile anchor and two more grounded words are enough, without a rigid quota. Preserve inviting openings and natural exploration, and let players discover their own routes. Do not restore predetermined solutions, optimise for high Cleverness or change the scorer/mechanics. Low or high scores on a player's chosen route do not establish a hole's maximum potential. Retain the same lightweight vocabulary, duplicate, direct-leg and familiar-opening checks; add new batches first without altering old IDs or progress.
