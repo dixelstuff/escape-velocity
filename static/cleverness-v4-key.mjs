@@ -1,3 +1,3 @@
-import {clevernessKey} from './cleverness-key.mjs?v=blocked-use-v1';
+import {clevernessKey} from './cleverness-key.mjs?v=blocked-connectors-v1';
 export const CLEVERNESS_V4_VERSION='narrowness-strategy-v4';
 export const clevernessV4Key=s=>JSON.stringify([CLEVERNESS_V4_VERSION,'semantic-profiles-v4','wordnet-only-v1',clevernessKey(s)]);

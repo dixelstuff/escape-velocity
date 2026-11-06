@@ -1,8 +1,8 @@
-import {doglegAccessEvidence} from '../dogleg-strategy-bonus.mjs?v=blocked-use-v1';
-import {doglegContinuationEvidence} from '../dogleg-continuation.mjs?v=blocked-use-v1';
+import {doglegAccessEvidence} from '../dogleg-strategy-bonus.mjs?v=blocked-connectors-v1';
+import {doglegContinuationEvidence} from '../dogleg-continuation.mjs?v=blocked-connectors-v1';
 /** Maintained browser-only vector evidence adapter. No server or lexical queries. */
 /** Arbitrary completed-route evidence. Same operations as V6.4/V6.5 builders. */
-import {Game} from '../engine.mjs?v=blocked-use-v1';
+import {Game} from '../engine.mjs?v=blocked-connectors-v1';
 const wordnetPairEvidence=()=>({matches:[],phrase_matches:[],dictionary_semantic:[],morphology:null,source_scope:'Vectors only'}),wordnetCoverage={source:'Vectors only; lexical evidence excluded'};
 import {strategyStateKey} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 function evidenceFor(state,diagnostics,e){const pairs=[];for(let i=0;i<diagnostics.route.length;i++)for(let j=i+1;j<Math.min(diagnostics.route.length,i+4);j++)pairs.push({from_position:i,to_position:j,from:diagnostics.route[i],to:diagnostics.route[j],cosine:e.cosine(diagnostics.route[i],diagnostics.route[j])});const d=diagnostics.dogleg_strategy;return {state,diagnostics,pairs,waypoint_pair:d?{from:diagnostics.route[d.position],to:d.waypoint,cosine:e.cosine(diagnostics.route[d.position],d.waypoint)}:null};}

@@ -1,5 +1,5 @@
 /** Live input policy only. Keep vector rows and historical engine replay intact. */
-export const BLOCKED_PLAY_WORDS=Object.freeze(['yes', 'yeah', 'but', 'actually', 'indeed', 'really', 'however', 'perhaps', 'very', 'also', 'maybe', 'someone', 'use', 'used', 'uses', 'using']);
+export const BLOCKED_PLAY_WORDS=Object.freeze(['yes', 'yeah', 'but', 'actually', 'indeed', 'really', 'however', 'perhaps', 'very', 'also', 'maybe', 'someone', 'use', 'used', 'uses', 'using', 'like', 'same', 'thing', 'things']);
 const blocked=new Set(BLOCKED_PLAY_WORDS);
 export const isBlockedPlayWord=word=>blocked.has(String(word??'').trim().toLowerCase());
 export function requirePlayableWord(word){
