@@ -44,7 +44,7 @@ export class FlightLog {
   async refreshClevernessScores(){
     const pending=this.data.journeys.filter(j=>j.state?.won&&['band-free-harmonic-v2-one-stroke','band-free-harmonic-v3-opportunity08-bonus2','band-free-harmonic-v4-relaxed-legs'].includes(j.cleverness_playtest?.band_free?.version));
     if(!pending.length)return 0;
-    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=bunker-hit-only-v1'));}catch{return 0;}let updated=0;
+    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=blocked-use-v1'));}catch{return 0;}let updated=0;
     for(const j of pending){try{const report=applyLiveCleverness(j.cleverness_playtest);report.version=PLAYTEST_VERSION;report.key=playtestKey(j.state,j.model_sha);j.cleverness_playtest=compactPlaytestReport(report);updated++;}catch{/* Incomplete old evidence is recalculated by the worker when reopened. */}}
     if(updated)this.save();return updated;
   }
