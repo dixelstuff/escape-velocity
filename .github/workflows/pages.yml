@@ -52,6 +52,7 @@ jobs:
           node tests/test_everyday_contexts_thirty.mjs
           node tests/test_grounded_exploration_thirty.mjs
           node tests/test_light_exploration_ten.mjs
+          node tests/test_specific_words_twenty.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs
           node tests/test_tap_dogleg.mjs

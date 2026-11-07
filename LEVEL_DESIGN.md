@@ -1,5 +1,9 @@
 # Choosing Word Golf holes
 
+## Slightly more specific words — 7 November 2026
+
+The latest ten offered hard, clever transitions without feeling too tight. Preserve that openness and the very light process below. Gently favour slightly narrower, vivid everyday words across all three positions, especially dogleg and flag, over broadly connectable words such as FULL, GATHER and SETTLE. Keep several natural associations and some versatile anchors; do not force obscure vocabulary or reduce playable openings. Cleverness scoring concerns remain separate from generation.
+
 ## Very light exploration — 7 November 2026
 
 Keep generation lightweight and word-first. Choose a batch in one editorial pass using familiar, evocative words; vary tee, dogleg and flag rather than repeating a concrete-object tee / broad-abstract dogleg template. Preserve inviting openings and notice obvious ordinary short chains editorially, while retaining some welcoming quick holes. Multiple meanings remain welcome without being a requirement.
