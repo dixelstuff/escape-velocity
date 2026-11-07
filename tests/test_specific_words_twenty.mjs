@@ -1,6 +1,5 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as publicCollection} from '../static/public-manifest.mjs';
 import {adminHoleOrder} from '../static/admin-hole-order.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {holeNumber} from '../static/daily-ui.mjs';
@@ -8,11 +7,13 @@ import {Game,waypointLegAccess,DOGLEG_FINISH_RULE} from '../static/engine.mjs';
 import {requirePlayableWord} from '../static/playable-vocabulary.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const read=f=>JSON.parse(fs.readFileSync('reports/specific-words-twenty/'+f)),v=read('validation.json'),checks=read('opening-checks.json'),{e}=loadResearchModel();
+// Reconstruct this historical collection so later batches can prepend safely.
+const publicCollection={version:1,view:'specific-words-twenty-v1',entryHoleId:v.holes[0].id,holes:[...v.holes,...v.retainedPublicIds.map(id=>archive.holes.find(h=>h.id===id))]};
 assert.equal(v.holes.length,20);assert.equal(publicCollection.holes.length,140);
 assert.deepEqual(publicCollection.holes.slice(0,20),v.holes);
 assert.deepEqual(publicCollection.holes.slice(20).map(h=>h.id),v.retainedPublicIds);
 assert.equal(crypto.createHash('sha256').update(JSON.stringify(archive.holes.slice(0,v.priorCount))).digest('hex'),v.priorSha);
-assert.deepEqual(archive.holes.slice(v.priorCount),v.holes);
+assert.deepEqual(archive.holes.slice(v.priorCount,v.priorCount+20),v.holes);
 assert.equal(new Set(archive.holes.map(h=>h.id)).size,archive.holes.length);
 const admin=adminHoleOrder(archive,publicCollection);assert.deepEqual(admin.holes.slice(0,140),publicCollection.holes);
 let hits=0;

@@ -1,6 +1,6 @@
 # Word Golf — development reference
 
-Current context: 7 November 2026. Prefer the executable live paths below over historical reports or old mode names. Update this reference when a deliberate product decision changes; it is not a development diary.
+Current context: 8 November 2026. Prefer the executable live paths below over historical reports or old mode names. Update this reference when a deliberate product decision changes; it is not a development diary.
 
 ## Product and architecture
 
@@ -41,7 +41,7 @@ Read the **newest guidance at the top of `LEVEL_DESIGN.md`**. It supersedes olde
 
 - Aim for **easy to start, interesting to explore, challenging to perfect**. Use lightweight editorial selection, not predetermined clever routes or exhaustive solution optimisation.
 - Prefer familiar, clear, evocative words with natural associations. Mix vivid objects, actions and specific qualities. Multiple meanings are welcome, not mandatory in every slot; one versatile anchor with grounded companions can work well.
-- Latest play feedback: hard/clever transitions were welcome and the last ten were not too tight. Gently favour slightly narrower everyday words, especially dogleg and flag, while preserving several natural associations and the same very light checks. Keep scoring concerns separate from generation.
+- Confirmed player preference: a satisfying birdie with clever transitions between concepts. Favour room for a memorable natural change of context or vivid discovery, with slightly more specific everyday words and varied flags. Keep openings inviting; do not prescribe routes, require birdies or select for Cleverness scores. The current brief in `LEVEL_DESIGN.md` consolidates the guidance; keep it tidy rather than adding overlapping dated instructions.
 - Judge the combination, not just three individually interesting words. Offer several intuitive opening directions and interesting onward choices from actual dogleg landings. Reject restrictive openings and inexplicable vector-only jumps.
 - Avoid repetitive vocabulary, narrow category shortcuts, obvious words solving both legs, and forced quirkiness/obscurity. These are preferences, not bans on animals, foods, nouns or abstract words. Freshness relative to the recent public collection matters more than never reusing an archive word.
 - Keep exploration very light: one editorial selection pass, local vocabulary/blocked-word/duplicate/direct-leg checks and six independently nominated familiar openings per tee. `scripts/check_rich_openings.mjs` supports the opening checks. Replace clear problems; do not routinely probe continuations, search routes, simulate play or analyse Cleverness. Small successful setup shots count; a numerical check is not proof of enjoyable human play. Vary all three word positions rather than repeating concrete tees with broad abstract doglegs; player feedback guides later batches.

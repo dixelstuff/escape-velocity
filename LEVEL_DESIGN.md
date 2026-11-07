@@ -1,36 +1,21 @@
 # Choosing Word Golf holes
 
-## Slightly more specific words — 7 November 2026
+## Current generation brief
 
-The latest ten offered hard, clever transitions without feeling too tight. Preserve that openness and the very light process below. Gently favour slightly narrower, vivid everyday words across all three positions, especially dogleg and flag, over broadly connectable words such as FULL, GATHER and SETTLE. Keep several natural associations and some versatile anchors; do not force obscure vocabulary or reduce playable openings. Cleverness scoring concerns remain separate from generation.
+The player values a satisfying birdie with clever transitions between concepts. Confirmed favourites include RATTLE → WIND → SHADE → BLUE → DENIM, CLIFF → EDGE → BROKEN → CRACKED → JOKE and CRAWL → COMPUTER → WRITE → RECIPE → GARLIC. These illustrate the appeal of a natural change of context and clear payoff; they are feedback examples, not recipes for new routes.
 
-## Very light exploration — 7 November 2026
+- Choose familiar, evocative words first and let players discover their own connections. Gently favour slightly more specific everyday words, especially dogleg and flag, while preserving several natural associations and inviting openings. Current play is not generally too tight.
+- Leave room for a memorable conceptual transition or vivid discovery. One strong transition can carry an otherwise ordinary route. Multiple meanings are welcome, not compulsory throughout a triple. Do not preconstruct an intended solution or require every word to be exceptional.
+- Vary all three positions, including flags: mix concrete words with clear actions and specific qualities. Avoid a recurring concrete-tee/broad-abstract-dogleg template and too many routine category endings. Keep some welcoming quick holes; birdie is an enjoyable experience to favour, not a stroke-count requirement.
+- Use one lightweight editorial selection pass. Run only local vocabulary/input-policy, duplicate-triple and direct-leg checks, plus six independently nominated familiar opening ideas per tee. Useful small setup shots count. Replace clear opening problems; do not repeatedly refine otherwise viable candidates. Numerical access is not proof of enjoyment.
+- Do not routinely probe continuations, search complete routes, audit landscapes, simulate play or analyse Cleverness. Do not optimise for scores or a golf-result distribution. Player enjoyment guides future selection; scoring concerns belong in their separate investigation.
+- Prefer fresh vocabulary relative to the recent public collection without forcing obscure words or strict novelty quotas. New batches appear first in public and admin order; retain earlier enjoyable holes, permanent IDs and progress unless removal is explicitly requested.
 
-Keep generation lightweight and word-first. Choose a batch in one editorial pass using familiar, evocative words; vary tee, dogleg and flag rather than repeating a concrete-object tee / broad-abstract dogleg template. Preserve inviting openings and notice obvious ordinary short chains editorially, while retaining some welcoming quick holes. Multiple meanings remain welcome without being a requirement.
+## Historical guidance and playtest notes
 
-Use only local vocabulary, blocked-word, duplicate-triple and direct-leg checks, plus six independently nominated familiar opening ideas per tee. Several legal forward openings are a warning check for access, not proof of enjoyment. Replace clear problems without repeatedly refining candidates. Do not routinely probe continuations, enumerate complete routes, audit landscapes, simulate play or analyse Cleverness. Player feedback guides subsequent batches; investigate specific satisfying low-scored routes separately when requested. This supersedes the older ten-opening and heavier exploration requirements below. New batches appear first in both public and admin order, retaining prior IDs and progress.
+The current brief above supersedes conflicting search requirements, quotas and publishing order below. Earlier records remain for context and reproducibility.
 
-## Small editorial rebalance — 7 November 2026
-
-Keep the enjoyable, lightweight freestyle baseline. Multiple meanings are a welcome possibility, not a requirement throughout each triple. Mix in more vivid everyday objects, clear actions and specific qualities; do not make the batch feel like an ambiguity theme. Sometimes one versatile anchor and two more grounded words are enough, without a rigid quota. Preserve inviting openings and natural exploration, and let players discover their own routes. Do not restore predetermined solutions, optimise for high Cleverness or change the scorer/mechanics. Low or high scores on a player's chosen route do not establish a hole's maximum potential. Retain the same lightweight vocabulary, duplicate, direct-leg and familiar-opening checks; add new batches first without altering old IDs or progress.
-
-
-## Continuing the successful approach — 6 November 2026
-
-Keep the current lightweight, everyday selection approach, with the small 7 November rebalance above. Favour fresh words relative to the current public collection; reuse across the much older archive is acceptable for good familiar words. Check several intuitive openings without designing intended solutions or engineering final scores. Latest feedback: BEAM → BALANCE → LIGHT → SOFT scoring 57 was appropriate to the player because LIGHT/SOFT felt vague. Do not automatically interpret a low score on a short route as model under-recognition or a reason to alter the scorer. No scoring adjustment is requested. New batches appear first; earlier enjoyable holes and saved progress remain.
-
-
-## Latest refinement — rich associations, 5 November 2026
-
-Keep the simple, successful clear-word selection baseline. Aim for **easy to start, interesting to explore, challenging to perfect**. Welcome multiple meanings and contexts, without requiring them throughout the triple; mix objects, actions and qualities naturally, without grammatical quotas or vague abstractions for variety. Surprising combinations should still offer natural human associations. Check ten independently nominated ordinary opening ideas per tee for several legal forward moves; replace a pairing if opening access is too narrow. This is a lightweight warning check, not proof that every branch completes. Keep vocabulary/duplicate/direct-leg checks; do not enumerate complete routes or optimise final score distributions. Journeys and final birdies reflect deliberate exploration, not necessarily frustration or ease. Preserve enjoyable earlier batches and their progress when adding new ones.
-
-
-## Latest direction — 5 November 2026
-
-The last public twenty were still slightly too easy, and the tees felt strained or abstract. Prefer nice common, clear, vivid words. Select combinations freely using human judgement; do not construct intended solutions or run exhaustive route searches, landscape audits or simulation campaigns for each batch. Check vocabulary, duplicate triples and basic direct-leg validity only, then let playtesting judge the balance. Aim a little harder through combinations, not obscure words or restricted openings. Current public batches must appear first, as holes 1–20, in the admin view too. This supersedes the heavy per-hole research requirements below.
-
-
-## Current editorial direction — 4 November 2026
+## Earlier editorial direction — 4 November 2026
 
 **Current instruction: preserve the successful natural, open-landscape word style, broaden the vocabulary substantially beyond recent batches, and keep the opening inviting while reducing the prevalence of obvious short routes. Aim for roughly one-third welcoming/easy holes; the remaining majority should invite more discovery and meaningful choices on both legs. The quirky/playful vocabulary experiment remains withdrawn. Vary familiar words and contexts without selecting for quirkiness, surprise, obscurity or a particular intended bridge.**
 
