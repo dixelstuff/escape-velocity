@@ -55,6 +55,7 @@ jobs:
           node tests/test_specific_words_twenty.mjs
           node tests/test_concept_transitions_twenty.mjs
           node tests/test_discovery_replacement_twenty.mjs
+          node tests/test_inviting_discovery_ten.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs
           node tests/test_tap_dogleg.mjs
