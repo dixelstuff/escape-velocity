@@ -1,6 +1,6 @@
 # Word Golf — development reference
 
-Current context: 8 November 2026. Prefer the executable live paths below over historical reports or old mode names. Update this reference when a deliberate product decision changes; it is not a development diary.
+Current context: 9 November 2026. Prefer the executable live paths below over historical reports or old mode names. Update this reference when a deliberate product decision changes; it is not a development diary.
 
 ## Product and architecture
 
@@ -55,6 +55,7 @@ Read the **newest guidance at the top of `LEVEL_DESIGN.md`**. It supersedes olde
 - Durable bests, retained route geometry and play records use IndexedDB through `static/play-archive.mjs`; batch metadata remains in localStorage. Related modules: `personal-play-storage.mjs`, `play-record-merge.mjs`, `daily-game.mjs`, `flight-log.mjs`, `reset-personal-play.mjs`.
 - Preserve atomic writes, cross-tab merge/batch protections and fallback migration guarantees. An older snapshot must not overwrite better scores or newer journeys. Do not split public/admin storage again or introduce large duplicate localStorage backups.
 - Exportable research history and durable player statistics serve different purposes. Clearing play history starts a fresh export batch **while retaining personal bests, result routes, stats and custom definitions**. Old batches must not leak into later exports. Export omission of durable best summaries does not mean local results are absent.
+- Optional post-hole feedback (enjoyment, opening, transitions and note) lives in the current export batch as `play.holeFeedback`; style-trial definitions carry `editorial_style`, exported for played holes as `holeStyles`. Preserve ratings across refresh/merges, but do not leak them into a cleared research batch or alter bests/scoring.
 - Fewest-strokes route ties use highest Cleverness within that stroke count. Highest Cleverness is also retained separately. Show an additional route only when it adds genuinely different information, not the same route twice.
 - **Never reset or mutate the user's real browser storage to test a feature.** Use isolated browser profiles, test stores or copied fixtures. Treat reported missing progress as a data-integrity bug, not automatically as a second-tab issue.
 

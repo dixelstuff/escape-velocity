@@ -1,5 +1,5 @@
 import {bunkerExperimentId} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
-import {mergeDailyRecords} from './play-record-merge.mjs?v=durable-results-v1';
+import {mergeDailyRecords} from './play-record-merge.mjs?v=four-styles-v1';
 import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
 import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
 import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';

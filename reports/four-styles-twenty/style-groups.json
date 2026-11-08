@@ -1,0 +1,142 @@
+[
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 1,
+    "style": "grounded",
+    "label": "Grounded objects",
+    "position_in_group": 1
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 1,
+    "style": "grounded",
+    "label": "Grounded objects",
+    "position_in_group": 2
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 1,
+    "style": "grounded",
+    "label": "Grounded objects",
+    "position_in_group": 3
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 1,
+    "style": "grounded",
+    "label": "Grounded objects",
+    "position_in_group": 4
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 1,
+    "style": "grounded",
+    "label": "Grounded objects",
+    "position_in_group": 5
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 2,
+    "style": "versatile",
+    "label": "Versatile everyday words",
+    "position_in_group": 1
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 2,
+    "style": "versatile",
+    "label": "Versatile everyday words",
+    "position_in_group": 2
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 2,
+    "style": "versatile",
+    "label": "Versatile everyday words",
+    "position_in_group": 3
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 2,
+    "style": "versatile",
+    "label": "Versatile everyday words",
+    "position_in_group": 4
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 2,
+    "style": "versatile",
+    "label": "Versatile everyday words",
+    "position_in_group": 5
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 3,
+    "style": "situations",
+    "label": "Everyday situations and choices",
+    "position_in_group": 1
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 3,
+    "style": "situations",
+    "label": "Everyday situations and choices",
+    "position_in_group": 2
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 3,
+    "style": "situations",
+    "label": "Everyday situations and choices",
+    "position_in_group": 3
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 3,
+    "style": "situations",
+    "label": "Everyday situations and choices",
+    "position_in_group": 4
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 3,
+    "style": "situations",
+    "label": "Everyday situations and choices",
+    "position_in_group": 5
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 4,
+    "style": "qualities",
+    "label": "Qualities and scenes",
+    "position_in_group": 1
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 4,
+    "style": "qualities",
+    "label": "Qualities and scenes",
+    "position_in_group": 2
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 4,
+    "style": "qualities",
+    "label": "Qualities and scenes",
+    "position_in_group": 3
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 4,
+    "style": "qualities",
+    "label": "Qualities and scenes",
+    "position_in_group": 4
+  },
+  {
+    "experiment": "four-styles-2026-11-09",
+    "group": 4,
+    "style": "qualities",
+    "label": "Qualities and scenes",
+    "position_in_group": 5
+  }
+]

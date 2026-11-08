@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import {FlightLog} from '../static/flight-log.mjs';
+import {DailyGame} from '../static/daily-game.mjs';
+import {PersonalPlayStorage,personalPlayExport} from '../static/personal-play-storage.mjs';
+import {clearResearchPlay} from '../static/reset-personal-play.mjs';
+import {saveHoleFeedback,validHoleFeedback} from '../static/hole-feedback.mjs';
+import {mergeFlightRecords,mergeStoredPlay} from '../static/play-record-merge.mjs';
+const memory=new Map(),root={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)},storage=new PersonalPlayStorage(root,()=> 'next-batch');let tick=0;
+const now=()=>new Date(Date.UTC(2026,10,9,0,0,tick++)).toISOString(),def={id:'feedback-hole',date:'2026-11-09',settings:{start:'bench',waypoint:{word:'museum'},target:'flour',editorial_style:{experiment:'four-styles-2026-11-09',group:1,style:'grounded'}}};
+const daily=new DailyGame(storage,{holes:[def]},{today:()=>def.date}),log=new FlightLog(storage,now,()=> 'test-journey');daily.visit(def.date);
+const state={start:'bench',current:'flour',target:'flour',final_target:'flour',waypoint:{word:'museum'},stage:1,route:['bench','seat','grain','flour'],history:[{word:'seat',success:true},{word:'grain',success:true}],won:true,attempts:3,challenge:{id:def.id,par:5,attempt:1,unlimited:true}};
+log.begin(state,'Current');daily.record(log.active);const before=structuredClone(daily.current().bestStrokes);
+assert.throws(()=>saveHoleFeedback(log,def,{...state,won:false},{enjoyment:'5'}),/Finish/);
+assert.throws(()=>saveHoleFeedback(log,{...def,id:'wrong'},state,{enjoyment:'5'}),/another hole/);
+assert.throws(()=>saveHoleFeedback(log,def,state,{enjoyment:'6'}),/Unknown/);
+assert.equal(log.data.holeFeedback,undefined,'No default rating is invented');
+saveHoleFeedback(log,def,state,{enjoyment:'4'});const stale=structuredClone(log.data);
+saveHoleFeedback(log,def,state,{opening:'about_right'});saveHoleFeedback(log,def,state,{transitions:'satisfying',note:'A good change of context.'});
+assert.equal(log.data.holeFeedback.length,1);assert.ok(validHoleFeedback(log.data.holeFeedback[0]));assert.deepEqual(daily.current().bestStrokes,before);
+const loaded=new FlightLog(new PersonalPlayStorage(root),now);assert.deepEqual(loaded.data.holeFeedback,log.data.holeFeedback);
+for(const merged of [mergeFlightRecords(stale,log.data),mergeFlightRecords(log.data,stale),JSON.parse(mergeStoredPlay(storage.key('escape-velocity.flight-log.v1'),JSON.stringify(log.data),JSON.stringify(stale)))])assert.equal(merged.holeFeedback[0].transitions,'satisfying','A stale snapshot cannot replace newer feedback');
+saveHoleFeedback(log,def,state,{opening:''});assert.equal(log.data.holeFeedback[0].opening,undefined,'An answer can be returned to unrated');
+const exported=personalPlayExport(daily,log);assert.equal(exported.play.holeFeedback[0].enjoyment,'4');assert.equal(exported.play.holeFeedback[0].experiment.group,1);assert.deepEqual(exported.play.holeFeedback[0].route,state.route);assert.deepEqual(exported.holeStyles[def.id],def.settings.editorial_style);
+const tee={...state,current:'bench',won:false,attempts:0,route:['bench'],history:[]};
+log.reset(tee,'Current');assert.equal(log.data.holeFeedback,undefined);log.restorePrevious();assert.equal(log.data.holeFeedback[0].transitions,'satisfying','Explicit history restoration restores its feedback');
+await clearResearchPlay(daily,log,tee,'Current');assert.equal(log.data.holeFeedback,undefined);assert.equal(personalPlayExport(daily,log).play.holeFeedback,undefined);assert.equal(daily.current().bestStrokes.strokes,before.strokes);assert.equal(storage.batch,'next-batch');
+assert.throws(()=>saveHoleFeedback(loaded,def,state,{enjoyment:'1'}),/reset in another tab/);
+console.log('Hole feedback passed: optional validated ratings, edit/unrate, exact hole/route/style identity, reload/export, stale merges, explicit restoration, reset isolation and retained bests.');
+
+// Form refreshes must not rebuild a locally edited response or invent defaults.
+const {mountHoleFeedback}=await import('../static/hole-feedback-ui.mjs');
+const uiLog=new FlightLog(storage,now,()=> 'ui-test'),status={textContent:''},node={innerHTML:'',hidden:true,open:false,addEventListener(type,handler){this[type]=handler;},querySelector(selector){return selector==='[data-hole-rating="note"]'?{value:'A <literal> note'}:status;}};
+const panel=mountHoleFeedback(node,uiLog);panel.show({definition:def,state,visible:true});assert.match(node.innerHTML,/Not rated/);assert.ok(!node.innerHTML.includes(' selected'));
+await node.click({target:{closest:()=>true}});const currentMarkup=node.innerHTML;panel.show({definition:def,state,visible:true});assert.equal(node.innerHTML,currentMarkup,'Local save must update the render key rather than rebuilding an active form');
+const reloadedPanel=mountHoleFeedback(node,uiLog);reloadedPanel.show({definition:def,state,visible:true});assert.match(node.innerHTML,/A &lt;literal&gt; note/);panel.show({definition:def,state,visible:false});assert.equal(node.hidden,true);
+console.log('Feedback form passed: unrated defaults, stable local edits, escaped notes and hidden active-play controls.');

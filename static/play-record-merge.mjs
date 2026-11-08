@@ -1,4 +1,5 @@
 import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
+import {mergeHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
 const timestamp=o=>String(o?.updatedAt??o?.updated_at??o?.completedAt??o?.startedAt??'');
 const score=b=>Number.isFinite(b?.unrounded)?b.unrounded:Number.isFinite(b?.cleverness)?b.cleverness:Number.isFinite(b?.score)?b.score:-1;
 const current=b=>(b?.scoreVersion??b?.version)===BAND_FREE_VERSION;
@@ -37,7 +38,7 @@ export function mergeFlightRecords(stored,incoming){
   if(reports.length)merged.cleverness_playtest=reports.find(r=>r.band_free?.version===BAND_FREE_VERSION)??reports[0];else delete merged.cleverness_playtest;
   Object.assign(local,merged);rows.set(local.id,local);
  }
- return {...stored,...incoming,journeys:[...rows.values()]};
+ return {...stored,...incoming,journeys:[...rows.values()],...((stored.holeFeedback||incoming.holeFeedback)?{holeFeedback:mergeHoleFeedback(stored.holeFeedback,incoming.holeFeedback)}:{})};
 }
 export const isDailyRecordKey=k=>/(?:^|:)word-golf\.personal-daily\.v1$/.test(k);
 export const isFlightRecordKey=k=>/(?:^|:)escape-velocity\.flight-log\.v1$/.test(k);

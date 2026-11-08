@@ -1,4 +1,5 @@
-import {mergeFlightRecords} from './play-record-merge.mjs?v=durable-results-v1';
+import {mergeFlightRecords} from './play-record-merge.mjs?v=four-styles-v1';
+import {mergeHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
 import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=personal-daily-v1';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
@@ -31,6 +32,7 @@ export class FlightLog {
     for(const j of this.data.journeys){if(j.skill_feedback)j.skill_feedback=Array.isArray(j.skill_feedback)?j.skill_feedback.filter(validSkillFeedback):[];}
     delete this.data.bridge_comparison;
     this.data.bridgeFeedback=Array.isArray(this.data.bridgeFeedback)?this.data.bridgeFeedback.filter(validBridgeFeedback):[];
+    if(this.data.holeFeedback!==undefined)this.data.holeFeedback=mergeHoleFeedback(this.data.holeFeedback);
     this.data.bridgeViews=Array.isArray(this.data.bridgeViews)?this.data.bridgeViews.filter(v=>v&&typeof v.puzzle_key==='string'&&typeof v.at==='string'):[];
     try {
       const backup=JSON.parse(storage?.getItem(RESET_BACKUP_KEY)||'null');
@@ -100,7 +102,7 @@ export class FlightLog {
     const reviews=new Map((this.backup.bridgeFeedback??[]).filter(validBridgeFeedback).map(r=>[r.key,r]));
     for(const r of this.data.bridgeFeedback)reviews.set(r.key,r);
     const views=new Map([...(this.backup.bridgeViews??[]),...this.data.bridgeViews].map(v=>[v.id,v]));
-    const next={...this.data,bridgeFeedback:[...reviews.values()],bridgeViews:[...views.values()],...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
+    const next={...this.data,bridgeFeedback:[...reviews.values()],bridgeViews:[...views.values()],...((this.backup.holeFeedback||this.data.holeFeedback)?{holeFeedback:mergeHoleFeedback(this.backup.holeFeedback,this.data.holeFeedback)}:{}),...(this.backup.unreadableOriginal?{unreadableOriginal:this.backup.unreadableOriginal}:{}),journeys:[...this.backup.journeys.filter(j=>!currentIds.has(j.id)),...this.data.journeys]};
     let previousBackup,clearedBackup=false;
     try{
       if(!this.storage)throw Error('Storage unavailable');

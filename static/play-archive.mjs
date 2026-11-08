@@ -1,4 +1,4 @@
-import {mergeStoredPlay,isDailyRecordKey} from './play-record-merge.mjs?v=durable-results-v1';
+import {mergeStoredPlay,isDailyRecordKey} from './play-record-merge.mjs?v=four-styles-v1';
 /** Play history and durable player results share IndexedDB; small reset metadata stays in localStorage.
  * This cached Storage interface preserves existing synchronous game writes. flush() is
  * awaited at reset boundaries; exports read the latest in-memory records; each queued batch is one atomic IDB transaction.

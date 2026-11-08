@@ -1,0 +1,13 @@
+import {saveHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const choices={enjoyment:[['1','1 · Low'],['2','2'],['3','3'],['4','4'],['5','5 · High']],opening:[['too_obvious','Too obvious'],['about_right','About right'],['too_hard','Too hard']],transitions:[['forced','Forced'],['ordinary','Ordinary'],['satisfying','Satisfying']]};
+export function mountHoleFeedback(node,log){
+ let current=null,key=null;
+ async function commit(field,value){if(!current)return;const status=node.querySelector('[role="status"]');try{const row=saveHoleFeedback(log,current.definition,current.state,{[field]:value});key=current.definition.id+'|'+row.updated_at;status.textContent='Saving…';await log.storage?.root?.flush?.();status.textContent=log.warning||(field==='note'?'Note saved.':'Rating saved.');}catch(error){status.textContent=error.message;}}
+ node.addEventListener('change',event=>{const field=event.target.dataset.holeRating;if(field&&field!=='note')return commit(field,event.target.value);});
+ node.addEventListener('click',event=>{if(event.target.closest('[data-save-hole-note]'))return commit('note',node.querySelector('[data-hole-rating="note"]').value);});
+ return {show(context){current=context;node.hidden=!context?.visible||!context.state?.won;if(node.hidden){key=null;node.open=false;return;}
+ const id=context.definition.id,row=(log.data.holeFeedback??[]).find(r=>r.hole_id===id),next=id+'|'+(row?.updated_at??'');if(next===key)return;const sameHole=key?.split('|')[0]===id;key=next;if(!sameHole)node.open=false;
+ node.innerHTML='<summary>Rate this hole <span>(optional)</span></summary><p class="subtle">Your experience, separate from Cleverness. Leave any item unrated.</p>'+Object.entries(choices).map(([field,options])=>`<label>${field==='enjoyment'?'Enjoyment':field==='opening'?'Opening':'Concept transitions'}<select data-hole-rating="${field}" aria-label="${field==='transitions'?'Concept transitions':field==='opening'?'Opening':'Enjoyment'}"><option value="">Not rated</option>${options.map(([value,label])=>`<option value="${value}"${row?.[field]===value?' selected':''}>${label}</option>`).join('')}</select></label>`).join('')+`<label>Note <span>(optional)</span><textarea data-hole-rating="note" maxlength="500" rows="2" aria-label="Hole feedback note">${esc(row?.note??'')}</textarea></label><button type="button" class="quiet" data-save-hole-note>Save note</button><p role="status" aria-live="polite">${row?'Rating saved on this device.':'Saved on this device and included in Export play data.'}</p>`;
+ }};
+}

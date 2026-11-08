@@ -52,5 +52,6 @@ export function personalPlayExport(daily,log){
  // Player stats outlive research batches. Do not leak old routes back into exports.
  data.holes=Object.fromEntries(Object.entries(data.holes).filter(([id])=>played.has(id)).map(([id,h])=>[id,Object.fromEntries(['id','date','tee','waypoint','flag','journeyId'].filter(key=>h[key]!==undefined).map(key=>[key,h[key]]))]));
  if(data.customHoles)data.customHoles=data.customHoles.filter(h=>played.has(h.id));
- return {version:2,exportedAt:new Date().toISOString(),batch:daily.storage?.batch??'legacy',playerStats:daily.stats(),daily:data,play:structuredClone(log.data)};
+ const holeStyles=Object.fromEntries((daily.manifest?.holes??[]).filter(h=>played.has(h.id)&&h.settings?.editorial_style).map(h=>[h.id,structuredClone(h.settings.editorial_style)]));
+ return {version:2,exportedAt:new Date().toISOString(),batch:daily.storage?.batch??'legacy',playerStats:daily.stats(),daily:data,play:structuredClone(log.data),...(Object.keys(holeStyles).length?{holeStyles}:{})};
 }

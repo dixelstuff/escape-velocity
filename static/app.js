@@ -10,11 +10,11 @@ import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continua
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
 import {howToPlay} from './how-to-play.mjs?v=help-scores-trophy-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
-import {openPlayArchive} from './play-archive.mjs?v=durable-results-v1';
+import {openPlayArchive} from './play-archive.mjs?v=four-styles-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
-import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=durable-results-v1';
+import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=four-styles-v1';
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=bunker-two-legs-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=bunker-two-legs-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=four-styles-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
 import {mountDailyUI} from './daily-ui.mjs?v=bunker-two-legs-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
@@ -39,15 +39,16 @@ import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
 import { createBrowserClient } from './engine.mjs?v=blocked-connectors-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=semantic-bunker-v1';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=blocked-connectors-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=four-styles-v1';
+import {mountHoleFeedback} from './hole-feedback-ui.mjs?v=four-styles-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=semantic-bunker-v1';
 import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './play-feedback.mjs?v=semantic-bunker-v1';
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
 const rollingParams=new URLSearchParams(location.search),adminMode=rollingParams.get('admin')==='1',simpleDaily=!adminMode||!rollingParams.has('lab'),competitiveMode=!simpleDaily&&rollingParams.get('mode')==='competitive',tourMode=!simpleDaily&&(competitiveMode||rollingParams.get('mode')==='tour'),rollingMode=!simpleDaily&&(tourMode||rollingParams.get('mode')==='rolling');
-const {dailyManifest:publicCollection}=await import('./public-manifest.mjs?v=vivid-discovery-ten-v1');
-const dailyManifest=adminMode?(await import('./admin-hole-order.mjs?v=rich-associations-thirty-v1')).adminHoleOrder((await import('./daily-manifest.mjs?v=vivid-discovery-ten-v1')).dailyManifest,publicCollection):publicCollection;
+const {dailyManifest:publicCollection}=await import('./public-manifest.mjs?v=four-styles-twenty-v1');
+const dailyManifest=adminMode?(await import('./admin-hole-order.mjs?v=rich-associations-thirty-v1')).adminHoleOrder((await import('./daily-manifest.mjs?v=four-styles-twenty-v1')).dailyManifest,publicCollection):publicCollection;
 document.body.classList.toggle('admin-mode',adminMode);
 document.body.classList.toggle('personal-daily',simpleDaily);document.body.classList.toggle('developer-mode',!simpleDaily);
 const rollingTestDay=rollingParams.get('date'),rollingSimulation=rollingMode&&/^\d{4}-\d{2}-\d{2}$/.test(rollingTestDay??'')&&Number.isFinite(Date.parse(rollingTestDay+'T00:00:00Z'));
@@ -274,6 +275,7 @@ const daily=simpleDaily?new DailyGame(personalStorage,dailyManifest):null;
 if(daily)daily.recoverResults(flightLog.data.journeys);
 let dailyUI,bunkerPrototype;
 const simulationPanel=mountSimulationPanel($('simulation-comparison'));
+const holeFeedbackPanel=mountHoleFeedback($('hole-feedback'),flightLog);
 function dailyBestState(kind='bestStrokes'){const best=daily?.current()?.[kind];return best?.state??flightLog.data.journeys.find(j=>j.id===best?.journeyId)?.state;}
 function renderDailyBests(){
  if(!simpleDaily||!state)return;
@@ -788,6 +790,7 @@ function update(){
  recordCourseState();map();telemetry();renderLog();updateArrivalSkill();
  if(!inCourse()){$('round-scorecard').hidden=true;$('replay-hole').hidden=false;$('replay-hole').textContent='TRY AGAIN';$('next-hole').textContent='NEXT HOLE';}
  renderScoringStatus();
+ holeFeedbackPanel.show({definition:daily?.selected(),state:state?.won?state:dailyBestState(),visible:simpleDaily&&holeResult()});
  styleResultButtonLabels();
  if(rollingMode&&rollingUI){rollingUI.render(!inCourse());renderRollingResult();rollingUI.renderSubmissionResult?.(roundSummary());}
  renderResultContext();

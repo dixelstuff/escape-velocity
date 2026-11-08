@@ -58,6 +58,8 @@ jobs:
           node tests/test_inviting_discovery_ten.mjs
           node tests/test_fresh_concepts_twenty.mjs
           node tests/test_vivid_discovery_ten.mjs
+          node tests/test_four_styles_twenty.mjs
+          node tests/test_hole_feedback.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs
           node tests/test_tap_dogleg.mjs
