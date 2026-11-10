@@ -1,6 +1,5 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as publicCollection} from '../static/public-manifest.mjs';
 import {adminHoleOrder} from '../static/admin-hole-order.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {holeNumber} from '../static/daily-ui.mjs';
@@ -9,6 +8,8 @@ import {requirePlayableWord} from '../static/playable-vocabulary.mjs';
 import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const read=f=>JSON.parse(fs.readFileSync('reports/meaningful-discovery-twenty/'+f)),v=read('validation.json'),checks=read('opening-checks.json'),{e}=loadResearchModel();
+// Reconstruct the original collection after later batches prepend.
+const publicCollection={version:1,view:'meaningful-discovery-twenty-v1',entryHoleId:v.holes[0].id,holes:[...v.holes,...v.retainedPublicIds.map(id=>archive.holes.find(h=>h.id===id))]};
 assert.equal(v.holes.length,20);assert.equal(publicCollection.holes.length,280);
 assert.deepEqual(publicCollection.holes.slice(0,20),v.holes);
 assert.deepEqual(publicCollection.holes.slice(20).map(h=>h.id),v.retainedPublicIds);

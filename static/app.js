@@ -47,8 +47,8 @@ import {attemptNotice,usefulForwardMiss,entryNotice,shortSecondShot} from './pla
 import {nearestWordTarget} from './word-taps.mjs?v=golf-v189';
 const $=id=>document.getElementById(id);
 const rollingParams=new URLSearchParams(location.search),adminMode=rollingParams.get('admin')==='1',simpleDaily=!adminMode||!rollingParams.has('lab'),competitiveMode=!simpleDaily&&rollingParams.get('mode')==='competitive',tourMode=!simpleDaily&&(competitiveMode||rollingParams.get('mode')==='tour'),rollingMode=!simpleDaily&&(tourMode||rollingParams.get('mode')==='rolling');
-const {dailyManifest:publicCollection}=await import('./public-manifest.mjs?v=meaningful-discovery-twenty-v1');
-const dailyManifest=adminMode?(await import('./admin-hole-order.mjs?v=rich-associations-thirty-v1')).adminHoleOrder((await import('./daily-manifest.mjs?v=meaningful-discovery-twenty-v1')).dailyManifest,publicCollection):publicCollection;
+const {dailyManifest:publicCollection}=await import('./public-manifest.mjs?v=grounded-discoveries-thirty-v1');
+const dailyManifest=adminMode?(await import('./admin-hole-order.mjs?v=rich-associations-thirty-v1')).adminHoleOrder((await import('./daily-manifest.mjs?v=grounded-discoveries-thirty-v1')).dailyManifest,publicCollection):publicCollection;
 document.body.classList.toggle('admin-mode',adminMode);
 document.body.classList.toggle('personal-daily',simpleDaily);document.body.classList.toggle('developer-mode',!simpleDaily);
 const rollingTestDay=rollingParams.get('date'),rollingSimulation=rollingMode&&/^\d{4}-\d{2}-\d{2}$/.test(rollingTestDay??'')&&Number.isFinite(Date.parse(rollingTestDay+'T00:00:00Z'));
