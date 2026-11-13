@@ -1,0 +1,858 @@
+{
+  "safe": [
+    "secure",
+    "danger",
+    "protect",
+    "home",
+    "care",
+    "lock"
+  ],
+  "chilli": [
+    "hot",
+    "pepper",
+    "spicy",
+    "food",
+    "red",
+    "sauce"
+  ],
+  "onion": [
+    "vegetable",
+    "cry",
+    "peel",
+    "layer",
+    "soup",
+    "bulb"
+  ],
+  "sausage": [
+    "meat",
+    "pork",
+    "cook",
+    "dog",
+    "roll",
+    "breakfast"
+  ],
+  "rat": [
+    "mouse",
+    "animal",
+    "dirty",
+    "tail",
+    "trap",
+    "rodent"
+  ],
+  "leak": [
+    "water",
+    "drip",
+    "hole",
+    "secret",
+    "pipe",
+    "escape"
+  ],
+  "fly": [
+    "bird",
+    "plane",
+    "insect",
+    "air",
+    "wing",
+    "travel"
+  ],
+  "show": [
+    "display",
+    "tell",
+    "theatre",
+    "reveal",
+    "stage",
+    "television"
+  ],
+  "metal": [
+    "iron",
+    "steel",
+    "hard",
+    "gold",
+    "silver",
+    "tool"
+  ],
+  "elephant": [
+    "animal",
+    "trunk",
+    "large",
+    "grey",
+    "tusk",
+    "memory"
+  ],
+  "zebra": [
+    "stripe",
+    "horse",
+    "black",
+    "white",
+    "animal",
+    "africa"
+  ],
+  "hockey": [
+    "stick",
+    "puck",
+    "ice",
+    "sport",
+    "goal",
+    "field"
+  ],
+  "poor": [
+    "money",
+    "rich",
+    "weak",
+    "bad",
+    "cheap",
+    "poverty"
+  ],
+  "tickle": [
+    "laugh",
+    "touch",
+    "feather",
+    "skin",
+    "funny",
+    "finger"
+  ],
+  "fish": [
+    "water",
+    "sea",
+    "swim",
+    "food",
+    "hook",
+    "river"
+  ],
+  "hop": [
+    "jump",
+    "rabbit",
+    "beer",
+    "skip",
+    "frog",
+    "leg"
+  ],
+  "grade": [
+    "level",
+    "score",
+    "class",
+    "mark",
+    "rank",
+    "school"
+  ],
+  "know": [
+    "think",
+    "understand",
+    "learn",
+    "fact",
+    "knowledge",
+    "recognise"
+  ],
+  "singing": [
+    "song",
+    "music",
+    "voice",
+    "choir",
+    "tune",
+    "sound"
+  ],
+  "dolphin": [
+    "sea",
+    "fish",
+    "swim",
+    "mammal",
+    "intelligent",
+    "ocean"
+  ],
+  "freeze": [
+    "ice",
+    "cold",
+    "stop",
+    "winter",
+    "still",
+    "water"
+  ],
+  "lightning": [
+    "storm",
+    "flash",
+    "electric",
+    "thunder",
+    "bolt",
+    "quick"
+  ],
+  "free": [
+    "cost",
+    "liberty",
+    "release",
+    "open",
+    "spare",
+    "time"
+  ],
+  "hide": [
+    "conceal",
+    "skin",
+    "seek",
+    "cover",
+    "secret",
+    "animal"
+  ],
+  "wrap": [
+    "paper",
+    "cover",
+    "gift",
+    "fold",
+    "blanket",
+    "package"
+  ],
+  "shopping": [
+    "buy",
+    "shop",
+    "bag",
+    "money",
+    "food",
+    "clothes"
+  ],
+  "soak": [
+    "water",
+    "wet",
+    "bath",
+    "sponge",
+    "rain",
+    "absorb"
+  ],
+  "panda": [
+    "bear",
+    "bamboo",
+    "black",
+    "white",
+    "animal",
+    "china"
+  ],
+  "rich": [
+    "wealth",
+    "money",
+    "luxury",
+    "expensive",
+    "gold",
+    "poor"
+  ],
+  "pineapple": [
+    "fruit",
+    "tropical",
+    "sweet",
+    "juice",
+    "yellow",
+    "spiky"
+  ],
+  "pan": [
+    "cook",
+    "metal",
+    "pot",
+    "handle",
+    "camera",
+    "fry"
+  ],
+  "slide": [
+    "slip",
+    "playground",
+    "move",
+    "fall",
+    "ice",
+    "smooth"
+  ],
+  "shut": [
+    "close",
+    "door",
+    "stop",
+    "eye",
+    "lock",
+    "mouth"
+  ],
+  "jog": [
+    "run",
+    "exercise",
+    "memory",
+    "slow",
+    "walk",
+    "nudge"
+  ],
+  "cocoon": [
+    "silk",
+    "butterfly",
+    "insect",
+    "wrap",
+    "safe",
+    "shell"
+  ],
+  "soup": [
+    "food",
+    "bowl",
+    "hot",
+    "spoon",
+    "broth",
+    "vegetable"
+  ],
+  "coconut": [
+    "fruit",
+    "shell",
+    "milk",
+    "palm",
+    "tropical",
+    "hair"
+  ],
+  "party": [
+    "celebrate",
+    "birthday",
+    "group",
+    "politics",
+    "dance",
+    "friend"
+  ],
+  "hug": [
+    "embrace",
+    "hold",
+    "love",
+    "friend",
+    "cuddle",
+    "arms"
+  ],
+  "steak": [
+    "meat",
+    "beef",
+    "cook",
+    "grill",
+    "knife",
+    "dinner"
+  ],
+  "sack": [
+    "bag",
+    "fire",
+    "work",
+    "potato",
+    "carry",
+    "bed"
+  ],
+  "wall": [
+    "brick",
+    "house",
+    "barrier",
+    "paint",
+    "climb",
+    "stone"
+  ],
+  "coffee": [
+    "drink",
+    "bean",
+    "cup",
+    "hot",
+    "morning",
+    "bitter"
+  ],
+  "noodle": [
+    "pasta",
+    "soup",
+    "food",
+    "long",
+    "string",
+    "cook"
+  ],
+  "word": [
+    "say",
+    "language",
+    "letter",
+    "speak",
+    "book",
+    "sentence"
+  ],
+  "sneeze": [
+    "nose",
+    "cold",
+    "dust",
+    "allergy",
+    "tissue",
+    "sound"
+  ],
+  "cycling": [
+    "bike",
+    "wheel",
+    "ride",
+    "pedal",
+    "sport",
+    "road"
+  ],
+  "skirt": [
+    "clothes",
+    "dress",
+    "hem",
+    "edge",
+    "woman",
+    "avoid"
+  ],
+  "throw": [
+    "ball",
+    "catch",
+    "toss",
+    "arm",
+    "away",
+    "pitch"
+  ],
+  "reading": [
+    "book",
+    "text",
+    "word",
+    "eye",
+    "study",
+    "story"
+  ],
+  "spray": [
+    "water",
+    "mist",
+    "bottle",
+    "paint",
+    "perfume",
+    "hair"
+  ],
+  "cough": [
+    "cold",
+    "throat",
+    "sound",
+    "sick",
+    "chest",
+    "smoke"
+  ],
+  "freezer": [
+    "cold",
+    "ice",
+    "food",
+    "frozen",
+    "fridge",
+    "store"
+  ],
+  "hat": [
+    "head",
+    "cap",
+    "wear",
+    "clothes",
+    "brim",
+    "cover"
+  ],
+  "right": [
+    "left",
+    "correct",
+    "direction",
+    "law",
+    "hand",
+    "proper"
+  ],
+  "microwave": [
+    "oven",
+    "heat",
+    "food",
+    "wave",
+    "cook",
+    "quick"
+  ],
+  "untie": [
+    "knot",
+    "rope",
+    "undo",
+    "lace",
+    "free",
+    "release"
+  ],
+  "van": [
+    "car",
+    "truck",
+    "vehicle",
+    "carry",
+    "road",
+    "delivery"
+  ],
+  "paragraph": [
+    "sentence",
+    "text",
+    "book",
+    "write",
+    "section",
+    "page"
+  ],
+  "ache": [
+    "pain",
+    "hurt",
+    "sore",
+    "muscle",
+    "dull",
+    "heart"
+  ],
+  "robin": [
+    "bird",
+    "red",
+    "breast",
+    "nest",
+    "song",
+    "worm"
+  ],
+  "soccer": [
+    "football",
+    "ball",
+    "kick",
+    "goal",
+    "sport",
+    "team"
+  ],
+  "giraffe": [
+    "animal",
+    "neck",
+    "tall",
+    "spot",
+    "leaf",
+    "africa"
+  ],
+  "nice": [
+    "kind",
+    "good",
+    "pleasant",
+    "friendly",
+    "sweet",
+    "polite"
+  ],
+  "pick": [
+    "choose",
+    "fruit",
+    "tool",
+    "guitar",
+    "select",
+    "lift"
+  ],
+  "sky": [
+    "blue",
+    "cloud",
+    "air",
+    "sun",
+    "bird",
+    "high"
+  ],
+  "tomato": [
+    "fruit",
+    "red",
+    "sauce",
+    "salad",
+    "plant",
+    "soup"
+  ],
+  "bacon": [
+    "pig",
+    "meat",
+    "pork",
+    "breakfast",
+    "fry",
+    "egg"
+  ],
+  "hen": [
+    "chicken",
+    "egg",
+    "bird",
+    "farm",
+    "female",
+    "cluck"
+  ],
+  "grab": [
+    "hold",
+    "take",
+    "catch",
+    "hand",
+    "quick",
+    "snatch"
+  ],
+  "block": [
+    "stop",
+    "brick",
+    "cube",
+    "wood",
+    "prevent",
+    "street"
+  ],
+  "concrete": [
+    "cement",
+    "hard",
+    "building",
+    "solid",
+    "real",
+    "grey"
+  ],
+  "answer": [
+    "question",
+    "reply",
+    "solution",
+    "respond",
+    "phone",
+    "correct"
+  ],
+  "mud": [
+    "dirt",
+    "water",
+    "wet",
+    "soil",
+    "brown",
+    "sticky"
+  ],
+  "ash": [
+    "fire",
+    "dust",
+    "grey",
+    "burn",
+    "tree",
+    "smoke"
+  ],
+  "open": [
+    "close",
+    "door",
+    "start",
+    "free",
+    "wide",
+    "reveal"
+  ],
+  "rabbit": [
+    "animal",
+    "hop",
+    "ear",
+    "carrot",
+    "burrow",
+    "pet"
+  ],
+  "raise": [
+    "lift",
+    "up",
+    "child",
+    "money",
+    "grow",
+    "increase"
+  ],
+  "homework": [
+    "school",
+    "work",
+    "lesson",
+    "study",
+    "book",
+    "task"
+  ],
+  "beetle": [
+    "insect",
+    "shell",
+    "car",
+    "bug",
+    "wing",
+    "crawl"
+  ],
+  "shorts": [
+    "clothes",
+    "summer",
+    "leg",
+    "trousers",
+    "sport",
+    "brief"
+  ],
+  "shape": [
+    "form",
+    "outline",
+    "figure",
+    "body",
+    "circle",
+    "mould"
+  ],
+  "blink": [
+    "eye",
+    "wink",
+    "quick",
+    "light",
+    "flash",
+    "close"
+  ],
+  "basketball": [
+    "ball",
+    "hoop",
+    "basket",
+    "sport",
+    "court",
+    "bounce"
+  ],
+  "pat": [
+    "touch",
+    "dog",
+    "head",
+    "tap",
+    "gentle",
+    "stroke"
+  ],
+  "code": [
+    "secret",
+    "number",
+    "computer",
+    "rule",
+    "password",
+    "cipher"
+  ],
+  "pigeon": [
+    "bird",
+    "city",
+    "feather",
+    "coo",
+    "fly",
+    "message"
+  ],
+  "cut": [
+    "knife",
+    "slice",
+    "hair",
+    "wound",
+    "reduce",
+    "chop"
+  ],
+  "deer": [
+    "animal",
+    "antler",
+    "forest",
+    "wild",
+    "stag",
+    "park"
+  ],
+  "tusk": [
+    "elephant",
+    "ivory",
+    "tooth",
+    "animal",
+    "horn",
+    "white"
+  ],
+  "salad": [
+    "food",
+    "leaf",
+    "vegetable",
+    "bowl",
+    "lettuce",
+    "fresh"
+  ],
+  "whale": [
+    "sea",
+    "mammal",
+    "large",
+    "water",
+    "blow",
+    "ocean"
+  ],
+  "cow": [
+    "milk",
+    "farm",
+    "animal",
+    "bull",
+    "calf",
+    "grass"
+  ],
+  "hippo": [
+    "animal",
+    "river",
+    "water",
+    "large",
+    "africa",
+    "mud"
+  ],
+  "mug": [
+    "cup",
+    "drink",
+    "coffee",
+    "face",
+    "rob",
+    "handle"
+  ],
+  "berry": [
+    "fruit",
+    "red",
+    "small",
+    "sweet",
+    "bush",
+    "juice"
+  ],
+  "cold": [
+    "ice",
+    "winter",
+    "hot",
+    "illness",
+    "chill",
+    "snow"
+  ],
+  "hamster": [
+    "pet",
+    "animal",
+    "wheel",
+    "cage",
+    "rodent",
+    "small"
+  ],
+  "sad": [
+    "unhappy",
+    "cry",
+    "tears",
+    "grief",
+    "blue",
+    "sorrow"
+  ],
+  "rain": [
+    "water",
+    "wet",
+    "cloud",
+    "weather",
+    "umbrella",
+    "shower"
+  ],
+  "dog": [
+    "pet",
+    "bark",
+    "animal",
+    "loyal",
+    "puppy",
+    "walk"
+  ],
+  "road": [
+    "street",
+    "car",
+    "path",
+    "drive",
+    "travel",
+    "route"
+  ],
+  "nod": [
+    "head",
+    "agree",
+    "sleep",
+    "shake",
+    "bow",
+    "gesture"
+  ],
+  "drawing": [
+    "picture",
+    "art",
+    "pencil",
+    "sketch",
+    "line",
+    "paper"
+  ],
+  "tiger": [
+    "cat",
+    "animal",
+    "stripe",
+    "orange",
+    "jungle",
+    "claw"
+  ],
+  "blend": [
+    "mix",
+    "colour",
+    "smooth",
+    "combine",
+    "drink",
+    "merge"
+  ],
+  "wood": [
+    "tree",
+    "timber",
+    "forest",
+    "hard",
+    "plank",
+    "fire"
+  ]
+}
