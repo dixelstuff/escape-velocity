@@ -1,0 +1,586 @@
+{
+  "ant": [
+    "insect",
+    "colony",
+    "tiny",
+    "hill",
+    "worker",
+    "bite"
+  ],
+  "asleep": [
+    "sleep",
+    "bed",
+    "dream",
+    "night",
+    "tired",
+    "rest"
+  ],
+  "back": [
+    "front",
+    "behind",
+    "spine",
+    "return",
+    "rear",
+    "pain"
+  ],
+  "bag": [
+    "sack",
+    "carry",
+    "shopping",
+    "handle",
+    "luggage",
+    "pocket"
+  ],
+  "bang": [
+    "noise",
+    "loud",
+    "hit",
+    "drum",
+    "explosion",
+    "door"
+  ],
+  "bird": [
+    "wing",
+    "feather",
+    "fly",
+    "nest",
+    "beak",
+    "song"
+  ],
+  "butterfly": [
+    "wing",
+    "insect",
+    "caterpillar",
+    "flower",
+    "fly",
+    "colourful"
+  ],
+  "cap": [
+    "hat",
+    "head",
+    "lid",
+    "bottle",
+    "cover",
+    "peak"
+  ],
+  "celery": [
+    "vegetable",
+    "stalk",
+    "green",
+    "soup",
+    "crunchy",
+    "salad"
+  ],
+  "class": [
+    "school",
+    "lesson",
+    "teacher",
+    "pupil",
+    "room",
+    "group"
+  ],
+  "claw": [
+    "nail",
+    "scratch",
+    "animal",
+    "paw",
+    "sharp",
+    "grip"
+  ],
+  "colour": [
+    "red",
+    "blue",
+    "paint",
+    "rainbow",
+    "shade",
+    "bright"
+  ],
+  "cool": [
+    "cold",
+    "chill",
+    "calm",
+    "fresh",
+    "breeze",
+    "trendy"
+  ],
+  "couch": [
+    "sofa",
+    "seat",
+    "lounge",
+    "cushion",
+    "sit",
+    "comfortable"
+  ],
+  "crab": [
+    "shell",
+    "sea",
+    "claw",
+    "beach",
+    "sideways",
+    "seafood"
+  ],
+  "crossing": [
+    "road",
+    "bridge",
+    "pedestrian",
+    "junction",
+    "traffic",
+    "cross"
+  ],
+  "cucumber": [
+    "salad",
+    "green",
+    "vegetable",
+    "slice",
+    "fresh",
+    "pickle"
+  ],
+  "dear": [
+    "love",
+    "darling",
+    "precious",
+    "expensive",
+    "friend",
+    "letter"
+  ],
+  "fall": [
+    "drop",
+    "autumn",
+    "leaf",
+    "stumble",
+    "down",
+    "trip"
+  ],
+  "feel": [
+    "touch",
+    "sense",
+    "emotion",
+    "hand",
+    "soft",
+    "hurt"
+  ],
+  "front": [
+    "back",
+    "face",
+    "entrance",
+    "forward",
+    "ahead",
+    "door"
+  ],
+  "grape": [
+    "fruit",
+    "vine",
+    "wine",
+    "bunch",
+    "purple",
+    "juice"
+  ],
+  "guess": [
+    "answer",
+    "question",
+    "estimate",
+    "think",
+    "chance",
+    "puzzle"
+  ],
+  "jeans": [
+    "trousers",
+    "denim",
+    "blue",
+    "pocket",
+    "clothes",
+    "wear"
+  ],
+  "jump": [
+    "leap",
+    "hop",
+    "bounce",
+    "high",
+    "skip",
+    "spring"
+  ],
+  "lettuce": [
+    "salad",
+    "leaf",
+    "green",
+    "vegetable",
+    "crunchy",
+    "cabbage"
+  ],
+  "lick": [
+    "tongue",
+    "taste",
+    "lips",
+    "ice",
+    "cream",
+    "dog"
+  ],
+  "lid": [
+    "cover",
+    "pot",
+    "jar",
+    "top",
+    "cap",
+    "open"
+  ],
+  "lion": [
+    "cat",
+    "mane",
+    "roar",
+    "animal",
+    "pride",
+    "wild"
+  ],
+  "lose": [
+    "win",
+    "lost",
+    "find",
+    "defeat",
+    "game",
+    "forget"
+  ],
+  "lower": [
+    "down",
+    "higher",
+    "bottom",
+    "reduce",
+    "decrease",
+    "below"
+  ],
+  "lunch": [
+    "meal",
+    "food",
+    "midday",
+    "sandwich",
+    "dinner",
+    "eat"
+  ],
+  "mix": [
+    "stir",
+    "blend",
+    "combine",
+    "bowl",
+    "mixture",
+    "together"
+  ],
+  "morning": [
+    "dawn",
+    "breakfast",
+    "sunrise",
+    "early",
+    "wake",
+    "day"
+  ],
+  "nasty": [
+    "mean",
+    "cruel",
+    "unpleasant",
+    "horrible",
+    "bad",
+    "spite"
+  ],
+  "page": [
+    "book",
+    "paper",
+    "read",
+    "sheet",
+    "turn",
+    "number"
+  ],
+  "painting": [
+    "art",
+    "brush",
+    "colour",
+    "canvas",
+    "picture",
+    "paint"
+  ],
+  "password": [
+    "secret",
+    "login",
+    "code",
+    "security",
+    "account",
+    "access"
+  ],
+  "pear": [
+    "fruit",
+    "apple",
+    "sweet",
+    "juice",
+    "tree",
+    "ripe"
+  ],
+  "pig": [
+    "animal",
+    "farm",
+    "pork",
+    "snout",
+    "pink",
+    "mud"
+  ],
+  "prawn": [
+    "shrimp",
+    "seafood",
+    "shell",
+    "fish",
+    "sea",
+    "pink"
+  ],
+  "purse": [
+    "wallet",
+    "money",
+    "bag",
+    "pocket",
+    "coin",
+    "leather"
+  ],
+  "question": [
+    "answer",
+    "ask",
+    "query",
+    "quiz",
+    "problem",
+    "why"
+  ],
+  "rhino": [
+    "horn",
+    "animal",
+    "thick",
+    "skin",
+    "wild",
+    "large"
+  ],
+  "rubber": [
+    "elastic",
+    "tyre",
+    "bounce",
+    "eraser",
+    "stretch",
+    "gum"
+  ],
+  "run": [
+    "jog",
+    "race",
+    "sprint",
+    "fast",
+    "walk",
+    "leg"
+  ],
+  "sailing": [
+    "boat",
+    "sea",
+    "yacht",
+    "wind",
+    "sail",
+    "water"
+  ],
+  "sandwich": [
+    "bread",
+    "lunch",
+    "cheese",
+    "ham",
+    "filling",
+    "food"
+  ],
+  "sheep": [
+    "wool",
+    "lamb",
+    "flock",
+    "farm",
+    "animal",
+    "grass"
+  ],
+  "shower": [
+    "rain",
+    "wash",
+    "bath",
+    "water",
+    "wet",
+    "soap"
+  ],
+  "snack": [
+    "food",
+    "eat",
+    "biscuit",
+    "lunch",
+    "hungry",
+    "bite"
+  ],
+  "step": [
+    "stair",
+    "walk",
+    "foot",
+    "pace",
+    "climb",
+    "ladder"
+  ],
+  "street": [
+    "road",
+    "town",
+    "pavement",
+    "traffic",
+    "house",
+    "avenue"
+  ],
+  "supper": [
+    "dinner",
+    "evening",
+    "meal",
+    "food",
+    "eat",
+    "night"
+  ],
+  "table": [
+    "desk",
+    "chair",
+    "wood",
+    "furniture",
+    "flat",
+    "dining"
+  ],
+  "tail": [
+    "animal",
+    "dog",
+    "wag",
+    "back",
+    "end",
+    "cat"
+  ],
+  "tea": [
+    "drink",
+    "cup",
+    "hot",
+    "leaf",
+    "kettle",
+    "brew"
+  ],
+  "think": [
+    "thought",
+    "mind",
+    "idea",
+    "brain",
+    "consider",
+    "ponder"
+  ],
+  "top": [
+    "bottom",
+    "upper",
+    "peak",
+    "lid",
+    "high",
+    "summit"
+  ],
+  "trousers": [
+    "pants",
+    "leg",
+    "clothes",
+    "jeans",
+    "wear",
+    "pocket"
+  ],
+  "unlock": [
+    "key",
+    "lock",
+    "open",
+    "door",
+    "release",
+    "access"
+  ],
+  "web": [
+    "spider",
+    "internet",
+    "net",
+    "thread",
+    "site",
+    "silk"
+  ],
+  "win": [
+    "victory",
+    "lose",
+    "prize",
+    "race",
+    "game",
+    "champion"
+  ],
+  "worm": [
+    "soil",
+    "earth",
+    "garden",
+    "wriggle",
+    "bait",
+    "insect"
+  ],
+  "write": [
+    "pen",
+    "paper",
+    "letter",
+    "word",
+    "pencil",
+    "note"
+  ],
+  "writing": [
+    "pen",
+    "book",
+    "author",
+    "paper",
+    "text",
+    "letter"
+  ],
+  "bed": [
+    "sleep",
+    "pillow",
+    "mattress",
+    "sheet",
+    "rest",
+    "bedroom"
+  ],
+  "burger": [
+    "bun",
+    "meat",
+    "beef",
+    "food",
+    "fries",
+    "sandwich"
+  ],
+  "ceiling": [
+    "roof",
+    "floor",
+    "room",
+    "above",
+    "plaster",
+    "light"
+  ],
+  "ham": [
+    "pork",
+    "meat",
+    "sandwich",
+    "bacon",
+    "pig",
+    "slice"
+  ],
+  "mist": [
+    "fog",
+    "cloud",
+    "damp",
+    "morning",
+    "water",
+    "haze"
+  ],
+  "stew": [
+    "soup",
+    "meat",
+    "cook",
+    "pot",
+    "simmer",
+    "food"
+  ],
+  "toaster": [
+    "bread",
+    "toast",
+    "breakfast",
+    "kitchen",
+    "hot",
+    "appliance"
+  ]
+}

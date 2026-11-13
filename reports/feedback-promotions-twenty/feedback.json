@@ -1,0 +1,242 @@
+[
+  {
+    "hole_id": "daily-2029-06-20",
+    "words": [
+      "drawer",
+      "shape",
+      "breakfast"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-21",
+    "words": [
+      "heal",
+      "knot",
+      "badminton"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "satisfying",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-22",
+    "words": [
+      "hurt",
+      "awake",
+      "hockey"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-23",
+    "words": [
+      "dangerous",
+      "snail",
+      "bean"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-24",
+    "words": [
+      "egg",
+      "cry",
+      "left"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-25",
+    "words": [
+      "hungry",
+      "sofa",
+      "word"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-06-26",
+    "words": [
+      "bear",
+      "snip",
+      "chicken"
+    ],
+    "enjoyment": "2",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": "Not a great hole."
+  },
+  {
+    "hole_id": "daily-2029-06-27",
+    "words": [
+      "moon",
+      "turkey",
+      "free"
+    ],
+    "enjoyment": "2",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": "No good"
+  },
+  {
+    "hole_id": "daily-2029-06-28",
+    "words": [
+      "sniff",
+      "tusk",
+      "berry"
+    ],
+    "enjoyment": "1",
+    "opening": "too_hard",
+    "transitions": "forced",
+    "note": "Terrible. Tusk is a word to avoid."
+  },
+  {
+    "hole_id": "daily-2029-06-29",
+    "words": [
+      "star",
+      "fly",
+      "salad"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": "Light and green are fair here I think because skylight is a thing and green salad is a thing but linking colour related words is generally a bit of a cheat."
+  },
+  {
+    "hole_id": "daily-2029-06-30",
+    "words": [
+      "cheese",
+      "nod",
+      "count"
+    ],
+    "enjoyment": "1",
+    "opening": "too_hard",
+    "transitions": "ordinary",
+    "note": "Nod plays badly."
+  },
+  {
+    "hole_id": "daily-2029-07-01",
+    "words": [
+      "fill",
+      "house",
+      "camel"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "satisfying",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-02",
+    "words": [
+      "lightning",
+      "steel",
+      "cocoon"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": "Interesting that electric made it to dogleg."
+  },
+  {
+    "hole_id": "daily-2029-07-03",
+    "words": [
+      "fur",
+      "alley",
+      "smirk"
+    ],
+    "enjoyment": "3",
+    "opening": "too_obvious",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-04",
+    "words": [
+      "goat",
+      "desk",
+      "wedding"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-05",
+    "words": [
+      "clever",
+      "subtract",
+      "hamster"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-06",
+    "words": [
+      "sock",
+      "stir",
+      "iron"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-07",
+    "words": [
+      "seek",
+      "potato",
+      "grade"
+    ],
+    "enjoyment": "3",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  },
+  {
+    "hole_id": "daily-2029-07-08",
+    "words": [
+      "meat",
+      "thirsty",
+      "dessert"
+    ],
+    "enjoyment": "2",
+    "opening": "too_obvious",
+    "transitions": "ordinary",
+    "note": "Too easy."
+  },
+  {
+    "hole_id": "daily-2029-07-09",
+    "words": [
+      "heat",
+      "rock",
+      "cricket"
+    ],
+    "enjoyment": "4",
+    "opening": "about_right",
+    "transitions": "ordinary",
+    "note": ""
+  }
+]

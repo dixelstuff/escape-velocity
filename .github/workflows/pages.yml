@@ -69,6 +69,7 @@ jobs:
           node tests/test_random_replacement_twenty.mjs
           node tests/test_familiar_replacement_nineteen.mjs
           node tests/test_reviewed_ten_and_new_twenty.mjs
+          node tests/test_feedback_promotions_twenty.mjs
           node tests/test_hole_feedback.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs
