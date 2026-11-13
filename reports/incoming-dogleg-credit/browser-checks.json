@@ -1,0 +1,63 @@
+{
+  "scope": "Local app and actual browser worker in isolated temporary desktop/mobile Chrome contexts; no real browser storage used. Compact report rescoring and text exports checked.",
+  "checks": [
+    {
+      "surface": "Desktop",
+      "results": [
+        {
+          "id": "P-A",
+          "score": 85,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": true,
+          "again": 85,
+          "text": true
+        },
+        {
+          "id": "PLAY-B",
+          "score": 83,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": true,
+          "again": 83,
+          "text": true
+        },
+        {
+          "id": "E",
+          "score": 79,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": false,
+          "again": 79,
+          "text": true
+        }
+      ]
+    },
+    {
+      "surface": "Mobile",
+      "results": [
+        {
+          "id": "P-A",
+          "score": 85,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": true,
+          "again": 85,
+          "text": true
+        },
+        {
+          "id": "PLAY-B",
+          "score": 83,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": true,
+          "again": 83,
+          "text": true
+        },
+        {
+          "id": "E",
+          "score": 79,
+          "version": "band-free-harmonic-v8-incoming-dogleg",
+          "applied": false,
+          "again": 79,
+          "text": true
+        }
+      ]
+    }
+  ]
+}

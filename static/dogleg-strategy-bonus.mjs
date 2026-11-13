@@ -1,7 +1,8 @@
 /** Browser-only, route-local mechanical evidence. No vocabulary search or word-specific rules. */
 import {Game} from './engine.mjs?v=blocked-connectors-v1';
-import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=dogleg-continuation-v1';
+import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=incoming-dogleg-v1';
 export const DOGLEG_STRATEGY_VERSION='dogleg-access-bonus-v1';
+export const ACCESS_EVIDENCE_VERSION='dogleg-access-evidence-v2';
 export const DOGLEG_STRATEGY_POINTS=3;
 export const ACCESS_MARGIN_SPAN=.05;
 // Existing S includes at most .4 landing weight × .5 corner weight × .10 access uplift.
@@ -20,7 +21,7 @@ function shot(g,word){
  catch(error){return {works:null,margin:null,gain:0,error:error.message};}
 }
 export function doglegAccessEvidence(e,s,post){
- const base={version:DOGLEG_STRATEGY_VERSION,available:true,eligible:false,incoming_gain:0,outgoing_gain:0,margin_span:ACCESS_MARGIN_SPAN};
+ const base={version:DOGLEG_STRATEGY_VERSION,evidence_version:ACCESS_EVIDENCE_VERSION,route:[...(s.route??[])],position:s.history.findIndex(h=>h.waypoint_reached)+1,available:true,eligible:false,incoming_gain:0,outgoing_gain:0,margin_span:ACCESS_MARGIN_SPAN};
  if(!s.waypoint)return {...base,reason:'No dogleg'};
  if(!post||!s.won)return {...base,available:false,reason:'Validated completed route required'};
  const index=post.history.length-1,landing=s.history[index],W=s.waypoint.word,F=s.final_target;

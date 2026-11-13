@@ -1,0 +1,175 @@
+{
+  "previousVersion": "band-free-harmonic-v7-dogleg-continuation",
+  "version": "band-free-harmonic-v8-incoming-dogleg",
+  "uniqueRoutes": 586,
+  "elapsedMs": 188679.245375,
+  "assetBytes": 17035,
+  "changes": [
+    {
+      "id": 139,
+      "old": 37,
+      "new": 39
+    },
+    {
+      "id": 156,
+      "old": 46,
+      "new": 47
+    },
+    {
+      "id": 159,
+      "old": 57,
+      "new": 58
+    },
+    {
+      "id": 160,
+      "old": 46,
+      "new": 47
+    },
+    {
+      "id": 168,
+      "old": 40,
+      "new": 42
+    },
+    {
+      "id": 179,
+      "old": 44,
+      "new": 48
+    },
+    {
+      "id": 187,
+      "old": 52,
+      "new": 53
+    },
+    {
+      "id": 189,
+      "old": 29,
+      "new": 31
+    },
+    {
+      "id": 191,
+      "old": 44,
+      "new": 45
+    },
+    {
+      "id": 202,
+      "old": 34,
+      "new": 35
+    },
+    {
+      "id": 221,
+      "old": 37,
+      "new": 39
+    },
+    {
+      "id": 222,
+      "old": 24,
+      "new": 25
+    },
+    {
+      "id": 255,
+      "old": 45,
+      "new": 46
+    },
+    {
+      "id": 263,
+      "old": 34,
+      "new": 35
+    },
+    {
+      "id": 265,
+      "old": 40,
+      "new": 42
+    },
+    {
+      "id": 270,
+      "old": 26,
+      "new": 27
+    },
+    {
+      "id": 325,
+      "old": 35,
+      "new": 38
+    },
+    {
+      "id": 374,
+      "old": 34,
+      "new": 37
+    },
+    {
+      "id": 393,
+      "old": 33,
+      "new": 35
+    },
+    {
+      "id": 400,
+      "old": 36,
+      "new": 39
+    },
+    {
+      "id": 402,
+      "old": 38,
+      "new": 40
+    },
+    {
+      "id": 403,
+      "old": 43,
+      "new": 44
+    },
+    {
+      "id": 405,
+      "old": 17,
+      "new": 18
+    },
+    {
+      "id": 418,
+      "old": 35,
+      "new": 37
+    },
+    {
+      "id": 423,
+      "old": 24,
+      "new": 25
+    },
+    {
+      "id": 431,
+      "old": 29,
+      "new": 31
+    },
+    {
+      "id": 433,
+      "old": 24,
+      "new": 25
+    },
+    {
+      "id": 442,
+      "old": 43,
+      "new": 44
+    },
+    {
+      "id": 444,
+      "old": 41,
+      "new": 43
+    },
+    {
+      "id": 447,
+      "old": 17,
+      "new": 18
+    },
+    {
+      "id": 454,
+      "old": 42,
+      "new": 45
+    },
+    {
+      "id": 480,
+      "old": 20,
+      "new": 22
+    },
+    {
+      "id": 516,
+      "old": 22,
+      "new": 23
+    }
+  ],
+  "scope": "Identical routes and draw records; strokes, outcomes, seeds and sampling frequencies unchanged."
+}

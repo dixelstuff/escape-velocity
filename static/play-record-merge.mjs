@@ -1,4 +1,4 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
 import {mergeHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
 const timestamp=o=>String(o?.updatedAt??o?.updated_at??o?.completedAt??o?.startedAt??'');
 const score=b=>Number.isFinite(b?.unrounded)?b.unrounded:Number.isFinite(b?.cleverness)?b.cleverness:Number.isFinite(b?.score)?b.score:-1;

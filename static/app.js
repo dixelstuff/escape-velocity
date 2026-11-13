@@ -3,22 +3,22 @@ import {mountBunkerPrototype} from './bunker-prototype.mjs?v=bunker-hit-only-v1'
 import {semanticBunkerArt,semanticBunkerPosition} from './semantic-bunker-map.mjs?v=bunker-two-legs-v1';
 import {SPELLING_EQUIVALENCE,stateSpelling} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
 import {createResultMapCamera} from './result-map-camera.mjs?v=quick-result-camera-v1';
-import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=dogleg-continuation-v1';
+import {mountSimulationPanel,SIMULATION_HOLE_IDS} from './simulation-panel.mjs?v=incoming-dogleg-v1';
 import {simulationSettingsKey} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 import {bestRouteCard} from './best-route-card.mjs?v=centred-results-v1';
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=dogleg-continuation-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
 import {bestResultState,recoverBestState} from './daily-results.mjs?v=cubic-results-v1';
 import {howToPlay} from './how-to-play.mjs?v=help-scores-trophy-v1';
 import {animateLabelBody} from './label-motion.mjs?v=stable-frame-v1';
-import {openPlayArchive} from './play-archive.mjs?v=four-styles-v1';
+import {openPlayArchive} from './play-archive.mjs?v=incoming-dogleg-v1';
 import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
 import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './personal-play-storage.mjs?v=four-styles-v1';
-import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=bunker-two-legs-v1';
-import {DailyGame,golfResult} from './daily-game.mjs?v=four-styles-v1';
-import {isNewBestFinish} from './new-best-finish.mjs?v=dogleg-continuation-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=bunker-two-legs-v1';
-import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=strong-arrival-v1';
-import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=strong-arrival-v1';
+import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=incoming-dogleg-v1';
+import {DailyGame,golfResult} from './daily-game.mjs?v=incoming-dogleg-v1';
+import {isNewBestFinish} from './new-best-finish.mjs?v=incoming-dogleg-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=incoming-dogleg-v1';
+import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=incoming-dogleg-v1';
+import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=incoming-dogleg-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
 import {completedCourseLift,completedCardOverlap,completedMapHeight,completedMapView,holePanelHeight,resultContext} from './result-presentation.mjs?v=centred-results-v1';
 import {SCORING_CLOSED,PRACTICE_MODE,scoringReminder,currentStrokeText} from './scoring-status.mjs?v=golf-v189';
@@ -36,10 +36,10 @@ import {courseSurrounds,courseTrees,par3PathArt,courseBunkers,courseLake,courseA
 import { pinPlacement, greenPath, greenContains, courseStyle, lakeGeometry } from './course-appearance.mjs?v=quick-result-camera-v1';
 import { shotMotion, shotTrail, automaticFinishMotion } from './shot-motion.mjs?v=golf-v189';
 import { hubWarningText } from './hub-warning.mjs?v=golf-v189';
-import { createBrowserClient } from './engine.mjs?v=blocked-connectors-v1';
+import { createBrowserClient } from './engine.mjs?v=incoming-dogleg-v1';
 import { mapLayout, par3CentreTrace, projectX, projectPoint, chipArcBands, visibleAttempts, layoutLabels } from './map.mjs?v=golf-v189';
 import { startupAction, restartSettings, bankRestartSettings } from './startup.mjs?v=semantic-bunker-v1';
-import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=four-styles-v1';
+import { FlightLog, outcome, journeyText } from './flight-log.mjs?v=incoming-dogleg-v1';
 import {mountHoleFeedback} from './hole-feedback-ui.mjs?v=four-styles-v1';
 import { bridgeKey, openingGreenShots } from './bridge-feedback.mjs?v=golf-v189';
 import {previousAttempts,previousWordLabels,showPreviousLabels,waypointRetryDisplay,waypointTargetLie} from './attempt-ghosts.mjs?v=semantic-bunker-v1';
@@ -344,7 +344,7 @@ function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
-const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=strong-arrival-v1')).mountPlaytestPanel;
+const legacyPlaytestMount=simpleDaily?null:(await import('./cleverness-playtest-panel.mjs?v=incoming-dogleg-v1')).mountPlaytestPanel;
 const playtestPanel=(simpleDaily?mountDailyCleverness:legacyPlaytestMount)($('cleverness-playtest'),{request:saved=>api('cleverness-vector',{state:saved}),modelHash,getSavedReport:key=>flightLog.data.journeys.find(j=>j.cleverness_playtest?.key===key)?.cleverness_playtest,onReport:(saved,report)=>{flightLog.recordClevernessPlaytest(report);if(simpleDaily){const journey=flightLog.data.journeys.find(j=>j.state.won&&j.cleverness_playtest?.key===report.key);if(!daily.recordRetainedReport(saved,report,journey)&&journey)daily.recordReport(journey);renderDailyBests();}}});
 const oldPanels=[];
 if(!simpleDaily){

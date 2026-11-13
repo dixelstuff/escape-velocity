@@ -24,7 +24,7 @@ Current context: 9 November 2026. Prefer the executable live paths below over hi
 
 ## Live Cleverness
 
-The final live identity is **`band-free-harmonic-v7-dogleg-continuation`**, defined in `static/cleverness-score-config.mjs`. The underlying relaxed-leg operator retains its v4 name. Entry points are `static/vector-cleverness/index.mjs`, `band-free.mjs`, `static/score-stretch.mjs` and the dogleg evidence modules.
+The final live identity is **`band-free-harmonic-v8-incoming-dogleg`**, defined in `static/cleverness-score-config.mjs`. The underlying relaxed-leg operator retains its v4 name. Entry points are `static/vector-cleverness/index.mjs`, `band-free.mjs`, `static/score-stretch.mjs` and the dogleg evidence modules.
 
 - Entirely vector-based. Preserve semantic ingenuity **I**, strategic effectiveness **S**, route elegance **E**, legal skippability and strongest meaningful sequence selection. A useful setup or outstanding pivot can matter without every word being exceptional. No morphology penalty, golf-result bands or player-percentile interpretation.
 - Opportunity factor: `1 / (1 + 0.08 * max(0, N - 1))`, using the existing opportunity count. Foundation: `H = 2IS/(I+S)` with the implementation's zero guard; `Q = clip(0.5 + 1.3*(H-0.5) + 0.4*(E-0.5), 0, 1)`.
@@ -32,7 +32,7 @@ The final live identity is **`band-free-harmonic-v7-dogleg-continuation`**, defi
 - Base raw score: `min(100 * Q**(2/3) * L + bonus, 100 * L)`. One-stroke bonus is **`2 * Q * L` once per route** if either actual leg took one stroke, never twice for 1+1. Use unrounded values through final calculation.
 - The final monotone cubic stretch has anchors 0/70/100 and slope 2 at 70. Transform the ceiling consistently; use the existing operator rather than an approximate linear stretch.
 - The live pipeline also includes bounded dogleg strategic-access credit and continuation correction. Counterfactuals replay the observed route with the authoritative engine, not a search for all alternatives. Merely replacing a landing with a later word is not proof of redundancy: check actual strokes saved and whether the finish remains possible. Avoid stacking relevance, geometry and elegance deductions for the same removable landing.
-- Exact adjustment definitions and controls: `reports/dogleg-strategy-bonus/README.md` and `reports/dogleg-continuation/README.md`. The latter supersedes the earlier report's live-version label. Keep UI, saved summaries, comparisons and exports on the same final scorer/version; insufficient old evidence requires reanalysis, not relabelling.
+- Exact adjustment definitions and controls: `reports/dogleg-strategy-bonus/README.md` and `reports/dogleg-continuation/README.md`. The live v8 incoming-access correction is defined in `reports/incoming-dogleg-credit/README.md`: only arrivals after two or more first-leg strokes qualify; one-shot arrivals retain their existing score. Restore demonstrated incoming relevance within S, deduct overlap with the existing incoming bonus, and preserve its original outgoing budget. These later reports supersede the earlier live-version labels. Keep UI, saved summaries, comparisons and exports on the same final scorer/version; insufficient old evidence requires reanalysis, not relabelling.
 - Never tune scoring to guarantee a particular golf-result distribution. A clever par can outscore an ordinary birdie. Preserve skippability based on legal shots, not word resemblance.
 
 ## Hole selection and generation
