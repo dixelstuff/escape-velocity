@@ -1,0 +1,2962 @@
+{
+  "designSha256": "82c87abe5b11ebbc6b5314e2c650aac82fdc25a9164f4ee76a6fd4bcf5527a86",
+  "seed": 2026111306,
+  "reviewedThrough": 80,
+  "accepted": [
+    2,
+    3,
+    4,
+    6,
+    10,
+    11,
+    13,
+    14,
+    15,
+    21,
+    30,
+    31,
+    34,
+    37,
+    40,
+    44,
+    47,
+    55,
+    58,
+    65
+  ],
+  "records": [
+    {
+      "candidate": 1,
+      "words": [
+        "pike",
+        "author",
+        "caption"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "pike",
+            "target": "author",
+            "direct": false,
+            "contact": 0.06803252411009453,
+            "required": 0.215
+          },
+          {
+            "start": "author",
+            "target": "caption",
+            "direct": false,
+            "contact": 0.06600566004999564,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "fish",
+          "success": true,
+          "progress": 0.01887439173151506,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "spear",
+          "success": false,
+          "progress": -0.02718933526375622,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "sharp",
+          "success": false,
+          "progress": 0.035911995676542574,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "river",
+          "success": false,
+          "progress": -0.011851055138322408,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "weapon",
+          "success": false,
+          "progress": -0.019864173449605005,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "water",
+          "success": false,
+          "progress": -0.03541989404038759,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "pen",
+        "deny",
+        "cockpit"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "pen",
+            "target": "deny",
+            "direct": false,
+            "contact": 0.06938092063683143,
+            "required": 0.2176078431372549
+          },
+          {
+            "start": "deny",
+            "target": "cockpit",
+            "direct": false,
+            "contact": -0.011937964375874799,
+            "required": 0.2176078431372549
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "write",
+          "success": true,
+          "progress": 0.09269245867835707,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "ink",
+          "success": false,
+          "progress": -0.08162353867919592,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cage",
+          "success": false,
+          "progress": -0.09125444589699327,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "animal",
+          "success": true,
+          "progress": 0.02053902845045741,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "paper",
+          "success": true,
+          "progress": 0.025366167914853577,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "nib",
+          "success": false,
+          "progress": -0.18432365745775314,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 1
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "teapot",
+        "reject",
+        "rosemary"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "teapot",
+            "target": "reject",
+            "direct": false,
+            "contact": -0.11444591707731888,
+            "required": 0.222
+          },
+          {
+            "start": "reject",
+            "target": "rosemary",
+            "direct": false,
+            "contact": -0.010484330681720166,
+            "required": 0.222
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "tea",
+          "success": true,
+          "progress": 0.16421788223760814,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pot",
+          "success": true,
+          "progress": 0.15444874428249022,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pour",
+          "success": false,
+          "progress": 0.18045718910161668,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cup",
+          "success": false,
+          "progress": 0.1345979486595752,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "spout",
+          "success": true,
+          "progress": 0.08389823374818661,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "kettle",
+          "success": true,
+          "progress": 0.06259431302578378,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 2
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "deaf",
+        "hour",
+        "maid"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "deaf",
+            "target": "hour",
+            "direct": false,
+            "contact": 0.012873025301814778,
+            "required": 0.215
+          },
+          {
+            "start": "hour",
+            "target": "maid",
+            "direct": false,
+            "contact": 0.1248037853315509,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "hear",
+          "success": true,
+          "progress": 0.2663542138016055,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "ear",
+          "success": true,
+          "progress": 0.06159503316689552,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sound",
+          "success": true,
+          "progress": 0.16912012745888205,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "silence",
+          "success": false,
+          "progress": 0.30513185305153456,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "hearing",
+          "success": true,
+          "progress": 0.3084275986666398,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "person",
+          "success": true,
+          "progress": 0.28831624880558593,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 3
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "cockpit",
+        "title",
+        "mast"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "sailor",
+        "tell",
+        "eel"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sailor",
+            "target": "tell",
+            "direct": false,
+            "contact": 0.11848867864136992,
+            "required": 0.2440980392156863
+          },
+          {
+            "start": "tell",
+            "target": "eel",
+            "direct": false,
+            "contact": -0.06985590391923324,
+            "required": 0.2440980392156863
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "ship",
+          "success": true,
+          "progress": 0.05006310619592114,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sea",
+          "success": false,
+          "progress": -0.010571693774181767,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "boat",
+          "success": true,
+          "progress": 0.032861481732652464,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "navy",
+          "success": false,
+          "progress": -0.027899774022444035,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "voyage",
+          "success": false,
+          "progress": -0.036143069665513394,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "crew",
+          "success": true,
+          "progress": 0.08761776878054661,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 4
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "crockery",
+        "tomb",
+        "butcher"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "crockery",
+            "target": "tomb",
+            "direct": false,
+            "contact": 0.06524282325790409,
+            "required": 0.215
+          },
+          {
+            "start": "tomb",
+            "target": "butcher",
+            "direct": false,
+            "contact": 0.05173806464881636,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "plates",
+          "success": true,
+          "progress": 0.031274764787667664,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "dishes",
+          "success": false,
+          "progress": -0.044866471121167706,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cups",
+          "success": false,
+          "progress": -0.13502718982726947,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "china",
+          "error": "That word is outside the supported vocabulary. No shot used."
+        },
+        {
+          "word": "kitchen",
+          "success": true,
+          "progress": 0.031524901273314754,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "break",
+          "success": false,
+          "progress": -0.05636936453902308,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "warden",
+        "allow",
+        "month"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "warden",
+            "target": "allow",
+            "direct": false,
+            "contact": -0.0029981442426105787,
+            "required": 0.2493137254901961
+          },
+          {
+            "start": "allow",
+            "target": "month",
+            "direct": true,
+            "contact": 0.3960556528804773,
+            "required": 0.095
+          }
+        ],
+        "message": "MONTH can be played directly from ALLOW."
+      },
+      "rejection": "Direct-leg rule: MONTH can be played directly from ALLOW."
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "gruff",
+        "rag",
+        "broad"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "gruff",
+            "target": "rag",
+            "direct": false,
+            "contact": 0.12301292443635248,
+            "required": 0.215
+          },
+          {
+            "start": "rag",
+            "target": "broad",
+            "direct": false,
+            "contact": -0.09071897283592989,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "voice",
+          "success": false,
+          "progress": -0.11664335503519396,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "rough",
+          "success": true,
+          "progress": 0.02754484180468353,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "stern",
+          "success": false,
+          "progress": -0.1919127842998023,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "bear",
+          "success": false,
+          "progress": 0.012303898392929113,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "rude",
+          "success": false,
+          "progress": -0.06445398359619503,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "deep",
+          "success": false,
+          "progress": -0.17308387242928802,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "flask",
+        "scrub",
+        "minute"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "flask",
+            "target": "scrub",
+            "direct": false,
+            "contact": -0.0573118961056025,
+            "required": 0.215
+          },
+          {
+            "start": "scrub",
+            "target": "minute",
+            "direct": false,
+            "contact": 0.04568788768847298,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "bottle",
+          "success": true,
+          "progress": 0.13035311348721734,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "drink",
+          "success": false,
+          "progress": 0.12817259309304063,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "laboratory",
+          "success": false,
+          "progress": 0.14743179970355413,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "glass",
+          "success": true,
+          "progress": 0.07093713588074024,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "carry",
+          "success": false,
+          "progress": 0.023432499556292896,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "liquid",
+          "success": true,
+          "progress": 0.1769681236823999,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 5
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "meek",
+        "row",
+        "keg"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "meek",
+            "target": "row",
+            "direct": false,
+            "contact": -0.06758880774668796,
+            "required": 0.215
+          },
+          {
+            "start": "row",
+            "target": "keg",
+            "direct": false,
+            "contact": -0.035486041801050305,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "gentle",
+          "success": true,
+          "progress": 0.08118188967455353,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "mild",
+          "success": true,
+          "progress": 0.02972536009565374,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "quiet",
+          "success": false,
+          "progress": 0.24791120088138996,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "humble",
+          "success": true,
+          "progress": 0.11791664217435027,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "weak",
+          "success": false,
+          "progress": 0.16409130714691855,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "obedient",
+          "success": false,
+          "progress": -0.06634678175942099,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 6
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "cook",
+        "oar",
+        "deny"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "age",
+        "shed",
+        "judge"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "age",
+            "target": "shed",
+            "direct": false,
+            "contact": 0.106983706596111,
+            "required": 0.21856862745098038
+          },
+          {
+            "start": "shed",
+            "target": "judge",
+            "direct": false,
+            "contact": -0.023048475847190275,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "old",
+          "success": true,
+          "progress": 0.08691552568507177,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "time",
+          "success": true,
+          "progress": 0.06074790876880343,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "year",
+          "success": true,
+          "progress": 0.0455765842646656,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "grow",
+          "success": true,
+          "progress": 0.07623338909252197,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "period",
+          "success": true,
+          "progress": 0.006532006094857934,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "mature",
+          "success": true,
+          "progress": 0.004438769524313102,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 6,
+      "acceptedPosition": 7
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "object",
+        "doodle",
+        "bail"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "object",
+            "target": "doodle",
+            "direct": false,
+            "contact": -0.017831299234785547,
+            "required": 0.22598039215686275
+          },
+          {
+            "start": "doodle",
+            "target": "bail",
+            "direct": false,
+            "contact": 0.020327035215416345,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "substance",
+          "success": false,
+          "progress": -0.10861011800898268,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "oppose",
+          "success": false,
+          "progress": -0.02668345285928808,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "item",
+          "success": true,
+          "progress": 0.02677082792706642,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "goal",
+          "success": false,
+          "progress": -0.06257158078642533,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "noun",
+          "success": true,
+          "progress": 0.07984350920651195,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "protest",
+          "success": true,
+          "progress": 0.015955877349824732,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 8
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "broad",
+        "nut",
+        "bleed"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "broad",
+            "target": "nut",
+            "direct": false,
+            "contact": -0.034842433262383565,
+            "required": 0.215
+          },
+          {
+            "start": "nut",
+            "target": "bleed",
+            "direct": false,
+            "contact": 0.06848105975586805,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "wide",
+          "success": true,
+          "progress": 0.07296234801469836,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "shoulder",
+          "success": true,
+          "progress": 0.09393634646221471,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "general",
+          "success": true,
+          "progress": 0.010851965636902605,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "large",
+          "success": true,
+          "progress": 0.15647078380789026,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "plain",
+          "success": true,
+          "progress": 0.22560502428677864,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "scope",
+          "success": false,
+          "progress": -0.012120202463847818,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 9
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "cook",
+        "moor",
+        "chamber"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "cook",
+            "target": "moor",
+            "direct": false,
+            "contact": 0.004119680381336366,
+            "required": 0.215
+          },
+          {
+            "start": "moor",
+            "target": "chamber",
+            "direct": false,
+            "contact": -0.08421889930104953,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "food",
+          "success": false,
+          "progress": -0.05268301458954738,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "kitchen",
+          "success": true,
+          "progress": 0.015920878360248025,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "make",
+          "success": false,
+          "progress": -0.03516638327437249,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "heat",
+          "success": false,
+          "progress": -0.12014979432478867,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "chef",
+          "success": true,
+          "progress": -0.008268518547993153,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "meal",
+          "success": false,
+          "progress": -0.09269065877924731,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "allow",
+        "baker",
+        "teapot"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "deny",
+        "claim",
+        "tick"
+      ],
+      "rejection": "Giveaway stock phrase: deny a claim supplies the opening context immediately."
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "caper",
+        "index",
+        "pike"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "caper",
+            "target": "index",
+            "direct": false,
+            "contact": -0.03840802353079198,
+            "required": 0.215
+          },
+          {
+            "start": "index",
+            "target": "pike",
+            "direct": false,
+            "contact": -0.03700915751392131,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "dance",
+          "success": false,
+          "progress": 0.061132048820581986,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "prank",
+          "success": false,
+          "progress": -0.11702000569130178,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "food",
+          "success": false,
+          "progress": 0.18504109037530725,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pickle",
+          "success": true,
+          "progress": 0.001670212954991257,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "jump",
+          "success": false,
+          "progress": 0.2262410951034326,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sauce",
+          "success": true,
+          "progress": 0.08786348423018353,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "tell",
+        "pilot",
+        "second"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "wavy",
+        "lure",
+        "muffin"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "wavy",
+            "target": "lure",
+            "direct": false,
+            "contact": -0.08172299467969424,
+            "required": 0.215
+          },
+          {
+            "start": "lure",
+            "target": "muffin",
+            "direct": false,
+            "contact": -0.07828829560276063,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "hair",
+          "success": true,
+          "progress": 0.10025869202308968,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "water",
+          "success": false,
+          "progress": 0.1941277496175644,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "line",
+          "success": false,
+          "progress": 0.19825547645768893,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sea",
+          "success": false,
+          "progress": 0.18792961191184077,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "curl",
+          "success": true,
+          "progress": 0.11136743755832867,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pattern",
+          "success": true,
+          "progress": 0.12292120559413888,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 10
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "sleigh",
+        "thyme",
+        "petty"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sleigh",
+            "target": "thyme",
+            "direct": false,
+            "contact": 0.09818609960530011,
+            "required": 0.215
+          },
+          {
+            "start": "thyme",
+            "target": "petty",
+            "direct": false,
+            "contact": -0.06872329773250385,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "snow",
+          "success": false,
+          "progress": -0.04596336080430774,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "ride",
+          "success": false,
+          "progress": -0.15633552240797144,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "winter",
+          "success": false,
+          "progress": -0.04455403864051277,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "horse",
+          "success": false,
+          "progress": -0.0874681920013245,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "sled",
+          "success": false,
+          "progress": -0.11618785400787601,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "bells",
+          "success": false,
+          "progress": -0.06429134665995662,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 0,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "sole",
+        "dispute",
+        "gruff"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "sole",
+            "target": "dispute",
+            "direct": true,
+            "contact": 0.30261242558117374,
+            "required": 0.095
+          },
+          {
+            "start": "dispute",
+            "target": "gruff",
+            "direct": false,
+            "contact": -0.01931256022544403,
+            "required": 0.2226862745098039
+          }
+        ],
+        "message": "DISPUTE can be played directly from SOLE."
+      },
+      "rejection": "Direct-leg rule: DISPUTE can be played directly from SOLE."
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "chisel",
+        "maid",
+        "cod"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "editor",
+        "fin",
+        "pub"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "editor",
+            "target": "fin",
+            "direct": false,
+            "contact": 0.025271719388001657,
+            "required": 0.215
+          },
+          {
+            "start": "fin",
+            "target": "pub",
+            "direct": false,
+            "contact": 0.03182426137755101,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "book",
+          "success": true,
+          "progress": 0.01427463101754256,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "newspaper",
+          "success": false,
+          "progress": -0.050423017170032836,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "revise",
+          "success": false,
+          "progress": -0.021877345131542825,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cut",
+          "success": false,
+          "progress": 0.07626151523618319,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "text",
+          "success": true,
+          "progress": 0.047911529510201945,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "publish",
+          "success": false,
+          "progress": -0.10352241963209963,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "chat",
+        "fancy",
+        "flask"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "pastel",
+        "cabin",
+        "pen"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "sprout",
+        "cookie",
+        "waffle"
+      ],
+      "rejection": "The triple stays in routine food/growth/baking associations, with COOKIE–WAFFLE offering a category finish."
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "waffle",
+        "duster",
+        "surf"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "waffle",
+            "target": "duster",
+            "direct": false,
+            "contact": 0.053545617044619576,
+            "required": 0.215
+          },
+          {
+            "start": "duster",
+            "target": "surf",
+            "direct": false,
+            "contact": -0.028006032758639776,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "breakfast",
+          "success": false,
+          "progress": -0.12815596995039868,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "batter",
+          "success": false,
+          "progress": -0.06844564147513665,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "talk",
+          "success": false,
+          "progress": -0.12274892395453207,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "syrup",
+          "success": true,
+          "progress": 0.049617168605436746,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "iron",
+          "success": false,
+          "progress": -0.09548472100868821,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "grid",
+          "success": false,
+          "progress": -0.11237188977702317,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "mop",
+        "era",
+        "butler"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mop",
+            "target": "era",
+            "direct": false,
+            "contact": -0.05680574028173169,
+            "required": 0.215
+          },
+          {
+            "start": "era",
+            "target": "butler",
+            "direct": false,
+            "contact": 0.09544963914049731,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "floor",
+          "success": true,
+          "progress": 0.11022234293903921,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "clean",
+          "success": true,
+          "progress": 0.21848813286231916,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "water",
+          "success": false,
+          "progress": 0.1706641967104474,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "handle",
+          "success": true,
+          "progress": 0.10687298441388293,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "hair",
+          "success": true,
+          "progress": 0.16056591312025148,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "wipe",
+          "success": true,
+          "progress": 0.10759050867289943,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 11
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "sleigh",
+        "boom",
+        "shovel"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sleigh",
+            "target": "boom",
+            "direct": false,
+            "contact": 0.013144545895556803,
+            "required": 0.215
+          },
+          {
+            "start": "boom",
+            "target": "shovel",
+            "direct": false,
+            "contact": 0.048501307877813815,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "snow",
+          "success": true,
+          "progress": 0.02557868688245435,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "ride",
+          "success": true,
+          "progress": 0.2523628356379959,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "winter",
+          "success": false,
+          "progress": 0.14736476649432007,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "horse",
+          "success": true,
+          "progress": 0.1220654339849716,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sled",
+          "success": true,
+          "progress": 0.053187851997563484,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "bells",
+          "success": true,
+          "progress": 0.2102534895948338,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 12
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "bashful",
+        "cracker",
+        "wafer"
+      ],
+      "rejection": "CRACKER–WAFER is a routine near-synonym/category finish."
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "plead",
+        "rag",
+        "cabbage"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "plead",
+            "target": "rag",
+            "direct": false,
+            "contact": -0.11806442390843586,
+            "required": 0.215
+          },
+          {
+            "start": "rag",
+            "target": "cabbage",
+            "direct": true,
+            "contact": 0.25991084830275213,
+            "required": 0.215
+          }
+        ],
+        "message": "CABBAGE can be played directly from RAG."
+      },
+      "rejection": "Direct-leg rule: CABBAGE can be played directly from RAG."
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "year",
+        "washer",
+        "clove"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "year",
+            "target": "washer",
+            "direct": false,
+            "contact": -0.1120146822067909,
+            "required": 0.24629411764705883
+          },
+          {
+            "start": "washer",
+            "target": "clove",
+            "direct": false,
+            "contact": 0.0606354478936737,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "calendar",
+          "success": true,
+          "progress": 0.12766465886306833,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "time",
+          "success": true,
+          "progress": 0.077368400987325,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "age",
+          "success": true,
+          "progress": 0.042854283125961956,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "month",
+          "success": true,
+          "progress": 0.05762149126803706,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "season",
+          "success": true,
+          "progress": 0.1159594182154251,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "annual",
+          "success": false,
+          "progress": -0.06663032625874621,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 13
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "agree",
+        "mill",
+        "age"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "bleed",
+        "penalty",
+        "erase"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "fin",
+        "inn",
+        "screw"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "fin",
+            "target": "inn",
+            "direct": false,
+            "contact": 0.04694269334868295,
+            "required": 0.215
+          },
+          {
+            "start": "inn",
+            "target": "screw",
+            "direct": false,
+            "contact": -0.022994147854660696,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "fish",
+          "success": true,
+          "progress": 0.05900059522173251,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "swim",
+          "success": true,
+          "progress": 0.0655437736058957,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "shark",
+          "success": true,
+          "progress": 0.08689452005637577,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "water",
+          "success": false,
+          "progress": 0.047405378754774574,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "tail",
+          "success": true,
+          "progress": 0.033231956891540904,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "wing",
+          "success": false,
+          "progress": -0.05738873843802139,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 14
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "sprout",
+        "editor",
+        "sailor"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "penalty",
+        "hook",
+        "buoy"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "penalty",
+            "target": "hook",
+            "direct": false,
+            "contact": 0.21470065672656347,
+            "required": 0.215
+          },
+          {
+            "start": "hook",
+            "target": "buoy",
+            "direct": false,
+            "contact": 0.11501216186388774,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "punish",
+          "success": false,
+          "progress": -0.13263067894740743,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "sport",
+          "success": false,
+          "progress": -0.16223155726220284,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "fine",
+          "success": false,
+          "progress": -0.05795366392737833,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "foul",
+          "success": true,
+          "progress": 0.08318325427171658,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "crime",
+          "success": false,
+          "progress": -0.1000801088055141,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cost",
+          "success": false,
+          "progress": -0.06346351722822874,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "sentence",
+        "curved",
+        "barn"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sentence",
+            "target": "curved",
+            "direct": false,
+            "contact": -0.03205756450188346,
+            "required": 0.215
+          },
+          {
+            "start": "curved",
+            "target": "barn",
+            "direct": false,
+            "contact": 0.1429831738273606,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "word",
+          "success": true,
+          "progress": 0.02515515079630859,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "prison",
+          "success": false,
+          "progress": -0.030590058438974665,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "judge",
+          "success": false,
+          "progress": -0.07252535779639402,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "grammar",
+          "success": true,
+          "progress": 0.06154872014303692,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "period",
+          "success": true,
+          "progress": 0.04650795815177844,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "punishment",
+          "success": true,
+          "progress": 0.019106091743196885,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 15
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "cabin",
+        "deny",
+        "teapot"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "chamber",
+        "butler",
+        "sprout"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "sledge",
+        "fancy",
+        "tell"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "mast",
+        "mill",
+        "caper"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mast",
+            "target": "mill",
+            "direct": false,
+            "contact": 0.06699966578889871,
+            "required": 0.215
+          },
+          {
+            "start": "mill",
+            "target": "caper",
+            "direct": false,
+            "contact": -0.055700133150821785,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "ship",
+          "success": true,
+          "progress": 0.11806612723012222,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sail",
+          "success": true,
+          "progress": 0.0448599216506409,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pole",
+          "success": true,
+          "progress": 0.009181317040201975,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "radio",
+          "success": true,
+          "progress": -0.005311696044373093,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "tall",
+          "success": true,
+          "progress": 0.026195630887286825,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "boat",
+          "success": true,
+          "progress": 0.09259774108068086,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 16
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "wavy",
+        "urn",
+        "loud"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "mumble",
+        "pike",
+        "page"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mumble",
+            "target": "pike",
+            "direct": false,
+            "contact": -0.04991174567567214,
+            "required": 0.215
+          },
+          {
+            "start": "pike",
+            "target": "page",
+            "direct": false,
+            "contact": 0.05072555605704565,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "speak",
+          "success": false,
+          "progress": -0.048714569282765297,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "quiet",
+          "success": false,
+          "progress": 0.04903935881702637,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "unclear",
+          "success": false,
+          "progress": 0.021859357011862812,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "mouth",
+          "success": false,
+          "progress": 0.21736954741209047,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "words",
+          "success": false,
+          "progress": -0.03913425723931141,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "voice",
+          "success": true,
+          "progress": 0.04041766860473217,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "brew",
+        "pilot",
+        "week"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "brew",
+            "target": "pilot",
+            "direct": false,
+            "contact": -0.05029664632274944,
+            "required": 0.215
+          },
+          {
+            "start": "pilot",
+            "target": "week",
+            "direct": false,
+            "contact": 0.18538133289484904,
+            "required": 0.24670588235294116
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "tea",
+          "success": true,
+          "progress": 0.07255552467449888,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "beer",
+          "success": true,
+          "progress": 0.0913653217976389,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "make",
+          "success": false,
+          "progress": 0.23420121582284992,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "drink",
+          "success": true,
+          "progress": 0.14816888493442093,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "hot",
+          "success": true,
+          "progress": 0.17644258427708337,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "kettle",
+          "success": false,
+          "progress": -0.016315069881557065,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 17
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "grave",
+        "washer",
+        "hut"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "tray",
+        "lint",
+        "year"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "tick",
+        "funeral",
+        "cockpit"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "vain",
+        "clove",
+        "accept"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "moor",
+        "tell",
+        "index"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "title",
+        "tray",
+        "curved"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "usher",
+        "mast",
+        "charcoal"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "warden",
+        "vain",
+        "agree"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "warden",
+            "target": "vain",
+            "direct": false,
+            "contact": 0.029806549960994744,
+            "required": 0.215
+          },
+          {
+            "start": "vain",
+            "target": "agree",
+            "direct": false,
+            "contact": 0.18755729767781304,
+            "required": 0.24327450980392157
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "prison",
+          "success": true,
+          "progress": 0.07104121612428571,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "guard",
+          "success": true,
+          "progress": 0.06617749223732972,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "keeper",
+          "success": true,
+          "progress": 0.16096800716422877,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "jail",
+          "success": true,
+          "progress": 0.12382697535167608,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "officer",
+          "success": true,
+          "progress": 0.03535816997509755,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "watch",
+          "success": false,
+          "progress": 0.08785910131427954,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 18
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "loft",
+        "roast",
+        "skate"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "loft",
+            "target": "roast",
+            "direct": false,
+            "contact": 0.11476161265272822,
+            "required": 0.215
+          },
+          {
+            "start": "roast",
+            "target": "skate",
+            "direct": false,
+            "contact": 0.08928252557961969,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "attic",
+          "success": true,
+          "progress": -0.006344631928186573,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "roof",
+          "success": false,
+          "progress": -0.030125451147341664,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "high",
+          "success": false,
+          "progress": -0.1381030148240825,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "room",
+          "success": true,
+          "progress": 0.006619074820264359,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pigeon",
+          "success": false,
+          "progress": 0.07894534619117621,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "throw",
+          "success": false,
+          "progress": -0.017287656984535715,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "usher",
+        "era",
+        "noise"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "sled",
+        "surf",
+        "chapter"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "sled",
+            "target": "surf",
+            "direct": false,
+            "contact": 0.16682529814806912,
+            "required": 0.215
+          },
+          {
+            "start": "surf",
+            "target": "chapter",
+            "direct": false,
+            "contact": 0.028517422657387215,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "snow",
+          "success": true,
+          "progress": 0.008405338609918545,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "slide",
+          "success": true,
+          "progress": 0.027209256243622804,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "ride",
+          "success": true,
+          "progress": 0.12387890067384433,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "winter",
+          "success": true,
+          "progress": 0.022252256382671476,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pull",
+          "success": false,
+          "progress": -0.06264012571136846,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "hill",
+          "success": false,
+          "progress": -0.14362937277019228,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 19
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "brew",
+        "loft",
+        "wavy"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "deny",
+        "hook",
+        "saucer"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "row",
+        "broad",
+        "editor"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "convict",
+        "scribble",
+        "plead"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "convict",
+            "target": "scribble",
+            "direct": false,
+            "contact": 0.027989102758510853,
+            "required": 0.215
+          },
+          {
+            "start": "scribble",
+            "target": "plead",
+            "direct": false,
+            "contact": -0.044209144304659276,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "prison",
+          "success": false,
+          "progress": -0.0721775072379387,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "guilty",
+          "success": false,
+          "progress": -0.1980644818759174,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "crime",
+          "success": false,
+          "progress": -0.1159862186261762,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "judge",
+          "success": false,
+          "progress": -0.08418374229768233,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "sentence",
+          "success": false,
+          "progress": -0.01754133096676469,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "court",
+          "success": false,
+          "progress": -0.15473567836670554,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 0,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "week",
+        "clove",
+        "oppose"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "month",
+        "grand",
+        "scone"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "month",
+            "target": "grand",
+            "direct": true,
+            "contact": 0.24968883944802656,
+            "required": 0.24698039215686274
+          },
+          {
+            "start": "grand",
+            "target": "scone",
+            "direct": false,
+            "contact": -0.07073122253359543,
+            "required": 0.215
+          }
+        ],
+        "message": "GRAND can be played directly from MONTH."
+      },
+      "rejection": "Direct-leg rule: GRAND can be played directly from MONTH."
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "period",
+        "pub",
+        "foul"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "period",
+            "target": "pub",
+            "direct": false,
+            "contact": 0.025278112196247093,
+            "required": 0.21829411764705883
+          },
+          {
+            "start": "pub",
+            "target": "foul",
+            "direct": false,
+            "contact": 0.0004880347096332116,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "time",
+          "success": true,
+          "progress": 0.08857235159803167,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "full",
+          "success": true,
+          "progress": 0.04085883991319861,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "stop",
+          "success": true,
+          "progress": 0.1070871131214517,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "history",
+          "success": true,
+          "progress": 0.07673710184826632,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cycle",
+          "success": false,
+          "progress": -0.03792855994834099,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "class",
+          "success": true,
+          "progress": 0.06300190664478578,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 20
+    }
+  ]
+}

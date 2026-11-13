@@ -1,6 +1,5 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as publicCollection} from '../static/public-manifest.mjs';
 import {adminHoleOrder} from '../static/admin-hole-order.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {holeNumber} from '../static/daily-ui.mjs';
@@ -9,6 +8,8 @@ import {requirePlayableWord} from '../static/playable-vocabulary.mjs';
 import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 const read=f=>JSON.parse(fs.readFileSync('reports/public-forty-and-new-twenty/'+f)),v=read('validation.json'),c=read('curation.json'),checks=read('opening-checks.json'),{e}=loadResearchModel();
+// Reconstruct this curation before later welcoming reorder and replacement.
+const publicCollection={version:1,view:'curated-forty-and-new-twenty-v1',entryHoleId:c.selectedIds[0],holes:c.finalPublicIds.map(id=>archive.holes.find(h=>h.id===id))};
 assert.equal(c.reviewed.length,120);assert.equal(new Set(c.reviewed.map(h=>h.id)).size,120);assert.equal(c.selectedIds.length,40);assert.equal(c.withdrawnPublicIds.length,17);assert.equal(c.retainedAfterFeaturedIds.length,283);assert.equal(v.holes.length,20);
 assert.equal(publicCollection.holes.length,343);assert.equal(publicCollection.view,'curated-forty-and-new-twenty-v1');assert.equal(publicCollection.entryHoleId,c.selectedIds[0]);
 assert.deepEqual(publicCollection.holes.map(h=>h.id),c.finalPublicIds);
@@ -19,7 +20,7 @@ assert.ok(c.selectedIds.every(id=>c.reviewed.find(h=>h.id===id)?.enjoyment>=4));
 assert.ok(c.reviewed.filter(h=>h.enjoyment===3).every(h=>c.retainedAfterFeaturedIds.includes(h.id)));
 assert.deepEqual(c.withdrawnPublicIds.slice().sort(),c.reviewed.filter(h=>h.enjoyment<=2).map(h=>h.id).sort());
 const selected=new Set(c.selectedIds),removed=new Set(c.withdrawnPublicIds);assert.deepEqual(c.retainedAfterFeaturedIds,c.priorPublicIds.filter(id=>!selected.has(id)&&!removed.has(id)));assert.equal(new Set(c.finalPublicIds).size,343);
-assert.equal(crypto.createHash('sha256').update(JSON.stringify(archive.holes.slice(0,v.priorCount))).digest('hex'),v.priorSha);assert.deepEqual(archive.holes.slice(v.priorCount),v.holes);assert.equal(new Set(archive.holes.map(h=>h.id)).size,archive.holes.length);
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(archive.holes.slice(0,v.priorCount))).digest('hex'),v.priorSha);assert.deepEqual(archive.holes.slice(v.priorCount,v.priorCount+20),v.holes);assert.equal(new Set(archive.holes.map(h=>h.id)).size,archive.holes.length);
 for(const h of publicCollection.holes)assert.deepEqual(h,archive.holes.find(a=>a.id===h.id),'Reordering does not change definitions');
 const admin=adminHoleOrder(archive,publicCollection);assert.deepEqual(admin.holes.slice(0,343),publicCollection.holes);assert.equal(new Set(admin.holes.map(h=>h.id)).size,archive.holes.length);
 for(const id of removed){assert.ok(!publicCollection.holes.some(h=>h.id===id));assert.ok(admin.holes.findIndex(h=>h.id===id)>=343);}
