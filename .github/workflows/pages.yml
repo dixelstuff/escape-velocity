@@ -66,6 +66,7 @@ jobs:
           node tests/test_landing_choice_ten.mjs
           node tests/test_varied_contexts_twenty.mjs
           node tests/test_public_forty_and_new_twenty.mjs
+          node tests/test_random_replacement_twenty.mjs
           node tests/test_hole_feedback.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs

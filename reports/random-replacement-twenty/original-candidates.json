@@ -1,0 +1,1607 @@
+{
+  "seed": 2026111306,
+  "algorithm": "Python random.Random(seed).sample(pool_in_recorded_order, 3), repeated 200 times before checks",
+  "designSha256": "82c87abe5b11ebbc6b5314e2c650aac82fdc25a9164f4ee76a6fd4bcf5527a86",
+  "candidates": [
+    {
+      "candidate": 1,
+      "words": [
+        "pike",
+        "author",
+        "caption"
+      ]
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "pen",
+        "deny",
+        "cockpit"
+      ]
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "teapot",
+        "reject",
+        "rosemary"
+      ]
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "deaf",
+        "hour",
+        "maid"
+      ]
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "cockpit",
+        "title",
+        "mast"
+      ]
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "sailor",
+        "tell",
+        "eel"
+      ]
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "crockery",
+        "tomb",
+        "butcher"
+      ]
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "warden",
+        "allow",
+        "month"
+      ]
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "gruff",
+        "rag",
+        "broad"
+      ]
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "flask",
+        "scrub",
+        "minute"
+      ]
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "meek",
+        "row",
+        "keg"
+      ]
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "cook",
+        "oar",
+        "deny"
+      ]
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "age",
+        "shed",
+        "judge"
+      ]
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "object",
+        "doodle",
+        "bail"
+      ]
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "broad",
+        "nut",
+        "bleed"
+      ]
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "cook",
+        "moor",
+        "chamber"
+      ]
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "allow",
+        "baker",
+        "teapot"
+      ]
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "deny",
+        "claim",
+        "tick"
+      ]
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "caper",
+        "index",
+        "pike"
+      ]
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "tell",
+        "pilot",
+        "second"
+      ]
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "wavy",
+        "lure",
+        "muffin"
+      ]
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "sleigh",
+        "thyme",
+        "petty"
+      ]
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "sole",
+        "dispute",
+        "gruff"
+      ]
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "chisel",
+        "maid",
+        "cod"
+      ]
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "editor",
+        "fin",
+        "pub"
+      ]
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "chat",
+        "fancy",
+        "flask"
+      ]
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "pastel",
+        "cabin",
+        "pen"
+      ]
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "sprout",
+        "cookie",
+        "waffle"
+      ]
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "waffle",
+        "duster",
+        "surf"
+      ]
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "mop",
+        "era",
+        "butler"
+      ]
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "sleigh",
+        "boom",
+        "shovel"
+      ]
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "bashful",
+        "cracker",
+        "wafer"
+      ]
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "plead",
+        "rag",
+        "cabbage"
+      ]
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "year",
+        "washer",
+        "clove"
+      ]
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "agree",
+        "mill",
+        "age"
+      ]
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "bleed",
+        "penalty",
+        "erase"
+      ]
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "fin",
+        "inn",
+        "screw"
+      ]
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "sprout",
+        "editor",
+        "sailor"
+      ]
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "penalty",
+        "hook",
+        "buoy"
+      ]
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "sentence",
+        "curved",
+        "barn"
+      ]
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "cabin",
+        "deny",
+        "teapot"
+      ]
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "chamber",
+        "butler",
+        "sprout"
+      ]
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "sledge",
+        "fancy",
+        "tell"
+      ]
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "mast",
+        "mill",
+        "caper"
+      ]
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "wavy",
+        "urn",
+        "loud"
+      ]
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "mumble",
+        "pike",
+        "page"
+      ]
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "brew",
+        "pilot",
+        "week"
+      ]
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "grave",
+        "washer",
+        "hut"
+      ]
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "tray",
+        "lint",
+        "year"
+      ]
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "tick",
+        "funeral",
+        "cockpit"
+      ]
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "vain",
+        "clove",
+        "accept"
+      ]
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "moor",
+        "tell",
+        "index"
+      ]
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "title",
+        "tray",
+        "curved"
+      ]
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "usher",
+        "mast",
+        "charcoal"
+      ]
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "warden",
+        "vain",
+        "agree"
+      ]
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "loft",
+        "roast",
+        "skate"
+      ]
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "usher",
+        "era",
+        "noise"
+      ]
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "sled",
+        "surf",
+        "chapter"
+      ]
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "brew",
+        "loft",
+        "wavy"
+      ]
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "deny",
+        "hook",
+        "saucer"
+      ]
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "row",
+        "broad",
+        "editor"
+      ]
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "convict",
+        "scribble",
+        "plead"
+      ]
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "week",
+        "clove",
+        "oppose"
+      ]
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "month",
+        "grand",
+        "scone"
+      ]
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "period",
+        "pub",
+        "foul"
+      ]
+    },
+    {
+      "candidate": 66,
+      "words": [
+        "lint",
+        "allow",
+        "mute"
+      ]
+    },
+    {
+      "candidate": 67,
+      "words": [
+        "gill",
+        "shed",
+        "mop"
+      ]
+    },
+    {
+      "candidate": 68,
+      "words": [
+        "judge",
+        "erase",
+        "cog"
+      ]
+    },
+    {
+      "candidate": 69,
+      "words": [
+        "pub",
+        "sentence",
+        "duster"
+      ]
+    },
+    {
+      "candidate": 70,
+      "words": [
+        "prisoner",
+        "basil",
+        "parchment"
+      ]
+    },
+    {
+      "candidate": 71,
+      "words": [
+        "gill",
+        "wrench",
+        "carp"
+      ]
+    },
+    {
+      "candidate": 72,
+      "words": [
+        "simple",
+        "berth",
+        "turnip"
+      ]
+    },
+    {
+      "candidate": 73,
+      "words": [
+        "oval",
+        "canoe",
+        "maid"
+      ]
+    },
+    {
+      "candidate": 74,
+      "words": [
+        "chapter",
+        "brew",
+        "thyme"
+      ]
+    },
+    {
+      "candidate": 75,
+      "words": [
+        "fin",
+        "speak",
+        "chisel"
+      ]
+    },
+    {
+      "candidate": 76,
+      "words": [
+        "year",
+        "sled",
+        "steward"
+      ]
+    },
+    {
+      "candidate": 77,
+      "words": [
+        "preface",
+        "sweep",
+        "baker"
+      ]
+    },
+    {
+      "candidate": 78,
+      "words": [
+        "penalty",
+        "surf",
+        "inn"
+      ]
+    },
+    {
+      "candidate": 79,
+      "words": [
+        "even",
+        "bold",
+        "blot"
+      ]
+    },
+    {
+      "candidate": 80,
+      "words": [
+        "parchment",
+        "raft",
+        "innocent"
+      ]
+    },
+    {
+      "candidate": 81,
+      "words": [
+        "foul",
+        "chat",
+        "penalty"
+      ]
+    },
+    {
+      "candidate": 82,
+      "words": [
+        "appendix",
+        "deny",
+        "minute"
+      ]
+    },
+    {
+      "candidate": 83,
+      "words": [
+        "prisoner",
+        "sled",
+        "aisle"
+      ]
+    },
+    {
+      "candidate": 84,
+      "words": [
+        "scrub",
+        "clove",
+        "page"
+      ]
+    },
+    {
+      "candidate": 85,
+      "words": [
+        "berth",
+        "scribble",
+        "prisoner"
+      ]
+    },
+    {
+      "candidate": 86,
+      "words": [
+        "yell",
+        "prisoner",
+        "page"
+      ]
+    },
+    {
+      "candidate": 87,
+      "words": [
+        "carp",
+        "round",
+        "butler"
+      ]
+    },
+    {
+      "candidate": 88,
+      "words": [
+        "eel",
+        "vial",
+        "deaf"
+      ]
+    },
+    {
+      "candidate": 89,
+      "words": [
+        "bail",
+        "mill",
+        "brew"
+      ]
+    },
+    {
+      "candidate": 90,
+      "words": [
+        "muffin",
+        "usher",
+        "cemetery"
+      ]
+    },
+    {
+      "candidate": 91,
+      "words": [
+        "accept",
+        "sprout",
+        "author"
+      ]
+    },
+    {
+      "candidate": 92,
+      "words": [
+        "leek",
+        "urn",
+        "guilty"
+      ]
+    },
+    {
+      "candidate": 93,
+      "words": [
+        "barrel",
+        "cook",
+        "week"
+      ]
+    },
+    {
+      "candidate": 94,
+      "words": [
+        "barn",
+        "prisoner",
+        "era"
+      ]
+    },
+    {
+      "candidate": 95,
+      "words": [
+        "second",
+        "thyme",
+        "deaf"
+      ]
+    },
+    {
+      "candidate": 96,
+      "words": [
+        "sentence",
+        "cask",
+        "roast"
+      ]
+    },
+    {
+      "candidate": 97,
+      "words": [
+        "agree",
+        "accept",
+        "barrel"
+      ]
+    },
+    {
+      "candidate": 98,
+      "words": [
+        "year",
+        "hall",
+        "crypt"
+      ]
+    },
+    {
+      "candidate": 99,
+      "words": [
+        "lodge",
+        "deaf",
+        "appendix"
+      ]
+    },
+    {
+      "candidate": 100,
+      "words": [
+        "teapot",
+        "margin",
+        "saucer"
+      ]
+    },
+    {
+      "candidate": 101,
+      "words": [
+        "cemetery",
+        "barn",
+        "mute"
+      ]
+    },
+    {
+      "candidate": 102,
+      "words": [
+        "title",
+        "object",
+        "mug"
+      ]
+    },
+    {
+      "candidate": 103,
+      "words": [
+        "cod",
+        "sledge",
+        "even"
+      ]
+    },
+    {
+      "candidate": 104,
+      "words": [
+        "pastel",
+        "penalty",
+        "month"
+      ]
+    },
+    {
+      "candidate": 105,
+      "words": [
+        "fry",
+        "berth",
+        "mourning"
+      ]
+    },
+    {
+      "candidate": 106,
+      "words": [
+        "shovel",
+        "hall",
+        "bashful"
+      ]
+    },
+    {
+      "candidate": 107,
+      "words": [
+        "doodle",
+        "admit",
+        "moor"
+      ]
+    },
+    {
+      "candidate": 108,
+      "words": [
+        "pod",
+        "tray",
+        "minute"
+      ]
+    },
+    {
+      "candidate": 109,
+      "words": [
+        "canoe",
+        "just",
+        "cockpit"
+      ]
+    },
+    {
+      "candidate": 110,
+      "words": [
+        "sleigh",
+        "mill",
+        "beaker"
+      ]
+    },
+    {
+      "candidate": 111,
+      "words": [
+        "day",
+        "sentence",
+        "straight"
+      ]
+    },
+    {
+      "candidate": 112,
+      "words": [
+        "pail",
+        "mute",
+        "chapter"
+      ]
+    },
+    {
+      "candidate": 113,
+      "words": [
+        "rag",
+        "mop",
+        "innocent"
+      ]
+    },
+    {
+      "candidate": 114,
+      "words": [
+        "maid",
+        "second",
+        "teapot"
+      ]
+    },
+    {
+      "candidate": 115,
+      "words": [
+        "scrub",
+        "carp",
+        "pail"
+      ]
+    },
+    {
+      "candidate": 116,
+      "words": [
+        "say",
+        "index",
+        "cockpit"
+      ]
+    },
+    {
+      "candidate": 117,
+      "words": [
+        "wrench",
+        "carp",
+        "tomb"
+      ]
+    },
+    {
+      "candidate": 118,
+      "words": [
+        "boil",
+        "cod",
+        "innocent"
+      ]
+    },
+    {
+      "candidate": 119,
+      "words": [
+        "bucket",
+        "scribble",
+        "era"
+      ]
+    },
+    {
+      "candidate": 120,
+      "words": [
+        "bold",
+        "chant",
+        "mast"
+      ]
+    },
+    {
+      "candidate": 121,
+      "words": [
+        "pilot",
+        "pancake",
+        "surf"
+      ]
+    },
+    {
+      "candidate": 122,
+      "words": [
+        "grinder",
+        "page",
+        "gill"
+      ]
+    },
+    {
+      "candidate": 123,
+      "words": [
+        "curly",
+        "straight",
+        "pike"
+      ]
+    },
+    {
+      "candidate": 124,
+      "words": [
+        "hut",
+        "basil",
+        "foul"
+      ]
+    },
+    {
+      "candidate": 125,
+      "words": [
+        "steward",
+        "crockery",
+        "moor"
+      ]
+    },
+    {
+      "candidate": 126,
+      "words": [
+        "author",
+        "bashful",
+        "mourning"
+      ]
+    },
+    {
+      "candidate": 127,
+      "words": [
+        "hall",
+        "oppose",
+        "shed"
+      ]
+    },
+    {
+      "candidate": 128,
+      "words": [
+        "year",
+        "discuss",
+        "cod"
+      ]
+    },
+    {
+      "candidate": 129,
+      "words": [
+        "parchment",
+        "maid",
+        "vain"
+      ]
+    },
+    {
+      "candidate": 130,
+      "words": [
+        "bashful",
+        "era",
+        "cask"
+      ]
+    },
+    {
+      "candidate": 131,
+      "words": [
+        "bucket",
+        "bun",
+        "cockpit"
+      ]
+    },
+    {
+      "candidate": 132,
+      "words": [
+        "chamber",
+        "rosemary",
+        "screw"
+      ]
+    },
+    {
+      "candidate": 133,
+      "words": [
+        "uneven",
+        "charcoal",
+        "gruff"
+      ]
+    },
+    {
+      "candidate": 134,
+      "words": [
+        "roast",
+        "platter",
+        "bold"
+      ]
+    },
+    {
+      "candidate": 135,
+      "words": [
+        "loft",
+        "hut",
+        "grinder"
+      ]
+    },
+    {
+      "candidate": 136,
+      "words": [
+        "pub",
+        "parsley",
+        "mop"
+      ]
+    },
+    {
+      "candidate": 137,
+      "words": [
+        "roast",
+        "grand",
+        "parchment"
+      ]
+    },
+    {
+      "candidate": 138,
+      "words": [
+        "erase",
+        "sled",
+        "row"
+      ]
+    },
+    {
+      "candidate": 139,
+      "words": [
+        "appendix",
+        "fancy",
+        "reject"
+      ]
+    },
+    {
+      "candidate": 140,
+      "words": [
+        "mill",
+        "inn",
+        "even"
+      ]
+    },
+    {
+      "candidate": 141,
+      "words": [
+        "tick",
+        "buoy",
+        "week"
+      ]
+    },
+    {
+      "candidate": 142,
+      "words": [
+        "cockpit",
+        "foul",
+        "yell"
+      ]
+    },
+    {
+      "candidate": 143,
+      "words": [
+        "hook",
+        "cabbage",
+        "era"
+      ]
+    },
+    {
+      "candidate": 144,
+      "words": [
+        "grave",
+        "oar",
+        "eel"
+      ]
+    },
+    {
+      "candidate": 145,
+      "words": [
+        "boil",
+        "week",
+        "cook"
+      ]
+    },
+    {
+      "candidate": 146,
+      "words": [
+        "turnip",
+        "sledge",
+        "pod"
+      ]
+    },
+    {
+      "candidate": 147,
+      "words": [
+        "fin",
+        "berth",
+        "vain"
+      ]
+    },
+    {
+      "candidate": 148,
+      "words": [
+        "erase",
+        "just",
+        "scribble"
+      ]
+    },
+    {
+      "candidate": 149,
+      "words": [
+        "nut",
+        "shed",
+        "yell"
+      ]
+    },
+    {
+      "candidate": 150,
+      "words": [
+        "index",
+        "aisle",
+        "agree"
+      ]
+    },
+    {
+      "candidate": 151,
+      "words": [
+        "equal",
+        "broad",
+        "curved"
+      ]
+    },
+    {
+      "candidate": 152,
+      "words": [
+        "lodge",
+        "warden",
+        "innocent"
+      ]
+    },
+    {
+      "candidate": 153,
+      "words": [
+        "parchment",
+        "sled",
+        "prisoner"
+      ]
+    },
+    {
+      "candidate": 154,
+      "words": [
+        "lint",
+        "yell",
+        "mute"
+      ]
+    },
+    {
+      "candidate": 155,
+      "words": [
+        "grinder",
+        "bait",
+        "sleigh"
+      ]
+    },
+    {
+      "candidate": 156,
+      "words": [
+        "petty",
+        "sprout",
+        "lint"
+      ]
+    },
+    {
+      "candidate": 157,
+      "words": [
+        "era",
+        "funeral",
+        "crayon"
+      ]
+    },
+    {
+      "candidate": 158,
+      "words": [
+        "reject",
+        "just",
+        "cog"
+      ]
+    },
+    {
+      "candidate": 159,
+      "words": [
+        "tomb",
+        "buoy",
+        "deny"
+      ]
+    },
+    {
+      "candidate": 160,
+      "words": [
+        "skate",
+        "loud",
+        "pub"
+      ]
+    },
+    {
+      "candidate": 161,
+      "words": [
+        "valet",
+        "index",
+        "waffle"
+      ]
+    },
+    {
+      "candidate": 162,
+      "words": [
+        "mill",
+        "shovel",
+        "gill"
+      ]
+    },
+    {
+      "candidate": 163,
+      "words": [
+        "equal",
+        "saucer",
+        "surf"
+      ]
+    },
+    {
+      "candidate": 164,
+      "words": [
+        "era",
+        "eel",
+        "usher"
+      ]
+    },
+    {
+      "candidate": 165,
+      "words": [
+        "sledge",
+        "raft",
+        "tray"
+      ]
+    },
+    {
+      "candidate": 166,
+      "words": [
+        "basil",
+        "pod",
+        "bleed"
+      ]
+    },
+    {
+      "candidate": 167,
+      "words": [
+        "rag",
+        "scrawl",
+        "admit"
+      ]
+    },
+    {
+      "candidate": 168,
+      "words": [
+        "uneven",
+        "mourning",
+        "sole"
+      ]
+    },
+    {
+      "candidate": 169,
+      "words": [
+        "simple",
+        "talk",
+        "aisle"
+      ]
+    },
+    {
+      "candidate": 170,
+      "words": [
+        "mourning",
+        "year",
+        "era"
+      ]
+    },
+    {
+      "candidate": 171,
+      "words": [
+        "just",
+        "shed",
+        "flask"
+      ]
+    },
+    {
+      "candidate": 172,
+      "words": [
+        "mourning",
+        "lodge",
+        "caper"
+      ]
+    },
+    {
+      "candidate": 173,
+      "words": [
+        "uneven",
+        "claim",
+        "accept"
+      ]
+    },
+    {
+      "candidate": 174,
+      "words": [
+        "mill",
+        "loft",
+        "passage"
+      ]
+    },
+    {
+      "candidate": 175,
+      "words": [
+        "second",
+        "row",
+        "cutlery"
+      ]
+    },
+    {
+      "candidate": 176,
+      "words": [
+        "blot",
+        "month",
+        "page"
+      ]
+    },
+    {
+      "candidate": 177,
+      "words": [
+        "stain",
+        "shovel",
+        "judge"
+      ]
+    },
+    {
+      "candidate": 178,
+      "words": [
+        "editor",
+        "leek",
+        "passage"
+      ]
+    },
+    {
+      "candidate": 179,
+      "words": [
+        "reject",
+        "noise",
+        "spanner"
+      ]
+    },
+    {
+      "candidate": 180,
+      "words": [
+        "pub",
+        "lint",
+        "wafer"
+      ]
+    },
+    {
+      "candidate": 181,
+      "words": [
+        "pike",
+        "bashful",
+        "vial"
+      ]
+    },
+    {
+      "candidate": 182,
+      "words": [
+        "caption",
+        "baker",
+        "even"
+      ]
+    },
+    {
+      "candidate": 183,
+      "words": [
+        "convict",
+        "day",
+        "margin"
+      ]
+    },
+    {
+      "candidate": 184,
+      "words": [
+        "carp",
+        "sprout",
+        "cog"
+      ]
+    },
+    {
+      "candidate": 185,
+      "words": [
+        "preface",
+        "crockery",
+        "warden"
+      ]
+    },
+    {
+      "candidate": 186,
+      "words": [
+        "speak",
+        "maid",
+        "boom"
+      ]
+    },
+    {
+      "candidate": 187,
+      "words": [
+        "even",
+        "teapot",
+        "allow"
+      ]
+    },
+    {
+      "candidate": 188,
+      "words": [
+        "chapter",
+        "index",
+        "consent"
+      ]
+    },
+    {
+      "candidate": 189,
+      "words": [
+        "bun",
+        "allow",
+        "say"
+      ]
+    },
+    {
+      "candidate": 190,
+      "words": [
+        "petty",
+        "sprout",
+        "fry"
+      ]
+    },
+    {
+      "candidate": 191,
+      "words": [
+        "sledge",
+        "cabbage",
+        "radish"
+      ]
+    },
+    {
+      "candidate": 192,
+      "words": [
+        "straight",
+        "sole",
+        "boil"
+      ]
+    },
+    {
+      "candidate": 193,
+      "words": [
+        "blot",
+        "mumble",
+        "sleigh"
+      ]
+    },
+    {
+      "candidate": 194,
+      "words": [
+        "cookie",
+        "simple",
+        "shovel"
+      ]
+    },
+    {
+      "candidate": 195,
+      "words": [
+        "baker",
+        "even",
+        "deny"
+      ]
+    },
+    {
+      "candidate": 196,
+      "words": [
+        "ski",
+        "raft",
+        "bail"
+      ]
+    },
+    {
+      "candidate": 197,
+      "words": [
+        "sole",
+        "mug",
+        "pancake"
+      ]
+    },
+    {
+      "candidate": 198,
+      "words": [
+        "trout",
+        "cracker",
+        "warden"
+      ]
+    },
+    {
+      "candidate": 199,
+      "words": [
+        "radish",
+        "curly",
+        "appendix"
+      ]
+    },
+    {
+      "candidate": 200,
+      "words": [
+        "brew",
+        "barn",
+        "oar"
+      ]
+    }
+  ]
+}

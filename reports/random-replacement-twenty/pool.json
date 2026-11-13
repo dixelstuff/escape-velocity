@@ -1,0 +1,2772 @@
+{
+  "designSha256": "82c87abe5b11ebbc6b5314e2c650aac82fdc25a9164f4ee76a6fd4bcf5527a86",
+  "nominated": 216,
+  "pool": [
+    {
+      "word": "chisel",
+      "ideas": [
+        "stone",
+        "carve",
+        "tool",
+        "wood",
+        "sharp",
+        "hammer"
+      ]
+    },
+    {
+      "word": "shovel",
+      "ideas": [
+        "dig",
+        "earth",
+        "snow",
+        "spade",
+        "handle",
+        "hole"
+      ]
+    },
+    {
+      "word": "wrench",
+      "ideas": [
+        "tool",
+        "turn",
+        "pipe",
+        "fix",
+        "pull",
+        "twist"
+      ]
+    },
+    {
+      "word": "screw",
+      "ideas": [
+        "turn",
+        "metal",
+        "wood",
+        "fix",
+        "thread",
+        "driver"
+      ]
+    },
+    {
+      "word": "washer",
+      "ideas": [
+        "water",
+        "machine",
+        "clothes",
+        "nut",
+        "metal",
+        "clean"
+      ]
+    },
+    {
+      "word": "nut",
+      "ideas": [
+        "tree",
+        "food",
+        "bolt",
+        "hard",
+        "shell",
+        "seed"
+      ]
+    },
+    {
+      "word": "grinder",
+      "ideas": [
+        "coffee",
+        "mill",
+        "teeth",
+        "tool",
+        "stone",
+        "grind"
+      ]
+    },
+    {
+      "word": "mill",
+      "ideas": [
+        "flour",
+        "factory",
+        "water",
+        "grain",
+        "grind",
+        "wheel"
+      ]
+    },
+    {
+      "word": "cog",
+      "ideas": [
+        "wheel",
+        "machine",
+        "tooth",
+        "gear",
+        "part",
+        "turn"
+      ]
+    },
+    {
+      "word": "spanner",
+      "ideas": [
+        "tool",
+        "nut",
+        "bolt",
+        "turn",
+        "metal",
+        "fix"
+      ]
+    },
+    {
+      "word": "bucket",
+      "ideas": [
+        "water",
+        "carry",
+        "handle",
+        "pail",
+        "sand",
+        "mop"
+      ]
+    },
+    {
+      "word": "pail",
+      "ideas": [
+        "bucket",
+        "water",
+        "carry",
+        "milk",
+        "metal",
+        "handle"
+      ]
+    },
+    {
+      "word": "mop",
+      "ideas": [
+        "floor",
+        "clean",
+        "water",
+        "handle",
+        "hair",
+        "wipe"
+      ]
+    },
+    {
+      "word": "sweep",
+      "ideas": [
+        "broom",
+        "clean",
+        "floor",
+        "dust",
+        "broad",
+        "move"
+      ]
+    },
+    {
+      "word": "scrub",
+      "ideas": [
+        "clean",
+        "brush",
+        "wash",
+        "rub",
+        "floor",
+        "skin"
+      ]
+    },
+    {
+      "word": "rag",
+      "ideas": [
+        "cloth",
+        "wipe",
+        "old",
+        "clean",
+        "tear",
+        "paper"
+      ]
+    },
+    {
+      "word": "duster",
+      "ideas": [
+        "dust",
+        "clean",
+        "cloth",
+        "coat",
+        "feather",
+        "wipe"
+      ]
+    },
+    {
+      "word": "lint",
+      "ideas": [
+        "cloth",
+        "fluff",
+        "pocket",
+        "dryer",
+        "fabric",
+        "cotton"
+      ]
+    },
+    {
+      "word": "coarse",
+      "ideas": [
+        "rough",
+        "grain",
+        "rude",
+        "texture",
+        "sand",
+        "cloth"
+      ]
+    },
+    {
+      "word": "gruff",
+      "ideas": [
+        "voice",
+        "rough",
+        "stern",
+        "bear",
+        "rude",
+        "deep"
+      ]
+    },
+    {
+      "word": "brash",
+      "ideas": [
+        "bold",
+        "loud",
+        "rude",
+        "young",
+        "confident",
+        "hasty"
+      ]
+    },
+    {
+      "word": "bold",
+      "ideas": [
+        "brave",
+        "type",
+        "strong",
+        "colour",
+        "risk",
+        "confident"
+      ]
+    },
+    {
+      "word": "bashful",
+      "ideas": [
+        "shy",
+        "blush",
+        "embarrassed",
+        "quiet",
+        "modest",
+        "face"
+      ]
+    },
+    {
+      "word": "meek",
+      "ideas": [
+        "gentle",
+        "mild",
+        "quiet",
+        "humble",
+        "weak",
+        "obedient"
+      ]
+    },
+    {
+      "word": "vain",
+      "ideas": [
+        "proud",
+        "mirror",
+        "beauty",
+        "empty",
+        "effort",
+        "conceit"
+      ]
+    },
+    {
+      "word": "foul",
+      "ideas": [
+        "bad",
+        "smell",
+        "dirty",
+        "unfair",
+        "sport",
+        "weather"
+      ]
+    },
+    {
+      "word": "just",
+      "ideas": [
+        "fair",
+        "only",
+        "right",
+        "equal",
+        "justice",
+        "exactly"
+      ]
+    },
+    {
+      "word": "equal",
+      "ideas": [
+        "parity",
+        "balance",
+        "fair",
+        "number",
+        "match",
+        "level"
+      ]
+    },
+    {
+      "word": "even",
+      "ideas": [
+        "flat",
+        "equal",
+        "number",
+        "smooth",
+        "level",
+        "night"
+      ]
+    },
+    {
+      "word": "uneven",
+      "ideas": [
+        "rough",
+        "odd",
+        "surface",
+        "unequal",
+        "ground",
+        "balance"
+      ]
+    },
+    {
+      "word": "simple",
+      "ideas": [
+        "easy",
+        "plain",
+        "basic",
+        "clear",
+        "few",
+        "humble"
+      ]
+    },
+    {
+      "word": "fancy",
+      "ideas": [
+        "dress",
+        "imagine",
+        "elaborate",
+        "desire",
+        "decorative",
+        "rich"
+      ]
+    },
+    {
+      "word": "grand",
+      "ideas": [
+        "large",
+        "fine",
+        "piano",
+        "impressive",
+        "parent",
+        "elegant"
+      ]
+    },
+    {
+      "word": "petty",
+      "ideas": [
+        "small",
+        "minor",
+        "mean",
+        "cash",
+        "crime",
+        "trivial"
+      ]
+    },
+    {
+      "word": "broad",
+      "ideas": [
+        "wide",
+        "shoulder",
+        "general",
+        "large",
+        "plain",
+        "scope"
+      ]
+    },
+    {
+      "word": "round",
+      "ideas": [
+        "circle",
+        "ball",
+        "full",
+        "turn",
+        "smooth",
+        "shape"
+      ]
+    },
+    {
+      "word": "oval",
+      "ideas": [
+        "egg",
+        "shape",
+        "circle",
+        "field",
+        "ring",
+        "curved"
+      ]
+    },
+    {
+      "word": "curved",
+      "ideas": [
+        "bent",
+        "line",
+        "arch",
+        "shape",
+        "road",
+        "smooth"
+      ]
+    },
+    {
+      "word": "curly",
+      "ideas": [
+        "hair",
+        "twist",
+        "ring",
+        "wave",
+        "spiral",
+        "coil"
+      ]
+    },
+    {
+      "word": "straight",
+      "ideas": [
+        "line",
+        "direct",
+        "honest",
+        "flat",
+        "upright",
+        "road"
+      ]
+    },
+    {
+      "word": "wavy",
+      "ideas": [
+        "hair",
+        "water",
+        "line",
+        "sea",
+        "curl",
+        "pattern"
+      ]
+    },
+    {
+      "word": "sketch",
+      "ideas": [
+        "draw",
+        "pencil",
+        "rough",
+        "outline",
+        "picture",
+        "plan"
+      ]
+    },
+    {
+      "word": "doodle",
+      "ideas": [
+        "draw",
+        "scribble",
+        "paper",
+        "bored",
+        "pen",
+        "sketch"
+      ]
+    },
+    {
+      "word": "scribble",
+      "ideas": [
+        "write",
+        "pen",
+        "messy",
+        "paper",
+        "draw",
+        "note"
+      ]
+    },
+    {
+      "word": "scrawl",
+      "ideas": [
+        "write",
+        "messy",
+        "hand",
+        "wall",
+        "ink",
+        "paper"
+      ]
+    },
+    {
+      "word": "erase",
+      "ideas": [
+        "rub",
+        "remove",
+        "pencil",
+        "delete",
+        "clean",
+        "memory"
+      ]
+    },
+    {
+      "word": "rub",
+      "ideas": [
+        "touch",
+        "friction",
+        "wipe",
+        "massage",
+        "polish",
+        "skin"
+      ]
+    },
+    {
+      "word": "smudge",
+      "ideas": [
+        "ink",
+        "blur",
+        "dirty",
+        "mark",
+        "smear",
+        "finger"
+      ]
+    },
+    {
+      "word": "stain",
+      "ideas": [
+        "spot",
+        "colour",
+        "spill",
+        "cloth",
+        "blood",
+        "wood"
+      ]
+    },
+    {
+      "word": "blot",
+      "ideas": [
+        "ink",
+        "paper",
+        "stain",
+        "spot",
+        "absorb",
+        "shame"
+      ]
+    },
+    {
+      "word": "bleed",
+      "ideas": [
+        "blood",
+        "wound",
+        "cut",
+        "money",
+        "ink",
+        "red"
+      ]
+    },
+    {
+      "word": "ink",
+      "ideas": [
+        "pen",
+        "write",
+        "black",
+        "paper",
+        "tattoo",
+        "print"
+      ]
+    },
+    {
+      "word": "pen",
+      "ideas": [
+        "write",
+        "ink",
+        "cage",
+        "animal",
+        "paper",
+        "nib"
+      ]
+    },
+    {
+      "word": "crayon",
+      "ideas": [
+        "colour",
+        "draw",
+        "wax",
+        "child",
+        "paper",
+        "picture"
+      ]
+    },
+    {
+      "word": "charcoal",
+      "ideas": [
+        "coal",
+        "black",
+        "fire",
+        "draw",
+        "wood",
+        "grill"
+      ]
+    },
+    {
+      "word": "pastel",
+      "ideas": [
+        "colour",
+        "soft",
+        "chalk",
+        "draw",
+        "paint",
+        "shade"
+      ]
+    },
+    {
+      "word": "parchment",
+      "ideas": [
+        "paper",
+        "old",
+        "write",
+        "scroll",
+        "skin",
+        "document"
+      ]
+    },
+    {
+      "word": "page",
+      "ideas": [
+        "book",
+        "paper",
+        "read",
+        "number",
+        "turn",
+        "boy"
+      ]
+    },
+    {
+      "word": "chapter",
+      "ideas": [
+        "book",
+        "story",
+        "part",
+        "section",
+        "read",
+        "life"
+      ]
+    },
+    {
+      "word": "index",
+      "ideas": [
+        "list",
+        "finger",
+        "book",
+        "number",
+        "measure",
+        "search"
+      ]
+    },
+    {
+      "word": "appendix",
+      "ideas": [
+        "book",
+        "body",
+        "surgery",
+        "section",
+        "extra",
+        "organ"
+      ]
+    },
+    {
+      "word": "preface",
+      "ideas": [
+        "book",
+        "introduction",
+        "author",
+        "beginning",
+        "write",
+        "note"
+      ]
+    },
+    {
+      "word": "margin",
+      "ideas": [
+        "edge",
+        "profit",
+        "paper",
+        "border",
+        "space",
+        "narrow"
+      ]
+    },
+    {
+      "word": "heading",
+      "ideas": [
+        "title",
+        "direction",
+        "section",
+        "head",
+        "line",
+        "page"
+      ]
+    },
+    {
+      "word": "caption",
+      "ideas": [
+        "picture",
+        "words",
+        "text",
+        "photo",
+        "title",
+        "describe"
+      ]
+    },
+    {
+      "word": "title",
+      "ideas": [
+        "name",
+        "book",
+        "rank",
+        "heading",
+        "ownership",
+        "film"
+      ]
+    },
+    {
+      "word": "author",
+      "ideas": [
+        "book",
+        "write",
+        "story",
+        "writer",
+        "create",
+        "text"
+      ]
+    },
+    {
+      "word": "editor",
+      "ideas": [
+        "book",
+        "newspaper",
+        "revise",
+        "cut",
+        "text",
+        "publish"
+      ]
+    },
+    {
+      "word": "reader",
+      "ideas": [
+        "book",
+        "read",
+        "person",
+        "audience",
+        "story",
+        "eye"
+      ]
+    },
+    {
+      "word": "judge",
+      "ideas": [
+        "court",
+        "decide",
+        "law",
+        "opinion",
+        "trial",
+        "fair"
+      ]
+    },
+    {
+      "word": "plea",
+      "ideas": [
+        "ask",
+        "court",
+        "beg",
+        "guilty",
+        "request",
+        "appeal"
+      ]
+    },
+    {
+      "word": "plead",
+      "ideas": [
+        "beg",
+        "ask",
+        "court",
+        "guilty",
+        "argue",
+        "request"
+      ]
+    },
+    {
+      "word": "guilty",
+      "ideas": [
+        "crime",
+        "blame",
+        "court",
+        "conscience",
+        "fault",
+        "shame"
+      ]
+    },
+    {
+      "word": "innocent",
+      "ideas": [
+        "pure",
+        "child",
+        "crime",
+        "harmless",
+        "court",
+        "naive"
+      ]
+    },
+    {
+      "word": "sentence",
+      "ideas": [
+        "word",
+        "prison",
+        "judge",
+        "grammar",
+        "period",
+        "punishment"
+      ]
+    },
+    {
+      "word": "convict",
+      "ideas": [
+        "prison",
+        "guilty",
+        "crime",
+        "judge",
+        "sentence",
+        "court"
+      ]
+    },
+    {
+      "word": "prisoner",
+      "ideas": [
+        "jail",
+        "captive",
+        "cell",
+        "guard",
+        "escape",
+        "crime"
+      ]
+    },
+    {
+      "word": "warden",
+      "ideas": [
+        "prison",
+        "guard",
+        "keeper",
+        "jail",
+        "officer",
+        "watch"
+      ]
+    },
+    {
+      "word": "bail",
+      "ideas": [
+        "court",
+        "money",
+        "release",
+        "boat",
+        "water",
+        "jail"
+      ]
+    },
+    {
+      "word": "penalty",
+      "ideas": [
+        "punish",
+        "sport",
+        "fine",
+        "foul",
+        "crime",
+        "cost"
+      ]
+    },
+    {
+      "word": "claim",
+      "ideas": [
+        "ask",
+        "demand",
+        "say",
+        "own",
+        "insurance",
+        "right"
+      ]
+    },
+    {
+      "word": "deny",
+      "ideas": [
+        "refuse",
+        "reject",
+        "lie",
+        "truth",
+        "access",
+        "admit"
+      ]
+    },
+    {
+      "word": "reject",
+      "ideas": [
+        "refuse",
+        "decline",
+        "dismiss",
+        "throw",
+        "accept",
+        "discard"
+      ]
+    },
+    {
+      "word": "accept",
+      "ideas": [
+        "receive",
+        "agree",
+        "take",
+        "allow",
+        "admit",
+        "welcome"
+      ]
+    },
+    {
+      "word": "allow",
+      "ideas": [
+        "permit",
+        "let",
+        "grant",
+        "admit",
+        "accept",
+        "enter"
+      ]
+    },
+    {
+      "word": "admit",
+      "ideas": [
+        "enter",
+        "confess",
+        "allow",
+        "hospital",
+        "accept",
+        "patient"
+      ]
+    },
+    {
+      "word": "consent",
+      "ideas": [
+        "agree",
+        "permission",
+        "allow",
+        "grant",
+        "willing",
+        "approve"
+      ]
+    },
+    {
+      "word": "agree",
+      "ideas": [
+        "consent",
+        "accept",
+        "opinion",
+        "concur",
+        "sign",
+        "accord"
+      ]
+    },
+    {
+      "word": "oppose",
+      "ideas": [
+        "against",
+        "fight",
+        "resist",
+        "disagree",
+        "enemy",
+        "object"
+      ]
+    },
+    {
+      "word": "object",
+      "ideas": [
+        "substance",
+        "oppose",
+        "item",
+        "goal",
+        "noun",
+        "protest"
+      ]
+    },
+    {
+      "word": "dispute",
+      "ideas": [
+        "argue",
+        "fight",
+        "claim",
+        "disagreement",
+        "law",
+        "question"
+      ]
+    },
+    {
+      "word": "discuss",
+      "ideas": [
+        "talk",
+        "debate",
+        "meeting",
+        "subject",
+        "speak",
+        "consider"
+      ]
+    },
+    {
+      "word": "talk",
+      "ideas": [
+        "speak",
+        "chat",
+        "voice",
+        "say",
+        "conversation",
+        "person"
+      ]
+    },
+    {
+      "word": "chat",
+      "ideas": [
+        "talk",
+        "friend",
+        "conversation",
+        "informal",
+        "message",
+        "speak"
+      ]
+    },
+    {
+      "word": "speak",
+      "ideas": [
+        "talk",
+        "voice",
+        "words",
+        "say",
+        "address",
+        "language"
+      ]
+    },
+    {
+      "word": "tell",
+      "ideas": [
+        "say",
+        "story",
+        "speak",
+        "inform",
+        "count",
+        "reveal"
+      ]
+    },
+    {
+      "word": "say",
+      "ideas": [
+        "speak",
+        "tell",
+        "word",
+        "opinion",
+        "voice",
+        "express"
+      ]
+    },
+    {
+      "word": "noise",
+      "ideas": [
+        "sound",
+        "loud",
+        "music",
+        "disturbance",
+        "bang",
+        "crowd"
+      ]
+    },
+    {
+      "word": "loud",
+      "ideas": [
+        "noise",
+        "sound",
+        "shout",
+        "voice",
+        "music",
+        "volume"
+      ]
+    },
+    {
+      "word": "mute",
+      "ideas": [
+        "silent",
+        "sound",
+        "quiet",
+        "button",
+        "voice",
+        "stop"
+      ]
+    },
+    {
+      "word": "deaf",
+      "ideas": [
+        "hear",
+        "ear",
+        "sound",
+        "silence",
+        "hearing",
+        "person"
+      ]
+    },
+    {
+      "word": "mumble",
+      "ideas": [
+        "speak",
+        "quiet",
+        "unclear",
+        "mouth",
+        "words",
+        "voice"
+      ]
+    },
+    {
+      "word": "chant",
+      "ideas": [
+        "sing",
+        "rhythm",
+        "crowd",
+        "repeat",
+        "voice",
+        "prayer"
+      ]
+    },
+    {
+      "word": "yell",
+      "ideas": [
+        "shout",
+        "loud",
+        "voice",
+        "cry",
+        "call",
+        "anger"
+      ]
+    },
+    {
+      "word": "mug",
+      "ideas": [
+        "cup",
+        "drink",
+        "face",
+        "coffee",
+        "handle",
+        "rob"
+      ]
+    },
+    {
+      "word": "teapot",
+      "ideas": [
+        "tea",
+        "pot",
+        "pour",
+        "cup",
+        "spout",
+        "kettle"
+      ]
+    },
+    {
+      "word": "saucer",
+      "ideas": [
+        "cup",
+        "plate",
+        "dish",
+        "flying",
+        "milk",
+        "tea"
+      ]
+    },
+    {
+      "word": "cutlery",
+      "ideas": [
+        "knife",
+        "fork",
+        "spoon",
+        "table",
+        "silver",
+        "eat"
+      ]
+    },
+    {
+      "word": "platter",
+      "ideas": [
+        "plate",
+        "serve",
+        "dish",
+        "food",
+        "tray",
+        "meal"
+      ]
+    },
+    {
+      "word": "tray",
+      "ideas": [
+        "carry",
+        "plate",
+        "food",
+        "serve",
+        "flat",
+        "table"
+      ]
+    },
+    {
+      "word": "crockery",
+      "ideas": [
+        "plates",
+        "dishes",
+        "cups",
+        "china",
+        "kitchen",
+        "break"
+      ]
+    },
+    {
+      "word": "urn",
+      "ideas": [
+        "ashes",
+        "pot",
+        "tea",
+        "vessel",
+        "funeral",
+        "contain"
+      ]
+    },
+    {
+      "word": "flask",
+      "ideas": [
+        "bottle",
+        "drink",
+        "laboratory",
+        "glass",
+        "carry",
+        "liquid"
+      ]
+    },
+    {
+      "word": "vial",
+      "ideas": [
+        "bottle",
+        "glass",
+        "medicine",
+        "small",
+        "liquid",
+        "test"
+      ]
+    },
+    {
+      "word": "beaker",
+      "ideas": [
+        "glass",
+        "laboratory",
+        "cup",
+        "liquid",
+        "measure",
+        "science"
+      ]
+    },
+    {
+      "word": "keg",
+      "ideas": [
+        "beer",
+        "barrel",
+        "drink",
+        "tap",
+        "wood",
+        "pub"
+      ]
+    },
+    {
+      "word": "barrel",
+      "ideas": [
+        "wood",
+        "round",
+        "oil",
+        "gun",
+        "water",
+        "beer"
+      ]
+    },
+    {
+      "word": "cask",
+      "ideas": [
+        "barrel",
+        "wine",
+        "wood",
+        "beer",
+        "store",
+        "whisky"
+      ]
+    },
+    {
+      "word": "brew",
+      "ideas": [
+        "tea",
+        "beer",
+        "make",
+        "drink",
+        "hot",
+        "kettle"
+      ]
+    },
+    {
+      "word": "roast",
+      "ideas": [
+        "oven",
+        "meat",
+        "heat",
+        "coffee",
+        "cook",
+        "joke"
+      ]
+    },
+    {
+      "word": "stew",
+      "ideas": [
+        "pot",
+        "food",
+        "cook",
+        "worry",
+        "simmer",
+        "meat"
+      ]
+    },
+    {
+      "word": "boil",
+      "ideas": [
+        "water",
+        "hot",
+        "heat",
+        "bubble",
+        "cook",
+        "egg"
+      ]
+    },
+    {
+      "word": "fry",
+      "ideas": [
+        "pan",
+        "oil",
+        "cook",
+        "fish",
+        "heat",
+        "egg"
+      ]
+    },
+    {
+      "word": "cookie",
+      "ideas": [
+        "biscuit",
+        "sweet",
+        "bake",
+        "computer",
+        "chocolate",
+        "dough"
+      ]
+    },
+    {
+      "word": "bun",
+      "ideas": [
+        "bread",
+        "hair",
+        "round",
+        "sweet",
+        "roll",
+        "bake"
+      ]
+    },
+    {
+      "word": "scone",
+      "ideas": [
+        "cake",
+        "tea",
+        "cream",
+        "jam",
+        "bake",
+        "flour"
+      ]
+    },
+    {
+      "word": "wafer",
+      "ideas": [
+        "thin",
+        "biscuit",
+        "chocolate",
+        "crisp",
+        "layer",
+        "sweet"
+      ]
+    },
+    {
+      "word": "cracker",
+      "ideas": [
+        "biscuit",
+        "cheese",
+        "crack",
+        "joke",
+        "fire",
+        "crisp"
+      ]
+    },
+    {
+      "word": "waffle",
+      "ideas": [
+        "breakfast",
+        "batter",
+        "talk",
+        "syrup",
+        "iron",
+        "grid"
+      ]
+    },
+    {
+      "word": "pancake",
+      "ideas": [
+        "flat",
+        "batter",
+        "pan",
+        "breakfast",
+        "syrup",
+        "flour"
+      ]
+    },
+    {
+      "word": "muffin",
+      "ideas": [
+        "cake",
+        "bread",
+        "bake",
+        "breakfast",
+        "blueberry",
+        "sweet"
+      ]
+    },
+    {
+      "word": "trout",
+      "ideas": [
+        "fish",
+        "river",
+        "swim",
+        "water",
+        "catch",
+        "salmon"
+      ]
+    },
+    {
+      "word": "carp",
+      "ideas": [
+        "fish",
+        "pond",
+        "complain",
+        "water",
+        "scales",
+        "river"
+      ]
+    },
+    {
+      "word": "pike",
+      "ideas": [
+        "fish",
+        "spear",
+        "sharp",
+        "river",
+        "weapon",
+        "water"
+      ]
+    },
+    {
+      "word": "cod",
+      "ideas": [
+        "fish",
+        "sea",
+        "food",
+        "oil",
+        "catch",
+        "liver"
+      ]
+    },
+    {
+      "word": "eel",
+      "ideas": [
+        "fish",
+        "snake",
+        "slippery",
+        "water",
+        "long",
+        "sea"
+      ]
+    },
+    {
+      "word": "sole",
+      "ideas": [
+        "foot",
+        "shoe",
+        "fish",
+        "only",
+        "single",
+        "leather"
+      ]
+    },
+    {
+      "word": "fin",
+      "ideas": [
+        "fish",
+        "swim",
+        "shark",
+        "water",
+        "tail",
+        "wing"
+      ]
+    },
+    {
+      "word": "gill",
+      "ideas": [
+        "fish",
+        "breathe",
+        "water",
+        "neck",
+        "air",
+        "sea"
+      ]
+    },
+    {
+      "word": "hook",
+      "ideas": [
+        "fish",
+        "catch",
+        "hang",
+        "metal",
+        "curved",
+        "bait"
+      ]
+    },
+    {
+      "word": "bait",
+      "ideas": [
+        "fish",
+        "trap",
+        "tempt",
+        "worm",
+        "hook",
+        "lure"
+      ]
+    },
+    {
+      "word": "lure",
+      "ideas": [
+        "attract",
+        "bait",
+        "tempt",
+        "fish",
+        "trap",
+        "pull"
+      ]
+    },
+    {
+      "word": "tick",
+      "ideas": [
+        "clock",
+        "sound",
+        "insect",
+        "mark",
+        "second",
+        "check"
+      ]
+    },
+    {
+      "word": "minute",
+      "ideas": [
+        "time",
+        "small",
+        "sixty",
+        "hour",
+        "clock",
+        "detail"
+      ]
+    },
+    {
+      "word": "second",
+      "ideas": [
+        "time",
+        "next",
+        "two",
+        "minute",
+        "help",
+        "instant"
+      ]
+    },
+    {
+      "word": "hour",
+      "ideas": [
+        "time",
+        "clock",
+        "sixty",
+        "work",
+        "day",
+        "minute"
+      ]
+    },
+    {
+      "word": "day",
+      "ideas": [
+        "sun",
+        "light",
+        "time",
+        "night",
+        "work",
+        "date"
+      ]
+    },
+    {
+      "word": "week",
+      "ideas": [
+        "day",
+        "seven",
+        "time",
+        "work",
+        "weekend",
+        "month"
+      ]
+    },
+    {
+      "word": "month",
+      "ideas": [
+        "calendar",
+        "year",
+        "time",
+        "moon",
+        "day",
+        "date"
+      ]
+    },
+    {
+      "word": "year",
+      "ideas": [
+        "calendar",
+        "time",
+        "age",
+        "month",
+        "season",
+        "annual"
+      ]
+    },
+    {
+      "word": "age",
+      "ideas": [
+        "old",
+        "time",
+        "year",
+        "grow",
+        "period",
+        "mature"
+      ]
+    },
+    {
+      "word": "era",
+      "ideas": [
+        "time",
+        "period",
+        "history",
+        "age",
+        "change",
+        "years"
+      ]
+    },
+    {
+      "word": "period",
+      "ideas": [
+        "time",
+        "full",
+        "stop",
+        "history",
+        "cycle",
+        "class"
+      ]
+    },
+    {
+      "word": "pod",
+      "ideas": [
+        "pea",
+        "seed",
+        "whale",
+        "container",
+        "space",
+        "group"
+      ]
+    },
+    {
+      "word": "clove",
+      "ideas": [
+        "garlic",
+        "spice",
+        "bulb",
+        "food",
+        "smell",
+        "tooth"
+      ]
+    },
+    {
+      "word": "caper",
+      "ideas": [
+        "dance",
+        "prank",
+        "food",
+        "pickle",
+        "jump",
+        "sauce"
+      ]
+    },
+    {
+      "word": "radish",
+      "ideas": [
+        "vegetable",
+        "root",
+        "salad",
+        "red",
+        "food",
+        "crisp"
+      ]
+    },
+    {
+      "word": "turnip",
+      "ideas": [
+        "root",
+        "vegetable",
+        "farm",
+        "food",
+        "white",
+        "grow"
+      ]
+    },
+    {
+      "word": "leek",
+      "ideas": [
+        "vegetable",
+        "onion",
+        "soup",
+        "green",
+        "stalk",
+        "garden"
+      ]
+    },
+    {
+      "word": "cabbage",
+      "ideas": [
+        "vegetable",
+        "leaf",
+        "green",
+        "food",
+        "head",
+        "garden"
+      ]
+    },
+    {
+      "word": "sprout",
+      "ideas": [
+        "grow",
+        "plant",
+        "seed",
+        "shoot",
+        "young",
+        "vegetable"
+      ]
+    },
+    {
+      "word": "parsley",
+      "ideas": [
+        "herb",
+        "green",
+        "food",
+        "garnish",
+        "leaf",
+        "garden"
+      ]
+    },
+    {
+      "word": "thyme",
+      "ideas": [
+        "herb",
+        "food",
+        "spice",
+        "leaf",
+        "smell",
+        "garden"
+      ]
+    },
+    {
+      "word": "basil",
+      "ideas": [
+        "herb",
+        "leaf",
+        "green",
+        "tomato",
+        "food",
+        "garden"
+      ]
+    },
+    {
+      "word": "rosemary",
+      "ideas": [
+        "herb",
+        "garden",
+        "smell",
+        "food",
+        "plant",
+        "needle"
+      ]
+    },
+    {
+      "word": "shed",
+      "ideas": [
+        "building",
+        "garden",
+        "lose",
+        "skin",
+        "roof",
+        "tools"
+      ]
+    },
+    {
+      "word": "loft",
+      "ideas": [
+        "attic",
+        "roof",
+        "high",
+        "room",
+        "pigeon",
+        "throw"
+      ]
+    },
+    {
+      "word": "barn",
+      "ideas": [
+        "farm",
+        "hay",
+        "building",
+        "animal",
+        "door",
+        "wood"
+      ]
+    },
+    {
+      "word": "hut",
+      "ideas": [
+        "small",
+        "house",
+        "shelter",
+        "wood",
+        "roof",
+        "village"
+      ]
+    },
+    {
+      "word": "cabin",
+      "ideas": [
+        "room",
+        "boat",
+        "wood",
+        "house",
+        "plane",
+        "forest"
+      ]
+    },
+    {
+      "word": "lodge",
+      "ideas": [
+        "house",
+        "hotel",
+        "forest",
+        "stay",
+        "complaint",
+        "club"
+      ]
+    },
+    {
+      "word": "inn",
+      "ideas": [
+        "hotel",
+        "pub",
+        "stay",
+        "travel",
+        "bed",
+        "guest"
+      ]
+    },
+    {
+      "word": "pub",
+      "ideas": [
+        "bar",
+        "beer",
+        "drink",
+        "public",
+        "house",
+        "food"
+      ]
+    },
+    {
+      "word": "aisle",
+      "ideas": [
+        "shop",
+        "church",
+        "walk",
+        "seat",
+        "passage",
+        "wedding"
+      ]
+    },
+    {
+      "word": "hall",
+      "ideas": [
+        "room",
+        "building",
+        "entrance",
+        "corridor",
+        "school",
+        "meeting"
+      ]
+    },
+    {
+      "word": "chamber",
+      "ideas": [
+        "room",
+        "gun",
+        "parliament",
+        "heart",
+        "music",
+        "space"
+      ]
+    },
+    {
+      "word": "passage",
+      "ideas": [
+        "walk",
+        "text",
+        "corridor",
+        "travel",
+        "route",
+        "book"
+      ]
+    },
+    {
+      "word": "crypt",
+      "ideas": [
+        "church",
+        "tomb",
+        "underground",
+        "burial",
+        "stone",
+        "grave"
+      ]
+    },
+    {
+      "word": "tomb",
+      "ideas": [
+        "grave",
+        "death",
+        "stone",
+        "old",
+        "burial",
+        "monument"
+      ]
+    },
+    {
+      "word": "grave",
+      "ideas": [
+        "death",
+        "serious",
+        "dig",
+        "burial",
+        "solemn",
+        "earth"
+      ]
+    },
+    {
+      "word": "cemetery",
+      "ideas": [
+        "grave",
+        "burial",
+        "death",
+        "stone",
+        "church",
+        "flowers"
+      ]
+    },
+    {
+      "word": "funeral",
+      "ideas": [
+        "death",
+        "burial",
+        "ceremony",
+        "grief",
+        "coffin",
+        "family"
+      ]
+    },
+    {
+      "word": "mourning",
+      "ideas": [
+        "grief",
+        "death",
+        "black",
+        "funeral",
+        "loss",
+        "sorrow"
+      ]
+    },
+    {
+      "word": "buoy",
+      "ideas": [
+        "float",
+        "sea",
+        "water",
+        "marker",
+        "hope",
+        "boat"
+      ]
+    },
+    {
+      "word": "moor",
+      "ideas": [
+        "boat",
+        "tie",
+        "land",
+        "heath",
+        "anchor",
+        "field"
+      ]
+    },
+    {
+      "word": "berth",
+      "ideas": [
+        "boat",
+        "bed",
+        "harbour",
+        "train",
+        "dock",
+        "sleep"
+      ]
+    },
+    {
+      "word": "cockpit",
+      "ideas": [
+        "plane",
+        "pilot",
+        "control",
+        "ship",
+        "seat",
+        "fly"
+      ]
+    },
+    {
+      "word": "mast",
+      "ideas": [
+        "ship",
+        "sail",
+        "pole",
+        "radio",
+        "tall",
+        "boat"
+      ]
+    },
+    {
+      "word": "boom",
+      "ideas": [
+        "sound",
+        "grow",
+        "loud",
+        "pole",
+        "crash",
+        "economy"
+      ]
+    },
+    {
+      "word": "sleigh",
+      "ideas": [
+        "snow",
+        "ride",
+        "winter",
+        "horse",
+        "sled",
+        "bells"
+      ]
+    },
+    {
+      "word": "sled",
+      "ideas": [
+        "snow",
+        "slide",
+        "ride",
+        "winter",
+        "pull",
+        "hill"
+      ]
+    },
+    {
+      "word": "sledge",
+      "ideas": [
+        "snow",
+        "hammer",
+        "ride",
+        "pull",
+        "winter",
+        "slide"
+      ]
+    },
+    {
+      "word": "skate",
+      "ideas": [
+        "ice",
+        "shoe",
+        "wheel",
+        "move",
+        "sport",
+        "blade"
+      ]
+    },
+    {
+      "word": "ski",
+      "ideas": [
+        "snow",
+        "slope",
+        "mountain",
+        "winter",
+        "sport",
+        "slide"
+      ]
+    },
+    {
+      "word": "surf",
+      "ideas": [
+        "wave",
+        "sea",
+        "ride",
+        "board",
+        "internet",
+        "beach"
+      ]
+    },
+    {
+      "word": "row",
+      "ideas": [
+        "boat",
+        "line",
+        "argue",
+        "oar",
+        "seat",
+        "number"
+      ]
+    },
+    {
+      "word": "oar",
+      "ideas": [
+        "row",
+        "boat",
+        "water",
+        "paddle",
+        "wood",
+        "handle"
+      ]
+    },
+    {
+      "word": "raft",
+      "ideas": [
+        "float",
+        "wood",
+        "water",
+        "river",
+        "boat",
+        "group"
+      ]
+    },
+    {
+      "word": "canoe",
+      "ideas": [
+        "boat",
+        "paddle",
+        "river",
+        "water",
+        "narrow",
+        "travel"
+      ]
+    },
+    {
+      "word": "sailor",
+      "ideas": [
+        "ship",
+        "sea",
+        "boat",
+        "navy",
+        "voyage",
+        "crew"
+      ]
+    },
+    {
+      "word": "pilot",
+      "ideas": [
+        "plane",
+        "fly",
+        "guide",
+        "test",
+        "cockpit",
+        "ship"
+      ]
+    },
+    {
+      "word": "steward",
+      "ideas": [
+        "serve",
+        "boat",
+        "plane",
+        "care",
+        "manage",
+        "attendant"
+      ]
+    },
+    {
+      "word": "usher",
+      "ideas": [
+        "guide",
+        "seat",
+        "theatre",
+        "show",
+        "person",
+        "enter"
+      ]
+    },
+    {
+      "word": "porter",
+      "ideas": [
+        "carry",
+        "bag",
+        "hotel",
+        "train",
+        "door",
+        "beer"
+      ]
+    },
+    {
+      "word": "valet",
+      "ideas": [
+        "park",
+        "car",
+        "servant",
+        "clothes",
+        "hotel",
+        "service"
+      ]
+    },
+    {
+      "word": "butler",
+      "ideas": [
+        "servant",
+        "house",
+        "door",
+        "formal",
+        "dinner",
+        "household"
+      ]
+    },
+    {
+      "word": "maid",
+      "ideas": [
+        "clean",
+        "servant",
+        "house",
+        "hotel",
+        "woman",
+        "room"
+      ]
+    },
+    {
+      "word": "cook",
+      "ideas": [
+        "food",
+        "kitchen",
+        "make",
+        "heat",
+        "chef",
+        "meal"
+      ]
+    },
+    {
+      "word": "chef",
+      "ideas": [
+        "cook",
+        "kitchen",
+        "food",
+        "restaurant",
+        "white",
+        "knife"
+      ]
+    },
+    {
+      "word": "baker",
+      "ideas": [
+        "bread",
+        "oven",
+        "flour",
+        "cake",
+        "food",
+        "shop"
+      ]
+    },
+    {
+      "word": "butcher",
+      "ideas": [
+        "meat",
+        "cut",
+        "shop",
+        "knife",
+        "animal",
+        "food"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "word": "timid",
+      "ideas": [
+        "shy",
+        "fear",
+        "quiet",
+        "mouse",
+        "hesitant",
+        "gentle"
+      ],
+      "reason": "recent endpoint"
+    },
+    {
+      "word": "narrow",
+      "ideas": [
+        "thin",
+        "tight",
+        "road",
+        "limited",
+        "width",
+        "gap"
+      ],
+      "reason": "recent endpoint"
+    },
+    {
+      "word": "nave",
+      "ideas": [
+        "church",
+        "aisle",
+        "roof",
+        "central",
+        "building",
+        "worship"
+      ],
+      "reason": "unnecessarily specialised vocabulary"
+    },
+    {
+      "word": "vault",
+      "ideas": [
+        "jump",
+        "bank",
+        "money",
+        "safe",
+        "ceiling",
+        "tomb"
+      ],
+      "reason": "recent endpoint"
+    },
+    {
+      "word": "ferry",
+      "ideas": [
+        "boat",
+        "cross",
+        "river",
+        "carry",
+        "water",
+        "passenger"
+      ],
+      "reason": "recent endpoint"
+    }
+  ],
+  "excludedHoleIds": [
+    "daily-2028-04-22",
+    "daily-2028-04-23",
+    "daily-2028-04-24",
+    "daily-2028-04-25",
+    "daily-2028-04-26",
+    "daily-2028-04-27",
+    "daily-2028-04-28",
+    "daily-2028-04-29",
+    "daily-2028-04-30",
+    "daily-2028-05-01",
+    "daily-2028-05-02",
+    "daily-2028-05-03",
+    "daily-2028-05-04",
+    "daily-2028-05-05",
+    "daily-2028-05-06",
+    "daily-2028-05-07",
+    "daily-2028-05-08",
+    "daily-2028-05-09",
+    "daily-2028-05-10",
+    "daily-2028-05-11",
+    "daily-2028-05-12",
+    "daily-2028-05-13",
+    "daily-2028-05-14",
+    "daily-2028-05-15",
+    "daily-2028-05-16",
+    "daily-2028-05-17",
+    "daily-2028-05-18",
+    "daily-2028-05-19",
+    "daily-2028-05-20",
+    "daily-2028-05-21",
+    "daily-2028-05-22",
+    "daily-2028-05-23",
+    "daily-2028-05-24",
+    "daily-2028-05-25",
+    "daily-2028-05-26",
+    "daily-2028-05-27",
+    "daily-2028-05-28",
+    "daily-2028-05-29",
+    "daily-2028-05-30",
+    "daily-2028-05-31",
+    "daily-2028-06-01",
+    "daily-2028-06-02",
+    "daily-2028-06-03",
+    "daily-2028-06-04",
+    "daily-2028-06-05",
+    "daily-2028-06-06",
+    "daily-2028-06-07",
+    "daily-2028-06-08",
+    "daily-2028-06-09",
+    "daily-2028-06-10",
+    "daily-2028-06-12",
+    "daily-2028-06-13",
+    "daily-2028-06-14",
+    "daily-2028-06-15",
+    "daily-2028-06-16",
+    "daily-2028-06-17",
+    "daily-2028-06-18",
+    "daily-2028-06-19",
+    "daily-2028-06-20",
+    "daily-2028-06-21",
+    "daily-2028-06-22",
+    "daily-2028-06-23",
+    "daily-2028-06-24",
+    "daily-2028-06-25",
+    "daily-2028-06-26",
+    "daily-2028-06-27",
+    "daily-2028-06-28",
+    "daily-2028-06-29",
+    "daily-2028-06-30",
+    "daily-2028-07-01",
+    "daily-2028-07-02",
+    "daily-2028-07-03",
+    "daily-2028-07-04",
+    "daily-2028-07-05",
+    "daily-2028-07-06",
+    "daily-2028-07-07",
+    "daily-2028-07-08",
+    "daily-2028-07-09",
+    "daily-2028-07-10",
+    "daily-2028-07-15",
+    "daily-2028-07-16",
+    "daily-2028-07-17",
+    "daily-2028-07-18",
+    "daily-2028-07-19",
+    "daily-2028-07-20",
+    "daily-2028-07-21",
+    "daily-2028-07-22",
+    "daily-2028-07-23",
+    "daily-2028-07-24",
+    "daily-2028-07-25",
+    "daily-2028-07-26",
+    "daily-2028-07-27",
+    "daily-2028-07-28",
+    "daily-2028-07-29",
+    "daily-2028-07-30",
+    "daily-2028-07-31",
+    "daily-2028-08-01",
+    "daily-2028-08-02",
+    "daily-2028-08-03",
+    "daily-2028-08-04",
+    "daily-2028-08-05",
+    "daily-2028-08-06",
+    "daily-2028-08-07",
+    "daily-2028-08-08",
+    "daily-2028-08-09",
+    "daily-2028-08-10",
+    "daily-2028-08-11",
+    "daily-2028-08-12",
+    "daily-2028-08-13",
+    "daily-2028-08-14",
+    "daily-2028-08-15",
+    "daily-2028-08-16",
+    "daily-2028-08-17",
+    "daily-2028-08-18",
+    "daily-2028-08-19",
+    "daily-2028-08-20",
+    "daily-2028-08-21",
+    "daily-2028-08-22",
+    "daily-2028-08-23",
+    "daily-2028-08-24",
+    "daily-2028-08-25",
+    "daily-2028-08-26",
+    "daily-2028-08-27",
+    "daily-2028-08-28",
+    "daily-2028-08-29",
+    "daily-2028-08-30",
+    "daily-2028-08-31",
+    "daily-2028-09-01",
+    "daily-2028-09-02",
+    "daily-2028-09-03",
+    "daily-2028-09-04",
+    "daily-2028-09-05",
+    "daily-2028-09-06",
+    "daily-2028-09-07",
+    "daily-2028-09-08",
+    "daily-2028-09-09",
+    "daily-2028-09-10",
+    "daily-2028-09-11",
+    "daily-2028-09-12",
+    "daily-2028-09-13",
+    "daily-2028-09-14",
+    "daily-2028-09-15",
+    "daily-2028-09-16",
+    "daily-2028-09-17",
+    "daily-2028-09-18",
+    "daily-2028-09-19",
+    "daily-2028-09-20",
+    "daily-2028-09-21",
+    "daily-2028-09-22",
+    "daily-2028-09-23",
+    "daily-2028-09-24",
+    "daily-2028-09-25",
+    "daily-2028-09-26",
+    "daily-2028-09-27",
+    "daily-2028-09-28",
+    "daily-2028-09-29",
+    "daily-2028-09-30",
+    "daily-2028-10-01",
+    "daily-2028-10-02",
+    "daily-2028-10-03",
+    "daily-2028-10-04",
+    "daily-2028-10-05",
+    "daily-2028-10-06",
+    "daily-2028-10-07",
+    "daily-2028-10-08",
+    "daily-2028-10-09",
+    "daily-2028-10-10",
+    "daily-2028-10-11",
+    "daily-2028-10-12",
+    "daily-2028-10-13",
+    "daily-2028-10-14",
+    "daily-2028-10-15",
+    "daily-2028-10-16",
+    "daily-2028-10-17",
+    "daily-2028-10-18",
+    "daily-2028-10-19",
+    "daily-2028-10-20",
+    "daily-2028-10-21",
+    "daily-2028-10-22",
+    "daily-2028-10-23",
+    "daily-2028-10-24",
+    "daily-2028-10-25",
+    "daily-2028-10-26",
+    "daily-2028-10-27",
+    "daily-2028-10-28",
+    "daily-2028-10-29",
+    "daily-2028-10-30",
+    "daily-2028-10-31",
+    "daily-2028-11-01",
+    "daily-2028-11-02",
+    "daily-2028-11-03",
+    "daily-2028-11-04",
+    "daily-2028-11-05",
+    "daily-2028-11-06",
+    "daily-2028-11-07",
+    "daily-2028-11-08",
+    "daily-2028-11-09",
+    "daily-2028-11-10",
+    "daily-2028-11-11",
+    "daily-2028-11-12",
+    "daily-2028-11-13",
+    "daily-2028-11-14",
+    "daily-2028-11-15",
+    "daily-2028-11-16",
+    "daily-2028-11-17",
+    "daily-2028-11-18",
+    "daily-2028-11-19",
+    "daily-2028-11-20",
+    "daily-2028-11-21",
+    "daily-2028-11-22",
+    "daily-2028-11-23",
+    "daily-2028-11-24",
+    "daily-2028-11-25",
+    "daily-2028-11-26",
+    "daily-2028-11-27",
+    "daily-2028-11-28",
+    "daily-2028-11-29",
+    "daily-2028-11-30",
+    "daily-2028-12-01",
+    "daily-2028-12-02",
+    "daily-2028-12-03",
+    "daily-2028-12-04",
+    "daily-2028-12-05",
+    "daily-2028-12-06",
+    "daily-2028-12-07",
+    "daily-2028-12-08",
+    "daily-2028-12-09",
+    "daily-2028-12-10",
+    "daily-2028-12-11",
+    "daily-2028-12-12",
+    "daily-2028-12-13",
+    "daily-2028-12-14",
+    "daily-2028-12-15",
+    "daily-2028-12-16",
+    "daily-2028-12-17",
+    "daily-2028-12-18",
+    "daily-2028-12-19",
+    "daily-2028-12-20",
+    "daily-2028-12-21",
+    "daily-2028-12-22",
+    "daily-2028-12-23",
+    "daily-2028-12-24",
+    "daily-2028-12-25",
+    "daily-2028-12-26",
+    "daily-2028-12-27",
+    "daily-2028-12-28",
+    "daily-2028-12-29",
+    "daily-2028-12-30",
+    "daily-2028-12-31",
+    "daily-2029-01-01",
+    "daily-2029-01-02",
+    "daily-2029-01-03",
+    "daily-2029-01-04",
+    "daily-2029-01-05",
+    "daily-2029-01-06",
+    "daily-2029-01-07",
+    "daily-2029-01-08",
+    "daily-2029-01-09",
+    "daily-2029-01-10",
+    "daily-2029-01-11",
+    "daily-2029-01-12",
+    "daily-2029-01-13",
+    "daily-2029-01-14",
+    "daily-2029-01-15",
+    "daily-2029-01-16",
+    "daily-2029-01-17",
+    "daily-2029-01-18",
+    "daily-2029-01-19",
+    "daily-2029-01-20",
+    "daily-2029-01-21",
+    "daily-2029-01-22",
+    "daily-2029-01-23",
+    "daily-2029-01-24",
+    "daily-2029-01-25",
+    "daily-2029-01-26",
+    "daily-2029-01-27",
+    "daily-2029-01-28",
+    "daily-2029-01-29",
+    "daily-2029-01-30",
+    "daily-2029-01-31",
+    "daily-2029-02-01",
+    "daily-2029-02-02",
+    "daily-2029-02-03",
+    "daily-2029-02-04",
+    "daily-2029-02-05",
+    "daily-2029-02-06",
+    "daily-2029-02-07",
+    "daily-2029-02-08",
+    "daily-2029-02-09",
+    "daily-2029-02-10",
+    "daily-2029-02-11",
+    "daily-2029-02-12",
+    "daily-2029-02-13",
+    "daily-2029-02-14",
+    "daily-2029-02-15",
+    "daily-2029-02-16",
+    "daily-2029-02-17",
+    "daily-2029-02-18",
+    "daily-2029-02-19",
+    "daily-2029-02-20",
+    "daily-2029-02-21",
+    "daily-2029-02-22",
+    "daily-2029-02-23",
+    "daily-2029-02-24",
+    "daily-2029-02-25",
+    "daily-2029-02-26",
+    "daily-2029-02-27",
+    "daily-2029-02-28",
+    "daily-2029-03-01",
+    "daily-2029-03-02",
+    "daily-2029-03-03",
+    "daily-2029-03-04",
+    "daily-2029-03-05",
+    "daily-2029-03-06",
+    "daily-2029-03-07",
+    "daily-2029-03-08",
+    "daily-2029-03-09",
+    "daily-2029-03-10",
+    "daily-2029-03-11",
+    "daily-2029-03-12",
+    "daily-2029-03-13",
+    "daily-2029-03-14",
+    "daily-2029-03-15",
+    "daily-2029-03-16",
+    "daily-2029-03-17",
+    "daily-2029-03-18",
+    "daily-2029-03-19",
+    "daily-2029-03-20",
+    "daily-2029-03-21",
+    "daily-2029-03-22",
+    "daily-2029-03-23",
+    "daily-2029-03-24",
+    "daily-2029-03-25",
+    "daily-2029-03-26",
+    "daily-2029-03-27",
+    "daily-2029-03-28",
+    "daily-2029-03-29",
+    "daily-2029-03-30",
+    "daily-2029-03-31",
+    "daily-2029-04-01",
+    "daily-2029-04-02",
+    "daily-2029-04-03",
+    "daily-2029-04-04",
+    "daily-2029-04-05",
+    "daily-2029-04-06",
+    "daily-2029-04-07",
+    "daily-2029-04-08",
+    "daily-2029-04-09",
+    "daily-2029-04-10",
+    "daily-2029-04-11",
+    "daily-2029-04-12",
+    "daily-2029-04-13",
+    "daily-2029-04-14",
+    "daily-2029-04-15",
+    "daily-2029-04-16",
+    "daily-2029-04-17",
+    "daily-2029-04-18",
+    "daily-2029-04-19",
+    "daily-2029-04-20",
+    "daily-2029-04-21",
+    "daily-2029-04-22",
+    "daily-2029-04-23",
+    "daily-2029-04-24",
+    "daily-2029-04-25",
+    "daily-2029-04-26",
+    "daily-2029-04-27",
+    "daily-2029-04-28",
+    "daily-2029-04-29",
+    "daily-2029-04-30",
+    "daily-2029-05-01",
+    "daily-2029-05-02",
+    "daily-2029-05-03",
+    "daily-2029-05-04",
+    "daily-2029-05-05",
+    "daily-2029-05-06",
+    "daily-2029-05-07",
+    "daily-2029-05-08",
+    "daily-2029-05-09",
+    "daily-2029-05-10",
+    "daily-2029-05-11"
+  ],
+  "excludedWordCount": 1100
+}
