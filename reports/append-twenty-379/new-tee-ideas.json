@@ -1,0 +1,722 @@
+{
+  "bill": [
+    "money",
+    "pay",
+    "invoice",
+    "account",
+    "cost",
+    "debt"
+  ],
+  "blender": [
+    "mix",
+    "kitchen",
+    "smoothie",
+    "fruit",
+    "electric",
+    "blade"
+  ],
+  "book": [
+    "read",
+    "page",
+    "story",
+    "novel",
+    "author",
+    "cover"
+  ],
+  "bulb": [
+    "flower",
+    "plant",
+    "light",
+    "lamp",
+    "glass",
+    "spring"
+  ],
+  "bundle": [
+    "parcel",
+    "package",
+    "wrap",
+    "bunch",
+    "stack",
+    "tie"
+  ],
+  "call": [
+    "phone",
+    "voice",
+    "ring",
+    "shout",
+    "answer",
+    "speak"
+  ],
+  "carton": [
+    "box",
+    "milk",
+    "cardboard",
+    "pack",
+    "juice",
+    "container"
+  ],
+  "cash": [
+    "money",
+    "coin",
+    "bank",
+    "pay",
+    "note",
+    "currency"
+  ],
+  "cellar": [
+    "basement",
+    "wine",
+    "underground",
+    "storage",
+    "dark",
+    "stairs"
+  ],
+  "centre": [
+    "middle",
+    "central",
+    "heart",
+    "circle",
+    "inside",
+    "core"
+  ],
+  "chat": [
+    "talk",
+    "conversation",
+    "speak",
+    "friend",
+    "message",
+    "discuss"
+  ],
+  "coat": [
+    "jacket",
+    "warm",
+    "clothes",
+    "wear",
+    "sleeve",
+    "winter"
+  ],
+  "cost": [
+    "price",
+    "pay",
+    "money",
+    "expense",
+    "value",
+    "charge"
+  ],
+  "crate": [
+    "box",
+    "wooden",
+    "pack",
+    "bottle",
+    "container",
+    "stack"
+  ],
+  "cube": [
+    "square",
+    "block",
+    "ice",
+    "solid",
+    "dice",
+    "shape"
+  ],
+  "dent": [
+    "bump",
+    "damage",
+    "car",
+    "metal",
+    "mark",
+    "repair"
+  ],
+  "dip": [
+    "dive",
+    "down",
+    "sauce",
+    "swim",
+    "lower",
+    "plunge"
+  ],
+  "doormat": [
+    "door",
+    "mat",
+    "entrance",
+    "welcome",
+    "floor",
+    "wipe"
+  ],
+  "earring": [
+    "ear",
+    "jewellery",
+    "gold",
+    "silver",
+    "ring",
+    "wear"
+  ],
+  "evening": [
+    "night",
+    "dusk",
+    "dinner",
+    "sunset",
+    "late",
+    "dark"
+  ],
+  "flicker": [
+    "flame",
+    "light",
+    "candle",
+    "flash",
+    "glow",
+    "fire"
+  ],
+  "football": [
+    "ball",
+    "sport",
+    "kick",
+    "goal",
+    "match",
+    "team"
+  ],
+  "funny": [
+    "laugh",
+    "joke",
+    "comedy",
+    "humour",
+    "smile",
+    "silly"
+  ],
+  "garage": [
+    "car",
+    "park",
+    "shed",
+    "door",
+    "tools",
+    "repair"
+  ],
+  "gaze": [
+    "stare",
+    "look",
+    "eyes",
+    "watch",
+    "view",
+    "face"
+  ],
+  "glance": [
+    "look",
+    "peek",
+    "eye",
+    "glimpse",
+    "quick",
+    "see"
+  ],
+  "grater": [
+    "cheese",
+    "kitchen",
+    "grate",
+    "shred",
+    "metal",
+    "sharp"
+  ],
+  "grill": [
+    "cook",
+    "heat",
+    "meat",
+    "barbecue",
+    "hot",
+    "flame"
+  ],
+  "grind": [
+    "mill",
+    "coffee",
+    "crush",
+    "flour",
+    "powder",
+    "teeth"
+  ],
+  "grit": [
+    "sand",
+    "dirt",
+    "dust",
+    "rough",
+    "courage",
+    "gravel"
+  ],
+  "healthy": [
+    "fit",
+    "well",
+    "health",
+    "food",
+    "exercise",
+    "strong"
+  ],
+  "heap": [
+    "pile",
+    "stack",
+    "mound",
+    "rubbish",
+    "dirt",
+    "many"
+  ],
+  "hill": [
+    "slope",
+    "climb",
+    "mountain",
+    "rise",
+    "top",
+    "steep"
+  ],
+  "hint": [
+    "clue",
+    "suggest",
+    "idea",
+    "help",
+    "puzzle",
+    "signal"
+  ],
+  "hob": [
+    "stove",
+    "heat",
+    "cook",
+    "kitchen",
+    "pan",
+    "gas"
+  ],
+  "hole": [
+    "gap",
+    "pit",
+    "opening",
+    "dig",
+    "empty",
+    "deep"
+  ],
+  "hood": [
+    "bonnet",
+    "cover",
+    "head",
+    "jacket",
+    "engine",
+    "cape"
+  ],
+  "icicle": [
+    "ice",
+    "cold",
+    "winter",
+    "freeze",
+    "drip",
+    "frozen"
+  ],
+  "journal": [
+    "diary",
+    "write",
+    "newspaper",
+    "article",
+    "record",
+    "book"
+  ],
+  "kiwi": [
+    "bird",
+    "fruit",
+    "green",
+    "seed",
+    "brown",
+    "flightless"
+  ],
+  "koala": [
+    "bear",
+    "tree",
+    "eucalyptus",
+    "animal",
+    "grey",
+    "marsupial"
+  ],
+  "label": [
+    "tag",
+    "name",
+    "bottle",
+    "identity",
+    "sticker",
+    "mark"
+  ],
+  "lack": [
+    "shortage",
+    "need",
+    "missing",
+    "empty",
+    "absence",
+    "want"
+  ],
+  "lake": [
+    "water",
+    "pond",
+    "swim",
+    "fish",
+    "shore",
+    "boat"
+  ],
+  "lamp": [
+    "light",
+    "shade",
+    "bulb",
+    "desk",
+    "glow",
+    "bright"
+  ],
+  "mitten": [
+    "glove",
+    "hand",
+    "warm",
+    "wool",
+    "winter",
+    "finger"
+  ],
+  "moth": [
+    "insect",
+    "wing",
+    "night",
+    "light",
+    "butterfly",
+    "fly"
+  ],
+  "mulch": [
+    "garden",
+    "soil",
+    "bark",
+    "compost",
+    "plant",
+    "cover"
+  ],
+  "necklace": [
+    "jewellery",
+    "neck",
+    "chain",
+    "bead",
+    "gold",
+    "pendant"
+  ],
+  "nettle": [
+    "sting",
+    "plant",
+    "weed",
+    "leaf",
+    "green",
+    "rash"
+  ],
+  "pace": [
+    "walk",
+    "speed",
+    "step",
+    "slow",
+    "fast",
+    "stride"
+  ],
+  "peeler": [
+    "potato",
+    "skin",
+    "kitchen",
+    "blade",
+    "vegetable",
+    "tool"
+  ],
+  "plan": [
+    "scheme",
+    "idea",
+    "design",
+    "map",
+    "future",
+    "arrange"
+  ],
+  "push": [
+    "shove",
+    "pull",
+    "press",
+    "force",
+    "move",
+    "door"
+  ],
+  "razor": [
+    "shave",
+    "blade",
+    "sharp",
+    "hair",
+    "cut",
+    "beard"
+  ],
+  "ripple": [
+    "wave",
+    "water",
+    "pond",
+    "spread",
+    "ring",
+    "surface"
+  ],
+  "salary": [
+    "wage",
+    "pay",
+    "money",
+    "job",
+    "work",
+    "income"
+  ],
+  "scowl": [
+    "frown",
+    "angry",
+    "face",
+    "look",
+    "glare",
+    "unhappy"
+  ],
+  "scream": [
+    "shout",
+    "yell",
+    "loud",
+    "cry",
+    "fear",
+    "noise"
+  ],
+  "shampoo": [
+    "hair",
+    "wash",
+    "soap",
+    "clean",
+    "bottle",
+    "rinse"
+  ],
+  "shard": [
+    "glass",
+    "broken",
+    "sharp",
+    "piece",
+    "fragment",
+    "pottery"
+  ],
+  "shine": [
+    "light",
+    "bright",
+    "glow",
+    "polish",
+    "sun",
+    "gleam"
+  ],
+  "shirt": [
+    "clothes",
+    "sleeve",
+    "collar",
+    "cotton",
+    "button",
+    "wear"
+  ],
+  "shove": [
+    "push",
+    "force",
+    "move",
+    "elbow",
+    "crowd",
+    "nudge"
+  ],
+  "sieve": [
+    "flour",
+    "kitchen",
+    "strain",
+    "mesh",
+    "filter",
+    "drain"
+  ],
+  "slipper": [
+    "shoe",
+    "foot",
+    "comfortable",
+    "soft",
+    "warm",
+    "house"
+  ],
+  "soot": [
+    "smoke",
+    "black",
+    "chimney",
+    "fire",
+    "ash",
+    "dirty"
+  ],
+  "space": [
+    "room",
+    "gap",
+    "universe",
+    "empty",
+    "planet",
+    "distance"
+  ],
+  "spiral": [
+    "coil",
+    "twist",
+    "curve",
+    "circle",
+    "swirl",
+    "wind"
+  ],
+  "split": [
+    "divide",
+    "crack",
+    "break",
+    "half",
+    "tear",
+    "separate"
+  ],
+  "squash": [
+    "crush",
+    "vegetable",
+    "sport",
+    "squeeze",
+    "flat",
+    "ball"
+  ],
+  "stack": [
+    "pile",
+    "heap",
+    "books",
+    "shelf",
+    "arrange",
+    "tower"
+  ],
+  "stain": [
+    "mark",
+    "dirty",
+    "spot",
+    "wash",
+    "spill",
+    "colour"
+  ],
+  "summer": [
+    "warm",
+    "sun",
+    "hot",
+    "holiday",
+    "season",
+    "beach"
+  ],
+  "sweep": [
+    "broom",
+    "clean",
+    "floor",
+    "dust",
+    "brush",
+    "clear"
+  ],
+  "tempo": [
+    "rhythm",
+    "beat",
+    "music",
+    "pace",
+    "speed",
+    "song"
+  ],
+  "toothpaste": [
+    "teeth",
+    "brush",
+    "mouth",
+    "clean",
+    "mint",
+    "tube"
+  ],
+  "torch": [
+    "light",
+    "flame",
+    "battery",
+    "fire",
+    "beam",
+    "dark"
+  ],
+  "tow": [
+    "pull",
+    "car",
+    "truck",
+    "rope",
+    "boat",
+    "drag"
+  ],
+  "trainer": [
+    "coach",
+    "sport",
+    "shoe",
+    "exercise",
+    "teach",
+    "athlete"
+  ],
+  "tray": [
+    "plate",
+    "carry",
+    "food",
+    "flat",
+    "serving",
+    "dish"
+  ],
+  "triangle": [
+    "shape",
+    "three",
+    "angle",
+    "point",
+    "pyramid",
+    "square"
+  ],
+  "tug": [
+    "pull",
+    "rope",
+    "boat",
+    "tow",
+    "drag",
+    "yank"
+  ],
+  "wage": [
+    "pay",
+    "salary",
+    "money",
+    "job",
+    "work",
+    "earn"
+  ],
+  "wardrobe": [
+    "clothes",
+    "cupboard",
+    "closet",
+    "coat",
+    "hang",
+    "dress"
+  ],
+  "weekday": [
+    "work",
+    "school",
+    "monday",
+    "weekend",
+    "day",
+    "week"
+  ],
+  "wish": [
+    "hope",
+    "want",
+    "dream",
+    "desire",
+    "birthday",
+    "luck"
+  ],
+  "wok": [
+    "pan",
+    "cook",
+    "stir",
+    "fry",
+    "kitchen",
+    "hot"
+  ],
+  "woods": [
+    "forest",
+    "tree",
+    "timber",
+    "wild",
+    "path",
+    "shade"
+  ],
+  "yesterday": [
+    "past",
+    "today",
+    "tomorrow",
+    "day",
+    "ago",
+    "before"
+  ]
+}

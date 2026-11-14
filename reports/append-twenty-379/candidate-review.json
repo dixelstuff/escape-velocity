@@ -1,0 +1,3209 @@
+{
+  "designSha256": "b002468fdf974b75e6794ed2d93a53e14bc96a03321eccd36a4ab2b60f449379",
+  "seed": 20261114379,
+  "reviewedThrough": 160,
+  "accepted": [
+    5,
+    6,
+    12,
+    19,
+    21,
+    25,
+    26,
+    30,
+    31,
+    36,
+    38,
+    61,
+    69,
+    72,
+    75,
+    89,
+    93,
+    96,
+    109,
+    124
+  ],
+  "records": [
+    {
+      "candidate": 1,
+      "words": [
+        "zip",
+        "scratch",
+        "chat"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "zip",
+            "target": "scratch",
+            "direct": false,
+            "contact": 0.15017550119955558,
+            "required": 0.215
+          },
+          {
+            "start": "scratch",
+            "target": "chat",
+            "direct": false,
+            "contact": 0.13172096564903768,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "fasten",
+          "success": false,
+          "progress": -0.08754241307542543,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "coat",
+          "success": true,
+          "progress": 0.011404626993680722,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "quick",
+          "success": false,
+          "progress": 0.06650480384632829,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "bag",
+          "success": true,
+          "progress": 0.010353337922424544,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "teeth",
+          "success": false,
+          "progress": 0.10347450599510921,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "close",
+          "success": false,
+          "progress": -0.10101016428961884,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "bill",
+        "nice",
+        "dog"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "scream",
+        "kiss",
+        "tug"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "scream",
+            "target": "kiss",
+            "direct": true,
+            "contact": 0.40307933376453775,
+            "required": 0.095
+          },
+          {
+            "start": "kiss",
+            "target": "tug",
+            "direct": false,
+            "contact": 0.03728735994263843,
+            "required": 0.215
+          }
+        ],
+        "message": "KISS can be played directly from SCREAM."
+      },
+      "rejection": "Direct-leg rule: KISS can be played directly from SCREAM."
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "shirt",
+        "patio",
+        "woods"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "shirt",
+            "target": "patio",
+            "direct": false,
+            "contact": 0.1084700115270607,
+            "required": 0.215
+          },
+          {
+            "start": "patio",
+            "target": "woods",
+            "direct": false,
+            "contact": 0.06395762034662766,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "clothes",
+          "success": true,
+          "progress": 0.12238266999065672,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sleeve",
+          "success": false,
+          "progress": -0.011783021443079633,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "collar",
+          "success": false,
+          "progress": -0.06771875059894228,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cotton",
+          "success": false,
+          "progress": -0.09297475931907684,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "button",
+          "success": false,
+          "progress": -0.0676321889159226,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "wear",
+          "success": false,
+          "progress": -0.06452238122710696,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "hole",
+        "drawing",
+        "mash"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "hole",
+            "target": "drawing",
+            "direct": false,
+            "contact": 0.15730913451670858,
+            "required": 0.2167843137254902
+          },
+          {
+            "start": "drawing",
+            "target": "mash",
+            "direct": false,
+            "contact": -0.03387227869643539,
+            "required": 0.2167843137254902
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "gap",
+          "success": false,
+          "progress": -0.013877099656838254,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "pit",
+          "success": false,
+          "progress": -0.02167784723906152,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "opening",
+          "success": true,
+          "progress": 0.1444101547963328,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "dig",
+          "success": false,
+          "progress": -0.1032037849658991,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "empty",
+          "success": true,
+          "progress": 0.044959939077216404,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "deep",
+          "success": true,
+          "progress": 0.05385311461623132,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 1
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "dip",
+        "wealthy",
+        "loft"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "dip",
+            "target": "wealthy",
+            "direct": false,
+            "contact": 0.03489100265187517,
+            "required": 0.215
+          },
+          {
+            "start": "wealthy",
+            "target": "loft",
+            "direct": false,
+            "contact": 0.052591603438486345,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "dive",
+          "success": false,
+          "progress": -0.026319007901292935,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "down",
+          "success": true,
+          "progress": 0.03731092616499154,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sauce",
+          "success": false,
+          "progress": -0.017379412019863594,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "swim",
+          "success": false,
+          "progress": -0.018977560099756374,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "lower",
+          "success": true,
+          "progress": 0.14489142257070853,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "plunge",
+          "success": true,
+          "progress": 0.008042861396006629,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 2
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "hood",
+        "shampoo",
+        "salary"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "journal",
+        "hob",
+        "sheep"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "koala",
+        "snore",
+        "width"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "cellar",
+        "garage",
+        "field"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "icicle",
+        "snore",
+        "beach"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "carton",
+        "sweep",
+        "truck"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "carton",
+            "target": "sweep",
+            "direct": false,
+            "contact": -0.12487653893049355,
+            "required": 0.215
+          },
+          {
+            "start": "sweep",
+            "target": "truck",
+            "direct": false,
+            "contact": 0.1438426050444832,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "box",
+          "success": true,
+          "progress": 0.20548280789444107,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "milk",
+          "success": true,
+          "progress": 0.08744606970913082,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cardboard",
+          "success": true,
+          "progress": 0.06891528913070033,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pack",
+          "success": true,
+          "progress": 0.271510412205771,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "juice",
+          "success": true,
+          "progress": 0.07552248244383009,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "container",
+          "success": true,
+          "progress": 0.12894335120699907,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 6,
+      "acceptedPosition": 3
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "sieve",
+        "hole",
+        "paw"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "burger",
+        "tongs",
+        "light"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "space",
+        "nettle",
+        "width"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "butterfly",
+        "cycling",
+        "dim"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "crate",
+        "vat",
+        "bath"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "cold",
+        "pineapple",
+        "height"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "fog",
+        "running",
+        "fridge"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "fog",
+            "target": "running",
+            "direct": false,
+            "contact": 0.07040926522631707,
+            "required": 0.23270588235294118
+          },
+          {
+            "start": "running",
+            "target": "fridge",
+            "direct": false,
+            "contact": 0.007575803251711477,
+            "required": 0.23270588235294118
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "mist",
+          "success": false,
+          "progress": -0.05389345891080666,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cloud",
+          "success": true,
+          "progress": 0.14590530396117174,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "grey",
+          "success": true,
+          "progress": 0.12283558288754648,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "weather",
+          "success": true,
+          "progress": 0.06431238016784846,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "wet",
+          "success": true,
+          "progress": 0.052578832155177224,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "obscure",
+          "success": false,
+          "progress": 0.043311024679951515,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 4
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "moth",
+        "safe",
+        "sausage"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "journal",
+        "untie",
+        "hit"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "journal",
+            "target": "untie",
+            "direct": false,
+            "contact": -0.13536312508949777,
+            "required": 0.215
+          },
+          {
+            "start": "untie",
+            "target": "hit",
+            "direct": false,
+            "contact": -0.1108230603103948,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "diary",
+          "success": true,
+          "progress": 0.020128287873376394,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "write",
+          "success": true,
+          "progress": 0.09650322082597995,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "newspaper",
+          "success": true,
+          "progress": 0.05239290157624055,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "article",
+          "success": false,
+          "progress": -0.01384838488229434,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "record",
+          "success": false,
+          "progress": -0.0487014679101776,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "book",
+          "success": true,
+          "progress": 0.007072981405144674,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 5
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "label",
+        "bird",
+        "dip"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "hob",
+        "fry",
+        "cough"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "horse",
+        "book",
+        "bite"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "horse",
+            "target": "book",
+            "direct": true,
+            "contact": 0.24480447715359333,
+            "required": 0.23147058823529412
+          },
+          {
+            "start": "book",
+            "target": "bite",
+            "direct": false,
+            "contact": 0.13581067570794403,
+            "required": 0.23147058823529412
+          }
+        ],
+        "message": "BOOK can be played directly from HORSE."
+      },
+      "rejection": "Direct-leg rule: BOOK can be played directly from HORSE."
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "grind",
+        "pitcher",
+        "author"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "grind",
+            "target": "pitcher",
+            "direct": false,
+            "contact": 0.0712458133311884,
+            "required": 0.215
+          },
+          {
+            "start": "pitcher",
+            "target": "author",
+            "direct": false,
+            "contact": 0.1014467559998593,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "mill",
+          "success": true,
+          "progress": -0.009541033588902792,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "coffee",
+          "success": true,
+          "progress": 0.004918628676023218,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "crush",
+          "success": true,
+          "progress": 0.007669753264053725,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "flour",
+          "success": true,
+          "progress": 0.016631996792966675,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "powder",
+          "success": false,
+          "progress": -0.10554612527812424,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "teeth",
+          "success": true,
+          "progress": 0.03940408046764787,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 6
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "bonnet",
+        "dim",
+        "hop"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "bonnet",
+            "target": "dim",
+            "direct": false,
+            "contact": -0.05541080198236159,
+            "required": 0.215
+          },
+          {
+            "start": "dim",
+            "target": "hop",
+            "direct": false,
+            "contact": 0.053789116168900364,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "car",
+          "success": false,
+          "progress": 0.11914532389528176,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "hood",
+          "success": true,
+          "progress": 0.05421636125356599,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "hat",
+          "success": true,
+          "progress": 0.06022666441822366,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "head",
+          "success": false,
+          "progress": 0.0013399089402810205,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "engine",
+          "success": true,
+          "progress": 0.05787320209583413,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cover",
+          "success": false,
+          "progress": 0.06599138869069066,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 7
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "healthy",
+        "multiply",
+        "bundle"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "stew",
+        "cycling",
+        "uniform"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "dip",
+        "shopping",
+        "trainer"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "grit",
+        "worry",
+        "room"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "grit",
+            "target": "worry",
+            "direct": false,
+            "contact": 0.026474441064237908,
+            "required": 0.24313725490196078
+          },
+          {
+            "start": "worry",
+            "target": "room",
+            "direct": false,
+            "contact": 0.22808613247980247,
+            "required": 0.24313725490196078
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "sand",
+          "success": true,
+          "progress": 0.0677148566892356,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "dirt",
+          "success": true,
+          "progress": 0.12059634811430442,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "dust",
+          "success": true,
+          "progress": 0.15378962774684624,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "rough",
+          "success": true,
+          "progress": 0.11188286345259257,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "courage",
+          "success": true,
+          "progress": 0.08753869442716677,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "gravel",
+          "success": false,
+          "progress": -0.02675941067718668,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 8
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "centre",
+        "tug",
+        "guess"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "centre",
+            "target": "tug",
+            "direct": false,
+            "contact": 0.0743074548927325,
+            "required": 0.215
+          },
+          {
+            "start": "tug",
+            "target": "guess",
+            "direct": false,
+            "contact": 0.02796916432089347,
+            "required": 0.2263921568627451
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "middle",
+          "success": true,
+          "progress": 0.026069556533911964,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "central",
+          "success": false,
+          "progress": -0.09463270627884413,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "heart",
+          "success": true,
+          "progress": 0.00901579538549413,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "circle",
+          "success": true,
+          "progress": 0.031865612519140996,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "inside",
+          "success": false,
+          "progress": -0.03850818373121001,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "core",
+          "success": false,
+          "progress": -0.06880957771682006,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 9
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "bill",
+        "running",
+        "mist"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "kiwi",
+        "lower",
+        "ill"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "hop",
+        "smile",
+        "truck"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "slipper",
+        "triangle",
+        "hob"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "mushroom",
+        "shopping",
+        "doorstep"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "mushroom",
+            "target": "shopping",
+            "direct": false,
+            "contact": 0.05898913113924209,
+            "required": 0.215
+          },
+          {
+            "start": "shopping",
+            "target": "doorstep",
+            "direct": false,
+            "contact": 0.09506572720420081,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "fungus",
+          "success": false,
+          "progress": -0.16333665642378037,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "food",
+          "success": false,
+          "progress": 0.27111737771178923,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "umbrella",
+          "success": true,
+          "progress": 0.035209265301091364,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "grow",
+          "success": true,
+          "progress": 0.09355695305202971,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "forest",
+          "success": true,
+          "progress": 0.08250798702101747,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cap",
+          "success": false,
+          "progress": -0.010950103448521986,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 10
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "riding",
+        "sun",
+        "pigeon"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "password",
+        "well",
+        "shrug"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "password",
+            "target": "well",
+            "direct": false,
+            "contact": 0.021587181012364454,
+            "required": 0.2498627450980392
+          },
+          {
+            "start": "well",
+            "target": "shrug",
+            "direct": false,
+            "contact": 0.025259445806113945,
+            "required": 0.2498627450980392
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "secret",
+          "success": true,
+          "progress": 0.2720673751027789,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "login",
+          "error": "That word is outside the supported vocabulary. No shot used."
+        },
+        {
+          "word": "code",
+          "success": true,
+          "progress": 0.1670387258000119,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "security",
+          "success": false,
+          "progress": 0.36281304766089306,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "account",
+          "success": true,
+          "progress": 0.3107001701846457,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "access",
+          "success": true,
+          "progress": 0.3432311745405059,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 11
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "nettle",
+        "sore",
+        "answer"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "purse",
+        "worry",
+        "fear"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "cucumber",
+        "mouse",
+        "value"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "crossing",
+        "elephant",
+        "salary"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "pace",
+        "dim",
+        "stare"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "push",
+        "drag",
+        "wealthy"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "hint",
+        "add",
+        "curve"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "hint",
+            "target": "add",
+            "direct": true,
+            "contact": 0.30236478400320266,
+            "required": 0.095
+          },
+          {
+            "start": "add",
+            "target": "curve",
+            "direct": false,
+            "contact": 0.020520277619652916,
+            "required": 0.21925490196078432
+          }
+        ],
+        "message": "ADD can be played directly from HINT."
+      },
+      "rejection": "Direct-leg rule: ADD can be played directly from HINT."
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "bulb",
+        "shove",
+        "password"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "hole",
+        "clue",
+        "author"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "bacon",
+        "truck",
+        "aluminium"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "fog",
+        "cucumber",
+        "pasta"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "lower",
+        "break",
+        "morning"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "wardrobe",
+        "sleet",
+        "mushroom"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "blender",
+        "onion",
+        "corkscrew"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "tray",
+        "grove",
+        "toothpaste"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "basketball",
+        "shut",
+        "toothpaste"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "shine",
+        "burger",
+        "duvet"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "heap",
+        "fog",
+        "pony"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "salary",
+        "football",
+        "shoe"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "soot",
+        "bundle",
+        "rugby"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "soot",
+            "target": "bundle",
+            "direct": false,
+            "contact": 0.06568418022288824,
+            "required": 0.215
+          },
+          {
+            "start": "bundle",
+            "target": "rugby",
+            "direct": false,
+            "contact": -0.02021275815059198,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "smoke",
+          "success": false,
+          "progress": -0.08331469177119288,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "black",
+          "success": false,
+          "progress": -0.08543731583995395,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "chimney",
+          "success": true,
+          "progress": 0.04345017123341677,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "fire",
+          "success": false,
+          "progress": -0.15129778606024047,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "ash",
+          "success": false,
+          "progress": -0.020255524529602553,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "dirty",
+          "success": false,
+          "progress": -0.07601488338150375,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "soccer",
+        "coop",
+        "lobster"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "salary",
+        "width",
+        "panda"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "garage",
+        "hat",
+        "value"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "garage",
+            "target": "hat",
+            "direct": false,
+            "contact": 0.09704706297634402,
+            "required": 0.215
+          },
+          {
+            "start": "hat",
+            "target": "value",
+            "direct": false,
+            "contact": -0.008601748914088603,
+            "required": 0.2403921568627451
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "car",
+          "success": true,
+          "progress": 0.024084064883027168,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "park",
+          "success": true,
+          "progress": 0.030780925696603845,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "shed",
+          "success": true,
+          "progress": 0.06237395016069058,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "door",
+          "success": true,
+          "progress": 0.14374643661221853,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "tools",
+          "success": true,
+          "progress": 0.01842807807497593,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "repair",
+          "success": false,
+          "progress": -0.07222298988835973,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 12
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "shoe",
+        "sun",
+        "vat"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "painting",
+        "quarry",
+        "truck"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "shove",
+        "add",
+        "sheep"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "shove",
+            "target": "add",
+            "direct": false,
+            "contact": 0.13157107301594806,
+            "required": 0.21925490196078432
+          },
+          {
+            "start": "add",
+            "target": "sheep",
+            "direct": false,
+            "contact": 0.045964354856550926,
+            "required": 0.21925490196078432
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "push",
+          "success": true,
+          "progress": 0.23080352885426692,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "force",
+          "success": false,
+          "progress": 0.0710032868446433,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "move",
+          "success": false,
+          "progress": 0.21056978052729391,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "elbow",
+          "success": false,
+          "progress": -0.031263703807780985,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "crowd",
+          "success": false,
+          "progress": 0.056846822111765505,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "nudge",
+          "success": true,
+          "progress": 0.01730985512767802,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "gaze",
+        "guide",
+        "ash"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 66,
+      "words": [
+        "lack",
+        "lucky",
+        "crab"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 67,
+      "words": [
+        "tiger",
+        "pear",
+        "ruby"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 68,
+      "words": [
+        "football",
+        "spinach",
+        "lack"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 69,
+      "words": [
+        "cycling",
+        "cone",
+        "bird"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "cycling",
+            "target": "cone",
+            "direct": false,
+            "contact": -0.09884566372966219,
+            "required": 0.215
+          },
+          {
+            "start": "cone",
+            "target": "bird",
+            "direct": false,
+            "contact": 0.14852397344384372,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "bike",
+          "success": true,
+          "progress": 0.13857892673831884,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "wheel",
+          "success": false,
+          "progress": 0.29621574271550344,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "ride",
+          "success": true,
+          "progress": 0.1902396375198805,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pedal",
+          "success": false,
+          "progress": 0.17711297737469067,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "sport",
+          "success": true,
+          "progress": 0.07441361493329168,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "road",
+          "success": true,
+          "progress": 0.19937356486479985,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 13
+    },
+    {
+      "candidate": 70,
+      "words": [
+        "peeler",
+        "hot",
+        "slipper"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 71,
+      "words": [
+        "shampoo",
+        "bike",
+        "nasty"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 72,
+      "words": [
+        "book",
+        "battery",
+        "jeans"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "book",
+            "target": "battery",
+            "direct": false,
+            "contact": 0.013346379445465573,
+            "required": 0.23147058823529412
+          },
+          {
+            "start": "battery",
+            "target": "jeans",
+            "direct": false,
+            "contact": -0.017332458179225796,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "read",
+          "success": true,
+          "progress": 0.0474704587186352,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "page",
+          "success": true,
+          "progress": -0.005457897619635332,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "story",
+          "success": true,
+          "progress": 0.09180636869021441,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "novel",
+          "success": true,
+          "progress": 0.013149093946594803,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "author",
+          "success": false,
+          "progress": -0.04228778183914983,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "cover",
+          "success": true,
+          "progress": 0.15290518431334021,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 14
+    },
+    {
+      "candidate": 73,
+      "words": [
+        "lower",
+        "roundabout",
+        "curve"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 74,
+      "words": [
+        "shard",
+        "sneeze",
+        "sore"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 75,
+      "words": [
+        "funny",
+        "nap",
+        "push"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "funny",
+            "target": "nap",
+            "direct": false,
+            "contact": 0.054435408073914004,
+            "required": 0.22117647058823528
+          },
+          {
+            "start": "nap",
+            "target": "push",
+            "direct": false,
+            "contact": 0.03057590477328631,
+            "required": 0.24643137254901962
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "laugh",
+          "success": true,
+          "progress": 0.1564234997422318,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "joke",
+          "success": true,
+          "progress": 0.09625583544402616,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "comedy",
+          "success": false,
+          "progress": -0.06862705937953706,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "humour",
+          "success": false,
+          "progress": -0.04420773240053677,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "smile",
+          "success": true,
+          "progress": 0.08713286855345359,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "silly",
+          "success": true,
+          "progress": 0.11781955551623469,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 15
+    },
+    {
+      "candidate": 76,
+      "words": [
+        "healthy",
+        "shark",
+        "hob"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 77,
+      "words": [
+        "mulch",
+        "gleam",
+        "ditch"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 78,
+      "words": [
+        "bacon",
+        "gutter",
+        "rice"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 79,
+      "words": [
+        "coat",
+        "bill",
+        "summer"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 80,
+      "words": [
+        "doormat",
+        "chat",
+        "concrete"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "doormat",
+            "target": "chat",
+            "direct": false,
+            "contact": 0.05214350445294258,
+            "required": 0.215
+          },
+          {
+            "start": "chat",
+            "target": "concrete",
+            "direct": false,
+            "contact": 0.02802186106600857,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "door",
+          "success": false,
+          "progress": 0.1717363871712223,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "mat",
+          "success": false,
+          "progress": 0.042734982073852734,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "entrance",
+          "success": false,
+          "progress": 0.015558736819912156,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "welcome",
+          "success": false,
+          "progress": 0.14238953975745972,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "floor",
+          "success": false,
+          "progress": 0.13538574142967263,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "wipe",
+          "success": false,
+          "progress": -0.021924114686953544,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 0,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 81,
+      "words": [
+        "spinach",
+        "wrinkle",
+        "moment"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "spinach",
+            "target": "wrinkle",
+            "direct": false,
+            "contact": 0.09502754976165306,
+            "required": 0.215
+          },
+          {
+            "start": "wrinkle",
+            "target": "moment",
+            "direct": false,
+            "contact": 0.06840611935149354,
+            "required": 0.24258823529411766
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "green",
+          "success": false,
+          "progress": -0.11915956151941742,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "leaf",
+          "success": false,
+          "progress": -0.039561925424095534,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "vegetable",
+          "success": false,
+          "progress": -0.027872288545495394,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "food",
+          "success": false,
+          "progress": -0.15896577204330242,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "iron",
+          "success": false,
+          "progress": -0.08933345151490357,
+          "connected": false,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "salad",
+          "success": true,
+          "progress": 0.015391480833386595,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 1,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 82,
+      "words": [
+        "butterfly",
+        "pants",
+        "clog"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 83,
+      "words": [
+        "pea",
+        "peeler",
+        "twinkle"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 84,
+      "words": [
+        "mug",
+        "aluminium",
+        "text"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 85,
+      "words": [
+        "necklace",
+        "tag",
+        "paw"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 86,
+      "words": [
+        "glance",
+        "circle",
+        "hallway"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 87,
+      "words": [
+        "shut",
+        "toothpaste",
+        "quarry"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 88,
+      "words": [
+        "basketball",
+        "cow",
+        "beak"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 89,
+      "words": [
+        "evening",
+        "dog",
+        "tear"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "evening",
+            "target": "dog",
+            "direct": false,
+            "contact": 0.14415588295742054,
+            "required": 0.21650980392156863
+          },
+          {
+            "start": "dog",
+            "target": "tear",
+            "direct": false,
+            "contact": 0.12182819142981316,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "night",
+          "success": true,
+          "progress": 0.1281643591573811,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "dusk",
+          "success": false,
+          "progress": -0.05123289638777351,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "dinner",
+          "success": true,
+          "progress": 0.1293651116448018,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "sunset",
+          "success": false,
+          "progress": -0.06075045241959742,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "late",
+          "success": false,
+          "progress": -0.03489231405546889,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "dark",
+          "success": true,
+          "progress": 0.09499531654546445,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 3,
+      "acceptedPosition": 16
+    },
+    {
+      "candidate": 90,
+      "words": [
+        "door",
+        "mushroom",
+        "bath"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 91,
+      "words": [
+        "triangle",
+        "spare",
+        "lion"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 92,
+      "words": [
+        "grater",
+        "size",
+        "plastic"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 93,
+      "words": [
+        "purse",
+        "crush",
+        "teacher"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "purse",
+            "target": "crush",
+            "direct": false,
+            "contact": -0.06173006715835072,
+            "required": 0.215
+          },
+          {
+            "start": "crush",
+            "target": "teacher",
+            "direct": false,
+            "contact": 0.11895121673660469,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "wallet",
+          "success": true,
+          "progress": 0.08484270900953561,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "money",
+          "success": true,
+          "progress": 0.1403751397265296,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "bag",
+          "success": true,
+          "progress": 0.17758983140356577,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "pocket",
+          "success": true,
+          "progress": 0.1401604771026541,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "coin",
+          "success": true,
+          "progress": 0.02806318568855204,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "leather",
+          "success": true,
+          "progress": 0.058063555658009136,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 6,
+      "acceptedPosition": 17
+    },
+    {
+      "candidate": 94,
+      "words": [
+        "tow",
+        "cough",
+        "truck"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 95,
+      "words": [
+        "celery",
+        "onion",
+        "lump"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 96,
+      "words": [
+        "lamp",
+        "question",
+        "cough"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "lamp",
+            "target": "question",
+            "direct": false,
+            "contact": -0.018627585569902294,
+            "required": 0.2472549019607843
+          },
+          {
+            "start": "question",
+            "target": "cough",
+            "direct": false,
+            "contact": -0.035514033860408745,
+            "required": 0.2472549019607843
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "light",
+          "success": true,
+          "progress": 0.23477027620208446,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "shade",
+          "success": true,
+          "progress": 0.017979807856590924,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "bulb",
+          "success": true,
+          "progress": 0.07233791175485749,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "desk",
+          "success": true,
+          "progress": 0.18895440601454538,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "glow",
+          "success": false,
+          "progress": -0.025911716534665175,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "bright",
+          "success": true,
+          "progress": 0.15006285624394877,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 5,
+      "acceptedPosition": 18
+    },
+    {
+      "candidate": 97,
+      "words": [
+        "trainer",
+        "toilet",
+        "email"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 98,
+      "words": [
+        "bulb",
+        "fire",
+        "celery"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 99,
+      "words": [
+        "koala",
+        "stroke",
+        "wardrobe"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 100,
+      "words": [
+        "paw",
+        "touch",
+        "lower"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 101,
+      "words": [
+        "bundle",
+        "toilet",
+        "claw"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 102,
+      "words": [
+        "street",
+        "cage",
+        "snowflake"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "street",
+            "target": "cage",
+            "direct": false,
+            "contact": 0.07406476782489335,
+            "required": 0.215
+          },
+          {
+            "start": "cage",
+            "target": "snowflake",
+            "direct": false,
+            "contact": -0.024042439810727956,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "road",
+          "success": false,
+          "progress": -0.023504925426095724,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "town",
+          "success": false,
+          "progress": -0.06116655062214704,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "pavement",
+          "success": true,
+          "progress": 0.016455702199891675,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "traffic",
+          "success": false,
+          "progress": -0.04671120004786644,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "house",
+          "success": true,
+          "progress": 0.053274448349839076,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "avenue",
+          "success": false,
+          "progress": -0.06117805352096184,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 103,
+      "words": [
+        "heap",
+        "tail",
+        "title"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 104,
+      "words": [
+        "wage",
+        "nettle",
+        "loan"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 105,
+      "words": [
+        "razor",
+        "canal",
+        "circle"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "razor",
+            "target": "canal",
+            "direct": false,
+            "contact": 0.02732718297647807,
+            "required": 0.215
+          },
+          {
+            "start": "canal",
+            "target": "circle",
+            "direct": false,
+            "contact": 0.10497620882233605,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "shave",
+          "success": false,
+          "progress": -0.09610386464646581,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "blade",
+          "success": false,
+          "progress": -0.035188474296774075,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "sharp",
+          "success": false,
+          "progress": -0.030629769699771714,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "hair",
+          "success": true,
+          "progress": 0.06919397998990462,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "cut",
+          "success": true,
+          "progress": 0.14936255429256562,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "beard",
+          "success": false,
+          "progress": -0.03588219824996486,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 2,
+      "rejection": "Restricted opening: fewer than three legal forward moves among the fixed six"
+    },
+    {
+      "candidate": 106,
+      "words": [
+        "hob",
+        "floor",
+        "pile"
+      ],
+      "access": {
+        "allowed": false,
+        "legs": [
+          {
+            "start": "hob",
+            "target": "floor",
+            "direct": false,
+            "contact": -0.042159585496165164,
+            "required": 0.215
+          },
+          {
+            "start": "floor",
+            "target": "pile",
+            "direct": true,
+            "contact": 0.27408787332569773,
+            "required": 0.095
+          }
+        ],
+        "message": "PILE can be played directly from FLOOR."
+      },
+      "rejection": "Direct-leg rule: PILE can be played directly from FLOOR."
+    },
+    {
+      "candidate": 107,
+      "words": [
+        "toothpaste",
+        "battery",
+        "whale"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 108,
+      "words": [
+        "evening",
+        "pitcher",
+        "cave"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 109,
+      "words": [
+        "grill",
+        "want",
+        "monkey"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "grill",
+            "target": "want",
+            "direct": false,
+            "contact": 0.16262757647200488,
+            "required": 0.24903921568627452
+          },
+          {
+            "start": "want",
+            "target": "monkey",
+            "direct": false,
+            "contact": 0.11069042252120198,
+            "required": 0.24903921568627452
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "cook",
+          "success": true,
+          "progress": 0.10899486398693625,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "heat",
+          "success": true,
+          "progress": 0.053738100237751496,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "meat",
+          "success": true,
+          "progress": 0.0835657614752563,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "barbecue",
+          "success": false,
+          "progress": -0.016713599517061084,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "hot",
+          "success": true,
+          "progress": 0.112939111486412,
+          "connected": true,
+          "forward": true,
+          "waypoint": true
+        },
+        {
+          "word": "flame",
+          "success": false,
+          "progress": -0.06898405393667417,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 19
+    },
+    {
+      "candidate": 110,
+      "words": [
+        "squash",
+        "excess",
+        "pile"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 111,
+      "words": [
+        "hot",
+        "cage",
+        "middle"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 112,
+      "words": [
+        "back",
+        "bedside",
+        "onion"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 113,
+      "words": [
+        "grater",
+        "bundle",
+        "concrete"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 114,
+      "words": [
+        "shut",
+        "duvet",
+        "bath"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 115,
+      "words": [
+        "split",
+        "loan",
+        "shard"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 116,
+      "words": [
+        "cycling",
+        "butterfly",
+        "hob"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 117,
+      "words": [
+        "stain",
+        "ham",
+        "lion"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 118,
+      "words": [
+        "lake",
+        "wage",
+        "packet"
+      ],
+      "rejection": "Apparent stale or hollow general finish"
+    },
+    {
+      "candidate": 119,
+      "words": [
+        "torch",
+        "vat",
+        "circle"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 120,
+      "words": [
+        "toilet",
+        "spray",
+        "today"
+      ],
+      "rejection": "Routine opening/category/stock phrase or whole-context giveaway"
+    },
+    {
+      "candidate": 121,
+      "words": [
+        "sweep",
+        "grater",
+        "shark"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 122,
+      "words": [
+        "chat",
+        "skillet",
+        "bacon"
+      ],
+      "rejection": "Remote or narrow combination on sight"
+    },
+    {
+      "candidate": 123,
+      "words": [
+        "mug",
+        "hole",
+        "multiply"
+      ],
+      "rejection": "Endpoint already selected in this batch"
+    },
+    {
+      "candidate": 124,
+      "words": [
+        "cube",
+        "burden",
+        "cup"
+      ],
+      "access": {
+        "allowed": true,
+        "legs": [
+          {
+            "start": "cube",
+            "target": "burden",
+            "direct": false,
+            "contact": -0.034038661357044475,
+            "required": 0.215
+          },
+          {
+            "start": "burden",
+            "target": "cup",
+            "direct": false,
+            "contact": 0.03956517534697923,
+            "required": 0.215
+          }
+        ],
+        "message": ""
+      },
+      "shots": [
+        {
+          "word": "square",
+          "success": false,
+          "progress": -0.01290939144018921,
+          "connected": true,
+          "forward": false,
+          "waypoint": false
+        },
+        {
+          "word": "block",
+          "success": true,
+          "progress": 0.1287781598452966,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "ice",
+          "success": true,
+          "progress": 0.09228003623047698,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "solid",
+          "success": false,
+          "progress": 0.10568639024313597,
+          "connected": false,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "dice",
+          "success": true,
+          "progress": 0.013980437675854773,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        },
+        {
+          "word": "shape",
+          "success": true,
+          "progress": 0.20824944772175513,
+          "connected": true,
+          "forward": true,
+          "waypoint": false
+        }
+      ],
+      "forwardHits": 4,
+      "acceptedPosition": 20
+    }
+  ]
+}
