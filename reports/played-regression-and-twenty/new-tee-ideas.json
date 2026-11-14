@@ -1,0 +1,778 @@
+{
+  "angle": [
+    "corner",
+    "degree",
+    "triangle",
+    "bend",
+    "slope",
+    "point"
+  ],
+  "angry": [
+    "cross",
+    "mad",
+    "furious",
+    "upset",
+    "rage",
+    "temper"
+  ],
+  "autumn": [
+    "leaf",
+    "fall",
+    "season",
+    "tree",
+    "orange",
+    "harvest"
+  ],
+  "cabinet": [
+    "cupboard",
+    "storage",
+    "drawer",
+    "wood",
+    "door",
+    "shelf"
+  ],
+  "chill": [
+    "cold",
+    "cool",
+    "ice",
+    "shiver",
+    "relax",
+    "breeze"
+  ],
+  "chop": [
+    "cut",
+    "axe",
+    "wood",
+    "slice",
+    "kitchen",
+    "meat"
+  ],
+  "chuckle": [
+    "laugh",
+    "giggle",
+    "smile",
+    "joke",
+    "funny",
+    "sound"
+  ],
+  "clog": [
+    "shoe",
+    "block",
+    "drain",
+    "jam",
+    "pipe",
+    "wooden"
+  ],
+  "cloth": [
+    "fabric",
+    "cotton",
+    "wipe",
+    "rag",
+    "material",
+    "soft"
+  ],
+  "clue": [
+    "hint",
+    "puzzle",
+    "mystery",
+    "detective",
+    "answer",
+    "evidence"
+  ],
+  "dark": [
+    "night",
+    "black",
+    "shadow",
+    "light",
+    "dim",
+    "shade"
+  ],
+  "diary": [
+    "journal",
+    "write",
+    "day",
+    "secret",
+    "book",
+    "record"
+  ],
+  "ditch": [
+    "trench",
+    "hole",
+    "dig",
+    "drain",
+    "road",
+    "water"
+  ],
+  "dread": [
+    "fear",
+    "worry",
+    "afraid",
+    "horror",
+    "anxiety",
+    "threat"
+  ],
+  "dusk": [
+    "evening",
+    "sunset",
+    "twilight",
+    "night",
+    "dark",
+    "late"
+  ],
+  "duvet": [
+    "bed",
+    "cover",
+    "quilt",
+    "blanket",
+    "sleep",
+    "warm"
+  ],
+  "email": [
+    "message",
+    "letter",
+    "inbox",
+    "send",
+    "computer",
+    "address"
+  ],
+  "excess": [
+    "extra",
+    "surplus",
+    "waste",
+    "plenty",
+    "more",
+    "overflow"
+  ],
+  "fabric": [
+    "cloth",
+    "material",
+    "cotton",
+    "silk",
+    "weave",
+    "thread"
+  ],
+  "faith": [
+    "belief",
+    "trust",
+    "religion",
+    "hope",
+    "church",
+    "confidence"
+  ],
+  "fare": [
+    "ticket",
+    "bus",
+    "train",
+    "price",
+    "pay",
+    "travel"
+  ],
+  "farm": [
+    "field",
+    "animal",
+    "farmer",
+    "crop",
+    "barn",
+    "tractor"
+  ],
+  "fire": [
+    "flame",
+    "heat",
+    "burn",
+    "smoke",
+    "hot",
+    "ash"
+  ],
+  "gap": [
+    "space",
+    "hole",
+    "opening",
+    "between",
+    "crack",
+    "break"
+  ],
+  "gleam": [
+    "shine",
+    "light",
+    "bright",
+    "glow",
+    "polish",
+    "silver"
+  ],
+  "gorilla": [
+    "ape",
+    "monkey",
+    "animal",
+    "jungle",
+    "large",
+    "strong"
+  ],
+  "kennel": [
+    "dog",
+    "house",
+    "pet",
+    "shelter",
+    "cage",
+    "boarding"
+  ],
+  "kiss": [
+    "lips",
+    "love",
+    "mouth",
+    "affection",
+    "hug",
+    "cheek"
+  ],
+  "knob": [
+    "handle",
+    "door",
+    "turn",
+    "round",
+    "switch",
+    "button"
+  ],
+  "lane": [
+    "road",
+    "narrow",
+    "path",
+    "street",
+    "traffic",
+    "bowling"
+  ],
+  "light": [
+    "bright",
+    "lamp",
+    "sun",
+    "dark",
+    "glow",
+    "weight"
+  ],
+  "magazine": [
+    "journal",
+    "read",
+    "article",
+    "page",
+    "glossy",
+    "fashion"
+  ],
+  "middle": [
+    "centre",
+    "between",
+    "central",
+    "half",
+    "core",
+    "inside"
+  ],
+  "mine": [
+    "coal",
+    "dig",
+    "pit",
+    "own",
+    "gold",
+    "underground"
+  ],
+  "multiply": [
+    "times",
+    "maths",
+    "number",
+    "divide",
+    "add",
+    "increase"
+  ],
+  "noon": [
+    "midday",
+    "lunch",
+    "sun",
+    "twelve",
+    "day",
+    "afternoon"
+  ],
+  "pasture": [
+    "field",
+    "grass",
+    "cow",
+    "sheep",
+    "graze",
+    "farm"
+  ],
+  "peek": [
+    "look",
+    "glance",
+    "hide",
+    "eye",
+    "glimpse",
+    "spy"
+  ],
+  "pony": [
+    "horse",
+    "ride",
+    "small",
+    "mane",
+    "saddle",
+    "animal"
+  ],
+  "reach": [
+    "stretch",
+    "arm",
+    "touch",
+    "grab",
+    "arrive",
+    "hand"
+  ],
+  "reader": [
+    "book",
+    "read",
+    "author",
+    "page",
+    "audience",
+    "person"
+  ],
+  "saucer": [
+    "cup",
+    "plate",
+    "tea",
+    "dish",
+    "round",
+    "china"
+  ],
+  "scheme": [
+    "plan",
+    "plot",
+    "idea",
+    "design",
+    "trick",
+    "colour"
+  ],
+  "sleet": [
+    "snow",
+    "rain",
+    "cold",
+    "ice",
+    "winter",
+    "weather"
+  ],
+  "snap": [
+    "break",
+    "crack",
+    "quick",
+    "photo",
+    "click",
+    "twig"
+  ],
+  "sore": [
+    "pain",
+    "hurt",
+    "ache",
+    "tender",
+    "wound",
+    "muscle"
+  ],
+  "sphere": [
+    "ball",
+    "round",
+    "globe",
+    "shape",
+    "circle",
+    "world"
+  ],
+  "tale": [
+    "story",
+    "fairy",
+    "tell",
+    "myth",
+    "legend",
+    "book"
+  ],
+  "tape": [
+    "sticky",
+    "record",
+    "ribbon",
+    "measure",
+    "cassette",
+    "strip"
+  ],
+  "text": [
+    "word",
+    "message",
+    "book",
+    "write",
+    "phone",
+    "print"
+  ],
+  "thorn": [
+    "rose",
+    "sharp",
+    "prick",
+    "bush",
+    "spike",
+    "plant"
+  ],
+  "thought": [
+    "think",
+    "mind",
+    "idea",
+    "brain",
+    "memory",
+    "consider"
+  ],
+  "thread": [
+    "needle",
+    "sew",
+    "cotton",
+    "string",
+    "thin",
+    "weave"
+  ],
+  "touch": [
+    "feel",
+    "hand",
+    "finger",
+    "contact",
+    "soft",
+    "reach"
+  ],
+  "tune": [
+    "music",
+    "song",
+    "melody",
+    "sound",
+    "radio",
+    "note"
+  ],
+  "ape": [
+    "monkey",
+    "gorilla",
+    "animal",
+    "jungle",
+    "chimpanzee",
+    "primate"
+  ],
+  "avocado": [
+    "fruit",
+    "green",
+    "pear",
+    "stone",
+    "salad",
+    "toast"
+  ],
+  "bracelet": [
+    "wrist",
+    "jewellery",
+    "gold",
+    "silver",
+    "chain",
+    "bead"
+  ],
+  "cage": [
+    "bird",
+    "animal",
+    "bars",
+    "prison",
+    "lock",
+    "enclosure"
+  ],
+  "chunk": [
+    "piece",
+    "lump",
+    "block",
+    "large",
+    "bite",
+    "cut"
+  ],
+  "clutch": [
+    "grip",
+    "hold",
+    "grab",
+    "car",
+    "pedal",
+    "bag"
+  ],
+  "coast": [
+    "shore",
+    "sea",
+    "beach",
+    "cliff",
+    "wave",
+    "land"
+  ],
+  "corkscrew": [
+    "wine",
+    "cork",
+    "bottle",
+    "open",
+    "twist",
+    "spiral"
+  ],
+  "drag": [
+    "pull",
+    "haul",
+    "tug",
+    "move",
+    "heavy",
+    "slow"
+  ],
+  "fee": [
+    "charge",
+    "pay",
+    "money",
+    "price",
+    "cost",
+    "service"
+  ],
+  "find": [
+    "search",
+    "seek",
+    "discover",
+    "lost",
+    "look",
+    "locate"
+  ],
+  "marsh": [
+    "swamp",
+    "wetland",
+    "reed",
+    "water",
+    "mud",
+    "bog"
+  ],
+  "peak": [
+    "top",
+    "summit",
+    "mountain",
+    "high",
+    "point",
+    "climb"
+  ],
+  "ridge": [
+    "hill",
+    "mountain",
+    "edge",
+    "roof",
+    "raised",
+    "line"
+  ],
+  "shore": [
+    "beach",
+    "sea",
+    "coast",
+    "sand",
+    "wave",
+    "land"
+  ],
+  "sleep": [
+    "bed",
+    "dream",
+    "night",
+    "tired",
+    "rest",
+    "nap"
+  ],
+  "snowflake": [
+    "snow",
+    "ice",
+    "winter",
+    "cold",
+    "white",
+    "crystal"
+  ],
+  "tank": [
+    "water",
+    "army",
+    "fish",
+    "metal",
+    "fuel",
+    "storage"
+  ],
+  "tongs": [
+    "kitchen",
+    "grip",
+    "grab",
+    "metal",
+    "barbecue",
+    "lift"
+  ],
+  "vat": [
+    "tub",
+    "barrel",
+    "tank",
+    "liquid",
+    "container",
+    "wine"
+  ],
+  "wipe": [
+    "clean",
+    "cloth",
+    "rub",
+    "dry",
+    "wash",
+    "sweep"
+  ],
+  "wrapper": [
+    "cover",
+    "paper",
+    "packet",
+    "chocolate",
+    "pack",
+    "plastic"
+  ],
+  "zinc": [
+    "metal",
+    "mineral",
+    "galvanised",
+    "copper",
+    "brass",
+    "element"
+  ],
+  "add": [
+    "plus",
+    "sum",
+    "maths",
+    "number",
+    "increase",
+    "combine"
+  ],
+  "coop": [
+    "chicken",
+    "hen",
+    "bird",
+    "farm",
+    "house",
+    "cage"
+  ],
+  "curve": [
+    "bend",
+    "arc",
+    "round",
+    "line",
+    "shape",
+    "turn"
+  ],
+  "depth": [
+    "deep",
+    "water",
+    "below",
+    "height",
+    "measure",
+    "dive"
+  ],
+  "dice": [
+    "cube",
+    "game",
+    "roll",
+    "number",
+    "chop",
+    "cut"
+  ],
+  "gutter": [
+    "drain",
+    "roof",
+    "rain",
+    "water",
+    "street",
+    "pipe"
+  ],
+  "landing": [
+    "stairs",
+    "floor",
+    "aeroplane",
+    "arrive",
+    "flight",
+    "hall"
+  ],
+  "moment": [
+    "instant",
+    "time",
+    "second",
+    "brief",
+    "pause",
+    "now"
+  ],
+  "mouse": [
+    "rodent",
+    "small",
+    "cheese",
+    "cat",
+    "computer",
+    "click"
+  ],
+  "newspaper": [
+    "news",
+    "paper",
+    "article",
+    "read",
+    "daily",
+    "print"
+  ],
+  "skillet": [
+    "pan",
+    "fry",
+    "kitchen",
+    "cook",
+    "iron",
+    "handle"
+  ],
+  "slap": [
+    "hit",
+    "face",
+    "hand",
+    "strike",
+    "smack",
+    "palm"
+  ],
+  "soil": [
+    "earth",
+    "dirt",
+    "ground",
+    "garden",
+    "plant",
+    "mud"
+  ],
+  "speech": [
+    "talk",
+    "voice",
+    "words",
+    "speak",
+    "address",
+    "language"
+  ],
+  "stretch": [
+    "pull",
+    "reach",
+    "elastic",
+    "long",
+    "bend",
+    "extend"
+  ],
+  "tilt": [
+    "lean",
+    "angle",
+    "slope",
+    "tip",
+    "slant",
+    "balance"
+  ],
+  "title": [
+    "name",
+    "book",
+    "heading",
+    "author",
+    "page",
+    "film"
+  ],
+  "today": [
+    "now",
+    "day",
+    "date",
+    "tomorrow",
+    "yesterday",
+    "current"
+  ],
+  "voucher": [
+    "coupon",
+    "ticket",
+    "discount",
+    "gift",
+    "money",
+    "redeem"
+  ]
+}
