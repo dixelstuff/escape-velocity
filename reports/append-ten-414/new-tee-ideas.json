@@ -1,0 +1,250 @@
+{
+  "balcony": [
+    "terrace",
+    "railing",
+    "flat",
+    "outside",
+    "view",
+    "high"
+  ],
+  "beef": [
+    "meat",
+    "cow",
+    "steak",
+    "cattle",
+    "roast",
+    "burger"
+  ],
+  "birthday": [
+    "cake",
+    "candle",
+    "party",
+    "present",
+    "age",
+    "celebrate"
+  ],
+  "bottom": [
+    "top",
+    "below",
+    "low",
+    "end",
+    "base",
+    "underneath"
+  ],
+  "bright": [
+    "light",
+    "sun",
+    "shine",
+    "clever",
+    "glow",
+    "colour"
+  ],
+  "chapter": [
+    "book",
+    "story",
+    "section",
+    "page",
+    "novel",
+    "read"
+  ],
+  "circle": [
+    "round",
+    "ring",
+    "shape",
+    "loop",
+    "curve",
+    "wheel"
+  ],
+  "extra": [
+    "more",
+    "additional",
+    "spare",
+    "surplus",
+    "bonus",
+    "excess"
+  ],
+  "ill": [
+    "sick",
+    "unwell",
+    "disease",
+    "fever",
+    "hurt",
+    "health"
+  ],
+  "instant": [
+    "moment",
+    "quick",
+    "immediate",
+    "second",
+    "now",
+    "coffee"
+  ],
+  "island": [
+    "sea",
+    "land",
+    "water",
+    "beach",
+    "tropical",
+    "coast"
+  ],
+  "loop": [
+    "circle",
+    "round",
+    "ring",
+    "knot",
+    "repeat",
+    "string"
+  ],
+  "lump": [
+    "bump",
+    "piece",
+    "chunk",
+    "swelling",
+    "mass",
+    "solid"
+  ],
+  "mop": [
+    "floor",
+    "clean",
+    "water",
+    "bucket",
+    "wash",
+    "wipe"
+  ],
+  "packet": [
+    "pack",
+    "wrapper",
+    "bag",
+    "envelope",
+    "crisp",
+    "parcel"
+  ],
+  "pollen": [
+    "flower",
+    "bee",
+    "dust",
+    "allergy",
+    "sneeze",
+    "plant"
+  ],
+  "pork": [
+    "pig",
+    "meat",
+    "bacon",
+    "ham",
+    "roast",
+    "sausage"
+  ],
+  "quarry": [
+    "stone",
+    "pit",
+    "mine",
+    "dig",
+    "rock",
+    "gravel"
+  ],
+  "ruby": [
+    "gem",
+    "red",
+    "jewel",
+    "stone",
+    "precious",
+    "ring"
+  ],
+  "scratch": [
+    "itch",
+    "nail",
+    "mark",
+    "claw",
+    "scrape",
+    "skin"
+  ],
+  "shed": [
+    "garden",
+    "tools",
+    "storage",
+    "hut",
+    "wood",
+    "roof"
+  ],
+  "tag": [
+    "label",
+    "name",
+    "game",
+    "chase",
+    "mark",
+    "ticket"
+  ],
+  "token": [
+    "coin",
+    "symbol",
+    "ticket",
+    "gesture",
+    "sign",
+    "small"
+  ],
+  "tomorrow": [
+    "future",
+    "today",
+    "yesterday",
+    "next",
+    "day",
+    "later"
+  ],
+  "unpack": [
+    "pack",
+    "open",
+    "suitcase",
+    "bag",
+    "box",
+    "luggage"
+  ],
+  "valley": [
+    "hill",
+    "mountain",
+    "river",
+    "low",
+    "between",
+    "slope"
+  ],
+  "vapour": [
+    "steam",
+    "gas",
+    "mist",
+    "cloud",
+    "water",
+    "heat"
+  ],
+  "wasp": [
+    "bee",
+    "sting",
+    "insect",
+    "yellow",
+    "nest",
+    "wing"
+  ],
+  "watering": [
+    "water",
+    "garden",
+    "plant",
+    "can",
+    "hose",
+    "wet"
+  ],
+  "weed": [
+    "garden",
+    "plant",
+    "unwanted",
+    "leaf",
+    "remove",
+    "soil"
+  ],
+  "width": [
+    "wide",
+    "measure",
+    "length",
+    "broad",
+    "size",
+    "across"
+  ]
+}

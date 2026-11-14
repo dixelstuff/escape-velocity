@@ -1,0 +1,1927 @@
+{
+  "seed": 20261114414,
+  "algorithm": "Python random.Random(seed).sample(pool_in_recorded_order, 3), repeated 240 times before checks",
+  "designSha256": "6cc130485ec0ab65bcc968a702dde88323c40268c025699328773f87b3221c9a",
+  "candidates": [
+    {
+      "candidate": 1,
+      "words": [
+        "toilet",
+        "newspaper",
+        "hose"
+      ]
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "ruby",
+        "vapour",
+        "mug"
+      ]
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "shark",
+        "cuddle",
+        "side"
+      ]
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "pork",
+        "stare",
+        "depth"
+      ]
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "ditch",
+        "top",
+        "lack"
+      ]
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "ruby",
+        "sneeze",
+        "knob"
+      ]
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "yesterday",
+        "pear",
+        "burger"
+      ]
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "lack",
+        "wasp",
+        "shrimp"
+      ]
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "knob",
+        "drizzle",
+        "scheme"
+      ]
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "nice",
+        "ruler",
+        "magazine"
+      ]
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "token",
+        "cage",
+        "icicle"
+      ]
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "moment",
+        "haul",
+        "moth"
+      ]
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "circle",
+        "wage",
+        "peak"
+      ]
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "hen",
+        "plastic",
+        "pork"
+      ]
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "sheep",
+        "shred",
+        "barn"
+      ]
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "newspaper",
+        "sleet",
+        "bus"
+      ]
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "butterfly",
+        "cloth",
+        "number"
+      ]
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "tempo",
+        "paragraph",
+        "nettle"
+      ]
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "coat",
+        "wood",
+        "thought"
+      ]
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "birthday",
+        "hen",
+        "shine"
+      ]
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "fire",
+        "front",
+        "canal"
+      ]
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "hood",
+        "shark",
+        "earring"
+      ]
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "icicle",
+        "stew",
+        "pollen"
+      ]
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "title",
+        "bike",
+        "coast"
+      ]
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "tail",
+        "zinc",
+        "slide"
+      ]
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "magazine",
+        "pick",
+        "saucer"
+      ]
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "hen",
+        "horse",
+        "watering"
+      ]
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "shoe",
+        "shark",
+        "thought"
+      ]
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "mat",
+        "magazine",
+        "clog"
+      ]
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "depth",
+        "bedside",
+        "paw"
+      ]
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "multiply",
+        "shrimp",
+        "hug"
+      ]
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "cow",
+        "twinkle",
+        "gulp"
+      ]
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "fail",
+        "wok",
+        "basketball"
+      ]
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "beak",
+        "cage",
+        "paw"
+      ]
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "snore",
+        "clog",
+        "spinach"
+      ]
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "clog",
+        "glance",
+        "nettle"
+      ]
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "tape",
+        "floor",
+        "paw"
+      ]
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "ape",
+        "height",
+        "beach"
+      ]
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "packet",
+        "snore",
+        "size"
+      ]
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "necklace",
+        "healthy",
+        "minute"
+      ]
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "answer",
+        "pea",
+        "squash"
+      ]
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "flicker",
+        "nettle",
+        "hoof"
+      ]
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "pick",
+        "concrete",
+        "scratch"
+      ]
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "loop",
+        "chunk",
+        "claw"
+      ]
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "light",
+        "scratch",
+        "paragraph"
+      ]
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "bright",
+        "run",
+        "soccer"
+      ]
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "golf",
+        "mine",
+        "lobster"
+      ]
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "fabric",
+        "bill",
+        "skillet"
+      ]
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "sleet",
+        "giraffe",
+        "hour"
+      ]
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "weed",
+        "hay",
+        "wish"
+      ]
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "sneeze",
+        "soil",
+        "stew"
+      ]
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "tray",
+        "hour",
+        "slide"
+      ]
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "shampoo",
+        "bite",
+        "width"
+      ]
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "clue",
+        "hay",
+        "ditch"
+      ]
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "blend",
+        "hood",
+        "flask"
+      ]
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "tune",
+        "pear",
+        "triangle"
+      ]
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "wood",
+        "cook",
+        "tank"
+      ]
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "watering",
+        "fabric",
+        "haul"
+      ]
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "scratch",
+        "sparrow",
+        "valley"
+      ]
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "shoe",
+        "tag",
+        "dear"
+      ]
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "island",
+        "slap",
+        "soccer"
+      ]
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "sore",
+        "lion",
+        "uniform"
+      ]
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "shoe",
+        "giggle",
+        "shed"
+      ]
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "cow",
+        "shed",
+        "pork"
+      ]
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "mop",
+        "light",
+        "shed"
+      ]
+    },
+    {
+      "candidate": 66,
+      "words": [
+        "sad",
+        "drag",
+        "blender"
+      ]
+    },
+    {
+      "candidate": 67,
+      "words": [
+        "mine",
+        "ripple",
+        "prawn"
+      ]
+    },
+    {
+      "candidate": 68,
+      "words": [
+        "mist",
+        "koala",
+        "dice"
+      ]
+    },
+    {
+      "candidate": 69,
+      "words": [
+        "doormat",
+        "bill",
+        "wasp"
+      ]
+    },
+    {
+      "candidate": 70,
+      "words": [
+        "shoe",
+        "shove",
+        "snap"
+      ]
+    },
+    {
+      "candidate": 71,
+      "words": [
+        "thought",
+        "chunk",
+        "cold"
+      ]
+    },
+    {
+      "candidate": 72,
+      "words": [
+        "onion",
+        "sphere",
+        "thorn"
+      ]
+    },
+    {
+      "candidate": 73,
+      "words": [
+        "shove",
+        "snap",
+        "stack"
+      ]
+    },
+    {
+      "candidate": 74,
+      "words": [
+        "rhino",
+        "wise",
+        "kennel"
+      ]
+    },
+    {
+      "candidate": 75,
+      "words": [
+        "width",
+        "peak",
+        "tin"
+      ]
+    },
+    {
+      "candidate": 76,
+      "words": [
+        "shed",
+        "shoe",
+        "necklace"
+      ]
+    },
+    {
+      "candidate": 77,
+      "words": [
+        "fail",
+        "front",
+        "excess"
+      ]
+    },
+    {
+      "candidate": 78,
+      "words": [
+        "instant",
+        "cloth",
+        "spine"
+      ]
+    },
+    {
+      "candidate": 79,
+      "words": [
+        "tag",
+        "basketball",
+        "bright"
+      ]
+    },
+    {
+      "candidate": 80,
+      "words": [
+        "horse",
+        "watering",
+        "valley"
+      ]
+    },
+    {
+      "candidate": 81,
+      "words": [
+        "peak",
+        "giggle",
+        "shore"
+      ]
+    },
+    {
+      "candidate": 82,
+      "words": [
+        "healthy",
+        "vapour",
+        "avocado"
+      ]
+    },
+    {
+      "candidate": 83,
+      "words": [
+        "worm",
+        "tickle",
+        "toothpaste"
+      ]
+    },
+    {
+      "candidate": 84,
+      "words": [
+        "roundabout",
+        "riding",
+        "tiger"
+      ]
+    },
+    {
+      "candidate": 85,
+      "words": [
+        "angry",
+        "drizzle",
+        "speed"
+      ]
+    },
+    {
+      "candidate": 86,
+      "words": [
+        "stew",
+        "mitten",
+        "lack"
+      ]
+    },
+    {
+      "candidate": 87,
+      "words": [
+        "hob",
+        "ape",
+        "rabbit"
+      ]
+    },
+    {
+      "candidate": 88,
+      "words": [
+        "fail",
+        "quarry",
+        "rabbit"
+      ]
+    },
+    {
+      "candidate": 89,
+      "words": [
+        "blend",
+        "rain",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 90,
+      "words": [
+        "bottom",
+        "ruler",
+        "slide"
+      ]
+    },
+    {
+      "candidate": 91,
+      "words": [
+        "wipe",
+        "pan",
+        "newspaper"
+      ]
+    },
+    {
+      "candidate": 92,
+      "words": [
+        "top",
+        "smoke",
+        "gap"
+      ]
+    },
+    {
+      "candidate": 93,
+      "words": [
+        "chapter",
+        "sack",
+        "wok"
+      ]
+    },
+    {
+      "candidate": 94,
+      "words": [
+        "rugby",
+        "pasta",
+        "stain"
+      ]
+    },
+    {
+      "candidate": 95,
+      "words": [
+        "dear",
+        "crossing",
+        "hay"
+      ]
+    },
+    {
+      "candidate": 96,
+      "words": [
+        "rhino",
+        "clog",
+        "tow"
+      ]
+    },
+    {
+      "candidate": 97,
+      "words": [
+        "angry",
+        "bus",
+        "enough"
+      ]
+    },
+    {
+      "candidate": 98,
+      "words": [
+        "beef",
+        "fail",
+        "ash"
+      ]
+    },
+    {
+      "candidate": 99,
+      "words": [
+        "unpack",
+        "lack",
+        "weed"
+      ]
+    },
+    {
+      "candidate": 100,
+      "words": [
+        "wasp",
+        "vat",
+        "paragraph"
+      ]
+    },
+    {
+      "candidate": 101,
+      "words": [
+        "lump",
+        "gem",
+        "chat"
+      ]
+    },
+    {
+      "candidate": 102,
+      "words": [
+        "tongs",
+        "wok",
+        "sale"
+      ]
+    },
+    {
+      "candidate": 103,
+      "words": [
+        "ant",
+        "chop",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 104,
+      "words": [
+        "rice",
+        "bill",
+        "ruler"
+      ]
+    },
+    {
+      "candidate": 105,
+      "words": [
+        "quarry",
+        "sleet",
+        "sun"
+      ]
+    },
+    {
+      "candidate": 106,
+      "words": [
+        "extra",
+        "uniform",
+        "birthday"
+      ]
+    },
+    {
+      "candidate": 107,
+      "words": [
+        "top",
+        "pile",
+        "multiply"
+      ]
+    },
+    {
+      "candidate": 108,
+      "words": [
+        "ape",
+        "tow",
+        "kennel"
+      ]
+    },
+    {
+      "candidate": 109,
+      "words": [
+        "light",
+        "space",
+        "pollen"
+      ]
+    },
+    {
+      "candidate": 110,
+      "words": [
+        "mop",
+        "gardening",
+        "paragraph"
+      ]
+    },
+    {
+      "candidate": 111,
+      "words": [
+        "earring",
+        "nice",
+        "space"
+      ]
+    },
+    {
+      "candidate": 112,
+      "words": [
+        "cool",
+        "find",
+        "extra"
+      ]
+    },
+    {
+      "candidate": 113,
+      "words": [
+        "onion",
+        "speed",
+        "pants"
+      ]
+    },
+    {
+      "candidate": 114,
+      "words": [
+        "blender",
+        "microwave",
+        "wall"
+      ]
+    },
+    {
+      "candidate": 115,
+      "words": [
+        "try",
+        "pea",
+        "bite"
+      ]
+    },
+    {
+      "candidate": 116,
+      "words": [
+        "sphere",
+        "triangle",
+        "weekday"
+      ]
+    },
+    {
+      "candidate": 117,
+      "words": [
+        "grab",
+        "tail",
+        "bright"
+      ]
+    },
+    {
+      "candidate": 118,
+      "words": [
+        "wish",
+        "fish",
+        "wolf"
+      ]
+    },
+    {
+      "candidate": 119,
+      "words": [
+        "mulch",
+        "soil",
+        "win"
+      ]
+    },
+    {
+      "candidate": 120,
+      "words": [
+        "ill",
+        "song",
+        "bill"
+      ]
+    },
+    {
+      "candidate": 121,
+      "words": [
+        "riding",
+        "beach",
+        "throw"
+      ]
+    },
+    {
+      "candidate": 122,
+      "words": [
+        "spiral",
+        "lobster",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 123,
+      "words": [
+        "lobster",
+        "title",
+        "whale"
+      ]
+    },
+    {
+      "candidate": 124,
+      "words": [
+        "fish",
+        "squash",
+        "moth"
+      ]
+    },
+    {
+      "candidate": 125,
+      "words": [
+        "valley",
+        "snowflake",
+        "find"
+      ]
+    },
+    {
+      "candidate": 126,
+      "words": [
+        "title",
+        "thorn",
+        "moth"
+      ]
+    },
+    {
+      "candidate": 127,
+      "words": [
+        "balcony",
+        "healthy",
+        "bill"
+      ]
+    },
+    {
+      "candidate": 128,
+      "words": [
+        "pick",
+        "koala",
+        "diary"
+      ]
+    },
+    {
+      "candidate": 129,
+      "words": [
+        "avocado",
+        "hippo",
+        "mat"
+      ]
+    },
+    {
+      "candidate": 130,
+      "words": [
+        "skillet",
+        "hour",
+        "doormat"
+      ]
+    },
+    {
+      "candidate": 131,
+      "words": [
+        "shower",
+        "sad",
+        "chat"
+      ]
+    },
+    {
+      "candidate": 132,
+      "words": [
+        "shine",
+        "hill",
+        "angry"
+      ]
+    },
+    {
+      "candidate": 133,
+      "words": [
+        "ill",
+        "shirt",
+        "zip"
+      ]
+    },
+    {
+      "candidate": 134,
+      "words": [
+        "tomorrow",
+        "butterfly",
+        "lick"
+      ]
+    },
+    {
+      "candidate": 135,
+      "words": [
+        "zinc",
+        "icicle",
+        "chapter"
+      ]
+    },
+    {
+      "candidate": 136,
+      "words": [
+        "shove",
+        "beef",
+        "second"
+      ]
+    },
+    {
+      "candidate": 137,
+      "words": [
+        "pollen",
+        "pick",
+        "zip"
+      ]
+    },
+    {
+      "candidate": 138,
+      "words": [
+        "try",
+        "lobster",
+        "tickle"
+      ]
+    },
+    {
+      "candidate": 139,
+      "words": [
+        "trousers",
+        "fish",
+        "edge"
+      ]
+    },
+    {
+      "candidate": 140,
+      "words": [
+        "vapour",
+        "throw",
+        "chop"
+      ]
+    },
+    {
+      "candidate": 141,
+      "words": [
+        "lack",
+        "break",
+        "beach"
+      ]
+    },
+    {
+      "candidate": 142,
+      "words": [
+        "tail",
+        "thought",
+        "paragraph"
+      ]
+    },
+    {
+      "candidate": 143,
+      "words": [
+        "packet",
+        "duvet",
+        "hot"
+      ]
+    },
+    {
+      "candidate": 144,
+      "words": [
+        "hippo",
+        "drizzle",
+        "pot"
+      ]
+    },
+    {
+      "candidate": 145,
+      "words": [
+        "stack",
+        "top",
+        "hose"
+      ]
+    },
+    {
+      "candidate": 146,
+      "words": [
+        "thorn",
+        "uniform",
+        "onion"
+      ]
+    },
+    {
+      "candidate": 147,
+      "words": [
+        "wasp",
+        "fail",
+        "pot"
+      ]
+    },
+    {
+      "candidate": 148,
+      "words": [
+        "scowl",
+        "flicker",
+        "spare"
+      ]
+    },
+    {
+      "candidate": 149,
+      "words": [
+        "cold",
+        "stew",
+        "farm"
+      ]
+    },
+    {
+      "candidate": 150,
+      "words": [
+        "diary",
+        "tray",
+        "stroke"
+      ]
+    },
+    {
+      "candidate": 151,
+      "words": [
+        "healthy",
+        "height",
+        "scratch"
+      ]
+    },
+    {
+      "candidate": 152,
+      "words": [
+        "coconut",
+        "coat",
+        "width"
+      ]
+    },
+    {
+      "candidate": 153,
+      "words": [
+        "tiger",
+        "weekday",
+        "shred"
+      ]
+    },
+    {
+      "candidate": 154,
+      "words": [
+        "shut",
+        "snore",
+        "rabbit"
+      ]
+    },
+    {
+      "candidate": 155,
+      "words": [
+        "pasta",
+        "angle",
+        "lion"
+      ]
+    },
+    {
+      "candidate": 156,
+      "words": [
+        "whale",
+        "knob",
+        "mixer"
+      ]
+    },
+    {
+      "candidate": 157,
+      "words": [
+        "zinc",
+        "shred",
+        "kennel"
+      ]
+    },
+    {
+      "candidate": 158,
+      "words": [
+        "ripple",
+        "screw",
+        "gale"
+      ]
+    },
+    {
+      "candidate": 159,
+      "words": [
+        "lettuce",
+        "peak",
+        "ash"
+      ]
+    },
+    {
+      "candidate": 160,
+      "words": [
+        "grab",
+        "win",
+        "shrimp"
+      ]
+    },
+    {
+      "candidate": 161,
+      "words": [
+        "size",
+        "haul",
+        "sleep"
+      ]
+    },
+    {
+      "candidate": 162,
+      "words": [
+        "loop",
+        "bedside",
+        "snowflake"
+      ]
+    },
+    {
+      "candidate": 163,
+      "words": [
+        "grab",
+        "nice",
+        "landing"
+      ]
+    },
+    {
+      "candidate": 164,
+      "words": [
+        "sack",
+        "today",
+        "chapter"
+      ]
+    },
+    {
+      "candidate": 165,
+      "words": [
+        "volleyball",
+        "dark",
+        "smile"
+      ]
+    },
+    {
+      "candidate": 166,
+      "words": [
+        "sad",
+        "dark",
+        "cook"
+      ]
+    },
+    {
+      "candidate": 167,
+      "words": [
+        "bus",
+        "rain",
+        "golf"
+      ]
+    },
+    {
+      "candidate": 168,
+      "words": [
+        "kennel",
+        "token",
+        "hen"
+      ]
+    },
+    {
+      "candidate": 169,
+      "words": [
+        "ash",
+        "sun",
+        "nasty"
+      ]
+    },
+    {
+      "candidate": 170,
+      "words": [
+        "claw",
+        "side",
+        "twinkle"
+      ]
+    },
+    {
+      "candidate": 171,
+      "words": [
+        "scratch",
+        "stack",
+        "peeler"
+      ]
+    },
+    {
+      "candidate": 172,
+      "words": [
+        "wardrobe",
+        "mixer",
+        "shred"
+      ]
+    },
+    {
+      "candidate": 173,
+      "words": [
+        "triangle",
+        "instant",
+        "wolf"
+      ]
+    },
+    {
+      "candidate": 174,
+      "words": [
+        "shred",
+        "shut",
+        "coconut"
+      ]
+    },
+    {
+      "candidate": 175,
+      "words": [
+        "shrimp",
+        "mist",
+        "hill"
+      ]
+    },
+    {
+      "candidate": 176,
+      "words": [
+        "hood",
+        "lettuce",
+        "knob"
+      ]
+    },
+    {
+      "candidate": 177,
+      "words": [
+        "gaze",
+        "mixer",
+        "right"
+      ]
+    },
+    {
+      "candidate": 178,
+      "words": [
+        "sore",
+        "wasp",
+        "hen"
+      ]
+    },
+    {
+      "candidate": 179,
+      "words": [
+        "tub",
+        "bright",
+        "weed"
+      ]
+    },
+    {
+      "candidate": 180,
+      "words": [
+        "scrub",
+        "stroke",
+        "plastic"
+      ]
+    },
+    {
+      "candidate": 181,
+      "words": [
+        "email",
+        "trainer",
+        "quarry"
+      ]
+    },
+    {
+      "candidate": 182,
+      "words": [
+        "weed",
+        "sad",
+        "rain"
+      ]
+    },
+    {
+      "candidate": 183,
+      "words": [
+        "packet",
+        "rugby",
+        "bike"
+      ]
+    },
+    {
+      "candidate": 184,
+      "words": [
+        "hood",
+        "thorn",
+        "bedside"
+      ]
+    },
+    {
+      "candidate": 185,
+      "words": [
+        "concrete",
+        "speech",
+        "answer"
+      ]
+    },
+    {
+      "candidate": 186,
+      "words": [
+        "painting",
+        "packet",
+        "zip"
+      ]
+    },
+    {
+      "candidate": 187,
+      "words": [
+        "enough",
+        "nasty",
+        "icicle"
+      ]
+    },
+    {
+      "candidate": 188,
+      "words": [
+        "cage",
+        "rugby",
+        "sack"
+      ]
+    },
+    {
+      "candidate": 189,
+      "words": [
+        "weekday",
+        "pan",
+        "bite"
+      ]
+    },
+    {
+      "candidate": 190,
+      "words": [
+        "wage",
+        "shirt",
+        "nut"
+      ]
+    },
+    {
+      "candidate": 191,
+      "words": [
+        "heap",
+        "noon",
+        "bulb"
+      ]
+    },
+    {
+      "candidate": 192,
+      "words": [
+        "corkscrew",
+        "gem",
+        "scrub"
+      ]
+    },
+    {
+      "candidate": 193,
+      "words": [
+        "write",
+        "front",
+        "dark"
+      ]
+    },
+    {
+      "candidate": 194,
+      "words": [
+        "lobster",
+        "chat",
+        "tin"
+      ]
+    },
+    {
+      "candidate": 195,
+      "words": [
+        "cave",
+        "lick",
+        "duvet"
+      ]
+    },
+    {
+      "candidate": 196,
+      "words": [
+        "hen",
+        "woods",
+        "seed"
+      ]
+    },
+    {
+      "candidate": 197,
+      "words": [
+        "cabinet",
+        "beach",
+        "stare"
+      ]
+    },
+    {
+      "candidate": 198,
+      "words": [
+        "bus",
+        "minute",
+        "doormat"
+      ]
+    },
+    {
+      "candidate": 199,
+      "words": [
+        "dear",
+        "chuckle",
+        "nettle"
+      ]
+    },
+    {
+      "candidate": 200,
+      "words": [
+        "swamp",
+        "jump",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 201,
+      "words": [
+        "sack",
+        "swamp",
+        "call"
+      ]
+    },
+    {
+      "candidate": 202,
+      "words": [
+        "loan",
+        "smile",
+        "chuckle"
+      ]
+    },
+    {
+      "candidate": 203,
+      "words": [
+        "scrub",
+        "rabbit",
+        "front"
+      ]
+    },
+    {
+      "candidate": 204,
+      "words": [
+        "find",
+        "trousers",
+        "shred"
+      ]
+    },
+    {
+      "candidate": 205,
+      "words": [
+        "lack",
+        "pork",
+        "extra"
+      ]
+    },
+    {
+      "candidate": 206,
+      "words": [
+        "ruby",
+        "drizzle",
+        "snowflake"
+      ]
+    },
+    {
+      "candidate": 207,
+      "words": [
+        "worm",
+        "roundabout",
+        "busy"
+      ]
+    },
+    {
+      "candidate": 208,
+      "words": [
+        "wasp",
+        "ripple",
+        "wolf"
+      ]
+    },
+    {
+      "candidate": 209,
+      "words": [
+        "grove",
+        "blend",
+        "height"
+      ]
+    },
+    {
+      "candidate": 210,
+      "words": [
+        "tin",
+        "shrimp",
+        "stack"
+      ]
+    },
+    {
+      "candidate": 211,
+      "words": [
+        "ruby",
+        "blend",
+        "basketball"
+      ]
+    },
+    {
+      "candidate": 212,
+      "words": [
+        "crossing",
+        "curve",
+        "token"
+      ]
+    },
+    {
+      "candidate": 213,
+      "words": [
+        "hallway",
+        "sore",
+        "peeler"
+      ]
+    },
+    {
+      "candidate": 214,
+      "words": [
+        "shrimp",
+        "trainer",
+        "farm"
+      ]
+    },
+    {
+      "candidate": 215,
+      "words": [
+        "rub",
+        "mine",
+        "trousers"
+      ]
+    },
+    {
+      "candidate": 216,
+      "words": [
+        "write",
+        "quiz",
+        "scheme"
+      ]
+    },
+    {
+      "candidate": 217,
+      "words": [
+        "snore",
+        "second",
+        "stew"
+      ]
+    },
+    {
+      "candidate": 218,
+      "words": [
+        "enough",
+        "thorn",
+        "stack"
+      ]
+    },
+    {
+      "candidate": 219,
+      "words": [
+        "gleam",
+        "toaster",
+        "newspaper"
+      ]
+    },
+    {
+      "candidate": 220,
+      "words": [
+        "enough",
+        "moth",
+        "circle"
+      ]
+    },
+    {
+      "candidate": 221,
+      "words": [
+        "floor",
+        "paragraph",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 222,
+      "words": [
+        "sheep",
+        "gulp",
+        "pear"
+      ]
+    },
+    {
+      "candidate": 223,
+      "words": [
+        "stew",
+        "summer",
+        "today"
+      ]
+    },
+    {
+      "candidate": 224,
+      "words": [
+        "thought",
+        "onion",
+        "lump"
+      ]
+    },
+    {
+      "candidate": 225,
+      "words": [
+        "rugby",
+        "extra",
+        "concrete"
+      ]
+    },
+    {
+      "candidate": 226,
+      "words": [
+        "add",
+        "beach",
+        "soccer"
+      ]
+    },
+    {
+      "candidate": 227,
+      "words": [
+        "onion",
+        "valley",
+        "corkscrew"
+      ]
+    },
+    {
+      "candidate": 228,
+      "words": [
+        "healthy",
+        "snap",
+        "plastic"
+      ]
+    },
+    {
+      "candidate": 229,
+      "words": [
+        "seed",
+        "mulch",
+        "excess"
+      ]
+    },
+    {
+      "candidate": 230,
+      "words": [
+        "scrub",
+        "patio",
+        "celery"
+      ]
+    },
+    {
+      "candidate": 231,
+      "words": [
+        "size",
+        "lick",
+        "win"
+      ]
+    },
+    {
+      "candidate": 232,
+      "words": [
+        "ham",
+        "toothpaste",
+        "avocado"
+      ]
+    },
+    {
+      "candidate": 233,
+      "words": [
+        "crab",
+        "chop",
+        "chill"
+      ]
+    },
+    {
+      "candidate": 234,
+      "words": [
+        "unpack",
+        "stain",
+        "pea"
+      ]
+    },
+    {
+      "candidate": 235,
+      "words": [
+        "barn",
+        "hippo",
+        "fire"
+      ]
+    },
+    {
+      "candidate": 236,
+      "words": [
+        "balcony",
+        "throw",
+        "hose"
+      ]
+    },
+    {
+      "candidate": 237,
+      "words": [
+        "necklace",
+        "cold",
+        "nut"
+      ]
+    },
+    {
+      "candidate": 238,
+      "words": [
+        "weed",
+        "tongs",
+        "lower"
+      ]
+    },
+    {
+      "candidate": 239,
+      "words": [
+        "hour",
+        "bath",
+        "whale"
+      ]
+    },
+    {
+      "candidate": 240,
+      "words": [
+        "answer",
+        "stew",
+        "hose"
+      ]
+    }
+  ]
+}
