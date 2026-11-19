@@ -1,0 +1,970 @@
+{
+  "acid": [
+    "sour",
+    "chemical",
+    "burn",
+    "lemon",
+    "strong",
+    "alkali"
+  ],
+  "adventure": [
+    "journey",
+    "explore",
+    "exciting",
+    "trip",
+    "danger",
+    "quest"
+  ],
+  "agent": [
+    "spy",
+    "representative",
+    "sell",
+    "agency",
+    "secret",
+    "broker"
+  ],
+  "angel": [
+    "heaven",
+    "wings",
+    "good",
+    "divine",
+    "white",
+    "kind"
+  ],
+  "appendix": [
+    "book",
+    "extra",
+    "organ",
+    "contents",
+    "section",
+    "surgery"
+  ],
+  "aware": [
+    "know",
+    "alert",
+    "conscious",
+    "notice",
+    "awake",
+    "mindful"
+  ],
+  "barn": [
+    "farm",
+    "hay",
+    "animal",
+    "building",
+    "cow",
+    "shed"
+  ],
+  "believe": [
+    "trust",
+    "think",
+    "faith",
+    "true",
+    "accept",
+    "hope"
+  ],
+  "bent": [
+    "bend",
+    "curved",
+    "crooked",
+    "twisted",
+    "straight",
+    "lean"
+  ],
+  "bond": [
+    "tie",
+    "link",
+    "connection",
+    "glue",
+    "money",
+    "relationship"
+  ],
+  "bound": [
+    "tied",
+    "jump",
+    "leap",
+    "limit",
+    "book",
+    "destined"
+  ],
+  "broker": [
+    "trade",
+    "stock",
+    "sell",
+    "agent",
+    "money",
+    "deal"
+  ],
+  "busy": [
+    "work",
+    "occupied",
+    "active",
+    "full",
+    "crowded",
+    "working"
+  ],
+  "capital": [
+    "city",
+    "money",
+    "letter",
+    "main",
+    "wealth",
+    "large"
+  ],
+  "chef": [
+    "cook",
+    "kitchen",
+    "food",
+    "restaurant",
+    "hat",
+    "recipe"
+  ],
+  "citizen": [
+    "person",
+    "country",
+    "public",
+    "resident",
+    "nationality",
+    "community"
+  ],
+  "cleaner": [
+    "clean",
+    "wash",
+    "tidy",
+    "job",
+    "soap",
+    "remove"
+  ],
+  "commuter": [
+    "travel",
+    "work",
+    "train",
+    "bus",
+    "journey",
+    "passenger"
+  ],
+  "compound": [
+    "mixture",
+    "chemical",
+    "combine",
+    "complex",
+    "enclosed",
+    "interest"
+  ],
+  "crest": [
+    "top",
+    "hill",
+    "bird",
+    "coat",
+    "peak",
+    "wave"
+  ],
+  "customer": [
+    "shop",
+    "buyer",
+    "client",
+    "buy",
+    "service",
+    "money"
+  ],
+  "detour": [
+    "road",
+    "route",
+    "avoid",
+    "diversion",
+    "around",
+    "bypass"
+  ],
+  "edge": [
+    "side",
+    "border",
+    "sharp",
+    "corner",
+    "rim",
+    "limit"
+  ],
+  "elm": [
+    "tree",
+    "wood",
+    "leaf",
+    "forest",
+    "branch",
+    "shade"
+  ],
+  "emerald": [
+    "green",
+    "gem",
+    "jewel",
+    "stone",
+    "precious",
+    "ring"
+  ],
+  "explain": [
+    "describe",
+    "tell",
+    "reason",
+    "clarify",
+    "understand",
+    "answer"
+  ],
+  "fairy": [
+    "wings",
+    "magic",
+    "tale",
+    "tiny",
+    "story",
+    "mythical"
+  ],
+  "farewell": [
+    "goodbye",
+    "leave",
+    "parting",
+    "wave",
+    "departure",
+    "goodbye"
+  ],
+  "flexible": [
+    "bend",
+    "elastic",
+    "adaptable",
+    "soft",
+    "stretch",
+    "pliable"
+  ],
+  "florist": [
+    "flower",
+    "shop",
+    "bouquet",
+    "rose",
+    "garden",
+    "sell"
+  ],
+  "fraction": [
+    "part",
+    "maths",
+    "divide",
+    "percentage",
+    "small",
+    "number"
+  ],
+  "future": [
+    "tomorrow",
+    "next",
+    "time",
+    "coming",
+    "ahead",
+    "plan"
+  ],
+  "giggle": [
+    "laugh",
+    "funny",
+    "joke",
+    "chuckle",
+    "smile",
+    "sound"
+  ],
+  "graceful": [
+    "elegant",
+    "smooth",
+    "dancer",
+    "movement",
+    "swan",
+    "beautiful"
+  ],
+  "height": [
+    "tall",
+    "high",
+    "measure",
+    "above",
+    "length",
+    "size"
+  ],
+  "honeysuckle": [
+    "flower",
+    "sweet",
+    "vine",
+    "scent",
+    "garden",
+    "climbing"
+  ],
+  "indicate": [
+    "show",
+    "point",
+    "signal",
+    "suggest",
+    "mark",
+    "hint"
+  ],
+  "keeper": [
+    "guard",
+    "zoo",
+    "goal",
+    "care",
+    "look",
+    "custodian"
+  ],
+  "live": [
+    "alive",
+    "life",
+    "home",
+    "reside",
+    "concert",
+    "broadcast"
+  ],
+  "maid": [
+    "servant",
+    "clean",
+    "house",
+    "woman",
+    "hotel",
+    "helper"
+  ],
+  "mate": [
+    "friend",
+    "partner",
+    "animal",
+    "chess",
+    "ship",
+    "companion"
+  ],
+  "minute": [
+    "time",
+    "second",
+    "hour",
+    "small",
+    "tiny",
+    "detail"
+  ],
+  "motto": [
+    "saying",
+    "words",
+    "slogan",
+    "phrase",
+    "principle",
+    "belief"
+  ],
+  "oak": [
+    "tree",
+    "wood",
+    "acorn",
+    "leaf",
+    "strong",
+    "forest"
+  ],
+  "organic": [
+    "natural",
+    "food",
+    "living",
+    "plant",
+    "chemical",
+    "carbon"
+  ],
+  "pare": [
+    "peel",
+    "cut",
+    "trim",
+    "remove",
+    "shave",
+    "slice"
+  ],
+  "pedestrian": [
+    "walk",
+    "foot",
+    "pavement",
+    "road",
+    "crossing",
+    "person"
+  ],
+  "player": [
+    "game",
+    "sport",
+    "actor",
+    "music",
+    "team",
+    "play"
+  ],
+  "poison": [
+    "toxic",
+    "deadly",
+    "venom",
+    "kill",
+    "harmful",
+    "chemical"
+  ],
+  "precise": [
+    "exact",
+    "accurate",
+    "careful",
+    "detail",
+    "clear",
+    "specific"
+  ],
+  "pretend": [
+    "act",
+    "fake",
+    "imagine",
+    "play",
+    "make",
+    "believe"
+  ],
+  "printer": [
+    "print",
+    "paper",
+    "ink",
+    "machine",
+    "computer",
+    "type"
+  ],
+  "prod": [
+    "poke",
+    "push",
+    "jab",
+    "nudge",
+    "stick",
+    "urge"
+  ],
+  "puffin": [
+    "bird",
+    "sea",
+    "beak",
+    "island",
+    "fish",
+    "colourful"
+  ],
+  "rate": [
+    "speed",
+    "price",
+    "judge",
+    "measure",
+    "score",
+    "pace"
+  ],
+  "reflection": [
+    "mirror",
+    "image",
+    "think",
+    "water",
+    "light",
+    "thought"
+  ],
+  "save": [
+    "keep",
+    "rescue",
+    "money",
+    "safe",
+    "store",
+    "help"
+  ],
+  "scout": [
+    "explore",
+    "search",
+    "boy",
+    "guide",
+    "camp",
+    "look"
+  ],
+  "sculpture": [
+    "statue",
+    "art",
+    "carve",
+    "stone",
+    "shape",
+    "artist"
+  ],
+  "seller": [
+    "sell",
+    "buyer",
+    "shop",
+    "trade",
+    "money",
+    "vendor"
+  ],
+  "sight": [
+    "see",
+    "view",
+    "eyes",
+    "vision",
+    "look",
+    "scene"
+  ],
+  "sole": [
+    "only",
+    "foot",
+    "shoe",
+    "fish",
+    "single",
+    "alone"
+  ],
+  "solution": [
+    "answer",
+    "problem",
+    "mixture",
+    "solve",
+    "liquid",
+    "chemical"
+  ],
+  "sow": [
+    "pig",
+    "plant",
+    "seed",
+    "field",
+    "scatter",
+    "grow"
+  ],
+  "splice": [
+    "join",
+    "cut",
+    "rope",
+    "film",
+    "edit",
+    "connect"
+  ],
+  "steward": [
+    "ship",
+    "service",
+    "attendant",
+    "care",
+    "plane",
+    "waiter"
+  ],
+  "strategy": [
+    "plan",
+    "tactic",
+    "game",
+    "method",
+    "approach",
+    "scheme"
+  ],
+  "tern": [
+    "bird",
+    "sea",
+    "fish",
+    "wing",
+    "beach",
+    "fly"
+  ],
+  "vague": [
+    "unclear",
+    "imprecise",
+    "general",
+    "uncertain",
+    "hazy",
+    "indistinct"
+  ],
+  "volley": [
+    "ball",
+    "tennis",
+    "hit",
+    "fire",
+    "shot",
+    "return"
+  ],
+  "whole": [
+    "entire",
+    "all",
+    "complete",
+    "full",
+    "part",
+    "total"
+  ],
+  "worker": [
+    "work",
+    "job",
+    "labour",
+    "employee",
+    "factory",
+    "person"
+  ],
+  "worth": [
+    "value",
+    "price",
+    "deserving",
+    "money",
+    "merit",
+    "cost"
+  ],
+  "young": [
+    "old",
+    "child",
+    "youth",
+    "baby",
+    "fresh",
+    "new"
+  ],
+  "anniversary": [
+    "date",
+    "year",
+    "wedding",
+    "celebrate",
+    "event",
+    "memory"
+  ],
+  "arm": [
+    "hand",
+    "shoulder",
+    "weapon",
+    "limb",
+    "reach",
+    "chair"
+  ],
+  "arrange": [
+    "organise",
+    "order",
+    "sort",
+    "plan",
+    "place",
+    "flowers"
+  ],
+  "buoy": [
+    "float",
+    "sea",
+    "water",
+    "marker",
+    "boat",
+    "bob"
+  ],
+  "butcher": [
+    "meat",
+    "cut",
+    "knife",
+    "shop",
+    "beef",
+    "chop"
+  ],
+  "buy": [
+    "sell",
+    "purchase",
+    "money",
+    "shop",
+    "pay",
+    "get"
+  ],
+  "checked": [
+    "check",
+    "pattern",
+    "square",
+    "verified",
+    "examined",
+    "stopped"
+  ],
+  "colony": [
+    "group",
+    "ants",
+    "settlement",
+    "country",
+    "bees",
+    "population"
+  ],
+  "dense": [
+    "thick",
+    "crowded",
+    "forest",
+    "heavy",
+    "solid",
+    "compact"
+  ],
+  "discovery": [
+    "find",
+    "new",
+    "explore",
+    "science",
+    "invention",
+    "uncover"
+  ],
+  "elastic": [
+    "stretch",
+    "rubber",
+    "flexible",
+    "band",
+    "bounce",
+    "spring"
+  ],
+  "elder": [
+    "old",
+    "older",
+    "tree",
+    "senior",
+    "parent",
+    "adult"
+  ],
+  "fancy": [
+    "imagine",
+    "like",
+    "elaborate",
+    "want",
+    "ornate",
+    "dress"
+  ],
+  "fixed": [
+    "set",
+    "repair",
+    "attached",
+    "still",
+    "unchanging",
+    "secure"
+  ],
+  "game": [
+    "play",
+    "sport",
+    "match",
+    "fun",
+    "cards",
+    "contest"
+  ],
+  "global": [
+    "world",
+    "international",
+    "worldwide",
+    "all",
+    "earth",
+    "universal"
+  ],
+  "goal": [
+    "aim",
+    "target",
+    "football",
+    "score",
+    "net",
+    "purpose"
+  ],
+  "hay": [
+    "grass",
+    "dry",
+    "farm",
+    "horse",
+    "bale",
+    "straw"
+  ],
+  "imply": [
+    "suggest",
+    "hint",
+    "mean",
+    "indicate",
+    "infer",
+    "indirect"
+  ],
+  "lease": [
+    "rent",
+    "contract",
+    "let",
+    "property",
+    "hire",
+    "agreement"
+  ],
+  "lecture": [
+    "talk",
+    "teach",
+    "speech",
+    "university",
+    "class",
+    "professor"
+  ],
+  "leopard": [
+    "cat",
+    "spots",
+    "animal",
+    "wild",
+    "fur",
+    "jungle"
+  ],
+  "lie": [
+    "false",
+    "untrue",
+    "rest",
+    "bed",
+    "tell",
+    "recline"
+  ],
+  "medium": [
+    "middle",
+    "average",
+    "spirit",
+    "art",
+    "material",
+    "size"
+  ],
+  "mobile": [
+    "phone",
+    "moving",
+    "portable",
+    "travel",
+    "flexible",
+    "vehicle"
+  ],
+  "mute": [
+    "silent",
+    "sound",
+    "quiet",
+    "speech",
+    "deaf",
+    "button"
+  ],
+  "noisy": [
+    "loud",
+    "sound",
+    "noise",
+    "busy",
+    "racket",
+    "children"
+  ],
+  "odd": [
+    "strange",
+    "unusual",
+    "uneven",
+    "number",
+    "peculiar",
+    "spare"
+  ],
+  "opponent": [
+    "rival",
+    "enemy",
+    "game",
+    "competition",
+    "fight",
+    "other"
+  ],
+  "parrot": [
+    "bird",
+    "colourful",
+    "talk",
+    "repeat",
+    "beak",
+    "feather"
+  ],
+  "pierce": [
+    "hole",
+    "puncture",
+    "sharp",
+    "ear",
+    "stab",
+    "penetrate"
+  ],
+  "poplar": [
+    "tree",
+    "tall",
+    "leaf",
+    "wood",
+    "forest",
+    "branch"
+  ],
+  "pure": [
+    "clean",
+    "clear",
+    "unmixed",
+    "innocent",
+    "white",
+    "simple"
+  ],
+  "rule": [
+    "law",
+    "order",
+    "king",
+    "govern",
+    "ruler",
+    "standard"
+  ],
+  "second": [
+    "first",
+    "time",
+    "minute",
+    "another",
+    "next",
+    "assistant"
+  ],
+  "session": [
+    "meeting",
+    "time",
+    "period",
+    "class",
+    "work",
+    "sitting"
+  ],
+  "siren": [
+    "alarm",
+    "sound",
+    "warning",
+    "sea",
+    "mermaid",
+    "police"
+  ],
+  "sit": [
+    "stand",
+    "chair",
+    "seat",
+    "rest",
+    "down",
+    "perch"
+  ],
+  "slender": [
+    "thin",
+    "slim",
+    "narrow",
+    "slight",
+    "graceful",
+    "tall"
+  ],
+  "slight": [
+    "small",
+    "little",
+    "thin",
+    "mild",
+    "minor",
+    "insult"
+  ],
+  "sparse": [
+    "thin",
+    "few",
+    "scattered",
+    "scarce",
+    "rare",
+    "empty"
+  ],
+  "stud": [
+    "horse",
+    "metal",
+    "earring",
+    "nail",
+    "male",
+    "button"
+  ],
+  "thrust": [
+    "push",
+    "force",
+    "stab",
+    "drive",
+    "point",
+    "shove"
+  ],
+  "tidy": [
+    "neat",
+    "clean",
+    "order",
+    "arrange",
+    "organised",
+    "clear"
+  ],
+  "tonic": [
+    "drink",
+    "medicine",
+    "water",
+    "gin",
+    "health",
+    "boost"
+  ],
+  "trout": [
+    "fish",
+    "river",
+    "lake",
+    "fishing",
+    "salmon",
+    "freshwater"
+  ],
+  "victim": [
+    "crime",
+    "hurt",
+    "suffer",
+    "harmed",
+    "target",
+    "injured"
+  ]
+}
