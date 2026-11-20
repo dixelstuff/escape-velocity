@@ -76,6 +76,7 @@ jobs:
           node tests/test_promotions_and_thirty.mjs
           node tests/test_top_seventy_thirty.mjs
           node tests/test_top_hundred_thirty.mjs
+          node tests/test_top_one_twenty_thirty.mjs
           node tests/test_hole_feedback.mjs
           node tests/test_hole_one_replacement.mjs
           node tests/test_new_best_finish.mjs

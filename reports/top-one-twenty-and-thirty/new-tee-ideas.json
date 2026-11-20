@@ -1,0 +1,642 @@
+{
+  "advert": [
+    "advertisement",
+    "sell",
+    "product",
+    "poster",
+    "newspaper",
+    "television"
+  ],
+  "assembly": [
+    "group",
+    "meeting",
+    "gather",
+    "school",
+    "parts",
+    "together"
+  ],
+  "assistant": [
+    "help",
+    "worker",
+    "deputy",
+    "secretary",
+    "support",
+    "job"
+  ],
+  "beginner": [
+    "novice",
+    "start",
+    "learn",
+    "new",
+    "inexperienced",
+    "amateur"
+  ],
+  "bluebell": [
+    "blue",
+    "flower",
+    "woods",
+    "bell",
+    "spring",
+    "plant"
+  ],
+  "buyer": [
+    "buy",
+    "customer",
+    "seller",
+    "shop",
+    "money",
+    "purchase"
+  ],
+  "calculate": [
+    "count",
+    "maths",
+    "number",
+    "sum",
+    "work",
+    "compute"
+  ],
+  "client": [
+    "customer",
+    "business",
+    "service",
+    "lawyer",
+    "person",
+    "user"
+  ],
+  "daffodil": [
+    "flower",
+    "yellow",
+    "spring",
+    "bulb",
+    "trumpet",
+    "garden"
+  ],
+  "dead": [
+    "alive",
+    "death",
+    "gone",
+    "lifeless",
+    "still",
+    "finished"
+  ],
+  "dose": [
+    "medicine",
+    "amount",
+    "pill",
+    "drug",
+    "quantity",
+    "measure"
+  ],
+  "drummer": [
+    "drum",
+    "music",
+    "band",
+    "beat",
+    "rhythm",
+    "stick"
+  ],
+  "element": [
+    "part",
+    "chemical",
+    "periodic",
+    "component",
+    "basic",
+    "factor"
+  ],
+  "face": [
+    "head",
+    "look",
+    "eyes",
+    "front",
+    "confront",
+    "expression"
+  ],
+  "fake": [
+    "false",
+    "pretend",
+    "artificial",
+    "copy",
+    "imitation",
+    "real"
+  ],
+  "flavour": [
+    "taste",
+    "food",
+    "scent",
+    "sweet",
+    "spice",
+    "savour"
+  ],
+  "gull": [
+    "bird",
+    "sea",
+    "white",
+    "beach",
+    "wing",
+    "fish"
+  ],
+  "keep": [
+    "hold",
+    "save",
+    "retain",
+    "care",
+    "guard",
+    "stay"
+  ],
+  "lark": [
+    "bird",
+    "song",
+    "fun",
+    "prank",
+    "morning",
+    "sky"
+  ],
+  "logical": [
+    "reason",
+    "sensible",
+    "rational",
+    "thinking",
+    "clear",
+    "argument"
+  ],
+  "mole": [
+    "animal",
+    "hole",
+    "spy",
+    "skin",
+    "underground",
+    "brown"
+  ],
+  "nectar": [
+    "flower",
+    "sweet",
+    "drink",
+    "bee",
+    "honey",
+    "juice"
+  ],
+  "nut": [
+    "seed",
+    "shell",
+    "food",
+    "bolt",
+    "tree",
+    "crazy"
+  ],
+  "peony": [
+    "flower",
+    "garden",
+    "petal",
+    "pink",
+    "bloom",
+    "plant"
+  ],
+  "professional": [
+    "expert",
+    "job",
+    "skilled",
+    "work",
+    "career",
+    "paid"
+  ],
+  "queen": [
+    "king",
+    "royal",
+    "crown",
+    "ruler",
+    "chess",
+    "bee"
+  ],
+  "ram": [
+    "sheep",
+    "hit",
+    "male",
+    "computer",
+    "force",
+    "horn"
+  ],
+  "ratio": [
+    "proportion",
+    "fraction",
+    "numbers",
+    "compare",
+    "rate",
+    "relation"
+  ],
+  "reaction": [
+    "response",
+    "action",
+    "effect",
+    "chemical",
+    "reply",
+    "emotion"
+  ],
+  "ready": [
+    "prepared",
+    "set",
+    "willing",
+    "waiting",
+    "available",
+    "eager"
+  ],
+  "routine": [
+    "habit",
+    "usual",
+    "regular",
+    "daily",
+    "practice",
+    "normal"
+  ],
+  "sash": [
+    "ribbon",
+    "window",
+    "belt",
+    "band",
+    "waist",
+    "cloth"
+  ],
+  "seed": [
+    "plant",
+    "grow",
+    "small",
+    "pip",
+    "start",
+    "grain"
+  ],
+  "sensible": [
+    "reasonable",
+    "practical",
+    "wise",
+    "sound",
+    "rational",
+    "useful"
+  ],
+  "suppose": [
+    "assume",
+    "think",
+    "guess",
+    "believe",
+    "imagine",
+    "consider"
+  ],
+  "tan": [
+    "brown",
+    "skin",
+    "sun",
+    "colour",
+    "leather",
+    "dark"
+  ],
+  "tour": [
+    "travel",
+    "trip",
+    "visit",
+    "guide",
+    "journey",
+    "show"
+  ],
+  "trail": [
+    "path",
+    "track",
+    "follow",
+    "route",
+    "trace",
+    "walk"
+  ],
+  "troop": [
+    "group",
+    "soldiers",
+    "army",
+    "scouts",
+    "people",
+    "march"
+  ],
+  "tub": [
+    "bath",
+    "water",
+    "container",
+    "barrel",
+    "wash",
+    "basin"
+  ],
+  "understand": [
+    "know",
+    "comprehend",
+    "grasp",
+    "realise",
+    "learn",
+    "meaning"
+  ],
+  "veteran": [
+    "experienced",
+    "soldier",
+    "old",
+    "war",
+    "service",
+    "expert"
+  ],
+  "warden": [
+    "prison",
+    "guard",
+    "keeper",
+    "officer",
+    "park",
+    "jail"
+  ],
+  "acacia": [
+    "tree",
+    "flower",
+    "wattle",
+    "thorn",
+    "wood",
+    "plant"
+  ],
+  "ace": [
+    "card",
+    "tennis",
+    "best",
+    "expert",
+    "serve",
+    "one"
+  ],
+  "bore": [
+    "drill",
+    "hole",
+    "dull",
+    "boring",
+    "pig",
+    "tunnel"
+  ],
+  "butt": [
+    "bottom",
+    "hit",
+    "end",
+    "head",
+    "cigarette",
+    "barrel"
+  ],
+  "caress": [
+    "touch",
+    "stroke",
+    "gentle",
+    "hand",
+    "love",
+    "soft"
+  ],
+  "comic": [
+    "funny",
+    "cartoon",
+    "book",
+    "joke",
+    "laugh",
+    "superhero"
+  ],
+  "conical": [
+    "cone",
+    "shape",
+    "pointed",
+    "round",
+    "taper",
+    "pyramid"
+  ],
+  "convenient": [
+    "easy",
+    "handy",
+    "useful",
+    "nearby",
+    "suitable",
+    "practical"
+  ],
+  "deaf": [
+    "hearing",
+    "hear",
+    "sound",
+    "ear",
+    "silent",
+    "unable"
+  ],
+  "fasten": [
+    "attach",
+    "secure",
+    "close",
+    "tie",
+    "button",
+    "fix"
+  ],
+  "fir": [
+    "tree",
+    "evergreen",
+    "pine",
+    "needle",
+    "forest",
+    "wood"
+  ],
+  "graduate": [
+    "university",
+    "degree",
+    "student",
+    "finish",
+    "college",
+    "qualified"
+  ],
+  "judge": [
+    "court",
+    "law",
+    "decide",
+    "assess",
+    "opinion",
+    "referee"
+  ],
+  "lass": [
+    "girl",
+    "young",
+    "woman",
+    "lad",
+    "female",
+    "maiden"
+  ],
+  "latter": [
+    "former",
+    "last",
+    "second",
+    "later",
+    "following",
+    "final"
+  ],
+  "length": [
+    "long",
+    "measure",
+    "width",
+    "distance",
+    "size",
+    "extent"
+  ],
+  "mixer": [
+    "mix",
+    "kitchen",
+    "blend",
+    "sound",
+    "machine",
+    "stir"
+  ],
+  "mouth": [
+    "tongue",
+    "teeth",
+    "lips",
+    "eat",
+    "speak",
+    "opening"
+  ],
+  "moving": [
+    "move",
+    "motion",
+    "emotional",
+    "travel",
+    "shifting",
+    "active"
+  ],
+  "muted": [
+    "quiet",
+    "soft",
+    "colour",
+    "dull",
+    "silent",
+    "subdued"
+  ],
+  "navy": [
+    "sea",
+    "ship",
+    "sailor",
+    "blue",
+    "fleet",
+    "military"
+  ],
+  "oval": [
+    "egg",
+    "shape",
+    "round",
+    "circle",
+    "oblong",
+    "curved"
+  ],
+  "pilot": [
+    "plane",
+    "fly",
+    "captain",
+    "aircraft",
+    "steer",
+    "guide"
+  ],
+  "prompt": [
+    "quick",
+    "cue",
+    "remind",
+    "hint",
+    "immediate",
+    "encourage"
+  ],
+  "remember": [
+    "memory",
+    "recall",
+    "forget",
+    "mind",
+    "know",
+    "remind"
+  ],
+  "reporter": [
+    "news",
+    "journalist",
+    "write",
+    "newspaper",
+    "report",
+    "story"
+  ],
+  "ritual": [
+    "ceremony",
+    "habit",
+    "tradition",
+    "routine",
+    "religion",
+    "custom"
+  ],
+  "rounded": [
+    "round",
+    "curved",
+    "smooth",
+    "shape",
+    "soft",
+    "circle"
+  ],
+  "ruler": [
+    "measure",
+    "king",
+    "straight",
+    "length",
+    "rule",
+    "leader"
+  ],
+  "springy": [
+    "bounce",
+    "elastic",
+    "soft",
+    "spring",
+    "flexible",
+    "rubber"
+  ],
+  "stork": [
+    "bird",
+    "baby",
+    "long",
+    "beak",
+    "white",
+    "nest"
+  ],
+  "stranger": [
+    "unknown",
+    "person",
+    "guest",
+    "unfamiliar",
+    "visitor",
+    "outsider"
+  ],
+  "subtitle": [
+    "film",
+    "words",
+    "translation",
+    "text",
+    "caption",
+    "title"
+  ],
+  "swarm": [
+    "bees",
+    "insects",
+    "group",
+    "crowd",
+    "fly",
+    "gather"
+  ],
+  "tactic": [
+    "plan",
+    "strategy",
+    "method",
+    "move",
+    "approach",
+    "manoeuvre"
+  ],
+  "tame": [
+    "wild",
+    "animal",
+    "gentle",
+    "train",
+    "domesticate",
+    "mild"
+  ],
+  "tutor": [
+    "teach",
+    "teacher",
+    "student",
+    "lesson",
+    "help",
+    "learn"
+  ]
+}
