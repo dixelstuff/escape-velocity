@@ -1,0 +1,514 @@
+{
+  "actor": [
+    "film",
+    "role",
+    "stage",
+    "perform",
+    "theatre",
+    "star"
+  ],
+  "adult": [
+    "child",
+    "grown",
+    "mature",
+    "age",
+    "parent",
+    "person"
+  ],
+  "article": [
+    "newspaper",
+    "story",
+    "read",
+    "magazine",
+    "write",
+    "item"
+  ],
+  "basalt": [
+    "rock",
+    "stone",
+    "volcanic",
+    "lava",
+    "dark",
+    "hard"
+  ],
+  "beech": [
+    "tree",
+    "wood",
+    "leaf",
+    "forest",
+    "branch",
+    "bark"
+  ],
+  "berth": [
+    "ship",
+    "bed",
+    "dock",
+    "boat",
+    "cabin",
+    "sleep"
+  ],
+  "broad": [
+    "wide",
+    "large",
+    "general",
+    "expansive",
+    "shoulders",
+    "open"
+  ],
+  "buttercup": [
+    "flower",
+    "yellow",
+    "meadow",
+    "petal",
+    "plant",
+    "field"
+  ],
+  "candidate": [
+    "election",
+    "vote",
+    "job",
+    "interview",
+    "applicant",
+    "person"
+  ],
+  "chewy": [
+    "tough",
+    "food",
+    "sweet",
+    "bite",
+    "gum",
+    "sticky"
+  ],
+  "chick": [
+    "bird",
+    "baby",
+    "egg",
+    "hen",
+    "chicken",
+    "nest"
+  ],
+  "clumsy": [
+    "awkward",
+    "stumble",
+    "fall",
+    "hands",
+    "careless",
+    "accident"
+  ],
+  "cod": [
+    "fish",
+    "sea",
+    "catch",
+    "boat",
+    "chips",
+    "fishing"
+  ],
+  "content": [
+    "happy",
+    "satisfied",
+    "pleased",
+    "book",
+    "page",
+    "text"
+  ],
+  "crack": [
+    "break",
+    "split",
+    "gap",
+    "sound",
+    "damage",
+    "wall"
+  ],
+  "creation": [
+    "make",
+    "art",
+    "new",
+    "world",
+    "invent",
+    "design"
+  ],
+  "crocus": [
+    "flower",
+    "spring",
+    "purple",
+    "bulb",
+    "garden",
+    "bloom"
+  ],
+  "cylindrical": [
+    "round",
+    "tube",
+    "shape",
+    "pipe",
+    "barrel",
+    "curved"
+  ],
+  "daft": [
+    "silly",
+    "foolish",
+    "stupid",
+    "idea",
+    "crazy",
+    "joke"
+  ],
+  "eel": [
+    "fish",
+    "sea",
+    "slippery",
+    "water",
+    "electric",
+    "snake"
+  ],
+  "errand": [
+    "shopping",
+    "task",
+    "job",
+    "go",
+    "fetch",
+    "run"
+  ],
+  "example": [
+    "instance",
+    "sample",
+    "model",
+    "show",
+    "explain",
+    "case"
+  ],
+  "fetch": [
+    "bring",
+    "get",
+    "dog",
+    "stick",
+    "carry",
+    "collect"
+  ],
+  "funeral": [
+    "death",
+    "burial",
+    "coffin",
+    "mourn",
+    "grave",
+    "service"
+  ],
+  "gradual": [
+    "slow",
+    "change",
+    "step",
+    "steady",
+    "progress",
+    "increase"
+  ],
+  "guard": [
+    "protect",
+    "watch",
+    "security",
+    "gate",
+    "soldier",
+    "defend"
+  ],
+  "gulf": [
+    "sea",
+    "coast",
+    "water",
+    "gap",
+    "wide",
+    "ocean"
+  ],
+  "hard": [
+    "tough",
+    "solid",
+    "difficult",
+    "stone",
+    "work",
+    "rigid"
+  ],
+  "heron": [
+    "bird",
+    "water",
+    "long",
+    "fish",
+    "leg",
+    "wing"
+  ],
+  "holly": [
+    "tree",
+    "leaf",
+    "berry",
+    "christmas",
+    "green",
+    "sharp"
+  ],
+  "inventor": [
+    "idea",
+    "create",
+    "machine",
+    "patent",
+    "design",
+    "discover"
+  ],
+  "lily": [
+    "flower",
+    "pond",
+    "white",
+    "petal",
+    "water",
+    "garden"
+  ],
+  "line": [
+    "string",
+    "queue",
+    "row",
+    "draw",
+    "straight",
+    "sentence"
+  ],
+  "loser": [
+    "winner",
+    "game",
+    "defeat",
+    "fail",
+    "contest",
+    "lost"
+  ],
+  "manager": [
+    "boss",
+    "work",
+    "office",
+    "team",
+    "business",
+    "staff"
+  ],
+  "matter": [
+    "substance",
+    "important",
+    "issue",
+    "material",
+    "problem",
+    "physics"
+  ],
+  "metallic": [
+    "metal",
+    "silver",
+    "shine",
+    "sound",
+    "hard",
+    "steel"
+  ],
+  "mind": [
+    "think",
+    "brain",
+    "thought",
+    "remember",
+    "care",
+    "mental"
+  ],
+  "need": [
+    "want",
+    "require",
+    "help",
+    "necessary",
+    "demand",
+    "lack"
+  ],
+  "owe": [
+    "debt",
+    "money",
+    "pay",
+    "loan",
+    "favour",
+    "thanks"
+  ],
+  "pair": [
+    "two",
+    "couple",
+    "shoes",
+    "match",
+    "double",
+    "together"
+  ],
+  "pile": [
+    "heap",
+    "stack",
+    "rubbish",
+    "cloth",
+    "gather",
+    "mound"
+  ],
+  "portion": [
+    "piece",
+    "part",
+    "share",
+    "food",
+    "serving",
+    "amount"
+  ],
+  "precious": [
+    "valuable",
+    "rare",
+    "jewel",
+    "dear",
+    "treasure",
+    "gold"
+  ],
+  "preface": [
+    "book",
+    "introduction",
+    "author",
+    "beginning",
+    "write",
+    "page"
+  ],
+  "prefer": [
+    "choose",
+    "like",
+    "favourite",
+    "rather",
+    "choice",
+    "want"
+  ],
+  "professor": [
+    "university",
+    "teacher",
+    "student",
+    "lecture",
+    "academic",
+    "research"
+  ],
+  "rap": [
+    "music",
+    "beat",
+    "song",
+    "rhythm",
+    "hip",
+    "talk"
+  ],
+  "set": [
+    "group",
+    "put",
+    "collection",
+    "fixed",
+    "tennis",
+    "place"
+  ],
+  "silky": [
+    "smooth",
+    "soft",
+    "fabric",
+    "hair",
+    "cloth",
+    "fine"
+  ],
+  "soldier": [
+    "army",
+    "war",
+    "fight",
+    "uniform",
+    "battle",
+    "gun"
+  ],
+  "squid": [
+    "sea",
+    "tentacle",
+    "ink",
+    "fish",
+    "swim",
+    "ocean"
+  ],
+  "string": [
+    "rope",
+    "thread",
+    "tie",
+    "cord",
+    "instrument",
+    "knot"
+  ],
+  "strip": [
+    "remove",
+    "band",
+    "thin",
+    "bare",
+    "cloth",
+    "piece"
+  ],
+  "teller": [
+    "bank",
+    "money",
+    "cashier",
+    "story",
+    "account",
+    "cash"
+  ],
+  "tough": [
+    "hard",
+    "strong",
+    "difficult",
+    "meat",
+    "resilient",
+    "rough"
+  ],
+  "trader": [
+    "buy",
+    "sell",
+    "market",
+    "stock",
+    "shop",
+    "deal"
+  ],
+  "unit": [
+    "one",
+    "group",
+    "measure",
+    "amount",
+    "army",
+    "number"
+  ],
+  "viaduct": [
+    "bridge",
+    "railway",
+    "arch",
+    "road",
+    "valley",
+    "crossing"
+  ],
+  "whiff": [
+    "smell",
+    "scent",
+    "air",
+    "breeze",
+    "odour",
+    "sniff"
+  ],
+  "widow": [
+    "husband",
+    "death",
+    "wife",
+    "woman",
+    "loss",
+    "marriage"
+  ],
+  "wooden": [
+    "wood",
+    "tree",
+    "table",
+    "plank",
+    "chair",
+    "stiff"
+  ],
+  "worn": [
+    "old",
+    "used",
+    "clothes",
+    "tired",
+    "damaged",
+    "shoes"
+  ],
+  "yield": [
+    "give",
+    "crop",
+    "harvest",
+    "produce",
+    "surrender",
+    "return"
+  ]
+}
