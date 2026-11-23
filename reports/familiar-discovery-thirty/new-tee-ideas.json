@@ -1,0 +1,266 @@
+{
+  "absurd": [
+    "silly",
+    "ridiculous",
+    "foolish",
+    "idea",
+    "impossible",
+    "nonsense"
+  ],
+  "accurate": [
+    "precise",
+    "correct",
+    "exact",
+    "measurement",
+    "answer",
+    "true"
+  ],
+  "bachelor": [
+    "single",
+    "man",
+    "unmarried",
+    "degree",
+    "university",
+    "marriage"
+  ],
+  "brood": [
+    "chicks",
+    "mother",
+    "nest",
+    "eggs",
+    "worry",
+    "think"
+  ],
+  "bulky": [
+    "large",
+    "heavy",
+    "big",
+    "awkward",
+    "furniture",
+    "size"
+  ],
+  "bunch": [
+    "group",
+    "flowers",
+    "grapes",
+    "bananas",
+    "gather",
+    "handful"
+  ],
+  "driver": [
+    "car",
+    "road",
+    "wheel",
+    "bus",
+    "drive",
+    "passenger"
+  ],
+  "farmer": [
+    "farm",
+    "field",
+    "crop",
+    "tractor",
+    "land",
+    "animal"
+  ],
+  "gale": [
+    "wind",
+    "storm",
+    "strong",
+    "blow",
+    "sea",
+    "weather"
+  ],
+  "gentleman": [
+    "man",
+    "polite",
+    "manners",
+    "kind",
+    "suit",
+    "person"
+  ],
+  "handy": [
+    "useful",
+    "tool",
+    "convenient",
+    "help",
+    "near",
+    "skill"
+  ],
+  "hook": [
+    "catch",
+    "fish",
+    "hang",
+    "curve",
+    "line",
+    "attach"
+  ],
+  "hose": [
+    "water",
+    "garden",
+    "pipe",
+    "spray",
+    "rubber",
+    "wash"
+  ],
+  "imagine": [
+    "think",
+    "dream",
+    "picture",
+    "idea",
+    "pretend",
+    "create"
+  ],
+  "mural": [
+    "wall",
+    "painting",
+    "art",
+    "picture",
+    "artist",
+    "street"
+  ],
+  "pansy": [
+    "flower",
+    "purple",
+    "garden",
+    "petal",
+    "plant",
+    "bloom"
+  ],
+  "pants": [
+    "trousers",
+    "clothes",
+    "leg",
+    "wear",
+    "pocket",
+    "underwear"
+  ],
+  "raven": [
+    "bird",
+    "black",
+    "crow",
+    "wing",
+    "feather",
+    "flight"
+  ],
+  "regular": [
+    "usual",
+    "normal",
+    "routine",
+    "frequent",
+    "pattern",
+    "steady"
+  ],
+  "rook": [
+    "chess",
+    "castle",
+    "bird",
+    "crow",
+    "game",
+    "tower"
+  ],
+  "sell": [
+    "buy",
+    "shop",
+    "money",
+    "market",
+    "trade",
+    "price"
+  ],
+  "serrated": [
+    "edge",
+    "blade",
+    "knife",
+    "saw",
+    "teeth",
+    "sharp"
+  ],
+  "shred": [
+    "tear",
+    "paper",
+    "strip",
+    "small",
+    "cut",
+    "destroy"
+  ],
+  "smart": [
+    "clever",
+    "intelligent",
+    "bright",
+    "neat",
+    "stylish",
+    "sharp"
+  ],
+  "stroke": [
+    "hit",
+    "swim",
+    "brush",
+    "line",
+    "touch",
+    "illness"
+  ],
+  "tone": [
+    "sound",
+    "voice",
+    "music",
+    "colour",
+    "mood",
+    "note"
+  ],
+  "torn": [
+    "rip",
+    "paper",
+    "broken",
+    "clothes",
+    "tear",
+    "split"
+  ],
+  "true": [
+    "false",
+    "correct",
+    "real",
+    "honest",
+    "genuine",
+    "right"
+  ],
+  "usual": [
+    "normal",
+    "ordinary",
+    "regular",
+    "common",
+    "everyday",
+    "habit"
+  ],
+  "violet": [
+    "purple",
+    "flower",
+    "colour",
+    "garden",
+    "petal",
+    "plant"
+  ],
+  "vivid": [
+    "bright",
+    "colour",
+    "clear",
+    "strong",
+    "picture",
+    "memory"
+  ],
+  "wattle": [
+    "tree",
+    "flower",
+    "yellow",
+    "branch",
+    "fence",
+    "bird"
+  ],
+  "yell": [
+    "shout",
+    "loud",
+    "voice",
+    "scream",
+    "call",
+    "noise"
+  ]
+}

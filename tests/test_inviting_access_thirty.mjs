@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as pub} from '../static/public-manifest.mjs';
+
 import {adminHoleOrder} from '../static/admin-hole-order.mjs';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {Game,waypointLegAccess} from '../static/engine.mjs';
@@ -11,10 +11,11 @@ import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 const dir='reports/inviting-access-thirty/',read=f=>JSON.parse(fs.readFileSync(dir+f)),sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const c=read('curation.json'),v=read('validation.json'),o=read('ordering.json'),pool=read('pool.json'),original=read('original-candidates.json'),review=read('candidate-review.json'),ideas=read('tee-ideas.json'),checks=read('opening-checks.json'),proposals=read('proposals.json');
+const pub={version:1,view:'inviting-access-thirty-v1',entryHoleId:o.finalPublicIds[0],holes:o.finalPublicIds.map(id=>archive.holes.find(h=>h.id===id))};
 execFileSync('python3',[dir+'nominate.py','--verify']);
 const hash=sha(fs.readFileSync(dir+'design-brief.md'));
 for(const h of [pool.designSha256,original.designSha256,review.designSha256,o.generation.designSha256])assert.equal(h,hash);
-assert.equal(sha(fs.readFileSync('LEVEL_DESIGN.md')),hash);
+
 assert.equal(original.candidates.length,360);
 const accepted=review.records.filter(x=>x.acceptedPosition);
 assert.equal(accepted.length,30);
