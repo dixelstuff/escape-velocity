@@ -1,0 +1,706 @@
+{
+  "accessory": [
+    "bag",
+    "extra",
+    "clothing",
+    "item",
+    "add",
+    "fashion"
+  ],
+  "alphabet": [
+    "letters",
+    "word",
+    "read",
+    "write",
+    "language",
+    "school"
+  ],
+  "ambulance": [
+    "hospital",
+    "emergency",
+    "doctor",
+    "siren",
+    "patient",
+    "vehicle"
+  ],
+  "attach": [
+    "join",
+    "connect",
+    "fix",
+    "fasten",
+    "stick",
+    "link"
+  ],
+  "attendance": [
+    "present",
+    "school",
+    "class",
+    "meeting",
+    "register",
+    "pupil"
+  ],
+  "autograph": [
+    "signature",
+    "sign",
+    "name",
+    "famous",
+    "celebrity",
+    "paper"
+  ],
+  "baggage": [
+    "luggage",
+    "suitcase",
+    "travel",
+    "airport",
+    "bag",
+    "carry"
+  ],
+  "beard": [
+    "hair",
+    "face",
+    "man",
+    "shave",
+    "chin",
+    "grow"
+  ],
+  "bicycle": [
+    "bike",
+    "wheel",
+    "ride",
+    "pedal",
+    "road",
+    "cycle"
+  ],
+  "bumper": [
+    "car",
+    "crash",
+    "front",
+    "rear",
+    "rubber",
+    "protection"
+  ],
+  "calculator": [
+    "number",
+    "maths",
+    "add",
+    "sum",
+    "button",
+    "calculate"
+  ],
+  "canteen": [
+    "food",
+    "lunch",
+    "school",
+    "meal",
+    "water",
+    "bottle"
+  ],
+  "cardboard": [
+    "box",
+    "paper",
+    "brown",
+    "package",
+    "thick",
+    "carton"
+  ],
+  "cemetery": [
+    "grave",
+    "death",
+    "burial",
+    "stone",
+    "church",
+    "funeral"
+  ],
+  "charity": [
+    "help",
+    "give",
+    "money",
+    "donation",
+    "poor",
+    "kindness"
+  ],
+  "closet": [
+    "cupboard",
+    "clothes",
+    "wardrobe",
+    "door",
+    "storage",
+    "shelf"
+  ],
+  "colleague": [
+    "work",
+    "office",
+    "friend",
+    "job",
+    "partner",
+    "staff"
+  ],
+  "container": [
+    "box",
+    "storage",
+    "hold",
+    "bottle",
+    "ship",
+    "cargo"
+  ],
+  "corridor": [
+    "hallway",
+    "room",
+    "door",
+    "long",
+    "passage",
+    "building"
+  ],
+  "cottage": [
+    "house",
+    "country",
+    "small",
+    "holiday",
+    "garden",
+    "roof"
+  ],
+  "coupon": [
+    "discount",
+    "voucher",
+    "shop",
+    "offer",
+    "money",
+    "save"
+  ],
+  "courtyard": [
+    "garden",
+    "building",
+    "outside",
+    "square",
+    "wall",
+    "space"
+  ],
+  "dishwasher": [
+    "kitchen",
+    "plates",
+    "clean",
+    "water",
+    "machine",
+    "wash"
+  ],
+  "doctor": [
+    "hospital",
+    "patient",
+    "health",
+    "medicine",
+    "nurse",
+    "treat"
+  ],
+  "doe": [
+    "deer",
+    "female",
+    "animal",
+    "wood",
+    "fawn",
+    "rabbit"
+  ],
+  "doorway": [
+    "entrance",
+    "door",
+    "house",
+    "opening",
+    "room",
+    "threshold"
+  ],
+  "dryer": [
+    "clothes",
+    "heat",
+    "machine",
+    "hair",
+    "dry",
+    "laundry"
+  ],
+  "elbow": [
+    "arm",
+    "joint",
+    "bend",
+    "knee",
+    "sleeve",
+    "hand"
+  ],
+  "exit": [
+    "leave",
+    "door",
+    "way",
+    "entrance",
+    "escape",
+    "sign"
+  ],
+  "failure": [
+    "fail",
+    "mistake",
+    "success",
+    "loss",
+    "defeat",
+    "broken"
+  ],
+  "fiction": [
+    "story",
+    "novel",
+    "book",
+    "imaginary",
+    "author",
+    "read"
+  ],
+  "fireplace": [
+    "fire",
+    "warm",
+    "house",
+    "chimney",
+    "wood",
+    "heat"
+  ],
+  "folder": [
+    "file",
+    "paper",
+    "document",
+    "computer",
+    "store",
+    "desk"
+  ],
+  "folk": [
+    "people",
+    "music",
+    "story",
+    "traditional",
+    "song",
+    "dance"
+  ],
+  "fountain": [
+    "water",
+    "spray",
+    "garden",
+    "drink",
+    "park",
+    "flow"
+  ],
+  "freight": [
+    "cargo",
+    "ship",
+    "train",
+    "goods",
+    "transport",
+    "load"
+  ],
+  "grammar": [
+    "language",
+    "sentence",
+    "word",
+    "verb",
+    "rule",
+    "writing"
+  ],
+  "grocery": [
+    "food",
+    "shop",
+    "supermarket",
+    "bag",
+    "buy",
+    "store"
+  ],
+  "haircut": [
+    "hair",
+    "barber",
+    "scissors",
+    "trim",
+    "short",
+    "style"
+  ],
+  "hardware": [
+    "tools",
+    "metal",
+    "shop",
+    "computer",
+    "equipment",
+    "screw"
+  ],
+  "honeymoon": [
+    "wedding",
+    "marriage",
+    "holiday",
+    "couple",
+    "romantic",
+    "travel"
+  ],
+  "iceberg": [
+    "ice",
+    "cold",
+    "sea",
+    "float",
+    "ship",
+    "water"
+  ],
+  "kilometre": [
+    "distance",
+    "metre",
+    "road",
+    "mile",
+    "measure",
+    "walk"
+  ],
+  "laboratory": [
+    "science",
+    "experiment",
+    "research",
+    "test",
+    "chemical",
+    "scientist"
+  ],
+  "lecturer": [
+    "teacher",
+    "university",
+    "student",
+    "talk",
+    "lecture",
+    "class"
+  ],
+  "long": [
+    "short",
+    "length",
+    "time",
+    "tall",
+    "distance",
+    "lasting"
+  ],
+  "mayor": [
+    "city",
+    "town",
+    "council",
+    "leader",
+    "election",
+    "office"
+  ],
+  "method": [
+    "way",
+    "technique",
+    "process",
+    "plan",
+    "approach",
+    "system"
+  ],
+  "microphone": [
+    "sound",
+    "voice",
+    "sing",
+    "stage",
+    "speak",
+    "record"
+  ],
+  "milestone": [
+    "achievement",
+    "road",
+    "progress",
+    "marker",
+    "distance",
+    "important"
+  ],
+  "mistake": [
+    "error",
+    "wrong",
+    "accident",
+    "fail",
+    "correction",
+    "fault"
+  ],
+  "motorway": [
+    "road",
+    "car",
+    "traffic",
+    "speed",
+    "lane",
+    "drive"
+  ],
+  "nationality": [
+    "country",
+    "citizen",
+    "passport",
+    "birth",
+    "nation",
+    "identity"
+  ],
+  "neighbourhood": [
+    "street",
+    "house",
+    "community",
+    "local",
+    "area",
+    "people"
+  ],
+  "octagon": [
+    "eight",
+    "sides",
+    "shape",
+    "polygon",
+    "stop",
+    "sign"
+  ],
+  "octopus": [
+    "sea",
+    "tentacle",
+    "ink",
+    "animal",
+    "eight",
+    "water"
+  ],
+  "ornament": [
+    "decoration",
+    "christmas",
+    "tree",
+    "glass",
+    "pretty",
+    "shelf"
+  ],
+  "otter": [
+    "animal",
+    "river",
+    "water",
+    "swim",
+    "fur",
+    "fish"
+  ],
+  "ownership": [
+    "own",
+    "property",
+    "possession",
+    "owner",
+    "control",
+    "title"
+  ],
+  "pavement": [
+    "street",
+    "road",
+    "walk",
+    "footpath",
+    "concrete",
+    "pedestrian"
+  ],
+  "payment": [
+    "money",
+    "pay",
+    "bill",
+    "cash",
+    "bank",
+    "cost"
+  ],
+  "postcode": [
+    "address",
+    "mail",
+    "letter",
+    "area",
+    "code",
+    "delivery"
+  ],
+  "pot": [
+    "pan",
+    "cook",
+    "plant",
+    "clay",
+    "vessel",
+    "kettle"
+  ],
+  "pottery": [
+    "clay",
+    "pot",
+    "ceramic",
+    "bowl",
+    "vase",
+    "craft"
+  ],
+  "property": [
+    "house",
+    "land",
+    "own",
+    "building",
+    "possession",
+    "estate"
+  ],
+  "proposal": [
+    "offer",
+    "idea",
+    "plan",
+    "marriage",
+    "suggest",
+    "document"
+  ],
+  "publication": [
+    "book",
+    "print",
+    "newspaper",
+    "magazine",
+    "publish",
+    "article"
+  ],
+  "purchase": [
+    "buy",
+    "shop",
+    "money",
+    "sale",
+    "goods",
+    "payment"
+  ],
+  "qualification": [
+    "exam",
+    "skill",
+    "certificate",
+    "degree",
+    "job",
+    "training"
+  ],
+  "questionnaire": [
+    "question",
+    "answer",
+    "survey",
+    "form",
+    "research",
+    "ask"
+  ],
+  "radiator": [
+    "heat",
+    "warm",
+    "water",
+    "car",
+    "engine",
+    "room"
+  ],
+  "reminder": [
+    "remember",
+    "note",
+    "message",
+    "alarm",
+    "memory",
+    "forget"
+  ],
+  "reservation": [
+    "booking",
+    "hotel",
+    "table",
+    "restaurant",
+    "seat",
+    "travel"
+  ],
+  "resort": [
+    "holiday",
+    "hotel",
+    "beach",
+    "tourism",
+    "travel",
+    "place"
+  ],
+  "robot": [
+    "machine",
+    "automatic",
+    "metal",
+    "computer",
+    "mechanical",
+    "worker"
+  ],
+  "scenery": [
+    "view",
+    "landscape",
+    "mountain",
+    "nature",
+    "countryside",
+    "stage"
+  ],
+  "signature": [
+    "name",
+    "sign",
+    "autograph",
+    "handwriting",
+    "paper",
+    "document"
+  ],
+  "sweater": [
+    "wool",
+    "clothes",
+    "warm",
+    "jumper",
+    "knit",
+    "sleeve"
+  ],
+  "teenager": [
+    "young",
+    "adolescent",
+    "school",
+    "child",
+    "youth",
+    "age"
+  ],
+  "timetable": [
+    "schedule",
+    "time",
+    "school",
+    "bus",
+    "train",
+    "plan"
+  ],
+  "tolerance": [
+    "accept",
+    "patience",
+    "difference",
+    "allow",
+    "limit",
+    "respect"
+  ],
+  "toothbrush": [
+    "teeth",
+    "brush",
+    "clean",
+    "toothpaste",
+    "bathroom",
+    "mouth"
+  ],
+  "tuition": [
+    "school",
+    "fee",
+    "teach",
+    "education",
+    "lesson",
+    "university"
+  ],
+  "video": [
+    "film",
+    "screen",
+    "camera",
+    "watch",
+    "recording",
+    "television"
+  ],
+  "watery": [
+    "wet",
+    "water",
+    "thin",
+    "liquid",
+    "weak",
+    "dilute"
+  ],
+  "wheelchair": [
+    "chair",
+    "wheel",
+    "disabled",
+    "hospital",
+    "mobility",
+    "patient"
+  ],
+  "windshield": [
+    "car",
+    "glass",
+    "window",
+    "wind",
+    "front",
+    "wiper"
+  ],
+  "yardstick": [
+    "measure",
+    "length",
+    "ruler",
+    "standard",
+    "yard",
+    "compare"
+  ]
+}

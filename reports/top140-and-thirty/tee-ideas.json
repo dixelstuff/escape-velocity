@@ -1,0 +1,2282 @@
+{
+  "rook": [
+    "chess",
+    "castle",
+    "bird",
+    "crow",
+    "game",
+    "tower"
+  ],
+  "fixed": [
+    "set",
+    "repair",
+    "attached",
+    "still",
+    "unchanging",
+    "secure"
+  ],
+  "shoe": [
+    "foot",
+    "wear",
+    "lace",
+    "sole",
+    "heel",
+    "leather"
+  ],
+  "commuter": [
+    "travel",
+    "work",
+    "train",
+    "bus",
+    "journey",
+    "passenger"
+  ],
+  "answer": [
+    "question",
+    "reply",
+    "solution",
+    "respond",
+    "phone",
+    "correct"
+  ],
+  "elm": [
+    "tree",
+    "wood",
+    "leaf",
+    "forest",
+    "branch",
+    "shade"
+  ],
+  "mug": [
+    "cup",
+    "drink",
+    "coffee",
+    "face",
+    "rob",
+    "handle"
+  ],
+  "excess": [
+    "extra",
+    "surplus",
+    "waste",
+    "plenty",
+    "more",
+    "overflow"
+  ],
+  "crazy": [
+    "mad",
+    "wild",
+    "insane",
+    "silly",
+    "foolish",
+    "strange"
+  ],
+  "pansy": [
+    "flower",
+    "purple",
+    "garden",
+    "petal",
+    "plant",
+    "bloom"
+  ],
+  "suppose": [
+    "assume",
+    "think",
+    "guess",
+    "believe",
+    "imagine",
+    "consider"
+  ],
+  "graduation": [
+    "university",
+    "degree",
+    "ceremony",
+    "student",
+    "gown",
+    "finish"
+  ],
+  "zinc": [
+    "metal",
+    "mineral",
+    "galvanised",
+    "copper",
+    "brass",
+    "element"
+  ],
+  "sailing": [
+    "boat",
+    "sea",
+    "yacht",
+    "wind",
+    "sail",
+    "water"
+  ],
+  "live": [
+    "alive",
+    "life",
+    "home",
+    "reside",
+    "concert",
+    "broadcast"
+  ],
+  "tuna": [
+    "fish",
+    "sea",
+    "tin",
+    "sandwich",
+    "steak",
+    "canned"
+  ],
+  "former": [
+    "previous",
+    "past",
+    "earlier",
+    "old",
+    "latter",
+    "before"
+  ],
+  "ham": [
+    "pork",
+    "meat",
+    "sandwich",
+    "bacon",
+    "pig",
+    "slice"
+  ],
+  "eel": [
+    "fish",
+    "sea",
+    "slippery",
+    "water",
+    "electric",
+    "snake"
+  ],
+  "fetch": [
+    "bring",
+    "get",
+    "dog",
+    "stick",
+    "carry",
+    "collect"
+  ],
+  "pop": [
+    "music",
+    "burst",
+    "fizzy",
+    "father",
+    "sound",
+    "bubble"
+  ],
+  "clumsy": [
+    "awkward",
+    "stumble",
+    "fall",
+    "hands",
+    "careless",
+    "accident"
+  ],
+  "safe": [
+    "secure",
+    "danger",
+    "protect",
+    "home",
+    "care",
+    "lock"
+  ],
+  "whole": [
+    "entire",
+    "all",
+    "complete",
+    "full",
+    "part",
+    "total"
+  ],
+  "shore": [
+    "beach",
+    "sea",
+    "coast",
+    "sand",
+    "wave",
+    "land"
+  ],
+  "smart": [
+    "clever",
+    "intelligent",
+    "bright",
+    "neat",
+    "stylish",
+    "sharp"
+  ],
+  "trainer": [
+    "coach",
+    "sport",
+    "shoe",
+    "exercise",
+    "teach",
+    "athlete"
+  ],
+  "golf": [
+    "ball",
+    "club",
+    "hole",
+    "green",
+    "sport",
+    "swing"
+  ],
+  "onion": [
+    "vegetable",
+    "cry",
+    "peel",
+    "layer",
+    "soup",
+    "bulb"
+  ],
+  "beak": [
+    "bird",
+    "bill",
+    "mouth",
+    "hard",
+    "peck",
+    "seed"
+  ],
+  "today": [
+    "now",
+    "day",
+    "date",
+    "tomorrow",
+    "yesterday",
+    "current"
+  ],
+  "pork": [
+    "pig",
+    "meat",
+    "bacon",
+    "ham",
+    "roast",
+    "sausage"
+  ],
+  "loser": [
+    "winner",
+    "game",
+    "defeat",
+    "fail",
+    "contest",
+    "lost"
+  ],
+  "worker": [
+    "work",
+    "job",
+    "labour",
+    "employee",
+    "factory",
+    "person"
+  ],
+  "graduate": [
+    "university",
+    "degree",
+    "student",
+    "finish",
+    "college",
+    "qualified"
+  ],
+  "saucer": [
+    "cup",
+    "plate",
+    "tea",
+    "dish",
+    "round",
+    "china"
+  ],
+  "victim": [
+    "crime",
+    "hurt",
+    "suffer",
+    "harmed",
+    "target",
+    "injured"
+  ],
+  "seed": [
+    "plant",
+    "grow",
+    "small",
+    "pip",
+    "start",
+    "grain"
+  ],
+  "limestone": [
+    "rock",
+    "stone",
+    "chalk",
+    "cave",
+    "sediment",
+    "building"
+  ],
+  "mural": [
+    "wall",
+    "painting",
+    "art",
+    "picture",
+    "artist",
+    "street"
+  ],
+  "dentist": [
+    "teeth",
+    "mouth",
+    "drill",
+    "filling",
+    "gum",
+    "tooth"
+  ],
+  "springy": [
+    "bounce",
+    "elastic",
+    "soft",
+    "spring",
+    "flexible",
+    "rubber"
+  ],
+  "referee": [
+    "sport",
+    "whistle",
+    "rules",
+    "match",
+    "judge",
+    "football"
+  ],
+  "koala": [
+    "bear",
+    "tree",
+    "eucalyptus",
+    "animal",
+    "grey",
+    "marsupial"
+  ],
+  "typical": [
+    "usual",
+    "normal",
+    "standard",
+    "common",
+    "ordinary",
+    "average"
+  ],
+  "shoal": [
+    "fish",
+    "group",
+    "sea",
+    "shallow",
+    "water",
+    "school"
+  ],
+  "bluebell": [
+    "blue",
+    "flower",
+    "woods",
+    "bell",
+    "spring",
+    "plant"
+  ],
+  "mineral": [
+    "rock",
+    "stone",
+    "ore",
+    "metal",
+    "salt",
+    "crystal"
+  ],
+  "explain": [
+    "describe",
+    "tell",
+    "reason",
+    "clarify",
+    "understand",
+    "answer"
+  ],
+  "drenched": [
+    "wet",
+    "rain",
+    "soaked",
+    "water",
+    "saturated",
+    "shower"
+  ],
+  "matter": [
+    "substance",
+    "important",
+    "issue",
+    "material",
+    "problem",
+    "physics"
+  ],
+  "caress": [
+    "touch",
+    "stroke",
+    "gentle",
+    "hand",
+    "love",
+    "soft"
+  ],
+  "accept": [
+    "receive",
+    "agree",
+    "take",
+    "offer",
+    "allow",
+    "approve"
+  ],
+  "buttercup": [
+    "flower",
+    "yellow",
+    "meadow",
+    "petal",
+    "plant",
+    "field"
+  ],
+  "quiz": [
+    "question",
+    "test",
+    "answer",
+    "game",
+    "school",
+    "ask"
+  ],
+  "tough": [
+    "hard",
+    "strong",
+    "difficult",
+    "meat",
+    "resilient",
+    "rough"
+  ],
+  "pants": [
+    "trousers",
+    "clothes",
+    "leg",
+    "wear",
+    "pocket",
+    "underwear"
+  ],
+  "farewell": [
+    "goodbye",
+    "leave",
+    "parting",
+    "wave",
+    "departure",
+    "goodbye"
+  ],
+  "prawn": [
+    "shrimp",
+    "seafood",
+    "shell",
+    "fish",
+    "sea",
+    "pink"
+  ],
+  "tank": [
+    "water",
+    "army",
+    "fish",
+    "metal",
+    "fuel",
+    "storage"
+  ],
+  "reaction": [
+    "response",
+    "action",
+    "effect",
+    "chemical",
+    "reply",
+    "emotion"
+  ],
+  "soldier": [
+    "army",
+    "war",
+    "fight",
+    "uniform",
+    "battle",
+    "gun"
+  ],
+  "aware": [
+    "know",
+    "alert",
+    "conscious",
+    "notice",
+    "awake",
+    "mindful"
+  ],
+  "enough": [
+    "sufficient",
+    "plenty",
+    "full",
+    "adequate",
+    "amount",
+    "satisfied"
+  ],
+  "violet": [
+    "purple",
+    "flower",
+    "colour",
+    "garden",
+    "petal",
+    "plant"
+  ],
+  "forge": [
+    "metal",
+    "hammer",
+    "blacksmith",
+    "fake",
+    "make",
+    "furnace"
+  ],
+  "assistant": [
+    "help",
+    "worker",
+    "deputy",
+    "secretary",
+    "support",
+    "job"
+  ],
+  "scarlet": [
+    "red",
+    "colour",
+    "bright",
+    "crimson",
+    "blood",
+    "fabric"
+  ],
+  "indicate": [
+    "show",
+    "point",
+    "signal",
+    "suggest",
+    "mark",
+    "hint"
+  ],
+  "nectar": [
+    "flower",
+    "sweet",
+    "drink",
+    "bee",
+    "honey",
+    "juice"
+  ],
+  "expert": [
+    "skill",
+    "professional",
+    "knowledgeable",
+    "specialist",
+    "master",
+    "experienced"
+  ],
+  "gentleman": [
+    "man",
+    "polite",
+    "manners",
+    "kind",
+    "suit",
+    "person"
+  ],
+  "chewy": [
+    "tough",
+    "food",
+    "sweet",
+    "bite",
+    "gum",
+    "sticky"
+  ],
+  "even": [
+    "level",
+    "equal",
+    "flat",
+    "smooth",
+    "odd",
+    "night"
+  ],
+  "weed": [
+    "garden",
+    "plant",
+    "unwanted",
+    "leaf",
+    "remove",
+    "soil"
+  ],
+  "deal": [
+    "cards",
+    "trade",
+    "bargain",
+    "agreement",
+    "sell",
+    "handle"
+  ],
+  "size": [
+    "large",
+    "small",
+    "measure",
+    "fit",
+    "clothes",
+    "number"
+  ],
+  "stud": [
+    "horse",
+    "metal",
+    "earring",
+    "nail",
+    "male",
+    "button"
+  ],
+  "hot": [
+    "heat",
+    "fire",
+    "warm",
+    "summer",
+    "spicy",
+    "cold"
+  ],
+  "stationary": [
+    "still",
+    "fixed",
+    "unmoving",
+    "motionless",
+    "stop",
+    "position"
+  ],
+  "dose": [
+    "medicine",
+    "amount",
+    "pill",
+    "drug",
+    "quantity",
+    "measure"
+  ],
+  "reunion": [
+    "meeting",
+    "family",
+    "friends",
+    "gather",
+    "school",
+    "together"
+  ],
+  "bath": [
+    "wash",
+    "water",
+    "tub",
+    "clean",
+    "soap",
+    "soak"
+  ],
+  "lawn": [
+    "grass",
+    "garden",
+    "mow",
+    "green",
+    "turf",
+    "field"
+  ],
+  "lily": [
+    "flower",
+    "pond",
+    "white",
+    "petal",
+    "water",
+    "garden"
+  ],
+  "beige": [
+    "colour",
+    "tan",
+    "cream",
+    "brown",
+    "pale",
+    "neutral"
+  ],
+  "gradual": [
+    "slow",
+    "change",
+    "step",
+    "steady",
+    "progress",
+    "increase"
+  ],
+  "keep": [
+    "hold",
+    "save",
+    "retain",
+    "care",
+    "guard",
+    "stay"
+  ],
+  "poppy": [
+    "flower",
+    "red",
+    "seed",
+    "plant",
+    "petal",
+    "remembrance"
+  ],
+  "headline": [
+    "news",
+    "title",
+    "newspaper",
+    "article",
+    "bold",
+    "story"
+  ],
+  "ace": [
+    "card",
+    "tennis",
+    "best",
+    "expert",
+    "serve",
+    "one"
+  ],
+  "logo": [
+    "sign",
+    "brand",
+    "symbol",
+    "company",
+    "design",
+    "name"
+  ],
+  "extra": [
+    "more",
+    "additional",
+    "spare",
+    "surplus",
+    "bonus",
+    "excess"
+  ],
+  "soccer": [
+    "football",
+    "ball",
+    "kick",
+    "goal",
+    "sport",
+    "team"
+  ],
+  "baker": [
+    "bread",
+    "cake",
+    "oven",
+    "flour",
+    "dough",
+    "bake"
+  ],
+  "gem": [
+    "jewel",
+    "stone",
+    "precious",
+    "diamond",
+    "ruby",
+    "treasure"
+  ],
+  "kennel": [
+    "dog",
+    "house",
+    "pet",
+    "shelter",
+    "cage",
+    "boarding"
+  ],
+  "ram": [
+    "sheep",
+    "hit",
+    "male",
+    "computer",
+    "force",
+    "horn"
+  ],
+  "lark": [
+    "bird",
+    "song",
+    "fun",
+    "prank",
+    "morning",
+    "sky"
+  ],
+  "sleepy": [
+    "tired",
+    "bed",
+    "yawn",
+    "rest",
+    "dream",
+    "night"
+  ],
+  "nettle": [
+    "sting",
+    "plant",
+    "weed",
+    "leaf",
+    "green",
+    "rash"
+  ],
+  "herring": [
+    "fish",
+    "sea",
+    "silver",
+    "smoked",
+    "red",
+    "shoal"
+  ],
+  "index": [
+    "book",
+    "list",
+    "finger",
+    "number",
+    "contents",
+    "reference"
+  ],
+  "global": [
+    "world",
+    "international",
+    "worldwide",
+    "all",
+    "earth",
+    "universal"
+  ],
+  "elder": [
+    "old",
+    "older",
+    "tree",
+    "senior",
+    "parent",
+    "adult"
+  ],
+  "healthy": [
+    "fit",
+    "well",
+    "health",
+    "food",
+    "exercise",
+    "strong"
+  ],
+  "chore": [
+    "task",
+    "job",
+    "work",
+    "house",
+    "clean",
+    "duty"
+  ],
+  "thorn": [
+    "rose",
+    "sharp",
+    "prick",
+    "bush",
+    "spike",
+    "plant"
+  ],
+  "mobile": [
+    "phone",
+    "moving",
+    "portable",
+    "travel",
+    "flexible",
+    "vehicle"
+  ],
+  "lavender": [
+    "purple",
+    "flower",
+    "scent",
+    "plant",
+    "perfume",
+    "herb"
+  ],
+  "lion": [
+    "cat",
+    "mane",
+    "roar",
+    "animal",
+    "pride",
+    "wild"
+  ],
+  "lease": [
+    "rent",
+    "contract",
+    "let",
+    "property",
+    "hire",
+    "agreement"
+  ],
+  "loan": [
+    "borrow",
+    "bank",
+    "money",
+    "lend",
+    "debt",
+    "mortgage"
+  ],
+  "shove": [
+    "push",
+    "force",
+    "move",
+    "elbow",
+    "crowd",
+    "nudge"
+  ],
+  "spine": [
+    "back",
+    "bone",
+    "book",
+    "vertebrae",
+    "thorn",
+    "support"
+  ],
+  "acid": [
+    "sour",
+    "chemical",
+    "burn",
+    "lemon",
+    "strong",
+    "alkali"
+  ],
+  "edge": [
+    "side",
+    "border",
+    "sharp",
+    "corner",
+    "rim",
+    "limit"
+  ],
+  "permit": [
+    "allow",
+    "licence",
+    "permission",
+    "let",
+    "document",
+    "pass"
+  ],
+  "drive": [
+    "car",
+    "road",
+    "steer",
+    "engine",
+    "move",
+    "force"
+  ],
+  "session": [
+    "meeting",
+    "time",
+    "period",
+    "class",
+    "work",
+    "sitting"
+  ],
+  "stale": [
+    "old",
+    "bread",
+    "fresh",
+    "dull",
+    "musty",
+    "food"
+  ],
+  "walrus": [
+    "animal",
+    "tusk",
+    "sea",
+    "seal",
+    "whisker",
+    "blubber"
+  ],
+  "old": [
+    "young",
+    "age",
+    "ancient",
+    "past",
+    "worn",
+    "elderly"
+  ],
+  "sale": [
+    "sell",
+    "discount",
+    "shop",
+    "price",
+    "bargain",
+    "auction"
+  ],
+  "wipe": [
+    "clean",
+    "cloth",
+    "rub",
+    "dry",
+    "wash",
+    "sweep"
+  ],
+  "steward": [
+    "ship",
+    "service",
+    "attendant",
+    "care",
+    "plane",
+    "waiter"
+  ],
+  "mitten": [
+    "glove",
+    "hand",
+    "warm",
+    "wool",
+    "winter",
+    "finger"
+  ],
+  "percentage": [
+    "fraction",
+    "maths",
+    "number",
+    "rate",
+    "amount",
+    "proportion"
+  ],
+  "valet": [
+    "servant",
+    "car",
+    "park",
+    "hotel",
+    "clothes",
+    "personal"
+  ],
+  "way": [
+    "path",
+    "road",
+    "method",
+    "direction",
+    "route",
+    "manner"
+  ],
+  "pea": [
+    "green",
+    "vegetable",
+    "pod",
+    "round",
+    "food",
+    "seed"
+  ],
+  "basalt": [
+    "rock",
+    "stone",
+    "volcanic",
+    "lava",
+    "dark",
+    "hard"
+  ],
+  "shark": [
+    "fish",
+    "teeth",
+    "sea",
+    "fin",
+    "dangerous",
+    "swim"
+  ],
+  "front": [
+    "back",
+    "face",
+    "entrance",
+    "forward",
+    "ahead",
+    "door"
+  ],
+  "mood": [
+    "feeling",
+    "happy",
+    "sad",
+    "emotion",
+    "atmosphere",
+    "temper"
+  ],
+  "poke": [
+    "prod",
+    "jab",
+    "finger",
+    "push",
+    "stick",
+    "touch"
+  ],
+  "professor": [
+    "university",
+    "teacher",
+    "student",
+    "lecture",
+    "academic",
+    "research"
+  ],
+  "alder": [
+    "tree",
+    "wood",
+    "leaf",
+    "water",
+    "forest",
+    "branch"
+  ],
+  "cleaner": [
+    "clean",
+    "wash",
+    "tidy",
+    "job",
+    "soap",
+    "remove"
+  ],
+  "table": [
+    "desk",
+    "chair",
+    "wood",
+    "furniture",
+    "flat",
+    "dining"
+  ],
+  "rice": [
+    "food",
+    "grain",
+    "white",
+    "cook",
+    "bowl",
+    "field"
+  ],
+  "straight": [
+    "line",
+    "direct",
+    "honest",
+    "upright",
+    "level",
+    "bend"
+  ],
+  "ditch": [
+    "trench",
+    "hole",
+    "dig",
+    "drain",
+    "road",
+    "water"
+  ],
+  "landscape": [
+    "scenery",
+    "view",
+    "land",
+    "picture",
+    "garden",
+    "painting"
+  ],
+  "estimate": [
+    "guess",
+    "cost",
+    "approximate",
+    "judge",
+    "price",
+    "measure"
+  ],
+  "peeler": [
+    "potato",
+    "skin",
+    "kitchen",
+    "blade",
+    "vegetable",
+    "tool"
+  ],
+  "ruby": [
+    "gem",
+    "red",
+    "jewel",
+    "stone",
+    "precious",
+    "ring"
+  ],
+  "genuine": [
+    "real",
+    "true",
+    "authentic",
+    "honest",
+    "actual",
+    "sincere"
+  ],
+  "tow": [
+    "pull",
+    "car",
+    "truck",
+    "rope",
+    "boat",
+    "drag"
+  ],
+  "ease": [
+    "comfort",
+    "relax",
+    "relieve",
+    "simple",
+    "calm",
+    "pain"
+  ],
+  "pollen": [
+    "flower",
+    "bee",
+    "dust",
+    "allergy",
+    "sneeze",
+    "plant"
+  ],
+  "wooden": [
+    "wood",
+    "tree",
+    "table",
+    "plank",
+    "chair",
+    "stiff"
+  ],
+  "quartz": [
+    "crystal",
+    "mineral",
+    "stone",
+    "watch",
+    "rock",
+    "glass"
+  ],
+  "honeysuckle": [
+    "flower",
+    "sweet",
+    "vine",
+    "scent",
+    "garden",
+    "climbing"
+  ],
+  "shower": [
+    "rain",
+    "wash",
+    "bath",
+    "water",
+    "wet",
+    "soap"
+  ],
+  "puffin": [
+    "bird",
+    "sea",
+    "beak",
+    "island",
+    "fish",
+    "colourful"
+  ],
+  "queen": [
+    "king",
+    "royal",
+    "crown",
+    "ruler",
+    "chess",
+    "bee"
+  ],
+  "define": [
+    "meaning",
+    "word",
+    "explain",
+    "dictionary",
+    "describe",
+    "outline"
+  ],
+  "rare": [
+    "scarce",
+    "unusual",
+    "steak",
+    "uncommon",
+    "precious",
+    "seldom"
+  ],
+  "fake": [
+    "false",
+    "pretend",
+    "artificial",
+    "copy",
+    "imitation",
+    "real"
+  ],
+  "bride": [
+    "wedding",
+    "groom",
+    "dress",
+    "marry",
+    "white",
+    "woman"
+  ],
+  "domestic": [
+    "home",
+    "house",
+    "family",
+    "animal",
+    "tame",
+    "servant"
+  ],
+  "fragment": [
+    "piece",
+    "broken",
+    "shard",
+    "part",
+    "small",
+    "remains"
+  ],
+  "ready": [
+    "prepared",
+    "set",
+    "willing",
+    "waiting",
+    "available",
+    "eager"
+  ],
+  "boar": [
+    "pig",
+    "wild",
+    "tusk",
+    "forest",
+    "pork",
+    "animal"
+  ],
+  "aluminium": [
+    "metal",
+    "foil",
+    "light",
+    "can",
+    "silver",
+    "tin"
+  ],
+  "motto": [
+    "saying",
+    "words",
+    "slogan",
+    "phrase",
+    "principle",
+    "belief"
+  ],
+  "widow": [
+    "husband",
+    "death",
+    "wife",
+    "woman",
+    "loss",
+    "marriage"
+  ],
+  "tart": [
+    "sour",
+    "pie",
+    "pastry",
+    "sharp",
+    "fruit",
+    "sweet"
+  ],
+  "nice": [
+    "kind",
+    "good",
+    "pleasant",
+    "friendly",
+    "sweet",
+    "polite"
+  ],
+  "add": [
+    "plus",
+    "sum",
+    "maths",
+    "number",
+    "increase",
+    "combine"
+  ],
+  "tone": [
+    "sound",
+    "voice",
+    "music",
+    "colour",
+    "mood",
+    "note"
+  ],
+  "horse": [
+    "animal",
+    "ride",
+    "saddle",
+    "mane",
+    "hoof",
+    "race"
+  ],
+  "sieve": [
+    "flour",
+    "kitchen",
+    "strain",
+    "mesh",
+    "filter",
+    "drain"
+  ],
+  "leopard": [
+    "cat",
+    "spots",
+    "animal",
+    "wild",
+    "fur",
+    "jungle"
+  ],
+  "element": [
+    "part",
+    "chemical",
+    "periodic",
+    "component",
+    "basic",
+    "factor"
+  ],
+  "ratio": [
+    "proportion",
+    "fraction",
+    "numbers",
+    "compare",
+    "rate",
+    "relation"
+  ],
+  "hoof": [
+    "horse",
+    "foot",
+    "animal",
+    "shoe",
+    "goat",
+    "hard"
+  ],
+  "smoke": [
+    "fire",
+    "cigarette",
+    "grey",
+    "cloud",
+    "smell",
+    "chimney"
+  ],
+  "fall": [
+    "drop",
+    "autumn",
+    "leaf",
+    "stumble",
+    "down",
+    "trip"
+  ],
+  "major": [
+    "important",
+    "big",
+    "minor",
+    "army",
+    "music",
+    "main"
+  ],
+  "believe": [
+    "trust",
+    "think",
+    "faith",
+    "true",
+    "accept",
+    "hope"
+  ],
+  "jetty": [
+    "pier",
+    "water",
+    "boat",
+    "harbour",
+    "sea",
+    "wooden"
+  ],
+  "cold": [
+    "ice",
+    "winter",
+    "hot",
+    "illness",
+    "chill",
+    "snow"
+  ],
+  "gale": [
+    "wind",
+    "storm",
+    "strong",
+    "blow",
+    "sea",
+    "weather"
+  ],
+  "modern": [
+    "new",
+    "current",
+    "recent",
+    "contemporary",
+    "design",
+    "old"
+  ],
+  "pierce": [
+    "hole",
+    "puncture",
+    "sharp",
+    "ear",
+    "stab",
+    "penetrate"
+  ],
+  "gulp": [
+    "swallow",
+    "drink",
+    "mouth",
+    "quick",
+    "air",
+    "water"
+  ],
+  "prisoner": [
+    "jail",
+    "cell",
+    "captive",
+    "prison",
+    "guard",
+    "sentence"
+  ],
+  "judge": [
+    "court",
+    "law",
+    "decide",
+    "assess",
+    "opinion",
+    "referee"
+  ],
+  "strip": [
+    "remove",
+    "band",
+    "thin",
+    "bare",
+    "cloth",
+    "piece"
+  ],
+  "winner": [
+    "win",
+    "prize",
+    "champion",
+    "victory",
+    "race",
+    "competition"
+  ],
+  "fasten": [
+    "attach",
+    "secure",
+    "close",
+    "tie",
+    "button",
+    "fix"
+  ],
+  "moving": [
+    "move",
+    "motion",
+    "emotional",
+    "travel",
+    "shifting",
+    "active"
+  ],
+  "bite": [
+    "teeth",
+    "eat",
+    "food",
+    "dog",
+    "sting",
+    "mouth"
+  ],
+  "thought": [
+    "think",
+    "mind",
+    "idea",
+    "brain",
+    "memory",
+    "consider"
+  ],
+  "funeral": [
+    "death",
+    "burial",
+    "coffin",
+    "mourn",
+    "grave",
+    "service"
+  ],
+  "accessory": [
+    "bag",
+    "extra",
+    "clothing",
+    "item",
+    "add",
+    "fashion"
+  ],
+  "alphabet": [
+    "letters",
+    "word",
+    "read",
+    "write",
+    "language",
+    "school"
+  ],
+  "ambulance": [
+    "hospital",
+    "emergency",
+    "doctor",
+    "siren",
+    "patient",
+    "vehicle"
+  ],
+  "attach": [
+    "join",
+    "connect",
+    "fix",
+    "fasten",
+    "stick",
+    "link"
+  ],
+  "attendance": [
+    "present",
+    "school",
+    "class",
+    "meeting",
+    "register",
+    "pupil"
+  ],
+  "autograph": [
+    "signature",
+    "sign",
+    "name",
+    "famous",
+    "celebrity",
+    "paper"
+  ],
+  "baggage": [
+    "luggage",
+    "suitcase",
+    "travel",
+    "airport",
+    "bag",
+    "carry"
+  ],
+  "beard": [
+    "hair",
+    "face",
+    "man",
+    "shave",
+    "chin",
+    "grow"
+  ],
+  "bicycle": [
+    "bike",
+    "wheel",
+    "ride",
+    "pedal",
+    "road",
+    "cycle"
+  ],
+  "bumper": [
+    "car",
+    "crash",
+    "front",
+    "rear",
+    "rubber",
+    "protection"
+  ],
+  "calculator": [
+    "number",
+    "maths",
+    "add",
+    "sum",
+    "button",
+    "calculate"
+  ],
+  "canteen": [
+    "food",
+    "lunch",
+    "school",
+    "meal",
+    "water",
+    "bottle"
+  ],
+  "cardboard": [
+    "box",
+    "paper",
+    "brown",
+    "package",
+    "thick",
+    "carton"
+  ],
+  "cemetery": [
+    "grave",
+    "death",
+    "burial",
+    "stone",
+    "church",
+    "funeral"
+  ],
+  "charity": [
+    "help",
+    "give",
+    "money",
+    "donation",
+    "poor",
+    "kindness"
+  ],
+  "closet": [
+    "cupboard",
+    "clothes",
+    "wardrobe",
+    "door",
+    "storage",
+    "shelf"
+  ],
+  "colleague": [
+    "work",
+    "office",
+    "friend",
+    "job",
+    "partner",
+    "staff"
+  ],
+  "container": [
+    "box",
+    "storage",
+    "hold",
+    "bottle",
+    "ship",
+    "cargo"
+  ],
+  "corridor": [
+    "hallway",
+    "room",
+    "door",
+    "long",
+    "passage",
+    "building"
+  ],
+  "cottage": [
+    "house",
+    "country",
+    "small",
+    "holiday",
+    "garden",
+    "roof"
+  ],
+  "coupon": [
+    "discount",
+    "voucher",
+    "shop",
+    "offer",
+    "money",
+    "save"
+  ],
+  "courtyard": [
+    "garden",
+    "building",
+    "outside",
+    "square",
+    "wall",
+    "space"
+  ],
+  "dishwasher": [
+    "kitchen",
+    "plates",
+    "clean",
+    "water",
+    "machine",
+    "wash"
+  ],
+  "doctor": [
+    "hospital",
+    "patient",
+    "health",
+    "medicine",
+    "nurse",
+    "treat"
+  ],
+  "doe": [
+    "deer",
+    "female",
+    "animal",
+    "wood",
+    "fawn",
+    "rabbit"
+  ],
+  "doorway": [
+    "entrance",
+    "door",
+    "house",
+    "opening",
+    "room",
+    "threshold"
+  ],
+  "dryer": [
+    "clothes",
+    "heat",
+    "machine",
+    "hair",
+    "dry",
+    "laundry"
+  ],
+  "elbow": [
+    "arm",
+    "joint",
+    "bend",
+    "knee",
+    "sleeve",
+    "hand"
+  ],
+  "exit": [
+    "leave",
+    "door",
+    "way",
+    "entrance",
+    "escape",
+    "sign"
+  ],
+  "failure": [
+    "fail",
+    "mistake",
+    "success",
+    "loss",
+    "defeat",
+    "broken"
+  ],
+  "fiction": [
+    "story",
+    "novel",
+    "book",
+    "imaginary",
+    "author",
+    "read"
+  ],
+  "fireplace": [
+    "fire",
+    "warm",
+    "house",
+    "chimney",
+    "wood",
+    "heat"
+  ],
+  "folder": [
+    "file",
+    "paper",
+    "document",
+    "computer",
+    "store",
+    "desk"
+  ],
+  "folk": [
+    "people",
+    "music",
+    "story",
+    "traditional",
+    "song",
+    "dance"
+  ],
+  "fountain": [
+    "water",
+    "spray",
+    "garden",
+    "drink",
+    "park",
+    "flow"
+  ],
+  "freight": [
+    "cargo",
+    "ship",
+    "train",
+    "goods",
+    "transport",
+    "load"
+  ],
+  "grammar": [
+    "language",
+    "sentence",
+    "word",
+    "verb",
+    "rule",
+    "writing"
+  ],
+  "grocery": [
+    "food",
+    "shop",
+    "supermarket",
+    "bag",
+    "buy",
+    "store"
+  ],
+  "haircut": [
+    "hair",
+    "barber",
+    "scissors",
+    "trim",
+    "short",
+    "style"
+  ],
+  "hardware": [
+    "tools",
+    "metal",
+    "shop",
+    "computer",
+    "equipment",
+    "screw"
+  ],
+  "honeymoon": [
+    "wedding",
+    "marriage",
+    "holiday",
+    "couple",
+    "romantic",
+    "travel"
+  ],
+  "iceberg": [
+    "ice",
+    "cold",
+    "sea",
+    "float",
+    "ship",
+    "water"
+  ],
+  "kilometre": [
+    "distance",
+    "metre",
+    "road",
+    "mile",
+    "measure",
+    "walk"
+  ],
+  "laboratory": [
+    "science",
+    "experiment",
+    "research",
+    "test",
+    "chemical",
+    "scientist"
+  ],
+  "lecturer": [
+    "teacher",
+    "university",
+    "student",
+    "talk",
+    "lecture",
+    "class"
+  ],
+  "long": [
+    "short",
+    "length",
+    "time",
+    "tall",
+    "distance",
+    "lasting"
+  ],
+  "mayor": [
+    "city",
+    "town",
+    "council",
+    "leader",
+    "election",
+    "office"
+  ],
+  "method": [
+    "way",
+    "technique",
+    "process",
+    "plan",
+    "approach",
+    "system"
+  ],
+  "microphone": [
+    "sound",
+    "voice",
+    "sing",
+    "stage",
+    "speak",
+    "record"
+  ],
+  "milestone": [
+    "achievement",
+    "road",
+    "progress",
+    "marker",
+    "distance",
+    "important"
+  ],
+  "mistake": [
+    "error",
+    "wrong",
+    "accident",
+    "fail",
+    "correction",
+    "fault"
+  ],
+  "motorway": [
+    "road",
+    "car",
+    "traffic",
+    "speed",
+    "lane",
+    "drive"
+  ],
+  "nationality": [
+    "country",
+    "citizen",
+    "passport",
+    "birth",
+    "nation",
+    "identity"
+  ],
+  "neighbourhood": [
+    "street",
+    "house",
+    "community",
+    "local",
+    "area",
+    "people"
+  ],
+  "octagon": [
+    "eight",
+    "sides",
+    "shape",
+    "polygon",
+    "stop",
+    "sign"
+  ],
+  "octopus": [
+    "sea",
+    "tentacle",
+    "ink",
+    "animal",
+    "eight",
+    "water"
+  ],
+  "ornament": [
+    "decoration",
+    "christmas",
+    "tree",
+    "glass",
+    "pretty",
+    "shelf"
+  ],
+  "otter": [
+    "animal",
+    "river",
+    "water",
+    "swim",
+    "fur",
+    "fish"
+  ],
+  "ownership": [
+    "own",
+    "property",
+    "possession",
+    "owner",
+    "control",
+    "title"
+  ],
+  "pavement": [
+    "street",
+    "road",
+    "walk",
+    "footpath",
+    "concrete",
+    "pedestrian"
+  ],
+  "payment": [
+    "money",
+    "pay",
+    "bill",
+    "cash",
+    "bank",
+    "cost"
+  ],
+  "postcode": [
+    "address",
+    "mail",
+    "letter",
+    "area",
+    "code",
+    "delivery"
+  ],
+  "pot": [
+    "pan",
+    "cook",
+    "plant",
+    "clay",
+    "vessel",
+    "kettle"
+  ],
+  "pottery": [
+    "clay",
+    "pot",
+    "ceramic",
+    "bowl",
+    "vase",
+    "craft"
+  ],
+  "property": [
+    "house",
+    "land",
+    "own",
+    "building",
+    "possession",
+    "estate"
+  ],
+  "proposal": [
+    "offer",
+    "idea",
+    "plan",
+    "marriage",
+    "suggest",
+    "document"
+  ],
+  "publication": [
+    "book",
+    "print",
+    "newspaper",
+    "magazine",
+    "publish",
+    "article"
+  ],
+  "purchase": [
+    "buy",
+    "shop",
+    "money",
+    "sale",
+    "goods",
+    "payment"
+  ],
+  "qualification": [
+    "exam",
+    "skill",
+    "certificate",
+    "degree",
+    "job",
+    "training"
+  ],
+  "questionnaire": [
+    "question",
+    "answer",
+    "survey",
+    "form",
+    "research",
+    "ask"
+  ],
+  "radiator": [
+    "heat",
+    "warm",
+    "water",
+    "car",
+    "engine",
+    "room"
+  ],
+  "reminder": [
+    "remember",
+    "note",
+    "message",
+    "alarm",
+    "memory",
+    "forget"
+  ],
+  "reservation": [
+    "booking",
+    "hotel",
+    "table",
+    "restaurant",
+    "seat",
+    "travel"
+  ],
+  "resort": [
+    "holiday",
+    "hotel",
+    "beach",
+    "tourism",
+    "travel",
+    "place"
+  ],
+  "robot": [
+    "machine",
+    "automatic",
+    "metal",
+    "computer",
+    "mechanical",
+    "worker"
+  ],
+  "scenery": [
+    "view",
+    "landscape",
+    "mountain",
+    "nature",
+    "countryside",
+    "stage"
+  ],
+  "signature": [
+    "name",
+    "sign",
+    "autograph",
+    "handwriting",
+    "paper",
+    "document"
+  ],
+  "sweater": [
+    "wool",
+    "clothes",
+    "warm",
+    "jumper",
+    "knit",
+    "sleeve"
+  ],
+  "teenager": [
+    "young",
+    "adolescent",
+    "school",
+    "child",
+    "youth",
+    "age"
+  ],
+  "timetable": [
+    "schedule",
+    "time",
+    "school",
+    "bus",
+    "train",
+    "plan"
+  ],
+  "tolerance": [
+    "accept",
+    "patience",
+    "difference",
+    "allow",
+    "limit",
+    "respect"
+  ],
+  "toothbrush": [
+    "teeth",
+    "brush",
+    "clean",
+    "toothpaste",
+    "bathroom",
+    "mouth"
+  ],
+  "tuition": [
+    "school",
+    "fee",
+    "teach",
+    "education",
+    "lesson",
+    "university"
+  ],
+  "video": [
+    "film",
+    "screen",
+    "camera",
+    "watch",
+    "recording",
+    "television"
+  ],
+  "watery": [
+    "wet",
+    "water",
+    "thin",
+    "liquid",
+    "weak",
+    "dilute"
+  ],
+  "wheelchair": [
+    "chair",
+    "wheel",
+    "disabled",
+    "hospital",
+    "mobility",
+    "patient"
+  ],
+  "windshield": [
+    "car",
+    "glass",
+    "window",
+    "wind",
+    "front",
+    "wiper"
+  ],
+  "yardstick": [
+    "measure",
+    "length",
+    "ruler",
+    "standard",
+    "yard",
+    "compare"
+  ]
+}
