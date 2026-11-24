@@ -175,22 +175,38 @@ jobs:
         with:
           path: static
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Wait for uploaded Pages artifact
+      - name: Deploy Pages from verified artifact
+        id: deployment
         uses: actions/github-script@v7
         with:
           script: |
+            const repository = { owner: context.repo.owner, repo: context.repo.repo };
             const name = 'github-pages-${{ github.run_id }}-${{ github.run_attempt }}';
+            let artifact;
             for (let attempt = 0; attempt < 12; attempt++) {
               const { data } = await github.rest.actions.listWorkflowRunArtifacts({
-                owner: context.repo.owner, repo: context.repo.repo,
-                run_id: context.runId, per_page: 100
+                ...repository, run_id: context.runId, per_page: 100
               });
-              if (data.artifacts.some(artifact => artifact.name === name && !artifact.expired)) return;
-              core.info('Waiting for uploaded Pages artifact metadata');
+              artifact = data.artifacts.find(item => item.name === name && !item.expired);
+              if (artifact) break;
               await new Promise(resolve => setTimeout(resolve, 5000));
             }
-            throw new Error('Uploaded Pages artifact did not become visible within 60 seconds');
-      - uses: actions/deploy-pages@v5
-        id: deployment
-        with:
-          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+            if (!artifact) throw new Error('Uploaded Pages artifact is unavailable');
+            const { data: deployment } = await github.request('POST /repos/{owner}/{repo}/pages/deployments', {
+              ...repository, artifact_id: artifact.id,
+              pages_build_version: context.sha, oidc_token: await core.getIDToken()
+            });
+            core.setOutput('page_url', deployment.page_url);
+            const deploymentId = deployment.id || deployment.status_url?.split('/').pop() || context.sha;
+            for (let attempt = 0; attempt < 60; attempt++) {
+              await new Promise(resolve => setTimeout(resolve, 5000));
+              const { data } = await github.request('GET /repos/{owner}/{repo}/pages/deployments/{deploymentId}', {
+                ...repository, deploymentId
+              });
+              core.info('Pages deployment: ' + data.status);
+              if (data.status === 'succeed') return;
+              if (['failed', 'failure', 'cancelled', 'canceled', 'deployment_failed'].includes(data.status)) {
+                throw new Error('Pages deployment failed: ' + data.status);
+              }
+            }
+            throw new Error('Pages deployment did not complete within five minutes');
