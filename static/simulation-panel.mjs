@@ -1,4 +1,4 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=finishing-role82-v1';
 import {SIMULATION_DATA_VERSION,simulationSettingsKey,compareSimulatedRoute,simulationForState} from './simulation-comparison.mjs?v=simulation-pilot-v1';
 export const SIMULATION_HOLE_IDS=['daily-2027-09-30','daily-2027-10-01','daily-2027-10-02','daily-2027-10-03','daily-2027-10-04'];
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),percent=x=>x===null?'—':Math.round(x)+'%';

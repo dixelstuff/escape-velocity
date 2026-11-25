@@ -17,5 +17,5 @@ for(const [i,h] of v.holes.entries()){
 // A completed old hole survives the new numbering and remains in the current public view.
 const old=publicCollection.holes[30],record={id:old.id,date:old.date,tee:old.settings.start,waypoint:old.settings.waypoint.word,flag:old.settings.target,bestStrokes:{strokes:4,route:[old.settings.start,'saved',old.settings.target]}};
 const map=new Map([[DAILY_KEY,JSON.stringify({version:1,selected:old.date,holes:{[old.id]:record}})]]),storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,v)};
-const game=new DailyGame(storage,publicCollection);assert.deepEqual(game.current(),record);assert.equal(holeNumber(game,old),'#31');assert.equal(game.stats().completed,1);
+const game=new DailyGame(storage,publicCollection);assert.deepEqual(game.current(),record);assert.equal(holeNumber(game,old),'#31');assert.equal(game.stats().completed,0);
 console.log(`Rich associations passed: 30 new triples, ${advances} legal forward openings from 300 ordinary probes, direct-leg checks, stable archive, new batch first and earlier twenty/progress retained. No complete-route search.`);

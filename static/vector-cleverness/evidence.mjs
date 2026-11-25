@@ -1,14 +1,15 @@
-import {doglegAccessEvidence} from '../dogleg-strategy-bonus.mjs?v=incoming-dogleg-v1';
-import {doglegContinuationEvidence} from '../dogleg-continuation.mjs?v=blocked-connectors-v1';
+import {doglegAccessEvidence} from '../dogleg-strategy-bonus.mjs?v=finishing-role82-v1';
+import {doglegContinuationEvidence} from '../dogleg-continuation.mjs?v=finishing-role82-v1';
 /** Maintained browser-only vector evidence adapter. No server or lexical queries. */
 /** Arbitrary completed-route evidence. Same operations as V6.4/V6.5 builders. */
-import {Game} from '../engine.mjs?v=blocked-connectors-v1';
+import {Game} from '../engine.mjs?v=finishing-role82-v1';
+import {finishingRoleEvidence} from '../finishing-role.mjs?v=finishing-role82-v1';
 const wordnetPairEvidence=()=>({matches:[],phrase_matches:[],dictionary_semantic:[],morphology:null,source_scope:'Vectors only'}),wordnetCoverage={source:'Vectors only; lexical evidence excluded'};
 import {strategyStateKey} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 function evidenceFor(state,diagnostics,e){const pairs=[];for(let i=0;i<diagnostics.route.length;i++)for(let j=i+1;j<Math.min(diagnostics.route.length,i+4);j++)pairs.push({from_position:i,to_position:j,from:diagnostics.route[i],to:diagnostics.route[j],cosine:e.cosine(diagnostics.route[i],diagnostics.route[j])});const d=diagnostics.dogleg_strategy;return {state,diagnostics,pairs,waypoint_pair:d?{from:diagnostics.route[d.position],to:d.waypoint,cosine:e.cosine(diagnostics.route[d.position],d.waypoint)}:null};}
 import {scoreV6} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {scoreV67} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=incoming-dogleg-v1';
+import {playtestKey,makePlaytestReport} from '../cleverness-playtest-data.mjs?v=finishing-role82-v1';
 const clone=g=>Object.assign(Object.create(Object.getPrototypeOf(g)),g,{history:structuredClone(g.history),route:[...g.route],automatic_shots:structuredClone(g.automatic_shots)}),angular=c=>Math.acos(Math.max(-1,Math.min(1,c)));
 export function replayCompleted(e,s){
  if(!s?.won||!Array.isArray(s.history)||!s.history.length)throw Error('A successfully completed attempt is required.');
@@ -33,7 +34,7 @@ export async function buildLiveEvidence(e,analyser,state,queryTriples){
  const diagnostics=await analyser.analyse(s),d=diagnostics.dogleg_strategy,i=d.position,[A,B,C]=diagnostics.route.slice(i-1,i+2),W=d.waypoint,profile=(await analyser.v4.store.forWords(e,[B])).get(B),triples={approach_departure:[A,B,C],approach_waypoint:[A,B,W],waypoint_departure:[W,B,C]},lex=await queryTriples(Object.values(triples));
  if(!Array.isArray(lex)||lex.length!==3||lex.some((x,i)=>JSON.stringify(x?.triple)!==JSON.stringify(Object.values(triples)[i])))throw Error('Full WordNet relationship evidence is unavailable or mismatched.');
  const context={position:i,waypoint:W,sequence:[A,B,C],contexts:Object.fromEntries(Object.entries(triples).map(([k,t])=>[k,analyser.v4.contextTriple(...t,profile)])),lexical:Object.fromEntries(Object.keys(triples).map((k,i)=>[k,lex[i]])),pairs:Object.fromEntries([['incoming',A,B],['waypoint',B,W],['outgoing',B,C]].map(([k,from,to])=>[k,{from,to,cosine:e.cosine(from,to),lexical:wordnetPairEvidence(from,to)}])),endpoint_cosines:{approach_waypoint:e.cosine(A,W),waypoint_departure:e.cosine(W,C),approach_departure:e.cosine(A,C)},mechanical:{setup:d.bridge.strategic_functions,replacements:d.alternative_roles,observed_suffix:d.observed_suffix,automatic_completion:d.automatic_completion}};
- return {input:evidenceFor(s,diagnostics,e),evidence:strategyEvidence(e,s,replayed,context)};
+ return {input:evidenceFor(s,diagnostics,e),evidence:{...strategyEvidence(e,s,replayed,context),finishing_role:finishingRoleEvidence(e,s,replayed.game,diagnostics)}};
 }
 export function scoreLiveEvidence(input,evidence,modelSha){return makePlaytestReport(input.state,scoreV67(input,evidence,'harmonic'),scoreV6(input),modelSha);}
 export class LiveClevernessService{

@@ -1,3 +1,4 @@
+import {BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
 import assert from 'node:assert/strict';
 import {DailyGame,DAILY_KEY} from '../static/daily-game.mjs';
 import {dailyManifest} from '../static/daily-manifest.mjs';
@@ -7,7 +8,7 @@ assert.equal(retiredHoleWords.length,32);
 const culled=dailyManifest.holes.filter(isRetiredHole),kept=dailyManifest.holes.filter(h=>!isRetiredHole(h));assert.equal(culled.length,29);assert.equal(kept.length,dailyManifest.holes.length-29);
 const memory=new Map(),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)};
 const custom={id:'custom-avocado~bravado~embargo',date:'custom-avocado~bravado~embargo',custom:true,settings:{start:'avocado',waypoint:{word:'bravado'},target:'embargo'}};
-const records=[kept[0],culled[0],custom].map((h,i)=>({id:h.id,date:h.date,tee:h.settings.start,waypoint:h.settings.waypoint.word,flag:h.settings.target,lastPlayedAt:`2026-10-30T12:0${i}:00Z`,bestStrokes:{strokes:3+i,route:[h.settings.start,'bridge',h.settings.target]},bestCleverness:{score:70+i,unrounded:70+i}}));
+const records=[kept[0],culled[0],custom].map((h,i)=>({id:h.id,date:h.date,tee:h.settings.start,waypoint:h.settings.waypoint.word,flag:h.settings.target,lastPlayedAt:`2026-10-30T12:0${i}:00Z`,bestStrokes:{scoreVersion:BAND_FREE_VERSION,cleverness:70+i,strokes:3+i,route:[h.settings.start,'bridge',h.settings.target]},bestCleverness:{version:BAND_FREE_VERSION,score:70+i,unrounded:70+i}}));
 const saved={version:1,selected:culled[0].date,holes:Object.fromEntries(records.map(h=>[h.id,h])),customHoles:[custom]};memory.set(DAILY_KEY,JSON.stringify(saved));
 const original=memory.get(DAILY_KEY),game=new DailyGame(storage,dailyManifest,{today:()=> '2026-10-30'});
 assert.equal(memory.get(DAILY_KEY),original,'Retirement does not rewrite or erase stored progress');assert.equal(game.available().length,kept.length);assert.ok(game.published().every(h=>!isRetiredHole(h)));assert.ok(game.available().every(h=>!isRetiredHole(h)));assert.equal(game.definition(culled[0].date),undefined);assert.equal(game.definition(custom.date),undefined);assert.ok(game.selected()&&!isRetiredHole(game.selected()),'Retired selections fall back to an available hole');

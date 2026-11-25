@@ -1,5 +1,5 @@
 import {applyLiveCleverness} from '../static/cleverness-live-score.mjs';
-import {stretchScore} from '../static/score-stretch.mjs';
+import {stretchScore82 as stretchScore} from '../static/score-stretch.mjs';
 import {BAND_FREE_VERSION as LIVE_VERSION} from '../static/cleverness-score-config.mjs';
 import assert from 'node:assert/strict';import fs from 'node:fs';
 import {bandFreeScore,BAND_FREE_VERSION,legFactor} from '../static/vector-cleverness/band-free.mjs';

@@ -1,4 +1,5 @@
-import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
+import {invalidateStaleCleverness} from './current-cleverness.mjs?v=finishing-role82-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=finishing-role82-v1';
 import {mergeHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
 const timestamp=o=>String(o?.updatedAt??o?.updated_at??o?.completedAt??o?.startedAt??'');
 const score=b=>Number.isFinite(b?.unrounded)?b.unrounded:Number.isFinite(b?.cleverness)?b.cleverness:Number.isFinite(b?.score)?b.score:-1;
@@ -12,6 +13,7 @@ function quality(a,b){
 function strokes(a,b){if(!a)return b;if(!b)return a;if(a.strokes!==b.strokes)return b.strokes<a.strokes?b:a;return quality(a,b);}
 /** Best achievements are monotone; current navigation belongs to the caller. */
 export function mergeDailyRecords(stored,incoming){
+ invalidateStaleCleverness(stored);invalidateStaleCleverness(incoming);
  if(stored?.version!==1||!stored.holes||incoming?.version!==1||!incoming.holes)return incoming;
  const holes={...stored.holes};
  for(const [id,local]of Object.entries(incoming.holes)){

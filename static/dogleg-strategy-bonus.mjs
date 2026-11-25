@@ -1,6 +1,6 @@
 /** Browser-only, route-local mechanical evidence. No vocabulary search or word-specific rules. */
-import {Game} from './engine.mjs?v=blocked-connectors-v1';
-import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=incoming-dogleg-v1';
+import {Game} from './engine.mjs?v=finishing-role82-v1';
+import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=finishing-role82-v1';
 export const DOGLEG_STRATEGY_VERSION='dogleg-access-bonus-v1';
 export const ACCESS_EVIDENCE_VERSION='dogleg-access-evidence-v2';
 export const DOGLEG_STRATEGY_POINTS=3;

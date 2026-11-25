@@ -38,11 +38,11 @@ const record=h=>({id:h.id,date:h.date,tee:h.settings.start,waypoint:h.settings.w
 const data={version:1,selected:retained.date,holes:Object.fromEntries([retained,incoming,removed].map(h=>[h.id,record(h)])),customHoles:[]};
 const memory=new Map([[DAILY_KEY,JSON.stringify(data)]]),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)};
 const publicGame=new DailyGame(storage,manifest);assert.equal(publicGame.selected().id,retained.id);assert.deepEqual(publicGame.current(),data.holes[retained.id]);
-assert.equal(publicGame.stats().completed,2);assert.equal(completedHoles(publicGame).length,2);assert.equal(publicGame.definition(removed.date),undefined);
+assert.equal(publicGame.stats().completed,0);assert.equal(completedHoles(publicGame).length,0);assert.equal(publicGame.definition(removed.date),undefined);
 assert.deepEqual(publicGame.data.holes[removed.id],data.holes[removed.id]);
 assert.notEqual(holeNumber(publicGame,retained),'#'+(previous.findIndex(h=>h.id===retained.id)+1),'Retained hole can be renumbered without copying or resetting it');
 publicGame.visit(incoming.date);assert.deepEqual(publicGame.current(),{...data.holes[incoming.id],lastPlayedAt:publicGame.current().lastPlayedAt});
-const admin=new DailyGame(storage,archive);assert.equal(admin.available().filter(h=>historicalArchive.holes.some(old=>old.id===h.id)).length,431);assert.equal(admin.stats().completed,3);assert.deepEqual(admin.data.holes[removed.id],data.holes[removed.id]);
+const admin=new DailyGame(storage,archive);assert.equal(admin.available().filter(h=>historicalArchive.holes.some(old=>old.id===h.id)).length,431);assert.equal(admin.stats().completed,0);assert.deepEqual(admin.data.holes[removed.id],data.holes[removed.id]);
 // A withdrawn selected hole falls back safely; it is never silently replaced under its ID.
 const withdrawn={...data,selected:removed.date};memory.set(DAILY_KEY,JSON.stringify(withdrawn));const fallback=new DailyGame(storage,manifest);assert.equal(fallback.selected().id,incoming.id);assert.deepEqual(fallback.data.holes[removed.id],data.holes[removed.id]);
 console.log('Rebalanced public course passed: 20 played + 30 newer, 50 engine completions, unchanged archive/rules, stable progress through reorder and public withdrawal, scoped stats and safe fallback.');

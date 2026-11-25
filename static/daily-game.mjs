@@ -1,8 +1,8 @@
 import {bunkerExperimentId} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
-import {mergeDailyRecords} from './play-record-merge.mjs?v=incoming-dogleg-v1';
+import {mergeDailyRecords} from './play-record-merge.mjs?v=finishing-role82-v1';
 import {isRetiredHole} from './hole-retirement.mjs?v=fixed-waypoint-lie-v1';
-import {stretchScore} from './score-stretch.mjs?v=cubic-results-v1';
-import {BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
+import {invalidateStaleCleverness,hasCurrentCleverness,currentScore,currentBestCleverness} from './current-cleverness.mjs?v=finishing-role82-v1';
+import {BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=finishing-role82-v1';
 /** Personal daily archive. No attempt budgets, submission state or scoring formulas. */
 export const DAILY_KEY='word-golf.personal-daily.v1';
 export const dayUTC=(date=new Date())=>date.toISOString().slice(0,10);
@@ -16,16 +16,9 @@ export class DailyGame{
   this.migrateDisplayScores();
  }
  migrateDisplayScores(){
-  let changed=false;
-  for(const h of Object.values(this.data.holes)){
-   const old=h.bestCleverness?.version==='band-free-harmonic-v4-relaxed-legs';
-   if(Number.isFinite(h.bestStrokes?.cleverness)&&(h.bestStrokes.scoreVersion==='band-free-harmonic-v4-relaxed-legs'||!h.bestStrokes.scoreVersion&&old)){
-    h.bestStrokes.rawCleverness=h.bestStrokes.cleverness;h.bestStrokes.cleverness=stretchScore(h.bestStrokes.cleverness);h.bestStrokes.scoreVersion=LEGACY_BAND_FREE_VERSION;changed=true;
-   }
-   if(old){const b=h.bestCleverness;b.rawUnrounded=b.unrounded??b.score;b.unrounded=stretchScore(b.rawUnrounded);b.score=Math.round(b.unrounded);b.version=LEGACY_BAND_FREE_VERSION;changed=true;}
-  }
-  if(changed)this.save();
+  if(invalidateStaleCleverness(this.data))this.save();
  }
+
  keepBestStates(journeys){
   let changed=false;
   for(const h of Object.values(this.data.holes))for(const field of ['bestStrokes','bestCleverness']){
@@ -79,7 +72,7 @@ export class DailyGame{
   // Keep the previous best route until it too has a current score. A delayed
   // report for another route must not erase a potentially stronger old best.
   if(h.bestCleverness&&h.bestCleverness.version!==BAND_FREE_VERSION&&!matches(h.bestCleverness)){
-   if(!h.pendingCleverness||candidate.unrounded>h.pendingCleverness.unrounded)h.pendingCleverness=candidate;
+   if(!h.pendingCleverness||!currentScore(h.pendingCleverness)||candidate.unrounded>h.pendingCleverness.unrounded)h.pendingCleverness=candidate;
   }else{
    const candidates=[candidate,h.bestCleverness,h.pendingCleverness,h.bestStrokes?.scoreVersion===BAND_FREE_VERSION?{...h.bestStrokes,score:Math.round(h.bestStrokes.cleverness),unrounded:h.bestStrokes.cleverness,version:BAND_FREE_VERSION}:null].filter(b=>b?.version===BAND_FREE_VERSION);
    h.bestCleverness=candidates.sort((a,b)=>b.unrounded-a.unrounded)[0];delete h.pendingCleverness;
@@ -108,13 +101,13 @@ export class DailyGame{
  current(){return this.data.holes[this.selected()?.id];}
  recent(){return this.visibleRecords().sort((a,b)=>String(b.lastPlayedAt).localeCompare(String(a.lastPlayedAt))||b.date.localeCompare(a.date)).slice(0,9);}
  stats(){
-  const completed=this.visibleRecords().filter(h=>h.bestStrokes),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};
+  const completed=this.visibleRecords().filter(hasCurrentCleverness),counts={Eagle:0,Birdie:0,Par:0,Bogey:0,'Double bogey+':0};
   const group=h=>{const s=h.bestStrokes.strokes;return s<=3?'Eagle':s===4?'Birdie':s===5?'Par':s===6?'Bogey':'Double bogey+';};
   for(const h of completed)counts[group(h)]++;
-  const clever=completed.filter(h=>h.bestCleverness);
+  const clever=completed.map(currentBestCleverness).filter(Boolean);
   // Result averages use the route that earned that stroke result, not a longer route's score.
   const routeScore=h=>Number.isFinite(h.bestStrokes.cleverness)?h.bestStrokes.cleverness:h.bestCleverness?.journeyId===h.bestStrokes.journeyId?h.bestCleverness?.unrounded??h.bestCleverness?.score:null;
   const clevernessByResult=Object.fromEntries(Object.keys(counts).map(name=>{const scores=completed.filter(h=>group(h)===name).map(routeScore).filter(Number.isFinite);return [name,scores.length?Math.round(scores.reduce((sum,n)=>sum+n,0)/scores.length):null];}));
-  return {completed:completed.length,counts,clevernessByResult,averageBestCleverness:clever.length?Math.round(clever.reduce((n,h)=>n+h.bestCleverness.score,0)/clever.length):null};
+  return {completed:completed.length,counts,clevernessByResult,averageBestCleverness:clever.length?Math.round(clever.reduce((n,b)=>n+b.score,0)/clever.length):null};
  }
 }

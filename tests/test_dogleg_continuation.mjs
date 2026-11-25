@@ -1,3 +1,4 @@
+import {stretchScore,stretchScore82} from '../static/score-stretch.mjs';
 import fs from 'node:fs';import assert from 'node:assert/strict';
 import {Game} from '../static/engine.mjs';import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 import {VectorClevernessAnalyser} from '../static/vector-cleverness/index.mjs';import {replayCompleted} from '../static/vector-cleverness/evidence.mjs';
@@ -8,7 +9,7 @@ const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`),{e,store,config}=
 const fixtures=JSON.parse(fs.readFileSync('tests/dogleg-continuation-fixtures.json')),reports=[];
 for(const f of fixtures){
  const snapshot=JSON.stringify(f.state),r=await analyser.analyse(f.state),proof=r.dogleg_continuation,t=r.continuation_treatment;
- assert.equal(JSON.stringify(f.state),snapshot);assert.equal(r.primary_scorer,BAND_FREE_VERSION);assert.equal(r.band_free.score,f.expected);assert.equal(proof.version,CONTINUATION_VERSION);assert.equal(t.applied,true);
+ assert.equal(JSON.stringify(f.state),snapshot);assert.equal(r.primary_scorer,BAND_FREE_VERSION);assert.equal(Math.round(stretchScore(r.band_free.raw_unrounded_score)),f.expected);assert.equal(r.band_free.score,Math.round(stretchScore82(r.band_free.raw_unrounded_score)));assert.equal(proof.version,CONTINUATION_VERSION);assert.equal(t.applied,true);
  const {dogleg_continuation,continuation_treatment,...previous}=r,base={...previous,components:{...r.components,strategic_effectiveness:t.context.base_strategy,route_elegance:t.context.base_elegance}},old=applyLiveCleverness(base);assert.equal(old.primary_scorer,PREVIOUS_BAND_FREE_VERSION);assert.equal(old.band_free.score,f.previous);
  assert.equal(r.components.semantic_ingenuity,old.components.semantic_ingenuity);assert.deepEqual(r.opportunity,old.opportunity);assert.deepEqual(r.band_free.legs,old.band_free.legs);assert.equal(r.band_free.one_stroke_bonus.eligible,old.band_free.one_stroke_bonus.eligible);assert.equal(r.band_free.one_stroke_bonus.raw_amount,r.band_free.one_stroke_bonus.eligible?ONE_STROKE_BONUS*r.band_free.quality*r.band_free.applied_factor:0);assert.equal(r.band_free.strategic_bonus.applied_amount,0);
  near(applyLiveCleverness(r).band_free.unrounded_score,r.band_free.unrounded_score);

@@ -1,10 +1,11 @@
-import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=blocked-connectors-v1';
-import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=incoming-dogleg-v1';
-import {stretchBandFree} from './score-stretch.mjs?v=cubic-results-v1';
-import {applyIncomingDoglegCredit} from './incoming-dogleg-credit.mjs?v=incoming-dogleg-v1';
+import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=finishing-role82-v1';
+import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=finishing-role82-v1';
+import {stretchBandFree} from './score-stretch.mjs?v=finishing-role82-v1';
+import {FINISHING_ROLE_VERSION} from './finishing-role.mjs?v=finishing-role82-v1';
+import {applyIncomingDoglegCredit} from './incoming-dogleg-credit.mjs?v=finishing-role82-v1';
 /** Apply live-only opportunity/bonus settings; preserve historical comparison diagnostics. */
-import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=incoming-dogleg-v1';
-import {OPPORTUNITY_RATE,BAND_FREE_VERSION,CONTINUATION_BAND_FREE_VERSION,PREVIOUS_BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=incoming-dogleg-v1';
+import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=finishing-role82-v1';
+import {OPPORTUNITY_RATE,BAND_FREE_VERSION,INCOMING_BAND_FREE_VERSION,CONTINUATION_BAND_FREE_VERSION,PREVIOUS_BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=finishing-role82-v1';
 export function applyLiveCleverness(report){
  const raw=report.opportunity?.raw_ingenuity,N=report.opportunity?.pivot_positions;
  if(!Number.isFinite(raw)||raw<0||raw>1||!Number.isInteger(N)||N<0)throw Error('Complete raw opportunity evidence is required.');
@@ -12,7 +13,7 @@ export function applyLiveCleverness(report){
  const continuation=applyDoglegContinuation(report,components);Object.assign(components,continuation.components);
  const legs=(report.leg_efficiency?.legs??report.band_free?.legs)?.map(l=>l.strokes),incoming=applyIncomingDoglegCredit(report,components,continuation);Object.assign(components,incoming.components);
  // Missing incoming evidence retains v7; missing continuation proof retains v6/v5.
- const hasEvidence=Object.hasOwn(report,'dogleg_access'),hasContinuation=report.dogleg_continuation?.version===CONTINUATION_VERSION&&JSON.stringify(report.dogleg_continuation.route)===JSON.stringify(report.spelling_equivalence?.canonical_route??report.route)&&(!!continuation.treatment.context||!report.waypoint),band_free=stretchBandFree(incoming.raw,hasContinuation?(incoming.treatment.available?BAND_FREE_VERSION:CONTINUATION_BAND_FREE_VERSION):hasEvidence?PREVIOUS_BAND_FREE_VERSION:LEGACY_BAND_FREE_VERSION);
+ const hasEvidence=Object.hasOwn(report,'dogleg_access'),hasContinuation=report.dogleg_continuation?.version===CONTINUATION_VERSION&&JSON.stringify(report.dogleg_continuation.route)===JSON.stringify(report.spelling_equivalence?.canonical_route??report.route)&&(!!continuation.treatment.context||!report.waypoint),band_free=stretchBandFree(incoming.raw,hasContinuation?(incoming.treatment.available?(report.finishing_role?.version===FINISHING_ROLE_VERSION&&report.finishing_role.available&&JSON.stringify(report.finishing_role.route)===JSON.stringify(report.spelling_equivalence?.canonical_route??report.route)?BAND_FREE_VERSION:INCOMING_BAND_FREE_VERSION):CONTINUATION_BAND_FREE_VERSION):hasEvidence?PREVIOUS_BAND_FREE_VERSION:LEGACY_BAND_FREE_VERSION);
  const treatment=continuation.treatment;
  if(treatment.applied){
   const beforeComponents={...components,strategic_effectiveness:treatment.context.base_strategy,route_elegance:treatment.context.base_elegance},beforeBase=bandFreeScore(beforeComponents,legs),beforeRaw=hasEvidence?applyDoglegStrategyBonus(beforeBase,beforeComponents,report.dogleg_access):beforeBase,before=stretchBandFree(beforeRaw,PREVIOUS_BAND_FREE_VERSION);

@@ -21,7 +21,7 @@ daily.current().bestStrokes.cleverness=80;daily.current().bestCleverness={...dai
 await archive.flush();const stats=daily.stats();
 await clearResearchPlay(daily,log,state,'Current');assert.deepEqual(daily.stats(),stats);assert.equal(log.data.journeys.length,1);assert.equal(archive.getItem(store.key(RESET_BACKUP_KEY)),null);assert.ok(log.backup,'in-session recovery costs no disk space');
 assert.equal(disk.get(LOG_KEY),undefined);assert.equal(root.getItem(PERSONAL_BATCH_KEY),'cleared');assert.throws(()=>stale.setItem(LOG_KEY,'old'),/another tab/);
-const exported=personalPlayExport(daily,log);assert.ok(!JSON.stringify(exported.play).includes('mouse'));assert.ok(!JSON.stringify(exported.daily).includes('mouse'));assert.equal(exported.playerStats.completed,1);
+const exported=personalPlayExport(daily,log);assert.ok(!JSON.stringify(exported.play).includes('mouse'));assert.ok(!JSON.stringify(exported.daily).includes('mouse'));assert.equal(exported.playerStats.completed,0);
 daily.refreshClevernessBests(log.data.journeys);assert.deepEqual(daily.stats(),stats,'clearing research must not erase bests on reload');
 const reloaded=new PlayArchiveStorage(root,backend,disk),reloadedDaily=new DailyGame(new PersonalPlayStorage(reloaded),{holes:[def]},{today:()=>def.date});assert.deepEqual(reloadedDaily.stats(),stats);
 // A real asynchronous database failure rolls back both records and generation.

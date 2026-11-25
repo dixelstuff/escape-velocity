@@ -1,7 +1,8 @@
+import {currentBestCleverness} from './current-cleverness.mjs?v=finishing-role82-v1';
 /** Presentation of independent stroke/Cleverness bests without duplicate routes. */
 export function featuredRoutes(hole){
  if(!hole?.bestStrokes)return [];
- const primary={...hole.bestStrokes},highest=hole.bestCleverness;
+ const primary={...hole.bestStrokes},highest=currentBestCleverness(hole)??hole.bestCleverness;
  if(Number.isFinite(primary.cleverness))primary.score=Math.round(primary.cleverness);
  else if(highest?.journeyId===primary.journeyId)primary.score=highest.score;
  const routes=[{label:'Your best route',best:primary}];

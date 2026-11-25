@@ -33,5 +33,5 @@ for(const [i,h]of v.holes.entries()){
  for(const collection of [publicCollection,admin])assert.equal(holeNumber(new DailyGame(null,collection),h),'#'+(i+1));
 }
 const old=publicCollection.holes[20],record={id:old.id,date:old.date,tee:old.settings.start,waypoint:old.settings.waypoint.word,flag:old.settings.target,bestStrokes:{strokes:4,route:[old.settings.start,'saved-word',old.settings.target]}},memory=new Map([[DAILY_KEY,JSON.stringify({version:1,selected:old.date,holes:{[old.id]:record}})]]),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)},game=new DailyGame(storage,publicCollection);
-assert.deepEqual(game.current(),record);assert.equal(game.stats().completed,1);assert.equal(holeNumber(game,old),'#21');
+assert.deepEqual(game.current(),record);assert.equal(game.stats().completed,0);assert.equal(holeNumber(game,old),'#21');
 console.log(`Everyday transitions twenty passed: ${hits}/120 forward probes, public/admin #1–20, stable archive and saved progress.`);

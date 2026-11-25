@@ -21,6 +21,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check browser scoring against Python fixtures
         run: |
+          node tests/test_finishing_role82.mjs
+          node tests/test_cleverness_revisit.mjs
           node tests/test_live_opportunity08.mjs
           node tests/test_one_stroke_bonus.mjs
           node tests/test_best_route_selection.mjs

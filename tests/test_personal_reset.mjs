@@ -25,7 +25,7 @@ assert.equal(JSON.stringify(daily.data),beforeDaily);assert.equal(JSON.stringify
 console.log('Personal reset clears exported play and bests, preserves custom holes/selection, restarts at tee, persists and rolls back on storage failure.');
 
 storage.setItem=original;
-assert.ok(restorePersonalPlay(daily,log));assert.equal(daily.stats().completed,1);assert.equal(daily.current().bestStrokes.strokes,4);assert.deepEqual(daily.data.customHoles,custom);
+assert.ok(restorePersonalPlay(daily,log));assert.equal(daily.stats().completed,0);assert.equal(daily.current().bestStrokes.strokes,4);assert.deepEqual(daily.data.customHoles,custom);
 assert.ok(log.data.journeys.some(j=>j.id===old.id));assert.ok(log.data.journeys.some(j=>j.id===fresh.id));
 assert.ok(storage.getItem(DAILY_RESET_BACKUP_KEY));
 console.log('Recovery restores prior personal bests/history and retains play since reset.');

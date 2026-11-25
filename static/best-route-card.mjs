@@ -1,4 +1,4 @@
-import {featuredRoutes} from './best-route-selection.mjs?v=best-route-v1';
+import {featuredRoutes} from './best-route-selection.mjs?v=finishing-role82-v1';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function bestRouteCard(hole){
  const routes=featuredRoutes(hole);

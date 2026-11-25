@@ -4,16 +4,16 @@ import {loadResearchModel} from '../scripts/cleverness-research-utils.mjs';
 import {VectorClevernessAnalyser} from '../static/vector-cleverness/index.mjs';
 import {applyLiveCleverness} from '../static/cleverness-live-score.mjs';
 import {compactPlaytestReport,playtestText} from '../static/cleverness-playtest-data.mjs';
-import {BAND_FREE_VERSION,CONTINUATION_BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
+import {BAND_FREE_VERSION,INCOMING_BAND_FREE_VERSION,CONTINUATION_BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
 const {e,store,config}=loadResearchModel(),analyser=new VectorClevernessAnalyser(e,{store,modelSha:config.vector_sha256});
 const frozen=JSON.parse(fs.readFileSync('reports/dogleg-continuation/comparison.json'));
 const audit=new Map(JSON.parse(fs.readFileSync('reports/incoming-dogleg-credit/comparison.json')).rows.map(r=>[r.id,r]));
 const reports=new Map();let changed=0,oneShot=0;
 for(const f of frozen.rows){
- const snapshot=JSON.stringify(f.state),r=await analyser.analyse(f.state),expected=audit.get(f.id),legs=r.band_free.legs;
+ const snapshot=JSON.stringify(f.state),latest=await analyser.analyse(f.state),historical=structuredClone(latest);delete historical.finishing_role;const r=applyLiveCleverness(historical),expected=audit.get(f.id),legs=r.band_free.legs;
  assert.equal(JSON.stringify(f.state),snapshot);
- assert.equal(r.primary_scorer,BAND_FREE_VERSION,f.id+' current evidence identity');
+ assert.equal(latest.primary_scorer,BAND_FREE_VERSION,f.id+' current evidence identity');assert.equal(r.primary_scorer,INCOMING_BAND_FREE_VERSION);
  const oldReport=structuredClone(r);delete oldReport.dogleg_access.evidence_version;
  const old=applyLiveCleverness(oldReport);
  assert.equal(old.primary_scorer,CONTINUATION_BAND_FREE_VERSION,'Old evidence must retain v7 until reanalysis');
@@ -30,7 +30,7 @@ for(const f of frozen.rows){
  near(applyLiveCleverness(r).band_free.unrounded_score,r.band_free.unrounded_score);
  const compact=compactPlaytestReport(r),again=applyLiveCleverness(compact);
  near(again.band_free.unrounded_score,r.band_free.unrounded_score);
- assert.deepEqual(again.components,r.components);assert.equal(again.primary_scorer,BAND_FREE_VERSION);
+ assert.deepEqual(again.components,r.components);assert.equal(again.primary_scorer,INCOMING_BAND_FREE_VERSION);
  if(f.source==='padding'){near(r.band_free.unrounded_score,old.band_free.unrounded_score);assert.equal(r.incoming_dogleg_treatment.applied,false);}
  if(r.incoming_dogleg_treatment.applied){
   const t=r.incoming_dogleg_treatment,b=r.band_free.strategic_bonus;
