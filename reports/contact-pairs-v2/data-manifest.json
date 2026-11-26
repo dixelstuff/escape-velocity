@@ -1,0 +1,18 @@
+{
+  "version": "frequency-phrases-v2",
+  "model_sha256": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "vocabulary_fingerprint": "03edc25a",
+  "words": 36306,
+  "legacy_pairs": 30858,
+  "reviewed_pairs": 32297,
+  "union_pairs": 32385,
+  "additions": 1527,
+  "excluded_original_pairs": 88,
+  "incoming_omissions": 11695,
+  "module_bytes": 222282,
+  "gzip_bytes": 77550,
+  "pair_only_gzip_bytes": 71420,
+  "sha256": "0561831fa554e2e90c9f708daeb09ec0063483b4513b41185095135535d1fd64",
+  "input_sha256": "f2f05c0022aad8a81772bb7caff695525580b0b33674303b278561da9103fe1d",
+  "legacy_sha256": "a2ad5f81f6f30332212cc985bb762353b4701bcd459d6f52a3d2d3968a05b723"
+}

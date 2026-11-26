@@ -1,5 +1,5 @@
 /** Incoming access after a setup: restore strategic relevance, without a second bonus. */
-import {ACCESS_EVIDENCE_VERSION,applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=contact-allowances-v1';
+import {ACCESS_EVIDENCE_VERSION,applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=contact-pairs-v2';
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=finishing-role82-v1';
 export const INCOMING_DOGLEG_VERSION='incoming-dogleg-credit-v1';
 const clip=x=>Math.max(0,Math.min(1,x));

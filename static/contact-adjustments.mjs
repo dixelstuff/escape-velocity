@@ -1,29 +1,84 @@
-/** Exact local contact policy. It never chooses a semantic destination. */
-import data from './contact-data.mjs?v=contact-allowances-v1';
+/** Versioned submitted-contact policy; never chooses a semantic destination. */
+import data from './contact-pair-table.mjs?v=contact-pairs-v2';
 import {spellingIdentity} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
-export const CONTACT_ADJUSTMENT_VERSION='frequency-phrases-v1';
+export const CONTACT_ADJUSTMENT_VERSION='frequency-phrases-v2';
+export const LEGACY_CONTACT_ADJUSTMENT_VERSION='frequency-phrases-v1';
 const unpack=base64=>Uint8Array.from(atob(base64),c=>c.charCodeAt(0));
-const words=data.words.split('\n'),index=new Map(words.map((w,i)=>[w,i]));
-const frequencies=new DataView(unpack(data.zipf).buffer),pairs=new DataView(unpack(data.pairs).buffer),sources=unpack(data.sources);
-export function contactFrequency(word){const i=index.get(spellingIdentity(word));return i==null?null:frequencies.getUint16(i*2,true)/100;}
-export function contactPhraseSources(a,b){
- const x=index.get(spellingIdentity(a)),y=index.get(spellingIdentity(b));if(x==null||y==null||x===y)return 0;
- const key=Math.min(x,y)*65536+Math.max(x,y);let lo=0,hi=sources.length-1;
- while(lo<=hi){const mid=(lo+hi)>>>1,value=pairs.getUint32(mid*4,true);if(value===key)return sources[mid];if(value<key)lo=mid+1;else hi=mid-1;}
- return 0;
+const encoded=unpack(data.keys),flags=unpack(data.flags),pairs=new Uint32Array(flags.length);
+const frequencies=new DataView(unpack(data.frequencies).buffer);
+let offset=0,total=0;
+for(let i=0;i<pairs.length;i++){
+ let delta=0,multiplier=1,byte;
+ do{if(offset>=encoded.length)throw Error('Incomplete contact pair data.');byte=encoded[offset++];delta+=(byte&127)*multiplier;multiplier*=128;}while(byte&128);
+ total+=delta;pairs[i]=total;
 }
+if(offset!==encoded.length||frequencies.byteLength!==data.wordCount*2)throw Error('Invalid contact pair data.');
+// Cache-token imports can coexist in a worker/test realm. Share only the model
+// vocabulary index, not rule state or pair data, across those module instances.
+const registryKey=Symbol.for('word-golf.contact-vocabulary.'+data.vocabulary);
+const registry=globalThis[registryKey]??(globalThis[registryKey]={models:new WeakMap(),bound:null});
+const vocabularies=registry.models;
+function fingerprint(words){let h=2166136261;for(const word of words){for(let i=0;i<word.length;i++)h=Math.imul(h^word.charCodeAt(i),16777619)>>>0;h=Math.imul(h^10,16777619)>>>0;}return h.toString(16).padStart(8,'0');}
+export function bindContactModel(e){
+ const words=e?.words;if(!Array.isArray(words)||words.length!==data.wordCount)return null;
+ let index=vocabularies.get(words);
+ if(!index){
+  if(fingerprint(words)!==data.vocabulary)throw Error('Contact data does not match the word model.');
+  index=new Map();words.forEach((w,i)=>{const id=spellingIdentity(w);if(!index.has(id)||w===id)index.set(id,i);});vocabularies.set(words,index);
+ }
+ registry.bound=index;return index;
+}
+const vocabulary=e=>e?bindContactModel(e):registry.bound;
+export function contactFrequency(word,e){const i=vocabulary(e)?.get(spellingIdentity(word));return i==null?null:frequencies.getUint16(i*2,true)/100;}
+export function contactPairFlags(a,b,e){
+ const index=vocabulary(e),x=index?.get(spellingIdentity(a)),y=index?.get(spellingIdentity(b));if(x==null||y==null||x===y)return 0;
+ const key=Math.min(x,y)*65536+Math.max(x,y);let lo=0,hi=pairs.length-1;
+ while(lo<=hi){const mid=(lo+hi)>>>1,value=pairs[mid];if(value===key)return flags[mid];if(value<key)lo=mid+1;else hi=mid-1;}return 0;
+}
+/** Frozen source bits remain available for exact v1 replay and diagnostics. */
+export const contactPhraseSources=(a,b,e)=>contactPairFlags(a,b,e)&7;
 const clip=x=>Math.max(0,Math.min(1,x));
-export function contactAdjustmentTerms(e,origin,word,target,sourceMask=7){
- const frequency=contactFrequency(word),rawContact=e.cosine(origin,word);
- const incoming=!!(contactPhraseSources(origin,word)&sourceMask),outgoing=!!(contactPhraseSources(word,target)&sourceMask);
+export function contactAdjustmentTerms(e,origin,word,target,sourceMask=7,version=LEGACY_CONTACT_ADJUSTMENT_VERSION,settings={}){
+ const frequency=contactFrequency(word,e),rawContact=e.cosine(origin,word);
+ const incomingFlags=contactPairFlags(origin,word,e),outgoingFlags=contactPairFlags(word,target,e);
+ let incoming,outgoing;
+ if(version===LEGACY_CONTACT_ADJUSTMENT_VERSION){incoming=!!(incomingFlags&sourceMask);outgoing=!!(outgoingFlags&sourceMask);}
+ else if(version===CONTACT_ADJUSTMENT_VERSION){
+  // Wider custom settings retain full membership, including old exclusions.
+  const fallback=settings.launch_max>data.maximumBaseContact||settings.plural_tolerance>data.maximumPluralTolerance||settings.mode&&settings.mode!=='distance';
+  incoming=fallback?!!incomingFlags:!!((incomingFlags>>3)&1);
+  outgoing=fallback?!!outgoingFlags:!!((outgoingFlags>>3)&2);
+  if(sourceMask!==7){incoming=incoming&&!!(incomingFlags&sourceMask);outgoing=outgoing&&!!(outgoingFlags&sourceMask);}
+ }else throw Error('Unknown contact adjustment version.');
  const rarity=frequency==null?0:.038*clip((4-frequency)/1.5),frequencyPenalty=frequency==null?0:.005*clip(frequency-5);
  const incomingAllowance=incoming?.130:0,outgoingAllowance=outgoing?.040*clip((rawContact-.10)/.15):0;
  return {frequency,rawContact,rarity,frequencyPenalty,incoming:incomingAllowance,outgoing:outgoingAllowance,net:rarity+incomingAllowance+outgoingAllowance-frequencyPenalty};
 }
 export function contactAdjustmentSettings(value){
  if(value==null||value===false)return null;
- if(value.version!==CONTACT_ADJUSTMENT_VERSION||!Number.isInteger(value.after)||value.after<0)throw Error('Unknown contact adjustment rule.');
- return {version:value.version,after:value.after};
+ if(![LEGACY_CONTACT_ADJUSTMENT_VERSION,CONTACT_ADJUSTMENT_VERSION].includes(value.version)||!Number.isInteger(value.after)||value.after<0)throw Error('Unknown contact adjustment rule.');
+ const result={version:value.version,after:value.after};
+ if(value.previous!=null){
+  const p=value.previous;
+  if(value.version!==CONTACT_ADJUSTMENT_VERSION||p.version!==LEGACY_CONTACT_ADJUSTMENT_VERSION||p.previous!=null||!Number.isInteger(p.after)||p.after<0||p.after>=value.after)throw Error('Unknown previous contact adjustment rule.');
+  result.previous={version:p.version,after:p.after};
+ }
+ return result;
+}
+export function activeContactVersion(rule,through){
+ if(!rule)return null;
+ if(through>=rule.after)return rule.version;
+ return rule.previous&&through>=rule.previous.after?rule.previous.version:null;
+}
+export function newContactRule(after,previous=null){
+ if(!Number.isInteger(after)||after<0)throw Error('Unknown contact adjustment boundary.');
+ const old=contactAdjustmentSettings(previous);
+ if(old?.version===CONTACT_ADJUSTMENT_VERSION)return old;
+ return {version:CONTACT_ADJUSTMENT_VERSION,after,...(old&&old.after<after?{previous:old}:{})};
+}
+export function contactRuleForRetry(rule,through){
+ const old=contactAdjustmentSettings(rule);
+ if(old?.version===CONTACT_ADJUSTMENT_VERSION&&through>=old.after)return old;
+ return newContactRule(through,old?.version===LEGACY_CONTACT_ADJUSTMENT_VERSION?old:old?.previous);
 }
 export function standardContactEligible(s){return !!s.waypoint&&s.rules==='golf-distance-v3'&&(s.mode??'distance')==='distance'&&!s.semantic_bunker&&!s.headwind&&(!s.word_model||s.word_model==='current');}
-export const newContactRule=after=>({version:CONTACT_ADJUSTMENT_VERSION,after});

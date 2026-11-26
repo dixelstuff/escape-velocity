@@ -40,6 +40,13 @@ The final live identity is **`band-free-harmonic-v9-finishing-role82`**, defined
 - Full finishing-role and curve/migration specification: `reports/finishing-role-live82/README.md`.
 - Never tune scoring to guarantee a particular golf-result distribution. A clever par can outscore an ordinary birdie. Preserve skippability based on legal shots, not word resemblance.
 
+## Live contact-pair allowances
+
+- Standard new exploration uses `frequency-phrases-v2` with 32,297 unordered reviewed/dictionary-supported pairs. `static/contact-pair-table.mjs` is built from `reports/contact-pairs-v2/selection.json` by `scripts/build-contact-pairs-v2.mjs`, using existing model word IDs. Preserve its model/vocabulary binding.
+- Keep the established contact-only recipe: rarity maximum **0.038**, frequency penalty maximum **0.005**, incoming pair allowance **0.130**, outgoing allowance **0.040** tapered by ball/played cosine from **0.10 to 0.25**. Do not change destinations, finishing requirements or Cleverness through these allowances.
+- Preserve exact v1 membership/frequencies and unversioned histories. V2 adoption occurs on the next valid new shot; a mixed `contact_adjustment` stores its v1 `previous` boundary. Restore/result display must not upgrade it. Retried prefixes preserve their original policies. No progress or score resets accompany a data update.
+- Incoming role omissions do not imply outgoing irrelevance. The role certificate covers base contact <=0.25 and plural tolerance <=0.025; wider custom settings use complete original-plus-added membership. Details and release checks: `reports/contact-pairs-v2/README.md` and `static/CONTACT-SOURCES.md`.
+
 ## Hole selection and generation
 
 - **Read `LEVEL_DESIGN.md` from disk before every batch. It is the single editorial generation brief.** Do not reconstruct a second brief from chat history, favourite routes, historical reports or this reference. Explicit current user instructions take precedence; incorporate design changes into that file before generation.
