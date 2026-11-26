@@ -1,0 +1,2887 @@
+{
+  "seed": 2026112730,
+  "algorithm": "Python random.Random(seed).choices, weights 1.4 or 1, removing the selected word within each triple; 360 triples recorded before checks",
+  "designSha256": "20b34443061e558185e3ab04ffbe96807a890d72a8430099dcf64afad05116de",
+  "candidates": [
+    {
+      "candidate": 1,
+      "words": [
+        "mayor",
+        "tickle",
+        "yardstick"
+      ]
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "torn",
+        "celery",
+        "ease"
+      ]
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "chore",
+        "nephew",
+        "admission"
+      ]
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "pork",
+        "assistant",
+        "commuter"
+      ]
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "dose",
+        "rounded",
+        "gale"
+      ]
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "ambulance",
+        "sweater",
+        "reaction"
+      ]
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "prawn",
+        "acid",
+        "restaurant"
+      ]
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "minute",
+        "tall",
+        "coast"
+      ]
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "doctor",
+        "jump",
+        "washcloth"
+      ]
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "stationery",
+        "calculator",
+        "bid"
+      ]
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "gradual",
+        "claw",
+        "blister"
+      ]
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "module",
+        "pop",
+        "string"
+      ]
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "angel",
+        "basalt",
+        "ruby"
+      ]
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "second",
+        "raven",
+        "leopard"
+      ]
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "headquarters",
+        "victim",
+        "fetch"
+      ]
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "device",
+        "autograph",
+        "dose"
+      ]
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "mayor",
+        "violet",
+        "lawn"
+      ]
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "daft",
+        "squid",
+        "prediction"
+      ]
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "thought",
+        "standard",
+        "willing"
+      ]
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "lawn",
+        "celery",
+        "logo"
+      ]
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "sensible",
+        "referee",
+        "edition"
+      ]
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "rigid",
+        "tuition",
+        "whale"
+      ]
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "hill",
+        "tuna",
+        "pollen"
+      ]
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "hose",
+        "mason",
+        "folder"
+      ]
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "slap",
+        "century",
+        "checklist"
+      ]
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "session",
+        "beckon",
+        "chef"
+      ]
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "blindfold",
+        "jetty",
+        "hay"
+      ]
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "fall",
+        "local",
+        "yew"
+      ]
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "suitcase",
+        "giant",
+        "ace"
+      ]
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "soccer",
+        "global",
+        "rook"
+      ]
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "limestone",
+        "shard",
+        "nectar"
+      ]
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "ram",
+        "usual",
+        "leader"
+      ]
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "avocado",
+        "strip",
+        "win"
+      ]
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "long",
+        "disaster",
+        "wasp"
+      ]
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "architect",
+        "elm",
+        "octopus"
+      ]
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "dentist",
+        "salt",
+        "adult"
+      ]
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "clumsy",
+        "touch",
+        "thought"
+      ]
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "dose",
+        "daffodil",
+        "photograph"
+      ]
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "boar",
+        "walrus",
+        "sensible"
+      ]
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "beginner",
+        "threat",
+        "hook"
+      ]
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "client",
+        "damaged",
+        "toothpaste"
+      ]
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "mop",
+        "island",
+        "secretary"
+      ]
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "pea",
+        "pants",
+        "motto"
+      ]
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "poppy",
+        "collection",
+        "prefer"
+      ]
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "usual",
+        "task",
+        "trousers"
+      ]
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "publication",
+        "crack",
+        "checklist"
+      ]
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "fall",
+        "surgeon",
+        "qualification"
+      ]
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "avocado",
+        "worker",
+        "prawn"
+      ]
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "cellar",
+        "herring",
+        "pop"
+      ]
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "disaster",
+        "orchestra",
+        "surgeon"
+      ]
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "farewell",
+        "define",
+        "chore"
+      ]
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "giggle",
+        "metallic",
+        "standard"
+      ]
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "photograph",
+        "mop",
+        "giraffe"
+      ]
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "corkscrew",
+        "enough",
+        "jagged"
+      ]
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "bid",
+        "lark",
+        "rigid"
+      ]
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "pot",
+        "domestic",
+        "moving"
+      ]
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "raw",
+        "tow",
+        "examination"
+      ]
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "ham",
+        "crew",
+        "metallic"
+      ]
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "fireplace",
+        "limestone",
+        "mop"
+      ]
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "willing",
+        "bumper",
+        "ace"
+      ]
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "prod",
+        "fairy",
+        "wooden"
+      ]
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "checklist",
+        "charity",
+        "define"
+      ]
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "particular",
+        "squid",
+        "trader"
+      ]
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "expert",
+        "vacation",
+        "rhino"
+      ]
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "walrus",
+        "dove",
+        "bandage"
+      ]
+    },
+    {
+      "candidate": 66,
+      "words": [
+        "task",
+        "stork",
+        "seatbelt"
+      ]
+    },
+    {
+      "candidate": 67,
+      "words": [
+        "pedestrian",
+        "whole",
+        "caress"
+      ]
+    },
+    {
+      "candidate": 68,
+      "words": [
+        "fresh",
+        "fairy",
+        "herd"
+      ]
+    },
+    {
+      "candidate": 69,
+      "words": [
+        "eel",
+        "article",
+        "line"
+      ]
+    },
+    {
+      "candidate": 70,
+      "words": [
+        "grocery",
+        "director",
+        "mullet"
+      ]
+    },
+    {
+      "candidate": 71,
+      "words": [
+        "elm",
+        "trout",
+        "translation"
+      ]
+    },
+    {
+      "candidate": 72,
+      "words": [
+        "height",
+        "bulletin",
+        "sidewalk"
+      ]
+    },
+    {
+      "candidate": 73,
+      "words": [
+        "failure",
+        "mug",
+        "chick"
+      ]
+    },
+    {
+      "candidate": 74,
+      "words": [
+        "mailbox",
+        "alder",
+        "reaction"
+      ]
+    },
+    {
+      "candidate": 75,
+      "words": [
+        "sleepy",
+        "give",
+        "catalogue"
+      ]
+    },
+    {
+      "candidate": 76,
+      "words": [
+        "lavender",
+        "reservation",
+        "hay"
+      ]
+    },
+    {
+      "candidate": 77,
+      "words": [
+        "disaster",
+        "spectator",
+        "crew"
+      ]
+    },
+    {
+      "candidate": 78,
+      "words": [
+        "give",
+        "occasion",
+        "century"
+      ]
+    },
+    {
+      "candidate": 79,
+      "words": [
+        "procedure",
+        "ram",
+        "loser"
+      ]
+    },
+    {
+      "candidate": 80,
+      "words": [
+        "poppy",
+        "tone",
+        "folder"
+      ]
+    },
+    {
+      "candidate": 81,
+      "words": [
+        "shampoo",
+        "secretary",
+        "corridor"
+      ]
+    },
+    {
+      "candidate": 82,
+      "words": [
+        "task",
+        "emerald",
+        "cousin"
+      ]
+    },
+    {
+      "candidate": 83,
+      "words": [
+        "herring",
+        "nut",
+        "whole"
+      ]
+    },
+    {
+      "candidate": 84,
+      "words": [
+        "mobile",
+        "give",
+        "favour"
+      ]
+    },
+    {
+      "candidate": 85,
+      "words": [
+        "cashier",
+        "string",
+        "stork"
+      ]
+    },
+    {
+      "candidate": 86,
+      "words": [
+        "metallic",
+        "inquiry",
+        "lease"
+      ]
+    },
+    {
+      "candidate": 87,
+      "words": [
+        "leopard",
+        "accept",
+        "berth"
+      ]
+    },
+    {
+      "candidate": 88,
+      "words": [
+        "imagine",
+        "pants",
+        "honeysuckle"
+      ]
+    },
+    {
+      "candidate": 89,
+      "words": [
+        "burger",
+        "tern",
+        "size"
+      ]
+    },
+    {
+      "candidate": 90,
+      "words": [
+        "calculator",
+        "warped",
+        "florist"
+      ]
+    },
+    {
+      "candidate": 91,
+      "words": [
+        "win",
+        "jasmine",
+        "gateway"
+      ]
+    },
+    {
+      "candidate": 92,
+      "words": [
+        "tern",
+        "grater",
+        "healthy"
+      ]
+    },
+    {
+      "candidate": 93,
+      "words": [
+        "universal",
+        "face",
+        "finch"
+      ]
+    },
+    {
+      "candidate": 94,
+      "words": [
+        "invitation",
+        "prescription",
+        "coaster"
+      ]
+    },
+    {
+      "candidate": 95,
+      "words": [
+        "sow",
+        "widow",
+        "caress"
+      ]
+    },
+    {
+      "candidate": 96,
+      "words": [
+        "headquarters",
+        "telephone",
+        "skillet"
+      ]
+    },
+    {
+      "candidate": 97,
+      "words": [
+        "invitation",
+        "gateway",
+        "line"
+      ]
+    },
+    {
+      "candidate": 98,
+      "words": [
+        "young",
+        "poplar",
+        "spiral"
+      ]
+    },
+    {
+      "candidate": 99,
+      "words": [
+        "guard",
+        "niece",
+        "lark"
+      ]
+    },
+    {
+      "candidate": 100,
+      "words": [
+        "staircase",
+        "troop",
+        "pea"
+      ]
+    },
+    {
+      "candidate": 101,
+      "words": [
+        "translation",
+        "pedestrian",
+        "grocery"
+      ]
+    },
+    {
+      "candidate": 102,
+      "words": [
+        "metallic",
+        "purchase",
+        "koala"
+      ]
+    },
+    {
+      "candidate": 103,
+      "words": [
+        "coaster",
+        "jay",
+        "straight"
+      ]
+    },
+    {
+      "candidate": 104,
+      "words": [
+        "beard",
+        "giraffe",
+        "herring"
+      ]
+    },
+    {
+      "candidate": 105,
+      "words": [
+        "tuna",
+        "poppy",
+        "raw"
+      ]
+    },
+    {
+      "candidate": 106,
+      "words": [
+        "accept",
+        "gradual",
+        "boar"
+      ]
+    },
+    {
+      "candidate": 107,
+      "words": [
+        "drenched",
+        "leader",
+        "dove"
+      ]
+    },
+    {
+      "candidate": 108,
+      "words": [
+        "sun",
+        "eel",
+        "doe"
+      ]
+    },
+    {
+      "candidate": 109,
+      "words": [
+        "candidate",
+        "prefer",
+        "alive"
+      ]
+    },
+    {
+      "candidate": 110,
+      "words": [
+        "inlet",
+        "humour",
+        "suggest"
+      ]
+    },
+    {
+      "candidate": 111,
+      "words": [
+        "escalator",
+        "jetty",
+        "ease"
+      ]
+    },
+    {
+      "candidate": 112,
+      "words": [
+        "knob",
+        "shove",
+        "article"
+      ]
+    },
+    {
+      "candidate": 113,
+      "words": [
+        "haircut",
+        "weed",
+        "reek"
+      ]
+    },
+    {
+      "candidate": 114,
+      "words": [
+        "failure",
+        "pedestrian",
+        "bride"
+      ]
+    },
+    {
+      "candidate": 115,
+      "words": [
+        "disaster",
+        "warranty",
+        "pedestrian"
+      ]
+    },
+    {
+      "candidate": 116,
+      "words": [
+        "muted",
+        "ornament",
+        "mailbox"
+      ]
+    },
+    {
+      "candidate": 117,
+      "words": [
+        "humidity",
+        "fall",
+        "mailbox"
+      ]
+    },
+    {
+      "candidate": 118,
+      "words": [
+        "staircase",
+        "hay",
+        "dose"
+      ]
+    },
+    {
+      "candidate": 119,
+      "words": [
+        "commuter",
+        "hard",
+        "future"
+      ]
+    },
+    {
+      "candidate": 120,
+      "words": [
+        "beech",
+        "fetch",
+        "rice"
+      ]
+    },
+    {
+      "candidate": 121,
+      "words": [
+        "prediction",
+        "explanation",
+        "checklist"
+      ]
+    },
+    {
+      "candidate": 122,
+      "words": [
+        "edition",
+        "brood",
+        "concert"
+      ]
+    },
+    {
+      "candidate": 123,
+      "words": [
+        "convenient",
+        "payment",
+        "alive"
+      ]
+    },
+    {
+      "candidate": 124,
+      "words": [
+        "tutor",
+        "raw",
+        "serrated"
+      ]
+    },
+    {
+      "candidate": 125,
+      "words": [
+        "cedar",
+        "yew",
+        "headline"
+      ]
+    },
+    {
+      "candidate": 126,
+      "words": [
+        "neighbour",
+        "whole",
+        "article"
+      ]
+    },
+    {
+      "candidate": 127,
+      "words": [
+        "buttercup",
+        "throw",
+        "teenager"
+      ]
+    },
+    {
+      "candidate": 128,
+      "words": [
+        "expert",
+        "television",
+        "give"
+      ]
+    },
+    {
+      "candidate": 129,
+      "words": [
+        "pork",
+        "laboratory",
+        "sleep"
+      ]
+    },
+    {
+      "candidate": 130,
+      "words": [
+        "tuna",
+        "structure",
+        "catch"
+      ]
+    },
+    {
+      "candidate": 131,
+      "words": [
+        "bandage",
+        "lavender",
+        "accept"
+      ]
+    },
+    {
+      "candidate": 132,
+      "words": [
+        "queen",
+        "vat",
+        "extra"
+      ]
+    },
+    {
+      "candidate": 133,
+      "words": [
+        "reunion",
+        "article",
+        "budget"
+      ]
+    },
+    {
+      "candidate": 134,
+      "words": [
+        "mason",
+        "vegetable",
+        "sneeze"
+      ]
+    },
+    {
+      "candidate": 135,
+      "words": [
+        "tickle",
+        "manual",
+        "tone"
+      ]
+    },
+    {
+      "candidate": 136,
+      "words": [
+        "yew",
+        "organise",
+        "thrush"
+      ]
+    },
+    {
+      "candidate": 137,
+      "words": [
+        "pop",
+        "wooden",
+        "suspect"
+      ]
+    },
+    {
+      "candidate": 138,
+      "words": [
+        "textbook",
+        "examination",
+        "leader"
+      ]
+    },
+    {
+      "candidate": 139,
+      "words": [
+        "pottery",
+        "pollen",
+        "jagged"
+      ]
+    },
+    {
+      "candidate": 140,
+      "words": [
+        "payment",
+        "trademark",
+        "chore"
+      ]
+    },
+    {
+      "candidate": 141,
+      "words": [
+        "line",
+        "past",
+        "prod"
+      ]
+    },
+    {
+      "candidate": 142,
+      "words": [
+        "fresh",
+        "throw",
+        "presentation"
+      ]
+    },
+    {
+      "candidate": 143,
+      "words": [
+        "limestone",
+        "tone",
+        "staircase"
+      ]
+    },
+    {
+      "candidate": 144,
+      "words": [
+        "forge",
+        "ruby",
+        "logo"
+      ]
+    },
+    {
+      "candidate": 145,
+      "words": [
+        "invention",
+        "scout",
+        "soldier"
+      ]
+    },
+    {
+      "candidate": 146,
+      "words": [
+        "ace",
+        "pretend",
+        "mitten"
+      ]
+    },
+    {
+      "candidate": 147,
+      "words": [
+        "second",
+        "professional",
+        "calculator"
+      ]
+    },
+    {
+      "candidate": 148,
+      "words": [
+        "deposit",
+        "past",
+        "island"
+      ]
+    },
+    {
+      "candidate": 149,
+      "words": [
+        "whale",
+        "former",
+        "speed"
+      ]
+    },
+    {
+      "candidate": 150,
+      "words": [
+        "tickle",
+        "define",
+        "bid"
+      ]
+    },
+    {
+      "candidate": 151,
+      "words": [
+        "ape",
+        "century",
+        "saucer"
+      ]
+    },
+    {
+      "candidate": 152,
+      "words": [
+        "candidate",
+        "element",
+        "motto"
+      ]
+    },
+    {
+      "candidate": 153,
+      "words": [
+        "container",
+        "hydrangea",
+        "victim"
+      ]
+    },
+    {
+      "candidate": 154,
+      "words": [
+        "sudden",
+        "sash",
+        "inlet"
+      ]
+    },
+    {
+      "candidate": 155,
+      "words": [
+        "beginner",
+        "doe",
+        "old"
+      ]
+    },
+    {
+      "candidate": 156,
+      "words": [
+        "puffin",
+        "top",
+        "session"
+      ]
+    },
+    {
+      "candidate": 157,
+      "words": [
+        "signature",
+        "jasmine",
+        "plumber"
+      ]
+    },
+    {
+      "candidate": 158,
+      "words": [
+        "spiral",
+        "thrush",
+        "elastic"
+      ]
+    },
+    {
+      "candidate": 159,
+      "words": [
+        "rook",
+        "pair",
+        "preface"
+      ]
+    },
+    {
+      "candidate": 160,
+      "words": [
+        "rotation",
+        "stew",
+        "honeymoon"
+      ]
+    },
+    {
+      "candidate": 161,
+      "words": [
+        "corkscrew",
+        "owner",
+        "percentage"
+      ]
+    },
+    {
+      "candidate": 162,
+      "words": [
+        "loan",
+        "spiral",
+        "prediction"
+      ]
+    },
+    {
+      "candidate": 163,
+      "words": [
+        "brochure",
+        "examination",
+        "lavender"
+      ]
+    },
+    {
+      "candidate": 164,
+      "words": [
+        "autograph",
+        "mason",
+        "avocado"
+      ]
+    },
+    {
+      "candidate": 165,
+      "words": [
+        "cold",
+        "accept",
+        "soccer"
+      ]
+    },
+    {
+      "candidate": 166,
+      "words": [
+        "nectar",
+        "inventor",
+        "coupon"
+      ]
+    },
+    {
+      "candidate": 167,
+      "words": [
+        "clam",
+        "claw",
+        "iceberg"
+      ]
+    },
+    {
+      "candidate": 168,
+      "words": [
+        "dove",
+        "trout",
+        "straight"
+      ]
+    },
+    {
+      "candidate": 169,
+      "words": [
+        "scream",
+        "dove",
+        "module"
+      ]
+    },
+    {
+      "candidate": 170,
+      "words": [
+        "safe",
+        "troop",
+        "hurricane"
+      ]
+    },
+    {
+      "candidate": 171,
+      "words": [
+        "sleepy",
+        "eel",
+        "buttercup"
+      ]
+    },
+    {
+      "candidate": 172,
+      "words": [
+        "true",
+        "neighbour",
+        "drenched"
+      ]
+    },
+    {
+      "candidate": 173,
+      "words": [
+        "imagine",
+        "timetable",
+        "alive"
+      ]
+    },
+    {
+      "candidate": 174,
+      "words": [
+        "live",
+        "elastic",
+        "sunflower"
+      ]
+    },
+    {
+      "candidate": 175,
+      "words": [
+        "solution",
+        "architect",
+        "stew"
+      ]
+    },
+    {
+      "candidate": 176,
+      "words": [
+        "courtyard",
+        "lass",
+        "invention"
+      ]
+    },
+    {
+      "candidate": 177,
+      "words": [
+        "ornament",
+        "runway",
+        "ham"
+      ]
+    },
+    {
+      "candidate": 178,
+      "words": [
+        "tissue",
+        "tern",
+        "fireplace"
+      ]
+    },
+    {
+      "candidate": 179,
+      "words": [
+        "weed",
+        "lark",
+        "explanation"
+      ]
+    },
+    {
+      "candidate": 180,
+      "words": [
+        "brood",
+        "shore",
+        "way"
+      ]
+    },
+    {
+      "candidate": 181,
+      "words": [
+        "daffodil",
+        "lawn",
+        "pike"
+      ]
+    },
+    {
+      "candidate": 182,
+      "words": [
+        "resort",
+        "corridor",
+        "jay"
+      ]
+    },
+    {
+      "candidate": 183,
+      "words": [
+        "thrush",
+        "nut",
+        "alder"
+      ]
+    },
+    {
+      "candidate": 184,
+      "words": [
+        "landscape",
+        "inquiry",
+        "elder"
+      ]
+    },
+    {
+      "candidate": 185,
+      "words": [
+        "resident",
+        "plumber",
+        "skillet"
+      ]
+    },
+    {
+      "candidate": 186,
+      "words": [
+        "loser",
+        "coke",
+        "florist"
+      ]
+    },
+    {
+      "candidate": 187,
+      "words": [
+        "walrus",
+        "ape",
+        "cold"
+      ]
+    },
+    {
+      "candidate": 188,
+      "words": [
+        "pure",
+        "herd",
+        "giant"
+      ]
+    },
+    {
+      "candidate": 189,
+      "words": [
+        "youth",
+        "soccer",
+        "index"
+      ]
+    },
+    {
+      "candidate": 190,
+      "words": [
+        "regular",
+        "eyelash",
+        "fairy"
+      ]
+    },
+    {
+      "candidate": 191,
+      "words": [
+        "avocado",
+        "jay",
+        "bride"
+      ]
+    },
+    {
+      "candidate": 192,
+      "words": [
+        "fairy",
+        "mason",
+        "shower"
+      ]
+    },
+    {
+      "candidate": 193,
+      "words": [
+        "shower",
+        "wasp",
+        "mobile"
+      ]
+    },
+    {
+      "candidate": 194,
+      "words": [
+        "hay",
+        "safe",
+        "farewell"
+      ]
+    },
+    {
+      "candidate": 195,
+      "words": [
+        "cleaner",
+        "reunion",
+        "concert"
+      ]
+    },
+    {
+      "candidate": 196,
+      "words": [
+        "supplier",
+        "beige",
+        "mood"
+      ]
+    },
+    {
+      "candidate": 197,
+      "words": [
+        "playground",
+        "baker",
+        "thanks"
+      ]
+    },
+    {
+      "candidate": 198,
+      "words": [
+        "height",
+        "stationary",
+        "logo"
+      ]
+    },
+    {
+      "candidate": 199,
+      "words": [
+        "usual",
+        "trousers",
+        "washcloth"
+      ]
+    },
+    {
+      "candidate": 200,
+      "words": [
+        "stale",
+        "thorn",
+        "semester"
+      ]
+    },
+    {
+      "candidate": 201,
+      "words": [
+        "professional",
+        "live",
+        "doctor"
+      ]
+    },
+    {
+      "candidate": 202,
+      "words": [
+        "lion",
+        "residence",
+        "resident"
+      ]
+    },
+    {
+      "candidate": 203,
+      "words": [
+        "spiral",
+        "ownership",
+        "leopard"
+      ]
+    },
+    {
+      "candidate": 204,
+      "words": [
+        "payment",
+        "subtle",
+        "brood"
+      ]
+    },
+    {
+      "candidate": 205,
+      "words": [
+        "drenched",
+        "elder",
+        "chunk"
+      ]
+    },
+    {
+      "candidate": 206,
+      "words": [
+        "nice",
+        "access",
+        "horse"
+      ]
+    },
+    {
+      "candidate": 207,
+      "words": [
+        "beginner",
+        "sweater",
+        "boss"
+      ]
+    },
+    {
+      "candidate": 208,
+      "words": [
+        "task",
+        "walk",
+        "purchase"
+      ]
+    },
+    {
+      "candidate": 209,
+      "words": [
+        "resource",
+        "fairy",
+        "invitation"
+      ]
+    },
+    {
+      "candidate": 210,
+      "words": [
+        "top",
+        "sensible",
+        "win"
+      ]
+    },
+    {
+      "candidate": 211,
+      "words": [
+        "even",
+        "beckon",
+        "pot"
+      ]
+    },
+    {
+      "candidate": 212,
+      "words": [
+        "horse",
+        "ham",
+        "poke"
+      ]
+    },
+    {
+      "candidate": 213,
+      "words": [
+        "butcher",
+        "graduate",
+        "assistant"
+      ]
+    },
+    {
+      "candidate": 214,
+      "words": [
+        "ease",
+        "purchase",
+        "typical"
+      ]
+    },
+    {
+      "candidate": 215,
+      "words": [
+        "moving",
+        "jay",
+        "reek"
+      ]
+    },
+    {
+      "candidate": 216,
+      "words": [
+        "mullet",
+        "cool",
+        "motto"
+      ]
+    },
+    {
+      "candidate": 217,
+      "words": [
+        "tuna",
+        "sow",
+        "imagine"
+      ]
+    },
+    {
+      "candidate": 218,
+      "words": [
+        "niece",
+        "pike",
+        "writer"
+      ]
+    },
+    {
+      "candidate": 219,
+      "words": [
+        "dryer",
+        "retirement",
+        "emerald"
+      ]
+    },
+    {
+      "candidate": 220,
+      "words": [
+        "pare",
+        "coconut",
+        "corridor"
+      ]
+    },
+    {
+      "candidate": 221,
+      "words": [
+        "cool",
+        "graceful",
+        "nephew"
+      ]
+    },
+    {
+      "candidate": 222,
+      "words": [
+        "giggle",
+        "concrete",
+        "mobile"
+      ]
+    },
+    {
+      "candidate": 223,
+      "words": [
+        "sane",
+        "lavender",
+        "disaster"
+      ]
+    },
+    {
+      "candidate": 224,
+      "words": [
+        "puffin",
+        "florist",
+        "bracket"
+      ]
+    },
+    {
+      "candidate": 225,
+      "words": [
+        "tow",
+        "special",
+        "imply"
+      ]
+    },
+    {
+      "candidate": 226,
+      "words": [
+        "giggle",
+        "live",
+        "groom"
+      ]
+    },
+    {
+      "candidate": 227,
+      "words": [
+        "mop",
+        "expert",
+        "pottery"
+      ]
+    },
+    {
+      "candidate": 228,
+      "words": [
+        "catch",
+        "pile",
+        "adjustment"
+      ]
+    },
+    {
+      "candidate": 229,
+      "words": [
+        "groom",
+        "tournament",
+        "even"
+      ]
+    },
+    {
+      "candidate": 230,
+      "words": [
+        "pop",
+        "octopus",
+        "horse"
+      ]
+    },
+    {
+      "candidate": 231,
+      "words": [
+        "past",
+        "clumsy",
+        "sow"
+      ]
+    },
+    {
+      "candidate": 232,
+      "words": [
+        "reek",
+        "rice",
+        "checklist"
+      ]
+    },
+    {
+      "candidate": 233,
+      "words": [
+        "leopard",
+        "butcher",
+        "pea"
+      ]
+    },
+    {
+      "candidate": 234,
+      "words": [
+        "rounded",
+        "size",
+        "carving"
+      ]
+    },
+    {
+      "candidate": 235,
+      "words": [
+        "shove",
+        "ownership",
+        "shoulder"
+      ]
+    },
+    {
+      "candidate": 236,
+      "words": [
+        "wooden",
+        "grammar",
+        "dove"
+      ]
+    },
+    {
+      "candidate": 237,
+      "words": [
+        "folder",
+        "pike",
+        "translation"
+      ]
+    },
+    {
+      "candidate": 238,
+      "words": [
+        "shore",
+        "elder",
+        "payment"
+      ]
+    },
+    {
+      "candidate": 239,
+      "words": [
+        "walk",
+        "honeymoon",
+        "deposit"
+      ]
+    },
+    {
+      "candidate": 240,
+      "words": [
+        "staircase",
+        "ruby",
+        "loser"
+      ]
+    },
+    {
+      "candidate": 241,
+      "words": [
+        "actor",
+        "scholarship",
+        "octagon"
+      ]
+    },
+    {
+      "candidate": 242,
+      "words": [
+        "scholarship",
+        "expert",
+        "teenager"
+      ]
+    },
+    {
+      "candidate": 243,
+      "words": [
+        "baker",
+        "special",
+        "inlet"
+      ]
+    },
+    {
+      "candidate": 244,
+      "words": [
+        "tow",
+        "local",
+        "herring"
+      ]
+    },
+    {
+      "candidate": 245,
+      "words": [
+        "engraving",
+        "staircase",
+        "pair"
+      ]
+    },
+    {
+      "candidate": 246,
+      "words": [
+        "session",
+        "hardware",
+        "packed"
+      ]
+    },
+    {
+      "candidate": 247,
+      "words": [
+        "blister",
+        "strip",
+        "kilometre"
+      ]
+    },
+    {
+      "candidate": 248,
+      "words": [
+        "pretend",
+        "adjustment",
+        "young"
+      ]
+    },
+    {
+      "candidate": 249,
+      "words": [
+        "tutor",
+        "thanks",
+        "cemetery"
+      ]
+    },
+    {
+      "candidate": 250,
+      "words": [
+        "graduation",
+        "reservation",
+        "sweater"
+      ]
+    },
+    {
+      "candidate": 251,
+      "words": [
+        "inlet",
+        "pants",
+        "waterfall"
+      ]
+    },
+    {
+      "candidate": 252,
+      "words": [
+        "candidate",
+        "reaction",
+        "invitation"
+      ]
+    },
+    {
+      "candidate": 253,
+      "words": [
+        "mermaid",
+        "mood",
+        "seed"
+      ]
+    },
+    {
+      "candidate": 254,
+      "words": [
+        "professional",
+        "escalator",
+        "steward"
+      ]
+    },
+    {
+      "candidate": 255,
+      "words": [
+        "staircase",
+        "vending",
+        "hook"
+      ]
+    },
+    {
+      "candidate": 256,
+      "words": [
+        "cylindrical",
+        "reaction",
+        "ram"
+      ]
+    },
+    {
+      "candidate": 257,
+      "words": [
+        "calculator",
+        "explanation",
+        "postage"
+      ]
+    },
+    {
+      "candidate": 258,
+      "words": [
+        "junction",
+        "enough",
+        "logo"
+      ]
+    },
+    {
+      "candidate": 259,
+      "words": [
+        "ready",
+        "illustration",
+        "mood"
+      ]
+    },
+    {
+      "candidate": 260,
+      "words": [
+        "failure",
+        "modern",
+        "loser"
+      ]
+    },
+    {
+      "candidate": 261,
+      "words": [
+        "define",
+        "tutor",
+        "shore"
+      ]
+    },
+    {
+      "candidate": 262,
+      "words": [
+        "angel",
+        "tall",
+        "walk"
+      ]
+    },
+    {
+      "candidate": 263,
+      "words": [
+        "device",
+        "luggage",
+        "silverware"
+      ]
+    },
+    {
+      "candidate": 264,
+      "words": [
+        "hydrangea",
+        "mailbox",
+        "threat"
+      ]
+    },
+    {
+      "candidate": 265,
+      "words": [
+        "pants",
+        "victim",
+        "aluminium"
+      ]
+    },
+    {
+      "candidate": 266,
+      "words": [
+        "burger",
+        "tickle",
+        "tone"
+      ]
+    },
+    {
+      "candidate": 267,
+      "words": [
+        "mailbox",
+        "domestic",
+        "lark"
+      ]
+    },
+    {
+      "candidate": 268,
+      "words": [
+        "ambulance",
+        "gentleman",
+        "hose"
+      ]
+    },
+    {
+      "candidate": 269,
+      "words": [
+        "beckon",
+        "laboratory",
+        "eyelash"
+      ]
+    },
+    {
+      "candidate": 270,
+      "words": [
+        "estimate",
+        "winner",
+        "pedestrian"
+      ]
+    },
+    {
+      "candidate": 271,
+      "words": [
+        "slap",
+        "prescription",
+        "safe"
+      ]
+    },
+    {
+      "candidate": 272,
+      "words": [
+        "herring",
+        "permit",
+        "catch"
+      ]
+    },
+    {
+      "candidate": 273,
+      "words": [
+        "emergency",
+        "catch",
+        "conical"
+      ]
+    },
+    {
+      "candidate": 274,
+      "words": [
+        "reaction",
+        "saturated",
+        "sun"
+      ]
+    },
+    {
+      "candidate": 275,
+      "words": [
+        "hen",
+        "sow",
+        "basalt"
+      ]
+    },
+    {
+      "candidate": 276,
+      "words": [
+        "octopus",
+        "shoal",
+        "ram"
+      ]
+    },
+    {
+      "candidate": 277,
+      "words": [
+        "captain",
+        "brood",
+        "broken"
+      ]
+    },
+    {
+      "candidate": 278,
+      "words": [
+        "mood",
+        "fall",
+        "stationary"
+      ]
+    },
+    {
+      "candidate": 279,
+      "words": [
+        "odd",
+        "tuna",
+        "poppy"
+      ]
+    },
+    {
+      "candidate": 280,
+      "words": [
+        "candidate",
+        "universal",
+        "hard"
+      ]
+    },
+    {
+      "candidate": 281,
+      "words": [
+        "soil",
+        "unit",
+        "sheep"
+      ]
+    },
+    {
+      "candidate": 282,
+      "words": [
+        "closet",
+        "carving",
+        "string"
+      ]
+    },
+    {
+      "candidate": 283,
+      "words": [
+        "ace",
+        "term",
+        "walk"
+      ]
+    },
+    {
+      "candidate": 284,
+      "words": [
+        "orchestra",
+        "chunk",
+        "coast"
+      ]
+    },
+    {
+      "candidate": 285,
+      "words": [
+        "troop",
+        "celery",
+        "angel"
+      ]
+    },
+    {
+      "candidate": 286,
+      "words": [
+        "contribution",
+        "ambulance",
+        "queen"
+      ]
+    },
+    {
+      "candidate": 287,
+      "words": [
+        "rounded",
+        "mop",
+        "aluminium"
+      ]
+    },
+    {
+      "candidate": 288,
+      "words": [
+        "headline",
+        "plumber",
+        "sparrow"
+      ]
+    },
+    {
+      "candidate": 289,
+      "words": [
+        "folk",
+        "example",
+        "allowance"
+      ]
+    },
+    {
+      "candidate": 290,
+      "words": [
+        "gale",
+        "grape",
+        "let"
+      ]
+    },
+    {
+      "candidate": 291,
+      "words": [
+        "vivid",
+        "hook",
+        "toothbrush"
+      ]
+    },
+    {
+      "candidate": 292,
+      "words": [
+        "butcher",
+        "beginner",
+        "cool"
+      ]
+    },
+    {
+      "candidate": 293,
+      "words": [
+        "feedback",
+        "spine",
+        "baker"
+      ]
+    },
+    {
+      "candidate": 294,
+      "words": [
+        "insurance",
+        "trademark",
+        "sparrow"
+      ]
+    },
+    {
+      "candidate": 295,
+      "words": [
+        "daft",
+        "serrated",
+        "crab"
+      ]
+    },
+    {
+      "candidate": 296,
+      "words": [
+        "poppy",
+        "touch",
+        "beige"
+      ]
+    },
+    {
+      "candidate": 297,
+      "words": [
+        "caress",
+        "mullet",
+        "vacation"
+      ]
+    },
+    {
+      "candidate": 298,
+      "words": [
+        "farewell",
+        "sculpture",
+        "muted"
+      ]
+    },
+    {
+      "candidate": 299,
+      "words": [
+        "thorn",
+        "procedure",
+        "queen"
+      ]
+    },
+    {
+      "candidate": 300,
+      "words": [
+        "resident",
+        "daft",
+        "textbook"
+      ]
+    },
+    {
+      "candidate": 301,
+      "words": [
+        "nectar",
+        "octagon",
+        "shoulder"
+      ]
+    },
+    {
+      "candidate": 302,
+      "words": [
+        "coke",
+        "pure",
+        "mug"
+      ]
+    },
+    {
+      "candidate": 303,
+      "words": [
+        "tuna",
+        "playground",
+        "rhino"
+      ]
+    },
+    {
+      "candidate": 304,
+      "words": [
+        "queen",
+        "hard",
+        "concrete"
+      ]
+    },
+    {
+      "candidate": 305,
+      "words": [
+        "unit",
+        "permit",
+        "imagine"
+      ]
+    },
+    {
+      "candidate": 306,
+      "words": [
+        "cedar",
+        "grater",
+        "raw"
+      ]
+    },
+    {
+      "candidate": 307,
+      "words": [
+        "invitation",
+        "emergency",
+        "percentage"
+      ]
+    },
+    {
+      "candidate": 308,
+      "words": [
+        "penguin",
+        "tournament",
+        "tutor"
+      ]
+    },
+    {
+      "candidate": 309,
+      "words": [
+        "scarlet",
+        "football",
+        "handkerchief"
+      ]
+    },
+    {
+      "candidate": 310,
+      "words": [
+        "washcloth",
+        "funeral",
+        "string"
+      ]
+    },
+    {
+      "candidate": 311,
+      "words": [
+        "young",
+        "runway",
+        "reaction"
+      ]
+    },
+    {
+      "candidate": 312,
+      "words": [
+        "strip",
+        "elder",
+        "whale"
+      ]
+    },
+    {
+      "candidate": 313,
+      "words": [
+        "niece",
+        "canary",
+        "sneeze"
+      ]
+    },
+    {
+      "candidate": 314,
+      "words": [
+        "string",
+        "absurd",
+        "odd"
+      ]
+    },
+    {
+      "candidate": 315,
+      "words": [
+        "widow",
+        "willing",
+        "today"
+      ]
+    },
+    {
+      "candidate": 316,
+      "words": [
+        "farewell",
+        "errand",
+        "bead"
+      ]
+    },
+    {
+      "candidate": 317,
+      "words": [
+        "clumsy",
+        "elm",
+        "emergency"
+      ]
+    },
+    {
+      "candidate": 318,
+      "words": [
+        "heron",
+        "stud",
+        "line"
+      ]
+    },
+    {
+      "candidate": 319,
+      "words": [
+        "shore",
+        "unpack",
+        "oak"
+      ]
+    },
+    {
+      "candidate": 320,
+      "words": [
+        "eyelash",
+        "angel",
+        "major"
+      ]
+    },
+    {
+      "candidate": 321,
+      "words": [
+        "guard",
+        "coast",
+        "crack"
+      ]
+    },
+    {
+      "candidate": 322,
+      "words": [
+        "watery",
+        "jump",
+        "purchase"
+      ]
+    },
+    {
+      "candidate": 323,
+      "words": [
+        "weed",
+        "buttercup",
+        "neighbourhood"
+      ]
+    },
+    {
+      "candidate": 324,
+      "words": [
+        "pansy",
+        "cousin",
+        "tomorrow"
+      ]
+    },
+    {
+      "candidate": 325,
+      "words": [
+        "let",
+        "believe",
+        "convenient"
+      ]
+    },
+    {
+      "candidate": 326,
+      "words": [
+        "element",
+        "raw",
+        "dryer"
+      ]
+    },
+    {
+      "candidate": 327,
+      "words": [
+        "old",
+        "speaker",
+        "size"
+      ]
+    },
+    {
+      "candidate": 328,
+      "words": [
+        "groom",
+        "screwdriver",
+        "moving"
+      ]
+    },
+    {
+      "candidate": 329,
+      "words": [
+        "quartz",
+        "need",
+        "structure"
+      ]
+    },
+    {
+      "candidate": 330,
+      "words": [
+        "motto",
+        "actor",
+        "doe"
+      ]
+    },
+    {
+      "candidate": 331,
+      "words": [
+        "reek",
+        "pill",
+        "guest"
+      ]
+    },
+    {
+      "candidate": 332,
+      "words": [
+        "structure",
+        "giant",
+        "shard"
+      ]
+    },
+    {
+      "candidate": 333,
+      "words": [
+        "saturated",
+        "let",
+        "mullet"
+      ]
+    },
+    {
+      "candidate": 334,
+      "words": [
+        "ram",
+        "pill",
+        "muddy"
+      ]
+    },
+    {
+      "candidate": 335,
+      "words": [
+        "writer",
+        "dryer",
+        "mitten"
+      ]
+    },
+    {
+      "candidate": 336,
+      "words": [
+        "photograph",
+        "sidewalk",
+        "television"
+      ]
+    },
+    {
+      "candidate": 337,
+      "words": [
+        "acid",
+        "trainer",
+        "referee"
+      ]
+    },
+    {
+      "candidate": 338,
+      "words": [
+        "example",
+        "inventor",
+        "engraving"
+      ]
+    },
+    {
+      "candidate": 339,
+      "words": [
+        "willing",
+        "pedestrian",
+        "muted"
+      ]
+    },
+    {
+      "candidate": 340,
+      "words": [
+        "crew",
+        "elder",
+        "gem"
+      ]
+    },
+    {
+      "candidate": 341,
+      "words": [
+        "ape",
+        "playground",
+        "graduate"
+      ]
+    },
+    {
+      "candidate": 342,
+      "words": [
+        "cleaner",
+        "lass",
+        "straight"
+      ]
+    },
+    {
+      "candidate": 343,
+      "words": [
+        "walk",
+        "toothbrush",
+        "ingredient"
+      ]
+    },
+    {
+      "candidate": 344,
+      "words": [
+        "sweater",
+        "old",
+        "coaster"
+      ]
+    },
+    {
+      "candidate": 345,
+      "words": [
+        "sash",
+        "translation",
+        "solution"
+      ]
+    },
+    {
+      "candidate": 346,
+      "words": [
+        "lease",
+        "coast",
+        "jasmine"
+      ]
+    },
+    {
+      "candidate": 347,
+      "words": [
+        "nut",
+        "alder",
+        "grocery"
+      ]
+    },
+    {
+      "candidate": 348,
+      "words": [
+        "attendance",
+        "doctor",
+        "tutor"
+      ]
+    },
+    {
+      "candidate": 349,
+      "words": [
+        "neighbour",
+        "teller",
+        "troop"
+      ]
+    },
+    {
+      "candidate": 350,
+      "words": [
+        "beckon",
+        "beginner",
+        "wasp"
+      ]
+    },
+    {
+      "candidate": 351,
+      "words": [
+        "folder",
+        "solution",
+        "dentist"
+      ]
+    },
+    {
+      "candidate": 352,
+      "words": [
+        "giant",
+        "sidewalk",
+        "young"
+      ]
+    },
+    {
+      "candidate": 353,
+      "words": [
+        "procedure",
+        "chore",
+        "bottom"
+      ]
+    },
+    {
+      "candidate": 354,
+      "words": [
+        "hare",
+        "pedestrian",
+        "ambulance"
+      ]
+    },
+    {
+      "candidate": 355,
+      "words": [
+        "live",
+        "tough",
+        "trout"
+      ]
+    },
+    {
+      "candidate": 356,
+      "words": [
+        "neighbourhood",
+        "coupon",
+        "toothpaste"
+      ]
+    },
+    {
+      "candidate": 357,
+      "words": [
+        "neighbour",
+        "rook",
+        "keep"
+      ]
+    },
+    {
+      "candidate": 358,
+      "words": [
+        "qualification",
+        "even",
+        "speaker"
+      ]
+    },
+    {
+      "candidate": 359,
+      "words": [
+        "unit",
+        "canary",
+        "sudden"
+      ]
+    },
+    {
+      "candidate": 360,
+      "words": [
+        "advert",
+        "spine",
+        "vending"
+      ]
+    }
+  ]
+}

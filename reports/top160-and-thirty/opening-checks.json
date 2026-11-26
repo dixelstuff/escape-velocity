@@ -1,0 +1,2312 @@
+[
+  {
+    "words": [
+      "chore",
+      "nephew",
+      "admission"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "chore",
+          "target": "nephew",
+          "direct": false,
+          "contact": -0.032732381998357596,
+          "required": 0.215
+        },
+        {
+          "start": "nephew",
+          "target": "admission",
+          "direct": false,
+          "contact": -0.013991432083912514,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "task",
+        "success": true,
+        "progress": 0.012438041068890016,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "job",
+        "success": true,
+        "progress": 0.10375040848703065,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "work",
+        "success": false,
+        "progress": 0.1138880440671528,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "house",
+        "success": false,
+        "progress": 0.2736198925122153,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "clean",
+        "success": false,
+        "progress": -0.025911616944540583,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "duty",
+        "success": true,
+        "progress": 0.06979783168117137,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "headquarters",
+      "victim",
+      "fetch"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "headquarters",
+          "target": "victim",
+          "direct": false,
+          "contact": 0.06139407661862606,
+          "required": 0.22117647058823528
+        },
+        {
+          "start": "victim",
+          "target": "fetch",
+          "direct": false,
+          "contact": -0.01340684964270622,
+          "required": 0.22117647058823528
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "office",
+        "success": true,
+        "progress": 0.13560295363618025,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "base",
+        "success": true,
+        "progress": -0.006506716109242916,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "company",
+        "success": true,
+        "progress": 0.07532497043689546,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "military",
+        "success": true,
+        "progress": 0.11490181473641314,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "centre",
+        "success": true,
+        "progress": 0.1283103057351127,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "command",
+        "success": false,
+        "progress": -0.010544120464828666,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "device",
+      "autograph",
+      "dose"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "device",
+          "target": "autograph",
+          "direct": false,
+          "contact": 0.002094753080427836,
+          "required": 0.22350980392156863
+        },
+        {
+          "start": "autograph",
+          "target": "dose",
+          "direct": false,
+          "contact": -0.0717879136918782,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "machine",
+        "success": true,
+        "progress": 0.021998046904400326,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "tool",
+        "success": true,
+        "progress": 0.05643133595981453,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "phone",
+        "success": true,
+        "progress": 0.14483785375500702,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "equipment",
+        "success": false,
+        "progress": -0.01157688503008103,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "gadget",
+        "success": true,
+        "progress": 0.19275863013592698,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "electronic",
+        "success": true,
+        "progress": 0.07362286892180236,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "sensible",
+      "referee",
+      "edition"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "sensible",
+          "target": "referee",
+          "direct": false,
+          "contact": -0.07813456906296778,
+          "required": 0.215
+        },
+        {
+          "start": "referee",
+          "target": "edition",
+          "direct": false,
+          "contact": 0.05930046362118446,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "reasonable",
+        "success": true,
+        "progress": 0.050218517762914416,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "practical",
+        "success": true,
+        "progress": 0.06935629312545188,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "wise",
+        "success": true,
+        "progress": 0.20793127579963766,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sound",
+        "success": true,
+        "progress": 0.08660415869235294,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "rational",
+        "success": true,
+        "progress": 3.573093636077829e-05,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "useful",
+        "success": true,
+        "progress": 0.029914877353348857,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "session",
+      "beckon",
+      "chef"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "session",
+          "target": "beckon",
+          "direct": false,
+          "contact": -0.28690011628532375,
+          "required": 0.215
+        },
+        {
+          "start": "beckon",
+          "target": "chef",
+          "direct": false,
+          "contact": 0.0025654555433902715,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "meeting",
+        "success": true,
+        "progress": 0.10283301057825156,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "time",
+        "success": true,
+        "progress": 0.15078099284619384,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "period",
+        "success": true,
+        "progress": 0.13248196146378177,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "class",
+        "success": true,
+        "progress": 0.11718604327143112,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "work",
+        "success": true,
+        "progress": 0.13900690625177958,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sitting",
+        "success": true,
+        "progress": 0.23639324046052934,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "beginner",
+      "threat",
+      "hook"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "beginner",
+          "target": "threat",
+          "direct": false,
+          "contact": -0.06409777366934577,
+          "required": 0.24450980392156862
+        },
+        {
+          "start": "threat",
+          "target": "hook",
+          "direct": false,
+          "contact": 0.061022591145047045,
+          "required": 0.24450980392156862
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "novice",
+        "success": true,
+        "progress": 0.08436453476133465,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "start",
+        "success": false,
+        "progress": 0.2860820633845833,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "learn",
+        "success": true,
+        "progress": 0.19768996403399797,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "new",
+        "success": false,
+        "progress": 0.3444899447777061,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "inexperienced",
+        "success": true,
+        "progress": 0.1257816691941116,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "amateur",
+        "success": true,
+        "progress": 0.09213102807962059,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "mop",
+      "island",
+      "secretary"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "mop",
+          "target": "island",
+          "direct": false,
+          "contact": -0.11948575335736678,
+          "required": 0.215
+        },
+        {
+          "start": "island",
+          "target": "secretary",
+          "direct": false,
+          "contact": 0.14060026616334653,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "floor",
+        "success": true,
+        "progress": 0.30029438869860314,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "clean",
+        "success": true,
+        "progress": 0.23319777648475792,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "water",
+        "success": false,
+        "progress": 0.3582666852262264,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "bucket",
+        "success": true,
+        "progress": 0.04865130762846093,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "wash",
+        "success": true,
+        "progress": 0.1990023205307807,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "wipe",
+        "success": true,
+        "progress": 0.2406881597071333,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "fall",
+      "surgeon",
+      "qualification"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "fall",
+          "target": "surgeon",
+          "direct": false,
+          "contact": 0.029139313726432192,
+          "required": 0.23970588235294119
+        },
+        {
+          "start": "surgeon",
+          "target": "qualification",
+          "direct": false,
+          "contact": 0.024494897821568884,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "drop",
+        "success": true,
+        "progress": 0.009673150756157156,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "autumn",
+        "success": false,
+        "progress": -0.06614565931488414,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "leaf",
+        "success": true,
+        "progress": 0.04684075033071622,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "stumble",
+        "success": false,
+        "progress": -0.09740387169688347,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "down",
+        "success": true,
+        "progress": 0.03874632299937275,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "trip",
+        "success": true,
+        "progress": 0.08812692006938505,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "pot",
+      "domestic",
+      "moving"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "pot",
+          "target": "domestic",
+          "direct": false,
+          "contact": 0.030163153747707838,
+          "required": 0.23833333333333334
+        },
+        {
+          "start": "domestic",
+          "target": "moving",
+          "direct": false,
+          "contact": 0.23202381475584843,
+          "required": 0.24080392156862745
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "pan",
+        "success": true,
+        "progress": 0.06568007195437531,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "cook",
+        "success": true,
+        "progress": 0.025774229023227235,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "plant",
+        "success": true,
+        "progress": 0.13395972984380933,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "clay",
+        "success": true,
+        "progress": 0.027756425510233385,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "vessel",
+        "success": true,
+        "progress": 0.054832675126817776,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "kettle",
+        "success": false,
+        "progress": -0.16199085358493903,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "checklist",
+      "charity",
+      "define"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "checklist",
+          "target": "charity",
+          "direct": false,
+          "contact": 0.0032428594755486984,
+          "required": 0.215
+        },
+        {
+          "start": "charity",
+          "target": "define",
+          "direct": false,
+          "contact": 0.06356816777042695,
+          "required": 0.23668627450980392
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "list",
+        "success": true,
+        "progress": 0.20862088932959466,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "task",
+        "success": true,
+        "progress": 0.1259438805904125,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "check",
+        "success": true,
+        "progress": 0.19893334173993082,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "tick",
+        "success": false,
+        "progress": -0.07828115840730732,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "plan",
+        "success": false,
+        "progress": 0.18413982198707401,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "item",
+        "success": true,
+        "progress": 0.1256688083607429,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "eel",
+      "article",
+      "line"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "eel",
+          "target": "article",
+          "direct": false,
+          "contact": -0.10127545308569097,
+          "required": 0.215
+        },
+        {
+          "start": "article",
+          "target": "line",
+          "direct": false,
+          "contact": 0.20230771818751236,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "fish",
+        "success": true,
+        "progress": 0.14761430018825195,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sea",
+        "success": true,
+        "progress": 0.15357877201313386,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "slippery",
+        "success": true,
+        "progress": 0.07044569275240065,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "water",
+        "success": false,
+        "progress": 0.17949720828983118,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "electric",
+        "success": true,
+        "progress": 0.20128161869797623,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "snake",
+        "success": true,
+        "progress": 0.0919134817459053,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "height",
+      "bulletin",
+      "sidewalk"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "height",
+          "target": "bulletin",
+          "direct": false,
+          "contact": -0.07043236268668807,
+          "required": 0.215
+        },
+        {
+          "start": "bulletin",
+          "target": "sidewalk",
+          "direct": false,
+          "contact": 0.08668137504992046,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "tall",
+        "success": true,
+        "progress": 0.056132197773877124,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "high",
+        "success": true,
+        "progress": 0.1443887447819634,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "measure",
+        "success": true,
+        "progress": 0.0882856686582727,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "above",
+        "success": true,
+        "progress": 0.14149028386123064,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "length",
+        "success": true,
+        "progress": 0.06564760176638629,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "size",
+        "success": true,
+        "progress": 0.04813383286159478,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "metallic",
+      "inquiry",
+      "lease"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "metallic",
+          "target": "inquiry",
+          "direct": false,
+          "contact": -0.06175400385245666,
+          "required": 0.215
+        },
+        {
+          "start": "inquiry",
+          "target": "lease",
+          "direct": false,
+          "contact": 0.06374917337234365,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "metal",
+        "success": true,
+        "progress": 0.06962789143062764,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "silver",
+        "success": true,
+        "progress": 0.03057112095712,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "shine",
+        "success": true,
+        "progress": 0.01818862333357174,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sound",
+        "success": true,
+        "progress": 0.09967138798083397,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "hard",
+        "success": false,
+        "progress": 0.15702163196465335,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "steel",
+        "success": true,
+        "progress": 0.07336123654340554,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "pop",
+      "wooden",
+      "suspect"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "pop",
+          "target": "wooden",
+          "direct": false,
+          "contact": 0.09911415197285578,
+          "required": 0.215
+        },
+        {
+          "start": "wooden",
+          "target": "suspect",
+          "direct": false,
+          "contact": -0.019717517629032955,
+          "required": 0.21870588235294117
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "music",
+        "success": true,
+        "progress": 0.006227048074549657,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "burst",
+        "success": true,
+        "progress": -0.009821324313918467,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "fizzy",
+        "success": false,
+        "progress": -0.17528810850791388,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "father",
+        "success": true,
+        "progress": 0.038599975033037026,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sound",
+        "success": true,
+        "progress": 0.08827932801494853,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "bubble",
+        "success": true,
+        "progress": 0.047595784761767845,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "ace",
+      "pretend",
+      "mitten"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "ace",
+          "target": "pretend",
+          "direct": false,
+          "contact": -0.01861081432616629,
+          "required": 0.22570588235294117
+        },
+        {
+          "start": "pretend",
+          "target": "mitten",
+          "direct": false,
+          "contact": -0.004945145359670278,
+          "required": 0.22570588235294117
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "card",
+        "success": true,
+        "progress": 0.08668264010429994,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "tennis",
+        "success": true,
+        "progress": 0.07021580101536529,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "best",
+        "success": true,
+        "progress": 0.16361544887877244,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "expert",
+        "success": true,
+        "progress": 0.03414992251600779,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "serve",
+        "success": true,
+        "progress": 0.13077017645082378,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "one",
+        "success": true,
+        "progress": 0.16009873415714537,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "loan",
+      "spiral",
+      "prediction"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "loan",
+          "target": "spiral",
+          "direct": false,
+          "contact": -4.735204220196465e-05,
+          "required": 0.215
+        },
+        {
+          "start": "spiral",
+          "target": "prediction",
+          "direct": false,
+          "contact": 0.04790085313470627,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "borrow",
+        "success": true,
+        "progress": 0.03659834900281567,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "bank",
+        "success": true,
+        "progress": 0.08302941528472729,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "money",
+        "success": true,
+        "progress": 0.04596645558940793,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "lend",
+        "success": true,
+        "progress": 0.018567688527582504,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "debt",
+        "success": true,
+        "progress": 0.16246177008088125,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "mortgage",
+        "success": true,
+        "progress": 0.12648041208649374,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "imagine",
+      "timetable",
+      "alive"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "imagine",
+          "target": "timetable",
+          "direct": false,
+          "contact": 0.08251958252731129,
+          "required": 0.23641176470588235
+        },
+        {
+          "start": "timetable",
+          "target": "alive",
+          "direct": false,
+          "contact": 0.02596566258034727,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "think",
+        "success": true,
+        "progress": 0.09213443395663035,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "dream",
+        "success": true,
+        "progress": 0.05264582040308596,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "picture",
+        "success": true,
+        "progress": 0.051243327359770774,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "idea",
+        "success": true,
+        "progress": 0.2083346691888437,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "pretend",
+        "success": false,
+        "progress": -0.056328338589082705,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "create",
+        "success": true,
+        "progress": 0.09425613798521226,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "payment",
+      "subtle",
+      "brood"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "payment",
+          "target": "subtle",
+          "direct": false,
+          "contact": 0.048726144081228995,
+          "required": 0.23215686274509803
+        },
+        {
+          "start": "subtle",
+          "target": "brood",
+          "direct": false,
+          "contact": 0.012425746025655826,
+          "required": 0.23215686274509803
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "money",
+        "success": true,
+        "progress": 0.028050267894286662,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "pay",
+        "success": true,
+        "progress": 0.02138276237383252,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "bill",
+        "success": true,
+        "progress": 0.05718882973314976,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "cash",
+        "success": false,
+        "progress": -0.03672266060448237,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "bank",
+        "success": false,
+        "progress": -0.1377681098397261,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "cost",
+        "success": true,
+        "progress": 0.039758907823170375,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "task",
+      "walk",
+      "purchase"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "task",
+          "target": "walk",
+          "direct": false,
+          "contact": 0.10587927821416088,
+          "required": 0.22598039215686275
+        },
+        {
+          "start": "walk",
+          "target": "purchase",
+          "direct": false,
+          "contact": 0.10928224741746817,
+          "required": 0.22556862745098039
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "job",
+        "success": true,
+        "progress": 0.11861180456412512,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "work",
+        "success": true,
+        "progress": 0.22684302950437996,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "chore",
+        "success": true,
+        "progress": 0.008091135226095503,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "duty",
+        "success": true,
+        "progress": 0.05917800447832633,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "assignment",
+        "success": true,
+        "progress": 0.05114555706950341,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "effort",
+        "success": true,
+        "progress": 0.1456220109375863,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "resource",
+      "fairy",
+      "invitation"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "resource",
+          "target": "fairy",
+          "direct": false,
+          "contact": -0.061847393707466836,
+          "required": 0.215
+        },
+        {
+          "start": "fairy",
+          "target": "invitation",
+          "direct": false,
+          "contact": 0.027610469924184144,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "supply",
+        "success": true,
+        "progress": 0.021209618241300632,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "material",
+        "success": true,
+        "progress": 0.1395051845420312,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "useful",
+        "success": true,
+        "progress": 0.0943039240073631,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "help",
+        "success": true,
+        "progress": 0.12997336377611646,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "money",
+        "success": true,
+        "progress": 0.12918566935968556,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "natural",
+        "success": true,
+        "progress": 0.10989989085010166,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "dryer",
+      "retirement",
+      "emerald"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "dryer",
+          "target": "retirement",
+          "direct": false,
+          "contact": -0.09793622151028103,
+          "required": 0.215
+        },
+        {
+          "start": "retirement",
+          "target": "emerald",
+          "direct": false,
+          "contact": -0.04390402543504024,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "clothes",
+        "success": true,
+        "progress": 0.149104609763981,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "heat",
+        "success": true,
+        "progress": 0.19413146952865645,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "machine",
+        "success": true,
+        "progress": 0.14065288269466691,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "hair",
+        "success": true,
+        "progress": 0.1591942063141687,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "dry",
+        "success": true,
+        "progress": 0.17127537082251365,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "laundry",
+        "success": true,
+        "progress": 0.09626776658024028,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "catch",
+      "pile",
+      "adjustment"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "catch",
+          "target": "pile",
+          "direct": false,
+          "contact": 0.16658338207707857,
+          "required": 0.215
+        },
+        {
+          "start": "pile",
+          "target": "adjustment",
+          "direct": false,
+          "contact": 0.05059506748966669,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "grab",
+        "success": true,
+        "progress": 0.07601595119831472,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "fish",
+        "success": true,
+        "progress": -0.0054877526072232286,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "ball",
+        "success": true,
+        "progress": 0.03758967172689154,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "trap",
+        "success": true,
+        "progress": 0.0623733673710376,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "cold",
+        "success": true,
+        "progress": 0.009285918629757361,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "hold",
+        "success": true,
+        "progress": -0.008187083252778393,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "shove",
+      "ownership",
+      "shoulder"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "shove",
+          "target": "ownership",
+          "direct": false,
+          "contact": -0.14672380749652802,
+          "required": 0.215
+        },
+        {
+          "start": "ownership",
+          "target": "shoulder",
+          "direct": false,
+          "contact": 0.1260058420120913,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "push",
+        "success": true,
+        "progress": 0.34279685776527913,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "force",
+        "success": false,
+        "progress": 0.2975356836004721,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "move",
+        "success": false,
+        "progress": 0.41837283304812445,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "elbow",
+        "success": true,
+        "progress": 0.13449503416268271,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "crowd",
+        "success": false,
+        "progress": 0.1941223936246388,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "nudge",
+        "success": true,
+        "progress": 0.09637109683717426,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "folk",
+      "example",
+      "allowance"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "folk",
+          "target": "example",
+          "direct": false,
+          "contact": 0.21620299875576166,
+          "required": 0.24945098039215685
+        },
+        {
+          "start": "example",
+          "target": "allowance",
+          "direct": false,
+          "contact": 0.10895480115505052,
+          "required": 0.24945098039215685
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "people",
+        "success": false,
+        "progress": 0.21181364260337432,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "music",
+        "success": true,
+        "progress": 0.0968625179339142,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "story",
+        "success": false,
+        "progress": 0.1774818523599606,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "traditional",
+        "success": true,
+        "progress": 0.24043989399342536,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "song",
+        "success": true,
+        "progress": 0.05999101455654454,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "dance",
+        "success": true,
+        "progress": 0.009768511172296712,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "young",
+      "runway",
+      "reaction"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "young",
+          "target": "runway",
+          "direct": false,
+          "contact": 0.017982353568186227,
+          "required": 0.23558823529411765
+        },
+        {
+          "start": "runway",
+          "target": "reaction",
+          "direct": false,
+          "contact": 0.047608539900465985,
+          "required": 0.222
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "old",
+        "success": true,
+        "progress": 0.030510580475493043,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "child",
+        "success": true,
+        "progress": 0.004423162484272325,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "youth",
+        "success": false,
+        "progress": -0.01680864565878437,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "baby",
+        "success": false,
+        "progress": -0.028709289591915876,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "fresh",
+        "success": true,
+        "progress": 0.05024987800152303,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "new",
+        "success": true,
+        "progress": 0.17623355879140945,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "reek",
+      "pill",
+      "guest"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "reek",
+          "target": "pill",
+          "direct": false,
+          "contact": 0.04349087539139873,
+          "required": 0.215
+        },
+        {
+          "start": "pill",
+          "target": "guest",
+          "direct": false,
+          "contact": -0.073469824242693,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "smell",
+        "success": true,
+        "progress": 0.06044213745644811,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "stink",
+        "success": true,
+        "progress": 0.05972371379039032,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "odour",
+        "success": true,
+        "progress": 0.04309755793019576,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "bad",
+        "success": false,
+        "progress": 0.10402664197715694,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "scent",
+        "success": true,
+        "progress": 0.1328206564876382,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "strong",
+        "success": false,
+        "progress": 0.018590958567983762,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "ape",
+      "playground",
+      "graduate"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "ape",
+          "target": "playground",
+          "direct": false,
+          "contact": 0.17279191589204856,
+          "required": 0.215
+        },
+        {
+          "start": "playground",
+          "target": "graduate",
+          "direct": false,
+          "contact": -0.021931455312369508,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "monkey",
+        "success": true,
+        "progress": 0.06427186989594702,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "gorilla",
+        "success": true,
+        "progress": -0.00013927540294389473,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "animal",
+        "success": false,
+        "progress": -0.0792299014474338,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      },
+      {
+        "word": "jungle",
+        "success": true,
+        "progress": 0.10140457991201401,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "chimpanzee",
+        "success": true,
+        "progress": 0.01832182695670781,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "primate",
+        "success": false,
+        "progress": -0.13523743924361042,
+        "connected": true,
+        "forward": false,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "folder",
+      "solution",
+      "dentist"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "folder",
+          "target": "solution",
+          "direct": false,
+          "contact": 0.09967161553868209,
+          "required": 0.23037254901960785
+        },
+        {
+          "start": "solution",
+          "target": "dentist",
+          "direct": false,
+          "contact": 0.037036909327071044,
+          "required": 0.23037254901960785
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "file",
+        "success": true,
+        "progress": 0.08071768560694181,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "paper",
+        "success": false,
+        "progress": 0.13732681270084868,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "document",
+        "success": true,
+        "progress": 0.18039029285409924,
+        "connected": true,
+        "forward": true,
+        "waypoint": true
+      },
+      {
+        "word": "computer",
+        "success": true,
+        "progress": 0.07895149440747673,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "store",
+        "success": true,
+        "progress": 0.014812583489401732,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "desk",
+        "success": true,
+        "progress": 0.04211760945690912,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "advert",
+      "spine",
+      "vending"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "advert",
+          "target": "spine",
+          "direct": false,
+          "contact": -0.054203082338062814,
+          "required": 0.215
+        },
+        {
+          "start": "spine",
+          "target": "vending",
+          "direct": false,
+          "contact": -0.0020520732214208692,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "advertisement",
+        "success": true,
+        "progress": 0.006306292781573575,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "sell",
+        "success": false,
+        "progress": 0.0010789267462314456,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "product",
+        "success": false,
+        "progress": 0.12122573518581703,
+        "connected": false,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "poster",
+        "success": true,
+        "progress": 0.041043039030455475,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "newspaper",
+        "success": true,
+        "progress": 0.009757992772392754,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "television",
+        "success": true,
+        "progress": 0.02593113187867857,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  },
+  {
+    "words": [
+      "structure",
+      "dear",
+      "jagged"
+    ],
+    "access": {
+      "allowed": true,
+      "legs": [
+        {
+          "start": "structure",
+          "target": "dear",
+          "direct": false,
+          "contact": -0.10239580460529396,
+          "required": 0.23915686274509804
+        },
+        {
+          "start": "dear",
+          "target": "jagged",
+          "direct": false,
+          "contact": 0.0058656838791648624,
+          "required": 0.215
+        }
+      ],
+      "message": ""
+    },
+    "shots": [
+      {
+        "word": "building",
+        "success": true,
+        "progress": 0.04263999316845002,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "framework",
+        "success": true,
+        "progress": 0.020532206161988142,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "shape",
+        "success": true,
+        "progress": 0.15635913882670138,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "system",
+        "success": true,
+        "progress": 0.1036816226242081,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "form",
+        "success": true,
+        "progress": 0.07891340344312425,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      },
+      {
+        "word": "organisation",
+        "success": true,
+        "progress": 0.08955868632006059,
+        "connected": true,
+        "forward": true,
+        "waypoint": false
+      }
+    ]
+  }
+]

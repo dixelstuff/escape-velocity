@@ -1,0 +1,14 @@
+{
+  "contact_adjustment": {
+    "version": "frequency-phrases-v1",
+    "after": 0
+  },
+  "contactDataSha256": "a2ad5f81f6f30332212cc985bb762353b4701bcd459d6f52a3d2d3968a05b723",
+  "dogleg_finish_rule": {
+    "version": "strong-arrival-v1",
+    "after": 0
+  },
+  "second_leg_finish_span": 0.12,
+  "spelling_equivalence": "uk-us-v1",
+  "assessment": "Current rules used for validity checks only; no experiment comparing the contact policies."
+}

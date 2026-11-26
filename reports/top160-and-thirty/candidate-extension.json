@@ -1,0 +1,7 @@
+{
+  "reason": "Initial 360 random candidates yielded 29 accepted holes; continued the same RNG sequence without reseeding or altering any earlier triple.",
+  "originalCount": 360,
+  "extendedCount": 420,
+  "acceptedBeforeExtension": 29,
+  "initialSha256": "3d3e7526e3e22f3c2da3b9ac772762a89354b88a0f3d7e604941baa8c1c7856b"
+}

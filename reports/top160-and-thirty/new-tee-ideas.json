@@ -1,0 +1,442 @@
+{
+  "architect": [
+    "building",
+    "design",
+    "plan",
+    "house",
+    "draw",
+    "construction"
+  ],
+  "bandage": [
+    "wound",
+    "injury",
+    "wrap",
+    "cut",
+    "cloth",
+    "nurse"
+  ],
+  "blindfold": [
+    "eyes",
+    "cover",
+    "blind",
+    "game",
+    "see",
+    "cloth"
+  ],
+  "blister": [
+    "skin",
+    "sore",
+    "burn",
+    "foot",
+    "bubble",
+    "shoe"
+  ],
+  "brochure": [
+    "leaflet",
+    "information",
+    "travel",
+    "paper",
+    "picture",
+    "holiday"
+  ],
+  "cedar": [
+    "tree",
+    "wood",
+    "forest",
+    "scent",
+    "branch",
+    "timber"
+  ],
+  "checklist": [
+    "list",
+    "task",
+    "check",
+    "tick",
+    "plan",
+    "item"
+  ],
+  "coaster": [
+    "drink",
+    "table",
+    "mat",
+    "boat",
+    "coast",
+    "ride"
+  ],
+  "contribution": [
+    "give",
+    "help",
+    "donation",
+    "money",
+    "share",
+    "article"
+  ],
+  "crew": [
+    "team",
+    "ship",
+    "work",
+    "staff",
+    "boat",
+    "people"
+  ],
+  "deposit": [
+    "bank",
+    "money",
+    "pay",
+    "account",
+    "store",
+    "layer"
+  ],
+  "device": [
+    "machine",
+    "tool",
+    "phone",
+    "equipment",
+    "gadget",
+    "electronic"
+  ],
+  "disaster": [
+    "catastrophe",
+    "accident",
+    "flood",
+    "failure",
+    "emergency",
+    "terrible"
+  ],
+  "edition": [
+    "book",
+    "version",
+    "print",
+    "newspaper",
+    "issue",
+    "publish"
+  ],
+  "emergency": [
+    "urgent",
+    "help",
+    "accident",
+    "ambulance",
+    "crisis",
+    "danger"
+  ],
+  "escalator": [
+    "stairs",
+    "moving",
+    "shopping",
+    "rise",
+    "floor",
+    "step"
+  ],
+  "eyelash": [
+    "eye",
+    "hair",
+    "blink",
+    "lid",
+    "face",
+    "mascara"
+  ],
+  "feedback": [
+    "comment",
+    "response",
+    "review",
+    "opinion",
+    "sound",
+    "improve"
+  ],
+  "headquarters": [
+    "office",
+    "base",
+    "company",
+    "military",
+    "centre",
+    "command"
+  ],
+  "humidity": [
+    "wet",
+    "air",
+    "moisture",
+    "weather",
+    "hot",
+    "damp"
+  ],
+  "hydrangea": [
+    "flower",
+    "garden",
+    "bush",
+    "blue",
+    "pink",
+    "bloom"
+  ],
+  "insurance": [
+    "protect",
+    "policy",
+    "cover",
+    "risk",
+    "claim",
+    "money"
+  ],
+  "junction": [
+    "road",
+    "join",
+    "crossing",
+    "railway",
+    "intersection",
+    "meet"
+  ],
+  "mailbox": [
+    "letter",
+    "post",
+    "mail",
+    "box",
+    "delivery",
+    "address"
+  ],
+  "mermaid": [
+    "sea",
+    "woman",
+    "fish",
+    "tail",
+    "fairy",
+    "swim"
+  ],
+  "niece": [
+    "nephew",
+    "family",
+    "aunt",
+    "uncle",
+    "girl",
+    "relative"
+  ],
+  "orchestra": [
+    "music",
+    "instrument",
+    "conductor",
+    "concert",
+    "violin",
+    "play"
+  ],
+  "photograph": [
+    "picture",
+    "camera",
+    "image",
+    "photo",
+    "snapshot",
+    "portrait"
+  ],
+  "playground": [
+    "play",
+    "child",
+    "school",
+    "swing",
+    "slide",
+    "park"
+  ],
+  "prediction": [
+    "future",
+    "forecast",
+    "guess",
+    "weather",
+    "expect",
+    "outcome"
+  ],
+  "procedure": [
+    "process",
+    "method",
+    "step",
+    "instruction",
+    "operation",
+    "rule"
+  ],
+  "reek": [
+    "smell",
+    "stink",
+    "odour",
+    "bad",
+    "scent",
+    "strong"
+  ],
+  "resident": [
+    "live",
+    "house",
+    "home",
+    "local",
+    "person",
+    "inhabit"
+  ],
+  "resource": [
+    "supply",
+    "material",
+    "useful",
+    "help",
+    "money",
+    "natural"
+  ],
+  "rotation": [
+    "turn",
+    "spin",
+    "circle",
+    "wheel",
+    "axis",
+    "movement"
+  ],
+  "scholarship": [
+    "student",
+    "university",
+    "money",
+    "study",
+    "award",
+    "education"
+  ],
+  "staircase": [
+    "stairs",
+    "step",
+    "floor",
+    "climb",
+    "house",
+    "landing"
+  ],
+  "stationery": [
+    "paper",
+    "pen",
+    "write",
+    "office",
+    "pencil",
+    "letter"
+  ],
+  "sudden": [
+    "quick",
+    "unexpected",
+    "surprise",
+    "abrupt",
+    "change",
+    "shock"
+  ],
+  "suitcase": [
+    "luggage",
+    "bag",
+    "travel",
+    "clothes",
+    "pack",
+    "holiday"
+  ],
+  "sun": [
+    "light",
+    "heat",
+    "day",
+    "star",
+    "warm",
+    "sky"
+  ],
+  "supplier": [
+    "supply",
+    "goods",
+    "company",
+    "delivery",
+    "shop",
+    "provide"
+  ],
+  "textbook": [
+    "book",
+    "school",
+    "learn",
+    "study",
+    "subject",
+    "student"
+  ],
+  "thrush": [
+    "bird",
+    "song",
+    "small",
+    "feather",
+    "nest",
+    "sing"
+  ],
+  "tissue": [
+    "paper",
+    "soft",
+    "skin",
+    "body",
+    "cell",
+    "wipe"
+  ],
+  "translation": [
+    "language",
+    "word",
+    "meaning",
+    "interpret",
+    "foreign",
+    "text"
+  ],
+  "washcloth": [
+    "cloth",
+    "wash",
+    "clean",
+    "face",
+    "bath",
+    "water"
+  ],
+  "jasmine": [
+    "flower",
+    "scent",
+    "plant",
+    "tea",
+    "perfume",
+    "garden"
+  ],
+  "owner": [
+    "own",
+    "possession",
+    "property",
+    "house",
+    "business",
+    "control"
+  ],
+  "postage": [
+    "stamp",
+    "letter",
+    "mail",
+    "post",
+    "envelope",
+    "cost"
+  ],
+  "pressure": [
+    "force",
+    "push",
+    "stress",
+    "air",
+    "blood",
+    "weight"
+  ],
+  "retirement": [
+    "work",
+    "pension",
+    "old",
+    "job",
+    "leave",
+    "age"
+  ],
+  "swimming": [
+    "water",
+    "pool",
+    "swim",
+    "sport",
+    "sea",
+    "stroke"
+  ],
+  "term": [
+    "word",
+    "period",
+    "time",
+    "school",
+    "condition",
+    "name"
+  ],
+  "trademark": [
+    "brand",
+    "name",
+    "logo",
+    "company",
+    "symbol",
+    "registered"
+  ]
+}
