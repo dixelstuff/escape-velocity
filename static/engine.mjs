@@ -10,6 +10,7 @@ import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
 import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';
+import {contactAdjustmentSettings,contactAdjustmentTerms,standardContactEligible,newContactRule} from './contact-adjustments.mjs?v=contact-allowances-v1';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -112,8 +113,11 @@ export class Game {
     this.family_rescue=['golf-distance-v3','golf-fixed-v3'].includes(this.rules)&&(options.family_rescue??!Array.isArray(options.history));
     this.plural_tolerance=options.plural_tolerance??(Array.isArray(options.history)?.02:.025);
     this.backward_allowance=modern?.01:Math.max(0,Math.min(.01,.05*(this.threshold-this.baseline)));
+    const contactRule=contactAdjustmentSettings(options.contact_adjustment);
+    if(contactRule){if(!standardContactEligible(this))throw Error('Contact adjustments require standard dogleg rules.');this.contact_adjustment=contactRule;}
   }
   sameWord(a,b){return this.e.resolveSpelling?this.e.resolveSpelling(a)===this.e.resolveSpelling(b):a===b;}
+  contactTerms(word){return contactAdjustmentTerms(this.e,this.current,word,this.target);}
   requirement(origin,word,current=this.e.cosine(origin,this.target),destination=this.e.cosine(word,this.target)) {
     const launch=launchRequirement(current,destination,this.baseline,this.threshold,this.launch_min,this.launch_max,
       ['distance-v3','golf-distance-v1','golf-distance-v2','golf-distance-v3'].includes(this.rules));
@@ -125,6 +129,14 @@ export class Game {
       launch.required+=launch.hub_surcharge;
     }
     return launch;
+  }
+  /** Direct submitted-contact estimate for bounded assessment filters; exact
+   * legality (including rescue and fixed destination) still uses pluralShot. */
+  contactRequirement(origin,word,current=undefined,destination=undefined){
+    const launch=this.requirement(origin,word,current,destination);
+    if(!this.contact_adjustment||this.history.length<this.contact_adjustment.after)return launch;
+    const terms=contactAdjustmentTerms(this.e,origin,word,this.target);
+    return {...launch,required:Math.max(0,launch.required-terms.net)};
   }
   finishRequirement(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
     const entry=this.history?.at(-1);
@@ -181,7 +193,10 @@ export class Game {
   }
   shotResult(word,displayWord=word) {
     const launch=this.e.cosine(this.current,word),{destination,destination_word}=this.waypointDestination(word);
-    const {required,trip_fraction,hub_surcharge}=this.requirement(this.current,word,undefined,destination);
+    const ordinary=this.requirement(this.current,word,undefined,destination);
+    // Only submitted contact changes. Finishing calls to requirement() stay ordinary.
+    const terms=this._contactAdjustment;
+    const {trip_fraction,hub_surcharge}=ordinary,required=terms?Math.max(0,ordinary.required-terms.net):ordinary.required;
     const boundary=destination+1e-7>=this.baseline;
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
@@ -231,6 +246,20 @@ export class Game {
   }
   /** Existing plural rescue wins first. New saves explicitly retain the family rule. */
   pluralShot(word) {
+    if(!this.contact_adjustment||this.history.length<this.contact_adjustment.after)return this.ordinaryPluralShot(word);
+    const prior=this._contactAdjustment;
+    try{
+      // The ordinary representation fixes semantic destination before contact is adjusted.
+      this._contactAdjustment=null;
+      const original=this.ordinaryPluralShot(word);
+      this._contactAdjustment=this.contactTerms(word);
+      const adjusted=this.ordinaryPluralShot(word);
+      if(Math.abs(adjusted.destination-original.destination)<1e-7)return adjusted;
+      const direct=this.shotResult(word);
+      return Math.abs(direct.destination-original.destination)<1e-7?direct:original;
+    }finally{this._contactAdjustment=prior;}
+  }
+  ordinaryPluralShot(word) {
     const original=this.pluralResult(word);
     if(!this.family_rescue||original.won||(original.scoring_word&&!original.destination_word)||original.contact_word||this.sameWord(word,this.target)||!original.safe)return original;
     const hitNear=!original.connected&&original.required-original.launch<=.025+1e-7;
@@ -297,6 +326,7 @@ export class Game {
       ...(this.semantic_bunker?{semantic_bunker:this.semantic_bunker,...(this.bunker_hit_only_after!=null?{bunker_hit_only_after:this.bunker_hit_only_after}:{})}:{}),
       ...(this.bunker_experiment?{bunker_experiment:this.bunker_experiment}:{}),
       ...(this.spelling_equivalence?{spelling_equivalence:this.spelling_equivalence}:{}),
+      ...(this.contact_adjustment?{contact_adjustment:{...this.contact_adjustment}}:{}),
       ...(this.abandoned?{abandoned:true}:{}),
       ...(this.golden_paths.length?{golden_paths:this.golden_paths}:{}),
       ...(this.resumed_from?{resumed_from:this.resumed_from}:{}),
@@ -445,6 +475,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
       // Adopt the rule for new exploration without reinterpreting assumed shots.
       settings.second_leg_finish_after=saved.second_leg_finish_span?Math.min(saved.second_leg_finish_after??0,through):through;
     }
+    if(standardContactEligible(saved))settings.contact_adjustment=newContactRule(Math.min(saved.contact_adjustment?.after??through,through));
     const candidate=new Game(embeddings,saved.start,saved.final_target??saved.target,saved.final_threshold??saved.threshold,settings);
     for(const event of saved.history.slice(0,through))candidate.submit(event.word);
     game=candidate;return {state:game.state()};
@@ -456,16 +487,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=finishing-role82-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=finishing-role82-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=finishing-role82-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=finishing-role82-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=finishing-role82-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=finishing-role82-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=finishing-role82-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=finishing-role82-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=finishing-role82-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=finishing-role82-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=finishing-role82-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=finishing-role82-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=finishing-role82-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=contact-allowances-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-allowances-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-allowances-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=contact-allowances-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=contact-allowances-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-allowances-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-allowances-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=contact-allowances-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-allowances-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-allowances-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-allowances-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=contact-allowances-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=contact-allowances-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=finishing-role82-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=contact-allowances-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -479,14 +510,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=finishing-role82-v1')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=contact-allowances-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}
     if(path==='waypoint-access')return waypointLegAccess(embeddings,body);
     if (path === 'new') {
       if(body.validate_waypoint){const validation=waypointLegAccess(embeddings,body);if(!validation.allowed)throw Error(validation.message+' Choose a less directly connected pair.');}
-      const candidate=new Game(embeddings,body.start,body.target,body.threshold,{...body,...(body.waypoint?{dogleg_finish_rule:{version:DOGLEG_FINISH_RULE,after:0}}:{})});
+      const settings={...body,...(body.waypoint?{dogleg_finish_rule:{version:DOGLEG_FINISH_RULE,after:0}}:{})};
+      if(standardContactEligible({...settings,rules:settings.rules??'golf-distance-v3'}))settings.contact_adjustment=newContactRule(0);
+      const candidate=new Game(embeddings,body.start,body.target,body.threshold,settings);
       if(body.validate_direct){
         const check=new Game(embeddings,body.start,body.target,body.threshold,body);
         if(check.submit(check.target).won)throw Error('These words allow a direct hole in one. Choose a more distant pair.');
@@ -517,8 +550,10 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
       if (!game) throw Error('Start a new hole first.');
       // Adopt the correction on the next new shot, without replaying old shots
       // differently or changing the live game on an invalid input.
-      const adopt=game.waypoint&&(!game.dogleg_finish_rule||game.stage===0&&!game.waypoint_rescue||game.semantic_bunker&&game.bunker_hit_only_after==null);
+      const adoptContact=standardContactEligible(game)&&!game.contact_adjustment;
+      const adopt=adoptContact||game.waypoint&&(!game.dogleg_finish_rule||game.stage===0&&!game.waypoint_rescue||game.semantic_bunker&&game.bunker_hit_only_after==null);
       const candidate=adopt?Object.assign(Object.create(Game.prototype),game,{...(game.semantic_bunker&&game.bunker_hit_only_after==null?{bunker_hit_only_after:game.history.length}:{}),history:game.history.slice(),route:game.route.slice(),automatic_shots:game.automatic_shots.slice(),dogleg_finish_rule:game.dogleg_finish_rule??{version:DOGLEG_FINISH_RULE,after:game.history.length},...(game.stage===0&&!game.waypoint_rescue?{waypoint_rescue:{version:WAYPOINT_RESCUE_GEOMETRY,after:game.history.length}}:{})}):game;
+      if(adoptContact)candidate.contact_adjustment=newContactRule(game.history.length);
       const event=candidate.submit(body.word);game=candidate;return {event,state:game.state()};
     }
     throw Error('Unknown game operation.');

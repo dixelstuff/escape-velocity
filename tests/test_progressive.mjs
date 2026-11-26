@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {progressiveModel} from '../static/progressive-model.mjs';
 import {decodeHalf,Embeddings,Game,createBrowserClient} from '../static/engine.mjs';
+import {newContactRule} from '../static/contact-adjustments.mjs';
 const base=new URL('../static/model/',import.meta.url),read=name=>readFileSync(new URL(name,base));
 const config=JSON.parse(read('config.json')),words=JSON.parse(read(config.words_file)),manifest=JSON.parse(read(config.progressive.manifest_file));
 const raw=read(config.vector_fallback),exact=decodeHalf(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength));
@@ -46,7 +47,7 @@ try{
  const settings={start:'penguin',target:'galaxy',waypoint:{word:'library',threshold:.27},finish_mode:'range',mode:'distance'};
  await client.request('new',settings);
  const actual=await client.request('submit',{word:'books'});
- const reference=new Game(new Embeddings(words,exact,300,new Uint8Array(read(config.hub_file))),settings.start,settings.target,undefined,{...settings,dogleg_finish_rule:{version:'strong-arrival-v1',after:0}});reference.submit('books');
+ const reference=new Game(new Embeddings(words,exact,300,new Uint8Array(read(config.hub_file))),settings.start,settings.target,undefined,{...settings,contact_adjustment:newContactRule(0),dogleg_finish_rule:{version:'strong-arrival-v1',after:0}});reference.submit('books');
  assert.deepEqual(actual.state,reference.state(),'on-demand waypoint shot has identical scoring');
  assert.deepEqual(client.chipRange(actual.state), (await import('../static/chip-range.mjs')).chipRange(reference));
  assert.equal(client.canFinish(actual.state),reference.finishesFrom(reference.current,reference.progress));

@@ -1,0 +1,31 @@
+{
+  "model_sha256": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
+  "wordfreq_version": "3.1.1",
+  "words": 36063,
+  "pairs": 30858,
+  "source_counts": [
+    {
+      "name": "Princeton WordNet 3.0",
+      "terms": 29946,
+      "pairs": 29554,
+      "additionalPairs": 29554
+    },
+    {
+      "name": "Open English Wordnet 2025",
+      "terms": 31000,
+      "pairs": 30583,
+      "additionalPairs": 1198
+    },
+    {
+      "name": "English Wiktionary via Kaikki: complete phrase-POS extract",
+      "terms": 113,
+      "pairs": 112,
+      "additionalPairs": 106
+    }
+  ],
+  "bytes": 658561,
+  "gzip_bytes": 284534,
+  "sha256": "a2ad5f81f6f30332212cc985bb762353b4701bcd459d6f52a3d2d3968a05b723",
+  "frequency_sha256": "d15ebd2b8e595696f9a5276badab49e5e124c41e012f541cfed86318f2bdf06d",
+  "extract_sha256": "fdf352cbe1989c0a8238147c8f828d2ea032c28d558c3c51322e845e6c77dd32"
+}

@@ -1,4 +1,4 @@
-import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=finishing-role82-v1';
+import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=contact-allowances-v1';
 export const WAYPOINT_PAR_VERSION='waypoint-par-v1';
 const caches=new WeakMap();
 function similarityRow(e,word){
@@ -25,7 +25,7 @@ export function assessWaypointHole(embeddings,settings,{allowDirectLegs=false}={
   const contact=similarityRow(e,g.current),destination=similarityRow(e,g.target),current=destination[e.index.get(g.current)],candidates=[];
   for(let i=0;i<e.words.length;i++){
    const word=e.words[i];if(word===g.current||!/^([a-z]{2,20})$/.test(word)||g.stage===1&&word===g.waypoint.word&&g.history.some(h=>h.success&&h.word===word))continue;
-   const required=g.requirement(g.current,word,current,destination[i]).required;
+   const required=g.contactRequirement(g.current,word,current,destination[i]).required;
    // Keep near-boundary variants for the exact plural-rescue check below.
    if(contact[i]+.025+1e-7<required||destination[i]+.025+1e-7<g.best_progress-g.backward_allowance)continue;
    const gain=(Math.min(destination[i],g.threshold)-Math.min(current,g.threshold))/Math.max(.03,g.threshold-g.baseline),margin=contact[i]-required;

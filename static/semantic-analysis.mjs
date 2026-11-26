@@ -1,5 +1,5 @@
 /** Completed-route semantic experiments. Never used by shots, strokes or ranks. */
-import {Game} from './engine.mjs?v=finishing-role82-v1';
+import {Game} from './engine.mjs?v=contact-allowances-v1';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {withHeadwind} from './headwind.mjs?v=golf-v189';
 import {analyseJourney} from './semantic-journey.mjs?v=golf-v189';
@@ -40,6 +40,7 @@ export function semanticRouteKey(saved){
  if(saved.second_leg_finish_span>0)key.push({second_leg_finish_span:saved.second_leg_finish_span,second_leg_finish_after:saved.second_leg_finish_after??0});
  if(saved.dogleg_finish_rule)key.push({dogleg_finish_rule:saved.dogleg_finish_rule});
  if(saved.waypoint_rescue)key.push({waypoint_rescue:saved.waypoint_rescue});
+ if(saved.contact_adjustment)key.push({contact_adjustment:saved.contact_adjustment});
  if(saved.spelling_equivalence)key.push({spelling_equivalence:saved.spelling_equivalence});
  if(saved.semantic_bunker)key.push({semantic_bunker:saved.semantic_bunker});
  if(saved.semantic_bunker&&saved.bunker_hit_only_after!=null)key.push({bunker_hit_only_after:saved.bunker_hit_only_after});

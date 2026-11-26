@@ -1,5 +1,5 @@
 /** Structural hole estimate; this is not a human skill rating or a shortest-path claim. */
-import { Game } from './engine.mjs?v=finishing-role82-v1';
+import { Game } from './engine.mjs?v=contact-allowances-v1';
 export function assessHole(e,settings){
   const game=new Game(e,settings.start,settings.target,settings.threshold??.27,{mode:'distance',launch_min:.095,launch_max:.215,...settings});
   e=game.e;
@@ -15,7 +15,7 @@ export function assessHole(e,settings){
     contact=Math.max(-1,Math.min(1,contact));destination=Math.max(-1,Math.min(1,destination));
     if(e.scaleSimilarity){contact=e.scaleSimilarity(i,si/d,contact);destination=e.scaleSimilarity(i,ti/d,destination);}
     contacts[i]=contact;progress[i]=destination;
-    const required=game.requirement(start,e.words[i],baseline,destination).required;
+    const required=game.contactRequirement(start,e.words[i],baseline,destination).required;
     if(e.words[i]===start)continue;
     const shot=game.pluralShot(e.words[i]);
     if(!shot.success)continue;
@@ -31,7 +31,7 @@ export function assessHole(e,settings){
       if(!game.finishesFrom(e.words[j],progress[j]))continue;
       let contact=0;for(let k=0;k<d;k++)contact+=e.vectors[i*d+k]*e.vectors[j*d+k];
       contact=Math.max(-1,Math.min(1,contact));if(e.scaleSimilarity)contact=e.scaleSimilarity(i,j,contact);
-      const required=game.requirement(e.words[i],e.words[j],progress[i],progress[j]).required;
+      const required=game.contactRequirement(e.words[i],e.words[j],progress[i],progress[j]).required;
       found=contact+1e-7>=required;
     }
     if(found)twoStepOpenings++;

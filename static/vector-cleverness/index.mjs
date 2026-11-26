@@ -1,15 +1,15 @@
-import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=finishing-role82-v1';
+import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=contact-allowances-v1';
 import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
-import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=finishing-role82-v1';
+import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=contact-allowances-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=finishing-role82-v1';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=finishing-role82-v1';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=contact-allowances-v1';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=contact-allowances-v1';
 import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=cubic-results-v1';
 import {rescoreV66} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=finishing-role82-v1';
-import {restoreFinishingRole,FINISHING_ROLE_VERSION} from '../finishing-role.mjs?v=finishing-role82-v1';
+import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=contact-allowances-v1';
+import {restoreFinishingRole,FINISHING_ROLE_VERSION} from '../finishing-role.mjs?v=contact-allowances-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
