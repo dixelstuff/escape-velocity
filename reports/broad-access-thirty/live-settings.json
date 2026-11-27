@@ -1,0 +1,14 @@
+{
+  "contact_adjustment": {
+    "version": "frequency-phrases-v2",
+    "after": 0
+  },
+  "contactPairTableSha256": "543a1178a8d7d019175ca9bf1363f8cb4a0b18b54aa464a0a6abfb896ebb9cc4",
+  "modelConfigSha256": "ac299c17bad231363811584b6ab1cf0de243559c70edd3526f4866f639aa0628",
+  "dogleg_finish_rule": {
+    "version": "strong-arrival-v1",
+    "after": 0
+  },
+  "second_leg_finish_span": 0.12,
+  "spelling_equivalence": "uk-us-v1"
+}

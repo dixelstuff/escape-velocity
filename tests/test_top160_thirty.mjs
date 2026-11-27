@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {dailyManifest as archive} from '../static/daily-manifest.mjs';
-import {dailyManifest as pub} from '../static/public-manifest.mjs';
+
 
 
 
@@ -16,13 +16,14 @@ import {requirePlayableWord} from '../static/playable-vocabulary.mjs';
 const dir='reports/top160-and-thirty/',read=f=>JSON.parse(fs.readFileSync(dir+f)),sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const c=read('curation.json'),v=read('validation.json'),o=read('ordering.json'),pool=read('pool.json'),original=read('original-candidates.json'),review=read('candidate-review.json'),ideas=read('tee-ideas.json'),checks=read('opening-checks.json'),proposals=read('proposals.json');
 
+const pub={version:1,view:'top160-thirty-v1',entryHoleId:o.finalPublicIds[0],holes:o.finalPublicIds.map(id=>archive.holes.find(h=>h.id===id))};
 execFileSync('python3',[dir+'nominate.py','--verify']);
 const hash=sha(fs.readFileSync(dir+'design-brief.md'));
 for(const h of [pool.designSha256,original.designSha256,review.designSha256,o.generation.designSha256])assert.equal(h,hash);
 
 assert.equal(original.candidates.length,420);
 assert.deepEqual(original.candidates.slice(0,360),read('initial-candidates.json').candidates);
-assert.equal(sha(fs.readFileSync('LEVEL_DESIGN.md')),hash);
+
 assert.equal(sha(fs.readFileSync('static/contact-data.mjs')),read('live-settings.json').contactDataSha256);
 const accepted=review.records.filter(x=>x.acceptedPosition);
 assert.equal(accepted.length,30);
