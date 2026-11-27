@@ -118,7 +118,7 @@ const models=new WeakMap();
 export function spellingResolver(e){
  if(models.has(e))return models.get(e);
  const aliases=new Map();
- for(const [us,uk]of spellingPairs){const canonical=e.index.has(us)?us:e.index.has(uk)?uk:null;if(canonical){aliases.set(us,canonical);aliases.set(uk,canonical);}}
+ for(const [us,uk]of spellingPairs){const n=e.referenceVocabulary,oldUS=e.index.has(us)&&(!n||e.index.get(us)<n),oldUK=e.index.has(uk)&&(!n||e.index.get(uk)<n);const canonical=oldUS?us:oldUK?uk:e.index.has(us)?us:e.index.has(uk)?uk:null;if(canonical){aliases.set(us,canonical);aliases.set(uk,canonical);}}
  const resolve=word=>aliases.get(word)??word;const index={get:word=>e.index.get(resolve(word)),has:word=>e.index.has(resolve(word)),size:e.index.size};
  for(const key of ['keys','values','entries','forEach',Symbol.iterator])index[key]=e.index[key].bind(e.index);
  const model=Object.create(e);Object.assign(model,{index,spelling_equivalence:SPELLING_EQUIVALENCE,resolveSpelling:resolve,cosine:(a,b)=>e.cosine(resolve(a),resolve(b)),hub:w=>e.hub?.(resolve(w))??0});

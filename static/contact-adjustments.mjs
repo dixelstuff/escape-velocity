@@ -1,6 +1,6 @@
 /** Versioned submitted-contact policy; never chooses a semantic destination. */
-import data from './contact-pair-table.mjs?v=contact-pairs-v2';
-import {spellingIdentity} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
+import data from './contact-pair-table.mjs?v=vocabulary-expansion-v1';
+import {spellingIdentity} from './spelling-equivalence.mjs?v=vocabulary-expansion-v1';
 export const CONTACT_ADJUSTMENT_VERSION='frequency-phrases-v2';
 export const LEGACY_CONTACT_ADJUSTMENT_VERSION='frequency-phrases-v1';
 const unpack=base64=>Uint8Array.from(atob(base64),c=>c.charCodeAt(0));
@@ -20,11 +20,12 @@ const registry=globalThis[registryKey]??(globalThis[registryKey]={models:new Wea
 const vocabularies=registry.models;
 function fingerprint(words){let h=2166136261;for(const word of words){for(let i=0;i<word.length;i++)h=Math.imul(h^word.charCodeAt(i),16777619)>>>0;h=Math.imul(h^10,16777619)>>>0;}return h.toString(16).padStart(8,'0');}
 export function bindContactModel(e){
- const words=e?.words;if(!Array.isArray(words)||words.length!==data.wordCount)return null;
+ const words=e?.words;if(!Array.isArray(words))return null;
+ const compatible=(data.compatibleVocabularies??[{wordCount:data.wordCount,vocabulary:data.vocabulary}]).find(v=>v.wordCount===words.length);if(!compatible)return null;
  let index=vocabularies.get(words);
  if(!index){
-  if(fingerprint(words)!==data.vocabulary)throw Error('Contact data does not match the word model.');
-  index=new Map();words.forEach((w,i)=>{const id=spellingIdentity(w);if(!index.has(id)||w===id)index.set(id,i);});vocabularies.set(words,index);
+  if(fingerprint(words)!==compatible.vocabulary)throw Error('Contact data does not match the word model.');
+  index=new Map();words.forEach((w,i)=>{const id=spellingIdentity(w);if(!index.has(id)||w===id&&(i<(data.baseWordCount??data.wordCount)||index.get(id)>=(data.baseWordCount??data.wordCount)))index.set(id,i);});vocabularies.set(words,index);
  }
  registry.bound=index;return index;
 }

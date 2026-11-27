@@ -28,7 +28,7 @@ assert.deepEqual(contactRuleForRetry(mixed,4),mixed);
 assert.throws(()=>contactAdjustmentSettings({version:V2,after:1,previous:{version:V1,after:1}}),/previous/);
 
 const fixtures=JSON.parse(fs.readFileSync('tests/fixtures/contact-pairs-v2.json'));
-assert.equal(fixtures.model_sha256,config.vector_sha256);assert.equal(fixtures.cases.length,101);
+assert.equal(fixtures.model_sha256,config.vocabulary_extension?.base_vector_sha256??config.vector_sha256);assert.equal(fixtures.cases.length,101);
 for(const c of fixtures.cases){
  const make=()=>{const s=c.settings,g=new Game(e,s.start,s.final_target,s.final_threshold,s);for(const w of c.prefix)g.submit(w);return g;};
  const old=make();old.contact_adjustment=old.contact_adjustment??{version:V1,after:old.history.length};

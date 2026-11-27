@@ -12,7 +12,7 @@ assert.equal(hash(hubs.subarray(0,n)),extension.baseline.hub_sha256);
 assert.equal(hash(Buffer.from(JSON.stringify(words.slice(0,n)))),extension.baseline.word_list_sha256);
 assert.equal(hash(read('static/model/'+config.word_models['abtt-1-v1'].vector_fallback).subarray(0,n*600)),extension.baseline.abtt_sha256);
 assert.equal(hash(read('static/model/'+config.word_models['ls15-v1'].radius_file).subarray(0,n*4)),extension.baseline.ls_radius_sha256);
-assert.equal(words.length,extension.total);assert.equal(config.progressive.starter_words,5000);
+assert.equal(words.length,extension.total+(config.vocabulary_extension?.added??0));assert.equal(config.progressive.starter_words,5000);
 for(const word of ['abseil','abseiling','rappel','rappelling','carabiner','belay','crampons','bivouac','seashell','acoustics','tailoring','wetsuit'])assert.ok(e.index.has(word),word);
 assert.ok(familyVariants('bacteria').includes('bacterial'));assert.ok(familyVariants('bacterial').includes('bacteria'));assert.ok(!familyVariants('bacteria').includes('bacteria'));assert.ok(!familyVariants('pathology').includes('pathological'));
 const hole=JSON.parse(read('data/new-mixed-holes.json')).find(h=>h.start==='sponge');

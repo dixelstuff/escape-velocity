@@ -1,8 +1,8 @@
 {
   "version": "semantic-profiles-v4",
-  "model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0",
-  "words_sha": "6b25d177b8e9e39b416fbaecc964824e187d0b4b97cde8a747ece171fe12fe56",
-  "vocabulary": 36306,
+  "model_sha": "27e03f67822a60c167374ada30886b1d9e405c7f14cc5ce5c26fcaa0109a5eb1",
+  "words_sha": "1190ab2354a10ee408302f9474af21a5cb3aff81c4298e3187ec9aebe96cd49c",
+  "vocabulary": 38128,
   "dimensions": 300,
   "scales": [
     25,
@@ -1996,11 +1996,109 @@
       "count": 128
     },
     {
-      "file": "profiles-283.bin",
-      "gzip": "profiles-283.bin.gz",
-      "sha256": "470eded56c287be310e21a12a252641ea24798c2af909d0f4ace9a2b8b5d1635",
-      "gzip_sha256": "bc5151ff3f4edbc61b3c7d483c525cf0139bb24fa4d45bc3eb69021d9bc519dd",
-      "count": 82
+      "file": "profiles-283-c1f5bbeb0b12.bin",
+      "gzip": "profiles-283-c1f5bbeb0b12.bin.gz",
+      "sha256": "c1f5bbeb0b12cbbe3a88aec00667dda86318530f188a52bcd46a2a6ccab19a2a",
+      "gzip_sha256": "c15960f8e832400f0e90c0537d285ec42f7e386023f2ffc4548c4e192b8109a4",
+      "count": 128
+    },
+    {
+      "file": "profiles-284-0b29ac867be7.bin",
+      "gzip": "profiles-284-0b29ac867be7.bin.gz",
+      "sha256": "0b29ac867be783ace7f11d2bed95f3adfa41bcea34f99edf4ad0d5caa2bc6b1c",
+      "gzip_sha256": "2ae2bb640759555e0d96e2f3dfec6d99a4ba668c45b98fae58a2b22f4fed602b",
+      "count": 128
+    },
+    {
+      "file": "profiles-285-e1ee0a0f40a2.bin",
+      "gzip": "profiles-285-e1ee0a0f40a2.bin.gz",
+      "sha256": "e1ee0a0f40a2c8945129ae077d5c17240d07445cff0a954df2e6fd8a182205d7",
+      "gzip_sha256": "ac5cf03268ad686ad3002e98b319fa7522ef92b860e51fbbbec9054a9c349ead",
+      "count": 128
+    },
+    {
+      "file": "profiles-286-d8da712677e5.bin",
+      "gzip": "profiles-286-d8da712677e5.bin.gz",
+      "sha256": "d8da712677e583ed68fd08a1b15765055daa3c0db9ca6ce1ad520f4f6edc585f",
+      "gzip_sha256": "52e3ffff501a58aa2773dfc39524921083410c978f6fef62a0caa177e0bf17dc",
+      "count": 128
+    },
+    {
+      "file": "profiles-287-a9b9caaeabba.bin",
+      "gzip": "profiles-287-a9b9caaeabba.bin.gz",
+      "sha256": "a9b9caaeabbae71077b9bf10025c5323f7810ef4f4c1eb05dcddd24b1d3dcb9a",
+      "gzip_sha256": "4a019b1e81828344e2328e21d217ec57d44bc9da1c946fe3af59a32fa9da2e75",
+      "count": 128
+    },
+    {
+      "file": "profiles-288-805409b04dcd.bin",
+      "gzip": "profiles-288-805409b04dcd.bin.gz",
+      "sha256": "805409b04dcd335839c7e9916be5224f78924b3bf9ddaf3c0c13bbe06b323e13",
+      "gzip_sha256": "0fe88d539dc090bcff4d759aa61c38feca545f3e57284b0aa7549e3d98e133a5",
+      "count": 128
+    },
+    {
+      "file": "profiles-289-0304a85fb0bb.bin",
+      "gzip": "profiles-289-0304a85fb0bb.bin.gz",
+      "sha256": "0304a85fb0bb73da3dcee11bcd355380a5aeb0a92e6e4bab0c5ace917691201a",
+      "gzip_sha256": "6cfe26aa1ffa60bef493ac15a9c2ad8909e3959881504c171b063e6bfca833b4",
+      "count": 128
+    },
+    {
+      "file": "profiles-290-0dbe67e36cbc.bin",
+      "gzip": "profiles-290-0dbe67e36cbc.bin.gz",
+      "sha256": "0dbe67e36cbcf9ae85921fccfef38137391c16b6ec2044bd49eb1a25c56eae27",
+      "gzip_sha256": "90e4b38ade3155355bbd30ad03564d25a0f6e5f1565103f8c12b827f42d10246",
+      "count": 128
+    },
+    {
+      "file": "profiles-291-ad7c7c3bd39e.bin",
+      "gzip": "profiles-291-ad7c7c3bd39e.bin.gz",
+      "sha256": "ad7c7c3bd39e764e5e865069329affd9c18ac7ae725f40b53c91d03ca0c70645",
+      "gzip_sha256": "0d26e6b97a47131bce7a4074722b1d7494a90509dcaebdaaafac4f9e0cbe96a6",
+      "count": 128
+    },
+    {
+      "file": "profiles-292-fb2444475a75.bin",
+      "gzip": "profiles-292-fb2444475a75.bin.gz",
+      "sha256": "fb2444475a759a5aa7c277cf82bc9165412daea63e84d1d1cfb5b463a9b79631",
+      "gzip_sha256": "da31d6ab98c8bb694e8e92bc3ba7b21a5677fa6fd5f3846f35708455bffdf519",
+      "count": 128
+    },
+    {
+      "file": "profiles-293-d175f4db686c.bin",
+      "gzip": "profiles-293-d175f4db686c.bin.gz",
+      "sha256": "d175f4db686c3e2ccf8e8b12a0211afc902b902be3169e3a499fac938935a440",
+      "gzip_sha256": "3aab9be42d172705054a218d2febb4e14cceadd783141038a12e05803df20490",
+      "count": 128
+    },
+    {
+      "file": "profiles-294-3a09e00ec318.bin",
+      "gzip": "profiles-294-3a09e00ec318.bin.gz",
+      "sha256": "3a09e00ec318e56e169343808a79d4f1e92afbeb41077a77669e9bd65ed2a092",
+      "gzip_sha256": "66724b2c799adcd0b3a0e45340d6a7e83968bbda4009371f6a54f036ced522ef",
+      "count": 128
+    },
+    {
+      "file": "profiles-295-1dc39836e11a.bin",
+      "gzip": "profiles-295-1dc39836e11a.bin.gz",
+      "sha256": "1dc39836e11aed6c6f6249b590411c62619ca0ef71860b1d35e8fd7926a7c87f",
+      "gzip_sha256": "09c0615d5b18e7ba201bd20b3c22f1433d8d99cc4bb7070df894edca1640e433",
+      "count": 128
+    },
+    {
+      "file": "profiles-296-c4c9cd7ea624.bin",
+      "gzip": "profiles-296-c4c9cd7ea624.bin.gz",
+      "sha256": "c4c9cd7ea624a92110e24997022c246e9d73c764246058cec26f8930949eb696",
+      "gzip_sha256": "5e42c7ddad2c38832b12e116447ad0fbd19dfc97dd4c4c2dc07f548b6e6b53c9",
+      "count": 128
+    },
+    {
+      "file": "profiles-297-80a3c98a1727.bin",
+      "gzip": "profiles-297-80a3c98a1727.bin.gz",
+      "sha256": "80a3c98a1727c6dbbbe8dc67c2bb90659e816bd5259f3700ecc0425c47fd69fb",
+      "gzip_sha256": "2ace1633ba1066b9bd4bc3fde42225e14da2b2126b20bc40b6b7c886a2e3bbd5",
+      "count": 112
     }
   ],
   "method": {
@@ -2011,7 +2109,8 @@
     "stability": "Adjusted Rand index against k200 on shared neighbours; labels can swap.",
     "broad_counts": "Float32 similarity threshold sensitivity; possible boundary rounding.",
     "entropy_temperature": 0.1,
-    "no_global_narrowness_score": true
+    "no_global_narrowness_score": true,
+    "extension": "Existing records frozen. Added-word geometry/neighbours and percentiles use the original vocabulary reference. Reciprocity/occurrence measure insertion against original kth-neighbour thresholds."
   },
   "build": {
     "seconds": 63.16754904203117,
@@ -2048,5 +2147,7 @@
       0.244386687874794
     ]
   },
-  "word_order_sha256": "4460910667aef949e8ebec556c4521eeab86c3c145c4c862b8166c276fc9da42"
+  "word_order_sha256": "1c45c481a7966e88b70c42c006adb1a54e7fd426fadd053ebc631002c9996cb3",
+  "reference_vocabulary": 36306,
+  "reference_model_sha": "3d9d067950da6a9f2d5de7edfb18087ab7cfb7f6acd4ce1d8181514e28a441f0"
 }

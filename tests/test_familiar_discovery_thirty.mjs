@@ -57,7 +57,7 @@ assert.equal(oldWords.size,fresh.excludedWordCount);
 const newWords=v.holes.flatMap(h=>[h.settings.start,h.settings.waypoint.word,h.settings.target]).map(spellingIdentity);
 assert.equal(new Set(newWords).size,90);
 assert.ok(newWords.every(w=>!oldWords.has(w)));
-const {e}=loadResearchModel();let hits=0;
+const {e}=loadResearchModel({reference:true});let hits=0;
 for(const [i,h]of v.holes.entries()){
  const s=h.settings;assert.deepEqual([s.start,s.waypoint.word,s.target],accepted[i].words);assert.deepEqual(proposals[i],[...accepted[i].words,ideas[s.start]]);
  assert.equal(waypointLegAccess(e,s).allowed,true);assert.equal(s.par,5);assert.equal(s.second_leg_finish_span,.12);assert.equal(s.spelling_equivalence,'uk-us-v1');assert.deepEqual(s.golden_paths,[]);

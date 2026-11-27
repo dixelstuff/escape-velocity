@@ -1,0 +1,36 @@
+import {FlightLog} from '../static/flight-log.mjs';
+import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+import {Game,Embeddings,decodeHalf,createBrowserClient,restoreGame} from '../static/engine.mjs';
+import {newContactRule,contactFrequency} from '../static/contact-adjustments.mjs';
+import {loadResearchModel,researchSettings} from '../scripts/cleverness-research-utils.mjs';
+import {VectorClevernessAnalyser} from '../static/vector-cleverness/index.mjs';
+import {SemanticAnalyser} from '../static/semantic-analysis.mjs';
+import {SemanticProfileStore,neighbourFingerprint,decodeProfileShard} from '../static/semantic-profile-store.mjs';
+import {spellingResolver} from '../static/spelling-equivalence.mjs';
+const read=p=>fs.readFileSync(p),json=p=>JSON.parse(read(p)),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const selected=json('reports/vocabulary-expansion/selection.json').words,baseline=json('reports/vocabulary-expansion/baseline.json'),{e,config,store}=loadResearchModel(),n=baseline.config.vocabulary;
+assert.equal(n,36306);assert.equal(e.words.length,38128);assert.deepEqual(e.words.slice(n),selected);assert.equal(selected.length,1822);
+const oldWords=json('static/model/'+baseline.config.words_file),oldRaw=read('static/model/'+baseline.config.vector_fallback),raw=read('static/model/'+config.vector_fallback);
+assert.deepEqual(e.words.slice(0,n),oldWords);assert.deepEqual(raw.subarray(0,oldRaw.length),oldRaw);assert.equal(sha(raw),config.vector_sha256);
+assert.deepEqual(read('static/model/'+config.hub_file).subarray(0,n),read('static/model/'+baseline.config.hub_file));
+for(const id of ['abtt-1-v1','ls15-v1']){const a=baseline.config.word_models[id],b=config.word_models[id],key=id==='ls15-v1'?'radius_file':'vector_fallback',before=read('static/model/'+a[key]);assert.deepEqual(read('static/model/'+b[key]).subarray(0,before.length),before);}
+const oldE=new Embeddings(oldWords,decodeHalf(oldRaw.buffer.slice(oldRaw.byteOffset,oldRaw.byteOffset+oldRaw.byteLength)),300,new Uint8Array(read('static/model/'+baseline.config.hub_file)));
+const oldSpell=spellingResolver(oldE),newSpell=spellingResolver(e);for(const w of oldWords)assert.equal(newSpell.resolve(w),oldSpell.resolve(w),'Old spelling choice '+w);
+for(const w of selected){assert.ok(e.index.has(w));const i=e.index.get(w),row=e.vectors.subarray(i*300,(i+1)*300),norm=Math.sqrt(row.reduce((s,v)=>s+v*v,0));assert.ok(Math.abs(norm-1)<.001,w+' valid source row');assert.ok(Number.isFinite(contactFrequency(w,e)),w+' contact frequency');}
+const oldP=json('static/model/'+baseline.config.progressive.manifest_file),newP=json('static/model/'+config.progressive.manifest_file);assert.deepEqual(newP.seed,oldP.seed);assert.deepEqual(newP.starter,oldP.starter);assert.deepEqual(newP.background.slice(0,oldP.background.length),oldP.background);assert.deepEqual(newP.background.at(-1).rows,selected.map((_,i)=>n+i));
+const m=json('static/semantic-profiles/manifest.json'),oldM=json('static/semantic-profiles/'+config.vocabulary_extension.base_profile_manifest);
+const records=manifest=>Buffer.concat(manifest.files.map(f=>{const b=read('static/semantic-profiles/'+f.file);assert.equal(sha(b),f.sha256);const decoded=decodeProfileShard(b,manifest);assert.equal(decoded.profiles.length,f.count);for(const p of decoded.profiles)for(const s of p.scales){assert.ok(Number.isFinite(s.concentration));assert.ok(s.concentration_percentile>=0&&s.concentration_percentile<=1);assert.equal(s.partition.sizes.reduce((a,b)=>a+b),s.k);assert.equal(s.partition.labels.length,s.k);assert.equal(s.partition.labels.filter(v=>v===1).length,s.partition.sizes[1]);assert.ok(s.reciprocal>=0&&s.reciprocal<=s.k);for(const group of s.partition.representatives)for(const id of group)assert.ok(id<n);}return b.subarray(12);}));
+assert.deepEqual(records(m).subarray(0,n*361),records(oldM),'All old semantic profile records stay byte-identical');
+const semantic=new SemanticAnalyser(e),profiles=await store.forWords(e,selected.filter((_,i)=>i%100===0));
+for(const [w,p]of profiles){const row=semantic.row(w),ids=Array.from({length:n},(_,i)=>i).sort((a,b)=>row[b]-row[a]||e.words[a].localeCompare(e.words[b])).slice(0,200);assert.equal(neighbourFingerprint(ids),p.neighbour_fingerprint,'Added profile '+w);}
+// Existing-word rescue cannot start consulting newly available plural vectors.
+const settings=researchSettings('doubtful','studio','cuff');const game=new Game(e,'doubtful','cuff',.27,settings);assert.equal(game.rescueCandidate('knob','knobs'),false);assert.equal(game.rescueCandidate('knobs','knob'),true);
+const fetchBefore=globalThis.fetch,cacheBefore=globalThis.caches;globalThis.caches=undefined;globalThis.fetch=async url=>new Response(read(new URL(url)));
+try{const client=await createBrowserClient({progressive:false});for(const word of ['furnishings','barcode','smartphone','geese','nostrils','cherries']){await client.request('new',settings);const shot=await client.request('submit',{word});assert.equal(shot.event.word,word);assert.deepEqual(restoreGame(e,shot.state).state(),shot.state);}}finally{globalThis.fetch=fetchBefore;globalThis.caches=cacheBefore;}
+const g=new Game(e,'doubtful','cuff',.27,{...settings,contact_adjustment:newContactRule(0)});for(const w of ['dubious','talent','skill','hand'])g.submit(w);assert.ok(g.won);
+const referenceStore=new SemanticProfileStore({modelSha:baseline.config.vector_sha256,manifestFile:config.vocabulary_extension.base_profile_manifest,base:store.base,fetcher:store.fetcher});
+const a=await new VectorClevernessAnalyser(oldE,{modelSha:baseline.config.vector_sha256,store:referenceStore}).analyse(g.state());const analyser=new VectorClevernessAnalyser(e,{modelSha:config.vector_sha256,store}),b=await analyser.analyse(g.state());assert.equal(b.primary_score,a.primary_score);assert.equal(b.band_free.unrounded_score,a.band_free.unrounded_score);assert.deepEqual(b.components,a.components);assert.ok(b.vocabulary_reference_model_sha);
+const memory=new Map(),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)},log=new FlightLog(storage);log.begin(g.state(),'Current',baseline.config.vector_sha256);assert.equal(log.recordClevernessPlaytest({...b,model_sha:'unrelated-model'}),false);assert.equal(log.recordClevernessPlaytest(b),true);assert.equal(log.active.model_sha,config.vector_sha256);assert.deepEqual(log.active.state,g.state());assert.equal(log.active.cleverness_playtest.primary_score,a.primary_score);
+// Exercise a complete real new-word route, not only a profile lookup.
+const addedGame=new Game(e,'chair','decor',.27,{...researchSettings('chair','furniture','decor'),contact_adjustment:newContactRule(0)});addedGame.submit('furnishings');assert.ok(addedGame.won);const completed=addedGame.state();const scored=await analyser.analyse(completed);assert.ok(Number.isFinite(scored.primary_score));assert.deepEqual(scored.route,completed.route);assert.equal(scored.vocabulary_reference_model_sha,undefined);assert.deepEqual(restoreGame(e,completed).state(),completed);
+console.log('Vocabulary expansion passed: exact 1,822 rows; frozen vectors/hubs/aliases/trial data/packs/profiles; new-word browser play, profile fingerprints, scoring and historical score parity.');

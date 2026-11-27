@@ -31,7 +31,7 @@ log.makeId=()=> 'new-round';const fresh=game().state();log.reset(fresh,'test');
 assert.equal(log.recordSkill('round',green),false);assert.equal(JSON.parse(log.exportJSON()).journeys.some(j=>j.skill),false);
 log.restorePrevious();assert.equal(log.data.journeys.find(j=>j.id==='round').skill.score,1000);assert.equal(log.active.id,'new-round');
 assert.equal(skillScore(0),1000);assert.ok(skillScore(1)>skillScore(2));
-const config=JSON.parse(readFileSync(new URL('../static/model/config.json',import.meta.url)));
+const config=JSON.parse(readFileSync(new URL('../reports/vocabulary-expansion/baseline.json',import.meta.url))).config;
 const words=JSON.parse(readFileSync(new URL('../static/model/'+config.words_file,import.meta.url)));
 const buf=gunzipSync(readFileSync(new URL('../static/model/'+config.vector_file,import.meta.url)));
 e=new Embeddings(words,decodeHalf(buf.buffer.slice(buf.byteOffset,buf.byteOffset+buf.byteLength)),config.dimensions);analyser=new SkillAnalyser(e);

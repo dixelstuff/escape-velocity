@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';import fs from 'node:fs';
 import {Embeddings,Game} from '../static/engine.mjs';
 import {solutionLandscape,comparePlayerToLandscape} from '../scripts/hole-solution-landscape.mjs';
 import {loadResearchModel,researchSettings} from '../scripts/cleverness-research-utils.mjs';
-const {e}=loadResearchModel(),reports=JSON.parse(fs.readFileSync('reports/cleverness-v5/landscape.json')).results;
+const {e}=loadResearchModel({reference:true}),reports=JSON.parse(fs.readFileSync('reports/cleverness-v5/landscape.json')).results;
 for(const report of reports){const settings={...report.settings,waypoint_rescue:report.settings.waypoint_rescue??false},before=structuredClone(settings),actual=solutionLandscape(e,settings);assert.deepEqual(settings,before);assert.deepEqual(actual.counts,report.counts);assert.equal(actual.coverage.exhaustive_finishes,true);assert.equal(actual.strategy_sketch.cells.reduce((n,c)=>n+c.size,0),actual.counts.immediate_finishes+actual.counts.two_stroke_finishes);
  for(const l of actual.landings){for(const r of [...(l.immediate_finish?[l.immediate_finish]:[]),...l.two_stroke_finishes]){const g=new Game(e,settings.start,settings.target,settings.threshold,settings);for(const event of r.events){assert.equal(g.won,false,'never continue after automatic completion');const h=g.submit(event.word);assert.equal(h.success,true);assert.equal(h.scoring_word??h.word,event.scoring_word);}assert.equal(g.won,true);assert.equal(g.history.length+g.automatic_shots.length,r.strokes);assert.deepEqual(g.route,r.route);}}
 }

@@ -5,15 +5,17 @@ import {spellingIdentity} from '../static/spelling-equivalence.mjs';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const inputPath='reports/contact-pairs-v2/selection.json',input=JSON.parse(fs.readFileSync(inputPath));
 const config=JSON.parse(fs.readFileSync('static/model/config.json'));
-assert.equal(input.model_sha256,config.vector_sha256);
+assert.equal(input.model_sha256,config.vocabulary_extension?.base_vector_sha256??config.vector_sha256);
+const extraFrequencies=config.vocabulary_extension?JSON.parse(fs.readFileSync('reports/vocabulary-expansion/frequencies.json')):{};
+const baseCount=config.vocabulary_extension?.base_vocabulary??config.vocabulary;
 const words=JSON.parse(fs.readFileSync('static/model/'+config.words_file)),index=new Map();
 assert.ok(words.length<65536);
-words.forEach((w,i)=>{const id=spellingIdentity(w);if(!index.has(id)||w===id)index.set(id,i);});
+words.forEach((w,i)=>{const id=spellingIdentity(w);if(!index.has(id)||w===id&&(i<baseCount||index.get(id)>=baseCount))index.set(id,i);});
 const fingerprint=words=>{let h=2166136261;for(const word of words){for(let i=0;i<word.length;i++)h=Math.imul(h^word.charCodeAt(i),16777619)>>>0;h=Math.imul(h^10,16777619)>>>0;}return h.toString(16).padStart(8,'0');};
 const legacyWords=legacy.words.split('\n'),legacyIndex=new Map(legacyWords.map((w,i)=>[w,i]));
 const oldFrequencies=Buffer.from(legacy.zipf,'base64'),oldPairs=Buffer.from(legacy.pairs,'base64'),oldSources=Buffer.from(legacy.sources,'base64');
 const frequencies=Buffer.alloc(words.length*2);
-words.forEach((w,i)=>{const k=legacyIndex.get(spellingIdentity(w));assert.notEqual(k,undefined);frequencies.writeUInt16LE(oldFrequencies.readUInt16LE(k*2),i*2);});
+words.forEach((w,i)=>{const k=legacyIndex.get(spellingIdentity(w));const value=k===undefined?extraFrequencies[w]:oldFrequencies.readUInt16LE(k*2);assert.notEqual(value,undefined);frequencies.writeUInt16LE(value,i*2);});
 const key=(a,b)=>{const x=index.get(spellingIdentity(a)),y=index.get(spellingIdentity(b));assert.ok(x!==undefined&&y!==undefined&&x!==y);return Math.min(x,y)*65536+Math.max(x,y);};
 const excluded=new Set(input.excluded_original_pairs.map(p=>key(...p))),omitIncoming=new Set(input.incoming_omission_keys);
 const flags=new Map();
@@ -24,7 +26,7 @@ for(let i=0;i<oldSources.length;i++){
 for(const pair of input.added_pairs){const k=key(...pair);assert.ok(!flags.has(k),'Added pair must be new');flags.set(k,(omitIncoming.has(k)?2:3)<<3);}
 const sorted=[...flags.keys()].sort((a,b)=>a-b),bytes=[];let previous=0;
 for(const k of sorted){let d=k-previous;previous=k;do{const digit=d%128;d=Math.floor(d/128);bytes.push(digit|(d?128:0));}while(d);}
-const data={model:config.vector_sha256,wordCount:words.length,vocabulary:fingerprint(words),
+const data={model:config.vector_sha256,wordCount:words.length,vocabulary:fingerprint(words),baseWordCount:baseCount,compatibleVocabularies:[{wordCount:baseCount,vocabulary:fingerprint(words.slice(0,baseCount))},{wordCount:words.length,vocabulary:fingerprint(words)}],
  maximumBaseContact:input.certificate.maximum_base_contact,maximumPluralTolerance:input.certificate.maximum_plural_tolerance,
  keys:Buffer.from(bytes).toString('base64'),flags:Buffer.from(sorted.map(k=>flags.get(k))).toString('base64'),frequencies:frequencies.toString('base64')};
 assert.equal(sorted.filter(k=>flags.get(k)&7).length,input.counts.legacy_pairs);

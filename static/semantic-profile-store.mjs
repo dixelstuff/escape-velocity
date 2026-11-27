@@ -12,10 +12,10 @@ export function decodeProfileShard(bytes,manifest){
 }
 const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(x=>x.toString(16).padStart(2,'0')).join('');
 export class SemanticProfileStore{
- constructor({modelSha,fetcher=(...args)=>globalThis.fetch(...args),base=new URL('./semantic-profiles/',import.meta.url),maxShards=16}={}){this.modelSha=modelSha;this.fetcher=fetcher;this.base=base;this.maxShards=maxShards;this.shards=new Map();this.pending=new Map();this.manifest=null;this.loading=null;this.loaded_bytes=0;this.checkedModels=new WeakSet();}
+ constructor({modelSha,fetcher=(...args)=>globalThis.fetch(...args),base=new URL('./semantic-profiles/',import.meta.url),maxShards=16,manifestFile='manifest.json'}={}){this.manifestFile=manifestFile;this.modelSha=modelSha;this.fetcher=fetcher;this.base=base;this.maxShards=maxShards;this.shards=new Map();this.pending=new Map();this.manifest=null;this.loading=null;this.loaded_bytes=0;this.checkedModels=new WeakSet();}
  async initialise(){
   if(this.manifest)return this.manifest;
-  if(!this.loading)this.loading=(async()=>{const response=await this.fetcher(new URL('manifest.json',this.base));if(!response.ok)throw Error('Semantic profiles could not load (HTTP '+response.status+').');const m=await response.json();if(m.version!==PROFILE_VERSION||!this.modelSha||m.model_sha!==this.modelSha)throw Error('Semantic profiles do not match the current model.');this.manifest=m;return m;})().catch(e=>{this.loading=null;throw e;});return this.loading;
+  if(!this.loading)this.loading=(async()=>{const response=await this.fetcher(new URL(this.manifestFile,this.base),{cache:'no-cache'});if(!response.ok)throw Error('Semantic profiles could not load (HTTP '+response.status+').');const m=await response.json();if(m.version!==PROFILE_VERSION||!this.modelSha||m.model_sha!==this.modelSha)throw Error('Semantic profiles do not match the current model.');this.manifest=m;return m;})().catch(e=>{this.loading=null;throw e;});return this.loading;
  }
  async shard(id){
   const m=await this.initialise();if(this.shards.has(id)){const x=this.shards.get(id);this.shards.delete(id);this.shards.set(id,x);return x;}

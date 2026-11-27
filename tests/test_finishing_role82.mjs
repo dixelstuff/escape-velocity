@@ -11,7 +11,7 @@ import {compactPlaytestReport,playtestText} from '../static/cleverness-playtest-
 import {BAND_FREE_VERSION,INCOMING_BAND_FREE_VERSION} from '../static/cleverness-score-config.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`),data=JSON.parse(fs.readFileSync(new URL('./finishing-role82-fixtures.json',import.meta.url)));
 const root=new URL('../static/model/',import.meta.url),read=f=>fs.readFileSync(new URL(f,root)),config=JSON.parse(read('config.json')),bytes=read(config.vector_fallback),e=new Embeddings(JSON.parse(read(config.words_file)),decodeHalf(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)),config.dimensions,new Uint8Array(read(config.hub_file))),store=new SemanticProfileStore({modelSha:config.vector_sha256,base:new URL('../static/semantic-profiles/',import.meta.url),fetcher:async u=>new Response(fs.readFileSync(u))}),a=new VectorClevernessAnalyser(e,{store,modelSha:config.vector_sha256});
-assert.equal(data.model_sha,config.vector_sha256);
+assert.equal(data.model_sha,config.vocabulary_extension?.base_vector_sha256??config.vector_sha256);
 near(stretchScore(RAW_PIVOT_82),82);
 for(const [x,y] of [[0,0],[RAW_PIVOT_82,82],[100,100]])near(stretchScore82(x),y);
 let prev=-1;for(let i=0;i<=100000;i++){const n=stretchScore82(i/1000);assert.ok(n>prev&&n>=0&&n<=100);prev=n;}

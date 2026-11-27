@@ -24,6 +24,12 @@ Current context: 9 November 2026. Prefer the executable live paths below over hi
 - Preserve saved rule versions and activation boundaries when replaying older histories. Do not reinterpret old shots under new rules without an explicit migration design.
 - `static/spelling-equivalence.mjs` gives curated UK/US variants a shared semantic representation, including endpoint words, while preserving entered spelling for display and preventing repeat exploits. Existing plural/word-family rescue is deliberately limited to boundary cases; do not replace it with universal stemming or broaden it casually.
 
+## Vocabulary extension compatibility
+
+- Current model: **38,128 words**, including the 1,822-word `play-vocabulary-v2` extension. Preserve the original 36,306 IDs/rows and existing input policy. The separately proposed 50 old-word removals are not deployed.
+- `static/vocabulary-release.mjs` records the frozen reference boundary. Old-word rescue and spelling choices must not acquire new representations merely because words were appended. No universal stemming or new phrase credits are implied.
+- All-original-word live scoring uses the frozen original reference; routes containing appended words use the expanded model and appended profiles. Keep old numeric scores and the scorer identity stable. See `reports/vocabulary-expansion/README.md` for build, profile, cache and report-key compatibility details.
+
 ## Live Cleverness
 
 The final live identity is **`band-free-harmonic-v9-finishing-role82`**, defined in `static/cleverness-score-config.mjs`. The underlying relaxed-leg operator retains its v4 name. Entry points are `static/vector-cleverness/index.mjs`, `band-free.mjs`, `static/score-stretch.mjs` and the dogleg evidence modules.

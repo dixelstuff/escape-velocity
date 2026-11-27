@@ -1,6 +1,7 @@
+import {VOCABULARY_REFERENCE,EXPANDED_VOCABULARY} from './vocabulary-release.mjs?v=vocabulary-expansion-v1';
 import {bunkerSettings,bunkerCatch,bunkerActive} from './semantic-bunker.mjs?v=bunker-two-legs-v1';
 import {checkLiveVocabulary,isBlockedPlayWord} from './playable-vocabulary.mjs?v=blocked-connectors-v1';
-import {SPELLING_EQUIVALENCE,spellingResolver} from './spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
+import {SPELLING_EQUIVALENCE,spellingResolver} from './spelling-equivalence.mjs?v=vocabulary-expansion-v1';
 import {familyVariants} from './word-families.mjs?v=golf-v189';
 import {STROKE_PLAY,maximumStrokes,retryPrefix} from './stroke-play.mjs?v=personal-daily-v1';
 import {progressiveModel} from './progressive-model.mjs?v=golf-v189';
@@ -10,7 +11,7 @@ import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
 import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';
-import {contactAdjustmentSettings,contactAdjustmentTerms,standardContactEligible,newContactRule,CONTACT_ADJUSTMENT_VERSION,activeContactVersion,contactRuleForRetry,bindContactModel} from './contact-adjustments.mjs?v=contact-pairs-v2';
+import {contactAdjustmentSettings,contactAdjustmentTerms,standardContactEligible,newContactRule,CONTACT_ADJUSTMENT_VERSION,activeContactVersion,contactRuleForRetry,bindContactModel} from './contact-adjustments.mjs?v=vocabulary-expansion-v1';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -22,6 +23,7 @@ export class Embeddings {
     this.vectors = vectors;
     this.dimensions = dimensions;
     bindContactModel(this);
+    if(words.length===EXPANDED_VOCABULARY&&dimensions===300)this.referenceVocabulary=VOCABULARY_REFERENCE.base_vocabulary;
   }
   hub(word) { return (this.hubs?.[this.index.get(word)]??0)/255; }
   cosine(a, b) {
@@ -117,6 +119,7 @@ export class Game {
     const contactRule=contactAdjustmentSettings(options.contact_adjustment);
     if(contactRule){if(!standardContactEligible(this))throw Error('Contact adjustments require standard dogleg rules.');this.contact_adjustment=contactRule;}
   }
+  rescueCandidate(word,candidate){const n=this.e.referenceVocabulary;return !n||this.e.index.get(word)>=n||this.e.index.get(candidate)<n;}
   sameWord(a,b){return this.e.resolveSpelling?this.e.resolveSpelling(a)===this.e.resolveSpelling(b):a===b;}
   contactTerms(word){return contactAdjustmentTerms(this.e,this.current,word,this.target,7,activeContactVersion(this.contact_adjustment,this.history.length)??undefined,this);}
   requirement(origin,word,current=this.e.cosine(origin,this.target),destination=this.e.cosine(word,this.target)) {
@@ -184,7 +187,7 @@ export class Game {
     for(const variants of groups){
       const choices=[];
       for(const candidate of variants){
-        if(this.sameWord(candidate,word)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate))continue;
+        if(this.sameWord(candidate,word)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate)||!this.rescueCandidate(word,candidate))continue;
         const similarity=this.e.cosine(word,candidate);if(similarity<=.65)continue;
         const value=this.e.cosine(candidate,this.target);if(value+1e-7>=this.threshold)choices.push({candidate,similarity,destination:value});
       }
@@ -237,7 +240,7 @@ export class Game {
     const variants=new Set([semanticWord+'s',semanticWord+'es',...(semanticWord.endsWith('s')?[semanticWord.slice(0,-1)]:[]),...(semanticWord.endsWith('es')?[semanticWord.slice(0,-2)]:[])]);
     const choices=[];
     for(const candidate of variants){
-      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate)||this.e.cosine(word,candidate)<=.65)continue;
+      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate)||!this.rescueCandidate(word,candidate)||this.e.cosine(word,candidate)<=.65)continue;
       const result=this.rescueShotResult(candidate,word);
       // Rescue contact or finishing only; never rescue a backward/water hit.
       if(!original.safe||!result.success)continue;
@@ -269,7 +272,7 @@ export class Game {
     if(!hitNear&&!finishNear)return original;
     const choices=[];
     for(const candidate of familyVariants(this.e.resolveSpelling?.(word)??word)){
-      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate))continue;
+      if(this.sameWord(candidate,this.current)||this.sameWord(candidate,this.target)||!this.e.index.has(candidate)||!this.rescueCandidate(word,candidate))continue;
       const similarity=this.e.cosine(word,candidate);if(similarity<=.65)continue;
       const result=this.rescueShotResult(candidate,word);
       if(result.success&&(hitNear||finishNear&&result.won))choices.push({result,similarity});
@@ -489,16 +492,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=contact-pairs-v2')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-pairs-v2')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-pairs-v2')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=contact-pairs-v2')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=contact-pairs-v2')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-pairs-v2')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-pairs-v2')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=contact-pairs-v2')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-pairs-v2')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-pairs-v2')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-pairs-v2')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=contact-pairs-v2')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=contact-pairs-v2')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=vocabulary-expansion-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=vocabulary-expansion-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=vocabulary-expansion-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=vocabulary-expansion-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=vocabulary-expansion-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=vocabulary-expansion-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=contact-pairs-v2',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=vocabulary-expansion-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -512,7 +515,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=contact-pairs-v2')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=vocabulary-expansion-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}

@@ -1,15 +1,17 @@
-import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=contact-pairs-v2';
-import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=fixed-waypoint-lie-v1';
-import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=contact-pairs-v2';
+import {VOCABULARY_REFERENCE,EXPANDED_VOCABULARY} from '../vocabulary-release.mjs?v=vocabulary-expansion-v1';
+import {SemanticProfileStore} from '../semantic-profile-store.mjs?v=vocabulary-expansion-v1';
+import {CONTINUATION_VERSION} from '../dogleg-continuation.mjs?v=vocabulary-expansion-v1';
+import {SPELLING_EQUIVALENCE,canonicalSpellingState} from '../spelling-equivalence.mjs?v=vocabulary-expansion-v1';
+import {applyLiveCleverness} from '../cleverness-live-score.mjs?v=vocabulary-expansion-v1';
 /** Standalone vector-only scoring. Runs inside the game's assessment worker. */
-import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=contact-pairs-v2';
-import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=contact-pairs-v2';
+import {ClevernessV5Analyser} from './cleverness-v5.mjs?v=vocabulary-expansion-v1';
+import {buildLiveEvidence,evidenceFor,replayCompleted} from './evidence.mjs?v=vocabulary-expansion-v1';
 import {scoreV6,selectMoments,opportunityCorrection,applyLegEfficiency} from './cleverness-v6.mjs?v=cubic-results-v1';
 import {relevance,stageAssessment,PARAMETERS as P} from './cleverness-v6.5.mjs?v=cubic-results-v1';
 import {aggregateStages} from './cleverness-v6.6.mjs?v=cubic-results-v1';
 import {rescoreV66} from './cleverness-v6.7.mjs?v=cubic-results-v1';
-import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=contact-pairs-v2';
-import {restoreFinishingRole,FINISHING_ROLE_VERSION} from '../finishing-role.mjs?v=contact-pairs-v2';
+import {makePlaytestReport,playtestKey,playtestHoleKey} from '../cleverness-playtest-data.mjs?v=vocabulary-expansion-v1';
+import {restoreFinishingRole,FINISHING_ROLE_VERSION} from '../finishing-role.mjs?v=vocabulary-expansion-v1';
 export function vectorInput(input){const out=structuredClone(input);for(const pair of out.pairs)delete pair.lexical;if(out.waypoint_pair)delete out.waypoint_pair.lexical;for(const b of out.diagnostics.bridges){const e=b.association_evidence;if(e){delete e.incoming_wordnet;delete e.outgoing_wordnet;}}return out;}
 export function vectorEvidence(evidence){const out=structuredClone(evidence);if(out.dogleg_context)out.dogleg_context.lexical=Object.fromEntries(Object.keys(out.dogleg_context.lexical).map(k=>[k,null]));return out;}
 export async function scoreVectorInput(input,evidence,modelSha){
@@ -25,8 +27,20 @@ export async function scoreVectorInput(input,evidence,modelSha){
  const r=applyLiveCleverness({...makePlaytestReport(clean.state,score,baseline,modelSha),finishing_role:evidence?.finishing_role??(!clean.state.waypoint?{version:FINISHING_ROLE_VERSION,available:true,applied:false,route:[...clean.state.route],reason:'No dogleg'}:null),dogleg_continuation:evidence?.dogleg_continuation??{version:CONTINUATION_VERSION,available:!clean.state.waypoint,classification:'unchanged',route:[...clean.state.route],reason:clean.state.waypoint?'Continuation evidence unavailable':'No dogleg'},dogleg_access:evidence?.dogleg_access??{available:!clean.state.waypoint,eligible:false,reason:clean.state.waypoint?'Mechanical access evidence unavailable':'No dogleg'}});r.evidence_mode='vectors-only';r.formula_version=r.primary_scorer;r.scorer_version='vector-harmonic-finishing-role82-v1';r.baseline_label='V6.2 vector-only comparison';r.reproducibility={input:clean,evidence:clean.state.waypoint?vectorEvidence(evidence):null};return r;
 }
 export class VectorClevernessAnalyser{
- constructor(e,options={}){this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}
+ constructor(e,options={}){this.options=options;this.e=e;this.modelSha=options.modelSha;this.v5=new ClevernessV5Analyser(e,undefined,undefined,options);this.cache=new Map();}
+ referenceFor(state){
+  if(this.e.words.length!==EXPANDED_VOCABULARY)return null;
+  const n=VOCABULARY_REFERENCE.base_vocabulary,canonical=canonicalSpellingState(state,this.e),words=[canonical.start,canonical.final_target??canonical.target,canonical.waypoint?.word,...(canonical.history??[]).map(h=>h.word),...(canonical.route??[])].filter(Boolean);
+  if(words.some(w=>this.e.index.get(w)==null||this.e.index.get(w)>=n))return null;
+  if(!this.referenceAnalyser){
+   const e=Object.create(this.e);Object.assign(e,{words:this.e.words.slice(0,n),index:new Map(this.e.words.slice(0,n).map((w,i)=>[w,i])),vectors:this.e.vectors.subarray(0,n*this.e.dimensions),hubs:this.e.hubs?.subarray(0,n),referenceVocabulary:n});
+   const store=new SemanticProfileStore({modelSha:VOCABULARY_REFERENCE.base_vector_sha256,manifestFile:VOCABULARY_REFERENCE.base_profile_manifest,fetcher:this.options.store?.fetcher,base:this.options.store?.base});
+   this.referenceAnalyser=new VectorClevernessAnalyser(e,{modelSha:VOCABULARY_REFERENCE.base_vector_sha256,store});
+  }
+  return this.referenceAnalyser;
+ }
  async warm(state){
+  const reference=this.referenceFor(state);if(reference)return reference.warm(state);
   state=canonicalSpellingState(state,this.e);
   const words=[...new Set([state.start,...(state.route??[]),state.waypoint?.word,state.final_target??state.target].filter(w=>this.e.index.has(w)))];
   const v4=this.v5.v4,profiles=await v4.store.forWords(this.e,words);
@@ -34,6 +48,8 @@ export class VectorClevernessAnalyser{
   return {prepared:words.length};
  }
  async analyse(original){
+  const reference=this.referenceFor(original);
+  if(reference){const report=await reference.analyse(original);return {...report,key:playtestKey(original,this.modelSha),model_sha:this.modelSha,vocabulary_reference_model_sha:VOCABULARY_REFERENCE.base_vector_sha256};}
   const key=playtestKey(original,this.modelSha);if(this.cache.has(key))return this.cache.get(key);
   const state=canonicalSpellingState(original,this.e),task=(async()=>{
    let report;

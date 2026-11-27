@@ -1,6 +1,7 @@
+import {VOCABULARY_REFERENCE,EXPANDED_MODEL_SHA} from './vocabulary-release.mjs?v=vocabulary-expansion-v1';
 import {mergeFlightRecords} from './play-record-merge.mjs?v=finishing-role82-v1';
 import {mergeHoleFeedback} from './hole-feedback.mjs?v=four-styles-v1';
-import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=contact-pairs-v2';
+import {playtestKey,compactPlaytestReport,PLAYTEST_VERSION} from './cleverness-playtest-data.mjs?v=vocabulary-expansion-v1';
 import {STROKE_PLAY,maximumStrokes,attemptLimit,challengeAttemptLimit} from './stroke-play.mjs?v=personal-daily-v1';
 import { failedShotSummary } from './round-summary.mjs?v=golf-v189';
 import {successTitle,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';
@@ -46,7 +47,7 @@ export class FlightLog {
   async refreshClevernessScores(){
     const pending=this.data.journeys.filter(j=>j.state?.won&&['band-free-harmonic-v2-one-stroke','band-free-harmonic-v3-opportunity08-bonus2','band-free-harmonic-v4-relaxed-legs'].includes(j.cleverness_playtest?.band_free?.version));
     if(!pending.length)return 0;
-    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=contact-pairs-v2'));}catch{return 0;}let updated=0;
+    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=vocabulary-expansion-v1'));}catch{return 0;}let updated=0;
     for(const j of pending){try{const report=applyLiveCleverness(j.cleverness_playtest);report.version=PLAYTEST_VERSION;report.key=playtestKey(j.state,j.model_sha);j.cleverness_playtest=compactPlaytestReport(report);updated++;}catch{/* Incomplete old evidence is recalculated by the worker when reopened. */}}
     if(updated)this.save();return updated;
   }
@@ -152,8 +153,9 @@ export class FlightLog {
   noteBridge(key,note){const r=this.data.bridgeFeedback.find(r=>r.key===key);if(r){r.note=String(note).trim().slice(0,500);r.updated_at=this.now();this.save();}}
   recordClevernessPlaytest(report) {
     if(report?.version!==PLAYTEST_VERSION||!Number.isFinite(report.score)||!Number.isFinite(report.baseline_score))return false;
-    const journey=this.data.journeys.find(j=>j.state?.won&&playtestKey(j.state,j.model_sha)===report.key);
+    const journey=this.data.journeys.find(j=>j.state?.won&&(playtestKey(j.state,j.model_sha)===report.key||j.model_sha===VOCABULARY_REFERENCE.base_vector_sha256&&report.model_sha===EXPANDED_MODEL_SHA&&playtestKey(j.state,EXPANDED_MODEL_SHA)===report.key));
     if(!journey||JSON.stringify(journey.state.route)!==JSON.stringify(report.route))return false;
+    if(journey.model_sha===VOCABULARY_REFERENCE.base_vector_sha256&&report.model_sha===EXPANDED_MODEL_SHA)journey.model_sha=EXPANDED_MODEL_SHA;
     journey.cleverness_playtest=structuredClone(compactPlaytestReport(report));this.save();return true;
   }
   recordSkill(id, report) {
