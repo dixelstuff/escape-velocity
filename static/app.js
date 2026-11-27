@@ -17,7 +17,7 @@ import {PersonalPlayStorage,PERSONAL_BATCH_KEY,personalPlayExport} from './perso
 import {resetPersonalPlay,restorePersonalPlay,clearResearchPlay} from './reset-personal-play.mjs?v=finishing-role82-v1';
 import {DailyGame,golfResult} from './daily-game.mjs?v=finishing-role82-v1';
 import {isNewBestFinish} from './new-best-finish.mjs?v=finishing-role82-v1';
-import {mountDailyUI} from './daily-ui.mjs?v=finishing-role82-v1';
+import {mountDailyUI} from './daily-ui.mjs?v=archive-ui-linear-v1';
 import {mountDailyCleverness} from './daily-cleverness-panel.mjs?v=vocabulary-expansion-v1';
 import {completedPlaytests,playtestKey} from './cleverness-playtest-data.mjs?v=vocabulary-expansion-v1';
 import {openCourseDialog} from './course-dialog.mjs?v=golf-v189';
@@ -341,7 +341,7 @@ async function openDaily(day){
   finally{lock(false);$('launch').disabled=!!(state?.won||state?.challenge_failed);}
  }else if(!await newGame({...def.settings,challenge:{id:def.id,version:STROKE_PLAY,par:5,attempt:1,unlimited:true}})){daily.data.selected=previousDay;daily.save();dailyUI?.render();}
 }
-function adjacentDaily(offset){const all=daily.available(),i=all.findIndex(h=>h.id===daily.selected()?.id);return all[i+offset];}
+function adjacentDaily(offset){const all=daily.available(),selectedId=daily.selected()?.id,i=all.findIndex(h=>h.id===selectedId);return all[i+offset];}
 function navigateDaily(day){return resultControlNavigation(()=>openDaily(day));}
 
 let selectedLogId=flightLog.data.activeId;
@@ -797,8 +797,7 @@ function update(){
  renderResultContext();
  const semanticSource=state?.won?state:bestRouteState(),analysisOptions={visible:!!holeResult()&&!roundSummary()&&(!simpleDaily||justHoled),caption:state?.won?'This completed route':'Recorded best route'};playtestPanel.show(semanticSource,{...analysisOptions,completed:!simpleDaily&&semanticSource?completedPlaytests(flightLog.data.journeys,semanticSource):[]});showLegacyAnalyses(semanticSource,analysisOptions);$('semantic-comparison').hidden=!analysisOptions.visible||!semanticSource?.won;
  if(simpleDaily){
-  dailyUI?.render();renderDailyBests();
-  renderDailyResult();
+  renderDailyBests();
   const next=adjacentDaily(1);$('next-hole').textContent=next?'NEXT HOLE':'EARLIER HOLE';$('next-hole').disabled=!next&&!adjacentDaily(-1);
  }
 
