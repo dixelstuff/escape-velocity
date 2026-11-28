@@ -1,5 +1,5 @@
 /** Browser-only, route-local mechanical evidence. No vocabulary search or word-specific rules. */
-import {Game} from './engine.mjs?v=vocabulary-expansion-v1';
+import {Game} from './engine.mjs?v=contact-floor18-v1';
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=finishing-role82-v1';
 export const DOGLEG_STRATEGY_VERSION='dogleg-access-bonus-v1';
 export const ACCESS_EVIDENCE_VERSION='dogleg-access-evidence-v2';
@@ -12,7 +12,7 @@ const clip=x=>Math.max(0,Math.min(1,x));
 const clone=g=>Object.assign(Object.create(Object.getPrototypeOf(g)),g,{history:structuredClone(g.history),route:[...g.route],automatic_shots:structuredClone(g.automatic_shots)});
 function shortfall(g,event){
  if(!event||event.success)return 0;
- const contact=Number.isFinite(event.required)&&Number.isFinite(event.launch)?Math.max(0,event.required-event.launch):0;
+ const contact=Number.isFinite(event.required)&&Number.isFinite(event.launch)?Math.max(0,event.required-(event.effective_contact??event.launch)):0;
  const backwards=event.safe===false?Math.max(0,g.best_progress-g.backward_allowance-event.destination):0;
  return Math.max(contact,backwards);
 }

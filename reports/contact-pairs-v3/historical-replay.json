@@ -1,0 +1,6 @@
+{
+  "scope": "Exact saved-rule counterfactual replay. No adoption of v3, no player storage access.",
+  "contexts": 10460,
+  "passed": 10460,
+  "differences": []
+}

@@ -1,0 +1,11 @@
+{
+  "version": "frequency-phrases-v3",
+  "floor": 0.18,
+  "pairs": 605,
+  "incoming": 604,
+  "outgoing": 605,
+  "selection_sha256": "f539d40a408ca30b061d2d6179fba301954c93c9ac586f1ce9f84cd5ce62d198",
+  "module_sha256": "4f10118fd129b2fd2393b898a62e0b4dbe81cb4ab4584ae6e289bf2b38242c3e",
+  "v2_sha256": "543a1178a8d7d019175ca9bf1363f8cb4a0b18b54aa464a0a6abfb896ebb9cc4",
+  "v1_sha256": "a2ad5f81f6f30332212cc985bb762353b4701bcd459d6f52a3d2d3968a05b723"
+}

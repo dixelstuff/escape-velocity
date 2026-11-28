@@ -1,5 +1,5 @@
 /** Authoritative observed finishing role. No alternative-word search or novelty bonus. */
-import {Game} from './engine.mjs?v=vocabulary-expansion-v1';
+import {Game} from './engine.mjs?v=contact-floor18-v1';
 export const FINISHING_ROLE_VERSION='finishing-role-v1';
 export function finishingRoleEvidence(e,state,game,diagnostics){
  const base={version:FINISHING_ROLE_VERSION,available:true,applied:false,route:[...state.route]};

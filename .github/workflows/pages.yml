@@ -23,6 +23,7 @@ jobs:
         run: |
           node tests/test_contact_adjustments.mjs
           node tests/test_contact_pairs_v2.mjs
+          node tests/test_contact_pairs_v3.mjs
           node tests/test_vocabulary_expansion.mjs
           node tests/test_finishing_role82.mjs
           node tests/test_cleverness_revisit.mjs

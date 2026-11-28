@@ -1,4 +1,4 @@
-import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=vocabulary-expansion-v1';
+import {Game,restoreGame,waypointLegAccess} from './engine.mjs?v=contact-floor18-v1';
 export const WAYPOINT_PAR_VERSION='waypoint-par-v1';
 const caches=new WeakMap();
 function similarityRow(e,word){
@@ -43,7 +43,7 @@ export function assessWaypointHole(embeddings,settings,{allowDirectLegs=false}={
    if(expanded.has(key))continue;expanded.add(key);
    for(const word of choices(g)){
     evaluated++;const trial=restoreGame(e,g.state());let shot;try{shot=trial.submit(word);}catch{continue;}if(!shot.success)continue;
-    const words=[...node.words,word],margin=Math.min(node.margin,shot.launch-shot.required,shot.automatic_shot?.launch!==undefined?shot.automatic_shot.launch-shot.automatic_shot.required:1),quality=node.quality+shot.launch-shot.required-.04*(e.hub?.(word)??0);
+    const words=[...node.words,word],margin=Math.min(node.margin,(shot.effective_contact??shot.launch)-shot.required,shot.automatic_shot?.launch!==undefined?shot.automatic_shot.launch-shot.automatic_shot.required:1),quality=node.quality+(shot.effective_contact??shot.launch)-shot.required-.04*(e.hub?.(word)??0);
     if(trial.won){const entry=trial.history.find(h=>h.waypoint_reached);routes.push({words,strokes:trial.state().attempts,margin,quality,family:[words[0],entry.word,words.at(-1)].map(w=>family(e,w)).join('|')});}
     else if(!trial.challenge_failed){const progress=(Math.min(trial.best_progress,trial.threshold)-trial.baseline)/Math.max(.03,trial.threshold-trial.baseline);next.push({game:trial,words,margin,quality,rank:Math.min(1,progress)+.2*quality});}
    }

@@ -11,7 +11,7 @@ import { endpointHubs } from './hub-warning.mjs?v=golf-v189';
 import {withWordModel} from './word-model.mjs?v=golf-v189';
 import {localScalingModel} from './local-scaling.mjs?v=golf-v189';
 import {successSettings,parUnreachable,challengeFailure} from './success-mode.mjs?v=personal-daily-v1';
-import {contactAdjustmentSettings,contactAdjustmentTerms,standardContactEligible,newContactRule,CONTACT_ADJUSTMENT_VERSION,activeContactVersion,contactRuleForRetry,bindContactModel} from './contact-adjustments.mjs?v=vocabulary-expansion-v1';
+import {contactAdjustmentSettings,contactAdjustmentTerms,submittedContact,standardContactEligible,newContactRule,CONTACT_ADJUSTMENT_VERSION,activeContactVersion,contactRuleForRetry,bindContactModel} from './contact-adjustments.mjs?v=contact-floor18-v1';
 /** GloVe cosine scoring, independent of the map and animations. */
 export class Embeddings {
   constructor(words, vectors, dimensions = 300, hubs = null) {
@@ -141,6 +141,12 @@ export class Game {
     const version=activeContactVersion(this.contact_adjustment,this.history.length);
     if(!version)return launch;
     const terms=contactAdjustmentTerms(this.e,origin,word,this.target,7,version,this);
+    if(terms.contact_floor!=null){
+      const contact=submittedContact(this.e.cosine(origin,word),launch.required,terms);
+      // Assessment callers compare raw cosine to this cutoff. A sufficient
+      // floor admits any raw cosine; otherwise the incoming credit counts once.
+      return {...launch,required:terms.contact_floor+1e-7>=contact.required?-1:contact.required-terms.incoming};
+    }
     return {...launch,required:Math.max(0,launch.required-terms.net)};
   }
   finishRequirement(word,destination=this.e.cosine(word,this.target),atDoglegEntry=undefined) {
@@ -201,11 +207,11 @@ export class Game {
     const ordinary=this.requirement(this.current,word,undefined,destination);
     // Only submitted contact changes. Finishing calls to requirement() stay ordinary.
     const terms=this._contactAdjustment;
-    const {trip_fraction,hub_surcharge}=ordinary,required=terms?Math.max(0,ordinary.required-terms.net):ordinary.required;
+    const {trip_fraction,hub_surcharge}=ordinary,contact=submittedContact(launch,ordinary.required,terms),{required}=contact;
     const boundary=destination+1e-7>=this.baseline;
     const forward=destination+1e-7>=this.e.cosine(this.current,this.target);
     const forwardOnly=['distance-v2','distance-v3','fixed-threshold-v3'].includes(this.rules);
-    const isGolf=this.rules.startsWith('golf-'),connected=launch+1e-7>=required;
+    const isGolf=this.rules.startsWith('golf-'),connected=(contact.effective_contact??launch)+1e-7>=required;
     const backtrack=this.modern&&this.allow_backtracking!==false&&!forward&&this.route.some(w=>this.sameWord(w,displayWord));
     const ordinarySafe=backtrack||destination+1e-7>=this.best_progress-this.backward_allowance;
     // Only a qualifying finish may step slightly behind a deferred entry. Never
@@ -214,6 +220,7 @@ export class Game {
     const safe=ordinarySafe||finishRecovery;
     const success=isGolf?connected&&safe:boundary&&(!forwardOnly||forward)&&connected,inside=destination+1e-7>=this.threshold;
     const result={word:displayWord,origin:this.current,launch,destination,required,trip_fraction,boundary,success,inside,won:success&&this.finishesFrom(word,destination,false),attempt:this.history.length+1};
+    if(contact.effective_contact!=null)Object.assign(result,{effective_contact:contact.effective_contact,contact_floor:contact.contact_floor});
     if(hub_surcharge!==undefined)result.hub_surcharge=hub_surcharge;
     if(forwardOnly||isGolf)result.forward=forward;
     if(isGolf)Object.assign(result,{connected,safe,outcome:result.won?'green':!connected?'miss':!safe?'water':backtrack?'backtrack':!forward?'recovery':'landed'});
@@ -226,14 +233,16 @@ export class Game {
   /** Keep first-leg destination, distance, safety and zone fixed for the entered word. */
   rescueShotResult(candidate,word) {
     if(!(this.waypoint&&this.stage===0&&this.waypoint_rescue?.version===WAYPOINT_RESCUE_GEOMETRY&&this.history.length>=this.waypoint_rescue.after))return this.shotResult(candidate,word);
-    const original=this.shotResult(word),launch=this.e.cosine(this.current,candidate),connected=launch+1e-7>=original.required,success=connected&&original.safe;
+    const original=this.shotResult(word),launch=this.e.cosine(this.current,candidate);
+    const effective_contact=original.contact_floor!=null?Math.max(launch+this._contactAdjustment.incoming,original.contact_floor):undefined;
+    const connected=(effective_contact??launch)+1e-7>=original.required,success=connected&&original.safe;
     const won=success&&this.finishesFrom(word,original.destination,false);
-    return {...original,launch,connected,success,won,contact_word:candidate,outcome:won?'green':!connected?'miss':!original.safe?'water':original.backtrack?'backtrack':!original.forward?'recovery':'landed'};
+    return {...original,launch,...(effective_contact!=null?{effective_contact}:{}),connected,success,won,contact_word:candidate,outcome:won?'green':!connected?'miss':!original.safe?'water':original.backtrack?'backtrack':!original.forward?'recovery':'landed'};
   }
   pluralResult(word) {
     const original=this.shotResult(word);
     if(!this.plural_rescue||this.sameWord(word,this.target)||original.won)return original;
-    const hitNear=!original.connected&&original.required-original.launch<=this.plural_tolerance+1e-7;
+    const hitNear=!original.connected&&original.required-(original.effective_contact??original.launch)<=this.plural_tolerance+1e-7;
     const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=this.plural_tolerance+1e-7;
     if(!hitNear&&!finishNear)return original;
     const semanticWord=this.e.resolveSpelling?.(word)??word;
@@ -267,7 +276,7 @@ export class Game {
   ordinaryPluralShot(word) {
     const original=this.pluralResult(word);
     if(!this.family_rescue||original.won||(original.scoring_word&&!original.destination_word)||original.contact_word||this.sameWord(word,this.target)||!original.safe)return original;
-    const hitNear=!original.connected&&original.required-original.launch<=.025+1e-7;
+    const hitNear=!original.connected&&original.required-(original.effective_contact??original.launch)<=.025+1e-7;
     const finishNear=original.success&&this.finishShortfall(word,original.destination,false)<=.025+1e-7;
     if(!hitNear&&!finishNear)return original;
     const choices=[];
@@ -492,16 +501,16 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     await loader?.whenComplete();
     const model=await ensureModel((body.state??body).word_model);
     if(typeof Worker==='undefined'){
-      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=vocabulary-expansion-v1')).assessWaypointHole(model,body);
-      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=vocabulary-expansion-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=vocabulary-expansion-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
-      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=vocabulary-expansion-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
-      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=vocabulary-expansion-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
-      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=vocabulary-expansion-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
-      if(operation==='skill')return new (await import('./skill.mjs?v=vocabulary-expansion-v1')).SkillAnalyser(model).analyse(body.state);
-      return (await import('./assessment.mjs?v=vocabulary-expansion-v1')).assessHole(model,body);
+      if(operation==='assess-waypoint')return (await import('./waypoint-assessment.mjs?v=contact-floor18-v1')).assessWaypointHole(model,body);
+      if(operation==='cleverness-v4'||operation==='cleverness-v5'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-floor18-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-floor18-v1')).ClevernessAnalyser(embeddings,semanticFallback);v4Fallback??=new (await import('./cleverness-v4.mjs?v=contact-floor18-v1')).ClevernessV4Analyser(embeddings,semanticFallback,clevernessFallback,{modelSha:config.vector_sha256});if(operation==='cleverness-v5'){v5Fallback??=new (await import('./cleverness-v5.mjs?v=contact-floor18-v1')).ClevernessV5Analyser(embeddings,semanticFallback,clevernessFallback,{v4:v4Fallback});return v5Fallback.analyse(body.state);}return v4Fallback.analyse(body.state);}
+      if(operation==='association-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-floor18-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-floor18-v1')).ClevernessAnalyser(embeddings,semanticFallback);associationFallback??=new (await import('./association.mjs?v=contact-floor18-v1')).AssociationAnalyser(embeddings,semanticFallback,clevernessFallback);return associationFallback.analyse(body.state);}
+      if(operation==='cleverness-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-floor18-v1')).SemanticAnalyser(embeddings);clevernessFallback??=new (await import('./cleverness.mjs?v=contact-floor18-v1')).ClevernessAnalyser(embeddings,semanticFallback);return clevernessFallback.analyse(body.state);}
+      if(operation==='semantic-analysis'){semanticFallback??=new (await import('./semantic-analysis.mjs?v=contact-floor18-v1')).SemanticAnalyser(embeddings);return semanticFallback.analyse(body.state);}
+      if(operation==='skill')return new (await import('./skill.mjs?v=contact-floor18-v1')).SkillAnalyser(model).analyse(body.state);
+      return (await import('./assessment.mjs?v=contact-floor18-v1')).assessHole(model,body);
     }
     if(!worker){
-      worker=new Worker(new URL('./assessment-worker.mjs?v=vocabulary-expansion-v1',import.meta.url),{type:'module'});
+      worker=new Worker(new URL('./assessment-worker.mjs?v=contact-floor18-v1',import.meta.url),{type:'module'});
       worker.onmessage=({data})=>{const p=pending.get(data.id);if(!p)return;pending.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};
       worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Hole assessment could not load. You can still choose a hole.'));pending.clear();worker.terminate();worker=null;workerModels.clear();};
 
@@ -515,7 +524,7 @@ export async function createBrowserClient({progressive=true,onProgress}={}) {
     if(path==='display'){const saved=body.state;game=null;return {state:structuredClone(saved)};}
     if(path==='breadth')return endpointHubs(embeddings,body);
     await ensureModel((body.state??body).word_model);
-    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=vocabulary-expansion-v1')).reviewRoute(embeddings,body.state);}
+    if(path==='route-review'){await loader?.whenComplete();return (await import('./route-review.mjs?v=contact-floor18-v1')).reviewRoute(embeddings,body.state);}
     if(path==='assess'||path==='assess-waypoint'||path==='skill'||path==='semantic-analysis'||path==='cleverness-analysis'||path==='association-analysis'||path==='cleverness-v4'||path==='cleverness-v5'||path==='cleverness-vector'||path==='cleverness-warm')return assess(body,path);
     if(!['assess','skill'].includes(path))await prepare(path==='submit'?{...game?.state(),word:body.word}:body);
     if(path==='bunker-check'){if(isBlockedPlayWord(body.semantic_bunker?.word))throw Error('Word not allowed. Try another.');return {bunker:bunkerSettings(body.semantic_bunker,embeddings)};}

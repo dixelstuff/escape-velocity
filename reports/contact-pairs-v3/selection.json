@@ -1,0 +1,4848 @@
+{
+  "version": "frequency-phrases-v3",
+  "floor": 0.18,
+  "model_sha256": "27e03f67822a60c167374ada30886b1d9e405c7f14cc5ce5c26fcaa0109a5eb1",
+  "scope": "Frozen supplement: existing v2 memberships and allowances retained; incoming approved pairs use max(raw+0.130,0.18). DATA–CENTRE outgoing-only. Rejected/withheld pairs gain no new allowance/floor.",
+  "pairs": [
+    {
+      "pair": [
+        "abuse",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "abuse",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "abusive",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "access",
+        "cloud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "access",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "avatar"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "block"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "catfish"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "channel"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "cookie"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "farm"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "feed"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "follower"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "platform"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "account",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "accountability",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "achievement",
+        "flex"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "action",
+        "agent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "address",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "advertising",
+        "cookie"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "after",
+        "lust"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "after",
+        "shave"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "agent",
+        "artificial"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "automation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "autonomous"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "chat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "computer"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "decision"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "execute"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "execution"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "goal"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "helper"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "intelligent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "planning"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "program"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "reasoning"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "robot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "software"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "system"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "task"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "tool"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "agent",
+        "user"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "algorithm",
+        "feed"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "algorithm",
+        "intelligence"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "algorithm",
+        "intelligent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "algorithm",
+        "mining"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "alias",
+        "handle"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "alive",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "allegation",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "analytics",
+        "cloud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "analytics",
+        "data"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "anger",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "angry",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "annoyed",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "answer",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "application",
+        "tablet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "argument",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "argument",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "article",
+        "feed"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "automation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "autonomous"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "conscious"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "consciousness"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "creativity"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "data"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "life"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "model"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "reasoning"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "software"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "thinking"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "artificial",
+        "thought"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "asset",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "assistant",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "athlete",
+        "goat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "attention",
+        "breadcrumb"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "audience",
+        "follower"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "automatic",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "automation",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "automation",
+        "cloud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "automation",
+        "farm"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "automobile",
+        "horn"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "autonomous",
+        "bot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "autonomous",
+        "intelligent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "digital"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "game"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "identity"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "image"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "player"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avatar",
+        "representation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "avoid",
+        "ghost"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "awareness",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "backup",
+        "cache"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "backup",
+        "cloud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "banking",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "basin",
+        "hand"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "bath",
+        "plug"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "beauty",
+        "filter"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "behavior",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bench",
+        "clamp"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "best",
+        "goat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bin",
+        "bread"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "bin",
+        "flour"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "biography",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bird",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "chain"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "contact"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "currency"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "ignore"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "message"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "privacy"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "user"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "block",
+        "verification"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "blues",
+        "scale"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "boast",
+        "flex"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "boot",
+        "sale"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "boss",
+        "chairperson"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "bot",
+        "chat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "computer"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "conscious"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "farm"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "game"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "helper"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "intelligence"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "intelligent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "learning"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "message"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "model"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "player"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "program"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "reasoning"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "robot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "script"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "software"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "spam"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "thinking"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bot",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "brag",
+        "flex"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "dating"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "directory"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "history"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "intermittent"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "link"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "location"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "message"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "navigation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "page"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "path"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "relationship"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "trail"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "breadcrumb",
+        "website"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "browser",
+        "scroll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bully",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "bully",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "burner",
+        "pilot"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "business",
+        "monkey"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "business",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "button",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "button",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "clear"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "computer"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "delete"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "network"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "refresh"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cache",
+        "temporary"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "call",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "camera",
+        "drone"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "camera",
+        "filter"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "celebrity"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "controversy"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "criticism"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "culture"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "outrage"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "public"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "reputation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cancel",
+        "support"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "deceit"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "dishonest"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "exaggeration"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "false"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "lie"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "lying"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cap",
+        "truth"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "capital",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "capsule",
+        "time"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "caption",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "caption",
+        "post"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "car",
+        "sickness"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "caster",
+        "chair"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "catfish",
+        "dating"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "deception"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "fake"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "fraud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "identity"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "impersonation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "online"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "photo"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "catfish",
+        "relationship"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "center",
+        "data"
+      ],
+      "role": "outgoing_only",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "center",
+        "server"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "computing"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "contract"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "currency"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "database"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "decentralized"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "email"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "chain",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "transaction"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chain",
+        "verification"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "champion",
+        "goat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "channel",
+        "creator"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "channel",
+        "subscribe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "character",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chat",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chat",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "chicken",
+        "wing"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "cinema",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "circular",
+        "saw"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "claim",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "classroom",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "click",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "client",
+        "cloud"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "closed",
+        "minded"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "cloud",
+        "computer"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "deployment"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "developer"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "download"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "file"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "host"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "integration"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "internet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "memory"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "network"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "online"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "security"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "service"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "synchronize"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cloud",
+        "upload"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "code",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "code",
+        "sandbox"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "coin",
+        "mining"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "comment",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "comment",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "comment",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "commerce",
+        "platform"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "communication",
+        "ghost"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "community",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "commute",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "company",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "complain",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computer",
+        "farm"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computer",
+        "mining"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computer",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computer",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computer",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computing",
+        "mining"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computing",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "computing",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conference",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conference",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conflict",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conscious",
+        "intelligence"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "consciousness",
+        "intelligence"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "consent",
+        "cookie"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "contact",
+        "ghost"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "contempt",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "content",
+        "scroll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "context",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "contract",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conversation",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "conversation",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "data"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "internet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "password"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "privacy"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "session"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "tracking"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "cookie",
+        "website"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "coping",
+        "saw"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "cram",
+        "full"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "creator",
+        "follower"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "creator",
+        "platform"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "criticism",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "crow",
+        "scare"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "culture",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "currency",
+        "mining"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "currency",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "currency",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "current",
+        "rip"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "data",
+        "neural"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "data",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "data",
+        "training"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "dating",
+        "ghost"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "dating",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "debate",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "delivery",
+        "drone"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "demonstrate",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "description",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "developer",
+        "sandbox"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "dialogue",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "digital",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "digital",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "disappear",
+        "ghost"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "discussion",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "display",
+        "flex"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "disrespect",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "document",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "download",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "dress",
+        "maker"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "drone",
+        "photography"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "drone",
+        "pilot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "drone",
+        "robot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "email",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "emotion",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "encryption",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "engagement",
+        "farm"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "engineering",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "evidence",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "example",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "excellence",
+        "goat"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "exchange",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "execution",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "face",
+        "filter"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "fame",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "farm",
+        "game"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "farm",
+        "gold"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "farm",
+        "resource"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "farm",
+        "reward"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "farm",
+        "server"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "follower"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "headline"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "notification"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "photo"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "picture"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "post"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "recommendation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "reel"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "refresh"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "scroll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "social"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "story"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "subscribe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "subscription"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "timeline"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feed",
+        "update"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "feeling",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "filing",
+        "iron"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "film",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "filter",
+        "photo"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "filter",
+        "picture"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "filter",
+        "privacy"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "filter",
+        "search"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "finger",
+        "tablet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flex",
+        "money"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flex",
+        "pride"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flex",
+        "show"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flex",
+        "status"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flex",
+        "wealth"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "flood",
+        "lamp"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "follower",
+        "influence"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "post"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "social"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "story"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "subscribe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "follower",
+        "subscriber"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "forum",
+        "post"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "forum",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "forum",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "friend",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "frost",
+        "over"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "frustrated",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "funding",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "funny",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "game",
+        "sandbox"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "game",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "gaming",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "generation",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "gesture",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "ghost",
+        "ignore"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "ghost",
+        "message"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "ghost",
+        "relationship"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "ghost",
+        "reply"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "greatest"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "legend"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "legendary"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "outstanding"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "player"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "praise"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "sport"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "goat",
+        "winner"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "guard",
+        "splash"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "handle",
+        "identifier"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "identity"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "mention"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "name"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "nickname"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "online"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "social"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "handle",
+        "username"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "harass",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "harassment",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "harassment",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "hash",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "hog",
+        "road"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "hop",
+        "kangaroo"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "hostile",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "hostility",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "hot",
+        "microphone"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "human",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "humor",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "icon",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "icon",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "idea",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "image",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "image",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "image",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "inches",
+        "ruler"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "input",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "instruction",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "insult",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "insult",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligence",
+        "machine"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligence",
+        "model"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligence",
+        "neural"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligence",
+        "robot"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligence",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligent",
+        "machine"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "intelligent",
+        "model"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "internet",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "investment",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "investor",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "irritation",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "isolation",
+        "sandbox"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "jealous",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "job",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "joint",
+        "miter"
+      ],
+      "role": "incoming",
+      "source": "random-phrase-floor-review-200"
+    },
+    {
+      "pair": [
+        "joint",
+        "pivot"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "joke",
+        "meme"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "joke",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "joke",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "key",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "language",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "language",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "length",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "lesson",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "life",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "liquidity",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "listen",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "live",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "machine",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "marketing",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "match",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meeting",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meeting",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meme",
+        "parody"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meme",
+        "picture"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meme",
+        "post"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "meme",
+        "share"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mention",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mention",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "message",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "message",
+        "receipts"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "message",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "message",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "metadata",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "microphone",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mind",
+        "sentient"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mine",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mining",
+        "processor"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mining",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mining",
+        "transaction"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mining",
+        "verification"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mock",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "model",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "model",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "mute",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "news",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "news",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "notification",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "office",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "online",
+        "remote"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "online",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "online",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "online",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "opinion",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "output",
+        "prompt"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "output",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "over",
+        "tick"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "ownership",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "parser",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "participant",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "password",
+        "profile"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "password",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "payment",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "payment",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "peace",
+        "pipe"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "phone",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "photo",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "picture",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "picture",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "play",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "podcast",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "popular",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "reel"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "reply"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "scroll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "update"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "video"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "post",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "press",
+        "stud"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "process",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "profile",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "profile",
+        "username"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "program",
+        "sandbox"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "prompt",
+        "question"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "prompt",
+        "task"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "prompt",
+        "text"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "prompt",
+        "writing"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "provoke",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "question",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "race",
+        "sack"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "rail",
+        "towel"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "rare",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "recording",
+        "stream"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "reel",
+        "share"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "reel",
+        "short"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "reel",
+        "social"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "reel",
+        "story"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "relationship",
+        "toxic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "remark",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "remote",
+        "work"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "remote",
+        "working"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "remote",
+        "workplace"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "reply",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "resentment",
+        "salty"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "response",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "salty",
+        "upset"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sandbox",
+        "security"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sandbox",
+        "software"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sandbox",
+        "testing"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sandbox",
+        "world"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sarcasm",
+        "shade"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sarcasm",
+        "troll"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "screen",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "screen",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "scroll",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "search",
+        "tag"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "security",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "security",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "select",
+        "swipe"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "select",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sentence",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sentient",
+        "thinking"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sentient",
+        "thought"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "sequence",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "shade",
+        "throw"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "share",
+        "story"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "share",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "share",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "share",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "skip",
+        "town"
+      ],
+      "role": "incoming",
+      "source": "suggested-phrase-floor-review-50"
+    },
+    {
+      "pair": [
+        "social",
+        "story"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "social",
+        "tweet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "stake",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "startup",
+        "unicorn"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "story",
+        "temporary"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "stream",
+        "subscription"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "stream",
+        "television"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "subject",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "suggestion",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "swipe",
+        "tablet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "swipe",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "swipe",
+        "touch"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "tablet",
+        "tap"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "tag",
+        "user"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "text",
+        "thread"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "text",
+        "token"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "thread",
+        "title"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "thread",
+        "topic"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "token",
+        "transaction"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "token",
+        "word"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "transaction",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "transfer",
+        "wallet"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "tweet",
+        "update"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "unicorn",
+        "valuation"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "unicorn",
+        "venture"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "video",
+        "viral"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "video",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    },
+    {
+      "pair": [
+        "virtual",
+        "zoom"
+      ],
+      "role": "incoming",
+      "source": "reviewed modern association"
+    }
+  ]
+}

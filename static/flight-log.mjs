@@ -47,7 +47,7 @@ export class FlightLog {
   async refreshClevernessScores(){
     const pending=this.data.journeys.filter(j=>j.state?.won&&['band-free-harmonic-v2-one-stroke','band-free-harmonic-v3-opportunity08-bonus2','band-free-harmonic-v4-relaxed-legs'].includes(j.cleverness_playtest?.band_free?.version));
     if(!pending.length)return 0;
-    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=vocabulary-expansion-v1'));}catch{return 0;}let updated=0;
+    let applyLiveCleverness;try{({applyLiveCleverness}=await import('./cleverness-live-score.mjs?v=contact-floor18-v1'));}catch{return 0;}let updated=0;
     for(const j of pending){try{const report=applyLiveCleverness(j.cleverness_playtest);report.version=PLAYTEST_VERSION;report.key=playtestKey(j.state,j.model_sha);j.cleverness_playtest=compactPlaytestReport(report);updated++;}catch{/* Incomplete old evidence is recalculated by the worker when reopened. */}}
     if(updated)this.save();return updated;
   }
@@ -214,7 +214,7 @@ export function journeyText(journey,feedback=[]) {
     const e = entry.event;
     lines.push(`${e ? `Shot ${e.attempt}` : 'No shot used'}: ${entry.origin} → ${entry.word}`,
       `  ${entry.assumed?'Carried forward · ':''}${outcome(entry)} · ${entry.submittedAt}`);
-    if (e && !e.automatic) lines.push(`  Contact cosine: ${e.launch.toFixed(6)} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; green: ${e.inside ? 'yes' : 'no'}`);
+    if (e && !e.automatic) lines.push(`  Contact cosine: ${e.launch.toFixed(6)}${e.effective_contact!=null?`; effective contact: ${e.effective_contact.toFixed(6)}`:''} / required ${e.required??entry.threshold}; destination cosine: ${e.destination.toFixed(6)}; green: ${e.inside ? 'yes' : 'no'}`);
   }
   lines.push('', `Played lies: ${s.route.join(' → ')}${s.won && !['arrival-zone','holed-with-auto-finish'].includes(journey.completion) && s.route.at(-1) !== s.target ? ` → ${s.target} (free)` : ''}`);
   if(s.won&&journey.completion==='holed-with-auto-finish')lines.push(`Holed in ${s.attempts} shots${s.automatic_shots?.length?' (includes one automatic finishing shot)':''}.`);

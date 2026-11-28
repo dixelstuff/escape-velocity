@@ -1,8 +1,8 @@
-import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=vocabulary-expansion-v1';
-import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=vocabulary-expansion-v1';
+import {applyDoglegContinuation,CONTINUATION_VERSION} from './dogleg-continuation.mjs?v=contact-floor18-v1';
+import {applyDoglegStrategyBonus} from './dogleg-strategy-bonus.mjs?v=contact-floor18-v1';
 import {stretchBandFree} from './score-stretch.mjs?v=finishing-role82-v1';
-import {FINISHING_ROLE_VERSION} from './finishing-role.mjs?v=vocabulary-expansion-v1';
-import {applyIncomingDoglegCredit} from './incoming-dogleg-credit.mjs?v=vocabulary-expansion-v1';
+import {FINISHING_ROLE_VERSION} from './finishing-role.mjs?v=contact-floor18-v1';
+import {applyIncomingDoglegCredit} from './incoming-dogleg-credit.mjs?v=contact-floor18-v1';
 /** Apply live-only opportunity/bonus settings; preserve historical comparison diagnostics. */
 import {bandFreeScore} from './vector-cleverness/band-free.mjs?v=finishing-role82-v1';
 import {OPPORTUNITY_RATE,BAND_FREE_VERSION,INCOMING_BAND_FREE_VERSION,CONTINUATION_BAND_FREE_VERSION,PREVIOUS_BAND_FREE_VERSION,LEGACY_BAND_FREE_VERSION} from './cleverness-score-config.mjs?v=finishing-role82-v1';

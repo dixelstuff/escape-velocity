@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';
 import legacy from '../static/contact-data.mjs';
 import {Game,Embeddings,restoreGame,createBrowserClient} from '../static/engine.mjs';
-import {CONTACT_ADJUSTMENT_VERSION as V2,LEGACY_CONTACT_ADJUSTMENT_VERSION as V1,contactFrequency,contactPhraseSources,contactPairFlags,contactAdjustmentTerms,contactAdjustmentSettings,activeContactVersion,newContactRule,contactRuleForRetry} from '../static/contact-adjustments.mjs';
+import {PREVIOUS_CONTACT_ADJUSTMENT_VERSION as V2,CONTACT_ADJUSTMENT_VERSION as LATEST,LEGACY_CONTACT_ADJUSTMENT_VERSION as V1,contactFrequency,contactPhraseSources,contactPairFlags,contactAdjustmentTerms,contactAdjustmentSettings,activeContactVersion,newContactRule,contactRuleForRetry} from '../static/contact-adjustments.mjs';
 import {loadResearchModel,researchSettings} from '../scripts/cleverness-research-utils.mjs';
 import {VectorClevernessAnalyser} from '../static/vector-cleverness/index.mjs';
 import {semanticRouteKey} from '../static/semantic-analysis.mjs';
@@ -20,9 +20,9 @@ assert.equal(contactAdjustmentTerms(e,'speaker','unit','cave',7,V2,{launch_max:.
 assert.equal(contactAdjustmentTerms(e,'tree','birch','cave',7,V2,{plural_tolerance:.1}).incoming,.13,'Wider rescue settings restore incoming membership');
 const altered=[...e.words];altered[0]='mismatched-vocabulary';assert.throws(()=>new Embeddings(altered,e.vectors,e.dimensions,e.hubs),/does not match/);
 const legacyRule={version:V1,after:1},mixed=newContactRule(3,legacyRule);
-assert.deepEqual(mixed,{version:V2,after:3,previous:legacyRule});
-assert.deepEqual([0,1,2,3].map(i=>activeContactVersion(mixed,i)),[null,V1,V1,V2]);
-assert.deepEqual(contactRuleForRetry(mixed,2),{version:V2,after:2,previous:legacyRule});
+assert.deepEqual(mixed,{version:LATEST,after:3,previous:legacyRule});
+assert.deepEqual([0,1,2,3].map(i=>activeContactVersion(mixed,i)),[null,V1,V1,LATEST]);
+assert.deepEqual(contactRuleForRetry(mixed,2),{version:LATEST,after:2,previous:legacyRule});
 assert.deepEqual(contactRuleForRetry(mixed,0),newContactRule(0));
 assert.deepEqual(contactRuleForRetry(mixed,4),mixed);
 assert.throws(()=>contactAdjustmentSettings({version:V2,after:1,previous:{version:V1,after:1}}),/previous/);
@@ -32,7 +32,7 @@ assert.equal(fixtures.model_sha256,config.vocabulary_extension?.base_vector_sha2
 for(const c of fixtures.cases){
  const make=()=>{const s=c.settings,g=new Game(e,s.start,s.final_target,s.final_threshold,s);for(const w of c.prefix)g.submit(w);return g;};
  const old=make();old.contact_adjustment=old.contact_adjustment??{version:V1,after:old.history.length};
- const revised=make();revised.contact_adjustment=newContactRule(revised.history.length,revised.contact_adjustment);
+ const revised=make();revised.contact_adjustment={version:V2,after:revised.history.length,...(revised.contact_adjustment&&revised.contact_adjustment.after<revised.history.length?{previous:revised.contact_adjustment}:{})};
  const a=old.submit(c.word),b=revised.submit(c.word);
  assert.equal(a.success,false,c.id+' v1 miss');assert.equal(b.success,true,c.id+' v2 hit');
  for(const [actual,wanted]of [[a,c.legacy],[b,c.revised]])for(const field of ['destination','required','launch'])assert.ok(Math.abs(actual[field]-wanted[field])<1e-6,c.id+' '+field);
@@ -49,7 +49,7 @@ try{
  await assert.rejects(client.request('submit',{word:'like'}),/Word not allowed/);
  assert.deepEqual(client.restoreRetry(saved).state,saved,'Invalid input/restore cannot upgrade v1');
  const next=await client.request('submit',{word:'talent'});
- assert.deepEqual(next.state.contact_adjustment,{version:V2,after:1,previous:{version:V1,after:0}});
+ assert.deepEqual(next.state.contact_adjustment,{version:LATEST,after:1,previous:{version:V1,after:0}});
  assert.deepEqual(next.state.history[0],saved.history[0],'Upgrade preserves historical required contact');
  assert.deepEqual(saved,snapshot,'No mutation of supplied snapshots');
  assert.deepEqual(restoreGame(e,next.state).state(),next.state);

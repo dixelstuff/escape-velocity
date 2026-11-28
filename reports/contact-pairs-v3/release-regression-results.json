@@ -1,0 +1,956 @@
+{
+  "scope": "Isolated production release, unrelated working-tree changes excluded.",
+  "elapsed_seconds": 102.48,
+  "total": 158,
+  "completed": 158,
+  "results": [
+    {
+      "test": "tests/test_contact_adjustments.mjs",
+      "exit_code": 0,
+      "seconds": 3.28,
+      "output": "Contact adjustments passed: compact sources, exact spelling, new/adopted/mixed/retry histories, no finishing leak, geometry and scoring replay.\n"
+    },
+    {
+      "test": "tests/test_contact_pairs_v2.mjs",
+      "exit_code": 0,
+      "seconds": 2.57,
+      "output": "V2 contact pairs passed: all frozen source/frequency values, 101 reviewed gains, role fallback, mixed replay/adoption/retry and scoring.\n"
+    },
+    {
+      "test": "tests/test_contact_pairs_v3.mjs",
+      "exit_code": 0,
+      "seconds": 1.6,
+      "output": "V3 contact floor passed: 605 exact memberships, 604 incoming roles, 1208 directional geometry/safety/assessment checks, raw evidence, no carry/finishing leak, exclusions and nested v1/v2/v3 replay/adoption/retries.\n"
+    },
+    {
+      "test": "tests/test_vocabulary_expansion.mjs",
+      "exit_code": 0,
+      "seconds": 6.46,
+      "output": "Vocabulary expansion passed: exact 1,822 rows; frozen vectors/hubs/aliases/trial data/packs/profiles; new-word browser play, profile fingerprints, scoring and historical score parity.\n"
+    },
+    {
+      "test": "tests/test_finishing_role82.mjs",
+      "exit_code": 0,
+      "seconds": 9.6,
+      "output": "Finishing role / 82 passed: 20 independently frozen full-role raw scores and I/S/E, neutral arrival controls, strict curve/slope/ceiling checks, compact idempotence, stale evidence rejection, occurrence guards and immutable routes.\n"
+    },
+    {
+      "test": "tests/test_cleverness_revisit.mjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "output": "Revisit migration passed: initial zero counts/lists/averages, routes and strokes retained, exact current reports add holes individually, partial retained analysis, reload and both stale-tab merge orders, and independent result/highest averages.\n"
+    },
+    {
+      "test": "tests/test_live_opportunity08.mjs",
+      "exit_code": 0,
+      "seconds": 6.28,
+      "output": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2510\n\u2502 (index) \u2502 0         \u2502 1                                                                             \u2502 2  \u2502 3  \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2524\n\u2502 0       \u2502 'PLAY-A'  \u2502 'feather \u2192 quill \u2192 pen \u2192 fountain \u2192 ocean'                                    \u2502 80 \u2502 87 \u2502\n\u2502 1       \u2502 'PLAY-B'  \u2502 'feather \u2192 quill \u2192 pen \u2192 ink \u2192 squid \u2192 ocean'                                 \u2502 72 \u2502 81 \u2502\n\u2502 2       \u2502 'PLAY-C'  \u2502 'kangaroo \u2192 pouch \u2192 pants \u2192 suit \u2192 court'                                     \u2502 92 \u2502 94 \u2502\n\u2502 3       \u2502 'PLAY-D'  \u2502 'kangaroo \u2192 fur \u2192 seal \u2192 court'                                               \u2502 91 \u2502 95 \u2502\n\u2502 4       \u2502 'CROC-1'  \u2502 'crocodile \u2192 bag \u2192 runway \u2192 space'                                            \u2502 88 \u2502 92 \u2502\n\u2502 5       \u2502 'CROC-2'  \u2502 'crocodile \u2192 handbag \u2192 closet \u2192 space'                                        \u2502 87 \u2502 92 \u2502\n\u2502 6       \u2502 'CROC-3'  \u2502 'crocodile \u2192 leather \u2192 suit \u2192 space'                                          \u2502 81 \u2502 87 \u2502\n\u2502 7       \u2502 'CROC-4'  \u2502 'crocodile \u2192 boots \u2192 suit \u2192 space'                                            \u2502 77 \u2502 83 \u2502\n\u2502 8       \u2502 'CROC-5'  \u2502 'crocodile \u2192 hat \u2192 fashion \u2192 runway \u2192 space'                                  \u2502 75 \u2502 78 \u2502\n\u2502 9       \u2502 'CROC-6'  \u2502 'crocodile \u2192 necklace \u2192 jewelry \u2192 box \u2192 space'                                \u2502 75 \u2502 80 \u2502\n\u2502 10      \u2502 'USER-20' \u2502 'cigar \u2192 imported \u2192 ship \u2192 bow \u2192 necklace'                                    \u2502 82 \u2502 88 \u2502\n\u2502 11      \u2502 'USER-23' \u2502 'cigar \u2192 box \u2192 container \u2192 bag \u2192 necklace'                                    \u2502 79 \u2502 85 \u2502\n\u2502 12      \u2502 'CAL-D'   \u2502 'hamster \u2192 wheel \u2192 power \u2192 electricity'                                       \u2502 96 \u2502 98 \u2502\n\u2502 13      \u2502 'CAL-A'   \u2502 'squid \u2192 ink \u2192 document \u2192 espionage'                                          \u2502 84 \u2502 90 \u2502\n\u2502 14      \u2502 'PLAY-H'  \u2502 'snowflake \u2192 beautiful \u2192 diamond \u2192 quality \u2192 precision \u2192 technique \u2192 surgery' \u2502 44 \u2502 46 \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2518\nLive 0.08/bonus2 passed: 15 authoritative routes preserve frozen upstream evidence and preserve the exact old/new leg-factor ratio before the isolated dogleg top-up; v7 S/E calibration, current leg product, bonus once, ceiling, route immutability, version/cache invalidation, idempotent saved-report migration and independent best-route re-ranking verified.\n"
+    },
+    {
+      "test": "tests/test_one_stroke_bonus.mjs",
+      "exit_code": 0,
+      "seconds": 4.22,
+      "output": "One-stroke bonus passed: all leg orders including 1+1 and single actual leg, one award, ceilings, unchanged leg penalties/elegance and exact 0.08 ingenuity, scoped incoming strategy correction, final-only rounding, all eight full route analyses, saved/displayed/copy scores agree; fixed-input coefficient-2 bounds and all eight new live scores.\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 (index) \u2502 0   \u2502 1  \u2502 2  \u2502 3                  \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502 0       \u2502 'A' \u2502 78 \u2502 91 \u2502 0                  \u2502\n\u2502 1       \u2502 'B' \u2502 65 \u2502 84 \u2502 0                  \u2502\n\u2502 2       \u2502 'C' \u2502 90 \u2502 95 \u2502 0                  \u2502\n\u2502 3       \u2502 'D' \u2502 91 \u2502 96 \u2502 1.6934229873962767 \u2502\n\u2502 4       \u2502 'E' \u2502 75 \u2502 84 \u2502 0                  \u2502\n\u2502 5       \u2502 'F' \u2502 60 \u2502 68 \u2502 0                  \u2502\n\u2502 6       \u2502 'G' \u2502 63 \u2502 81 \u2502 0                  \u2502\n\u2502 7       \u2502 'H' \u2502 32 \u2502 48 \u2502 0                  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n"
+    },
+    {
+      "test": "tests/test_best_route_selection.mjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "output": "Best routes passed: strokes first, unrounded Cleverness tie-break, late analysis and migration, no duplicates, optional genuinely higher-scoring longer route.\n"
+    },
+    {
+      "test": "tests/test_interface_repairs.mjs",
+      "exit_code": 0,
+      "seconds": 0.47,
+      "output": "Interface repair passed: compact keyboard budget, centred borderless first-paint header, smaller counter, no entry-area results link, 36 deterministic varied terrains, path and greenside clearances.\n"
+    },
+    {
+      "test": "tests/test_personal_play_storage.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Reset batch isolation passed: legacy migration, stale current/old-release tabs, current-only export source, refresh and failed-commit rollback.\nPersonal export excludes unrelated saved custom definitions without deleting them.\nQuota regression passed: reset avoids doubling the source, normal writes release only recovery/retired data, and current play survives quota/non-quota errors.\n"
+    },
+    {
+      "test": "tests/test_play_archive.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Archive passed: migration, records beyond local quota, atomic reset/rollback, retained player stats, fresh-only exports, stale tabs, reload and failed-save retry. No real browser data was reset.\nFull-storage recovery passed: export remains memory-backed and reset can replace a failing pending save without persisting another history copy.\n"
+    },
+    {
+      "test": "tests/test_shared_play_storage.mjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "output": "Durable results passed: one-tab local quota, public/admin stale views, atomic merge, independent bests, old fallback migration, summary recovery and reset isolation.\n"
+    },
+    {
+      "test": "tests/test_semantic_bunker.mjs",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "output": "Semantic bunker passed: exact/local threshold, unchanged ordinary rules, both-leg failure and legacy compatibility, replay/retry, spelling, dogleg hint, experiment isolation, persistent configurations and existing bunker geometry.\n"
+    },
+    {
+      "test": "tests/test_bunker_examples.mjs",
+      "exit_code": 0,
+      "seconds": 0.84,
+      "output": "1: spare / dream / tension; sleep bunker at .40; 5 sampled openings retained, 2 caught.\n2: promise / shadow / luck; doubt bunker at .40; 5 sampled openings retained, 4 caught.\n3: charm / split / duty; love bunker at .40; 8 sampled openings retained, 2 caught.\n4: dress / freedom / spark; free bunker at .40; 4 sampled openings retained, 0 caught.\n5: circle / rescue / warm; fire bunker at .40; 5 sampled openings retained, 0 caught.\nFive bunker examples passed: real vocabulary/engine, .40 active similarity, multiple familiar openings, exact catches, deterministic replay, isolated saved IDs, labels in rough and untouched original/public definitions.\n"
+    },
+    {
+      "test": "tests/test_bunker_hit_only.mjs",
+      "exit_code": 0,
+      "seconds": 1.46,
+      "output": "Bunker hit-only passed: real weak/exact misses stay ordinary, valid trapped shots still catch, old saves replay exactly, current saved lies adopt on next valid input, and retry activation is prefix-safe without changing hole identities.\n"
+    },
+    {
+      "test": "tests/test_personal_completed_ui.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Completed UI passed: completion recency, unfinished exclusion, two top-three rankings, interactive result filter and empty-safe rendering.\nResult filters clear with All holes or a repeated selection; horizontal rows retain explicit selection state.\n"
+    },
+    {
+      "test": "tests/test_admin_ui_work.mjs",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "output": "Admin UI work passed: bounded archive scans, stable picker nodes, navigation and refreshed/custom/reordered definitions.\n"
+    },
+    {
+      "test": "tests/test_semantic_warm.mjs",
+      "exit_code": 0,
+      "seconds": 2.03,
+      "output": "Semantic warm passed: partial-route caches, no partial score or state changes, shard reuse, identical warm/cold live score.\n"
+    },
+    {
+      "test": "tests/test_personal_reset.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Personal reset clears exported play and bests, preserves custom holes/selection, restarts at tee, persists and rolls back on storage failure.\nRecovery restores prior personal bests/history and retains play since reset.\n"
+    },
+    {
+      "test": "tests/test_personal_daily.mjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "output": "Personal daily tests passed: fixed UTC archive, all waypoint Par 5, future-preview access, unlimited strokes/retries, independent raw-score bests, delayed report isolation, persistence, nine distinct rows, uncapped scores and once-per-hole stats.\nPersonal export records actual strokes beyond seven; failed/unfinished attempts receive no default score.\nFull future-schedule access and saved custom-hole bests survive refresh.\n"
+    },
+    {
+      "test": "tests/test_hole_retirement.mjs",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "output": "Retirement passed: 29 shared holes and matching custom holes hidden, 1305 remaining IDs/settings intact, renumbering safe, retired selections recover, histories retained, stats/recent/best-three exclude retired holes across reload.\n"
+    },
+    {
+      "test": "tests/test_word_first_review.mjs",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "output": "Word-first review passed: all 265 definitions accounted for, exactly seven authorised removals, all recommendations still playable, 243 playable in the reviewed snapshot and unchanged archived IDs/settings.\n"
+    },
+    {
+      "test": "tests/test_word_first_20.mjs",
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "Word-first 20 passed: fixed word-only proposals, multiple natural opening probes, legal completion diagnostics, no prescribed/golden route, original 265 definitions preserved, historical batch preserved with the authorised FAME and SPOIL retirements.\n"
+    },
+    {
+      "test": "tests/test_word_landscape_30.mjs",
+      "exit_code": 0,
+      "seconds": 0.91,
+      "output": "Word landscape 30 passed: every prior definition unchanged, authorised retirements, 30 legal word-first proposals, real dogleg handoffs and final associations replayed independently, historical batch preserved.\n"
+    },
+    {
+      "test": "tests/test_dogleg_choice_30.mjs",
+      "exit_code": 0,
+      "seconds": 2.66,
+      "output": "Dogleg-choice 30 passed: 90 unique words (81 new), all 315 previous definitions preserved, 7 requested holes retired including already-retired FAME, 4 approved holes retained, 84777 shared-pool shot probes replayed, 30 legal completions and 316 playable holes.\n"
+    },
+    {
+      "test": "tests/test_simulation_pilot.mjs",
+      "exit_code": 0,
+      "seconds": 4.81,
+      "output": "Simulation pilot passed: 5 legal holes, 345 original definitions preserved, 30,000 seeded journeys and 1,800 scored draws internally consistent, every scored route replayed, exact live-score fixtures, policy reproducibility, conditional-sample guard and scorer/model/rules mismatch protection.\n"
+    },
+    {
+      "test": "tests/test_open_landscapes_30.mjs",
+      "exit_code": 0,
+      "seconds": 4.08,
+      "output": "Open landscapes passed: 30 completions, 149330 landing-choice probes replayed, all 350 previous definitions and saved progress preserved; #322\u2013#351 available.\n"
+    },
+    {
+      "test": "tests/test_open_landscapes_30_v2.mjs",
+      "exit_code": 0,
+      "seconds": 6.21,
+      "output": "Open landscapes passed: 30 completions, 261980 landing-choice probes replayed, all 380 previous definitions and saved progress preserved; #352\u2013#381 available.\n"
+    },
+    {
+      "test": "tests/test_public_fifty.mjs",
+      "exit_code": 0,
+      "seconds": 12.26,
+      "output": "Public fifty archive passed: 50 completions, 571291 landing-choice probes replayed, all 410 previous definitions and saved progress preserved; #382\u2013#431 available.\nPublic/admin passed: exactly 50 shared stable definitions, public-only stats/recent finishes, full archive/custom recovery and view-specific numbering.\n"
+    },
+    {
+      "test": "tests/test_public_selection.mjs",
+      "exit_code": 0,
+      "seconds": 0.81,
+      "output": "Rebalanced public course passed: 20 played + 30 newer, 50 engine completions, unchanged archive/rules, stable progress through reorder and public withdrawal, scoped stats and safe fallback.\n"
+    },
+    {
+      "test": "tests/test_fresh_public_fifty.mjs",
+      "exit_code": 0,
+      "seconds": 1.39,
+      "output": "Fresh fifty passed: 50 complete engine replays, 2116 independently restored dogleg lies, 15842 sampled onward-shot replays, no old public holes, unchanged archive/rules and retained progress.\n"
+    },
+    {
+      "test": "tests/test_discovery_public_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.87,
+      "output": "Discovery public twenty passed: 20 completions, 323 independent onward probes, short-route replays, 7/13 editorial mix, exact live input policy, former public fifty retained, unchanged prior 510 definitions, scoped stats and stable saved progress.\n"
+    },
+    {
+      "test": "tests/test_novel_public_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.87,
+      "output": "Novel public twenty passed: 20 completions, 330 independent onward probes, short-route replays, 7/13 editorial mix, recorded-era replay and current rejection policy, former public twenty retained, unchanged prior 530 definitions, scoped stats and stable saved progress.\n"
+    },
+    {
+      "test": "tests/test_clear_public_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "output": "PASS fresh public twenty; shared stable IDs, admin-first ordering, valid vocabulary/direct legs, public export visible\n"
+    },
+    {
+      "test": "tests/test_rich_associations_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.77,
+      "output": "Rich associations passed: 30 new triples, 180 legal forward openings from 300 ordinary probes, direct-leg checks, stable archive, new batch first and earlier twenty/progress retained. No complete-route search.\n"
+    },
+    {
+      "test": "tests/test_everyday_contexts_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "output": "Everyday contexts passed: 30 triples, 90 distinct words fresh to current fifty, 179 forward opening probes, current arrival rule, stable archive/progress and consistent public/admin ordering. No route search.\n"
+    },
+    {
+      "test": "tests/test_grounded_exploration_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "output": "Grounded exploration passed: 30 triples, 90 distinct words fresh to current eighty, 199 forward opening probes, current arrival rule, stable archive/progress and consistent public/admin ordering. No route search.\n"
+    },
+    {
+      "test": "tests/test_light_exploration_ten.mjs",
+      "exit_code": 0,
+      "seconds": 0.74,
+      "output": "Light exploration ten passed: 40/60 forward probes, public/admin #1\u201310, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_specific_words_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.77,
+      "output": "Specific words twenty passed: 77/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_concept_transitions_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.77,
+      "output": "Concept transitions twenty passed: 76/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_discovery_replacement_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "output": "Discovery replacement twenty passed: 90/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_inviting_discovery_ten.mjs",
+      "exit_code": 0,
+      "seconds": 0.73,
+      "output": "Inviting discovery ten passed: 38/60 forward probes, public/admin #1\u201310, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_fresh_concepts_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.76,
+      "output": "Fresh concepts twenty passed: 88/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_vivid_discovery_ten.mjs",
+      "exit_code": 0,
+      "seconds": 0.74,
+      "output": "Vivid discovery ten passed: 40/60 forward probes, public/admin #1\u201310, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_four_styles_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "Four styles twenty passed: 88/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_everyday_transitions_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "Everyday transitions twenty passed: 80/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_landing_opportunities_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "Landing opportunities twenty passed: 82/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_meaningful_discovery_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.76,
+      "output": "Meaningful discovery twenty passed: 79/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_grounded_discoveries_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.77,
+      "output": "Grounded discoveries thirty passed: 111/180 forward probes, public/admin #1\u201330, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_landing_choice_ten.mjs",
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "Landing choice ten passed: 34/60 forward probes, public/admin #1\u201310, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_varied_contexts_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.76,
+      "output": "Varied contexts twenty passed: 73/120 forward probes, public/admin #1\u201320, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_public_forty_and_new_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "output": "Public forty and new twenty passed: rated curation, 17 public-only withdrawals, 20 new at #324\u2013343 (71/120 forward probes), stable IDs and retained progress.\n"
+    },
+    {
+      "test": "tests/test_random_replacement_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 1.01,
+      "output": "Random replacement passed: reproducible seed/pool/order, 20 unchanged survivors of 65 candidates, welcoming #1\u201340, new #324\u2013343 (84/120 forward probes), archive and progress retained.\n"
+    },
+    {
+      "test": "tests/test_familiar_replacement_nineteen.mjs",
+      "exit_code": 0,
+      "seconds": 0.99,
+      "output": "Familiar replacements passed: PEN retained, nineteen replacements #325\u2013343 (77/114 forward probes), reproducible random nomination, mixed featured opening, stable archive and progress.\n"
+    },
+    {
+      "test": "tests/test_reviewed_ten_and_new_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.99,
+      "output": "Promotions and new twenty passed: #1\u201340 unchanged, ten 4/5 promotions #41\u201350, new #344\u2013363 (83/120 forward probes), reproducible nomination, actual-arrival rejection, stable IDs and saved progress.\n"
+    },
+    {
+      "test": "tests/test_feedback_promotions_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.91,
+      "output": "Feedback curation passed: seven promotions, five public withdrawals, HOTEL holes #1/#37, new #359\u2013378, 82/120 forward probes, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_append_twenty_379.mjs",
+      "exit_code": 0,
+      "seconds": 0.9,
+      "output": "Append twenty passed: #1\u2013378 unchanged, new #379\u2013398, 81/120 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_played_regression_twenty.mjs",
+      "exit_code": 0,
+      "seconds": 0.92,
+      "output": "Curation and twenty passed: retained order unchanged, five withdrawals, new #394\u2013413, 101/120 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_append_ten_414.mjs",
+      "exit_code": 0,
+      "seconds": 0.89,
+      "output": "Append ten passed: #1\u2013413 unchanged, new #414\u2013423, 40/60 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_promotions_and_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.06,
+      "output": "Promotions and thirty passed: 15 promotions, three withdrawals, new #421\u2013450, 142/180 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_top_seventy_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.02,
+      "output": "Top seventy and thirty passed: 14 promotions, three withdrawals, new #448\u2013477, 129/180 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_top_hundred_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.01,
+      "output": "Top hundred and thirty passed: 25 promotions, one withdrawal, new #477\u2013506, 132/180 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_top_one_twenty_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.03,
+      "output": "Top 120 and thirty passed: 22 promotions, two withdrawals, new #505\u2013534, 136/180 forward probes, reproducible nominations, fresh endpoints, stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_inviting_access_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.02,
+      "output": "Inviting access batch passed: 21 promotions, three withdrawals, new #532\u2013561, 137/180 forward probes; stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_familiar_discovery_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.01,
+      "output": "Familiar discovery batch passed: 14 promotions, five withdrawals, new #557\u2013586, 118/180 forward probes; stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_top140_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.97,
+      "output": "Top 140 batch passed: 22 promotions, five withdrawals, new #582\u2013611, 126/180 forward probes; stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_top160_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 0.98,
+      "output": "Top 160 batch passed: 24 promotions, two withdrawals, new #610\u2013639, 142/180 forward probes; stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_broad_access_thirty.mjs",
+      "exit_code": 0,
+      "seconds": 1.03,
+      "output": "Broad access batch passed: 18 promotions, four withdrawals, new #636\u2013665, 141/180 forward probes; stable archive and saved progress.\n"
+    },
+    {
+      "test": "tests/test_hole_feedback.mjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "output": "Hole feedback passed: optional validated ratings, edit/unrate, exact hole/route/style identity, reload/export, stale merges, explicit restoration, reset isolation and retained bests.\nFeedback form passed: unrated defaults, stable local edits, escaped notes and hidden active-play controls.\n"
+    },
+    {
+      "test": "tests/test_hole_one_replacement.mjs",
+      "exit_code": 0,
+      "seconds": 0.82,
+      "output": "Hole 1 replacement passed: TONGUE/CREDIT/SPILL, 4 ordinary forward openings, other 79 unchanged, old definitions and results preserved, public/admin agree.\n"
+    },
+    {
+      "test": "tests/test_new_best_finish.mjs",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "output": "New-best celebration passed: lexicographic strokes/Cleverness, unrounded comparison, async report, route/version guards and quiet return views.\n"
+    },
+    {
+      "test": "tests/test_tap_dogleg.mjs",
+      "exit_code": 0,
+      "seconds": 0.88,
+      "output": "Tap dogleg passed: 177 real prefixes match authoritative submissions (44 available, 133 unavailable); probes are read-only, stage/finish/failure guards and one-shot target transition verified.\nCurrent fixed-waypoint hint agrees with authoritative play on all twenty current public safety routes.\n"
+    },
+    {
+      "test": "tests/test_dogleg_strategy_bonus.mjs",
+      "exit_code": 0,
+      "seconds": 0.81,
+      "output": "Dogleg strategy passed: bounded/graded quality-scaled bonus, conservative outgoing-credit deduction, ceilings/legs/one-stroke bonus preserved, idempotence, exact real incoming/outgoing controls, literal neutrality and durable-best rescoring without synthetic play.\n"
+    },
+    {
+      "test": "tests/test_dogleg_continuation.mjs",
+      "exit_code": 0,
+      "seconds": 16.86,
+      "output": "Dogleg continuation passed: 62/65/78, exact shortcut vs lost finish, full recorded auto stroke, scoped strategy/elegance, saturation, literal/missing evidence, compact idempotence and historical v6 fallback.\nPadding controls passed: 32 deterministic strict insertions preserve the original route and do not gain an unearned advantage.\n"
+    },
+    {
+      "test": "tests/test_incoming_dogleg_credit.mjs",
+      "exit_code": 0,
+      "seconds": 39.8,
+      "output": "Incoming dogleg credit passed: 107 frozen routes, 18 changed scores, 17 one-shot exemptions, 32 unchanged insertion controls, graded access, bonus overlap, ceilings, exact examples, full/compact idempotence and v7 evidence fallback.\n"
+    },
+    {
+      "test": "tests/test_playable_vocabulary.mjs",
+      "exit_code": 0,
+      "seconds": 1.43,
+      "output": "Playable vocabulary passed: exact twenty-word block, normalized inputs and endpoints, no shot/state changes, real browser client, unchanged vectors and historical replay.\n"
+    },
+    {
+      "test": "tests/test_spelling_equivalence.mjs",
+      "exit_code": 0,
+      "seconds": 0.73,
+      "output": "Spelling equivalence passed: 726 curated forms, 678 supported aliases; exact outcomes and hubs, entered spelling retained, all endpoints, no extra finishing stroke, no same-leg alias reuse, cross-leg reuse retained, old saves intact, plural/family distinctions untouched.\n"
+    },
+    {
+      "test": "tests/test_spelling_cleverness.mjs",
+      "exit_code": 0,
+      "seconds": 15.9,
+      "output": "Spelling Cleverness passed: exact COLOR/COLOUR equality at 88 including unrounded score, I/S/E and canonical evidence; original 86/89 archived baselines retained before the isolated strategic bonus, cache identities separated and entered spelling retained in reports.\nAll 23 existing calibration scores are unchanged under shared spelling semantics.\n"
+    },
+    {
+      "test": "tests/test_future_daily_proposals.mjs",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "output": "Future proposals passed: original 106 definitions unchanged; 29 unique all-Par-5 holes appended with valid vocabulary and nontrivial legs; unsupported JELLYBEAN excluded.\n"
+    },
+    {
+      "test": "tests/test_fresh_daily_30.mjs",
+      "exit_code": 0,
+      "seconds": 0.76,
+      "output": "Fresh schedule passed: 30 all-Par-5 holes, 90 unused distinct endpoints, original 135 unchanged, consecutive dates, direct-leg rejection and complete engine-verified routes.\n"
+    },
+    {
+      "test": "tests/test_fresh_daily_50.mjs",
+      "exit_code": 0,
+      "seconds": 0.74,
+      "output": "Fresh schedule passed: 50 all-Par-5 holes, 150 unused distinct endpoints, original 165 unchanged, consecutive dates, direct-leg rejection and complete engine-verified routes.\n"
+    },
+    {
+      "test": "tests/test_discovery_daily_50.mjs",
+      "exit_code": 0,
+      "seconds": 0.74,
+      "output": "Discovery batch passed: 50 all-Par-5 holes, 45 verified setup approaches, 50 complete current-rule routes, inaccessible direct legs, original 215 unchanged, historical batch preserved, 43 still playable in batch, later batches may append without changing this audit.\n"
+    },
+    {
+      "test": "tests/test_personal_daily_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "output": "Personal cleverness panel passed: current scorer only, persisted/session reuse, stale response isolation, separate report persistence, safe text and no comparison-score UI.\n"
+    },
+    {
+      "test": "tests/test_band_free.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Band-free passed: zero-to100 mapping, exact per-leg schedule/product, efficiency and component monotonicity, no golf-band input, sensible single-leg handling, 23 preserved upstream calibrations, both real FEATHER routes, UI/copy/persistence breakdown.\n"
+    },
+    {
+      "test": "tests/test_relaxed_leg_factors.mjs",
+      "exit_code": 0,
+      "seconds": 0.28,
+      "output": "Relaxed legs passed: exact schedule/tail, unchanged 1\u20132-stroke legs, monotonicity across 4,860 fixed-quality splits, bonus/ceiling/product preserved, 38 comparisons, HAMMOCK skippability, and idempotent current-v3 saved-score migration.\n"
+    },
+    {
+      "test": "tests/test_vector_cleverness.mjs",
+      "exit_code": 0,
+      "seconds": 10.83,
+      "output": "Standalone vector scoring passed: 23 vector-only calibration routes, real Par3, exact unchanged harmonic operator, deterministic bounds, no state mutation, no dictionary/server scoring dependencies; 10122 ms.\n"
+    },
+    {
+      "test": "tests/test_progressive.mjs",
+      "exit_code": 0,
+      "seconds": 3.08,
+      "output": "Progressive loading passed: small startup, exact reconstruction, concurrent foreground rows, slow-background independence, range fallback, corruption rejection, persistent cache, and waypoint scoring parity.\n"
+    },
+    {
+      "test": "tests/test_progressive_recovery.mjs",
+      "exit_code": 0,
+      "seconds": 4.09,
+      "output": "Progressive recovery passed: cached HTTP failures, fresh reload, exact raw fallback, offline reuse, bounded total failure, HTTP/file diagnostics, retry after partial loading, corrupted cache eviction and unchanged vector identity.\n"
+    },
+    {
+      "test": "tests/test_browser.mjs",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "output": "Browser scoring passed: 179 real-vector Python parity journeys, independent rule cases, and cosine checks.\n"
+    },
+    {
+      "test": "tests/test_round_summary.mjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "output": "Round summary passed: five counted shots, successful route, miss/water breakdown, copied result, tee/lie/finished/busy label actions.\n"
+    },
+    {
+      "test": "tests/test_log.mjs",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "output": "Flight log passed: all submissions, score parity, reload/resume, archived journeys, sharing, storage failure and corrupt-data recovery.\nReset passed: new-only exports, persistent recovery, preservation of new rounds, failure rollback, and unreadable-original recovery.\n"
+    },
+    {
+      "test": "tests/test_map.mjs",
+      "exit_code": 0,
+      "seconds": 0.54,
+      "output": "Map scale passed: semantic order, departure boundary and arrival zone centred on the cup and actual green boundary at phone and desktop widths.\nCrowded label placement passed at phone and desktop widths: no missing words, overlapping labels, or covered balls.\nCurved map passed: radial distance invariance, fixed anchors, bounded close lies, concentric indicator geometry and short fade with no interior fill.\nMiss labels passed: upper/lower clustered misses spread outwards regardless of attempt order.\nMARS regression passed: nearby CAMERA / INSPIRE labels stay local at high and low pin/tee positions, during play and after completion.\nStable labels passed: mobile/desktop redraws, active-ball changes, retries/ghosts, isolated collision avoidance and changed word anchors.\n"
+    },
+    {
+      "test": "tests/test_course_appearance.mjs",
+      "exit_code": 0,
+      "seconds": 0.57,
+      "output": "Appearance passed: stable varied pins within requested ranges, organic green membership, rotated distance geometry, bounded words and immutable layouts.\nTerrain passed: stable tee/bunker/shore variation, one or two bunkers, lake beyond bottom edge and safe word lies.\n"
+    },
+    {
+      "test": "tests/test_shot_motion.mjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "output": "Shot motion passed: ground-only putting, diminishing chip bounces, straight ground travel, exact endpoints, cup sink, attached shadow and immutable inputs.\n"
+    },
+    {
+      "test": "tests/test_typing_layout.mjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "output": "Typing layout passed: no focus enlargement, uniform aspect ratio and bounded keyboard-space sizing across phone widths and crowded map heights.\nMobile anchor rollback passed: header navigation only, no page-top coordinator, no new keyboard transition state machine and unchanged desktop navigation.\nChrome keyboard baseline passed: layout/visual height mismatch, no premature entry, Done with retained focus and browser toolbar changes.\nCourse-card navigation passed: one smooth scroll with input locked until completion.\nCourse-card transition passed: fade out, replace hole, fade in, then enable input.\nTiny keyboard shortfalls preserve exact map width by tolerating at most 6px of bottom-padding shortfall; small screens retain uniform scaling and repeated fits do not oscillate.\nIntegrated mobile fit passed: exact resting width, input gap remains fixed through a two-pixel shortage, repeated visual-viewport callbacks stay stable, and the existing keyboard guard remains active.\n"
+    },
+    {
+      "test": "tests/test_label_motion.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Label motion passed: synchronous first pose, backwards/forwards fill, clean completion/cancellation, unsupported fallback, and no animation for unchanged boxes.\n"
+    },
+    {
+      "test": "tests/test_word_taps.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Word taps passed: generous label/dot targets, nearest-core overlap selection and scale-independent finger sizing.\n"
+    },
+    {
+      "test": "tests/test_chip_range.mjs",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "output": "Chip range passed: actual shot boundaries across levels/breadths, stable guide, fixed/historical rules, immutable scoring and real POPCORN chip-in.\nReal second-shot feedback passed: short landing revealed, automatic finish and backward miss excluded.\n"
+    },
+    {
+      "test": "tests/test_startup.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Startup passed: older rules start a fresh easier journey while logs remain archived; current rules resume unchanged.\n"
+    },
+    {
+      "test": "tests/test_new_discoveries.mjs",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "output": "20 new discoveries passed: unique endpoints, legal legs, verified human-selected routes, seed loading, and no-op empty input.\n"
+    },
+    {
+      "test": "tests/test_course.mjs",
+      "exit_code": 0,
+      "seconds": 4.69,
+      "output": "New course passed: counted automatic finish, direct chip-ins, connected backtracking, reset water boundary, failed-word exclusion, persistence, half-precision scoring, expanded words, custom assessments.\nLoader passed: gzip integrity, persistent model reuse, invalid-hole state preservation, and exact legacy model on demand.\nOpening bridges passed: exhaustive real-engine comparison, exact listed strengths, custom settings, fixed mode, and direct hole-in-one rows.\n"
+    },
+    {
+      "test": "tests/test_auto_finish.mjs",
+      "exit_code": 0,
+      "seconds": 2.42,
+      "output": "Range finish passed: real hub-adjusted legality, counted automatic chips/putts, misses and water excluded, saved-mode replay, log/skill/shortcut support and MARS camera finish.\n"
+    },
+    {
+      "test": "tests/test_short_second_leg_finish.mjs",
+      "exit_code": 0,
+      "seconds": 1.43,
+      "output": "Short second-leg finish passed: FIRE/PARK, unchanged CREAM/LETTUCE, ordinary contact, entry checks, long legs, guide, current/legacy restores, saved metadata and standalone scoring replay.\nBrowser retries passed: old lies adopt the relaxation on the next played shot, assumed prefixes remain intact, backtracking selections and tee retries preserve versioned restores.\n"
+    },
+    {
+      "test": "tests/test_plural_rescue.mjs",
+      "exit_code": 0,
+      "seconds": 1.5,
+      "output": "Plural rescue passed: S/ES, reverse suffix, hit/finish boundaries, unchanged successes, water, real DRUM, and saved replay.\n"
+    },
+    {
+      "test": "tests/test_word_families.mjs",
+      "exit_code": 0,
+      "seconds": 0.94,
+      "output": "Word families and rare vocabulary passed: bounded rescue, safe substitutions, saved-rule compatibility, unchanged old model data, lazy loading and real ABSEIL/BACTERIA.\n"
+    },
+    {
+      "test": "tests/test_waypoint.mjs",
+      "exit_code": 0,
+      "seconds": 1.33,
+      "output": "Waypoint trial: mandatory zone, target/baseline switch, no free shot, saved replay, full resets, 12 attempts, advisory par, stable mobile/desktop anchors, and three real routes passed.\nWaypoint browser client: final-leg chip boundary and finish check use restored leg state.\nWaypoint refinement: counted prefix retries, invalid retries, both dogleg directions, smaller green, front-only chip guide, and player routes passed.\nWaypoint retries: browser API and first-/third-shot prefixes preserve targets, count and replay.\nGreenside bunker recess passed in both orientations and viewports.\nAll twelve remaining waypoint tests have a successful route through the mandatory zone and reproducible saves.\nDistinct dogleg geometry, two-segment centre trace, and masked rough paths passed.\nFREESTYLE regression passed: high opening cosine reaches and displays inside the waypoint.\nCart path clearance passed for both doglegs, viewport widths and terrain phases.\nUnified green/sand collar and non-touching surfaces passed at both widths and directions.\nLAPS / HEALTH / SPIN: forward chip landing, matching flight preview, reused words and unused waypoint word passed.\nWaypoint auto-finish: correct final similarity, chip/putt choice, counted stroke, two-stroke albatross and historical replay passed.\nRepeated cross-leg words keep distinct anchors, label identities and retry prefixes on both viewports.\nSponge regression passed: fixed destination membership, honest weak-hit ghosts, stable named dogleg, and no obstacle teleport on hidden backward shots.\nStable lies passed: identical weak/successful intended waypoint positions, legacy event inference, hidden measurements, retry-scene motion guard and unified ghost cache version.\nFirst-leg flag passed: ordinary legal setup, mandatory dogleg, distinct first/second-leg lies, fixed flag landmark, reuse and saved replay.\n"
+    },
+    {
+      "test": "tests/test_waypoint_contact_geometry.mjs",
+      "exit_code": 0,
+      "seconds": 2.35,
+      "output": "Waypoint contact geometry passed: exact TALENT miss/arrival coordinates, fixed first-leg destination for plural/family rescue, full-distance contact and hub checks, no backward rescue, old-save replay, prefix-safe live adoption/retry, cache separation and unchanged second-leg PHOTO finish.\n"
+    },
+    {
+      "test": "tests/test_strong_dogleg_finish.mjs",
+      "exit_code": 0,
+      "seconds": 2.04,
+      "output": "Strong dogleg finish passed: 0.32 boundary, SAME stops, explicit flag blocked without stroke, SIMILAR backwards finishing exception, ordinary/weak/backward safeguards, stable one-third-or-farther landing, separate auto stroke, legacy/prefix/retry/cache compatibility and live vector scoring.\n"
+    },
+    {
+      "test": "tests/test_waypoint_assessment.mjs",
+      "exit_code": 0,
+      "seconds": 3.37,
+      "output": "Waypoint assessment passed: direct-leg rejection, atomic creation, bounded exact routes, par 4/5, and worker fallback (2304 ms).\n"
+    },
+    {
+      "test": "tests/test_headwind.mjs",
+      "exit_code": 0,
+      "seconds": 2.26,
+      "output": "Headwind passed: fixed normalised projection, source isolation, symmetric geometry, separate variants, exact replay, exhaustive bridge legality, skill, shortcuts and scorecard persistence.\n"
+    },
+    {
+      "test": "tests/test_word_model.mjs",
+      "exit_code": 0,
+      "seconds": 6.24,
+      "output": "Word models passed: lazy loading, current integrity, 59 ABTT bridges, excluded vague words, scoring, chip range, skill, shortcuts, headwind composition and scorecard replay.\n"
+    },
+    {
+      "test": "tests/test_local_scaling.mjs",
+      "exit_code": 0,
+      "seconds": 6.76,
+      "output": "LS15: frozen formula/counts on ten holes, exhaustive engine parity, shared vectors, lazy data, replay, skill, shortcuts and logs passed.\n"
+    },
+    {
+      "test": "tests/test_daily_discoveries.mjs",
+      "exit_code": 0,
+      "seconds": 0.69,
+      "output": "18 daily discoveries passed: six of each par, current-model routes, direct-leg rejection and source/bank/schedule agreement.\n"
+    },
+    {
+      "test": "tests/test_course_dialog.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Course dialogs passed: neutral heading focus, no automatic button focus, shared background lock, stacked modal handover and exact scroll restoration.\n"
+    },
+    {
+      "test": "tests/test_tour_course.mjs",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "output": "Daily Tours passed: five fresh daily holes, unlimited engine/retry attempts, exact 24/25 and 49/50 boundaries, no-cost previews, course totals, immutable snapshots, defaults, UTC rollover, stale tabs, practice exclusion, ranking and real-model eagle scoring.\nTour schedule passed: non-repeating practice-safe layouts and immutable daily assignments on future append.\n"
+    },
+    {
+      "test": "tests/test_competitive_course.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Competitive/Social passed: 25/26 boundary, no-cost previews, sticky day category, unlimited Social improvements, final-score snapshots, independent mode storage, UTC rollover, submission lock, official-only leaderboard and hypothetical tie ranking.\n"
+    },
+    {
+      "test": "tests/test_semantic_analysis.mjs",
+      "exit_code": 0,
+      "seconds": 2.69,
+      "output": "Semantic analysis passed: strict local ranks, continuous symmetric split, ties/empty/weak signals, endpoint roles, repeated word positions, cached deterministic 100-NN, exact dogleg alternatives, escaped UI and immutable game state.\n"
+    },
+    {
+      "test": "tests/test_semantic_journey.mjs",
+      "exit_code": 0,
+      "seconds": 1.39,
+      "output": "Semantic journey passed: exact signed setup gain, short/long return loops, synonym controls, objective-aware dogleg protection, zero-progress suppression, ROBOT/CHAOTIC/SPIRAL, deterministic real-route diagnostics and unchanged game state.\n"
+    },
+    {
+      "test": "tests/test_cleverness.mjs",
+      "exit_code": 0,
+      "seconds": 3.46,
+      "output": "Cleverness v2 passed: all 13 supplied routes, first-word pivots, necessary setups, exact margins, multiple-removal proof, bounded multiword compression, recalculated dogleg baselines, lexical evidence/false-positive controls, complete vs tiny candidate pools, immutable/cached state and no stroke-count creativity factor.\n"
+    },
+    {
+      "test": "tests/test_cleverness_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "output": "Cleverness panel passed: cache identity, lexical version identity, escaped findings, stale/hidden reports, specific error details, immutable in-flight snapshots, retryable errors and no game/viewport mutations.\n"
+    },
+    {
+      "test": "tests/test_cleverness_worker.mjs",
+      "exit_code": 0,
+      "seconds": 1.24,
+      "output": "Cleverness worker passed: real worker protocol, shared v1 neighbourhoods, async module loading, daily allowance identity, deterministic independent evaluation and unchanged game state.\n"
+    },
+    {
+      "test": "tests/test_association.mjs",
+      "exit_code": 0,
+      "seconds": 6.07,
+      "output": "Association V3: 13 exact routes, full-vocabulary midranks, threshold sensitivity, verified sources, lexical discounts, bounded real-engine substitutions, changed dogleg baselines, deterministic caching and immutable gameplay.\n"
+    },
+    {
+      "test": "tests/test_association_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "output": "Association panel: lazy request, escaped output, stale responses, source snapshots, hidden/cached reports and retryable errors.\n"
+    },
+    {
+      "test": "tests/test_association_worker.mjs",
+      "exit_code": 0,
+      "seconds": 1.35,
+      "output": "Association worker: real lazy module protocol, structured-clone-safe proofs, V2 reuse, exact route identity and unchanged saved state.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v4.mjs",
+      "exit_code": 0,
+      "seconds": 8.04,
+      "output": "V4 passed: every profile/geometry/label checksum, 13 routes, real setup and dogleg proofs, endpoint exclusion, full-vocabulary-only WordNet, no targeted import path, model/profile guards, bounded lazy loads, retry and verified raw fallback.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v4_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.28,
+      "output": "V4 panel passed: lazy request, source-neutral explanations, caches, stale/hidden reports, safe text and retryable errors.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v4_worker.mjs",
+      "exit_code": 0,
+      "seconds": 1.63,
+      "output": "V4 worker passed: lazy async profile loading, metadata identity, structured-clone-safe report, V2 reuse and no game mutation.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v5.mjs",
+      "exit_code": 0,
+      "seconds": 9.72,
+      "output": "V5: 19 exact routes, V4 reuse, deterministic evidence, no mutation, source isolation, nested alternative controls and weak/one-sided/same-context failures passed.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v5_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "output": "V5 panel passed: lazy request, source-neutral explanations, caches, stale/hidden reports, safe text and retryable errors.\n"
+    },
+    {
+      "test": "tests/test_cleverness_v5_worker.mjs",
+      "exit_code": 0,
+      "seconds": 1.55,
+      "output": "V5 worker passed: lazy async profile loading, metadata identity, structured-clone-safe report, V2 reuse and no game mutation.\n"
+    },
+    {
+      "test": "tests/test_hole_solution_landscape.mjs",
+      "exit_code": 0,
+      "seconds": 7.51,
+      "output": "Landscape: exhaustive small oracle, all 4,952 real accepted routes replayed independently, automatic-finish stopping, deterministic cells, bounds and out-of-scope player controls passed.\n"
+    },
+    {
+      "test": "tests/test_semantic_panel.mjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "output": "Semantic panel passed: stale completion suppression, hidden-card safety, report caching, retryable offline failures and route/model identity checks.\n"
+    },
+    {
+      "test": "tests/test_rolling_course.mjs",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "output": "Rolling nine passed: stable rotation, UTC bonuses, refresh/clock protection, daily snapshots, defaults, practice eligibility, storage isolation and engine allowance preservation.\nRolling locks passed: stale-tab submission protection and final live-attempt continuation.\nRolling UI guards passed: competitive exhaustion pauses instead of entering practice; retired practice stays available.\nBalanced schedule passed: all 131 dates stay par 35\u201336, no adjacent par 3, exact daily rotation, immutable IDs/pars, append-only curation and preserved historical submissions.\nLocked review passed: recorded route restoration, unplayed default review, practice CTA and immutable submitted scores.\nThree daily arrivals passed: six-day new release, exact three-in/three-out, daily par 35\u201336, old queue order, saved submissions/routes and once-daily bonuses.\n"
+    },
+    {
+      "test": "tests/test_result_actions.mjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "output": "Result actions passed: exhausted-course retry from an old best, tee restart without keyboard, immutable score, correct footer and isolated page-top navigation.\nCompletion scrolling passed: mobile win goes to page top; ordinary shots and desktop submissions do not.\n"
+    },
+    {
+      "test": "tests/test_result_map_retry.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Results map retry passed: tap uses Try Again; scroll, cancelled touch and busy state do not restart; normal word selection stays intact.\n"
+    },
+    {
+      "test": "tests/test_result_review.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Trophy results review passed: saved best on map, current lie/input/retry preview/notices/attempt count preserved, no modal and ordinary results still retry.\nLie return feedback passed: explicit navigation restores the lie but dismisses the previous dogleg announcement.\nNavigation results passed: completed holes show saved results, untouched tee replays show results, and active reattempts resume their existing lie.\nSaved route reference passed: empty export log and tee replay show tappable best lies without replacing a new route or selected retry.\n"
+    },
+    {
+      "test": "tests/test_cubic_stretch.mjs",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "output": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 (index) \u2502 raw \u2502 stretched \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502 0       \u2502 40  \u2502 30.204    \u2502\n\u2502 1       \u2502 50  \u2502 39.796    \u2502\n\u2502 2       \u2502 60  \u2502 52.653    \u2502\n\u2502 3       \u2502 70  \u2502 70        \u2502\n\u2502 4       \u2502 80  \u2502 84.444    \u2502\n\u2502 5       \u2502 90  \u2502 92.222    \u2502\n\u2502 6       \u2502 95  \u2502 95.694    \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\nCubic stretch passed: fixed endpoints/pivot, central slope 2, strict ranking, transformed ceiling, unchanged raw factors/bonus, 38 v4 controls, final-only rounding and idempotence.\n"
+    },
+    {
+      "test": "tests/test_durable_results.mjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "output": "Durable results passed: export reset/reload preserves best route state, new batch stays clean, legacy reconstruction checks exact route/strokes, and stored score/average migration is idempotent.\nResults presentation passed: fresh-attempt score stays distinct from best route, return review omits fresh details, and retained routes stay out of cleared exports.\n"
+    },
+    {
+      "test": "tests/test_completed_map_frame.mjs",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "output": "Completed map passed: fixed 200/320px frames, balanced padding, route fit and undistorted viewBox across 32 layouts; trophy visibility, touch sequencing, safe route text and one heading per card.\n"
+    },
+    {
+      "test": "tests/test_result_map_camera.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Quick results camera passed: matched 260ms composited transforms, aligned SVG/scenery throughout, no per-frame SVG writes, single transition, cleanup, cancellation and reduced-motion/fallback support.\nZoomed-out scenery coverage passed: padded horizontal and vertical bounds, unchanged scale/alignment and normal-view restoration.\n"
+    },
+    {
+      "test": "tests/test_how_to_play.mjs",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "output": "How to play passed: production-engine hit/miss examples, target connection controlled, labelled diagrams, current rules and removed retry bubble.\nThree production-engine PEN examples and four-step help content passed; no decorative ball or interactive retry controls.\n"
+    },
+    {
+      "test": "tests/test_overlay_presentation.mjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "output": "Overlay presentation passed: bounded scene lift, readable top clearance, backdrop/input isolation, card/frame isolation, and preserved page-top navigation.\nBackdrop dismissal passed: no pointer or click bubbles through to a previous lie.\nGuidance help passed: consumed pointer focus, one open per tap, keyboard access and no in-flight interruption.\nResult context and card sizing passed: latest-result moment, compact return review, no unnecessary expansion and bounded tall cards.\nResult review title passed: centred hole/par title on return, fresh latest-stroke heading preserved.\n"
+    },
+    {
+      "test": "tests/test_bag_play.mjs",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "output": "Entry reminders passed: mobile phases, independent desktop context, preserved feedback, one-time practice introduction and reload persistence.\nBag cards passed: recorded best-route selection, practice isolation, and no-op Return to tee at the tee.\nSession retry hint passed: first selection only, with reload persistence.\n"
+    },
+    {
+      "test": "tests/test_stroke_play.mjs",
+      "exit_code": 0,
+      "seconds": 1.44,
+      "output": "Stroke play passed: per-par limits, final-shot feedback, immediate misses, curated eagles (31 route fixtures), exact replay, reversible prefix retries, unchanged green width and smooth flight-to-roll motion.\n"
+    },
+    {
+      "test": "tests/test_success_mode.mjs",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "output": "Success mode: par/birdie, automatic stroke budget, early failure, replay, attempts, complete scorecard history and legacy rounds passed.\nImmediate-retry rules: first miss, water penalty, unknown/current-word exceptions and deterministic versioned replay passed.\n"
+    },
+    {
+      "test": "tests/test_course_round.mjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "output": "Course scoring passed: mixed pars, 10/15/20 limits, eagles, capped failed attempts, saved best, earlier-attempt tie break, early next hole, reload, ranking metadata and preserved historical scores.\n"
+    },
+    {
+      "test": "tests/test_practice_scorecard.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Practice scorecard passed: best per hole, unique retries, capped misses, final targets, recent-five limit and course separation.\n"
+    },
+    {
+      "test": "tests/test_attempt_ghosts.mjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "output": "Previous labels passed: latest attempt only, visible words retained, hidden misses excluded, no path/marker data, shared projection and optional packing.\nDogleg retry passed: first-leg selections restore the zone with or without keyboard focus; an actual played target returns its original lie, with separate leg identities.\n"
+    },
+    {
+      "test": "tests/test_play_feedback.mjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "Feedback passed: forward/near/backward classification, raw relative threshold, exact copy and uncharged input errors.\nShort-shot reveal criteria and approved per-hole blocklist copy passed.\n"
+    },
+    {
+      "test": "tests/test_hubs.mjs",
+      "exit_code": 0,
+      "seconds": 1.49,
+      "output": "Hub rules passed: quantized model integrity, historical replay, weak hub bridges filtered, four opening greens retained, bridge/skill parity, modest distance scaling, and chip-in independence from move/miss counts.\n"
+    },
+    {
+      "test": "tests/test_hub_warning.mjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "output": "Endpoint warnings passed: independent fields, normalization, broad/very broad labels, unknown/blank clearing, and advisory copy.\n"
+    },
+    {
+      "test": "tests/test_skill.mjs",
+      "exit_code": 0,
+      "seconds": 3.47,
+      "output": "Real vectors: EVOLVE route 804; EVOLVED green 1000.\nSkill passed: near-miss severity, useful/harmful backtracks, loop resistance, automatic-finish exclusion, immutability, persistence/export, real-vector route comparison, exhaustive onward-option parity and legal alternatives.\nSkill v2 calibration passed: 5-shot SCOLD route 396; controlled 20-shot retry 84; 30-shot retry 55; no floor and no gameplay changes.\nPath skill isolation passed: earlier misses/penalties and retry number do not affect the final successful path.\n"
+    },
+    {
+      "test": "tests/test_skill_connections.mjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "output": "Skill connection tests passed: strong 1000, balanced 857, unbalanced 769, marginal 615; useful weak-contact small setup 1000 equals strong-contact setup 1000.\n"
+    },
+    {
+      "test": "tests/test_specificity.mjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "output": "Specificity passed: same two-shot count, vague green 909, precise approach/chip 1000; free setups, directional breadth, missed/hole-word exemptions, immutable gameplay and retained feedback.\n"
+    },
+    {
+      "test": "tests/test_route_review.mjs",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "output": "Route review passed: independent omissions, whole-route replay, water/revisit history, duplicate occurrences, misses preserved, automatic finishes, hub rules, stale results and real vectors.\n"
+    },
+    {
+      "test": "tests/test_bridge_feedback.mjs",
+      "exit_code": 0,
+      "seconds": 1.07,
+      "output": "Bridge feedback passed: exact settings/model and margins, duplicate flags, notes, undo, preview persistence, played-green comparison, spoiler chronology, reset/recovery merge, cutoff separation, and storage failure.\n"
+    },
+    {
+      "test": "tests/test_skill_feedback.mjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "output": "Skill feedback passed: saved ratings/notes, changing and clearing, assessment snapshots, model/version isolation, JSON/copy exports, reset/recovery, and storage failure.\n"
+    }
+  ]
+}
