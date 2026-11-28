@@ -1,0 +1,3847 @@
+{
+  "seed": 2026112831,
+  "algorithm": "Python random.Random(seed).choices, weights 1.4 or 1, removing the selected word within each triple; 480 triples recorded before checks",
+  "designSha256": "f52fc4fc13ae47e15061f3edde7f25ef53b30e1b3e5cffc6017fe8fbc92f7fef",
+  "candidates": [
+    {
+      "candidate": 1,
+      "words": [
+        "week",
+        "chip",
+        "jam"
+      ]
+    },
+    {
+      "candidate": 2,
+      "words": [
+        "cool",
+        "street",
+        "borrow"
+      ]
+    },
+    {
+      "candidate": 3,
+      "words": [
+        "stone",
+        "sea",
+        "culture"
+      ]
+    },
+    {
+      "candidate": 4,
+      "words": [
+        "cash",
+        "curve",
+        "prefer"
+      ]
+    },
+    {
+      "candidate": 5,
+      "words": [
+        "bread",
+        "process",
+        "alert"
+      ]
+    },
+    {
+      "candidate": 6,
+      "words": [
+        "raise",
+        "quality",
+        "year"
+      ]
+    },
+    {
+      "candidate": 7,
+      "words": [
+        "operate",
+        "solid",
+        "run"
+      ]
+    },
+    {
+      "candidate": 8,
+      "words": [
+        "beer",
+        "enjoy",
+        "positive"
+      ]
+    },
+    {
+      "candidate": 9,
+      "words": [
+        "mass",
+        "interest",
+        "sun"
+      ]
+    },
+    {
+      "candidate": 10,
+      "words": [
+        "bit",
+        "spell",
+        "need"
+      ]
+    },
+    {
+      "candidate": 11,
+      "words": [
+        "silver",
+        "boot",
+        "week"
+      ]
+    },
+    {
+      "candidate": 12,
+      "words": [
+        "empty",
+        "permit",
+        "daily"
+      ]
+    },
+    {
+      "candidate": 13,
+      "words": [
+        "answer",
+        "general",
+        "sum"
+      ]
+    },
+    {
+      "candidate": 14,
+      "words": [
+        "debate",
+        "range",
+        "glove"
+      ]
+    },
+    {
+      "candidate": 15,
+      "words": [
+        "affect",
+        "bold",
+        "fan"
+      ]
+    },
+    {
+      "candidate": 16,
+      "words": [
+        "control",
+        "black",
+        "physical"
+      ]
+    },
+    {
+      "candidate": 17,
+      "words": [
+        "apple",
+        "defend",
+        "point"
+      ]
+    },
+    {
+      "candidate": 18,
+      "words": [
+        "choose",
+        "exchange",
+        "upset"
+      ]
+    },
+    {
+      "candidate": 19,
+      "words": [
+        "phase",
+        "dull",
+        "counter"
+      ]
+    },
+    {
+      "candidate": 20,
+      "words": [
+        "straight",
+        "prepare",
+        "bank"
+      ]
+    },
+    {
+      "candidate": 21,
+      "words": [
+        "pension",
+        "attention",
+        "score"
+      ]
+    },
+    {
+      "candidate": 22,
+      "words": [
+        "single",
+        "boat",
+        "core"
+      ]
+    },
+    {
+      "candidate": 23,
+      "words": [
+        "plate",
+        "general",
+        "door"
+      ]
+    },
+    {
+      "candidate": 24,
+      "words": [
+        "tax",
+        "live",
+        "talk"
+      ]
+    },
+    {
+      "candidate": 25,
+      "words": [
+        "promise",
+        "weigh",
+        "dream"
+      ]
+    },
+    {
+      "candidate": 26,
+      "words": [
+        "word",
+        "gate",
+        "milk"
+      ]
+    },
+    {
+      "candidate": 27,
+      "words": [
+        "bird",
+        "simple",
+        "south"
+      ]
+    },
+    {
+      "candidate": 28,
+      "words": [
+        "chest",
+        "edit",
+        "ask"
+      ]
+    },
+    {
+      "candidate": 29,
+      "words": [
+        "issue",
+        "cast",
+        "street"
+      ]
+    },
+    {
+      "candidate": 30,
+      "words": [
+        "force",
+        "soft",
+        "please"
+      ]
+    },
+    {
+      "candidate": 31,
+      "words": [
+        "ice",
+        "hall",
+        "cliff"
+      ]
+    },
+    {
+      "candidate": 32,
+      "words": [
+        "quit",
+        "cross",
+        "cotton"
+      ]
+    },
+    {
+      "candidate": 33,
+      "words": [
+        "surface",
+        "stake",
+        "physical"
+      ]
+    },
+    {
+      "candidate": 34,
+      "words": [
+        "photo",
+        "style",
+        "row"
+      ]
+    },
+    {
+      "candidate": 35,
+      "words": [
+        "physical",
+        "depth",
+        "pattern"
+      ]
+    },
+    {
+      "candidate": 36,
+      "words": [
+        "zero",
+        "weather",
+        "hand"
+      ]
+    },
+    {
+      "candidate": 37,
+      "words": [
+        "good",
+        "shadow",
+        "remove"
+      ]
+    },
+    {
+      "candidate": 38,
+      "words": [
+        "courage",
+        "egg",
+        "long"
+      ]
+    },
+    {
+      "candidate": 39,
+      "words": [
+        "display",
+        "active",
+        "shut"
+      ]
+    },
+    {
+      "candidate": 40,
+      "words": [
+        "date",
+        "counter",
+        "coast"
+      ]
+    },
+    {
+      "candidate": 41,
+      "words": [
+        "defend",
+        "next",
+        "brief"
+      ]
+    },
+    {
+      "candidate": 42,
+      "words": [
+        "teach",
+        "solid",
+        "direct"
+      ]
+    },
+    {
+      "candidate": 43,
+      "words": [
+        "tight",
+        "bend",
+        "field"
+      ]
+    },
+    {
+      "candidate": 44,
+      "words": [
+        "float",
+        "circle",
+        "balance"
+      ]
+    },
+    {
+      "candidate": 45,
+      "words": [
+        "best",
+        "drag",
+        "branch"
+      ]
+    },
+    {
+      "candidate": 46,
+      "words": [
+        "aid",
+        "beam",
+        "wine"
+      ]
+    },
+    {
+      "candidate": 47,
+      "words": [
+        "display",
+        "swim",
+        "code"
+      ]
+    },
+    {
+      "candidate": 48,
+      "words": [
+        "settle",
+        "think",
+        "light"
+      ]
+    },
+    {
+      "candidate": 49,
+      "words": [
+        "discover",
+        "heart",
+        "switch"
+      ]
+    },
+    {
+      "candidate": 50,
+      "words": [
+        "sir",
+        "short",
+        "jar"
+      ]
+    },
+    {
+      "candidate": 51,
+      "words": [
+        "bar",
+        "force",
+        "king"
+      ]
+    },
+    {
+      "candidate": 52,
+      "words": [
+        "dream",
+        "wine",
+        "sweat"
+      ]
+    },
+    {
+      "candidate": 53,
+      "words": [
+        "crash",
+        "piece",
+        "give"
+      ]
+    },
+    {
+      "candidate": 54,
+      "words": [
+        "winter",
+        "left",
+        "advance"
+      ]
+    },
+    {
+      "candidate": 55,
+      "words": [
+        "bind",
+        "poor",
+        "camp"
+      ]
+    },
+    {
+      "candidate": 56,
+      "words": [
+        "bone",
+        "gather",
+        "boss"
+      ]
+    },
+    {
+      "candidate": 57,
+      "words": [
+        "regard",
+        "song",
+        "world"
+      ]
+    },
+    {
+      "candidate": 58,
+      "words": [
+        "machine",
+        "electric",
+        "live"
+      ]
+    },
+    {
+      "candidate": 59,
+      "words": [
+        "liberty",
+        "breath",
+        "peace"
+      ]
+    },
+    {
+      "candidate": 60,
+      "words": [
+        "pump",
+        "phase",
+        "yellow"
+      ]
+    },
+    {
+      "candidate": 61,
+      "words": [
+        "ride",
+        "room",
+        "profit"
+      ]
+    },
+    {
+      "candidate": 62,
+      "words": [
+        "stake",
+        "large",
+        "defend"
+      ]
+    },
+    {
+      "candidate": 63,
+      "words": [
+        "choose",
+        "gather",
+        "tire"
+      ]
+    },
+    {
+      "candidate": 64,
+      "words": [
+        "chair",
+        "cup",
+        "make"
+      ]
+    },
+    {
+      "candidate": 65,
+      "words": [
+        "current",
+        "tale",
+        "secure"
+      ]
+    },
+    {
+      "candidate": 66,
+      "words": [
+        "easy",
+        "block",
+        "profit"
+      ]
+    },
+    {
+      "candidate": 67,
+      "words": [
+        "rescue",
+        "paper",
+        "spill"
+      ]
+    },
+    {
+      "candidate": 68,
+      "words": [
+        "discover",
+        "exercise",
+        "feel"
+      ]
+    },
+    {
+      "candidate": 69,
+      "words": [
+        "leaf",
+        "seat",
+        "guess"
+      ]
+    },
+    {
+      "candidate": 70,
+      "words": [
+        "final",
+        "angle",
+        "zero"
+      ]
+    },
+    {
+      "candidate": 71,
+      "words": [
+        "approach",
+        "string",
+        "pin"
+      ]
+    },
+    {
+      "candidate": 72,
+      "words": [
+        "tap",
+        "board",
+        "state"
+      ]
+    },
+    {
+      "candidate": 73,
+      "words": [
+        "whole",
+        "lock",
+        "view"
+      ]
+    },
+    {
+      "candidate": 74,
+      "words": [
+        "wing",
+        "crew",
+        "pause"
+      ]
+    },
+    {
+      "candidate": 75,
+      "words": [
+        "due",
+        "amount",
+        "play"
+      ]
+    },
+    {
+      "candidate": 76,
+      "words": [
+        "tie",
+        "world",
+        "balance"
+      ]
+    },
+    {
+      "candidate": 77,
+      "words": [
+        "master",
+        "correct",
+        "sock"
+      ]
+    },
+    {
+      "candidate": 78,
+      "words": [
+        "lift",
+        "knife",
+        "ready"
+      ]
+    },
+    {
+      "candidate": 79,
+      "words": [
+        "subject",
+        "price",
+        "tank"
+      ]
+    },
+    {
+      "candidate": 80,
+      "words": [
+        "adjust",
+        "extra",
+        "coach"
+      ]
+    },
+    {
+      "candidate": 81,
+      "words": [
+        "cab",
+        "profit",
+        "low"
+      ]
+    },
+    {
+      "candidate": 82,
+      "words": [
+        "refer",
+        "touch",
+        "attack"
+      ]
+    },
+    {
+      "candidate": 83,
+      "words": [
+        "foot",
+        "noise",
+        "tip"
+      ]
+    },
+    {
+      "candidate": 84,
+      "words": [
+        "unit",
+        "arrive",
+        "tire"
+      ]
+    },
+    {
+      "candidate": 85,
+      "words": [
+        "warn",
+        "put",
+        "heavy"
+      ]
+    },
+    {
+      "candidate": 86,
+      "words": [
+        "motion",
+        "act",
+        "shake"
+      ]
+    },
+    {
+      "candidate": 87,
+      "words": [
+        "fan",
+        "watch",
+        "price"
+      ]
+    },
+    {
+      "candidate": 88,
+      "words": [
+        "site",
+        "reply",
+        "grass"
+      ]
+    },
+    {
+      "candidate": 89,
+      "words": [
+        "dad",
+        "stream",
+        "severe"
+      ]
+    },
+    {
+      "candidate": 90,
+      "words": [
+        "place",
+        "solid",
+        "tap"
+      ]
+    },
+    {
+      "candidate": 91,
+      "words": [
+        "fear",
+        "decide",
+        "stain"
+      ]
+    },
+    {
+      "candidate": 92,
+      "words": [
+        "scale",
+        "full",
+        "interest"
+      ]
+    },
+    {
+      "candidate": 93,
+      "words": [
+        "ache",
+        "divide",
+        "house"
+      ]
+    },
+    {
+      "candidate": 94,
+      "words": [
+        "seal",
+        "handle",
+        "pattern"
+      ]
+    },
+    {
+      "candidate": 95,
+      "words": [
+        "bill",
+        "season",
+        "blow"
+      ]
+    },
+    {
+      "candidate": 96,
+      "words": [
+        "bend",
+        "main",
+        "perform"
+      ]
+    },
+    {
+      "candidate": 97,
+      "words": [
+        "return",
+        "try",
+        "vote"
+      ]
+    },
+    {
+      "candidate": 98,
+      "words": [
+        "comment",
+        "think",
+        "move"
+      ]
+    },
+    {
+      "candidate": 99,
+      "words": [
+        "exist",
+        "opposite",
+        "cheek"
+      ]
+    },
+    {
+      "candidate": 100,
+      "words": [
+        "seek",
+        "jaw",
+        "sun"
+      ]
+    },
+    {
+      "candidate": 101,
+      "words": [
+        "nation",
+        "crush",
+        "bed"
+      ]
+    },
+    {
+      "candidate": 102,
+      "words": [
+        "sort",
+        "tool",
+        "reflect"
+      ]
+    },
+    {
+      "candidate": 103,
+      "words": [
+        "tool",
+        "sock",
+        "request"
+      ]
+    },
+    {
+      "candidate": 104,
+      "words": [
+        "surface",
+        "warn",
+        "album"
+      ]
+    },
+    {
+      "candidate": 105,
+      "words": [
+        "nerve",
+        "product",
+        "sense"
+      ]
+    },
+    {
+      "candidate": 106,
+      "words": [
+        "credit",
+        "sign",
+        "grain"
+      ]
+    },
+    {
+      "candidate": 107,
+      "words": [
+        "arrow",
+        "shine",
+        "apple"
+      ]
+    },
+    {
+      "candidate": 108,
+      "words": [
+        "rich",
+        "opposite",
+        "large"
+      ]
+    },
+    {
+      "candidate": 109,
+      "words": [
+        "start",
+        "shape",
+        "honour"
+      ]
+    },
+    {
+      "candidate": 110,
+      "words": [
+        "mistake",
+        "long",
+        "index"
+      ]
+    },
+    {
+      "candidate": 111,
+      "words": [
+        "shine",
+        "far",
+        "actor"
+      ]
+    },
+    {
+      "candidate": 112,
+      "words": [
+        "wave",
+        "interest",
+        "vote"
+      ]
+    },
+    {
+      "candidate": 113,
+      "words": [
+        "focus",
+        "branch",
+        "text"
+      ]
+    },
+    {
+      "candidate": 114,
+      "words": [
+        "double",
+        "increase",
+        "code"
+      ]
+    },
+    {
+      "candidate": 115,
+      "words": [
+        "inside",
+        "slow",
+        "float"
+      ]
+    },
+    {
+      "candidate": 116,
+      "words": [
+        "basic",
+        "tale",
+        "profit"
+      ]
+    },
+    {
+      "candidate": 117,
+      "words": [
+        "lot",
+        "rock",
+        "give"
+      ]
+    },
+    {
+      "candidate": 118,
+      "words": [
+        "print",
+        "habit",
+        "help"
+      ]
+    },
+    {
+      "candidate": 119,
+      "words": [
+        "late",
+        "ticket",
+        "pause"
+      ]
+    },
+    {
+      "candidate": 120,
+      "words": [
+        "bargain",
+        "note",
+        "pitch"
+      ]
+    },
+    {
+      "candidate": 121,
+      "words": [
+        "obtain",
+        "comment",
+        "wire"
+      ]
+    },
+    {
+      "candidate": 122,
+      "words": [
+        "loss",
+        "distance",
+        "shelter"
+      ]
+    },
+    {
+      "candidate": 123,
+      "words": [
+        "miss",
+        "border",
+        "appear"
+      ]
+    },
+    {
+      "candidate": 124,
+      "words": [
+        "port",
+        "tiny",
+        "site"
+      ]
+    },
+    {
+      "candidate": 125,
+      "words": [
+        "seal",
+        "organ",
+        "ice"
+      ]
+    },
+    {
+      "candidate": 126,
+      "words": [
+        "boss",
+        "project",
+        "manage"
+      ]
+    },
+    {
+      "candidate": 127,
+      "words": [
+        "plane",
+        "rent",
+        "band"
+      ]
+    },
+    {
+      "candidate": 128,
+      "words": [
+        "lay",
+        "ground",
+        "grain"
+      ]
+    },
+    {
+      "candidate": 129,
+      "words": [
+        "punch",
+        "string",
+        "sugar"
+      ]
+    },
+    {
+      "candidate": 130,
+      "words": [
+        "rest",
+        "door",
+        "reset"
+      ]
+    },
+    {
+      "candidate": 131,
+      "words": [
+        "try",
+        "shine",
+        "inside"
+      ]
+    },
+    {
+      "candidate": 132,
+      "words": [
+        "register",
+        "pin",
+        "hole"
+      ]
+    },
+    {
+      "candidate": 133,
+      "words": [
+        "lean",
+        "long",
+        "free"
+      ]
+    },
+    {
+      "candidate": 134,
+      "words": [
+        "place",
+        "station",
+        "cloth"
+      ]
+    },
+    {
+      "candidate": 135,
+      "words": [
+        "tool",
+        "choice",
+        "lead"
+      ]
+    },
+    {
+      "candidate": 136,
+      "words": [
+        "sad",
+        "copy",
+        "girl"
+      ]
+    },
+    {
+      "candidate": 137,
+      "words": [
+        "future",
+        "review",
+        "race"
+      ]
+    },
+    {
+      "candidate": 138,
+      "words": [
+        "level",
+        "transfer",
+        "throw"
+      ]
+    },
+    {
+      "candidate": 139,
+      "words": [
+        "condition",
+        "motion",
+        "pick"
+      ]
+    },
+    {
+      "candidate": 140,
+      "words": [
+        "please",
+        "police",
+        "mean"
+      ]
+    },
+    {
+      "candidate": 141,
+      "words": [
+        "tell",
+        "fence",
+        "taste"
+      ]
+    },
+    {
+      "candidate": 142,
+      "words": [
+        "train",
+        "easy",
+        "glove"
+      ]
+    },
+    {
+      "candidate": 143,
+      "words": [
+        "sugar",
+        "foot",
+        "wage"
+      ]
+    },
+    {
+      "candidate": 144,
+      "words": [
+        "raise",
+        "fear",
+        "fold"
+      ]
+    },
+    {
+      "candidate": 145,
+      "words": [
+        "road",
+        "hip",
+        "sick"
+      ]
+    },
+    {
+      "candidate": 146,
+      "words": [
+        "sink",
+        "hospital",
+        "pack"
+      ]
+    },
+    {
+      "candidate": 147,
+      "words": [
+        "branch",
+        "code",
+        "child"
+      ]
+    },
+    {
+      "candidate": 148,
+      "words": [
+        "sail",
+        "boss",
+        "beat"
+      ]
+    },
+    {
+      "candidate": 149,
+      "words": [
+        "gather",
+        "snow",
+        "load"
+      ]
+    },
+    {
+      "candidate": 150,
+      "words": [
+        "plant",
+        "watch",
+        "theory"
+      ]
+    },
+    {
+      "candidate": 151,
+      "words": [
+        "dig",
+        "knock",
+        "gift"
+      ]
+    },
+    {
+      "candidate": 152,
+      "words": [
+        "hair",
+        "general",
+        "make"
+      ]
+    },
+    {
+      "candidate": 153,
+      "words": [
+        "class",
+        "crowd",
+        "protect"
+      ]
+    },
+    {
+      "candidate": 154,
+      "words": [
+        "subject",
+        "well",
+        "push"
+      ]
+    },
+    {
+      "candidate": 155,
+      "words": [
+        "wing",
+        "blind",
+        "prefer"
+      ]
+    },
+    {
+      "candidate": 156,
+      "words": [
+        "bomb",
+        "key",
+        "tiny"
+      ]
+    },
+    {
+      "candidate": 157,
+      "words": [
+        "ask",
+        "complete",
+        "peace"
+      ]
+    },
+    {
+      "candidate": 158,
+      "words": [
+        "date",
+        "stage",
+        "solid"
+      ]
+    },
+    {
+      "candidate": 159,
+      "words": [
+        "station",
+        "price",
+        "straight"
+      ]
+    },
+    {
+      "candidate": 160,
+      "words": [
+        "thank",
+        "weather",
+        "solve"
+      ]
+    },
+    {
+      "candidate": 161,
+      "words": [
+        "craft",
+        "theory",
+        "select"
+      ]
+    },
+    {
+      "candidate": 162,
+      "words": [
+        "courage",
+        "element",
+        "meal"
+      ]
+    },
+    {
+      "candidate": 163,
+      "words": [
+        "put",
+        "hat",
+        "move"
+      ]
+    },
+    {
+      "candidate": 164,
+      "words": [
+        "crush",
+        "life",
+        "machine"
+      ]
+    },
+    {
+      "candidate": 165,
+      "words": [
+        "name",
+        "column",
+        "string"
+      ]
+    },
+    {
+      "candidate": 166,
+      "words": [
+        "mention",
+        "sheet",
+        "land"
+      ]
+    },
+    {
+      "candidate": 167,
+      "words": [
+        "frame",
+        "charge",
+        "slip"
+      ]
+    },
+    {
+      "candidate": 168,
+      "words": [
+        "family",
+        "spot",
+        "search"
+      ]
+    },
+    {
+      "candidate": 169,
+      "words": [
+        "rush",
+        "lean",
+        "build"
+      ]
+    },
+    {
+      "candidate": 170,
+      "words": [
+        "record",
+        "public",
+        "breed"
+      ]
+    },
+    {
+      "candidate": 171,
+      "words": [
+        "meal",
+        "speed",
+        "hand"
+      ]
+    },
+    {
+      "candidate": 172,
+      "words": [
+        "court",
+        "wheel",
+        "sail"
+      ]
+    },
+    {
+      "candidate": 173,
+      "words": [
+        "death",
+        "pet",
+        "full"
+      ]
+    },
+    {
+      "candidate": 174,
+      "words": [
+        "credit",
+        "chair",
+        "form"
+      ]
+    },
+    {
+      "candidate": 175,
+      "words": [
+        "type",
+        "handle",
+        "plate"
+      ]
+    },
+    {
+      "candidate": 176,
+      "words": [
+        "leave",
+        "stamp",
+        "belong"
+      ]
+    },
+    {
+      "candidate": 177,
+      "words": [
+        "wait",
+        "nice",
+        "test"
+      ]
+    },
+    {
+      "candidate": 178,
+      "words": [
+        "spell",
+        "point",
+        "engine"
+      ]
+    },
+    {
+      "candidate": 179,
+      "words": [
+        "blind",
+        "block",
+        "depend"
+      ]
+    },
+    {
+      "candidate": 180,
+      "words": [
+        "soil",
+        "word",
+        "cell"
+      ]
+    },
+    {
+      "candidate": 181,
+      "words": [
+        "soup",
+        "lunch",
+        "league"
+      ]
+    },
+    {
+      "candidate": 182,
+      "words": [
+        "wash",
+        "lean",
+        "rough"
+      ]
+    },
+    {
+      "candidate": 183,
+      "words": [
+        "theory",
+        "real",
+        "lot"
+      ]
+    },
+    {
+      "candidate": 184,
+      "words": [
+        "reach",
+        "collar",
+        "copy"
+      ]
+    },
+    {
+      "candidate": 185,
+      "words": [
+        "clock",
+        "soft",
+        "flat"
+      ]
+    },
+    {
+      "candidate": 186,
+      "words": [
+        "register",
+        "baby",
+        "check"
+      ]
+    },
+    {
+      "candidate": 187,
+      "words": [
+        "hole",
+        "sort",
+        "check"
+      ]
+    },
+    {
+      "candidate": 188,
+      "words": [
+        "mill",
+        "present",
+        "sell"
+      ]
+    },
+    {
+      "candidate": 189,
+      "words": [
+        "touch",
+        "paint",
+        "put"
+      ]
+    },
+    {
+      "candidate": 190,
+      "words": [
+        "ride",
+        "coach",
+        "remove"
+      ]
+    },
+    {
+      "candidate": 191,
+      "words": [
+        "window",
+        "beat",
+        "weight"
+      ]
+    },
+    {
+      "candidate": 192,
+      "words": [
+        "sick",
+        "prize",
+        "pound"
+      ]
+    },
+    {
+      "candidate": 193,
+      "words": [
+        "machine",
+        "position",
+        "plant"
+      ]
+    },
+    {
+      "candidate": 194,
+      "words": [
+        "counter",
+        "language",
+        "picture"
+      ]
+    },
+    {
+      "candidate": 195,
+      "words": [
+        "wound",
+        "badge",
+        "condition"
+      ]
+    },
+    {
+      "candidate": 196,
+      "words": [
+        "motion",
+        "load",
+        "egg"
+      ]
+    },
+    {
+      "candidate": 197,
+      "words": [
+        "index",
+        "family",
+        "cotton"
+      ]
+    },
+    {
+      "candidate": 198,
+      "words": [
+        "jar",
+        "deliver",
+        "queen"
+      ]
+    },
+    {
+      "candidate": 199,
+      "words": [
+        "tooth",
+        "source",
+        "hand"
+      ]
+    },
+    {
+      "candidate": 200,
+      "words": [
+        "jaw",
+        "push",
+        "book"
+      ]
+    },
+    {
+      "candidate": 201,
+      "words": [
+        "gate",
+        "year",
+        "weight"
+      ]
+    },
+    {
+      "candidate": 202,
+      "words": [
+        "urban",
+        "tap",
+        "wheel"
+      ]
+    },
+    {
+      "candidate": 203,
+      "words": [
+        "hall",
+        "burn",
+        "speak"
+      ]
+    },
+    {
+      "candidate": 204,
+      "words": [
+        "effort",
+        "stair",
+        "message"
+      ]
+    },
+    {
+      "candidate": 205,
+      "words": [
+        "comfort",
+        "profit",
+        "organ"
+      ]
+    },
+    {
+      "candidate": 206,
+      "words": [
+        "buy",
+        "message",
+        "cell"
+      ]
+    },
+    {
+      "candidate": 207,
+      "words": [
+        "surface",
+        "rope",
+        "paint"
+      ]
+    },
+    {
+      "candidate": 208,
+      "words": [
+        "rank",
+        "apple",
+        "improve"
+      ]
+    },
+    {
+      "candidate": 209,
+      "words": [
+        "throat",
+        "wall",
+        "paint"
+      ]
+    },
+    {
+      "candidate": 210,
+      "words": [
+        "lose",
+        "seed",
+        "member"
+      ]
+    },
+    {
+      "candidate": 211,
+      "words": [
+        "punch",
+        "spirit",
+        "regard"
+      ]
+    },
+    {
+      "candidate": 212,
+      "words": [
+        "slip",
+        "close",
+        "spill"
+      ]
+    },
+    {
+      "candidate": 213,
+      "words": [
+        "organ",
+        "sir",
+        "fix"
+      ]
+    },
+    {
+      "candidate": 214,
+      "words": [
+        "price",
+        "well",
+        "watch"
+      ]
+    },
+    {
+      "candidate": 215,
+      "words": [
+        "spin",
+        "tap",
+        "advance"
+      ]
+    },
+    {
+      "candidate": 216,
+      "words": [
+        "heat",
+        "absent",
+        "ear"
+      ]
+    },
+    {
+      "candidate": 217,
+      "words": [
+        "debate",
+        "count",
+        "full"
+      ]
+    },
+    {
+      "candidate": 218,
+      "words": [
+        "crew",
+        "issue",
+        "deck"
+      ]
+    },
+    {
+      "candidate": 219,
+      "words": [
+        "solve",
+        "thick",
+        "hang"
+      ]
+    },
+    {
+      "candidate": 220,
+      "words": [
+        "energy",
+        "zero",
+        "cut"
+      ]
+    },
+    {
+      "candidate": 221,
+      "words": [
+        "tune",
+        "special",
+        "copy"
+      ]
+    },
+    {
+      "candidate": 222,
+      "words": [
+        "soup",
+        "shake",
+        "perform"
+      ]
+    },
+    {
+      "candidate": 223,
+      "words": [
+        "date",
+        "reserve",
+        "post"
+      ]
+    },
+    {
+      "candidate": 224,
+      "words": [
+        "high",
+        "grain",
+        "dance"
+      ]
+    },
+    {
+      "candidate": 225,
+      "words": [
+        "deck",
+        "jam",
+        "check"
+      ]
+    },
+    {
+      "candidate": 226,
+      "words": [
+        "basic",
+        "jam",
+        "connect"
+      ]
+    },
+    {
+      "candidate": 227,
+      "words": [
+        "amount",
+        "captain",
+        "fear"
+      ]
+    },
+    {
+      "candidate": 228,
+      "words": [
+        "idea",
+        "little",
+        "group"
+      ]
+    },
+    {
+      "candidate": 229,
+      "words": [
+        "human",
+        "collar",
+        "dish"
+      ]
+    },
+    {
+      "candidate": 230,
+      "words": [
+        "basket",
+        "half",
+        "bed"
+      ]
+    },
+    {
+      "candidate": 231,
+      "words": [
+        "window",
+        "stake",
+        "spread"
+      ]
+    },
+    {
+      "candidate": 232,
+      "words": [
+        "solve",
+        "sharp",
+        "page"
+      ]
+    },
+    {
+      "candidate": 233,
+      "words": [
+        "guide",
+        "rate",
+        "number"
+      ]
+    },
+    {
+      "candidate": 234,
+      "words": [
+        "pure",
+        "sew",
+        "physical"
+      ]
+    },
+    {
+      "candidate": 235,
+      "words": [
+        "day",
+        "degree",
+        "spread"
+      ]
+    },
+    {
+      "candidate": 236,
+      "words": [
+        "stream",
+        "white",
+        "want"
+      ]
+    },
+    {
+      "candidate": 237,
+      "words": [
+        "class",
+        "soul",
+        "cost"
+      ]
+    },
+    {
+      "candidate": 238,
+      "words": [
+        "poor",
+        "load",
+        "buy"
+      ]
+    },
+    {
+      "candidate": 239,
+      "words": [
+        "detail",
+        "globe",
+        "help"
+      ]
+    },
+    {
+      "candidate": 240,
+      "words": [
+        "hall",
+        "chain",
+        "union"
+      ]
+    },
+    {
+      "candidate": 241,
+      "words": [
+        "help",
+        "jacket",
+        "desk"
+      ]
+    },
+    {
+      "candidate": 242,
+      "words": [
+        "grand",
+        "seed",
+        "jar"
+      ]
+    },
+    {
+      "candidate": 243,
+      "words": [
+        "lose",
+        "check",
+        "bus"
+      ]
+    },
+    {
+      "candidate": 244,
+      "words": [
+        "load",
+        "light",
+        "clean"
+      ]
+    },
+    {
+      "candidate": 245,
+      "words": [
+        "engine",
+        "bite",
+        "thin"
+      ]
+    },
+    {
+      "candidate": 246,
+      "words": [
+        "process",
+        "top",
+        "shadow"
+      ]
+    },
+    {
+      "candidate": 247,
+      "words": [
+        "brave",
+        "day",
+        "proper"
+      ]
+    },
+    {
+      "candidate": 248,
+      "words": [
+        "see",
+        "winner",
+        "green"
+      ]
+    },
+    {
+      "candidate": 249,
+      "words": [
+        "social",
+        "plant",
+        "real"
+      ]
+    },
+    {
+      "candidate": 250,
+      "words": [
+        "guess",
+        "road",
+        "sign"
+      ]
+    },
+    {
+      "candidate": 251,
+      "words": [
+        "survive",
+        "delay",
+        "bridge"
+      ]
+    },
+    {
+      "candidate": 252,
+      "words": [
+        "spirit",
+        "quote",
+        "treat"
+      ]
+    },
+    {
+      "candidate": 253,
+      "words": [
+        "stick",
+        "career",
+        "design"
+      ]
+    },
+    {
+      "candidate": 254,
+      "words": [
+        "craft",
+        "wait",
+        "summer"
+      ]
+    },
+    {
+      "candidate": 255,
+      "words": [
+        "craft",
+        "spin",
+        "sick"
+      ]
+    },
+    {
+      "candidate": 256,
+      "words": [
+        "simple",
+        "stain",
+        "quality"
+      ]
+    },
+    {
+      "candidate": 257,
+      "words": [
+        "tip",
+        "exist",
+        "flight"
+      ]
+    },
+    {
+      "candidate": 258,
+      "words": [
+        "south",
+        "reserve",
+        "cloud"
+      ]
+    },
+    {
+      "candidate": 259,
+      "words": [
+        "split",
+        "room",
+        "context"
+      ]
+    },
+    {
+      "candidate": 260,
+      "words": [
+        "reason",
+        "plot",
+        "true"
+      ]
+    },
+    {
+      "candidate": 261,
+      "words": [
+        "bargain",
+        "wait",
+        "marry"
+      ]
+    },
+    {
+      "candidate": 262,
+      "words": [
+        "short",
+        "design",
+        "race"
+      ]
+    },
+    {
+      "candidate": 263,
+      "words": [
+        "media",
+        "sure",
+        "shore"
+      ]
+    },
+    {
+      "candidate": 264,
+      "words": [
+        "chicken",
+        "letter",
+        "steel"
+      ]
+    },
+    {
+      "candidate": 265,
+      "words": [
+        "adjust",
+        "secret",
+        "regard"
+      ]
+    },
+    {
+      "candidate": 266,
+      "words": [
+        "deep",
+        "fine",
+        "lane"
+      ]
+    },
+    {
+      "candidate": 267,
+      "words": [
+        "government",
+        "subject",
+        "plan"
+      ]
+    },
+    {
+      "candidate": 268,
+      "words": [
+        "fight",
+        "might",
+        "due"
+      ]
+    },
+    {
+      "candidate": 269,
+      "words": [
+        "cold",
+        "road",
+        "know"
+      ]
+    },
+    {
+      "candidate": 270,
+      "words": [
+        "please",
+        "season",
+        "row"
+      ]
+    },
+    {
+      "candidate": 271,
+      "words": [
+        "care",
+        "lack",
+        "quality"
+      ]
+    },
+    {
+      "candidate": 272,
+      "words": [
+        "page",
+        "member",
+        "seal"
+      ]
+    },
+    {
+      "candidate": 273,
+      "words": [
+        "act",
+        "next",
+        "character"
+      ]
+    },
+    {
+      "candidate": 274,
+      "words": [
+        "bottle",
+        "see",
+        "car"
+      ]
+    },
+    {
+      "candidate": 275,
+      "words": [
+        "pipe",
+        "plan",
+        "sell"
+      ]
+    },
+    {
+      "candidate": 276,
+      "words": [
+        "whole",
+        "regard",
+        "office"
+      ]
+    },
+    {
+      "candidate": 277,
+      "words": [
+        "new",
+        "belong",
+        "break"
+      ]
+    },
+    {
+      "candidate": 278,
+      "words": [
+        "sum",
+        "slide",
+        "lack"
+      ]
+    },
+    {
+      "candidate": 279,
+      "words": [
+        "sky",
+        "hang",
+        "arch"
+      ]
+    },
+    {
+      "candidate": 280,
+      "words": [
+        "cycle",
+        "corner",
+        "stone"
+      ]
+    },
+    {
+      "candidate": 281,
+      "words": [
+        "world",
+        "sugar",
+        "rice"
+      ]
+    },
+    {
+      "candidate": 282,
+      "words": [
+        "stake",
+        "nice",
+        "drug"
+      ]
+    },
+    {
+      "candidate": 283,
+      "words": [
+        "urban",
+        "sell",
+        "toe"
+      ]
+    },
+    {
+      "candidate": 284,
+      "words": [
+        "sun",
+        "sky",
+        "date"
+      ]
+    },
+    {
+      "candidate": 285,
+      "words": [
+        "news",
+        "skill",
+        "warm"
+      ]
+    },
+    {
+      "candidate": 286,
+      "words": [
+        "touch",
+        "favour",
+        "regular"
+      ]
+    },
+    {
+      "candidate": 287,
+      "words": [
+        "ring",
+        "string",
+        "woman"
+      ]
+    },
+    {
+      "candidate": 288,
+      "words": [
+        "dismiss",
+        "knock",
+        "port"
+      ]
+    },
+    {
+      "candidate": 289,
+      "words": [
+        "thought",
+        "sign",
+        "wrong"
+      ]
+    },
+    {
+      "candidate": 290,
+      "words": [
+        "log",
+        "reward",
+        "rope"
+      ]
+    },
+    {
+      "candidate": 291,
+      "words": [
+        "extra",
+        "dawn",
+        "circle"
+      ]
+    },
+    {
+      "candidate": 292,
+      "words": [
+        "found",
+        "claim",
+        "origin"
+      ]
+    },
+    {
+      "candidate": 293,
+      "words": [
+        "skill",
+        "bank",
+        "special"
+      ]
+    },
+    {
+      "candidate": 294,
+      "words": [
+        "tune",
+        "border",
+        "doubt"
+      ]
+    },
+    {
+      "candidate": 295,
+      "words": [
+        "bulb",
+        "pattern",
+        "swim"
+      ]
+    },
+    {
+      "candidate": 296,
+      "words": [
+        "far",
+        "warn",
+        "treat"
+      ]
+    },
+    {
+      "candidate": 297,
+      "words": [
+        "crew",
+        "link",
+        "talk"
+      ]
+    },
+    {
+      "candidate": 298,
+      "words": [
+        "kick",
+        "dance",
+        "root"
+      ]
+    },
+    {
+      "candidate": 299,
+      "words": [
+        "transfer",
+        "pet",
+        "web"
+      ]
+    },
+    {
+      "candidate": 300,
+      "words": [
+        "group",
+        "focus",
+        "sharp"
+      ]
+    },
+    {
+      "candidate": 301,
+      "words": [
+        "make",
+        "spin",
+        "nerve"
+      ]
+    },
+    {
+      "candidate": 302,
+      "words": [
+        "shock",
+        "courage",
+        "mood"
+      ]
+    },
+    {
+      "candidate": 303,
+      "words": [
+        "famous",
+        "service",
+        "suffer"
+      ]
+    },
+    {
+      "candidate": 304,
+      "words": [
+        "red",
+        "lot",
+        "sun"
+      ]
+    },
+    {
+      "candidate": 305,
+      "words": [
+        "surprise",
+        "hang",
+        "order"
+      ]
+    },
+    {
+      "candidate": 306,
+      "words": [
+        "courage",
+        "section",
+        "science"
+      ]
+    },
+    {
+      "candidate": 307,
+      "words": [
+        "slow",
+        "gain",
+        "debt"
+      ]
+    },
+    {
+      "candidate": 308,
+      "words": [
+        "rice",
+        "lead",
+        "grass"
+      ]
+    },
+    {
+      "candidate": 309,
+      "words": [
+        "man",
+        "fair",
+        "gap"
+      ]
+    },
+    {
+      "candidate": 310,
+      "words": [
+        "basket",
+        "guilt",
+        "title"
+      ]
+    },
+    {
+      "candidate": 311,
+      "words": [
+        "surface",
+        "taste",
+        "song"
+      ]
+    },
+    {
+      "candidate": 312,
+      "words": [
+        "page",
+        "patient",
+        "index"
+      ]
+    },
+    {
+      "candidate": 313,
+      "words": [
+        "wheel",
+        "quote",
+        "review"
+      ]
+    },
+    {
+      "candidate": 314,
+      "words": [
+        "condition",
+        "letter",
+        "crop"
+      ]
+    },
+    {
+      "candidate": 315,
+      "words": [
+        "rise",
+        "escape",
+        "reply"
+      ]
+    },
+    {
+      "candidate": 316,
+      "words": [
+        "high",
+        "card",
+        "spray"
+      ]
+    },
+    {
+      "candidate": 317,
+      "words": [
+        "advance",
+        "brain",
+        "thin"
+      ]
+    },
+    {
+      "candidate": 318,
+      "words": [
+        "hair",
+        "touch",
+        "shock"
+      ]
+    },
+    {
+      "candidate": 319,
+      "words": [
+        "lift",
+        "feed",
+        "tooth"
+      ]
+    },
+    {
+      "candidate": 320,
+      "words": [
+        "theory",
+        "hold",
+        "note"
+      ]
+    },
+    {
+      "candidate": 321,
+      "words": [
+        "view",
+        "photo",
+        "lack"
+      ]
+    },
+    {
+      "candidate": 322,
+      "words": [
+        "city",
+        "try",
+        "wish"
+      ]
+    },
+    {
+      "candidate": 323,
+      "words": [
+        "chart",
+        "business",
+        "property"
+      ]
+    },
+    {
+      "candidate": 324,
+      "words": [
+        "float",
+        "paper",
+        "issue"
+      ]
+    },
+    {
+      "candidate": 325,
+      "words": [
+        "prepare",
+        "letter",
+        "liberty"
+      ]
+    },
+    {
+      "candidate": 326,
+      "words": [
+        "weight",
+        "bulb",
+        "space"
+      ]
+    },
+    {
+      "candidate": 327,
+      "words": [
+        "sort",
+        "promise",
+        "shake"
+      ]
+    },
+    {
+      "candidate": 328,
+      "words": [
+        "long",
+        "waste",
+        "nation"
+      ]
+    },
+    {
+      "candidate": 329,
+      "words": [
+        "sign",
+        "seat",
+        "declare"
+      ]
+    },
+    {
+      "candidate": 330,
+      "words": [
+        "bird",
+        "fail",
+        "skin"
+      ]
+    },
+    {
+      "candidate": 331,
+      "words": [
+        "firm",
+        "science",
+        "see"
+      ]
+    },
+    {
+      "candidate": 332,
+      "words": [
+        "swim",
+        "message",
+        "background"
+      ]
+    },
+    {
+      "candidate": 333,
+      "words": [
+        "surface",
+        "cure",
+        "bind"
+      ]
+    },
+    {
+      "candidate": 334,
+      "words": [
+        "happy",
+        "stay",
+        "house"
+      ]
+    },
+    {
+      "candidate": 335,
+      "words": [
+        "army",
+        "bulb",
+        "whole"
+      ]
+    },
+    {
+      "candidate": 336,
+      "words": [
+        "store",
+        "box",
+        "law"
+      ]
+    },
+    {
+      "candidate": 337,
+      "words": [
+        "web",
+        "yellow",
+        "centre"
+      ]
+    },
+    {
+      "candidate": 338,
+      "words": [
+        "secret",
+        "branch",
+        "arch"
+      ]
+    },
+    {
+      "candidate": 339,
+      "words": [
+        "machine",
+        "country",
+        "grace"
+      ]
+    },
+    {
+      "candidate": 340,
+      "words": [
+        "hole",
+        "poor",
+        "soil"
+      ]
+    },
+    {
+      "candidate": 341,
+      "words": [
+        "lesson",
+        "claim",
+        "style"
+      ]
+    },
+    {
+      "candidate": 342,
+      "words": [
+        "remove",
+        "split",
+        "summer"
+      ]
+    },
+    {
+      "candidate": 343,
+      "words": [
+        "direct",
+        "declare",
+        "little"
+      ]
+    },
+    {
+      "candidate": 344,
+      "words": [
+        "wife",
+        "glory",
+        "shock"
+      ]
+    },
+    {
+      "candidate": 345,
+      "words": [
+        "photo",
+        "back",
+        "store"
+      ]
+    },
+    {
+      "candidate": 346,
+      "words": [
+        "name",
+        "cycle",
+        "ice"
+      ]
+    },
+    {
+      "candidate": 347,
+      "words": [
+        "joke",
+        "game",
+        "knee"
+      ]
+    },
+    {
+      "candidate": 348,
+      "words": [
+        "rush",
+        "animal",
+        "card"
+      ]
+    },
+    {
+      "candidate": 349,
+      "words": [
+        "answer",
+        "number",
+        "notice"
+      ]
+    },
+    {
+      "candidate": 350,
+      "words": [
+        "permit",
+        "pass",
+        "sell"
+      ]
+    },
+    {
+      "candidate": 351,
+      "words": [
+        "brush",
+        "store",
+        "rescue"
+      ]
+    },
+    {
+      "candidate": 352,
+      "words": [
+        "direct",
+        "attack",
+        "attend"
+      ]
+    },
+    {
+      "candidate": 353,
+      "words": [
+        "yellow",
+        "witness",
+        "image"
+      ]
+    },
+    {
+      "candidate": 354,
+      "words": [
+        "skin",
+        "sell",
+        "simple"
+      ]
+    },
+    {
+      "candidate": 355,
+      "words": [
+        "blank",
+        "broken",
+        "perform"
+      ]
+    },
+    {
+      "candidate": 356,
+      "words": [
+        "hate",
+        "last",
+        "government"
+      ]
+    },
+    {
+      "candidate": 357,
+      "words": [
+        "plane",
+        "heat",
+        "game"
+      ]
+    },
+    {
+      "candidate": 358,
+      "words": [
+        "progress",
+        "roll",
+        "path"
+      ]
+    },
+    {
+      "candidate": 359,
+      "words": [
+        "title",
+        "proof",
+        "basic"
+      ]
+    },
+    {
+      "candidate": 360,
+      "words": [
+        "pound",
+        "wing",
+        "flight"
+      ]
+    },
+    {
+      "candidate": 361,
+      "words": [
+        "pray",
+        "root",
+        "apply"
+      ]
+    },
+    {
+      "candidate": 362,
+      "words": [
+        "row",
+        "left",
+        "cable"
+      ]
+    },
+    {
+      "candidate": 363,
+      "words": [
+        "vehicle",
+        "storm",
+        "pass"
+      ]
+    },
+    {
+      "candidate": 364,
+      "words": [
+        "demand",
+        "leg",
+        "cream"
+      ]
+    },
+    {
+      "candidate": 365,
+      "words": [
+        "case",
+        "prize",
+        "bond"
+      ]
+    },
+    {
+      "candidate": 366,
+      "words": [
+        "death",
+        "inform",
+        "company"
+      ]
+    },
+    {
+      "candidate": 367,
+      "words": [
+        "absorb",
+        "pull",
+        "guilt"
+      ]
+    },
+    {
+      "candidate": 368,
+      "words": [
+        "toe",
+        "angle",
+        "wait"
+      ]
+    },
+    {
+      "candidate": 369,
+      "words": [
+        "delay",
+        "act",
+        "kill"
+      ]
+    },
+    {
+      "candidate": 370,
+      "words": [
+        "food",
+        "ticket",
+        "please"
+      ]
+    },
+    {
+      "candidate": 371,
+      "words": [
+        "horse",
+        "string",
+        "sky"
+      ]
+    },
+    {
+      "candidate": 372,
+      "words": [
+        "phone",
+        "seat",
+        "mix"
+      ]
+    },
+    {
+      "candidate": 373,
+      "words": [
+        "wing",
+        "cold",
+        "present"
+      ]
+    },
+    {
+      "candidate": 374,
+      "words": [
+        "shake",
+        "might",
+        "appear"
+      ]
+    },
+    {
+      "candidate": 375,
+      "words": [
+        "bone",
+        "core",
+        "secret"
+      ]
+    },
+    {
+      "candidate": 376,
+      "words": [
+        "custom",
+        "telephone",
+        "hospital"
+      ]
+    },
+    {
+      "candidate": 377,
+      "words": [
+        "free",
+        "pure",
+        "fund"
+      ]
+    },
+    {
+      "candidate": 378,
+      "words": [
+        "permit",
+        "audience",
+        "subject"
+      ]
+    },
+    {
+      "candidate": 379,
+      "words": [
+        "fail",
+        "type",
+        "reply"
+      ]
+    },
+    {
+      "candidate": 380,
+      "words": [
+        "seal",
+        "urban",
+        "draft"
+      ]
+    },
+    {
+      "candidate": 381,
+      "words": [
+        "day",
+        "photo",
+        "breed"
+      ]
+    },
+    {
+      "candidate": 382,
+      "words": [
+        "strange",
+        "chest",
+        "take"
+      ]
+    },
+    {
+      "candidate": 383,
+      "words": [
+        "lone",
+        "choose",
+        "charge"
+      ]
+    },
+    {
+      "candidate": 384,
+      "words": [
+        "sleep",
+        "phone",
+        "adopt"
+      ]
+    },
+    {
+      "candidate": 385,
+      "words": [
+        "feed",
+        "floor",
+        "sick"
+      ]
+    },
+    {
+      "candidate": 386,
+      "words": [
+        "snow",
+        "end",
+        "range"
+      ]
+    },
+    {
+      "candidate": 387,
+      "words": [
+        "value",
+        "context",
+        "kitchen"
+      ]
+    },
+    {
+      "candidate": 388,
+      "words": [
+        "wide",
+        "free",
+        "beer"
+      ]
+    },
+    {
+      "candidate": 389,
+      "words": [
+        "suffer",
+        "grain",
+        "current"
+      ]
+    },
+    {
+      "candidate": 390,
+      "words": [
+        "label",
+        "soil",
+        "deck"
+      ]
+    },
+    {
+      "candidate": 391,
+      "words": [
+        "worry",
+        "king",
+        "family"
+      ]
+    },
+    {
+      "candidate": 392,
+      "words": [
+        "nation",
+        "pride",
+        "bit"
+      ]
+    },
+    {
+      "candidate": 393,
+      "words": [
+        "deck",
+        "sink",
+        "army"
+      ]
+    },
+    {
+      "candidate": 394,
+      "words": [
+        "strip",
+        "town",
+        "happy"
+      ]
+    },
+    {
+      "candidate": 395,
+      "words": [
+        "fun",
+        "crew",
+        "shallow"
+      ]
+    },
+    {
+      "candidate": 396,
+      "words": [
+        "thought",
+        "knife",
+        "storm"
+      ]
+    },
+    {
+      "candidate": 397,
+      "words": [
+        "shadow",
+        "split",
+        "ticket"
+      ]
+    },
+    {
+      "candidate": 398,
+      "words": [
+        "hunt",
+        "post",
+        "sum"
+      ]
+    },
+    {
+      "candidate": 399,
+      "words": [
+        "sense",
+        "arrow",
+        "product"
+      ]
+    },
+    {
+      "candidate": 400,
+      "words": [
+        "short",
+        "date",
+        "flow"
+      ]
+    },
+    {
+      "candidate": 401,
+      "words": [
+        "suggest",
+        "design",
+        "exist"
+      ]
+    },
+    {
+      "candidate": 402,
+      "words": [
+        "hole",
+        "crop",
+        "smart"
+      ]
+    },
+    {
+      "candidate": 403,
+      "words": [
+        "chicken",
+        "stream",
+        "fun"
+      ]
+    },
+    {
+      "candidate": 404,
+      "words": [
+        "select",
+        "fly",
+        "lose"
+      ]
+    },
+    {
+      "candidate": 405,
+      "words": [
+        "fortune",
+        "glove",
+        "burn"
+      ]
+    },
+    {
+      "candidate": 406,
+      "words": [
+        "union",
+        "plan",
+        "centre"
+      ]
+    },
+    {
+      "candidate": 407,
+      "words": [
+        "root",
+        "speed",
+        "hide"
+      ]
+    },
+    {
+      "candidate": 408,
+      "words": [
+        "major",
+        "mass",
+        "tire"
+      ]
+    },
+    {
+      "candidate": 409,
+      "words": [
+        "split",
+        "open",
+        "flower"
+      ]
+    },
+    {
+      "candidate": 410,
+      "words": [
+        "cast",
+        "display",
+        "price"
+      ]
+    },
+    {
+      "candidate": 411,
+      "words": [
+        "respect",
+        "king",
+        "smell"
+      ]
+    },
+    {
+      "candidate": 412,
+      "words": [
+        "game",
+        "forward",
+        "complex"
+      ]
+    },
+    {
+      "candidate": 413,
+      "words": [
+        "wing",
+        "hope",
+        "file"
+      ]
+    },
+    {
+      "candidate": 414,
+      "words": [
+        "special",
+        "empty",
+        "club"
+      ]
+    },
+    {
+      "candidate": 415,
+      "words": [
+        "borrow",
+        "defend",
+        "office"
+      ]
+    },
+    {
+      "candidate": 416,
+      "words": [
+        "read",
+        "tooth",
+        "machine"
+      ]
+    },
+    {
+      "candidate": 417,
+      "words": [
+        "shift",
+        "read",
+        "arrive"
+      ]
+    },
+    {
+      "candidate": 418,
+      "words": [
+        "satisfy",
+        "sheet",
+        "mend"
+      ]
+    },
+    {
+      "candidate": 419,
+      "words": [
+        "flat",
+        "sell",
+        "remain"
+      ]
+    },
+    {
+      "candidate": 420,
+      "words": [
+        "port",
+        "basket",
+        "small"
+      ]
+    },
+    {
+      "candidate": 421,
+      "words": [
+        "dust",
+        "toe",
+        "come"
+      ]
+    },
+    {
+      "candidate": 422,
+      "words": [
+        "pause",
+        "turn",
+        "correct"
+      ]
+    },
+    {
+      "candidate": 423,
+      "words": [
+        "book",
+        "meat",
+        "job"
+      ]
+    },
+    {
+      "candidate": 424,
+      "words": [
+        "source",
+        "forest",
+        "path"
+      ]
+    },
+    {
+      "candidate": 425,
+      "words": [
+        "oil",
+        "prime",
+        "social"
+      ]
+    },
+    {
+      "candidate": 426,
+      "words": [
+        "supply",
+        "ice",
+        "low"
+      ]
+    },
+    {
+      "candidate": 427,
+      "words": [
+        "bite",
+        "strip",
+        "try"
+      ]
+    },
+    {
+      "candidate": 428,
+      "words": [
+        "severe",
+        "wave",
+        "heavy"
+      ]
+    },
+    {
+      "candidate": 429,
+      "words": [
+        "pension",
+        "observe",
+        "climb"
+      ]
+    },
+    {
+      "candidate": 430,
+      "words": [
+        "dress",
+        "animal",
+        "send"
+      ]
+    },
+    {
+      "candidate": 431,
+      "words": [
+        "loose",
+        "board",
+        "liberty"
+      ]
+    },
+    {
+      "candidate": 432,
+      "words": [
+        "river",
+        "morning",
+        "colour"
+      ]
+    },
+    {
+      "candidate": 433,
+      "words": [
+        "borrow",
+        "wire",
+        "blind"
+      ]
+    },
+    {
+      "candidate": 434,
+      "words": [
+        "jaw",
+        "account",
+        "charge"
+      ]
+    },
+    {
+      "candidate": 435,
+      "words": [
+        "well",
+        "hip",
+        "state"
+      ]
+    },
+    {
+      "candidate": 436,
+      "words": [
+        "major",
+        "motor",
+        "shell"
+      ]
+    },
+    {
+      "candidate": 437,
+      "words": [
+        "glass",
+        "dry",
+        "mild"
+      ]
+    },
+    {
+      "candidate": 438,
+      "words": [
+        "year",
+        "copy",
+        "earth"
+      ]
+    },
+    {
+      "candidate": 439,
+      "words": [
+        "dismiss",
+        "forward",
+        "issue"
+      ]
+    },
+    {
+      "candidate": 440,
+      "words": [
+        "pick",
+        "luck",
+        "word"
+      ]
+    },
+    {
+      "candidate": 441,
+      "words": [
+        "breath",
+        "film",
+        "slip"
+      ]
+    },
+    {
+      "candidate": 442,
+      "words": [
+        "resist",
+        "climb",
+        "relation"
+      ]
+    },
+    {
+      "candidate": 443,
+      "words": [
+        "fuel",
+        "budget",
+        "delay"
+      ]
+    },
+    {
+      "candidate": 444,
+      "words": [
+        "horse",
+        "sell",
+        "meat"
+      ]
+    },
+    {
+      "candidate": 445,
+      "words": [
+        "origin",
+        "basket",
+        "bend"
+      ]
+    },
+    {
+      "candidate": 446,
+      "words": [
+        "gather",
+        "major",
+        "window"
+      ]
+    },
+    {
+      "candidate": 447,
+      "words": [
+        "duty",
+        "put",
+        "grain"
+      ]
+    },
+    {
+      "candidate": 448,
+      "words": [
+        "control",
+        "speed",
+        "clear"
+      ]
+    },
+    {
+      "candidate": 449,
+      "words": [
+        "rate",
+        "release",
+        "adapt"
+      ]
+    },
+    {
+      "candidate": 450,
+      "words": [
+        "shift",
+        "reason",
+        "store"
+      ]
+    },
+    {
+      "candidate": 451,
+      "words": [
+        "profit",
+        "product",
+        "chicken"
+      ]
+    },
+    {
+      "candidate": 452,
+      "words": [
+        "boss",
+        "variety",
+        "zero"
+      ]
+    },
+    {
+      "candidate": 453,
+      "words": [
+        "end",
+        "crown",
+        "suffer"
+      ]
+    },
+    {
+      "candidate": 454,
+      "words": [
+        "soup",
+        "patient",
+        "risk"
+      ]
+    },
+    {
+      "candidate": 455,
+      "words": [
+        "danger",
+        "found",
+        "cross"
+      ]
+    },
+    {
+      "candidate": 456,
+      "words": [
+        "dry",
+        "tree",
+        "wrong"
+      ]
+    },
+    {
+      "candidate": 457,
+      "words": [
+        "cross",
+        "bet",
+        "take"
+      ]
+    },
+    {
+      "candidate": 458,
+      "words": [
+        "general",
+        "glass",
+        "lose"
+      ]
+    },
+    {
+      "candidate": 459,
+      "words": [
+        "company",
+        "severe",
+        "enter"
+      ]
+    },
+    {
+      "candidate": 460,
+      "words": [
+        "tear",
+        "contact",
+        "land"
+      ]
+    },
+    {
+      "candidate": 461,
+      "words": [
+        "pump",
+        "remain",
+        "trade"
+      ]
+    },
+    {
+      "candidate": 462,
+      "words": [
+        "pale",
+        "jacket",
+        "body"
+      ]
+    },
+    {
+      "candidate": 463,
+      "words": [
+        "background",
+        "doctor",
+        "station"
+      ]
+    },
+    {
+      "candidate": 464,
+      "words": [
+        "sail",
+        "end",
+        "visit"
+      ]
+    },
+    {
+      "candidate": 465,
+      "words": [
+        "tale",
+        "chair",
+        "future"
+      ]
+    },
+    {
+      "candidate": 466,
+      "words": [
+        "prove",
+        "borrow",
+        "wage"
+      ]
+    },
+    {
+      "candidate": 467,
+      "words": [
+        "fat",
+        "success",
+        "love"
+      ]
+    },
+    {
+      "candidate": 468,
+      "words": [
+        "extra",
+        "cab",
+        "laugh"
+      ]
+    },
+    {
+      "candidate": 469,
+      "words": [
+        "strike",
+        "remain",
+        "rough"
+      ]
+    },
+    {
+      "candidate": 470,
+      "words": [
+        "news",
+        "royal",
+        "hill"
+      ]
+    },
+    {
+      "candidate": 471,
+      "words": [
+        "sock",
+        "waste",
+        "true"
+      ]
+    },
+    {
+      "candidate": 472,
+      "words": [
+        "tire",
+        "power",
+        "sleep"
+      ]
+    },
+    {
+      "candidate": 473,
+      "words": [
+        "help",
+        "word",
+        "news"
+      ]
+    },
+    {
+      "candidate": 474,
+      "words": [
+        "card",
+        "loss",
+        "old"
+      ]
+    },
+    {
+      "candidate": 475,
+      "words": [
+        "rent",
+        "taste",
+        "count"
+      ]
+    },
+    {
+      "candidate": 476,
+      "words": [
+        "adopt",
+        "shell",
+        "earth"
+      ]
+    },
+    {
+      "candidate": 477,
+      "words": [
+        "remain",
+        "full",
+        "approach"
+      ]
+    },
+    {
+      "candidate": 478,
+      "words": [
+        "exchange",
+        "master",
+        "afford"
+      ]
+    },
+    {
+      "candidate": 479,
+      "words": [
+        "stair",
+        "code",
+        "clear"
+      ]
+    },
+    {
+      "candidate": 480,
+      "words": [
+        "water",
+        "storm",
+        "sport"
+      ]
+    }
+  ]
+}

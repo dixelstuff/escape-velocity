@@ -1,0 +1,1090 @@
+{
+  "adjust": [
+    "change",
+    "alter",
+    "fit",
+    "modify",
+    "setting",
+    "adapt"
+  ],
+  "affect": [
+    "influence",
+    "change",
+    "emotion",
+    "effect",
+    "impact",
+    "touch"
+  ],
+  "aid": [
+    "help",
+    "assist",
+    "support",
+    "assistance",
+    "relief",
+    "first"
+  ],
+  "apple": [
+    "fruit",
+    "tree",
+    "red",
+    "sweet",
+    "eat",
+    "computer"
+  ],
+  "approach": [
+    "near",
+    "method",
+    "way",
+    "come",
+    "direction",
+    "plan"
+  ],
+  "arrow": [
+    "bow",
+    "point",
+    "direction",
+    "shoot",
+    "straight",
+    "sign"
+  ],
+  "ask": [
+    "question",
+    "request",
+    "answer",
+    "inquire",
+    "tell",
+    "help"
+  ],
+  "bar": [
+    "drink",
+    "pub",
+    "metal",
+    "music",
+    "block",
+    "counter"
+  ],
+  "bargain": [
+    "cheap",
+    "deal",
+    "price",
+    "buy",
+    "negotiate",
+    "offer"
+  ],
+  "basic": [
+    "simple",
+    "fundamental",
+    "plain",
+    "essential",
+    "beginner",
+    "foundation"
+  ],
+  "beer": [
+    "drink",
+    "alcohol",
+    "pub",
+    "bottle",
+    "pint",
+    "brew"
+  ],
+  "bend": [
+    "curve",
+    "turn",
+    "fold",
+    "flex",
+    "bow",
+    "corner"
+  ],
+  "best": [
+    "good",
+    "finest",
+    "better",
+    "excellent",
+    "winner",
+    "favourite"
+  ],
+  "bit": [
+    "piece",
+    "small",
+    "bite",
+    "binary",
+    "horse",
+    "drill"
+  ],
+  "blind": [
+    "see",
+    "eyes",
+    "dark",
+    "sight",
+    "unable",
+    "cover"
+  ],
+  "bomb": [
+    "explode",
+    "war",
+    "blast",
+    "danger",
+    "attack",
+    "shell"
+  ],
+  "bone": [
+    "body",
+    "skeleton",
+    "hard",
+    "joint",
+    "dog",
+    "break"
+  ],
+  "branch": [
+    "tree",
+    "arm",
+    "bank",
+    "office",
+    "divide",
+    "limb"
+  ],
+  "bread": [
+    "loaf",
+    "food",
+    "bake",
+    "slice",
+    "dough",
+    "money"
+  ],
+  "cab": [
+    "taxi",
+    "car",
+    "driver",
+    "ride",
+    "fare",
+    "cabin"
+  ],
+  "chair": [
+    "seat",
+    "sit",
+    "furniture",
+    "wood",
+    "leader",
+    "meeting"
+  ],
+  "chest": [
+    "body",
+    "box",
+    "heart",
+    "breast",
+    "treasure",
+    "lungs"
+  ],
+  "choose": [
+    "select",
+    "pick",
+    "option",
+    "decide",
+    "choice",
+    "prefer"
+  ],
+  "comment": [
+    "remark",
+    "opinion",
+    "say",
+    "feedback",
+    "statement",
+    "note"
+  ],
+  "condition": [
+    "state",
+    "health",
+    "term",
+    "requirement",
+    "situation",
+    "shape"
+  ],
+  "control": [
+    "manage",
+    "power",
+    "command",
+    "govern",
+    "regulate",
+    "authority"
+  ],
+  "courage": [
+    "brave",
+    "fear",
+    "strength",
+    "bold",
+    "hero",
+    "confidence"
+  ],
+  "court": [
+    "judge",
+    "law",
+    "tennis",
+    "royal",
+    "trial",
+    "case"
+  ],
+  "craft": [
+    "skill",
+    "make",
+    "boat",
+    "art",
+    "trade",
+    "create"
+  ],
+  "crash": [
+    "accident",
+    "car",
+    "hit",
+    "fall",
+    "computer",
+    "smash"
+  ],
+  "credit": [
+    "money",
+    "bank",
+    "loan",
+    "praise",
+    "account",
+    "trust"
+  ],
+  "current": [
+    "now",
+    "present",
+    "water",
+    "flow",
+    "electric",
+    "stream"
+  ],
+  "dad": [
+    "father",
+    "parent",
+    "family",
+    "man",
+    "child",
+    "mother"
+  ],
+  "date": [
+    "time",
+    "day",
+    "calendar",
+    "fruit",
+    "meeting",
+    "romance"
+  ],
+  "death": [
+    "die",
+    "dead",
+    "life",
+    "funeral",
+    "end",
+    "loss"
+  ],
+  "debate": [
+    "argue",
+    "discussion",
+    "question",
+    "speech",
+    "issue",
+    "parliament"
+  ],
+  "defend": [
+    "protect",
+    "guard",
+    "attack",
+    "support",
+    "shield",
+    "fight"
+  ],
+  "dig": [
+    "hole",
+    "earth",
+    "soil",
+    "shovel",
+    "mine",
+    "search"
+  ],
+  "discover": [
+    "find",
+    "new",
+    "learn",
+    "uncover",
+    "explore",
+    "reveal"
+  ],
+  "display": [
+    "show",
+    "screen",
+    "exhibit",
+    "present",
+    "window",
+    "image"
+  ],
+  "double": [
+    "two",
+    "twice",
+    "pair",
+    "increase",
+    "duplicate",
+    "bed"
+  ],
+  "dream": [
+    "sleep",
+    "imagine",
+    "hope",
+    "night",
+    "wish",
+    "ambition"
+  ],
+  "due": [
+    "owe",
+    "expected",
+    "time",
+    "debt",
+    "payment",
+    "deadline"
+  ],
+  "easy": [
+    "simple",
+    "hard",
+    "difficult",
+    "effortless",
+    "comfortable",
+    "light"
+  ],
+  "empty": [
+    "full",
+    "nothing",
+    "space",
+    "vacant",
+    "hollow",
+    "blank"
+  ],
+  "exist": [
+    "live",
+    "be",
+    "real",
+    "survive",
+    "presence",
+    "remain"
+  ],
+  "family": [
+    "parents",
+    "child",
+    "mother",
+    "father",
+    "home",
+    "relatives"
+  ],
+  "fan": [
+    "air",
+    "cool",
+    "supporter",
+    "football",
+    "blade",
+    "admire"
+  ],
+  "fear": [
+    "afraid",
+    "fright",
+    "danger",
+    "worry",
+    "scared",
+    "terror"
+  ],
+  "final": [
+    "last",
+    "end",
+    "finish",
+    "conclusion",
+    "round",
+    "exam"
+  ],
+  "float": [
+    "water",
+    "boat",
+    "rise",
+    "air",
+    "hover",
+    "swim"
+  ],
+  "focus": [
+    "concentrate",
+    "attention",
+    "lens",
+    "camera",
+    "centre",
+    "clear"
+  ],
+  "force": [
+    "push",
+    "power",
+    "strength",
+    "army",
+    "compel",
+    "pressure"
+  ],
+  "frame": [
+    "picture",
+    "border",
+    "structure",
+    "support",
+    "shape",
+    "surround"
+  ],
+  "gather": [
+    "collect",
+    "group",
+    "assemble",
+    "bring",
+    "harvest",
+    "together"
+  ],
+  "good": [
+    "nice",
+    "bad",
+    "well",
+    "kind",
+    "quality",
+    "positive"
+  ],
+  "hair": [
+    "head",
+    "grow",
+    "cut",
+    "barber",
+    "fur",
+    "strand"
+  ],
+  "inside": [
+    "outside",
+    "inner",
+    "within",
+    "house",
+    "room",
+    "centre"
+  ],
+  "issue": [
+    "problem",
+    "topic",
+    "edition",
+    "publish",
+    "matter",
+    "release"
+  ],
+  "lay": [
+    "put",
+    "place",
+    "egg",
+    "lie",
+    "set",
+    "foundation"
+  ],
+  "leaf": [
+    "tree",
+    "green",
+    "page",
+    "plant",
+    "autumn",
+    "paper"
+  ],
+  "lean": [
+    "bend",
+    "thin",
+    "rest",
+    "tilt",
+    "slim",
+    "support"
+  ],
+  "level": [
+    "flat",
+    "height",
+    "stage",
+    "equal",
+    "amount",
+    "floor"
+  ],
+  "liberty": [
+    "freedom",
+    "free",
+    "right",
+    "independence",
+    "statue",
+    "release"
+  ],
+  "lift": [
+    "raise",
+    "carry",
+    "up",
+    "elevator",
+    "heavy",
+    "help"
+  ],
+  "loss": [
+    "lose",
+    "gain",
+    "defeat",
+    "grief",
+    "missing",
+    "damage"
+  ],
+  "lot": [
+    "many",
+    "amount",
+    "land",
+    "auction",
+    "large",
+    "group"
+  ],
+  "machine": [
+    "engine",
+    "device",
+    "mechanical",
+    "tool",
+    "work",
+    "factory"
+  ],
+  "mass": [
+    "large",
+    "amount",
+    "weight",
+    "crowd",
+    "church",
+    "group"
+  ],
+  "master": [
+    "expert",
+    "teacher",
+    "learn",
+    "owner",
+    "skilled",
+    "original"
+  ],
+  "meal": [
+    "food",
+    "eat",
+    "dinner",
+    "lunch",
+    "breakfast",
+    "dish"
+  ],
+  "mention": [
+    "say",
+    "refer",
+    "name",
+    "remark",
+    "note",
+    "speak"
+  ],
+  "miss": [
+    "fail",
+    "lost",
+    "absent",
+    "girl",
+    "hit",
+    "target"
+  ],
+  "motion": [
+    "movement",
+    "move",
+    "action",
+    "proposal",
+    "court",
+    "film"
+  ],
+  "name": [
+    "word",
+    "title",
+    "call",
+    "person",
+    "label",
+    "identify"
+  ],
+  "nation": [
+    "country",
+    "state",
+    "people",
+    "government",
+    "land",
+    "national"
+  ],
+  "nerve": [
+    "body",
+    "feeling",
+    "courage",
+    "brain",
+    "signal",
+    "fear"
+  ],
+  "obtain": [
+    "get",
+    "acquire",
+    "gain",
+    "receive",
+    "secure",
+    "achieve"
+  ],
+  "operate": [
+    "work",
+    "machine",
+    "surgery",
+    "control",
+    "run",
+    "function"
+  ],
+  "pension": [
+    "retirement",
+    "money",
+    "old",
+    "pay",
+    "allowance",
+    "income"
+  ],
+  "photo": [
+    "picture",
+    "camera",
+    "image",
+    "photograph",
+    "memory",
+    "portrait"
+  ],
+  "physical": [
+    "body",
+    "material",
+    "touch",
+    "exercise",
+    "real",
+    "actual"
+  ],
+  "place": [
+    "location",
+    "put",
+    "position",
+    "space",
+    "spot",
+    "area"
+  ],
+  "plane": [
+    "aircraft",
+    "fly",
+    "flat",
+    "surface",
+    "level",
+    "wood"
+  ],
+  "plant": [
+    "tree",
+    "grow",
+    "flower",
+    "factory",
+    "seed",
+    "place"
+  ],
+  "plate": [
+    "dish",
+    "food",
+    "metal",
+    "flat",
+    "serve",
+    "surface"
+  ],
+  "please": [
+    "request",
+    "polite",
+    "happy",
+    "satisfy",
+    "thanks",
+    "welcome"
+  ],
+  "port": [
+    "ship",
+    "harbour",
+    "dock",
+    "wine",
+    "computer",
+    "connection"
+  ],
+  "print": [
+    "paper",
+    "ink",
+    "newspaper",
+    "text",
+    "mark",
+    "copy"
+  ],
+  "promise": [
+    "pledge",
+    "vow",
+    "assurance",
+    "commitment",
+    "word",
+    "guarantee"
+  ],
+  "pump": [
+    "water",
+    "pressure",
+    "engine",
+    "machine",
+    "air",
+    "heart"
+  ],
+  "punch": [
+    "hit",
+    "fist",
+    "drink",
+    "strike",
+    "hole",
+    "force"
+  ],
+  "put": [
+    "place",
+    "set",
+    "position",
+    "lay",
+    "move",
+    "give"
+  ],
+  "quit": [
+    "stop",
+    "leave",
+    "job",
+    "give",
+    "abandon",
+    "resign"
+  ],
+  "record": [
+    "music",
+    "write",
+    "document",
+    "note",
+    "disc",
+    "history"
+  ],
+  "refer": [
+    "mention",
+    "direct",
+    "reference",
+    "point",
+    "consult",
+    "relate"
+  ],
+  "regard": [
+    "respect",
+    "consider",
+    "view",
+    "look",
+    "attention",
+    "opinion"
+  ],
+  "register": [
+    "record",
+    "list",
+    "name",
+    "enroll",
+    "cash",
+    "official"
+  ],
+  "rescue": [
+    "save",
+    "help",
+    "danger",
+    "recover",
+    "free",
+    "emergency"
+  ],
+  "rest": [
+    "sleep",
+    "relax",
+    "remainder",
+    "support",
+    "pause",
+    "stop"
+  ],
+  "ride": [
+    "horse",
+    "bike",
+    "travel",
+    "car",
+    "journey",
+    "mount"
+  ],
+  "rush": [
+    "hurry",
+    "quick",
+    "fast",
+    "charge",
+    "crowd",
+    "flow"
+  ],
+  "sail": [
+    "boat",
+    "sea",
+    "wind",
+    "ship",
+    "canvas",
+    "travel"
+  ],
+  "scale": [
+    "size",
+    "measure",
+    "weight",
+    "fish",
+    "music",
+    "climb"
+  ],
+  "seal": [
+    "close",
+    "stamp",
+    "animal",
+    "ocean",
+    "mark",
+    "shut"
+  ],
+  "settle": [
+    "resolve",
+    "live",
+    "agreement",
+    "calm",
+    "pay",
+    "establish"
+  ],
+  "silver": [
+    "metal",
+    "jewellery",
+    "colour",
+    "money",
+    "shine",
+    "medal"
+  ],
+  "single": [
+    "one",
+    "alone",
+    "unmarried",
+    "record",
+    "individual",
+    "simple"
+  ],
+  "sink": [
+    "water",
+    "kitchen",
+    "basin",
+    "fall",
+    "drop",
+    "boat"
+  ],
+  "sir": [
+    "gentleman",
+    "man",
+    "title",
+    "polite",
+    "knight",
+    "address"
+  ],
+  "site": [
+    "place",
+    "location",
+    "area",
+    "building",
+    "website",
+    "position"
+  ],
+  "sort": [
+    "type",
+    "kind",
+    "arrange",
+    "classify",
+    "order",
+    "category"
+  ],
+  "spell": [
+    "word",
+    "letters",
+    "magic",
+    "charm",
+    "time",
+    "write"
+  ],
+  "stake": [
+    "bet",
+    "interest",
+    "share",
+    "point",
+    "wood",
+    "risk"
+  ],
+  "start": [
+    "begin",
+    "first",
+    "launch",
+    "origin",
+    "open",
+    "commence"
+  ],
+  "station": [
+    "train",
+    "stop",
+    "police",
+    "radio",
+    "place",
+    "position"
+  ],
+  "stone": [
+    "rock",
+    "hard",
+    "mineral",
+    "weight",
+    "jewel",
+    "fruit"
+  ],
+  "sugar": [
+    "sweet",
+    "food",
+    "white",
+    "tea",
+    "cake",
+    "energy"
+  ],
+  "surface": [
+    "top",
+    "outside",
+    "layer",
+    "face",
+    "skin",
+    "smooth"
+  ],
+  "tap": [
+    "touch",
+    "water",
+    "faucet",
+    "knock",
+    "dance",
+    "source"
+  ],
+  "tax": [
+    "money",
+    "government",
+    "charge",
+    "income",
+    "levy",
+    "pay"
+  ],
+  "teach": [
+    "learn",
+    "school",
+    "teacher",
+    "explain",
+    "train",
+    "lesson"
+  ],
+  "tell": [
+    "say",
+    "speak",
+    "story",
+    "inform",
+    "know",
+    "reveal"
+  ],
+  "thank": [
+    "grateful",
+    "gratitude",
+    "appreciate",
+    "praise",
+    "acknowledge",
+    "kindness"
+  ],
+  "tie": [
+    "knot",
+    "rope",
+    "bind",
+    "suit",
+    "draw",
+    "connection"
+  ],
+  "tight": [
+    "loose",
+    "close",
+    "narrow",
+    "firm",
+    "tense",
+    "secure"
+  ],
+  "tool": [
+    "instrument",
+    "work",
+    "device",
+    "implement",
+    "skill",
+    "equipment"
+  ],
+  "train": [
+    "railway",
+    "carriage",
+    "learn",
+    "teach",
+    "practise",
+    "prepare"
+  ],
+  "type": [
+    "kind",
+    "sort",
+    "write",
+    "keyboard",
+    "print",
+    "category"
+  ],
+  "wait": [
+    "time",
+    "stop",
+    "pause",
+    "delay",
+    "expect",
+    "serve"
+  ],
+  "warn": [
+    "danger",
+    "alert",
+    "caution",
+    "tell",
+    "advice",
+    "signal"
+  ],
+  "wave": [
+    "sea",
+    "water",
+    "hand",
+    "signal",
+    "move",
+    "curve"
+  ],
+  "week": [
+    "day",
+    "time",
+    "seven",
+    "calendar",
+    "work",
+    "weekend"
+  ],
+  "wing": [
+    "bird",
+    "fly",
+    "feather",
+    "aircraft",
+    "side",
+    "building"
+  ],
+  "winter": [
+    "cold",
+    "snow",
+    "season",
+    "ice",
+    "coat",
+    "dark"
+  ],
+  "zero": [
+    "nothing",
+    "number",
+    "empty",
+    "nil",
+    "round",
+    "point"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "oldExcludedHoleCount": 740,
+  "oldExcludedWordCount": 2180,
+  "newRecentHoleCount": 180,
+  "newExcludedWordCount": 540,
+  "reason": "The MD says recent endpoints and explicitly allows older archive vocabulary. The accumulated whole-public/old-snapshot exclusion was stricter than the brief. This batch uses the latest six batches (180 archived holes), including withdrawals; exact triple duplicates remain excluded across the complete archive."
+}

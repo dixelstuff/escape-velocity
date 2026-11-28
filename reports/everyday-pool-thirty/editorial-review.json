@@ -1,0 +1,33 @@
+{
+  "reviewedThrough": 180,
+  "rejections": {
+    "7": "OPERATE and RUN invite a routine work/function shortcut around SOLID",
+    "8": "BEER/ENJOY/POSITIVE mostly recycles a broad positive-feeling context",
+    "13": "ANSWER and SUM invite a routine arithmetic shortcut around GENERAL",
+    "16": "CONTROL/BLACK/PHYSICAL offers a generic colour/physical-quality escape",
+    "27": "BIRD and SOUTH invite a routine flight/migration shortcut around SIMPLE",
+    "30": "FORCE/SOFT/PLEASE mostly recycles broad interpersonal qualities",
+    "35": "PHYSICAL/DEPTH/PATTERN mostly recycles physical description without a clear context change",
+    "39": "DISPLAY/ACTIVE/SHUT gives away an operating-state context",
+    "42": "TEACH/SOLID/DIRECT mostly recycles broad instructional qualities",
+    "58": "MACHINE/ELECTRIC/LIVE gives away an electrical-device context",
+    "59": "LIBERTY and PEACE invite a routine freedom/relief shortcut around BREATH",
+    "75": "DUE to AMOUNT gives away a payment/quantity context",
+    "81": "CAB/PROFIT/LOW invites a routine fare/price shortcut",
+    "86": "MOTION/ACT/SHAKE gives away a movement-category context",
+    "108": "RICH/OPPOSITE/LARGE mostly recycles broad comparative qualities",
+    "114": "DOUBLE to INCREASE gives away a quantity/synonym opening",
+    "119": "LATE/TICKET/PAUSE gives away a travel/delay context",
+    "126": "BOSS/PROJECT/MANAGE gives away a routine management context",
+    "133": "LEAN/LONG/FREE mainly recycles broad physical qualities",
+    "136": "SAD and GIRL invite a routine emotion/person shortcut around COPY",
+    "144": "RAISE/FEAR/FOLD gives away a betting/risk context",
+    "149": "GATHER/SNOW/LOAD invites a routine collection/quantity shortcut",
+    "153": "CLASS to CROWD gives away a group-category opening",
+    "156": "BOMB and TINY invite a routine physical-size shortcut around KEY",
+    "163": "PUT and MOVE invite a routine placement shortcut around HAT",
+    "165": "NAME/COLUMN/STRING gives away a text/table context",
+    "173": "DEATH to PET gives away a bereavement context"
+  },
+  "postOpeningRejections": {}
+}
